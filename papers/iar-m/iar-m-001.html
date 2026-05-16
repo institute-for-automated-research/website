@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAR-M-001: ZeroPaper — An Autonomous Research System — Institute for Automated Research</title>
+<meta name="description" content="ZeroPaper: An Autonomous Research System. IAR Methodology Papers IAR-M-001.">
+
+<meta name="citation_title" content="ZeroPaper: An Autonomous Research System">
+<meta name="citation_author" content="Lopez-Lira, Alejandro">
+<meta name="citation_publication_date" content="2026/05/01">
+<meta name="citation_online_date" content="2026/05/11">
+<meta name="citation_pdf_url" content="https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001.pdf">
+<meta name="citation_abstract_html_url" content="https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001">
+<meta name="citation_journal_title" content="IAR Methodology Papers">
+<meta name="citation_technical_report_institution" content="Institute for Automated Research">
+<meta name="citation_technical_report_number" content="IAR-M-001">
+<meta name="citation_doi" content="10.5281/zenodo.20127843">
+<meta name="citation_language" content="en">
+<meta name="citation_keywords" content="autonomous research; AI for science; LLM agents; adversarial evaluation; system design; Markov systems">
+
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .paper-id {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .byline {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .dateline {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+  }
+  .actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .actions a {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(90, 61, 43, 0.3);
+  }
+  .actions a:hover { border-bottom-color: var(--accent); }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  .meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+  }
+  .meta-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 16px;
+  }
+  .meta-list li:last-child { border-bottom: none; }
+  .meta-list .key {
+    color: var(--ink-faint);
+    width: 140px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding-top: 2px;
+  }
+  .cite {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    background: #f0ede4;
+    padding: 16px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 24px; }
+    .meta-list li { flex-direction: column; gap: 4px; }
+    .meta-list .key { width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; <a href="/papers/">Working Papers</a> &nbsp;/&nbsp; <a href="/papers/iar-m/">IAR-M</a></div>
+
+  <div class="paper-id">IAR-M-001 &nbsp;&middot;&nbsp; May 2026</div>
+  <h1>ZeroPaper: An Autonomous Research System</h1>
+  <p class="byline">Alejandro Lopez-Lira</p>
+  <div class="dateline">University of Florida &nbsp;&middot;&nbsp; Institute for Automated Research</div>
+
+  <div class="actions">
+    <a href="/papers/iar-m/iar-m-001.pdf">Download PDF</a>
+    <a href="/papers/iar-m/iar-m-001.bib">BibTeX</a>
+    <a href="https://doi.org/10.5281/zenodo.20127843">DOI</a>
+    <a href="https://github.com/alejandroll10/zeropaper">Source code</a>
+  </div>
+
+  <h2>Abstract</h2>
+  <p>ZeroPaper is an autonomous system that takes a research domain as input and produces a publication-candidate manuscript as output, with no human intervention between launch and completion. The system runs ten numbered stages and six adversarial gates, coordinates roughly thirty specialized agents, and produces finished LaTeX for economics at roughly two dollars per paper amortized under a flat-fee Claude Code Max subscription (approximately zero marginal cost per additional paper).</p>
+  <p>From ten premises about how LLMs behave and what they cost, we derive six design principles for long-running autonomous systems: keep state and control flow outside the model, spend context carefully, delegate aggressively, verify rather than trust, make termination mechanical, and run independent work in parallel. ZeroPaper runs on Claude Code, OpenAI Codex, and Gemini CLI, with variants for finance and macro and extensions for empirical analysis and LLM experiments.</p>
+
+  <h2>Details</h2>
+  <ul class="meta-list">
+    <li><span class="key">Series</span><span>IAR Methodology Papers</span></li>
+    <li><span class="key">Number</span><span>IAR-M-001</span></li>
+    <li><span class="key">Posted</span><span>11 May 2026</span></li>
+    <li><span class="key">Drafted</span><span>1 May 2026</span></li>
+    <li><span class="key">Keywords</span><span>autonomous research; AI for science; LLM agents; adversarial evaluation; system design; Markov systems</span></li>
+    <li><span class="key">Stable URL</span><span><a href="https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001" style="color: var(--accent);">instituteforautomatedresearch.org/papers/iar-m/iar-m-001</a></span></li>
+    <li><span class="key">DOI</span><span><a href="https://doi.org/10.5281/zenodo.20127843" style="color: var(--accent);">10.5281/zenodo.20127843</a></span></li>
+    <li><span class="key">ISSN</span><span>Pending (IAR Methodology Papers)</span></li>
+  </ul>
+
+  <h2>How to cite</h2>
+  <div class="cite">Lopez-Lira, Alejandro, ZeroPaper: An Autonomous Research System (May 1, 2026). IAR Methodology Papers No. IAR-M-001, Institute for Automated Research, Available at: https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001, https://doi.org/10.5281/zenodo.20127843</div>
+
+  <h2>BibTeX</h2>
+  <div class="cite">@techreport{lopezlira2026zeropaper,
+  author      = {Lopez-Lira, Alejandro},
+  title       = {{ZeroPaper}: An Autonomous Research System},
+  institution = {Institute for Automated Research},
+  type        = {IAR Methodology Papers},
+  number      = {IAR-M-001},
+  year        = {2026},
+  month       = {May},
+  url         = {https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001},
+  doi         = {10.5281/zenodo.20127843}
+}</div>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>

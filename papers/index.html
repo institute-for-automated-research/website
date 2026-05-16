@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Working Papers — Institute for Automated Research</title>
+<meta name="description" content="Two working paper series from the Institute for Automated Research: autonomously-generated papers (IAR-A) and human research about automating papers (IAR-M).">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  header { margin-bottom: 56px; }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(90, 61, 43, 0.3); transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  .series-list { list-style: none; padding: 0; margin: 0; }
+  .series-list li {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .series-list li:last-child { border-bottom: none; }
+  .series-list .code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .series-list .name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .series-list .name a { color: var(--ink); border-bottom: none; }
+  .series-list .name a:hover { color: var(--accent); }
+  .series-list .desc {
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .series-list .browse {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; Working Papers</div>
+
+  <header>
+    <div class="eyebrow">Working Papers</div>
+    <h1>IAR Working Paper Series</h1>
+    <p class="lede">The Institute for Automated Research publishes two parallel working paper series — in the tradition of arXiv, SSRN, and NBER — at stable citable URLs. One for research produced by the pipeline, one for research about the pipeline. ISSNs forthcoming.</p>
+  </header>
+
+  <section>
+    <h2>Series</h2>
+    <ul class="series-list">
+      <li>
+        <div class="code">IAR-A</div>
+        <div class="name"><a href="/papers/iar-a/">IAR Autonomous Papers</a></div>
+        <div class="desc">Manuscripts produced end-to-end by the ZeroPaper pipeline. Each entry is a single autonomous run from problem discovery through finished LaTeX, with no human intervention between launch and the PDF. Every paper passes through six adversarial gates and ships with a public process log.</div>
+        <div class="browse"><a href="/papers/iar-a/">Browse IAR-A &rarr;</a></div>
+      </li>
+      <li>
+        <div class="code">IAR-M</div>
+        <div class="name"><a href="/papers/iar-m/">IAR Methodology Papers</a></div>
+        <div class="desc">Human research on the design and evaluation of autonomous research systems: pipeline architectures, adversarial gates, evaluation protocols, watermarking, and the open problems encountered while building the pipeline.</div>
+        <div class="browse"><a href="/papers/iar-m/">Browse IAR-M &rarr;</a></div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Citing IAR working papers</h2>
+    <p>The canonical citation form is: <em>Author. Year. "Title." IAR &lt;Series&gt; Papers IAR-&lt;X&gt;-NNN, Institute for Automated Research.</em> Stable URLs of the form <span style="font-family: 'SF Mono', Menlo, monospace; font-size: 0.9em;">instituteforautomatedresearch.org/papers/iar-&lt;x&gt;/iar-&lt;x&gt;-NNN</span> are guaranteed not to break.</p>
+  </section>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>

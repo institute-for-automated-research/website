@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Institute for Automated Research</title>
+<meta name="description" content="The Institute for Automated Research is a research project investigating autonomous, adversarially-verified scientific reasoning. It publishes two working paper series: one for autonomously-generated research, one for human research on automating research.">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  header { margin-bottom: 56px; }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    font-size: 20px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  section { margin-bottom: 48px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(90, 61, 43, 0.3); transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  .series-pair { list-style: none; padding: 0; margin: 0; }
+  .series-pair li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .series-pair li:last-child { border-bottom: none; }
+  .series-pair .code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .series-pair .name {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .series-pair .name a { color: var(--ink); border-bottom: none; }
+  .series-pair .name a:hover { color: var(--accent); }
+  .series-pair .desc { color: var(--ink-soft); }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 28px; }
+    .lede { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; About</div>
+
+  <header>
+    <div class="eyebrow">About</div>
+    <h1>The Institute and its Working Paper Series</h1>
+    <p class="lede">A research project investigating how far autonomous systems can carry the scientific process — and the publishing infrastructure that work requires.</p>
+  </header>
+
+  <section>
+    <h2>What we do</h2>
+    <p>The Institute for Automated Research investigates autonomous, adversarially-verified scientific reasoning. Our central question is how much of the scientific process — problem discovery, theory development, formal derivation, empirical analysis, refereeing — can be carried out by systems running without human intervention, and what discipline is required to keep such systems from drifting, looping, or quietly producing nonsense.</p>
+    <p>Our flagship pipeline, <a href="/papers/iar-m/iar-m-001">ZeroPaper</a>, takes a research domain as input and produces a publication-candidate manuscript as output. It runs ten numbered stages and six adversarial gates, coordinates roughly thirty specialized agents, and ships every paper with a public process log. The system is open-source and runs on Claude Code, OpenAI Codex, and Gemini CLI.</p>
+  </section>
+
+  <section>
+    <h2>Why a working paper series</h2>
+    <p>Autonomous research raises questions that existing preprint infrastructure was not built to handle. Provenance is one: a reader of a posted paper has no standard way to know whether it was written by a person, a system, or some combination, and journals increasingly need this information to apply their own policies. Reproducibility is another: an autonomous run produces not only a manuscript but a full execution trace — stage transitions, gate verdicts, scorer trajectories — that is part of the scientific record but has nowhere natural to live.</p>
+    <p>The IAR working paper series exist to publish this work with the disclosures that go with it: a stated production method on every paper, a process log alongside every autonomous run, and licensing terms that require provenance disclosure on any output submitted for further review. The aim is not to bypass refereeing but to make autonomous research auditable in a way that conventional venues do not currently require.</p>
+  </section>
+
+  <section>
+    <h2>The two series</h2>
+    <ul class="series-pair">
+      <li>
+        <div class="code">IAR-A</div>
+        <div class="name"><a href="/papers/iar-a/">IAR Autonomous Papers</a></div>
+        <div class="desc">Manuscripts produced end-to-end by the ZeroPaper pipeline. Each entry is a single autonomous run from problem discovery through finished LaTeX, with no human intervention between launch and the PDF. Every paper passes through the six adversarial gates and is posted with its complete process log. The byline lists the human operator who launched the run; the paper itself carries an explicit provenance disclosure.</div>
+      </li>
+      <li>
+        <div class="code">IAR-M</div>
+        <div class="name"><a href="/papers/iar-m/">IAR Methodology Papers</a></div>
+        <div class="desc">Human research on the design and evaluation of autonomous research systems. Pipeline architectures, adversarial gate design, evaluation protocols, watermarking, the economics of long-running LLM systems, and empirical studies of pipeline behavior. Where IAR-A is what the pipeline produces, IAR-M is what we have learned from building and running it.</div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Editorial standards</h2>
+    <p>Working papers in both series are posted without peer review. Autonomous papers (IAR-A) are gated by the pipeline's own adversarial agents — a math audit, a novelty check, a mechanism review, and a simulated refereeing stage — and only runs that clear those gates are posted. Methodology papers (IAR-M) follow the conventional working-paper norm of revision in response to seminar and reader feedback.</p>
+    <p>Neither series is a substitute for journal refereeing. Authors are expected to submit their work for formal review and to revise these papers accordingly; the working paper series exists to make the work citable and discoverable in the meantime, and to keep the process logs and provenance disclosures attached to the paper through that cycle.</p>
+  </section>
+
+  <section>
+    <h2>People</h2>
+    <p><strong>Alejandro Lopez-Lira</strong> — Principal Investigator, University of Florida.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>For licensing inquiries, submission notifications under the Auto Research Pipeline license, editorial correspondence, or collaboration: <a href="mailto:contact@instituteforautomatedresearch.org" style="font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.95em;">contact@instituteforautomatedresearch.org</a></p>
+  </section>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>

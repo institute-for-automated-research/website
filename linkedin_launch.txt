@@ -1,0 +1,52 @@
+═════════════════════════════════════════════════════════════════════
+LINKEDIN POST (short, personal voice)
+═════════════════════════════════════════════════════════════════════
+
+I've been playing with AI systems for a while. We're a couple of months from just prompting-based models into top-quality papers, so I'm releasing the system now.
+
+There are some watermarks and licensing restrictions that hopefully will prevent a full paper flood.
+
+https://github.com/alejandroll10/zeropaper
+
+
+═════════════════════════════════════════════════════════════════════
+SUBSTACK POST (longer, more architecture detail)
+═════════════════════════════════════════════════════════════════════
+
+Releasing ZeroPaper, an autonomous research-paper pipeline that takes a domain as input and produces a publication-candidate economics manuscript end-to-end, with no human in the loop between launch and finish.
+
+Built around three premises: state and control flow live outside the model, every stage is verified rather than trusted, and termination is mechanical. The result is ~30 specialized agents coordinated across 10 stages and 6 adversarial gates (math audit, novelty check, mechanism review, simulated refereeing), under any of three host runtimes (Claude Code, Codex, or Gemini CLI).
+
+The headline number: under a flat-fee max subscription, the marginal cost is ~$0 and the amortized cost is roughly $2 per paper, with throughput of ~100 papers/month per subscription. Pay-per-token API is supported but ~1000× more expensive, so the subscription path is what I recommend for academic use.
+
+A companion paper (written by humans, not the system) describes the design discipline that makes a pipeline this long terminate without drift: ten premises about how LLMs behave, six principles that follow from them.
+
+Released under a custom share-alike research-use license. Free for non-commercial research and education, but submitting any pipeline-produced work to a journal, preprint server, conference, or thesis committee requires prior written notice. Outputs carry a non-cosmetic provenance watermark so editors can detect them. The goal isn't to flood journals. It's to make the technology open while keeping the norms intact.
+
+🔗 Code: https://github.com/alejandroll10/zeropaper
+📄 Paper: https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001
+🏛️ Institute for Automated Research: https://instituteforautomatedresearch.org
+
+
+═════════════════════════════════════════════════════════════════════
+ALTERNATIVE OPENING LINES (if you want to swap tone)
+═════════════════════════════════════════════════════════════════════
+
+# Option A: provocative / engagement-bait
+If a publication-quality economics paper costs $2 to produce, what does academic publishing look like next year?
+
+I'm releasing ZeroPaper today: an autonomous system that takes a research domain as input and produces a complete, publication-candidate manuscript end-to-end with no human in the loop. ~30 agents, 10 stages, 6 adversarial gates, ~$2/paper amortized.
+
+# Option B: measured / institutional
+Today the Institute for Automated Research is releasing ZeroPaper, an autonomous research-paper pipeline. The system runs end-to-end from problem discovery through adversarial verification to typeset LaTeX, coordinating ~30 specialized agents across 10 stages and 6 adversarial gates.
+
+
+═════════════════════════════════════════════════════════════════════
+THINGS TO ADJUST BEFORE POSTING
+═════════════════════════════════════════════════════════════════════
+
+- Replace "I" with "we" if you want institutional voice
+- Decide whether to mention UF affiliation
+- Pick hashtag set for your audience (finance, econ, AI, or general)
+- Consider tagging Anthropic / OpenAI / Google DeepMind for amplification (risk: looks like vendor pitch)
+- Consider whether to lead with the cost number or the capability

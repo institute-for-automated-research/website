@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Institute for Automated Research</title>
+<meta name="description" content="A research project building autonomous, adversarially-verified scientific reasoning systems.">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+  header { margin-bottom: 80px; }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    font-size: 20px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(90, 61, 43, 0.3);
+    transition: border-color 0.15s;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  .roadmap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .roadmap li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .roadmap li:last-child { border-bottom: none; }
+  .roadmap .status {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    flex-shrink: 0;
+    width: 90px;
+  }
+  .roadmap .status.live { color: #2d5a3d; }
+  .roadmap .item-title { font-weight: 600; }
+  .roadmap .item-link {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    margin-top: 4px;
+    word-break: break-all;
+  }
+  .roadmap .item-link a {
+    color: var(--accent);
+    border-bottom-color: rgba(90, 61, 43, 0.2);
+  }
+  .roadmap .item-desc {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-top: 6px;
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  .mono {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95em;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 30px; }
+    .tagline { font-size: 17px; }
+    .roadmap li { flex-direction: column; gap: 4px; }
+    .roadmap .status { width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Research Project</div>
+    <h1>Institute for Automated Research</h1>
+    <p class="tagline">Building autonomous, adversarially-verified scientific reasoning systems.</p>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p>The Institute for Automated Research is a research project investigating how far autonomous systems can carry the scientific process — from problem discovery and theory development through adversarial verification and peer-style review — without sacrificing the standards of the disciplines they enter.</p>
+    <p>Our work is open-source and published under licenses that require provenance disclosure on any output submitted for academic review. <a href="/about">More about the Institute and the working paper series &rarr;</a></p>
+  </section>
+
+  <section>
+    <h2>Working Papers</h2>
+    <ul class="roadmap">
+      <li>
+        <span class="status live">Live</span>
+        <div>
+          <div class="item-title">IAR Autonomous Papers (IAR-A)</div>
+          <div class="item-link">&rarr; <a href="/papers/iar-a/">Browse series</a></div>
+          <div class="item-desc">Manuscripts produced end-to-end by the ZeroPaper pipeline. Each entry is a single autonomous run with no human intervention between launch and the finished PDF, published with its full process log.</div>
+        </div>
+      </li>
+      <li>
+        <span class="status live">Live</span>
+        <div>
+          <div class="item-title">IAR Methodology Papers (IAR-M)</div>
+          <div class="item-link">&rarr; <a href="/papers/iar-m/">Browse series</a></div>
+          <div class="item-desc">Human research on the design and evaluation of autonomous research systems &mdash; pipeline architectures, adversarial gates, evaluation protocols, and watermarking.</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul class="roadmap">
+      <li>
+        <span class="status live">Live</span>
+        <div>
+          <div class="item-title">ZeroPaper</div>
+          <div class="item-link">&rarr; <a href="/papers/iar-m/iar-m-001">Paper (IAR-M-001)</a> &nbsp;&middot;&nbsp; <a href="https://github.com/alejandroll10/zeropaper">github.com/alejandroll10/zeropaper</a></div>
+          <div class="item-desc">An autonomous research-paper system that takes a domain as input and produces a publication-candidate manuscript, coordinating roughly thirty specialized agents across ten stages and six adversarial gates &mdash; math audit, novelty check, mechanism review, simulated refereeing &mdash; with watermarked output. Distributed as the open-source Auto Research Pipeline.</div>
+        </div>
+      </li>
+      <li>
+        <span class="status">Forthcoming</span>
+        <div>
+          <div class="item-title">Wiki</div>
+          <div class="item-desc">A public knowledge base on autonomous research methodology — pipeline architectures, evaluation protocols, watermarking, and the open problems we encounter.</div>
+        </div>
+      </li>
+      <li>
+        <span class="status">Forthcoming</span>
+        <div>
+          <div class="item-title">Journal</div>
+          <div class="item-desc">An algorithmically-reviewed publication venue for work produced or assisted by autonomous systems. Submissions pass through the same adversarial gates we use internally &mdash; math audit, novelty check, mechanism review, and simulated refereeing &mdash; with full provenance disclosure required for acceptance.</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>People</h2>
+    <p><strong>Alejandro Lopez-Lira</strong> &mdash; Principal Investigator</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>For licensing inquiries, submission notifications under the Auto Research Pipeline license, editorial correspondence, or collaboration: <a href="mailto:contact@instituteforautomatedresearch.org" class="mono">contact@instituteforautomatedresearch.org</a></p>
+  </section>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research
+  </footer>
+
+</div>
+</body>
+</html>

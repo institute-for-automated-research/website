@@ -1,0 +1,13 @@
+.vercel
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+
+# node / astro (wiki)
+node_modules/
+dist/
+.astro/

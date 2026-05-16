@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.instituteforautomatedresearch.org"
+        }
+      ],
+      "destination": "https://instituteforautomatedresearch.org/$1",
+      "permanent": true
+    },
+    {
+      "source": "/zeropaper.pdf",
+      "destination": "/papers/iar-m/iar-m-001.pdf",
+      "permanent": true
+    }
+  ]
+}

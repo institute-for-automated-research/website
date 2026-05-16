@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAR Methodology Papers — Institute for Automated Research</title>
+<meta name="description" content="A working paper series of human research on automating the scientific process — pipeline architectures, adversarial evaluation, watermarking, and the open problems we encounter.">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  header { margin-bottom: 56px; }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(90, 61, 43, 0.3); transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  .papers { list-style: none; padding: 0; margin: 0; }
+  .papers li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .papers li:last-child { border-bottom: none; }
+  .papers .number {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    flex-shrink: 0;
+    width: 90px;
+    padding-top: 4px;
+  }
+  .papers .title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+  .papers .title a { color: var(--ink); border-bottom: none; }
+  .papers .title a:hover { color: var(--accent); }
+  .papers .meta {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 6px;
+  }
+  .papers .meta a { color: var(--ink-faint); border-bottom-color: rgba(136, 136, 136, 0.3); }
+  .papers .meta a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 28px; }
+    .papers li { flex-direction: column; gap: 4px; }
+    .papers .number { width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; <a href="/papers/">Working Papers</a> &nbsp;/&nbsp; IAR-M</div>
+
+  <header>
+    <div class="eyebrow">Working Paper Series</div>
+    <h1>IAR Methodology Papers</h1>
+    <p class="lede">Human research on automating the scientific process — pipeline architectures, adversarial evaluation, watermarking, evaluation protocols, and the open problems we encounter while building autonomous research systems.</p>
+  </header>
+
+  <section>
+    <h2>About the series</h2>
+    <p><em>IAR Methodology Papers</em> is a working paper series of the Institute for Automated Research, in the tradition of arXiv, SSRN, and NBER preprint series. Papers are posted without peer review at stable, citable URLs; they are intended to be cited, downloaded, and submitted for formal journal review. ISSN forthcoming.</p>
+    <p>This series collects human research that is <em>about</em> autonomous research rather than produced by it: design principles, theory, empirical studies of pipeline behavior, evaluation protocols, and the standards we use to verify autonomous output.</p>
+    <p>Companion series: <a href="/papers/iar-a/">IAR Autonomous Papers</a> (manuscripts produced end-to-end by the pipeline).</p>
+  </section>
+
+  <section>
+    <h2>Citing this series</h2>
+    <p>Cite individual papers as: <em>Author, Title (Date). IAR Methodology Papers No. IAR-M-NNN, Institute for Automated Research, Available at: URL.</em> Each landing page provides a ready-to-paste citation and BibTeX entry.</p>
+  </section>
+
+  <section>
+    <h2>Papers</h2>
+    <ul class="papers">
+      <li>
+        <span class="number">IAR-M-001</span>
+        <div>
+          <div class="title"><a href="/papers/iar-m/iar-m-001">ZeroPaper: An Autonomous Research System</a></div>
+          <div class="meta">Alejandro Lopez-Lira &nbsp;&middot;&nbsp; May 2026 &nbsp;&middot;&nbsp; <a href="/papers/iar-m/iar-m-001.pdf">PDF</a></div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAR-A-001: The Idiosyncratic Channel — Institute for Automated Research</title>
+<meta name="description" content="The Idiosyncratic Channel: Systematic Cancellation in Conditional BAB and a Necessary-and-Sufficient Characterization. IAR Autonomous Papers IAR-A-001.">
+
+<meta name="citation_title" content="The Idiosyncratic Channel: Systematic Cancellation in Conditional BAB and a Necessary-and-Sufficient Characterization">
+<meta name="citation_author" content="Lopez-Lira, Alejandro">
+<meta name="citation_publication_date" content="2026/04/05">
+<meta name="citation_online_date" content="2026/05/11">
+<meta name="citation_pdf_url" content="https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001.pdf">
+<meta name="citation_abstract_html_url" content="https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001">
+<meta name="citation_journal_title" content="IAR Autonomous Papers">
+<meta name="citation_technical_report_institution" content="Institute for Automated Research">
+<meta name="citation_technical_report_number" content="IAR-A-001">
+<meta name="citation_doi" content="10.5281/zenodo.20127841">
+<meta name="citation_language" content="en">
+<meta name="citation_keywords" content="betting-against-beta; idiosyncratic volatility; leverage constraints; asset pricing; OLS misattribution; autonomous research">
+
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #5a3d2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .paper-id {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .byline {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  .dateline {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+  }
+  .actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .actions a {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(90, 61, 43, 0.3);
+  }
+  .actions a:hover { border-bottom-color: var(--accent); }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  .meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+  }
+  .meta-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 16px;
+  }
+  .meta-list li:last-child { border-bottom: none; }
+  .meta-list .key {
+    color: var(--ink-faint);
+    width: 140px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding-top: 2px;
+  }
+  .cite {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    background: #f0ede4;
+    padding: 16px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 24px; }
+    .meta-list li { flex-direction: column; gap: 4px; }
+    .meta-list .key { width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; <a href="/papers/">Working Papers</a> &nbsp;/&nbsp; <a href="/papers/iar-a/">IAR-A</a></div>
+
+  <div class="paper-id">IAR-A-001 &nbsp;&middot;&nbsp; April 2026</div>
+  <h1>The Idiosyncratic Channel: Systematic Cancellation in Conditional BAB and a Necessary-and-Sufficient Characterization</h1>
+  <p class="byline">Alejandro Lopez-Lira</p>
+  <div class="dateline">University of Florida</div>
+
+  <div class="actions">
+    <a href="/papers/iar-a/iar-a-001.pdf">Download PDF</a>
+    <a href="/papers/iar-a/iar-a-001.bib">BibTeX</a>
+    <a href="https://doi.org/10.5281/zenodo.20127841">DOI</a>
+    <a href="https://github.com/alejandroll10/zeropaper-gallery/blob/main/logs/paper1.json">Process log</a>
+    <a href="https://github.com/alejandroll10/zeropaper-gallery/blob/main/papers/paper1.pdf">Gallery entry</a>
+  </div>
+
+  <h2>Abstract</h2>
+  <p>No standard asset pricing model generates a negative relationship between aggregate volatility and the betting-against-beta (BAB) return. The BAB formula divides each asset's expected return by its beta, annihilating every component of expected returns proportional to beta, including the entire systematic risk premium. The key structural insight (Theorem 1) is that the only term surviving beta-division is the idiosyncratic variance bracket. Among standard portfolio constraints, only leverage constraints actively push BAB in the wrong direction: as they tighten with volatility, they raise BAB. Variance-budget, tracking-error, beta-budget, and VaR constraints are direction-neutral.</p>
+  <p>The resolution requires a channel that survives beta-division. The only such channel is idiosyncratic volatility. The paper derives an exact necessary-and-sufficient threshold condition for dBAB/dσ<sub>m</sub> &lt; 0 in terms of the relative idiosyncratic-volatility sensitivities of high- versus low-beta stocks. Under the OLS residual definition of idiosyncratic risk, equity-as-call-option curvature is misattributed as idiosyncratic variance, and the misattribution is larger for more levered (high-beta) firms — so the threshold is satisfied as a structural equilibrium outcome (Proposition OLS-MF).</p>
+  <p>Using 3.37 million stock-months from CRSP (July 1963 to December 2024, 26,122 unique stocks), estimates of the idiosyncratic-volatility sensitivity from rolling regressions confirm the characterization condition across all five beta quintiles. The estimated sensitivity rises monotonically from 0.24 (Q1) to 1.33 (Q5); the empirical ratio of 5.48 exceeds the theoretical threshold of 2.97 by a factor of 1.85. The BAB-Δσ regression yields slope −0.87 (t = −2.11). At Θ<sub>0</sub> = 3, the model accounts for 55% of the empirical slope; a complete quantitative account requires additional mechanisms. When σ<sub>m</sub>(t) follows a mean-reverting square-root process, Itô's lemma applied to BAB(σ<sub>m</sub>(t)) delivers a timing proposition: BAB is expected to recover following a volatility spike, providing structural foundations for volatility-managed BAB strategies.</p>
+
+  <h2>Provenance</h2>
+  <p>This paper was produced autonomously by the ZeroPaper pipeline (Lopez-Lira 2026, IAR-M-001) with no human intervention between launch and the finished PDF. The full stage log — discovery, derivation, gate verdicts, and scorer trajectory — is published alongside the paper. Any work derived from or extending this paper must disclose its autonomous provenance under the Auto Research Pipeline license.</p>
+
+  <h2>Details</h2>
+  <ul class="meta-list">
+    <li><span class="key">Series</span><span>IAR Autonomous Papers</span></li>
+    <li><span class="key">Number</span><span>IAR-A-001</span></li>
+    <li><span class="key">Posted</span><span>11 May 2026</span></li>
+    <li><span class="key">Drafted</span><span>5 April 2026</span></li>
+    <li><span class="key">Pages</span><span>60</span></li>
+    <li><span class="key">Domain</span><span>Finance — asset pricing</span></li>
+    <li><span class="key">Pipeline</span><span>ZeroPaper v1.0</span></li>
+    <li><span class="key">Final score</span><span>75 / 100</span></li>
+    <li><span class="key">Stable URL</span><span><a href="https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001" style="color: var(--accent);">instituteforautomatedresearch.org/papers/iar-a/iar-a-001</a></span></li>
+    <li><span class="key">DOI</span><span><a href="https://doi.org/10.5281/zenodo.20127841" style="color: var(--accent);">10.5281/zenodo.20127841</a></span></li>
+    <li><span class="key">ISSN</span><span>Pending (IAR Autonomous Papers)</span></li>
+  </ul>
+
+  <h2>How to cite</h2>
+  <div class="cite">Lopez-Lira, Alejandro, The Idiosyncratic Channel: Systematic Cancellation in Conditional BAB and a Necessary-and-Sufficient Characterization (April 5, 2026). IAR Autonomous Papers No. IAR-A-001, Institute for Automated Research, Available at: https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001, https://doi.org/10.5281/zenodo.20127841</div>
+
+  <h2>BibTeX</h2>
+  <div class="cite">@techreport{lopezlira2026idiosyncratic,
+  author      = {Lopez-Lira, Alejandro},
+  title       = {The Idiosyncratic Channel: Systematic Cancellation in Conditional {BAB} and a Necessary-and-Sufficient Characterization},
+  institution = {Institute for Automated Research},
+  type        = {IAR Autonomous Papers},
+  number      = {IAR-A-001},
+  year        = {2026},
+  month       = {April},
+  url         = {https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001},
+  doi         = {10.5281/zenodo.20127841}
+}</div>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>
