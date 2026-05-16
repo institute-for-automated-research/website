@@ -10,6 +10,8 @@ export default defineConfig({
   // hand-authored marketing site (copied to dist/ root by scripts/postbuild.mjs
   // from site/). base:'/wiki' keeps all generated links/assets correct.
   outDir: './dist/wiki',
+  // Starlight default directory format; vercel.json no longer force-strips
+  // trailing slashes, so these links resolve in one shot (zero redirects).
   trailingSlash: 'ignore',
   integrations: [
     starlight({

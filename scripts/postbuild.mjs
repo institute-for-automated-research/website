@@ -73,6 +73,7 @@ function parseFrontmatter(src) {
 function pageUrl(relPath) {
   const noExt = relPath.replace(/\.mdx?$/, '');
   const clean = noExt === 'index' ? '' : noExt.replace(/\/index$/, '');
+  // Trailing slash — matches Starlight directory-format canonical URLs.
   return `${SITE}/wiki${clean ? '/' + clean : ''}/`;
 }
 
