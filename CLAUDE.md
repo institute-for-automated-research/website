@@ -1,0 +1,73 @@
+# CLAUDE.md — instituteforautomatedresearch.org
+
+Public website + working-paper series + wiki for the Institute for Automated
+Research. Static, deployed on Vercel. Repo:
+`github.com/institute-for-automated-research/website` (push to `main` →
+Vercel auto-deploys).
+
+## Architecture: one unified Astro build
+
+There is **no separate wiki project**. A single `npm run build` produces the
+whole site:
+
+- `site/` — the hand-authored marketing site + papers. Served **verbatim** at
+  the deploy root (`/`, `/about`, `/papers/...`). Edit these as plain HTML;
+  no framework. Do not "Astro-ify" them without a reason.
+- `src/content/docs/**.md` — the **wiki**, Astro Starlight, built into
+  `dist/wiki/` (`astro.config.mjs` → `outDir`, `base:'/wiki'`).
+- `scripts/postbuild.mjs` — runs after `astro build`: copies `site/` → `dist/`
+  root, writes raw `.md` twins, `/llms.txt`, `/llms-full.txt`.
+- Final: `dist/index.html` (homepage) + `dist/wiki/...` (wiki). Vercel serves
+  `dist/` (`vercel.json`: `cleanUrls`, **no** `trailingSlash`, www→apex +
+  `/zeropaper.pdf` redirects).
+
+Routing invariant: `vercel.json` must **not** set `trailingSlash` — it fights
+Starlight's directory URLs and reintroduces a 308 on every internal link.
+Every route should be 200 with **zero** redirect hops (except the intentional
+`/zeropaper.pdf` 301).
+
+## Adding a wiki page
+
+1. Create `src/content/docs/<section>/<slug>.md` with frontmatter `title`,
+   `description`, optional `sidebar`, and — for dataset/recipe pages — a
+   `verified` block.
+2. Follow the dataset-page template (see `src/content/docs/datasets/fred.md`):
+   intro + facts list → **Access** → **Gotchas (the ones that bite
+   pipelines)** *immediately after Access* → reference tables → standard
+   operations → citation. "Gotchas" is the differentiator; keep it elevated.
+3. Add it to the section index table.
+4. `npm run build`, then live-check the new route is 200 / 0-hop.
+
+### The `Verified` discipline (non-negotiable)
+
+```yaml
+verified:
+  date: 2026-05-16
+  with: live no-key CSV fetch (GDP, USREC, SP500)
+```
+
+Only add `verified:` **after you have actually run the page's keystone claim
+against the live source in this session.** The badge asserts provenance; an
+unrun stamp is a lie and breaks the institute's entire value proposition. If
+a source can't be exercised here (e.g. WRDS — paywalled), omit `verified:`
+and say so on the page. Be precise in `with:` about what you actually ran.
+
+## Scrapability invariants (do not regress)
+
+- Every wiki page must keep its raw `.md` twin (`postbuild.mjs`), and appear
+  in `/llms.txt` + `/llms-full.txt`.
+- `site/robots.txt` explicitly welcomes AI crawlers — keep it that way.
+- Per-page `TechArticle` JSON-LD comes from `src/components/Head.astro`.
+- No auth/key on any content. Open by design.
+
+## Secrets / safety
+
+- `.env` (live `ZENODO_TOKEN`) and `.vercel/` are gitignored — **never**
+  commit them. The repo is public; re-check `git status` before any push.
+- Sveltia CMS (`/wiki/admin/`) needs a GitHub OAuth App + Vercel env vars —
+  see `docs/CMS-SETUP.md`. Not required for git/PR editing.
+
+## After any non-trivial change
+
+`npm run build` and live-verify on the production domain (routes 200/0-hop,
+stamps render, `.md` twins + `llms.txt` intact) before considering it done.
