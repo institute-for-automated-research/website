@@ -18,6 +18,16 @@
       "source": "/zeropaper.pdf",
       "destination": "/papers/iar-m/iar-m-001.pdf",
       "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/wrds",
+      "destination": "/wiki/licensed/wrds",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/wrds.md",
+      "destination": "/wiki/licensed/wrds.md",
+      "permanent": true
     }
   ]
 }

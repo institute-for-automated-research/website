@@ -53,4 +53,12 @@ nav.sidebar {
   font-family:
     -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 0.02em;
+  /* Follow the theme: near-black in light, white in dark.
+     --sl-color-white is remapped to #1a1a1a in our light theme above,
+     and is #fff in Starlight's dark default. */
+  color: var(--sl-color-white);
+}
+a.site-title:hover {
+  color: var(--sl-color-white);
+  opacity: 0.75;
 }

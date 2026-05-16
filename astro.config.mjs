@@ -41,8 +41,12 @@ export default defineConfig({
       sidebar: [
         { label: 'Overview', link: '/' },
         {
-          label: 'Free datasets',
+          label: 'Free & verified datasets',
           autogenerate: { directory: 'datasets' },
+        },
+        {
+          label: 'Licensed — academic access',
+          autogenerate: { directory: 'licensed' },
         },
       ],
     }),

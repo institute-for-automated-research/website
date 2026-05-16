@@ -5,15 +5,19 @@ description: >-
   universities license it. How affiliated researchers get access, and what
   the free sources here can and cannot substitute for it.
 sidebar:
-  label: WRDS (paywalled)
-  order: 7
+  label: WRDS / CRSP / Compustat
+  order: 1
 ---
 
-:::caution[Not free — and not verifiable here]
-Unlike every other page in this section, **WRDS is subscription-gated**. There
-is no `Verified` stamp because the recipe cannot be run without an
-institutional license — we will not assert provenance we cannot demonstrate.
-This page documents the *access path*, not a free download.
+:::caution[Licensed — not free, and not stamped]
+**WRDS is subscription-gated**, so it lives in the *Licensed* tier, not with
+the free datasets. It carries **no `Verified` stamp**: the access path is
+real and the pipeline uses it under an institutional license, but we will not
+assert provenance we did not demonstrate in-session. (At last check the host's
+WRDS server process was reachable, but its upstream session had expired and
+re-authenticating requires interactive 2FA — so no live CRSP/Compustat query
+was completed for this page.) This page documents the *access path*, not a
+free download.
 :::
 
 **WRDS** (Wharton Research Data Services) is the standard delivery layer for
