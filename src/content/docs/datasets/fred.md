@@ -7,6 +7,9 @@ description: >-
 sidebar:
   label: FRED
   order: 1
+verified:
+  date: 2026-05-16
+  with: live no-key CSV fetch (GDP, USREC, SP500)
 ---
 
 **FRED** (Federal Reserve Economic Data, St. Louis Fed) is the single most
@@ -71,6 +74,29 @@ https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key={KEY}&
 Useful for series search (`/fred/series/search`), release calendars, and
 ALFRED vintage (real-time) data that `fredapi` doesn't expose as conveniently.
 
+## Gotchas (the ones that bite pipelines)
+
+The reason to read this page rather than the FRED docs. Verified against live
+data on the date above.
+
+- **`SP500` is price-only and ~10 years deep.** The series begins ~10 years
+  back (confirmed: first observation 2016-05-16) and is an *index level*, not
+  total return. For asset-pricing work use the
+  [Ken French](/wiki/datasets/) market series or CRSP instead — never `SP500`
+  for long-horizon return studies.
+- **Revisions.** `GDP`/`GDPC1` are revised for years. If your result depends
+  on what was *known at the time*, use ALFRED vintages, not the latest series.
+- **Mixed frequencies.** Don't silently merge daily and monthly series;
+  resample deliberately and document the convention.
+- **Discontinued series.** Some IDs stop updating or are superseded; check the
+  last observation date before trusting a "current" value.
+- **Rate limits.** The keyed API rate-limits bulk pulls — batch and cache;
+  the CSV fallback is fine for low-volume use.
+- **Units & seasonal adjustment.** Many series are indices or seasonally
+  adjusted (`SA`) variants — read the series page; don't assume levels or NSA.
+- **CSV column name.** The no-key endpoint returns `observation_date` as the
+  date column (not `DATE`); parse it explicitly as shown above.
+
 ## Series you actually need
 
 FRED has ~800,000 series; for finance and macro calibration the recurring set
@@ -89,7 +115,7 @@ is small. Search the site or the API for anything else.
 | `UNRATE` | Unemployment rate | Monthly |
 | `PCE` | Personal consumption expenditures | Monthly |
 | `VIXCLS` | CBOE VIX | Daily |
-| `SP500` | S&P 500 index | Daily |
+| `SP500` | S&P 500 index (price-only, ~10yr — see gotchas) | Daily |
 | `USREC` | NBER recession indicator (0/1) | Monthly |
 
 ## Standard operations
@@ -105,22 +131,6 @@ is small. Search the site or the API for anything else.
 - **Always state the sample period and frequency** when reporting any moment —
   FRED series are revised and extended, so an unstated window is not
   reproducible.
-
-## Gotchas (the ones that bite pipelines)
-
-- **`SP500` is price-only and ~10 years deep.** It is *not* total return and
-  not a long history — for asset-pricing work use the
-  [Ken French](/wiki/datasets/) market series or CRSP instead.
-- **Revisions.** `GDP`/`GDPC1` are revised for years. If your result depends
-  on what was *known at the time*, use ALFRED vintages, not the latest series.
-- **Mixed frequencies.** Don't silently merge daily and monthly series;
-  resample deliberately and document the convention.
-- **Discontinued series.** Some IDs stop updating or are superseded; check the
-  last observation date before trusting a "current" value.
-- **Rate limits.** The keyed API rate-limits bulk pulls — batch and cache;
-  the CSV fallback is fine for low-volume use.
-- **Units.** Many series are indices or seasonally adjusted (`SA`) variants —
-  read the series page; don't assume levels or NSA.
 
 ## Citation
 

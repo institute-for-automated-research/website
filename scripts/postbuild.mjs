@@ -94,6 +94,16 @@ for (const abs of files) {
   const raw = await readFile(abs, 'utf8');
   const { data, body } = parseFrontmatter(raw);
 
+  // Provenance: extract the nested `verified:` block (the naive flat
+  // frontmatter parser doesn't descend into objects).
+  const fm = raw.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+  const vb = fm.match(/^verified:\n((?:[ \t]+.*\n?)+)/m)?.[1] ?? '';
+  const vget = (k) => vb.match(new RegExp(`^\\s+${k}:\\s*(.+)$`, 'm'))?.[1]?.trim();
+  const vdate = vget('date');
+  const verified = vdate
+    ? `Verified ${vdate}${vget('with') ? ` · tested with ${vget('with')}` : ''}`
+    : null;
+
   // 2a. Raw Markdown twin, filesystem-mirrored under dist/wiki/.
   const twin = join(dist, 'wiki', rel.replace(/\.mdx$/, '.md'));
   await mkdir(dirname(twin), { recursive: true });
@@ -104,6 +114,7 @@ for (const abs of files) {
     description: data.description || '',
     url: pageUrl(rel),
     mdUrl: `${SITE}/wiki/${rel.replace(/\.mdx$/, '.md')}`,
+    verified,
     body,
   });
 }
@@ -140,7 +151,7 @@ const full = `# Institute for Automated Research — Wiki (full corpus)
 ${pages
   .map(
     (p) =>
-      `\n\n${'='.repeat(78)}\n# ${p.title}\n# ${p.url}\n${p.description ? `# ${p.description.replace(/\s+/g, ' ')}\n` : ''}${'='.repeat(78)}\n\n${p.body}`
+      `\n\n${'='.repeat(78)}\n# ${p.title}\n# ${p.url}\n${p.description ? `# ${p.description.replace(/\s+/g, ' ')}\n` : ''}${p.verified ? `# ${p.verified}\n` : ''}${'='.repeat(78)}\n\n${p.body}`
   )
   .join('\n')}
 `;

@@ -1,0 +1,48 @@
+---
+// Override of Starlight's <PageTitle>: render the default title, then a
+// provenance badge when the page declares `verified` frontmatter. This is
+// the institute's differentiator — pages state when the recipe was last
+// actually run, and against what.
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+
+const v = Astro.locals.starlightRoute?.entry?.data?.verified;
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC', // date is a plain YYYY-MM-DD; don't let host TZ shift it
+  });
+---
+
+<Default><slot /></Default>
+
+{
+  v && (
+    <p class="iar-verified" aria-label="Verification provenance">
+      <span class="iar-check" aria-hidden="true">✓</span>
+      <strong>Verified {fmt(v.date)}</strong>
+      {v.with && (
+        <>
+          {' · tested with '}
+          {v.url ? <a href={v.url}>{v.with}</a> : <code>{v.with}</code>}
+        </>
+      )}
+    </p>
+  )
+}
+
+<style>
+  .iar-verified {
+    margin: 0.4rem 0 0;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  .iar-check {
+    color: #2d5a3d;
+    font-weight: 700;
+  }
+  .iar-verified code {
+    font-size: 0.95em;
+  }
+</style>

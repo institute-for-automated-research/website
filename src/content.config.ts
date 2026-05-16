@@ -1,7 +1,30 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 
 export const collections = {
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+  docs: defineCollection({
+    loader: docsLoader(),
+    schema: docsSchema({
+      // Provenance: when the access recipe on this page was last actually
+      // run, and against what. Rendered under the title and surfaced in
+      // llms-full.txt — this is what makes the wiki a *verified* knowledge
+      // base rather than rehosted documentation.
+      extend: z.object({
+        verified: z
+          .object({
+            // Accept quoted strings and YAML-native dates alike; normalize
+            // to YYYY-MM-DD so authors/agents can't trip on quoting.
+            date: z
+              .union([z.string(), z.date()])
+              .transform((d) =>
+                (d instanceof Date ? d.toISOString() : d).slice(0, 10)
+              ),
+            with: z.string().optional(), // e.g. "test_fred.py"
+            url: z.string().url().optional(), // link to the test/script
+          })
+          .optional(),
+      }),
+    }),
+  }),
 };

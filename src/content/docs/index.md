@@ -1,5 +1,5 @@
 ---
-title: IAR Wiki
+title: A knowledge base for autonomous research
 description: >-
   Open knowledge base on autonomous research methodology — the data, tools,
   and protocols behind autonomous, adversarially-verified research.

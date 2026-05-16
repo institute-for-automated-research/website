@@ -19,9 +19,11 @@ actually runs in production.
 | Dataset | What it is | Page |
 |---|---|---|
 | **FRED** | Macro & financial time series (800k+) | [FRED](/wiki/datasets/fred/) |
+| **SEC EDGAR** | US filings, XBRL financials, insider/13F | [SEC EDGAR](/wiki/datasets/edgar/) |
 
-_More dataset pages (EDGAR, Ken French, Open Source Asset Pricing, flexible
-data-mining strategies, DOL Form 5500) are being added._
+_More dataset pages (Ken French, Open Source Asset Pricing, flexible
+data-mining strategies, DOL Form 5500) are being added. Every page carries a
+**Verified** date — when its access recipe was last actually run._
 
 ## Paywalled — academic-access note
 
