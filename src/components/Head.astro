@@ -1,0 +1,48 @@
+---
+// Override of Starlight's <Head>: render the default head, then inject
+// JSON-LD structured metadata (Organization + per-page TechArticle) so
+// search engines and LLM crawlers ingest the wiki with clean provenance.
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const route = Astro.locals.starlightRoute;
+const data = route?.entry?.data ?? {};
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const org = {
+  '@type': 'Organization',
+  name: 'Institute for Automated Research',
+  url: 'https://instituteforautomatedresearch.org',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    org,
+    {
+      '@type': 'TechArticle',
+      headline: data.title,
+      description: data.description,
+      url: canonical,
+      mainEntityOfPage: canonical,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'IAR Wiki',
+        url: 'https://instituteforautomatedresearch.org/wiki/',
+      },
+      publisher: org,
+      ...(route?.lastUpdated
+        ? { dateModified: new Date(route.lastUpdated).toISOString() }
+        : {}),
+      license:
+        'Open for reuse with attribution to the Institute for Automated Research.',
+    },
+  ],
+};
+---
+
+<Default><slot /></Default>
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(jsonLd)}
+/>

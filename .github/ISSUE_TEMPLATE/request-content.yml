@@ -1,0 +1,29 @@
+name: Request a dataset or topic
+description: Ask for a new dataset page or wiki topic to be added.
+title: "[Request] "
+labels: ["content-request"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Dataset or topic
+      placeholder: e.g. "OECD Main Economic Indicators" or "Identification strategies for the wiki"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it useful?
+      description: What research would it enable? Is it genuinely free / public, or subscription-gated?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source / URL (if known)
+      placeholder: https://...
+  - type: textarea
+    id: notes
+    attributes:
+      label: Access notes or gotchas you already know
+      description: API keys, rate limits, format quirks, anything that would save the next person time.

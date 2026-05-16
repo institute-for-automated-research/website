@@ -1,0 +1,30 @@
+---
+// Override of Starlight's <Footer>: keep the default (prev/next, edit link,
+// last-updated) and append a contribution line so every page tells readers —
+// including those without a GitHub account — how to fix or request things.
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const repo = 'https://github.com/institute-for-automated-research/website';
+---
+
+<Default><slot /></Default>
+
+<div class="iar-contrib">
+  Found an error or want a topic covered?{' '}
+  <a href={`${repo}/issues/new/choose`}>Open an issue</a>,
+  use the <strong>Edit page</strong> link above, or email{' '}
+  <a href="mailto:contact@instituteforautomatedresearch.org"
+    >contact@instituteforautomatedresearch.org</a
+  >. Edits are reviewed before publishing — provenance and accuracy are the
+  point.
+</div>
+
+<style>
+  .iar-contrib {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sl-color-hairline);
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+</style>

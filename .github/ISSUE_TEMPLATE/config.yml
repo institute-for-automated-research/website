@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Email the Institute
+    url: mailto:contact@instituteforautomatedresearch.org
+    about: For licensing, editorial, or collaboration inquiries (no GitHub account needed).
+  - name: Edit a page directly
+    url: https://github.com/institute-for-automated-research/website/tree/main/src/content/docs
+    about: Small fixes — use the "Edit page" link on any wiki article to open a pull request.

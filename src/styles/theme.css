@@ -1,0 +1,56 @@
+/* Carry the institute's editorial serif aesthetic into Starlight.
+   Source palette/fonts: public/index.html (the hand-authored homepage). */
+
+:root {
+  --sl-font:
+    'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia,
+    serif;
+  --sl-font-mono: 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Brand accent — the homepage's --accent #5a3d2b (warm brown). */
+  --sl-color-accent-low: #e8ddd5;
+  --sl-color-accent: #5a3d2b;
+  --sl-color-accent-high: #3f2a1d;
+}
+
+/* Light theme tuned to the homepage's paper-cream background. */
+:root[data-theme='light'] {
+  --sl-color-white: #1a1a1a;
+  --sl-color-gray-1: #1a1a1a;
+  --sl-color-gray-2: #4a4a4a;
+  --sl-color-gray-3: #6a6a6a;
+  --sl-color-gray-4: #888;
+  --sl-color-gray-5: #e0e0e0;
+  --sl-color-gray-6: #efece4;
+  --sl-color-gray-7: #f4f1ea;
+  --sl-color-black: #fafaf7;
+  --sl-color-bg: #fafaf7;
+  --sl-color-bg-nav: #fafaf7;
+  --sl-color-bg-sidebar: #fafaf7;
+  --sl-color-hairline: #e0e0e0;
+  --sl-color-hairline-light: #e8e5dd;
+  --sl-color-text-accent: #5a3d2b;
+}
+
+/* Headings: slightly tighter, matching the homepage h1/h2 treatment. */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.content-panel h1 {
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* Eyebrow/section labels and the sidebar use the homepage's sans stack. */
+starlight-toc nav,
+.sidebar-content,
+nav.sidebar {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.site-title {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.02em;
+}

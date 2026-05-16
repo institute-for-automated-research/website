@@ -1,0 +1,44 @@
+# Sveltia CMS — git-backed browser editor for the wiki.
+# Backend: GitHub. Auth goes through our own Vercel OAuth relay (api/auth),
+# so no third-party service holds the token.
+backend:
+  name: github
+  repo: institute-for-automated-research/website
+  branch: main
+  base_url: https://instituteforautomatedresearch.org
+  auth_endpoint: api/auth
+
+# Editorial workflow: saves open a PR (draft) instead of committing to main,
+# so content is reviewed before publishing — matches the institute's stance.
+publish_mode: editorial_workflow
+
+media_folder: public/wiki-media
+public_folder: /wiki/wiki-media
+
+collections:
+  - name: docs
+    label: Wiki pages
+    label_singular: Wiki page
+    folder: src/content/docs
+    extension: md
+    format: frontmatter
+    create: true
+    nested:
+      depth: 4
+      summary: "{{title}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Description,
+          name: description,
+          widget: text,
+          required: false,
+        }
+      - {
+          label: Sidebar order,
+          name: sidebar.order,
+          widget: number,
+          required: false,
+          value_type: int,
+        }
+      - { label: Body, name: body, widget: markdown }

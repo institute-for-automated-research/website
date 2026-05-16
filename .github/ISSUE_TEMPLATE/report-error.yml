@@ -1,0 +1,30 @@
+name: Report an error in an article
+description: Flag something inaccurate, broken, or out of date.
+title: "[Error] "
+labels: ["correction"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      placeholder: https://instituteforautomatedresearch.org/wiki/datasets/fred/
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Quote the incorrect text or describe the broken behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: What should it say instead? A source/link strengthens the fix.
+  - type: checkboxes
+    id: verified
+    attributes:
+      label: Verification
+      options:
+        - label: I verified this against the primary source (not just a guess).
