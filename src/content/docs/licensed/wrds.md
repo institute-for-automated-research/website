@@ -7,17 +7,20 @@ description: >-
 sidebar:
   label: WRDS / CRSP / Compustat
   order: 1
+verified:
+  date: 2026-05-16
+  with: live CRSP (crsp.msf) + Compustat (comp.funda) query through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed — not free, and not stamped]
+:::caution[Licensed — not free]
 **WRDS is subscription-gated**, so it lives in the *Licensed* tier, not with
-the free datasets. It carries **no `Verified` stamp**: the access path is
-real and the pipeline uses it under an institutional license, but we will not
-assert provenance we did not demonstrate in-session. (At last check the host's
-WRDS server process was reachable, but its upstream session had expired and
-re-authenticating requires interactive 2FA — so no live CRSP/Compustat query
-was completed for this page.) This page documents the *access path*, not a
-free download.
+the free datasets. The badge above reads **"Access confirmed (licensed)"**,
+deliberately *not* the green "Verified" used on free pages: the access path
+was exercised in-session against a real institutional WRDS account (live
+`crsp.msf` and `comp.funda` rows returned) — but the data itself is **not
+free**. Without a subscription you cannot reproduce this; see the
+free-substitute map below for what you can.
 :::
 
 **WRDS** (Wharton Research Data Services) is the standard delivery layer for

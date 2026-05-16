@@ -100,8 +100,10 @@ for (const abs of files) {
   const vb = fm.match(/^verified:\n((?:[ \t]+.*\n?)+)/m)?.[1] ?? '';
   const vget = (k) => vb.match(new RegExp(`^\\s+${k}:\\s*(.+)$`, 'm'))?.[1]?.trim();
   const vdate = vget('date');
+  const licensed = vget('access') === 'licensed';
   const verified = vdate
-    ? `Verified ${vdate}${vget('with') ? ` · tested with ${vget('with')}` : ''}`
+    ? `${licensed ? 'Access confirmed (licensed)' : 'Verified'} ${vdate}` +
+      (vget('with') ? `${licensed ? ' · via ' : ' · tested with '}${vget('with')}` : '')
     : null;
 
   // 2a. Raw Markdown twin, filesystem-mirrored under dist/wiki/.

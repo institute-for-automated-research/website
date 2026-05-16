@@ -22,6 +22,10 @@ export const collections = {
               ),
             with: z.string().optional(), // e.g. "test_fred.py"
             url: z.string().url().optional(), // link to the test/script
+            // 'free' (default) → "Verified" (green): runnable at no cost.
+            // 'licensed' → "Access confirmed (licensed)" (amber): the path
+            // was exercised, but the source is paywalled — not free.
+            access: z.enum(['free', 'licensed']).default('free'),
           })
           .optional(),
       }),

@@ -18,18 +18,30 @@ const fmt = (d: string) =>
 <Default><slot /></Default>
 
 {
-  v && (
-    <p class="iar-verified" aria-label="Verification provenance">
-      <span class="iar-check" aria-hidden="true">✓</span>
-      <strong>Verified {fmt(v.date)}</strong>
-      {v.with && (
-        <>
-          {' · tested with '}
-          {v.url ? <a href={v.url}>{v.with}</a> : <code>{v.with}</code>}
-        </>
-      )}
-    </p>
-  )
+  v &&
+    (() => {
+      const licensed = v.access === 'licensed';
+      return (
+        <p
+          class:list={['iar-verified', { 'iar-licensed': licensed }]}
+          aria-label="Verification provenance"
+        >
+          <span class="iar-check" aria-hidden="true">
+            {licensed ? '◆' : '✓'}
+          </span>
+          <strong>
+            {licensed ? 'Access confirmed (licensed)' : 'Verified'}{' '}
+            {fmt(v.date)}
+          </strong>
+          {v.with && (
+            <>
+              {licensed ? ' · via ' : ' · tested with '}
+              {v.url ? <a href={v.url}>{v.with}</a> : <code>{v.with}</code>}
+            </>
+          )}
+        </p>
+      );
+    })()
 }
 
 <style>
@@ -41,6 +53,9 @@ const fmt = (d: string) =>
   .iar-check {
     color: #2d5a3d;
     font-weight: 700;
+  }
+  .iar-licensed .iar-check {
+    color: #9a6a1b; /* amber — licensed/paywalled, not the free green */
   }
   .iar-verified code {
     font-size: 0.95em;
