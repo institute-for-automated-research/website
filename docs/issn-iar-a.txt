@@ -1,0 +1,55 @@
+ISSN APPLICATION — IAR Autonomous Papers
+U.S. ISSN Center (Library of Congress) — portal.issn.org
+For: publications published in the United States only. Online format.
+
+=== TITLE ===
+Title of Publication:        IAR Autonomous Papers
+Variation of the title:      Institute for Automated Research Autonomous Papers
+Previous/former title:       (none — new title)
+
+=== FORMATS ===
+Check:                       Online   (only — born-digital, no print/CDROM)
+
+=== PUBLISHER ===
+Type of publication:         Monographic series
+                             (working-paper / preprint series; choose
+                             "Monographic series" if present, else the
+                             closest "Series" option — NOT "Periodical")
+Date and number of first
+  issuance of this title:
+No. IAR-A-001, April 2026 — "The Idiosyncratic Channel: Systematic Cancellation in Conditional BAB and a Necessary-and-Sufficient Characterization"
+Publisher Name:              Institute for Automated Research
+Country of publication:      United States
+State or Territory:          Florida
+City of Publication:         Newberry         (matches business address)
+Is there a previous publisher? No
+
+=== CONTACT ===
+Contact Name:                Alejandro Lopez-Lira
+Email:                       alejandro.lopez-lira@warrington.ufl.edu
+Publishing team:             Institute for Automated Research
+Phone number:                [FILL IN]
+Business address:            [FILL IN — mailing address]
+
+=== DOCUMENTATION ===
+Direct URL for this title:   https://instituteforautomatedresearch.org/papers/iar-a
+Additional notes:
+Born-digital working-paper series of the Institute for Automated Research, in the tradition of arXiv / SSRN / NBER preprint series. Papers are posted without peer review at stable, citable URLs. This series publishes research produced end-to-end by the ZeroPaper autonomous pipeline. Online only; no print edition exists, so no sample issue can be mailed. Companion series (separate application): IAR Methodology Papers, https://instituteforautomatedresearch.org/papers/iar-m
+
+=== ATTACHMENTS (required — attach only at submit time) ===
+  1. Series home/cover page:   https://instituteforautomatedresearch.org/papers/iar-a
+     (save as PDF)
+  2. Title page / pub info:    same page (shows publisher, series name, ISSN line)
+  3. Table of contents:        the "Papers" list on that same page
+  4. A sample issue:           https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001
+     plus its PDF /papers/iar-a/iar-a-001.pdf
+  Acceptable: .pdf .jpg .png .doc .docx .rtf  | max 1 GB total
+
+=== AFTER ISSN IS GRANTED ===
+  Add <meta name="citation_issn" content="XXXX-XXXX"> to every landing page
+  in this series, and replace "ISSN forthcoming" / "Pending (IAR Autonomous
+  Papers)" copy in:
+    site/papers/index.html
+    site/papers/iar-a/index.html
+    site/papers/iar-a/iar-a-001.html
+  Update README.md "ISSN" section.

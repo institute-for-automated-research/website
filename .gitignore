@@ -11,3 +11,7 @@ __pycache__/
 node_modules/
 dist/
 .astro/
+
+# ISSN submission confirmations contain personal phone/home address — public repo
+docs/issn-attachments/issn-*-submission-*.pdf
+docs/issn-iar-a-zip-correction.txt
