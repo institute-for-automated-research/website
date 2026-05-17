@@ -39,7 +39,14 @@ export default defineConfig({
       pagination: false,
       lastUpdated: true,
       sidebar: [
-        { label: 'Overview', link: '/' },
+        {
+          // Absolute URL: Starlight base-prefixes internal links to /wiki,
+          // so this is the only way to point back out to the site root.
+          label: '← Institute for Automated Research',
+          link: 'https://instituteforautomatedresearch.org/',
+          attrs: { 'aria-label': 'Back to the Institute homepage' },
+        },
+        { label: 'Wiki overview', link: '/' },
         {
           label: 'Free & verified datasets',
           autogenerate: { directory: 'datasets' },
