@@ -113,6 +113,15 @@ for (const abs of files) {
       (vget('with') ? `${licensed ? ' · via ' : ' · tested with '}${vget('with')}` : '')
     : null;
 
+  // Tags: inline-flow YAML array "[a, b, c]" — the flat parser keeps it as
+  // a string; split it back out so the taxonomy is machine-readable in the
+  // concatenated corpus too.
+  const tags = (data.tags || '')
+    .replace(/^\[|\]$/g, '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+
   // 2a. Raw Markdown twin, filesystem-mirrored under dist/wiki/.
   const twin = join(dist, 'wiki', rel.replace(/\.mdx$/, '.md'));
   await mkdir(dirname(twin), { recursive: true });
@@ -124,6 +133,7 @@ for (const abs of files) {
     url: pageUrl(rel),
     mdUrl: `${SITE}/wiki/${rel.replace(/\.mdx$/, '.md')}`,
     verified,
+    tags,
     body,
   });
 }
@@ -160,7 +170,7 @@ const full = `# Institute for Automated Research — Wiki (full corpus)
 ${pages
   .map(
     (p) =>
-      `\n\n${'='.repeat(78)}\n# ${p.title}\n# ${p.url}\n${p.description ? `# ${p.description.replace(/\s+/g, ' ')}\n` : ''}${p.verified ? `# ${p.verified}\n` : ''}${'='.repeat(78)}\n\n${p.body}`
+      `\n\n${'='.repeat(78)}\n# ${p.title}\n# ${p.url}\n${p.description ? `# ${p.description.replace(/\s+/g, ' ')}\n` : ''}${p.verified ? `# ${p.verified}\n` : ''}${p.tags.length ? `# Tags: ${p.tags.join(', ')}\n` : ''}${'='.repeat(78)}\n\n${p.body}`
   )
   .join('\n')}
 `;

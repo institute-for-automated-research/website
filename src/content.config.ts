@@ -11,6 +11,14 @@ export const collections = {
       // llms-full.txt — this is what makes the wiki a *verified* knowledge
       // base rather than rehosted documentation.
       extend: z.object({
+        // Controlled-vocab tags for the /wiki/tags browse page + per-page
+        // chips. Four axes, kebab-case: topic (asset-pricing, factors,
+        // anomalies, macro, equities, fundamentals, filings, pensions),
+        // access (free, no-api-key, licensed), shape (panel-data,
+        // time-series, cross-section, event-data), source (federal-reserve,
+        // sec, dol, academic, wrds). Inline-flow YAML in frontmatter so the
+        // naive postbuild parser captures it too.
+        tags: z.array(z.string()).optional(),
         verified: z
           .object({
             // Accept quoted strings and YAML-native dates alike; normalize

@@ -7,6 +7,7 @@ description: >-
 sidebar:
   label: SEC EDGAR
   order: 2
+tags: [fundamentals, filings, event-data, free, no-api-key, sec]
 verified:
   date: 2026-05-16
   with: live data.sec.gov + efts.sec.gov fetch (submissions, XBRL, search)

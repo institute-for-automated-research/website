@@ -7,6 +7,7 @@ description: >-
 sidebar:
   label: WRDS / CRSP / Compustat
   order: 1
+tags: [equities, fundamentals, panel-data, licensed, wrds]
 verified:
   date: 2026-05-16
   with: live CRSP (crsp.msf) + Compustat (comp.funda) query through a licensed WRDS session

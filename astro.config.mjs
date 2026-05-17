@@ -69,6 +69,7 @@ export default defineConfig({
           attrs: { 'aria-label': 'Back to the Institute homepage' },
         },
         { label: 'Wiki overview', link: '/' },
+        { label: 'Browse by tag', link: '/tags' },
         {
           label: 'Free & verified datasets',
           autogenerate: { directory: 'datasets' },

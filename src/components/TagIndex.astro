@@ -1,0 +1,144 @@
+---
+// /wiki/tags browse page body. Reads the docs collection, groups every
+// tagged page by tag, and lays the tags out under their four taxonomy axes
+// (topic / access / shape / source — see content.config.ts). Pure build-time
+// component, zero client JS; anchors are plain in-page #tag links.
+import { getCollection } from 'astro:content';
+
+const AXES: { label: string; tags: string[] }[] = [
+  {
+    label: 'Topic',
+    tags: [
+      'asset-pricing',
+      'factors',
+      'anomalies',
+      'macro',
+      'equities',
+      'fundamentals',
+      'filings',
+      'pensions',
+    ],
+  },
+  { label: 'Access', tags: ['free', 'no-api-key', 'licensed'] },
+  {
+    label: 'Data shape',
+    tags: ['panel-data', 'time-series', 'cross-section', 'event-data'],
+  },
+  { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'academic', 'wrds'] },
+];
+
+const docs = await getCollection('docs');
+const byTag = new Map<string, { title: string; description: string; href: string }[]>();
+for (const d of docs) {
+  for (const t of d.data.tags ?? []) {
+    if (!byTag.has(t)) byTag.set(t, []);
+    // Collection id "datasets/fred" → /wiki/datasets/fred/ (directory URLs).
+    const slug = d.id.replace(/\/?index$/, '');
+    byTag.get(t)!.push({
+      title: d.data.title,
+      description: d.data.description ?? '',
+      href: `/wiki/${slug ? slug + '/' : ''}`,
+    });
+  }
+}
+for (const list of byTag.values())
+  list.sort((a, b) => a.title.localeCompare(b.title));
+
+// Only render tags that are actually used; flag any used tag missing from
+// the controlled vocabulary so drift is visible at build time.
+const known = new Set(AXES.flatMap((a) => a.tags));
+const orphans = [...byTag.keys()].filter((t) => !known.has(t)).sort();
+if (orphans.length)
+  console.warn(`[TagIndex] tags not in any axis: ${orphans.join(', ')}`);
+const axes = AXES.map((a) => ({
+  ...a,
+  tags: a.tags.filter((t) => byTag.has(t)),
+})).filter((a) => a.tags.length);
+---
+
+<div class="tag-cloud not-content">
+  {
+    axes.map((axis) => (
+      <div class="tag-axis">
+        <span class="tag-axis-label">{axis.label}</span>
+        {axis.tags.map((t) => (
+          <a href={`#${t}`}>
+            {t} <span class="tag-count">{byTag.get(t)!.length}</span>
+          </a>
+        ))}
+      </div>
+    ))
+  }
+</div>
+
+{
+  axes.flatMap((axis) =>
+    axis.tags.map((t) => (
+      <section id={t} class="tag-section">
+        <h2>
+          <span class="tag-axis-tag">{axis.label}</span> {t}
+        </h2>
+        <ul>
+          {byTag.get(t)!.map((p) => (
+            <li>
+              <a href={p.href}>{p.title}</a>
+              {p.description && <> — {p.description}</>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  )
+}
+
+<style>
+  .tag-cloud {
+    margin: 1rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .tag-axis {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .tag-axis-label {
+    font-size: var(--sl-text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sl-color-gray-3);
+    width: 6rem;
+    flex: none;
+  }
+  .tag-cloud a {
+    font-size: var(--sl-text-sm);
+    text-decoration: none;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 999px;
+    color: var(--sl-color-text);
+  }
+  .tag-cloud a:hover {
+    background: var(--sl-color-gray-6);
+  }
+  .tag-count {
+    color: var(--sl-color-gray-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .tag-section {
+    scroll-margin-top: 5rem;
+  }
+  .tag-section h2 {
+    text-transform: none;
+  }
+  .tag-axis-tag {
+    font-size: var(--sl-text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sl-color-gray-3);
+    vertical-align: middle;
+    margin-right: 0.3rem;
+  }
+</style>

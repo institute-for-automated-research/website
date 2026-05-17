@@ -6,6 +6,7 @@
 import Default from '@astrojs/starlight/components/PageTitle.astro';
 
 const v = Astro.locals.starlightRoute?.entry?.data?.verified;
+const tags: string[] = Astro.locals.starlightRoute?.entry?.data?.tags ?? [];
 const fmt = (d: string) =>
   new Date(d).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -44,7 +45,34 @@ const fmt = (d: string) =>
     })()
 }
 
+{
+  tags.length > 0 && (
+    <p class="iar-tags not-content" aria-label="Tags">
+      {tags.map((t) => (
+        <a href={`/wiki/tags/#${t}`}>{t}</a>
+      ))}
+    </p>
+  )
+}
+
 <style>
+  .iar-tags {
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .iar-tags a {
+    font-size: var(--sl-text-xs);
+    text-decoration: none;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 999px;
+    color: var(--sl-color-gray-2);
+  }
+  .iar-tags a:hover {
+    background: var(--sl-color-gray-6);
+  }
   .iar-verified {
     margin: 0.4rem 0 0;
     font-size: var(--sl-text-sm);
