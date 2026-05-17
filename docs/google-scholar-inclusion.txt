@@ -1,0 +1,66 @@
+GOOGLE SCHOLAR INCLUSION REQUEST — prep sheet
+Form: https://scholar.google.com/intl/en/scholar/inclusion.html
+      ("Inclusion" → smaller publishers / "submit a request" — content
+      provider / publisher path, NOT the personal-homepage path: this is
+      a structured working-paper repository with citation_ meta tags.)
+
+WHY WE QUALIFY FOR THE PUBLISHER PATH
+- Two working-paper series with stable, citable URLs and a browse
+  interface (series index → abstract page → full-text PDF).
+- Each abstract page carries Highwire/Scholar meta tags using the
+  technical-report tag set (citation_technical_report_institution +
+  citation_technical_report_number); no conflicting journal tags.
+- Full text is a freely downloadable PDF; first page has the title in
+  large font at top, author directly below, then abstract — parser-clean.
+- robots.txt allows all crawlers; sitemap.xml lists every abstract page.
+
+FORM FIELD ANSWERS
+Your name:            Alejandro Lopez-Lira
+Email:                alejandro.lopez-lira@warrington.ufl.edu
+Website / repository: Institute for Automated Research — Working Papers
+URL of the website:   https://instituteforautomatedresearch.org/papers/
+
+Browse interface (lists all papers, links to each abstract page):
+  https://instituteforautomatedresearch.org/papers/iar-a/
+  https://instituteforautomatedresearch.org/papers/iar-m/
+
+Example abstract (HTML) pages — these carry the citation_ meta tags:
+  https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001
+  https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001
+
+Corresponding full-text PDFs (freely downloadable, no auth):
+  https://instituteforautomatedresearch.org/papers/iar-a/iar-a-001.pdf
+  https://instituteforautomatedresearch.org/papers/iar-m/iar-m-001.pdf
+
+Mirror of record at Zenodo (open access, DOI-assigned, PDF attached —
+Scholar already crawls Zenodo; cite these as the strongest signal):
+  https://zenodo.org/records/20127843  (DOI 10.5281/zenodo.20127843, IAR-M-001)
+  https://zenodo.org/records/20127841  (DOI 10.5281/zenodo.20127841, IAR-A-001)
+
+Sitemap:   https://instituteforautomatedresearch.org/sitemap.xml
+robots.txt: https://instituteforautomatedresearch.org/robots.txt (Allow: /)
+
+MESSAGE / DESCRIPTION (paste into the free-text box)
+The Institute for Automated Research publishes two working-paper series
+(IAR Autonomous Papers, IAR Methodology Papers) at stable, citable URLs,
+in the tradition of NBER/SSRN preprint series. Each paper has an HTML
+abstract page with Google Scholar citation meta tags (technical-report
+tag set) linking to a freely downloadable full-text PDF; papers are
+reachable from a per-series browse index, and a sitemap is provided.
+We would like the series indexed in Google Scholar. ISSNs have been
+applied for with the U.S. ISSN Center and are pending.
+
+CHECKLIST BEFORE SUBMITTING
+[ ] Each new paper added to its series index (browse interface) and to
+    sitemap.xml — Scholar re-crawls from the index.
+[ ] Every abstract page: citation_title, citation_author,
+    citation_publication_date, citation_pdf_url, and the
+    citation_technical_report_* pair. NO citation_journal_title.
+[ ] PDF first page: title in large font at top, author directly below.
+[ ] Allow several weeks after submission before expecting coverage.
+
+NOTE
+Even with a correct request, Scholar inclusion for a new low-citation
+domain commonly takes weeks to a few months. Re-check with the query:
+  site:instituteforautomatedresearch.org   (on scholar.google.com)
+or search the exact paper title in Google Scholar.
