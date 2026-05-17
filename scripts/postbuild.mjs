@@ -34,6 +34,13 @@ if (!existsSync(join(dist, 'wiki'))) {
 await cp(site, dist, { recursive: true });
 console.log('[postbuild] copied site/ → dist/ (homepage + papers at root)');
 
+// 1b. Starlight base-prefixes its `favicon` option, so /wiki/* pages link
+//     /wiki/favicon.svg. The asset's real home is the deploy root (copied
+//     above from site/); mirror it under dist/wiki/ so that link resolves
+//     0-hop instead of 404ing. Single source stays site/favicon.svg.
+await cp(join(site, 'favicon.svg'), join(dist, 'wiki', 'favicon.svg'));
+console.log('[postbuild] mirrored favicon.svg → dist/wiki/ (Starlight base)');
+
 // Walk src/content/docs for *.md.
 async function walk(dir) {
   const out = [];

@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 112 112" role="img" aria-label="Institute for Automated Research">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 104 104" role="img" aria-label="Institute for Automated Research">
   <title>Institute for Automated Research</title>
   
-  <g fill="none" stroke="#5a3d2b" stroke-width="3.4" stroke-linecap="round">
+  <g fill="none" stroke="#1a1a1a" stroke-width="3.4" stroke-linecap="round">
     <path d="M 64.848 15.021 A 38.0 38.0 0 1 1 35.152 15.021"/>
   </g>
-  <path d="M 35.152 15.021 L 29.133 20.292 L 27.180 15.689 Z" fill="#5a3d2b"/>
+  <path d="M 35.152 15.021 L 29.133 20.292 L 27.180 15.689 Z" fill="#1a1a1a"/>
   <g fill="#1a1a1a">
     <g transform="translate(26.2908 57.9613) scale(0.023313 -0.023313)"><path d="M350 641V681C230 678 230 678 194 678C159 678 158 678 39 681V641L76 638C123 634 123 634 124 543V135C123 74 122 58 115 51C109 45 100 42 76 40L39 37V-3C123 -1 159 0 194 0C230 0 265 -1 350 -3V37L313 40C290 42 281 44 275 50C267 58 266 72 265 135V543C266 603 267 619 274 627C280 633 289 636 313 638Z"/></g>
     <g transform="translate(36.7583 57.9613) scale(0.023313 -0.023313)"><path d="M469 206 514 92C518 82 520 72 520 64C520 49 511 38 500 37L447 34V-3C533 -1 579 0 599 0C618 0 667 -1 757 -3V34L733 37C705 41 691 52 678 81L419 686H348C334 649 324 622 320 611C306 572 296 546 291 535L110 97C93 58 76 39 54 37L24 34V-3C98 -1 135 0 137 0C147 0 166 0 193 -1C201 -2 220 -2 250 -3V34L200 37C183 38 171 52 171 69C171 76 173 85 176 94L218 206ZM342 516 446 262H242Z"/></g>
