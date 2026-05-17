@@ -1,78 +1,109 @@
 # instituteforautomatedresearch.org
 
-Static landing page. Deployed via Vercel.
+Source for the **Institute for Automated Research** website — the homepage,
+the working-paper series, and the public wiki. Live at
+<https://instituteforautomatedresearch.org>.
+
+One repo, one Vercel project, one build. Push to `main` → Vercel deploys.
+
+## What's here
+
+| Path | What it is | Served at |
+|---|---|---|
+| `site/` | Hand-authored homepage, `about`, and the working-paper series. Plain HTML, no framework. Copied **verbatim** to the deploy root. | `/`, `/about`, `/papers/...` |
+| `src/content/docs/**.md` | The **wiki** — Astro [Starlight](https://starlight.astro.build), Markdown content. | `/wiki/...` |
+| `scripts/postbuild.mjs` | After `astro build`: lays `site/` at the root, writes raw `.md` twins, `/llms.txt`, `/llms-full.txt`. | — |
+| `scripts/zenodo_mint.py` | Mints Zenodo DOIs for papers from their `citation_*` tags. | — |
+| `api/` | Vercel functions: GitHub OAuth relay for the browser CMS. | `/api/*` |
+| `vercel.json` | `cleanUrls`, www→apex + `/zeropaper.pdf` redirects. **No `trailingSlash`** (it would 308 every wiki link). | — |
+| `CLAUDE.md` | Architecture + the **Verified discipline** (read before editing wiki content). | — |
+
+The wiki is intentionally LLM-scrapable: every page has a raw `.md` twin at
+the same path + `.md`, plus `/llms.txt` and `/llms-full.txt`, and
+`robots.txt` explicitly welcomes AI crawlers.
+
+## Develop
+
+```bash
+npm install
+npm run dev      # local Starlight dev server
+npm run build    # astro build + postbuild → dist/
+```
 
 ## Deploy
 
-```bash
-# First time
-npx vercel --prod
+Push to `main`. Vercel is connected to this repo and auto-deploys; there is
+**no manual `vercel --prod` step**. `vercel.json` carries the build command,
+output dir, and redirects. (Domain/DNS is already configured on the Vercel
+project.)
 
-# Subsequent
-npx vercel --prod
+## Contributing
+
+Content is **reviewed before publishing** — provenance and accuracy are the
+point of this institute.
+
+- **Small fixes:** the *Edit page* link on any wiki article → opens a PR.
+- **Requests / corrections:** [open an issue](https://github.com/institute-for-automated-research/website/issues/new/choose)
+  (dataset/topic request or error report), or email
+  `contact@instituteforautomatedresearch.org`.
+- **Browser editing:** Sveltia CMS at `/wiki/admin/` — one-time setup in
+  [`docs/CMS-SETUP.md`](docs/CMS-SETUP.md).
+
+### Adding a wiki page
+
+Create `src/content/docs/<section>/<slug>.md`, follow the dataset-page
+template (`src/content/docs/datasets/fred.md`), and **only add a `verified:`
+stamp after actually running the page's keystone claim in-session** — see the
+Verified discipline in [`CLAUDE.md`](CLAUDE.md). Free sources get the green
+"Verified" badge; licensed-but-exercised sources get the amber "Access
+confirmed (licensed)" badge (`verified.access: licensed`).
+
+## Adding a paper
+
+1. Copy the PDF to `site/papers/iar-<a|m>/iar-<a|m>-NNN.pdf` (≤5 MB,
+   text-extractable).
+2. Copy an existing landing page (e.g. `site/papers/iar-a/iar-a-001.html`) and
+   update title, authors, date, abstract, `citation_*` meta tags, citation
+   block.
+3. Add a row to `site/papers/iar-<a|m>/index.html`.
+4. Add the new URLs to `site/sitemap.xml`.
+5. Push. Then request re-indexing in
+   [Google Search Console](https://search.google.com/search-console).
+
+### Google Scholar indexing
+
+Scholar crawls via Google Search — no direct submission. After deploy, submit
+`sitemap.xml` and request indexing on each series index page. Initial Scholar
+appearance takes ~4–10 weeks; **metadata fixes take 6–9 months to
+propagate**, so verify `citation_*` tags before posting. Required per paper
+(already in the templates): `citation_title`, `citation_author`
+("Last, First", one per author), `citation_publication_date` (`YYYY/MM/DD`),
+`citation_pdf_url`, `citation_journal_title`.
+
+### DOIs via Zenodo
+
+`scripts/zenodo_mint.py` reads a landing page's `citation_*` tags, uploads the
+PDF, publishes the Zenodo deposit, and writes the DOI back into the page and
+BibTeX. Pure stdlib, no `pip install`.
+
+```bash
+export ZENODO_TOKEN=...          # zenodo.org → tokens, scopes: deposit:write, deposit:actions
+python3 scripts/zenodo_mint.py site/papers/iar-a/iar-a-001 --dry-run
+python3 scripts/zenodo_mint.py site/papers/iar-a/iar-a-001 --sandbox
+python3 scripts/zenodo_mint.py site/papers/iar-a/iar-a-001            # production
 ```
 
-After first deploy, add the domain in Vercel dashboard:
-- Project Settings → Domains → Add `instituteforautomatedresearch.org` and `www.instituteforautomatedresearch.org`
-- Vercel will show the DNS records to add at Namecheap (one A record for apex, one CNAME for www)
+Skips papers that already have a DOI unless `--force`. Push after minting.
 
-## Files
+### ISSN (in progress)
 
-- `index.html` — homepage, inline CSS, no build step
-- `papers/index.html` — Working Papers hub
-- `papers/iar-a/` — **IAR Autonomous Papers** series (papers produced by the ZeroPaper pipeline)
-  - `index.html` — series browse page
-  - `iar-a-NNN.html` — per-paper landing page with Google Scholar `citation_*` metadata
-  - `iar-a-NNN.pdf` — the PDF
-- `papers/iar-m/` — **IAR Methodology Papers** series (human research about automating papers)
-  - same layout as `iar-a/`
-- `sitemap.xml` — submit to [Google Search Console](https://search.google.com/search-console) after each deploy
-- `robots.txt` — allows all crawlers, points at sitemap
-- `vercel.json` — `cleanUrls: true` (so `/papers/iar-a/iar-a-001` serves `iar-a-001.html`), www→apex redirect, and a 301 from `/zeropaper.pdf` to `/papers/iar-m/iar-m-001.pdf`
+Two free online ISSNs requested at [issn.org](https://www.issn.org/) — one per
+series (IAR Autonomous Papers, IAR Methodology Papers). Once granted, add
+`<meta name="citation_issn" content="XXXX-XXXX">` to every landing page in the
+matching series.
 
-## Adding a new paper
+## Secrets
 
-1. Copy the PDF to `papers/iar-<a|m>/iar-<a|m>-NNN.pdf` (must be ≤5 MB, text-extractable).
-2. Copy an existing landing page (e.g. `iar-a-001.html`) and update: title, authors, date, abstract, `citation_*` meta tags, citation block.
-3. Add a row to `papers/iar-<a|m>/index.html`.
-4. Add the new URLs to `sitemap.xml`.
-5. Redeploy (`npx vercel --prod`), then request re-indexing in Search Console.
-
-## Google Scholar indexing
-
-- No direct submission to Scholar — it crawls via Google Search.
-- After first deploy, verify the domain in [Google Search Console](https://search.google.com/search-console), submit `sitemap.xml`, request indexing on each series index page.
-- Expect 4–10 weeks to initial Scholar appearance. **Metadata fixes take 6–9 months to propagate**, so verify `citation_*` tags before posting.
-- Required tags per paper (already wired into the templates): `citation_title`, `citation_author` (one per author, "Last, First"), `citation_publication_date` (`YYYY/MM/DD`), `citation_pdf_url`, `citation_journal_title`.
-
-## ISSN (in progress)
-
-Two free online ISSNs requested at [issn.org](https://www.issn.org/) — one for each series:
-- IAR Autonomous Papers
-- IAR Methodology Papers
-
-Once granted, add `<meta name="citation_issn" content="XXXX-XXXX">` to every landing page in the matching series.
-
-## DOIs via Zenodo
-
-Every paper gets a free DOI minted through [Zenodo](https://zenodo.org)'s API. The script `scripts/zenodo_mint.py` reads metadata from a landing page's `citation_*` tags, uploads the PDF, publishes the deposit, and writes the DOI back into the landing page (meta tag, details list, citation block, BibTeX).
-
-```bash
-# One-time: get a token at https://zenodo.org/account/settings/applications/tokens/new
-# (scopes: deposit:write, deposit:actions)
-export ZENODO_TOKEN=...
-
-# Dry-run to inspect parsed metadata first
-python3 scripts/zenodo_mint.py papers/iar-a/iar-a-001 --dry-run
-
-# Test against the sandbox (free, separate account at sandbox.zenodo.org)
-python3 scripts/zenodo_mint.py papers/iar-a/iar-a-001 --sandbox
-
-# Production
-python3 scripts/zenodo_mint.py papers/iar-a/iar-a-001
-
-# Bulk
-python3 scripts/zenodo_mint.py papers/iar-a/iar-a-001 papers/iar-a/iar-a-002 ...
-```
-
-Pure stdlib, no `pip install` needed. Skips papers that already have a DOI unless `--force` is passed. After minting, redeploy and request reindexing in Search Console.
+`.env` (holds the Zenodo token) and `.vercel/` are gitignored and have never
+been committed. This repo is public — re-check `git status` before any push.
+CMS OAuth secrets live in Vercel env vars, not here (see `docs/CMS-SETUP.md`).
