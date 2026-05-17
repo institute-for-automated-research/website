@@ -7,10 +7,12 @@
     serif;
   --sl-font-mono: 'SF Mono', Menlo, Consolas, monospace;
 
-  /* Brand accent — the homepage's --accent #5a3d2b (warm brown). */
-  --sl-color-accent-low: #e8ddd5;
-  --sl-color-accent: #5a3d2b;
-  --sl-color-accent-high: #3f2a1d;
+  /* Link / accent — a restrained editorial blue, not the old brown.
+     :root = dark theme; tuned for contrast on the dark background. */
+  --sl-color-accent-low: #15233b;
+  --sl-color-accent: #4f8fef;
+  --sl-color-accent-high: #bcd6ff;
+  --sl-color-text-accent: #7fb0ff;
 }
 
 /* Light theme tuned to the homepage's paper-cream background. */
@@ -29,7 +31,11 @@
   --sl-color-bg-sidebar: #fafaf7;
   --sl-color-hairline: #e0e0e0;
   --sl-color-hairline-light: #e8e5dd;
-  --sl-color-text-accent: #5a3d2b;
+  /* Deep editorial blue on the paper-cream background. */
+  --sl-color-accent-low: #d8e4fb;
+  --sl-color-accent: #1f5fbf;
+  --sl-color-accent-high: #143f86;
+  --sl-color-text-accent: #1f5fbf;
 }
 
 /* Headings: slightly tighter, matching the homepage h1/h2 treatment. */
