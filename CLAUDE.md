@@ -5,6 +5,38 @@ Research. Static, deployed on Vercel. Repo:
 `github.com/institute-for-automated-research/website` (push to `main` →
 Vercel auto-deploys).
 
+## Sibling repo: the ZeroPaper pipeline (papers originate there)
+
+This repo mostly **publishes** what the ZeroPaper pipeline produces — it
+does not produce it. The pipeline is a **separate repo**:
+
+- Local: `../../NewPapers/zeropaper` (relative to this repo's parent)
+- GitHub: `https://github.com/alejandroll10/zeropaper`
+
+Two kinds of content here derive from it:
+
+1. **IAR-A (autonomous) paper PDFs** in `site/papers/iar-a/` are pipeline
+   output. PDF conventions are **owned there, not here**: bibliography
+   style (unnumbered author-year — deliberate, Scholar-indexed fine), the
+   human-operator byline + in-body provenance disclosure, and the citation
+   format. The companion paper's citation lives in that repo's `README.md`.
+2. **Wiki dataset pages** (`src/content/docs/datasets/*`, `licensed/wrds.md`)
+   and the pipeline's empirical *skills*
+   (`extensions/empirical/skills/<dataset>/SKILL.md`: fred, edgar,
+   ken-french, flex-mining, chen-zimmerman→open-source-asset-pricing,
+   wrds, …) are **two mirrors of the same dataset knowledge, kept in
+   sync both ways**. A new dataset may be authored here first (then
+   ported into a pipeline skill) or originate as a skill (then published
+   here) — neither is the sole canonical source. Editing/verifying pages
+   *here* is expected (see "Adding a wiki page" + the `Verified`
+   discipline below); a substantive change to access method or gotchas
+   on either side should be propagated to the other, or they drift apart.
+
+Don't "fix" a PDF or its landing page by hand-editing in this repo —
+that change belongs in the pipeline, then regenerate. For dataset
+knowledge, edit+verify here, but mirror the change into the pipeline
+skill (or vice versa).
+
 ## Architecture: one unified Astro build
 
 There is **no separate wiki project**. A single `npm run build` produces the
