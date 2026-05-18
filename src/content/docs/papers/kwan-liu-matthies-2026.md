@@ -51,29 +51,6 @@ attention tracks holdings ("attention habitats"), and attention to a stock
 predicts that position's value-add — most so for value-relevant news and for
 buying hedge funds, whose attention predicts stock returns.
 
-## Provenance & rights
-
-Structured facts live in this page's frontmatter (`paper:` block). The
-licence-verification trail and takedown policy are on the
-[Open Library](/library); this is the at-a-glance summary.
-
-| Field | Value |
-|---|---|
-| Source standing | Peer-reviewed — *J. Finance* 81(2), accepted 2024-06-15 |
-| Licence | **CC BY 4.0** — confirmed (publisher's Crossref DOI metadata: `vor`, 0-day embargo; artifact p.791 corroborates) |
-| Access | Open licence; publisher copy `blocked-402` to machines (Wiley `/doi /full /pdf /epdf`, 2026-05-17) |
-| Redistribution | `hosted` — verbatim version-of-record PDF, within licence |
-| Extraction | `claude-opus-4-7` · 2026-05-17 · *extracted* — **not human-verified, not reproduced** |
-| Rights-signal conflict | Publisher HTML "all rights reserved" vs its own Crossref CC-BY → CC-BY governs |
-
-> **Attribution (CC BY 4.0).** Kwan, Alan, Yukun Liu, and Ben Matthies.
-> "Institutional Investor Attention." *The Journal of Finance* 81, no. 2
-> (April 2026): 791–827. DOI: 10.1111/jofi.70009. © 2026 The Author(s).
-> Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-> This page is an **adaptation** by the Institute for Automated Research —
-> core results extracted and re-expressed; **changes were made**. The
-> verbatim, unmodified PDF is mirrored in the [Open Library](/library).
-
 ## Core results
 
 Magnitudes and significance are as reported; `**`/`***` = 5%/1%. Locators
@@ -134,3 +111,20 @@ review where the Internet Appendix robustness matters; or auditing a
 specific coefficient — the locators above point you to the exact table. For
 "what did this paper find," the table above is sufficient and is the
 intended default.
+
+## Attribution & rights
+
+Provenance is structured, not prose: see this page's `paper:` frontmatter
+(licence, machine-access, the licence-verification trail, and the
+`extraction` attestation list) and the tag chips at the top (`cc-by`,
+`open-access`, `peer-reviewed`, `unreplicated`). Honest limits:
+LLM-extracted 2026-05-17, **not human-verified, not reproduced**. Full
+verification trail and takedown policy: [Open Library](/library).
+
+> **Attribution (CC BY 4.0).** Kwan, Alan, Yukun Liu, and Ben Matthies.
+> "Institutional Investor Attention." *The Journal of Finance* 81, no. 2
+> (April 2026): 791–827. DOI: 10.1111/jofi.70009. © 2026 The Author(s).
+> Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+> This page is an **adaptation** by the Institute for Automated Research —
+> core results extracted and re-expressed; **changes were made**. The
+> verbatim, unmodified PDF is mirrored in the [Open Library](/library).
