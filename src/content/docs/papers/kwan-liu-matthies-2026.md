@@ -15,10 +15,15 @@ paper:
   year: 2026
   venue: The Journal of Finance 81(2), April 2026, 791–827
   doi: 10.1111/jofi.70009
-  license: CC BY 4.0 (asserted — artifact p.791 states "Creative Commons Attribution License", version unspecified; recorded as the publisher/AFA open-access standard)
+  license: 'CC BY 4.0 (confirmed via Crossref DOI metadata — content-version vor, URL creativecommons.org/licenses/by/4.0, delay-in-days 0, start 2026-01-16; corroborated by artifact p.791 Creative Commons Attribution License)'
   access: open
-  machineAccess: blocked-402 (Wiley; /doi /full /pdf /epdf all tested 2026-05-17)
+  machineAccess: 'blocked-402 (Wiley site wrapper; /doi /full /pdf /epdf all tested 2026-05-17 — the paywalled wrapper does not override the CC-BY VOR licence in the publishers own DOI metadata)'
   redistribution: hosted
+  licenceVerification:
+    - source: Crossref REST API works/10.1111/jofi.70009
+      checked: 2026-05-17
+      by: claude-opus-4-7
+      found: 'license[].content-version=vor, URL=http://creativecommons.org/licenses/by/4.0/, delay-in-days=0'
   pdf: /library/kwan-liu-matthies-2026-institutional-investor-attention.pdf
   extraction:
     - by: claude-opus-4-7
@@ -48,37 +53,18 @@ buying hedge funds, whose attention predicts stock returns.
 
 ## Provenance & rights
 
-This is the **Verified discipline applied to a third party's paper**: each
-fact below is recorded as observed, with its limits stated, not implied.
+Structured facts live in this page's frontmatter (`paper:` block). The
+licence-verification trail and takedown policy are on the
+[Open Library](/library); this is the at-a-glance summary.
 
-- **Source standing** — peer-reviewed. *The Journal of Finance* 81(2),
-  pp. 791–827; received 25 Apr 2022, accepted 15 Jun 2024 (editors Nagel,
-  Bond, Seru, Xiong). This is *source-standing*, not a claim that our
-  extraction is faithful — those are independent.
-- **Extraction fidelity** — distillation attestations, oldest first; each
-  re-check *appends*, nothing is overwritten:
-  - `extracted` · `claude-opus-4-7` · **2026-05-17** — full text read
-    (pp. 791–827), the eight results extracted from the CC-BY PDF.
-    **Not human-verified.**
-
-  When another model or a named human later re-checks this distillation
-  against the source, a new line (`verified` / `reproduced` · who · date)
-  is added — attestations stack into an audit trail.
-- **Reproduction** — **not reproduced.** Replication code *is* published
-  (Supporting Information), so reproduction is *feasible*; it has not been
-  run here. Status: `unreplicated`.
-- **Licence** — `CC BY 4.0` (asserted). The article's first page (p. 791)
-  states "Creative Commons Attribution License" with no version; recorded
-  as CC BY 4.0, the Wiley/AFA open-access standard. CC BY 4.0 permits
-  redistribution and adaptation in any medium, even commercially, with
-  attribution.
-- **Machine access** — `blocked-402`. Every Wiley endpoint (`/doi/`,
-  `/full/`, `/pdf/`, `/epdf/`) returned HTTP 402 Payment Required to an
-  automated client when checked 2026-05-17.
-- **Rights-signal conflict** — `true`. The publisher's site wrapper labels
-  this CC-BY article "all rights reserved." Disclosed, not adjudicated:
-  the article's own licence statement governs reuse; the discrepancy is
-  recorded as provenance.
+| Field | Value |
+|---|---|
+| Source standing | Peer-reviewed — *J. Finance* 81(2), accepted 2024-06-15 |
+| Licence | **CC BY 4.0** — confirmed (publisher's Crossref DOI metadata: `vor`, 0-day embargo; artifact p.791 corroborates) |
+| Access | Open licence; publisher copy `blocked-402` to machines (Wiley `/doi /full /pdf /epdf`, 2026-05-17) |
+| Redistribution | `hosted` — verbatim version-of-record PDF, within licence |
+| Extraction | `claude-opus-4-7` · 2026-05-17 · *extracted* — **not human-verified, not reproduced** |
+| Rights-signal conflict | Publisher HTML "all rights reserved" vs its own Crossref CC-BY → CC-BY governs |
 
 > **Attribution (CC BY 4.0).** Kwan, Alan, Yukun Liu, and Ben Matthies.
 > "Institutional Investor Attention." *The Journal of Finance* 81, no. 2

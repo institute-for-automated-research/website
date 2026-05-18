@@ -38,7 +38,11 @@ export const collections = {
             // What an automated fetch of the canonical source returns,
             // with date — e.g. "blocked-402 (Wiley, 2026-05-17)".
             machineAccess: z.string(),
-            redistribution: z.enum(['hosted', 'extract-only']),
+            // Descriptive (like license/machineAccess), not an enum:
+            // starts with the disposition (hosted / extract-only) and may
+            // carry the licence rationale. Kept structured in frontmatter
+            // so the rationale stays out of page prose.
+            redistribution: z.string(),
             // Hosted verbatim mirror, site-root path (omit if extract-only).
             pdf: z.string().optional(),
             // Distillation provenance as a *list* of attestations, not a
@@ -61,6 +65,24 @@ export const collections = {
                 })
               )
               .min(1),
+            // Licence-verification trail: where the licence was confirmed
+            // against an authoritative source (not the artifact alone),
+            // when, by what, and the raw finding. Structured so the "how
+            // we proved it" lives in metadata, not page prose.
+            licenceVerification: z
+              .array(
+                z.object({
+                  source: z.string(), // e.g. "Crossref REST works/<doi>"
+                  checked: z
+                    .union([z.string(), z.date()])
+                    .transform((d) =>
+                      (d instanceof Date ? d.toISOString() : d).slice(0, 10)
+                    ),
+                  by: z.string(),
+                  found: z.string(),
+                })
+              )
+              .optional(),
             rightsSignalConflict: z.boolean().default(false),
           })
           .optional(),
