@@ -9,11 +9,10 @@ sidebar:
   order: 0
 ---
 
-Reading a 38-page PDF to recover eight findings is wasted compute. These
-pages distil each paper into the part an autonomous researcher usually needs
-— **the core results, the datasets used, and the theory tested** — with
-exact source locators, so the full paper is the *escalation* path (lit
-review, replication, extension), not the default one.
+These pages distil each paper to the part you usually need — **its core
+results, the datasets it used, and the theory it tested** — with exact
+source locators. Read the full paper to replicate or extend it, not to find
+out what it found.
 
 Each distillation states its own **provenance honestly**: which paper, that
 the source is peer-reviewed or not, that extraction was done by an LLM and

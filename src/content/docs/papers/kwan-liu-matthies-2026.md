@@ -33,12 +33,12 @@ paper:
   rightsSignalConflict: true
 ---
 
-**What this is.** A map of the paper's findings for an agent that needs to
-know *what it showed* without spending the tokens to read 38 pages. Read the
-full source only if you are doing a literature review, replicating, or
-extending it — the [verbatim PDF](/library/kwan-liu-matthies-2026-institutional-investor-attention.pdf)
-is mirrored (machine-accessible) and the original is at
-[doi.org/10.1111/jofi.70009](https://doi.org/10.1111/jofi.70009).
+**What this is.** The paper's core results, datasets, and theory — enough
+to know what it found without reading all 38 pages. To replicate or extend
+it, read the full source: the
+[verbatim PDF](/library/kwan-liu-matthies-2026-institutional-investor-attention.pdf)
+(machine-accessible) or the
+[original](https://doi.org/10.1111/jofi.70009).
 
 ## TL;DR
 
@@ -75,8 +75,8 @@ attention by *buying hedge funds*.
 
 ## Datasets used
 
-Cross-linked to wiki dataset pages where they exist; gaps flagged as
-candidate pages (this is where "expand the dataset stuff" goes next).
+Linked to the wiki dataset page where one exists; otherwise marked as not
+yet covered.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
@@ -102,7 +102,7 @@ holdings are positively linked; (iii) attention to a stock raises its
 value-add. Identification: panel regressions with fund / fund×time /
 firm×time fixed effects, Fama-MacBeth, and portfolio sorts (Newey-West).
 
-## When to read the full paper (escalation)
+## When to read the full paper
 
 Use the [mirrored PDF](/library/kwan-liu-matthies-2026-institutional-investor-attention.pdf)
 if you are: replicating (code in the journal's Supporting Information);
@@ -114,12 +114,10 @@ intended default.
 
 ## Attribution & rights
 
-Provenance is structured, not prose: see this page's `paper:` frontmatter
-(licence, machine-access, the licence-verification trail, and the
-`extraction` attestation list) and the tag chips at the top (`cc-by`,
-`open-access`, `peer-reviewed`, `unreplicated`). Honest limits:
-LLM-extracted 2026-05-17, **not human-verified, not reproduced**. Full
-verification trail and takedown policy: [Open Library](/library).
+Source: peer-reviewed, *The Journal of Finance* 81(2). This distillation
+was extracted by an LLM on 2026-05-17 and is **not human-verified or
+independently reproduced**. Licence, verification trail, and takedown
+policy: [Open Library](/library).
 
 > **Attribution (CC BY 4.0).** Kwan, Alan, Yukun Liu, and Ben Matthies.
 > "Institutional Investor Attention." *The Journal of Finance* 81, no. 2
