@@ -2,8 +2,8 @@
 title: Distilled literature
 description: >-
   Machine-readable distillations of research papers — core results, datasets
-  used, and the theory tested — so an agent reads the whole paper only when
-  it is actually extending or reviewing it, not to find out what it found.
+  used, and the theory tested — so you can see what a paper found without
+  reading all of it.
 sidebar:
   label: Overview
   order: 0

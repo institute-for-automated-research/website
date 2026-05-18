@@ -1,5 +1,7 @@
 # CLAUDE.md — instituteforautomatedresearch.org
 
+AFTER EVERY BIG CHANGE  SPAN A SONNET AGENT TO REVIEW YOUR CHANGES FOR ISSUES. IF ANY ISSUES ARE FOUND, ADD A NEW ROUND OF AUDITING AFTER FIXING THE CURRENT ROUND'S ISSUES (EVEN IF THERE ARE ONLY MINOR CHANGES). ITERATE UNTIL DONE.
+
 Public website + working-paper series + wiki for the Institute for Automated
 Research. Static, deployed on Vercel. Repo:
 `github.com/institute-for-automated-research/website` (push to `main` →

@@ -75,18 +75,15 @@ attention by *buying hedge funds*.
 
 ## Datasets used
 
-Linked to the wiki dataset page where one exists; otherwise marked as not
-yet covered.
-
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Proprietary Internet news-reading data ("Data Partner", anonymized analytics firm), Nov 2017–Jun 2022 | The attention measure itself | Proprietary — not public, not redistributable; no page |
-| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | *Candidate page* (commercial) |
-| FactSet LionShares | Institutional holdings (13-F), institution classification | *Candidate page* (commercial) |
+| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | No wiki page yet (commercial dataset) |
+| FactSet LionShares | Institutional holdings (13-F), institution classification | No wiki page yet (commercial dataset) |
 | CRSP & Compustat | Returns, fundamentals, stock characteristics | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | VIX (CBOE) | Aggregate-volatility measure (VIX²) | [FRED](/wiki/datasets/fred/) — free, series `VIXCLS` |
 | SEC Form ADV, Form N-1A | Fund descriptions for classification | [SEC EDGAR](/wiki/datasets/edgar/) for N-1A; Form ADV is via SEC IAPD, *not* EDGAR — caveat |
-| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | *Candidate page* |
+| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | No wiki page yet |
 
 Sample: 481,820,400 fund-firm-quarters; 4,075 distinct funds.
 
