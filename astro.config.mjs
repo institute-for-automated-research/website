@@ -71,6 +71,10 @@ export default defineConfig({
         { label: 'Wiki overview', link: '/' },
         { label: 'Browse by tag', link: '/tags' },
         {
+          label: 'Distilled literature',
+          autogenerate: { directory: 'papers' },
+        },
+        {
           label: 'Free & verified datasets',
           autogenerate: { directory: 'datasets' },
         },

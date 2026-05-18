@@ -6,6 +6,7 @@
 import { getCollection } from 'astro:content';
 
 const AXES: { label: string; tags: string[] }[] = [
+  { label: 'Kind', tags: ['paper-summary'] },
   {
     label: 'Topic',
     tags: [
@@ -17,14 +18,26 @@ const AXES: { label: string; tags: string[] }[] = [
       'fundamentals',
       'filings',
       'pensions',
+      'limited-attention',
+      'institutional-investors',
+      'return-predictability',
+      'fund-performance',
     ],
   },
-  { label: 'Access', tags: ['free', 'no-api-key', 'licensed'] },
+  {
+    label: 'Method',
+    tags: ['panel-regression', 'fama-macbeth', 'portfolio-sort'],
+  },
+  {
+    label: 'Access',
+    tags: ['free', 'no-api-key', 'licensed', 'open-access', 'cc-by'],
+  },
   {
     label: 'Data shape',
     tags: ['panel-data', 'time-series', 'cross-section', 'event-data'],
   },
   { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'academic', 'wrds'] },
+  { label: 'Status', tags: ['peer-reviewed', 'unreplicated'] },
 ];
 
 const docs = await getCollection('docs');

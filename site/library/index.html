@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Library — Institute for Automated Research</title>
+<meta name="description" content="A machine-accessible mirror of openly-licensed (Creative Commons) research papers whose publishers block automated readers. Verbatim PDFs, full attribution, and links to distilled, machine-readable summaries.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://instituteforautomatedresearch.org/library">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Institute for Automated Research">
+<meta property="og:title" content="Open Library — Institute for Automated Research">
+<meta property="og:description" content="A machine-accessible mirror of openly-licensed research papers whose publishers block automated readers.">
+<meta property="og:url" content="https://instituteforautomatedresearch.org/library">
+<meta property="og:image" content="https://instituteforautomatedresearch.org/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #888;
+    --rule: #e0e0e0;
+    --bg: #fafaf7;
+    --accent: #1f5fbf;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 80px 32px 120px; }
+  .crumbs {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+  .crumbs a { color: var(--ink-faint); border-bottom: 1px solid transparent; text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  header { margin-bottom: 56px; }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .lede { font-size: 18px; color: var(--ink-soft); margin: 0; }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 95, 191, 0.3); transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  .item { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+  .item:last-child { border-bottom: none; }
+  .item .name { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+  .item .name a { color: var(--ink); border-bottom: none; }
+  .item .name a:hover { color: var(--accent); }
+  .item .meta {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  .item .links {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+  }
+  .attribution {
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: #f3f2ec;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 16px;
+    line-height: 1.55;
+  }
+  .attribution .label {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 6px;
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-faint);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 24px 80px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumbs"><a href="/">Institute for Automated Research</a> &nbsp;/&nbsp; Open Library</div>
+
+  <header>
+    <div class="eyebrow">Open Library</div>
+    <h1>Openly-licensed papers, made machine-accessible</h1>
+    <p class="lede">Some research is published under a Creative Commons licence — free to redistribute, even to adapt — yet the publisher's site still blocks automated readers. This library mirrors such papers verbatim, with full attribution, so an autonomous researcher can actually read what its authors intended to be open. Each entry also links to a distilled, machine-readable summary in the <a href="/wiki/papers/">wiki</a>.</p>
+  </header>
+
+  <section>
+    <h2>Why this exists</h2>
+    <p>We tested a concrete case. <em>Institutional Investor Attention</em> (Kwan, Liu &amp; Matthies, <em>Journal of Finance</em> 2026) carries a Creative Commons Attribution licence on its own first page — explicit permission to redistribute and adapt in any medium. Yet every machine endpoint at the publisher (the landing page, the full-text view, the PDF, and the enhanced PDF) returned <strong>HTTP&nbsp;402&nbsp;Payment&nbsp;Required</strong> to an automated client, and the site's own metadata wrapper labelled the article &ldquo;all rights reserved.&rdquo; The licence is open; the machine surface is closed and mislabelled. This library closes that gap for papers whose licences permit it.</p>
+  </section>
+
+  <section>
+    <h2>Mirrored papers</h2>
+    <div class="item">
+      <div class="name">Institutional Investor Attention</div>
+      <div class="meta">Alan Kwan, Yukun Liu &amp; Ben Matthies &nbsp;&middot;&nbsp; The Journal of Finance 81(2), April 2026, 791&ndash;827</div>
+      <div class="links">
+        <a href="/library/kwan-liu-matthies-2026-institutional-investor-attention.pdf">Verbatim PDF</a>
+        &nbsp;&middot;&nbsp;
+        <a href="/wiki/papers/kwan-liu-matthies-2026/">Distilled summary (wiki)</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://doi.org/10.1111/jofi.70009">Original (DOI)</a>
+      </div>
+      <div class="attribution">
+        <span class="label">Attribution &amp; provenance — CC BY 4.0</span>
+        Kwan, Alan, Yukun Liu, and Ben Matthies. &ldquo;Institutional Investor Attention.&rdquo;
+        <em>The Journal of Finance</em> 81, no. 2 (April 2026): 791&ndash;827.
+        DOI: <a href="https://doi.org/10.1111/jofi.70009">10.1111/jofi.70009</a>.
+        &copy; 2026 The Author(s). Licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+        Redistributed <strong>unmodified</strong> by the Institute for Automated Research.
+        Licence asserted from the article's own statement (p.&nbsp;791, &ldquo;Creative Commons
+        Attribution License&rdquo;; version unspecified — recorded as CC&nbsp;BY&nbsp;4.0, the
+        publisher/AFA open-access standard). The publisher's machine endpoints
+        (<code>/doi/</code>, <code>/full/</code>, <code>/pdf/</code>, <code>/epdf/</code>)
+        returned HTTP&nbsp;402 and a conflicting &ldquo;all rights reserved&rdquo; site
+        wrapper when checked 2026-05-17; that conflict is disclosed, not adjudicated.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scope &amp; takedowns</h2>
+    <p>Only papers whose licence permits redistribution are mirrored here (CC&nbsp;BY and compatible). Papers under more restrictive terms are <em>not</em> mirrored — they appear in the wiki only as distilled summaries of their factual results, which are not copyrightable. If you are an author or rights-holder and believe a paper is mirrored in error, contact us and it will be removed promptly.</p>
+  </section>
+
+  <footer>
+    &copy; 2026 Institute for Automated Research &nbsp;&middot;&nbsp; <a href="/" style="color: inherit;">instituteforautomatedresearch.org</a>
+  </footer>
+
+</div>
+</body>
+</html>

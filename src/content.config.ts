@@ -19,6 +19,51 @@ export const collections = {
         // sec, dol, academic, wrds). Inline-flow YAML in frontmatter so the
         // naive postbuild parser captures it too.
         tags: z.array(z.string()).optional(),
+        // Distilled third-party paper. Bibliographic identity + the four
+        // provenance facts grounded on the Kwan-Liu-Matthies specimen:
+        // license/access/machineAccess are independent and each
+        // empirically recorded (the Verified discipline, applied to
+        // rights). `pdf` is set only when redistribution is permitted and
+        // the verbatim mirror is hosted under /library.
+        paper: z
+          .object({
+            authors: z.string(),
+            year: z.number(),
+            venue: z.string(),
+            doi: z.string().optional(),
+            // e.g. "CC BY 4.0 (asserted — artifact p.791, version
+            // unspecified; recorded as publisher/AFA OA standard)"
+            license: z.string(),
+            access: z.enum(['open', 'paywalled', 'preprint']),
+            // What an automated fetch of the canonical source returns,
+            // with date — e.g. "blocked-402 (Wiley, 2026-05-17)".
+            machineAccess: z.string(),
+            redistribution: z.enum(['hosted', 'extract-only']),
+            // Hosted verbatim mirror, site-root path (omit if extract-only).
+            pdf: z.string().optional(),
+            // Distillation provenance as a *list* of attestations, not a
+            // sentence: each is (who/what, when, role). Attestations stack
+            // — a later model or named human re-checking the distillation
+            // appends an entry; nothing is overwritten. role: `extracted`
+            // (the original distillation), `verified` (re-checked against
+            // the source), `reproduced` (replication code actually run).
+            extraction: z
+              .array(
+                z.object({
+                  by: z.string(), // model id or human name
+                  date: z
+                    .union([z.string(), z.date()])
+                    .transform((d) =>
+                      (d instanceof Date ? d.toISOString() : d).slice(0, 10)
+                    ),
+                  role: z.enum(['extracted', 'verified', 'reproduced']),
+                  note: z.string().optional(),
+                })
+              )
+              .min(1),
+            rightsSignalConflict: z.boolean().default(false),
+          })
+          .optional(),
         verified: z
           .object({
             // Accept quoted strings and YAML-native dates alike; normalize
