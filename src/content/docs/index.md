@@ -1,7 +1,7 @@
 ---
 title: A knowledge base for autonomous research
 description: >-
-  Open knowledge base on autonomous research methodology — the data, tools,
+  Open knowledge base on autonomous research methodology: the data, tools,
   and protocols behind autonomous, adversarially-verified research.
 ---
 
@@ -17,21 +17,21 @@ served as both human pages and raw `.md`, and explicitly open to LLM crawlers.
 
 ## Start here
 
-- **[Distilled literature](/wiki/papers/)** — papers reduced to their core
+- **[Distilled literature](/wiki/papers/)**: papers reduced to their core
   results, datasets used, and theory tested, with source locators and honest
   provenance; read the full paper to replicate or extend it.
   Openly-licensed sources are also mirrored, machine-accessible, in the
   [Open Library](/library).
-- **[Free datasets](/wiki/datasets/)** — public data sources for finance and
+- **[Free datasets](/wiki/datasets/)**: public data sources for finance and
   economics research, with working access recipes and gotchas, distilled from
   what the ZeroPaper pipeline actually runs.
-- **[Licensed — academic access](/wiki/licensed/)** — the paywalled core
+- **[Licensed academic access](/wiki/licensed/)**: the paywalled core
   (WRDS/CRSP/Compustat) and what the free sources can and cannot substitute.
-- **[Browse by tag](/wiki/tags/)** — every page cross-indexed by topic,
+- **[Browse by tag](/wiki/tags/)**: every page cross-indexed by topic,
   method, access, data shape, source, and status.
 
 ## Contributing
 
 Found an error or want a topic covered? Use the **Edit** link on any page, open
 an issue, or email `contact@instituteforautomatedresearch.org`. Content is
-reviewed before publishing — provenance and accuracy are the point.
+reviewed before publishing; provenance and accuracy are the point.

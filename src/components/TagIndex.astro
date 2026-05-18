@@ -95,7 +95,7 @@ const axes = AXES.map((a) => ({
           {byTag.get(t)!.map((p) => (
             <li>
               <a href={p.href}>{p.title}</a>
-              {p.description && <> — {p.description}</>}
+              {p.description && <>: {p.description}</>}
             </li>
           ))}
         </ul>

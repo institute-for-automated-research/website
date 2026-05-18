@@ -79,7 +79,7 @@ export default defineConfig({
           autogenerate: { directory: 'datasets' },
         },
         {
-          label: 'Licensed — academic access',
+          label: 'Licensed academic access',
           autogenerate: { directory: 'licensed' },
         },
       ],
