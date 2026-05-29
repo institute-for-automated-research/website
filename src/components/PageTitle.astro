@@ -22,21 +22,32 @@ const fmt = (d: string) =>
   v &&
     (() => {
       const licensed = v.access === 'licensed';
+      // 'reachable' = endpoint confirmed live but the end-to-end pull was not
+      // proven here; a lighter claim than the green "Verified" of a real fetch.
+      const reachable = !licensed && v.level === 'reachable';
+      const label = licensed
+        ? 'Access confirmed (licensed)'
+        : reachable
+          ? 'Source reachable'
+          : 'Verified';
       return (
         <p
-          class:list={['iar-verified', { 'iar-licensed': licensed }]}
+          class:list={[
+            'iar-verified',
+            { 'iar-licensed': licensed, 'iar-reachable': reachable },
+          ]}
           aria-label="Verification provenance"
         >
           <span class="iar-check" aria-hidden="true">
-            {licensed ? '◆' : '✓'}
+            {licensed ? '◆' : reachable ? '○' : '✓'}
           </span>
           <strong>
-            {licensed ? 'Access confirmed (licensed)' : 'Verified'}{' '}
+            {label}{' '}
             {fmt(v.date)}
           </strong>
           {v.with && (
             <>
-              {licensed ? ' · via ' : ' · tested with '}
+              {licensed ? ' · via ' : reachable ? ' · checked ' : ' · tested with '}
               {v.url ? <a href={v.url}>{v.with}</a> : <code>{v.with}</code>}
             </>
           )}
@@ -83,7 +94,10 @@ const fmt = (d: string) =>
     font-weight: 700;
   }
   .iar-licensed .iar-check {
-    color: #9a6a1b; /* amber — licensed/paywalled, not the free green */
+    color: #9a6a1b; /* amber: licensed/paywalled, not the free green */
+  }
+  .iar-reachable .iar-check {
+    color: #0f6c78; /* teal: source reachable, a lighter claim than verified */
   }
   .iar-verified code {
     font-size: 0.95em;

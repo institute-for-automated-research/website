@@ -1,6 +1,6 @@
 # CLAUDE.md — instituteforautomatedresearch.org
 
-AFTER EVERY BIG CHANGE  SPAN A SONNET AGENT TO REVIEW YOUR CHANGES FOR ISSUES. IF ANY ISSUES ARE FOUND, ADD A NEW ROUND OF AUDITING AFTER FIXING THE CURRENT ROUND'S ISSUES (EVEN IF THERE ARE ONLY MINOR CHANGES). ITERATE UNTIL DONE.
+AFTER EVERY BIG CHANGE, LAUNCH A SONNET AGENT TO REVIEW YOUR CHANGES FOR ISSUES. IF ANY ISSUES ARE FOUND, ADD A NEW ROUND OF AUDITING AFTER FIXING THE CURRENT ROUND'S ISSUES (EVEN IF THERE ARE ONLY MINOR CHANGES). ITERATE UNTIL DONE.
 
 AVOID M-DASHES ON WEBSITE AND COLORFUL ADJECTIVES.
 
@@ -84,9 +84,20 @@ verified:
 
 Only add `verified:` **after you have actually run the page's keystone claim
 against the live source in this session.** The badge asserts provenance; an
-unrun stamp is a lie and breaks the institute's entire value proposition. If
-a source can't be exercised here (e.g. WRDS — paywalled), omit `verified:`
-and say so on the page. Be precise in `with:` about what you actually ran.
+unrun stamp is a lie and breaks the institute's entire value proposition. Be
+precise in `with:` about what you actually ran.
+
+Two fields grade the claim, and feed both the on-page badge and the
+Verification tag axis:
+
+- `level: fetched` only when you pulled real data live (green "Verified").
+  Default is `reachable` (teal "Source reachable"), meaning the endpoint was
+  confirmed live but the end-to-end pull was not proven here. The green claim
+  is an explicit opt-in; do not stamp `fetched` on a reachability check.
+- `access: licensed` when the path was exercised but needs paid credentials
+  (amber "Access confirmed (licensed)"), e.g. WRDS run through a licensed
+  session. If a source cannot be exercised here at all, omit `verified:`
+  entirely and say so on the page; it then reads as `unverified`.
 
 ## Scrapability invariants (do not regress)
 

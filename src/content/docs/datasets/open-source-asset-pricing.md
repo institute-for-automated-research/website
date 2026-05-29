@@ -7,7 +7,7 @@ description: >-
 sidebar:
   label: Open Source Asset Pricing
   order: 4
-tags: [asset-pricing, anomalies, equities, panel-data, free, academic]
+tags: [asset-pricing, anomalies, equities, panel-data, free, academic, data:open-source-asset-pricing]
 verified:
   date: 2026-05-16
   with: openassetpricing.com + GitHub reachable (pkg/data per docs, not bulk-fetched)

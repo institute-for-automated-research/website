@@ -12,11 +12,15 @@ export const collections = {
       // base rather than rehosted documentation.
       extend: z.object({
         // Controlled-vocab tags for the /wiki/tags browse page + per-page
-        // chips. Four axes, kebab-case: topic (asset-pricing, factors,
-        // anomalies, macro, equities, fundamentals, filings, pensions),
-        // access (free, no-api-key, licensed), shape (panel-data,
-        // time-series, cross-section, event-data), source (federal-reserve,
-        // sec, dol, academic, wrds). Inline-flow YAML in frontmatter so the
+        // chips. Kebab-case axes: topic (asset-pricing, factors, anomalies,
+        // macro, equities, fundamentals, filings, pensions), access (free,
+        // no-api-key, licensed), shape (panel-data, time-series,
+        // cross-section, event-data), source (federal-reserve, sec, dol,
+        // academic, wrds). Plus one open axis: dataset, `data:<slug>` where
+        // <slug> is a dataset page slug (data:fred, data:wrds). A dataset
+        // page self-tags; a paper tags every dataset it uses. A data:<slug>
+        // with no page of that slug is a documented-dataset backlog item,
+        // flagged on the tags page. Inline-flow YAML in frontmatter so the
         // naive postbuild parser captures it too.
         tags: z.array(z.string()).optional(),
         // Distilled third-party paper. Bibliographic identity + the four
@@ -101,6 +105,15 @@ export const collections = {
             // 'licensed' → "Access confirmed (licensed)" (amber): the path
             // was exercised, but the source is paywalled — not free.
             access: z.enum(['free', 'licensed']).default('free'),
+            // How far the recipe was actually run. 'fetched' = real data
+            // pulled live here, shown as the green "Verified" badge.
+            // 'reachable' (default) = source confirmed live but the
+            // end-to-end pull was not proven here, shown as teal "Source
+            // reachable". Conservative default so the green claim is an
+            // explicit opt-in. Drives the Verification tag axis too:
+            // verified-fetched / verified-reachable / access-confirmed-
+            // licensed / unverified (no block).
+            level: z.enum(['fetched', 'reachable']).default('reachable'),
           })
           .optional(),
       }),

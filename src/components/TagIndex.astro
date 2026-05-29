@@ -1,8 +1,13 @@
 ---
 // /wiki/tags browse page body. Reads the docs collection, groups every
-// tagged page by tag, and lays the tags out under their four taxonomy axes
-// (topic / access / shape / source — see content.config.ts). Pure build-time
-// component, zero client JS; anchors are plain in-page #tag links.
+// tagged page by tag, and lays the tags out under their taxonomy axes
+// (kind / topic / method / access / shape / source / dataset / status; see
+// content.config.ts). The Dataset axis is derived at build time from any
+// `data:<slug>` tag (a dataset page self-tags; papers tag the datasets they
+// use), so a new dataset needs no edit here. The <slug> must equal the dataset
+// page filename, so closing a backlog item (e.g. data:revelio) means adding
+// revelio.md. Pure build-time component, zero client JS; anchors are plain
+// in-page #tag links.
 import { getCollection } from 'astro:content';
 
 const AXES: { label: string; tags: string[] }[] = [
@@ -32,11 +37,24 @@ const AXES: { label: string; tags: string[] }[] = [
     label: 'Access',
     tags: ['free', 'no-api-key', 'licensed', 'open-access', 'cc-by'],
   },
+  // Verification rungs, injected into byTag from each dataset page's `verified`
+  // block (see below); listed strongest-first so they render in that order.
+  {
+    label: 'Verification',
+    tags: [
+      'verified-fetched',
+      'verified-reachable',
+      'access-confirmed-licensed',
+      'unverified',
+    ],
+  },
   {
     label: 'Data shape',
     tags: ['panel-data', 'time-series', 'cross-section', 'event-data'],
   },
   { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'academic', 'wrds'] },
+  // Open-ended axis: `tags` filled below from every `data:<slug>` actually used.
+  { label: 'Dataset', tags: [] },
   { label: 'Status', tags: ['peer-reviewed', 'unreplicated'] },
 ];
 
@@ -54,8 +72,53 @@ for (const d of docs) {
     });
   }
 }
+// Verification axis: a derived, datasets-only status from each page's
+// `verified` block, injected as synthetic tags so it browses like any axis and
+// can never claim more than the block asserts. Papers are excluded; they carry
+// their own provenance ladder via extraction[].role.
+for (const d of docs) {
+  if (!(d.id.startsWith('datasets/') || d.id.startsWith('licensed/'))) continue;
+  if (d.id.endsWith('/index')) continue;
+  const v = d.data.verified;
+  const vt = !v
+    ? 'unverified'
+    : v.access === 'licensed'
+      ? 'access-confirmed-licensed'
+      : v.level === 'fetched'
+        ? 'verified-fetched'
+        : 'verified-reachable';
+  if (!byTag.has(vt)) byTag.set(vt, []);
+  const slug = d.id.replace(/\/?index$/, '');
+  byTag.get(vt)!.push({
+    title: d.data.title,
+    description: d.data.description ?? '',
+    href: `/wiki/${slug ? slug + '/' : ''}`,
+  });
+}
+
 for (const list of byTag.values())
   list.sort((a, b) => a.title.localeCompare(b.title));
+
+// The Dataset axis is the one open vocabulary: any `data:<slug>` tag links a
+// page to a dataset wiki page. Fill it from usage so it never drifts from the
+// slugs (and so these tags count as "known", below).
+const dataTags = [...byTag.keys()].filter((t) => t.startsWith('data:')).sort();
+for (const a of AXES) if (a.label === 'Dataset') a.tags = dataTags;
+
+// Discovery backlog: a `data:<slug>` with no dataset page of that slug means a
+// paper cites a dataset we have not documented yet. Flag those so finding one
+// in a paper turns straight into a "page to write", both at build time and on
+// the page itself.
+const datasetPageSlugs = new Set(
+  docs
+    .filter((d) => d.id.startsWith('datasets/') || d.id.startsWith('licensed/'))
+    .map((d) => d.id.replace(/\/?index$/, '').split('/').pop())
+);
+const wanted = new Set(dataTags.filter((t) => !datasetPageSlugs.has(t.slice(5))));
+if (wanted.size)
+  console.warn(
+    `[TagIndex] datasets cited but undocumented: ${[...wanted].map((t) => t.slice(5)).join(', ')}`
+  );
 
 // Only render tags that are actually used; flag any used tag missing from
 // the controlled vocabulary so drift is visible at build time.
@@ -67,6 +130,15 @@ const axes = AXES.map((a) => ({
   ...a,
   tags: a.tags.filter((t) => byTag.has(t)),
 })).filter((a) => a.tags.length);
+
+// Colour the Verification pills to match the on-page badge (PageTitle.astro):
+// green fetched, teal reachable, amber licensed, gray unverified.
+const VERIF_CLASS: Record<string, string> = {
+  'verified-fetched': 'v-green',
+  'verified-reachable': 'v-teal',
+  'access-confirmed-licensed': 'v-amber',
+  unverified: 'v-gray',
+};
 ---
 
 <div class="tag-cloud not-content">
@@ -75,8 +147,9 @@ const axes = AXES.map((a) => ({
       <div class="tag-axis">
         <span class="tag-axis-label">{axis.label}</span>
         {axis.tags.map((t) => (
-          <a href={`#${t}`}>
+          <a href={`#${t}`} class={VERIF_CLASS[t]}>
             {t} <span class="tag-count">{byTag.get(t)!.length}</span>
+            {wanted.has(t) && <span class="tag-wanted">needs page</span>}
           </a>
         ))}
       </div>
@@ -90,6 +163,9 @@ const axes = AXES.map((a) => ({
       <section id={t} class="tag-section">
         <h2>
           <span class="tag-axis-tag">{axis.label}</span> {t}
+          {wanted.has(t) && (
+            <span class="tag-wanted">cited in a paper; no wiki page yet</span>
+          )}
         </h2>
         <ul>
           {byTag.get(t)!.map((p) => (
@@ -136,6 +212,22 @@ const axes = AXES.map((a) => ({
   .tag-cloud a:hover {
     background: var(--sl-color-gray-6);
   }
+  .tag-cloud a.v-green {
+    border-color: #2e7d32;
+    color: #2e7d32;
+  }
+  .tag-cloud a.v-teal {
+    border-color: #00838f;
+    color: #00838f;
+  }
+  .tag-cloud a.v-amber {
+    border-color: #b8860b;
+    color: #b8860b;
+  }
+  .tag-cloud a.v-gray {
+    border-color: var(--sl-color-gray-4);
+    color: var(--sl-color-gray-3);
+  }
   .tag-count {
     color: var(--sl-color-gray-3);
     font-variant-numeric: tabular-nums;
@@ -153,5 +245,17 @@ const axes = AXES.map((a) => ({
     color: var(--sl-color-gray-3);
     vertical-align: middle;
     margin-right: 0.3rem;
+  }
+  .tag-wanted {
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--sl-color-orange-high, #b35900);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 0 0.4rem;
+    margin-left: 0.4rem;
+    white-space: nowrap;
   }
 </style>

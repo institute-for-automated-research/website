@@ -1,8 +1,8 @@
 ---
 title: Datasets for finance & economics research
 description: >-
-  Free, verified data sources for finance and economics research — plus the
-  licensed core (WRDS/CRSP/Compustat) and what substitutes for it — with
+  Free, verified data sources for finance and economics research, plus the
+  licensed core (WRDS/CRSP/Compustat) and what substitutes for it, with
   working access recipes and the gotchas that bite automated pipelines.
 sidebar:
   label: Overview
@@ -11,14 +11,15 @@ sidebar:
 
 Public, no-cost datasets usable for serious finance and economics research.
 Each page gives a working access recipe (including no-API-key fallbacks where
-they exist) and the gotchas that bite automated pipelines — distilled from
+they exist) and the gotchas that bite automated pipelines, distilled from
 what the [ZeroPaper](https://github.com/alejandroll10/zeropaper) pipeline
 actually runs in production.
 
 ## Free & verified
 
-Genuinely no-cost. Every page carries a **Verified** date — when its access
-recipe was last actually run against the live source, not just transcribed
+Genuinely no-cost. Every page carries a dated provenance badge: "Verified"
+when the access recipe was run live against the source, or "Source reachable"
+when the endpoint was confirmed but not fully pulled. Not just transcribed
 from docs.
 
 | Dataset | What it is | Page |
@@ -30,7 +31,7 @@ from docs.
 | **Flexible data-mining** | ~30K data-mined long-short strategies | [Flex-mining](/wiki/datasets/flex-mining/) |
 | **DOL Form 5500** | ERISA pension/welfare plan filings | [Form 5500](/wiki/datasets/form-5500/) |
 
-## Licensed — academic access
+## Licensed: academic access
 
 Not free, kept deliberately separate from the verified-free set.
 **WRDS / CRSP / Compustat / IBES / OptionMetrics** are subscription-gated, but

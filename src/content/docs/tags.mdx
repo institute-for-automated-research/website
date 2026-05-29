@@ -1,9 +1,10 @@
 ---
 title: Browse by tag
 description: >-
-  Every wiki page grouped by tag — by topic (asset pricing, macro,
-  fundamentals…), access (free, no-API-key, licensed), data shape (panel,
-  time-series…), and source. The fast way to find the dataset you need.
+  Every wiki page grouped by tag: by topic (asset pricing, macro,
+  fundamentals), access (free, no-API-key, licensed), data shape (panel,
+  time-series), source, dataset, and verification status. The fast way to
+  find the dataset you need.
 sidebar:
   label: Browse by tag
   order: 1
@@ -11,8 +12,12 @@ sidebar:
 
 import TagIndex from '../../components/TagIndex.astro';
 
-Pages are tagged on four axes — **topic**, **access**, **data shape**, and
-**source**. Pick a tag to jump to everything under it. Tip: in-page search
+Pages are tagged on several axes: **topic**, **access**, **data shape**,
+**source**, **dataset** (`data:<slug>`, one per dataset page), and
+**verification** (how far the access recipe was actually run: fetched,
+reachable, licensed, or unverified). Pick a tag to jump to everything under it.
+A dataset tag marked "no wiki page yet" is one a paper cites but we have not
+documented; it doubles as our to-write list. Tip: in-page search
 (<kbd>Cmd/Ctrl</kbd> + <kbd>K</kbd>, top of any wiki page) searches the full
 text of every page below.
 

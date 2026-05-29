@@ -7,8 +7,9 @@ description: >-
 sidebar:
   label: FRED
   order: 1
-tags: [macro, time-series, free, no-api-key, federal-reserve]
+tags: [macro, time-series, free, no-api-key, federal-reserve, data:fred]
 verified:
+  level: fetched
   date: 2026-05-16
   with: live no-key CSV fetch (GDP, USREC, SP500)
 ---

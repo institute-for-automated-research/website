@@ -7,8 +7,9 @@ description: >-
 sidebar:
   label: Ken French
   order: 3
-tags: [asset-pricing, factors, time-series, free, no-api-key, academic]
+tags: [asset-pricing, factors, time-series, free, no-api-key, academic, data:ken-french]
 verified:
+  level: fetched
   date: 2026-05-16
   with: live CSV-zip fetch (F-F_Research_Data_Factors, 200, monthly-fresh)
 ---

@@ -7,8 +7,9 @@ description: >-
 sidebar:
   label: Flexible data-mining
   order: 5
-tags: [asset-pricing, factors, anomalies, free, academic]
+tags: [asset-pricing, factors, anomalies, free, academic, data:flex-mining]
 verified:
+  level: fetched
   date: 2026-05-16
   with: live GitHub raw fetch (SignalsTheoryChecked.csv, 200, real columns)
 ---

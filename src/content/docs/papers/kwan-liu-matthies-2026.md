@@ -9,7 +9,7 @@ description: >-
 sidebar:
   label: Kwan-Liu-Matthies 2026
   order: 1
-tags: [paper-summary, limited-attention, institutional-investors, return-predictability, fund-performance, panel-regression, fama-macbeth, portfolio-sort, open-access, cc-by, peer-reviewed, unreplicated]
+tags: [paper-summary, limited-attention, institutional-investors, return-predictability, fund-performance, panel-regression, fama-macbeth, portfolio-sort, open-access, cc-by, peer-reviewed, unreplicated, data:fred, data:edgar, data:wrds, data:ravenpack, data:factset-lionshares, data:revelio]
 paper:
   authors: Alan Kwan, Yukun Liu, Ben Matthies
   year: 2026
