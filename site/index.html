@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  /* No-flash theme: honor the choice shared with the wiki (localStorage key
+     "starlight-theme": dark|light, otherwise follow the OS). Runs before paint
+     so there is no flash of the wrong theme. */
+  (function () {
+    try {
+      var t = localStorage.getItem('starlight-theme');
+      document.documentElement.dataset.theme =
+        t === 'dark' || t === 'light'
+          ? t
+          : matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+    } catch (e) {}
+  })();
+</script>
 <title>Institute for Automated Research</title>
 <meta name="description" content="A research project building autonomous, adversarially-verified scientific reasoning systems.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -22,6 +38,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
+    color-scheme: light;
     --ink: #1a1a1a;
     --ink-soft: #4a4a4a;
     --ink-faint: #888;
@@ -29,6 +46,43 @@
     --bg: #fafaf7;
     --accent: #1f5fbf;
   }
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --ink: #e8e6e0;
+    --ink-soft: #b0ada4;
+    --ink-faint: #8a8a82;
+    --rule: #2a2a2a;
+    --bg: #1a1a1a;
+    --accent: #7fb0ff;
+  }
+  :root[data-theme='dark'] a { border-bottom-color: rgba(127, 176, 255, 0.3); }
+  :root[data-theme='dark'] .roadmap .item-link a {
+    border-bottom-color: rgba(127, 176, 255, 0.2);
+  }
+  :root[data-theme='dark'] .roadmap .status.live { color: #7fcfa0; }
+  #theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  #theme-toggle:hover { color: var(--ink); border-color: var(--ink-faint); }
+  #theme-toggle svg { width: 18px; height: 18px; display: block; }
+  #theme-toggle .icon-sun { display: none; }
+  :root[data-theme='dark'] #theme-toggle .icon-sun { display: block; }
+  :root[data-theme='dark'] #theme-toggle .icon-moon { display: none; }
   * { box-sizing: border-box; }
   html { -webkit-font-smoothing: antialiased; }
   body {
@@ -147,6 +201,10 @@
 </style>
 </head>
 <body>
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+</button>
 <div class="wrap">
 
   <header>
@@ -227,5 +285,17 @@
   </footer>
 
 </div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var next =
+        document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('starlight-theme', next); } catch (e) {}
+    });
+  })();
+</script>
 </body>
 </html>
