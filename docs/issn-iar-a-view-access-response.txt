@@ -1,0 +1,39 @@
+VIEW-ACCESS RESPONSE (round 2) — paste into portal correspondence field
+Application: APPL0006779 — IAR Autonomous Papers
+U.S. ISSN Center (Library of Congress)
+Context: they confirm the site is clean enough to name no malware, but their
+web-filtering gateway still blocks staff from loading the page. This reply
+gives them the live page on domains their filter already trusts, plus an
+allowlist request.
+
+=== FULL VERSION ===
+Hello,
+
+Thank you for the clarification. The site is online and serving normally, and it has been verified clean by multiple independent services (urlscan.io and Google Safe Browsing both return "No classification," and Cisco Talos lists it as "Science and Technology," not blocked). Because the domain was only registered on April 15, 2026, the most likely explanation is that your web-filtering gateway is blocking it as a newly registered / uncategorized domain, rather than for anything on the page itself.
+
+So that you can view the publication right away, here are captures of the exact live page hosted on services your network should already permit:
+
+1. Internet Archive (archive.org) capture of the live series page:
+   https://web.archive.org/web/20260529132106/https://instituteforautomatedresearch.org/papers/iar-a
+
+2. urlscan.io capture of the live site, including a full-page rendered screenshot:
+   https://urlscan.io/result/019e72b7-747e-7305-815c-24206d39b497/
+
+Both show the series cover page, publisher information, and the list of papers exactly as they appear on the live site.
+
+To resolve access to the live URL itself, I am submitting the domain for recategorization (as Education / Reference) with the major URL-filtering vendors. If your IT or security team is able to allowlist instituteforautomatedresearch.org on your gateway, that would restore access immediately.
+
+Could you let me know whether viewing the archived capture above is sufficient for your review, or whether your team is able to allowlist the domain? I'm glad to provide anything else that helps.
+
+Thank you,
+Alejandro Lopez-Lira
+
+=== SHORT VERSION (if the field is tight) ===
+The site is online and independently verified clean (urlscan.io and Google Safe Browsing both "No classification"; Cisco Talos "Science and Technology," not blocked). The likely cause is your gateway blocking a newly registered domain (registered April 15, 2026), not the page content. You can view the exact live page here, on domains your network should permit: Internet Archive — https://web.archive.org/web/20260529132106/https://instituteforautomatedresearch.org/papers/iar-a ; urlscan.io screenshot — https://urlscan.io/result/019e72b7-747e-7305-815c-24206d39b497/ . I'm also requesting recategorization with the major URL-filtering vendors; if your team can allowlist instituteforautomatedresearch.org, that resolves it immediately. Is the archived capture sufficient, or can your team allowlist the domain?
+
+=== NOTE ===
+Archive snapshot captured 2026-05-29. If it ages out or you want a fresher one,
+re-save at: https://web.archive.org/save/https://instituteforautomatedresearch.org/papers/iar-a
+The recategorization submissions are the root-cause fix — see
+docs/url-filter-recategorization-checklist.txt (must be done by a human; the
+forms have captchas).

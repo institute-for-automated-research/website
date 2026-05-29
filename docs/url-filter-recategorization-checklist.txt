@@ -1,0 +1,39 @@
+URL-FILTER RECATEGORIZATION CHECKLIST
+Domain: instituteforautomatedresearch.org
+Goal: get the domain categorized as Education / Reference / Science & Technology
+so corporate and government web-filtering gateways stop blocking it as a
+newly registered / uncategorized domain. (The Library of Congress ISSN Center's
+gateway is blocking it; they won't name the vendor, so submit to all major ones.)
+
+Suggested category to request, in order of preference:
+  Education  >  Reference Materials  >  Information Technology / Science & Technology
+
+These forms have captchas and must be submitted by a human. For each: look up
+the domain, then use the "request review / suggest categorization" option.
+
+[ ] Symantec / Broadcom (Blue Coat WebPulse)   https://sitereview.bluecoat.com/
+[ ] Forcepoint (ThreatSeeker / CSI)            https://csi.forcepoint.com/
+[ ] Zscaler                                    https://sitereview.zscaler.com/
+[ ] Palo Alto Networks (PAN-DB)                https://urlfiltering.paloaltonetworks.com/
+[ ] McAfee / Skyhigh / Trellix (TrustedSource) https://trustedsource.org/
+[ ] Fortinet (FortiGuard)                       https://www.fortiguard.com/webfilter
+[ ] Webroot / OpenText (BrightCloud)           https://www.brightcloud.com/tools/url-ip-lookup.php
+[ ] Cisco Talos                                 https://talosintelligence.com/reputation_center
+       (already shows "Science and Technology," not blocked — verify only)
+[ ] Netcraft (only if flagged as phishing)     https://report.netcraft.com/
+
+Likely-relevant for US government networks (prioritize if short on time):
+  Zscaler (FedRAMP), Forcepoint, Cisco, Symantec/Broadcom, Palo Alto.
+
+Reputation records already established (cite these in the forms if asked):
+  - urlscan.io:  https://urlscan.io/result/019e72b7-747e-7305-815c-24206d39b497/
+  - Google Safe Browsing: No classification
+  - Cisco Talos: not on any block list, category Science and Technology
+
+Also recommended:
+[ ] Verify the domain in Google Search Console (see if Google lists any issue).
+[ ] Re-run a urlscan.io scan in a few weeks; reputation improves with age + traffic.
+
+Note: recategorization typically takes a few business days per vendor. The
+archived capture + urlscan screenshot in the round-2 ISSN replies let the
+ISSN Center view the publication immediately while this clears.
