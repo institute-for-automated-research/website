@@ -140,10 +140,14 @@ at the bottom. CC BY attribution blocks must stay verbatim.
 
 ## Mirror to the ZeroPaper pipeline
 
-Dataset pages here and the pipeline's empirical skills
-(`../../NewPapers/zeropaper` -> `extensions/empirical/skills/<dataset>/SKILL.md`:
-fred, edgar, ken-french, flex-mining, open-source-asset-pricing, wrds, ...) are
-two mirrors of the same dataset knowledge. A substantive change to access method
-or gotchas on either side should be propagated to the other, or they drift.
-Do not hand-edit a paper PDF or its landing page here; that belongs in the
-pipeline, then regenerate.
+Dataset pages here and the pipeline's empirical skill bodies
+(`../../NewPapers/zeropaper` -> `templates/skill_bodies/empirical/<dataset>.md`:
+fred, edgar, ken-french, flex-mining, chen-zimmerman, wrds, sec-funds,
+mutual-funds, ...) are two mirrors of the same dataset knowledge. A substantive
+change to access method or gotchas on either side should be propagated to the
+other, or they drift. Do not hand-edit a paper PDF or its landing page here;
+that belongs in the pipeline, then regenerate.
+
+File the matching pipeline change as an issue in the ZeroPaper repo
+(`gh issue create --repo alejandroll10/zeropaper`), not here; that is where the
+work lands.
