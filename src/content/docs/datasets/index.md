@@ -30,6 +30,7 @@ from docs.
 | **Open Source Asset Pricing** | 212 anomaly signals + portfolios | [OSAP](/wiki/datasets/open-source-asset-pricing/) |
 | **Flexible data-mining** | ~30K data-mined long-short strategies | [Flex-mining](/wiki/datasets/flex-mining/) |
 | **DOL Form 5500** | ERISA pension/welfare plan filings | [Form 5500](/wiki/datasets/form-5500/) |
+| **Form ADV (IAPD)** | SEC investment-adviser registration | [Form ADV](/wiki/datasets/form-adv/) |
 
 ## Licensed: academic access
 
@@ -38,3 +39,15 @@ Not free, kept deliberately separate from the verified-free set.
 most universities license WRDS for affiliated researchers. See
 [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) for the academic-access path
 and exactly which free sources above substitute for which paid ones.
+
+Alongside WRDS, several commercial vendor datasets show up in the papers we
+distill. These pages document the access path and the gotchas, but carry **no
+provenance badge**: they were not exercised here (no vendor credentials), so
+they read as unverified per the Verified discipline.
+
+| Dataset | What it is | Page |
+|---|---|---|
+| **WRDS / CRSP / Compustat** | The paywalled core; academic access | [WRDS](/wiki/licensed/wrds/) |
+| **RavenPack** | News and event analytics (sentiment, relevance) | [RavenPack](/wiki/licensed/ravenpack/) |
+| **FactSet LionShares** | Global institutional and fund holdings | [FactSet LionShares](/wiki/licensed/factset-lionshares/) |
+| **Revelio Labs** | Workforce / human-capital panel | [Revelio Labs](/wiki/licensed/revelio/) |

@@ -9,7 +9,7 @@ description: >-
 sidebar:
   label: Kwan-Liu-Matthies 2026
   order: 1
-tags: [paper-summary, limited-attention, institutional-investors, return-predictability, fund-performance, panel-regression, fama-macbeth, portfolio-sort, open-access, cc-by, peer-reviewed, unreplicated, data:fred, data:edgar, data:wrds, data:ravenpack, data:factset-lionshares, data:revelio]
+tags: [paper-summary, limited-attention, institutional-investors, return-predictability, fund-performance, panel-regression, fama-macbeth, portfolio-sort, open-access, cc-by, peer-reviewed, unreplicated, data:fred, data:edgar, data:wrds, data:ravenpack, data:factset-lionshares, data:revelio, data:form-adv]
 paper:
   authors: Alan Kwan, Yukun Liu, Ben Matthies
   year: 2026
@@ -78,12 +78,12 @@ attention by *buying hedge funds*.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Proprietary Internet news-reading data ("Data Partner", anonymized analytics firm), Nov 2017–Jun 2022 | The attention measure itself | Proprietary; not public or redistributable; no page |
-| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | No wiki page yet (commercial dataset) |
-| FactSet LionShares | Institutional holdings (13-F), institution classification | No wiki page yet (commercial dataset) |
+| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | [RavenPack](/wiki/licensed/ravenpack/) (licensed) |
+| FactSet LionShares | Institutional holdings (13-F), institution classification | [FactSet LionShares](/wiki/licensed/factset-lionshares/) (licensed) |
 | CRSP & Compustat | Returns, fundamentals, stock characteristics | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | VIX (CBOE) | Aggregate-volatility measure (VIX²) | [FRED](/wiki/datasets/fred/), free, series `VIXCLS` |
-| SEC Form ADV, Form N-1A | Fund descriptions for classification | [SEC EDGAR](/wiki/datasets/edgar/) for N-1A; Form ADV is via SEC IAPD, *not* EDGAR |
-| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | No wiki page yet |
+| SEC Form ADV, Form N-1A | Fund descriptions for classification | [Form ADV](/wiki/datasets/form-adv/) (via SEC IAPD, *not* EDGAR); [N-1A](/wiki/datasets/edgar/#form-n-1a-open-end-fund-registration) via SEC EDGAR |
+| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | [Revelio Labs](/wiki/licensed/revelio/) (licensed) |
 
 Sample: 481,820,400 fund-firm-quarters; 4,075 distinct funds.
 

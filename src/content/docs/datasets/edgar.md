@@ -10,8 +10,8 @@ sidebar:
 tags: [fundamentals, filings, event-data, free, no-api-key, sec, data:edgar]
 verified:
   level: fetched
-  date: 2026-05-16
-  with: live data.sec.gov + efts.sec.gov fetch (submissions, XBRL, search)
+  date: 2026-05-29
+  with: live data.sec.gov + efts.sec.gov fetch (submissions, XBRL, full-text search, N-1A form rows)
 ---
 
 **SEC EDGAR** is the free, authoritative source for US corporate disclosure:
@@ -113,6 +113,7 @@ endpoints on the date above.
 | `13F-HR` | Institutional holdings | Quarterly positions of large investors |
 | `S-1` | IPO registration | Pre-IPO financials, risk factors |
 | `SC 13D/G` | Beneficial ownership | >5% shareholder positions |
+| `N-1A` | Open-end fund registration | Mutual fund / ETF prospectus, strategy, fees, classification |
 
 ## Common XBRL facts
 
@@ -150,6 +151,49 @@ filings (`data["hits"]["total"]["value"]`).
 
 **Insider-trading study** — iterate a company's Form 4 filings and read
 `.obj().transactions` (a DataFrame of trades) per filing.
+
+## Form N-1A: open-end fund registration
+
+`N-1A` is the registration statement and prospectus for **open-end
+investment companies**: mutual funds and most ETFs. It is the EDGAR source
+for what a fund *says it is*: investment objective, strategy, fee table,
+share classes, adviser. Papers that classify funds (e.g. growth vs value,
+active vs index) read N-1A prospectus text; the
+[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+uses it for fund classification. Confirmed live on the verified date:
+`efts.sec.gov` full-text search returns 3,473 `N-1A` hits, and
+`data.sec.gov/submissions` returns `N-1A` and `N-1A/A` rows for a registrant.
+
+Pull a fund's N-1A filings the same way as any other form:
+
+```python
+from edgar import Company
+filings = Company("0002100194").get_filings(form="N-1A")   # also matches N-1A/A
+```
+
+Or by form across all registrants via full-text search
+(`forms=N-1A` on `efts.sec.gov`).
+
+### N-1A gotchas (fund filings are not company filings)
+
+- **No `us-gaap` XBRL facts.** N-1A is a registration document, not a
+  financial report; the XBRL on it is the **risk/return summary** taxonomy
+  (`rr:*`), not `us-gaap:*`. Do not expect `get_facts()` financials here.
+- **A fund family files under one registrant, many series and classes.** A
+  single N-1A filer (the trust) can cover dozens of funds (**series**) each
+  with multiple share **classes**, keyed by EDGAR `S######` / `C######`
+  identifiers, not a ticker. Resolve series/class before attributing a
+  prospectus to a fund.
+- **`485BPOS` / `485APOS` carry the updates.** The initial `N-1A` is filed
+  once; ongoing annual prospectus updates arrive as `485BPOS` (immediately
+  effective) and `485APOS` (post-effective amendment). For a current
+  prospectus, follow the 485 stream, not the original N-1A.
+- **ETFs file N-1A too.** Most ETFs register as open-end funds, so they are
+  N-1A filers; only a few structures (e.g. some commodity pools) are not.
+- **Classification is text, not a tagged field.** The investment objective
+  and strategy are prose in the prospectus; deriving a clean style label
+  means parsing text or mapping the SEC series/class metadata, not reading a
+  single field.
 
 ## Citation
 
