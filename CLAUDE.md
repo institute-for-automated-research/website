@@ -41,6 +41,12 @@ that change belongs in the pipeline, then regenerate. For dataset
 knowledge, edit+verify here, but mirror the change into the pipeline
 skill (or vice versa).
 
+When a change here needs a matching change in the pipeline (a new/updated
+dataset skill, PDF-convention or citation tweak, any pipeline upgrade),
+**file the issue in the ZeroPaper repo** (`gh issue create --repo
+alejandroll10/zeropaper`), not here; that is where the work lands. The
+canonical skill bodies live at `templates/skill_bodies/empirical/<dataset>.md`.
+
 ## Architecture: one unified Astro build
 
 There is **no separate wiki project**. A single `npm run build` produces the
