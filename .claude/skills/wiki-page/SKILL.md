@@ -176,11 +176,18 @@ Artifacts (single source of truth, reuse every batch):
   disk as step one. `args` may arrive as a JSON string; the script reparses it.)
 
 Steps:
-1. **Scout** candidates and resolve each PDF's absolute path on disk. Prefer
-   recent, title-identifiable, locally-readable PDFs (the J. Finance issue
-   folders carry titled filenames; some corpora only have coded names). Build
-   the `items` work-list programmatically so unicode hyphens / double-spaces in
-   filenames are exact, not hand-typed.
+1. **Scout** candidates and resolve each PDF's absolute path on disk. First see
+   what is already on the wiki and what is missing: `node scripts/coverage.mjs`
+   lists what is distilled (derived live from the pages, never a stale manifest;
+   `/llms.txt` mirrors the same on the deployed site), and
+   `node scripts/coverage.mjs --gap <journal> [journalPdfDir]` diffs the live
+   pages against the local PDF library and prints the undistilled candidates
+   (add `--json` for a machine-readable list). There is deliberately NO committed
+   coverage file: the pages are the source of truth. Prefer recent,
+   title-identifiable, locally-readable PDFs (the J. Finance issue folders carry
+   titled filenames; some corpora only have coded names). Build the `items`
+   work-list programmatically so unicode hyphens / double-spaces in filenames are
+   exact, not hand-typed.
 2. **Run the workflow** (Sonnet fan-out). It writes + self-verifies each page.
 3. **Reconcile across the batch (this is the orchestrator's job; no single
    agent sees all pages):**
