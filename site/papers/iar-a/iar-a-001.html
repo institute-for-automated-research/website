@@ -26,6 +26,7 @@
     --rule: #e0e0e0;
     --bg: #fafaf7;
     --accent: #1f5fbf;
+    --link-underline: rgba(31, 95, 191, 0.3);
   }
   * { box-sizing: border-box; }
   html { -webkit-font-smoothing: antialiased; }
@@ -88,7 +89,7 @@
     letter-spacing: 0.04em;
     color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(31, 95, 191, 0.3);
+    border-bottom: 1px solid var(--link-underline);
   }
   .actions a:hover { border-bottom-color: var(--accent); }
   h2 {
@@ -150,7 +151,17 @@
     .meta-list li { flex-direction: column; gap: 4px; }
     .meta-list .key { width: auto; }
   }
+  /* Dark values for what the shared site-theme.css cannot reach: the cite
+     surface literal, and the link-underline tint (routed through a var so the
+     resting underline brightens but `.actions a:hover`/var(--accent) still win). */
+  :root[data-theme='dark'] {
+    --link-underline: rgba(127, 176, 255, 0.4);
+  }
+  :root[data-theme='dark'] .cite { background: #23231e; }
 </style>
+<script src="/theme-init.js"></script>
+<link rel="stylesheet" href="/site-theme.css" />
+<script src="/theme-toggle.js" defer></script>
 </head>
 <body>
 <div class="wrap">
