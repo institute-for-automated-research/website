@@ -151,3 +151,53 @@ that belongs in the pipeline, then regenerate.
 File the matching pipeline change as an issue in the ZeroPaper repo
 (`gh issue create --repo alejandroll10/zeropaper`), not here; that is where the
 work lands.
+
+## Batch-distilling papers (orchestrator recipe)
+
+For ONE page, follow the per-page rules above. For a BATCH (many PDFs at once),
+the parallel-safe pipeline is encoded as durable artifacts; you orchestrate
+around it. This is intentionally a recipe here, not a separate skill, so the
+per-page conventions and the batch recipe stay in one place.
+
+Artifacts (single source of truth, reuse every batch):
+- `.claude/agents/paper-distiller.md` : reads one PDF, writes one
+  `papers/<slug>.md` (Crossref licence check, data:<slug> tags, extracted-only).
+- `.claude/agents/paper-verifier.md` : adversarially re-checks one page's
+  locators/magnitudes against its PDF.
+- `.claude/workflows/distill-papers.js` : fans out distill->verify as a
+  `pipeline`, one file per paper. Invoke with
+  `Workflow({scriptPath: ".../distill-papers.js", args: {today, items:[{slug,pdf,hint}]}})`.
+  (The workflow runtime only resolves built-in agent types, so the script uses
+  `general-purpose` + `model: sonnet` and has each agent read its def file from
+  disk as step one. `args` may arrive as a JSON string; the script reparses it.)
+
+Steps:
+1. **Scout** candidates and resolve each PDF's absolute path on disk. Prefer
+   recent, title-identifiable, locally-readable PDFs (the J. Finance issue
+   folders carry titled filenames; some corpora only have coded names). Build
+   the `items` work-list programmatically so unicode hyphens / double-spaces in
+   filenames are exact, not hand-typed.
+2. **Run the workflow** (Sonnet fan-out). It writes + self-verifies each page.
+3. **Reconcile across the batch (this is the orchestrator's job; no single
+   agent sees all pages):**
+   - **Slug consistency**: collapse `data:<slug>` variants that denote the same
+     dataset onto the canonical existing-page slug (CRSP/Compustat/I-B-E-S
+     accessed via WRDS -> `data:wrds`; Chen-Zimmermann ->
+     `data:open-source-asset-pricing`; pick one slug for Bloomberg, for GSW
+     Fed yield curves, etc.). A clean build prints `datasets cited but
+     undocumented: ...`; that list should be only genuinely new datasets, not
+     spelling variants of documented ones.
+   - **Year vs venue**: a paper's `year` must be its issue year, not the
+     online-first year (e.g. J. Finance vol 81(1) is 2026 even if the file is
+     labelled 2025). Fix `year`, `title`, `sidebar.label`, and the slug.
+   - **Em-dash / colorful-adjective sweep**: verifiers miss these; grep the new
+     pages for the em-dash char (U+2014) and obvious promotional adjectives.
+4. **Build clean**: `rm -rf .astro && npm run build`. Acceptable output is only
+   the `datasets cited but undocumented` backlog line. A `Duplicate id` warning
+   is a stale content-layer cache artifact that clears on the `.astro` wipe; it
+   must be gone on the clean rebuild. No `tags not in any axis` orphan.
+5. **Mandated review loop**: launch a Sonnet review agent over the diff; fix
+   findings; re-review until `clean` (CLAUDE.md rule).
+6. **Live-check + commit**: confirm `dist/wiki/papers/<slug>/index.html` + the
+   `.md` twin exist and the page is in `/llms.txt`; commit (infra, harness,
+   pages as separate commits). Leave standing issue #5 open.
