@@ -46,6 +46,10 @@ dataset skill, PDF-convention or citation tweak, any pipeline upgrade),
 **file the issue in the ZeroPaper repo** (`gh issue create --repo
 alejandroll10/zeropaper`), not here; that is where the work lands. The
 canonical skill bodies live at `templates/skill_bodies/empirical/<dataset>.md`.
+The rule is symmetric: a pipeline-side change that affects a wiki page or a
+published PDF/landing page (dataset access or gotchas, citation format,
+provenance disclosure) should be filed as an issue **in this repo**
+(`gh issue create --repo institute-for-automated-research/website`).
 
 ## Architecture: one unified Astro build
 
