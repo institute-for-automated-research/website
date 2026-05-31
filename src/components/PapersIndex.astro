@@ -19,6 +19,13 @@ const papers = docs
     const journal = parts[1];
     const p = d.data.paper;
     const dates = (p?.extraction ?? []).map((e) => e.date).sort();
+    // Model id is the text in parens of `by` (e.g. "paper-distiller
+    // (claude-sonnet-4-6)" -> "claude-sonnet-4-6"); join distinct models.
+    const models = [
+      ...new Set(
+        (p?.extraction ?? []).map((e) => e.by.match(/\(([^)]+)\)/)?.[1] ?? e.by)
+      ),
+    ];
     return {
       journal,
       href: `/wiki/${d.id}/`,
@@ -29,6 +36,7 @@ const papers = docs
       pdf: p?.pdf,
       results: p?.resultsCount,
       distilled: dates[dates.length - 1] ?? '',
+      model: models.join('/'),
     };
   });
 
@@ -78,6 +86,7 @@ const groups = [...byJournal.entries()]
                 {p.results ? `${p.results} results` : ''}
                 {p.results && p.distilled ? ', ' : ''}
                 {p.distilled}
+                {p.model && <span class="iar-model"> ({p.model})</span>}
               </td>
             </tr>
           ))}
@@ -86,3 +95,10 @@ const groups = [...byJournal.entries()]
     </section>
   ))
 }
+
+<style>
+  .iar-model {
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-xs);
+  }
+</style>

@@ -7,6 +7,21 @@ import Default from '@astrojs/starlight/components/PageTitle.astro';
 
 const v = Astro.locals.starlightRoute?.entry?.data?.verified;
 const tags: string[] = Astro.locals.starlightRoute?.entry?.data?.tags ?? [];
+
+// Distilled-paper provenance: surface the model + date + role that we already
+// store in `paper.extraction[]`. The model id is the text in parens of `by`
+// (e.g. "paper-distiller (claude-sonnet-4-6)" -> "claude-sonnet-4-6"); a human
+// name with no parens is shown verbatim. One line per page, driven by
+// frontmatter so it stays in sync with the stored attestations.
+const extraction: { by: string; date: string; role: string }[] =
+  Astro.locals.starlightRoute?.entry?.data?.paper?.extraction ?? [];
+const modelOf = (by: string) => by.match(/\(([^)]+)\)/)?.[1] ?? by;
+const steps = extraction.map((e) => ({
+  model: modelOf(e.by),
+  date: e.date,
+  role: e.role,
+}));
+const models = [...new Set(steps.map((s) => s.model))];
 const fmt = (d: string) =>
   new Date(d).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -57,6 +72,45 @@ const fmt = (d: string) =>
 }
 
 {
+  steps.length > 0 && (
+    <p class="iar-distilled" aria-label="Distillation provenance">
+      <span class="iar-mark" aria-hidden="true">
+        {'◈'}
+      </span>
+      {models.length === 1 ? (
+        <>
+          <strong>Distilled by {models[0]}</strong>
+          {' · '}
+          {steps.map((s, i) => (
+            <>
+              {i > 0 && ', '}
+              {s.role}
+              {' '}
+              {fmt(s.date)}
+            </>
+          ))}
+        </>
+      ) : (
+        <>
+          <strong>Distilled</strong>
+          {' · '}
+          {steps.map((s, i) => (
+            <>
+              {i > 0 && ', '}
+              {s.role}
+              {' by '}
+              {s.model}
+              {' '}
+              {fmt(s.date)}
+            </>
+          ))}
+        </>
+      )}
+    </p>
+  )
+}
+
+{
   tags.length > 0 && (
     <p class="iar-tags not-content" aria-label="Tags">
       {tags.map((t) => (
@@ -101,5 +155,14 @@ const fmt = (d: string) =>
   }
   .iar-verified code {
     font-size: 0.95em;
+  }
+  .iar-distilled {
+    margin: 0.4rem 0 0;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  .iar-distilled .iar-mark {
+    color: var(--sl-color-gray-4);
+    margin-right: 0.15rem;
   }
 </style>
