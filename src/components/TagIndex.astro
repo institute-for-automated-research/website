@@ -120,12 +120,22 @@ if (wanted.size)
     `[TagIndex] datasets cited but undocumented: ${[...wanted].map((t) => t.slice(5)).join(', ')}`
   );
 
-// Only render tags that are actually used; flag any used tag missing from
-// the controlled vocabulary so drift is visible at build time.
-const known = new Set(AXES.flatMap((a) => a.tags));
-const orphans = [...byTag.keys()].filter((t) => !known.has(t)).sort();
-if (orphans.length)
-  console.warn(`[TagIndex] tags not in any axis: ${orphans.join(', ')}`);
+// Topic is an open axis: any used tag not claimed by a closed axis, the
+// Dataset axis (data:*), or the derived Verification rungs is treated as a
+// topic and appended after the curated ones (alphabetically). This is what
+// lets adding a paper that introduces a new topic tag be a single new file:
+// no edit here, no orphan warning. Genuinely malformed tags render as their
+// own Topic pill rather than failing the build; we log them so drift in the
+// vocabulary is still visible in the build output.
+const closed = new Set(AXES.flatMap((a) => a.tags));
+const extras = [...byTag.keys()]
+  .filter((t) => !closed.has(t) && !t.startsWith('data:'))
+  .sort();
+for (const a of AXES) if (a.label === 'Topic') a.tags = [...a.tags, ...extras];
+if (extras.length)
+  console.log(`[TagIndex] open topic tags (auto-absorbed): ${extras.join(', ')}`);
+
+// Only render tags that are actually used.
 const axes = AXES.map((a) => ({
   ...a,
   tags: a.tags.filter((t) => byTag.has(t)),

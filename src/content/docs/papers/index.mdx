@@ -9,6 +9,8 @@ sidebar:
   order: 0
 ---
 
+import PapersIndex from '../../../components/PapersIndex.astro';
+
 These pages distil each paper to the part you usually need (**its core
 results, the datasets it used, and the theory it tested**), with exact
 source locators. Read the full paper to replicate or extend it, not to find
@@ -23,9 +25,10 @@ permits, the verbatim PDF is also mirrored, machine-accessible, in the
 
 ## Distilled papers
 
-| Paper | Venue | Source | Distilled |
-|---|---|---|---|
-| [Institutional Investor Attention](/wiki/papers/kwan-liu-matthies-2026/) (Kwan, Liu & Matthies) | J. Finance 2026 | CC BY 4.0 · [mirror](/library/kwan-liu-matthies-2026-institutional-investor-attention.pdf) | 8 results, 2026-05-17 |
+The table below is generated at build time from each page's own metadata, so a
+new distillation is one new file under `papers/` with nothing else to update.
+
+<PapersIndex />
 
 > A distillation is **not** a substitute for the paper under peer review or
 > in citation. It is a map. Re-expressed factual results are not

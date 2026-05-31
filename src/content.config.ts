@@ -34,6 +34,14 @@ export const collections = {
             authors: z.string(),
             year: z.number(),
             venue: z.string(),
+            // Short display forms for the auto-generated papers index table
+            // (src/components/PapersIndex.astro), so adding a paper page never
+            // requires hand-editing a shared index file. venueShort e.g.
+            // "J. Finance 2026"; licenseShort e.g. "CC BY 4.0" or "paywalled";
+            // resultsCount is the number of rows in the page's results table.
+            venueShort: z.string().optional(),
+            licenseShort: z.string().optional(),
+            resultsCount: z.number().optional(),
             doi: z.string().optional(),
             // e.g. "CC BY 4.0 (asserted — artifact p.791, version
             // unspecified; recorded as publisher/AFA OA standard)"

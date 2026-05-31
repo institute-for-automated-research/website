@@ -1,0 +1,59 @@
+---
+// The "Distilled papers" table, derived at build time from every page under
+// papers/ (its `paper:` frontmatter). This is what makes adding a paper page
+// safe under parallel agents: a new distillation is one new file in papers/,
+// with no edit to any shared index. Pure build-time, zero client JS; links are
+// written with the explicit /wiki base like TagIndex.astro.
+import { getCollection } from 'astro:content';
+
+const docs = await getCollection('docs');
+const papers = docs
+  .filter((d) => d.id.startsWith('papers/') && !d.id.endsWith('index'))
+  .map((d) => {
+    const p = d.data.paper;
+    // Latest distillation date across the stacking extraction[] attestations.
+    const dates = (p?.extraction ?? []).map((e) => e.date).sort();
+    return {
+      href: `/wiki/${d.id}/`,
+      // Descriptive name = title before the "Name: Authors (Year)" colon.
+      name: d.data.title.split(/:\s/)[0],
+      year: p?.year ?? 0,
+      venue: p?.venueShort ?? p?.venue ?? '',
+      license: p?.licenseShort ?? p?.access ?? '',
+      pdf: p?.pdf,
+      results: p?.resultsCount,
+      distilled: dates[dates.length - 1] ?? '',
+    };
+  })
+  .sort((a, b) => b.year - a.year || a.name.localeCompare(b.name));
+---
+
+<table>
+  <thead>
+    <tr><th>Paper</th><th>Venue</th><th>Source</th><th>Distilled</th></tr>
+  </thead>
+  <tbody>
+    {
+      papers.map((p) => (
+        <tr>
+          <td><a href={p.href}>{p.name}</a></td>
+          <td>{p.venue}</td>
+          <td>
+            {p.license}
+            {p.pdf && (
+              <>
+                {' · '}
+                <a href={p.pdf}>mirror</a>
+              </>
+            )}
+          </td>
+          <td>
+            {p.results ? `${p.results} results` : ''}
+            {p.results && p.distilled ? ', ' : ''}
+            {p.distilled}
+          </td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
