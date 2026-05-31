@@ -43,14 +43,14 @@ const VERIFY_SCHEMA = {
   type: 'object',
   additionalProperties: true,
   properties: {
-    status: { type: 'string' },
+    status: { type: 'string', enum: ['checked'] },
     slug: { type: 'string' },
     rowsChecked: { type: 'number' },
     fixed: { type: 'array' },
     unresolved: { type: 'array' },
     verdict: { type: 'string', enum: ['pass', 'flagged'] },
   },
-  required: ['slug', 'verdict'],
+  required: ['status', 'slug', 'verdict'],
 };
 
 const distillPrompt = (it) => `You are operating as the "paper-distiller" agent. FIRST read these two files
@@ -105,19 +105,23 @@ const results = await pipeline(
       label: `verify:${it.slug}`,
       phase: 'Verify',
       schema: VERIFY_SCHEMA,
-    }).then((verified) => ({ slug: it.slug, distilled, verified }));
+    })
+      .then((verified) => ({ slug: it.slug, distilled, verified }))
+      .catch(() => ({ slug: it.slug, distilled, verified: null }));
   }
 );
 
 const clean = results.filter(Boolean);
-const ok = clean.filter((r) => r.distilled?.status === 'ok');
+const ok = clean.filter((r) => r.distilled?.status === 'ok' && r.verified != null);
+const verifyFailed = clean.filter((r) => r.distilled?.status === 'ok' && r.verified == null);
 const flagged = clean.filter((r) => r.verified?.verdict === 'flagged');
 const failed = clean.filter((r) => r.distilled?.status !== 'ok');
-log(`distill-papers done: ${ok.length}/${items.length} pages written, ${flagged.length} flagged, ${failed.length} failed`);
+log(`distill-papers done: ${ok.length}/${items.length} pages written+verified, ${flagged.length} flagged, ${verifyFailed.length} verify-failed, ${failed.length} distill-failed`);
 
 return {
   ok: ok.length,
   flagged: flagged.map((r) => ({ slug: r.slug, unresolved: r.verified?.unresolved })),
+  verifyFailed: verifyFailed.map((r) => r.slug),
   failed: failed.map((r) => ({ slug: r.slug, reason: r.distilled?.reason })),
   pages: ok.map((r) => ({
     slug: r.slug,

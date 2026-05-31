@@ -58,7 +58,7 @@ with the compact JSON result described at the bottom.
   SEC EDGAR→`data:edgar`, Ken French library→`data:ken-french`, etc.). A
   `data:<slug>` with no page yet is fine; it becomes a documentation backlog
   item.
-- `paper:` block — fill all required fields:
+- `paper:` block, fill all required fields:
   - `authors` (full names, as printed), `year` (number), `venue` (full
     citation string), `venueShort` (e.g. `J. Finance 2020`), `doi`.
   - `license` (descriptive string), `licenseShort` (e.g. `CC BY 4.0`, or
@@ -70,7 +70,7 @@ with the compact JSON result described at the bottom.
     openly licensed (CC) AND gives you a mirror path. Do NOT copy or mirror
     PDFs yourself.
   - `resultsCount`: the number of rows in your Core results table.
-  - `extraction`: exactly one entry now —
+  - `extraction`: exactly one entry now,
     `by: paper-distiller (claude-sonnet-4-6)`, `date: <today>`,
     `role: extracted`, `note:` stating you read the PDF, that it is not
     human-verified and not reproduced.

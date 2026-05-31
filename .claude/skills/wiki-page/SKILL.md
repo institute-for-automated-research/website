@@ -200,4 +200,5 @@ Steps:
    findings; re-review until `clean` (CLAUDE.md rule).
 6. **Live-check + commit**: confirm `dist/wiki/papers/<slug>/index.html` + the
    `.md` twin exist and the page is in `/llms.txt`; commit (infra, harness,
-   pages as separate commits). Leave standing issue #5 open.
+   pages as separate commits). The distilled-literature backlog is a standing
+   issue in this repo; leave it open and reference it from the pages commit.
