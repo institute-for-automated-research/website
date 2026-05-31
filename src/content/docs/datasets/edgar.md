@@ -1,8 +1,8 @@
 ---
-title: SEC EDGAR — filings, financials, full-text search
+title: "SEC EDGAR: filings, financials, full-text search"
 description: >-
   How to pull SEC filings, XBRL financial facts, insider trades, and
-  institutional holdings from EDGAR for free — the User-Agent trap, the
+  institutional holdings from EDGAR for free: the User-Agent trap, the
   10 req/s limit, and XBRL-vs-text, for automated pipelines.
 sidebar:
   label: SEC EDGAR
@@ -17,14 +17,14 @@ verified:
 **SEC EDGAR** is the free, authoritative source for US corporate disclosure:
 10-K/10-Q/8-K filings, standardized **XBRL financial facts** (cross-company
 comparable), insider trades (Form 4), institutional holdings (13F), proxy
-statements, and full-text search across everything. No API key — just a
+statements, and full-text search across everything. No API key, just a
 `User-Agent` header. It is the corporate-finance backbone the
 [ZeroPaper](https://github.com/alejandroll10/zeropaper) pipeline uses for
 governance, disclosure, and fundamentals work. This page is the distilled
 access recipe.
 
 - **Cost:** free, no paywall, no key.
-- **Auth:** none — but a descriptive `User-Agent` header is **mandatory**.
+- **Auth:** none, but a descriptive `User-Agent` header is **mandatory**.
 - **Coverage:** all US public-company filings; XBRL facts from ~2009.
 - **Home:** <https://www.sec.gov/edgar> ·
   **API:** <https://data.sec.gov> ·
@@ -32,7 +32,7 @@ access recipe.
 
 ## Access
 
-### Option 1 — `edgartools` (preferred — structured data)
+### Option 1: `edgartools` (preferred, structured data)
 
 ```python
 # pip install edgartools
@@ -52,7 +52,7 @@ revenue = facts.to_pandas("us-gaap:Revenues")
 form4 = company.get_filings(form="4")[0].obj()   # insider trades
 ```
 
-### Option 2 — Direct REST API (no package)
+### Option 2: Direct REST API (no package)
 
 ```python
 import requests
@@ -80,11 +80,11 @@ The reason to read this page rather than the SEC docs. Verified against live
 endpoints on the date above.
 
 - **No `User-Agent` → HTTP 403.** This is the #1 EDGAR failure. A request
-  with no (or a default `python-requests`) User-Agent is rejected outright —
+  with no (or a default `python-requests`) User-Agent is rejected outright;
   confirmed 403 live. Always send a descriptive `Name email` string.
 - **Rate limit: 10 requests/second, hard.** `edgartools` throttles for you;
   for the direct API add `time.sleep(0.1)` between calls and never parallelize
-  blindly — sustained bursts get the host IP blocked, not just throttled.
+  blindly; sustained bursts get the host IP blocked, not just throttled.
 - **CIK must be 10-digit zero-padded** in `data.sec.gov` URLs
   (`CIK0000320193`, not `CIK320193` or `320193`). `edgartools`'
   `Company("TICKER")` hides this; the raw API does not.
@@ -95,7 +95,7 @@ endpoints on the date above.
   `us-gaap:Revenues` *or*
   `us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax`. Check both.
 - **Cache aggressively.** Save XBRL facts to `data/*.parquet` and check before
-  re-downloading — re-pulling companyfacts for a panel will blow the rate
+  re-downloading; re-pulling companyfacts for a panel will blow the rate
   limit fast.
 - **Amendments & restatements.** `10-K/A` supersedes `10-K`; a company can
   restate prior XBRL facts. Pin the accession number when reproducibility
@@ -131,7 +131,7 @@ endpoints on the date above.
 
 ## Standard recipes
 
-**Panel of fundamentals across firms** — loop tickers, pull `get_facts()`,
+**Panel of fundamentals across firms**: loop tickers, pull `get_facts()`,
 take the XBRL concept you need, cache each to parquet, then assemble:
 
 ```python
@@ -145,11 +145,11 @@ for t in ["AAPL", "MSFT", "GOOGL", "AMZN", "META"]:
 df = pd.DataFrame(rows)
 ```
 
-**Full-text search for a research topic** — `efts.sec.gov/LATEST/search-index`
+**Full-text search for a research topic**: `efts.sec.gov/LATEST/search-index`
 returns hit counts and snippets; use it to scope a sample before downloading
 filings (`data["hits"]["total"]["value"]`).
 
-**Insider-trading study** — iterate a company's Form 4 filings and read
+**Insider-trading study**: iterate a company's Form 4 filings and read
 `.obj().transactions` (a DataFrame of trades) per filing.
 
 ## Form N-1A: open-end fund registration

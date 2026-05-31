@@ -1,5 +1,5 @@
 ---
-title: WRDS / CRSP / Compustat — the paywalled core (academic access)
+title: "WRDS / CRSP / Compustat: the paywalled core (academic access)"
 description: >-
   WRDS (CRSP, Compustat, IBES, OptionMetrics…) is not free, but most
   universities license it. How affiliated researchers get access, and what
@@ -14,12 +14,12 @@ verified:
   access: licensed
 ---
 
-:::caution[Licensed — not free]
+:::caution[Licensed, not free]
 **WRDS is subscription-gated**, so it lives in the *Licensed* tier, not with
 the free datasets. The badge above reads **"Access confirmed (licensed)"**,
 deliberately *not* the green "Verified" used on free pages: the access path
 was exercised in-session against a real institutional WRDS account (live
-`crsp.msf` and `comp.funda` rows returned) — but the data itself is **not
+`crsp.msf` and `comp.funda` rows returned), but the data itself is **not
 free**. Without a subscription you cannot reproduce this; see the
 free-substitute map below for what you can.
 :::
@@ -37,9 +37,9 @@ in this section cover a large share of the same ground.
 - **Most universities already license WRDS.** If you are faculty, a PhD
   student, or a research staff member at a subscribing institution, you can
   request a personal WRDS account through your library or finance department
-  at no cost to you — the institution pays the subscription.
+  at no cost to you; the institution pays the subscription.
 - Accounts use a username/password plus (typically) Duo 2FA. Keep credentials
-  in `.env` (`WRDS_USER`, `WRDS_PASS`) — never hard-coded.
+  in `.env` (`WRDS_USER`, `WRDS_PASS`); never hard-coded.
 - No institutional subscription → no WRDS. There is no individual free tier.
   Use the free substitutes below.
 
@@ -56,7 +56,7 @@ df = wrds_query("SELECT permno, date, ret FROM crsp.msf "
                 "WHERE date >= '2000-01-01' AND shrcd IN (10,11) LIMIT 100")
 ```
 
-Direct `wrds.Connection()` works too, but Duo fires on **every** connection —
+Direct `wrds.Connection()` works too, but Duo fires on **every** connection;
 open one per script and reuse it.
 
 ## What the free sources here substitute for
@@ -67,8 +67,8 @@ open one per script and reuse it.
 | Cross-sectional anomaly signals | CRSP/Compustat merge | [Open Source Asset Pricing](/wiki/datasets/open-source-asset-pricing/) |
 | Data-mining benchmark | Compustat ratios | [Flexible data-mining](/wiki/datasets/flex-mining/) |
 | Fundamentals / disclosure | Compustat | [SEC EDGAR](/wiki/datasets/edgar/) (XBRL) |
-| Macro calibration | — | [FRED](/wiki/datasets/fred/) |
-| Retirement / pension assets | — | [DOL Form 5500](/wiki/datasets/form-5500/) |
+| Macro calibration | n/a | [FRED](/wiki/datasets/fred/) |
+| Retirement / pension assets | n/a | [DOL Form 5500](/wiki/datasets/form-5500/) |
 
 What the free set does **not** replace: survivorship-bias-free long CRSP daily
 returns, full Compustat history with point-in-time discipline, IBES detail,
@@ -83,6 +83,6 @@ codes; never `SELECT *` on CRSP daily (~100M rows).
 
 ## Citation
 
-Cite the underlying provider, not WRDS itself — e.g. *CRSP, Center for
+Cite the underlying provider, not WRDS itself, e.g.: *CRSP, Center for
 Research in Security Prices, LLC, accessed via WRDS, YYYY-MM-DD*; *S&P Global
 Market Intelligence Compustat, accessed via WRDS, YYYY-MM-DD.*

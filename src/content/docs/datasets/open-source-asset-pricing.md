@@ -2,7 +2,7 @@
 title: Open Source Asset Pricing (Chen-Zimmermann)
 description: >-
   How to pull 212 firm-level anomaly signals and pre-built long-short
-  portfolio returns for free — the list-not-string trap, the 1.6 GB bulk
+  portfolio returns for free: the list-not-string trap, the 1.6 GB bulk
   trap, and the CRSP-merge-already-done point, for automated pipelines.
 sidebar:
   label: Open Source Asset Pricing
@@ -28,7 +28,7 @@ distilled recipe.
 
 ## Access
 
-### Option 1 — `openassetpricing` package (preferred)
+### Option 1: `openassetpricing` package (preferred)
 
 ```python
 # pip install openassetpricing
@@ -44,7 +44,7 @@ ap.list_port()                                  # op, deciles_ew/vw, quintiles_*
 docs = ap.dl_signal_doc("pandas")               # all 212 with paper refs
 ```
 
-### Option 2 — Direct download (fallback)
+### Option 2: Direct download (fallback)
 
 A ~1.6 GB zipped wide CSV of all predictors is at
 <https://www.openassetpricing.com/data/>. Download once, cache under `data/`,
@@ -54,21 +54,21 @@ never re-pull.
 
 The reason to read this page rather than the repo README. Site and GitHub
 confirmed reachable on the date above; the package/data interface is as
-documented (not bulk-fetched here — the full set is ~1.6 GB).
+documented (not bulk-fetched here; the full set is ~1.6 GB).
 
 - **Predictor arguments must be LISTS, not strings.** `["BM"]`, never `"BM"`.
   Passing a string is the #1 failure and the error is not obvious.
 - **The bulk download is ~1.6 GB.** `dl_all_signals` / the direct CSV will
   blow memory and time if pulled naively. Request only the signals you need;
   cache aggressively.
-- **The CRSP/Compustat merge is already done.** Do not re-merge — signals are
+- **The CRSP/Compustat merge is already done.** Do not re-merge; signals are
   delivered at `permno × yyyymm`. Re-merging double-counts and misaligns.
-- **`yyyymm` is an integer**, not a date — convert before joining to returns.
+- **`yyyymm` is an integer**, not a date; convert before joining to returns.
 - **Releases are versioned and periodic.** State the release you used
   (latest tags have been updated as recently as late 2025); results drift
   across releases.
 - **Pre-built portfolios beat hand-rolled.** Use `dl_port` deciles for
-  long-short spreads rather than re-sorting — it matches the paper's
+  long-short spreads rather than re-sorting; it matches the paper's
   methodology and avoids look-ahead in the sort.
 
 ## Key signals (10 of 212)

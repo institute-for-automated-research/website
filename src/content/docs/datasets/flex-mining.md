@@ -2,7 +2,7 @@
 title: Flexible data-mining strategies (Chen-Lopez-Lira-Zimmermann)
 description: >-
   How to get ~30,000 data-mined long-short strategies and the signal-theory
-  classification for free — the gdown-for-Drive trap, the size trap, and
+  classification for free: the gdown-for-Drive trap, the size trap, and
   start-from-the-small-file tip, for automated pipelines.
 sidebar:
   label: Flexible data-mining
@@ -28,7 +28,7 @@ whether a "novel" predictor is actually distinguishable from data mining.
 
 ## Access
 
-### Option 1 — Signal-theory classification (small, start here)
+### Option 1: Signal-theory classification (small, start here)
 
 ```python
 import pandas as pd
@@ -37,7 +37,7 @@ url = ("https://raw.githubusercontent.com/chenandrewy/flex-mining/"
 signals = pd.read_csv(url)   # signalname, Authors, Year, Journal, theory, …
 ```
 
-### Option 2 — Full data-mined returns (large, Google Drive)
+### Option 2: Full data-mined returns (large, Google Drive)
 
 ```python
 # pip install gdown
@@ -56,7 +56,7 @@ The reason to read this page rather than the repo. The small GitHub CSV was
 fetched live on the date above (200, real columns); the bulk returns live in
 the linked Drive folder.
 
-- **The bulk data is on Google Drive — use `gdown`.** Plain `requests` on a
+- **The bulk data is on Google Drive; use `gdown`.** Plain `requests` on a
   Drive folder URL does not work. `pip install gdown` and use
   `download_folder`. This is the most common failure here.
 - **It's large (~500 MB+).** Download once to `data/flex-mining/` and cache.

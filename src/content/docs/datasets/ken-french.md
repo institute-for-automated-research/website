@@ -1,8 +1,8 @@
 ---
-title: Ken French Data Library — factors & test portfolios
+title: "Ken French Data Library: factors & test portfolios"
 description: >-
   How to pull Fama-French factors, momentum, and sorted test portfolios for
-  free — the percent-not-decimal trap, the header-rows trap, and the
+  free: the percent-not-decimal trap, the header-rows trap, and the
   monthly/annual-in-one-file trap, for automated pipelines.
 sidebar:
   label: Ken French
@@ -28,7 +28,7 @@ compute alphas and build test assets. This page is the distilled recipe.
 
 ## Access
 
-### Option 1 — `pandas-datareader` (preferred)
+### Option 1: `pandas-datareader` (preferred)
 
 ```python
 # pip install pandas-datareader
@@ -38,7 +38,7 @@ ff3 = web.DataReader("F-F_Research_Data_Factors", "famafrench", start="1963")
 ff3[0].head()   # dict of DataFrames; [0] = monthly: Mkt-RF, SMB, HML, RF
 ```
 
-### Option 2 — Direct CSV zip (no package)
+### Option 2: Direct CSV zip (no package)
 
 ```python
 import pandas as pd, zipfile, io, requests
@@ -57,18 +57,18 @@ live download on the date above.
 - **Returns are in PERCENT, not decimal.** `Mkt-RF = 1.23` means 1.23%, not
   123%. Divide by 100 before compounding or regressing. This is the single
   most common error against this data.
-- **CSV has a multi-line text header.** Numeric data starts after a preamble —
+- **CSV has a multi-line text header.** Numeric data starts after a preamble;
   `skiprows=3` for the factors file, but it varies by dataset; never assume,
   inspect.
 - **One file often holds multiple tables.** Monthly *and* annual tables are
   stacked in the same CSV, separated by blank lines and a second header.
-  Read only to the first blank line, or split deliberately — a naive
+  Read only to the first blank line, or split deliberately; a naive
   `read_csv` silently concatenates them.
 - **Dates are `YYYYMM` integers** for monthly files (e.g. `202401`), not
   parseable dates. Convert explicitly.
 - **Value- vs equal-weighted.** Many portfolio sets ship both; the file/column
   must be stated or the result isn't reproducible.
-- **`pandas-datareader` returns a dict**, not a DataFrame — `[0]` is monthly,
+- **`pandas-datareader` returns a dict**, not a DataFrame; `[0]` is monthly,
   `[1]` annual, with a `'DESCR'` key documenting the build.
 
 ## Key datasets

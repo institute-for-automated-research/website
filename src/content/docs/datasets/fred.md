@@ -1,7 +1,7 @@
 ---
-title: FRED — Federal Reserve Economic Data
+title: "FRED: Federal Reserve Economic Data"
 description: >-
-  How to pull macro and financial time series from FRED for free — including
+  How to pull macro and financial time series from FRED for free, including
   the no-API-key fallback, the series you actually need for finance and macro
   calibration, and the gotchas that bite automated pipelines.
 sidebar:
@@ -15,9 +15,9 @@ verified:
 ---
 
 **FRED** (Federal Reserve Economic Data, St. Louis Fed) is the single most
-useful free source for macro and financial time series: ~800,000 series —
-output, prices, rates, spreads, the cross-section of Treasury yields, recession
-indicators — with a clean API and, crucially, a **no-authentication CSV
+useful free source for macro and financial time series: ~800,000 series
+covering output, prices, rates, spreads, the cross-section of Treasury yields,
+and recession indicators, with a clean API and, crucially, a **no-authentication CSV
 fallback**. It is the default calibration source the
 [ZeroPaper](https://github.com/alejandroll10/zeropaper) pipeline reaches for
 when a model needs macro moments. This page is the distilled access recipe.
@@ -30,7 +30,7 @@ when a model needs macro moments. This page is the distilled access recipe.
 
 ## Access
 
-### Option 1 — No API key (fallback, zero setup)
+### Option 1: No API key (fallback, zero setup)
 
 Any series has a direct CSV endpoint that needs no authentication:
 
@@ -50,11 +50,11 @@ This works for most series and is the right default for a pipeline that
 shouldn't depend on a key being present. Use it unless you need search,
 metadata, vintages, or bulk pulls.
 
-### Option 2 — `fredapi` (preferred when a key is available)
+### Option 2: `fredapi` (preferred when a key is available)
 
 Get a free key at
 <https://fred.stlouisfed.org/docs/api/api_key.html> and store it in the
-environment (e.g. `.env` as `FRED_API_KEY=...`) — never hard-code it.
+environment (e.g. `.env` as `FRED_API_KEY=...`); never hard-code it.
 
 ```python
 # pip install fredapi python-dotenv
@@ -67,7 +67,7 @@ fred = Fred(api_key=os.environ["FRED_API_KEY"])
 gdp = fred.get_series("GDP")
 ```
 
-### Option 3 — Direct REST API
+### Option 3: Direct REST API
 
 ```
 https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key={KEY}&file_type=json
@@ -84,7 +84,7 @@ data on the date above.
 - **`SP500` is price-only and ~10 years deep.** The series begins ~10 years
   back (confirmed: first observation 2016-05-16) and is an *index level*, not
   total return. For asset-pricing work use the
-  [Ken French](/wiki/datasets/) market series or CRSP instead — never `SP500`
+  [Ken French](/wiki/datasets/) market series or CRSP instead, never `SP500`
   for long-horizon return studies.
 - **Revisions.** `GDP`/`GDPC1` are revised for years. If your result depends
   on what was *known at the time*, use ALFRED vintages, not the latest series.
@@ -92,10 +92,10 @@ data on the date above.
   resample deliberately and document the convention.
 - **Discontinued series.** Some IDs stop updating or are superseded; check the
   last observation date before trusting a "current" value.
-- **Rate limits.** The keyed API rate-limits bulk pulls — batch and cache;
+- **Rate limits.** The keyed API rate-limits bulk pulls, so batch and cache;
   the CSV fallback is fine for low-volume use.
 - **Units & seasonal adjustment.** Many series are indices or seasonally
-  adjusted (`SA`) variants — read the series page; don't assume levels or NSA.
+  adjusted (`SA`) variants. Read the series page; don't assume levels or NSA.
 - **CSV column name.** The no-key endpoint returns `observation_date` as the
   date column (not `DATE`); parse it explicitly as shown above.
 
@@ -117,7 +117,7 @@ is small. Search the site or the API for anything else.
 | `UNRATE` | Unemployment rate | Monthly |
 | `PCE` | Personal consumption expenditures | Monthly |
 | `VIXCLS` | CBOE VIX | Daily |
-| `SP500` | S&P 500 index (price-only, ~10yr — see gotchas) | Daily |
+| `SP500` | S&P 500 index (price-only, ~10yr, see gotchas) | Daily |
 | `USREC` | NBER recession indicator (0/1) | Monthly |
 
 ## Standard operations
@@ -130,7 +130,7 @@ is small. Search the site or the API for anything else.
   `BAA10Y`) rather than hunting for a pre-computed spread.
 - **Real vs. nominal:** deflate with `CPIAUCSL` or the PCE deflator; be
   explicit about which.
-- **Always state the sample period and frequency** when reporting any moment —
+- **Always state the sample period and frequency** when reporting any moment:
   FRED series are revised and extended, so an unstated window is not
   reproducible.
 
