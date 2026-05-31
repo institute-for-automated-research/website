@@ -24,7 +24,7 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 |---|---|
 | Dataset / recipe pages | `src/content/docs/datasets/<slug>.md` |
 | Licensed-source pages | `src/content/docs/licensed/<slug>.md` |
-| Distilled paper summaries | `src/content/docs/papers/<slug>.md` |
+| Distilled paper summaries | `src/content/docs/papers/<journal>/<year>/<slug>.md` |
 | Tag browse page + axes | `src/content/docs/tags.mdx` + `src/components/TagIndex.astro` |
 | Verified badge renderer | `src/components/PageTitle.astro` |
 | Frontmatter schema | `src/content.config.ts` |
@@ -161,12 +161,16 @@ per-page conventions and the batch recipe stay in one place.
 
 Artifacts (single source of truth, reuse every batch):
 - `.claude/agents/paper-distiller.md` : reads one PDF, writes one
-  `papers/<slug>.md` (Crossref licence check, data:<slug> tags, extracted-only).
+  `papers/<journal>/<year>/<slug>.md` (Crossref licence check, data:<slug> tags, extracted-only).
 - `.claude/agents/paper-verifier.md` : adversarially re-checks one page's
   locators/magnitudes against its PDF.
 - `.claude/workflows/distill-papers.js` : fans out distill->verify as a
   `pipeline`, one file per paper. Invoke with
-  `Workflow({scriptPath: ".../distill-papers.js", args: {today, items:[{slug,pdf,hint}]}})`.
+  `Workflow({scriptPath: ".../distill-papers.js", args: {today, items:[{slug,journal,year,pdf,hint}]}})`.
+  Pages are organised `papers/<journal>/<year>/<slug>.md` (journal = lowercase
+  code in src/journals.js; year = the journal ISSUE year). The orchestrator sets
+  journal+year from the issue you scouted, which is what prevents the
+  online-first vs issue-year mismatch (the distiller uses the year you pass).
   (The workflow runtime only resolves built-in agent types, so the script uses
   `general-purpose` + `model: sonnet` and has each agent read its def file from
   disk as step one. `args` may arrive as a JSON string; the script reparses it.)
@@ -198,7 +202,7 @@ Steps:
    must be gone on the clean rebuild. No `tags not in any axis` orphan.
 5. **Mandated review loop**: launch a Sonnet review agent over the diff; fix
    findings; re-review until `clean` (CLAUDE.md rule).
-6. **Live-check + commit**: confirm `dist/wiki/papers/<slug>/index.html` + the
+6. **Live-check + commit**: confirm `dist/wiki/papers/<journal>/<year>/<slug>/index.html` + the
    `.md` twin exist and the page is in `/llms.txt`; commit (infra, harness,
    pages as separate commits). The distilled-literature backlog is a standing
    issue in this repo; leave it open and reference it from the pages commit.

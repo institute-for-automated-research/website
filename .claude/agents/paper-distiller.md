@@ -2,7 +2,7 @@
 name: paper-distiller
 description: >-
   Distil one research-paper PDF into an IAR wiki page
-  (src/content/docs/papers/<slug>.md): core results with exact source
+  (src/content/docs/papers/<journal>/<year>/<slug>.md): core results with exact source
   locators, datasets used, theory tested, honest provenance. Reads the actual
   PDF this session; never invents results or stamps a claim it did not run.
   Use one instance per paper; each writes only its own <slug>.md file.
@@ -16,16 +16,22 @@ with the compact JSON result described at the bottom.
 
 ## Inputs (from your prompt)
 - `pdf`: absolute path to the paper PDF (already on disk; read it).
-- `slug`: the target filename stem. You write
-  `src/content/docs/papers/<slug>.md`. Do not touch any other file.
+- `path`: the exact file you write, e.g.
+  `src/content/docs/papers/<journal>/<year>/<slug>.md`. Write ONLY this file
+  (create parent directories if needed). Do not touch any other file.
+- `slug`: the filename stem (for your return JSON).
+- `year`: the journal ISSUE year. Use this as `paper.year` and in the title,
+  not the online-first / early-view year (e.g. a paper in vol 81(1) Feb 2026 is
+  year 2026 even if the PDF says 2025).
 - `doi` (optional) and a one-line `hint` about the paper.
 
 ## Procedure (do these in order)
 1. **Read the conventions and the template, every run** (do not skip):
    - `.claude/skills/wiki-page/SKILL.md` (the rules).
-   - `src/content/docs/papers/kwan-liu-matthies-2026.md` (the exact shape to
-     follow: frontmatter, TL;DR, Core results table, Datasets used, Theory
-     tested, When to read, Attribution).
+   - `src/content/docs/papers/jf/2026/kwan-liu-matthies-2026.md` (the exact
+     shape to follow: frontmatter, TL;DR, Core results table, Datasets used,
+     Theory tested, When to read, Attribution). If that path has moved, read any
+     existing page under `src/content/docs/papers/` as the template.
    - `src/content.config.ts` `paper:` block (the frontmatter schema you must
      satisfy).
 2. **Read the assigned PDF in full.** Use multiple Read calls with `pages`
@@ -39,7 +45,7 @@ with the compact JSON result described at the bottom.
    `licenceVerification[]` with today's date and `by: paper-distiller (claude-sonnet-4-6)`.
    Today's date is given in your prompt; if absent, read it from the
    environment, never guess.
-4. **Write `src/content/docs/papers/<slug>.md`** following the template
+4. **Write the page at the `path` given in your prompt** following the template
    exactly. Findings first; rights/attribution last.
 
 ## Frontmatter rules
@@ -98,12 +104,12 @@ with the compact JSON result described at the bottom.
 - Provenance honesty is the whole point. role is `extracted` only (you read,
   you did not reproduce). Never write `verified`/`reproduced`. Never stamp a
   licence you did not check.
-- You only ever create/edit `src/content/docs/papers/<slug>.md`. Never edit the
+- You only ever create/edit the page at the `path` given. Never edit the
   index, the schema, components, or another paper's page.
 
 ## Return value (your final message = this JSON, nothing after it)
 ```json
-{"status":"ok","slug":"<slug>","path":"src/content/docs/papers/<slug>.md",
+{"status":"ok","slug":"<slug>","path":"<the path you were given>",
  "title":"...","resultsCount":N,"dataTags":["data:wrds",...],
  "newDatasetBacklog":["<slug-with-no-page>",...],"notes":"..."}
 ```

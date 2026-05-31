@@ -3,12 +3,15 @@ export const meta = {
   description: 'Distil research-paper PDFs into IAR wiki pages, then adversarially verify each against its source PDF',
   whenToUse: 'Given a work-list of {slug, pdf, hint} papers, fan out paper-distiller agents (one file each) then paper-verifier agents to re-check locators/magnitudes against the PDF. Build/review/commit stay with the caller.',
   phases: [
-    { title: 'Distill', detail: 'one paper-distiller per paper, writes papers/<slug>.md', model: 'sonnet' },
+    { title: 'Distill', detail: 'one paper-distiller per paper, writes papers/<journal>/<year>/<slug>.md', model: 'sonnet' },
     { title: 'Verify', detail: 'one paper-verifier per page, re-checks against the PDF', model: 'sonnet' },
   ],
 };
 
-// args = { today: 'YYYY-MM-DD', items: [{ slug, pdf, hint }, ...] }
+// args = { today: 'YYYY-MM-DD',
+//          items: [{ slug, journal, year, pdf, hint }, ...] }
+// journal is the lowercase code (jf, jfe, ...); year is the journal ISSUE year.
+// Pages are written to papers/<journal>/<year>/<slug>.md.
 // Be robust: args may arrive as a parsed object or as a JSON string.
 let A = args;
 if (typeof A === 'string') {
@@ -53,6 +56,12 @@ const VERIFY_SCHEMA = {
   required: ['status', 'slug', 'verdict'],
 };
 
+// Destination page path: papers are organised papers/<journal>/<year>/<slug>.md.
+// The orchestrator sets journal + year (year = the journal ISSUE year, which is
+// what prevents the online-first vs issue-year mismatch).
+const dest = (it) =>
+  `src/content/docs/papers/${it.journal}/${it.year}/${it.slug}.md`;
+
 const distillPrompt = (it) => `You are operating as the "paper-distiller" agent. FIRST read these two files
 and follow them exactly as your operating instructions:
   - .claude/agents/paper-distiller.md  (your full procedure + return format)
@@ -60,16 +69,18 @@ and follow them exactly as your operating instructions:
 Then perform this task.
 
 pdf: ${it.pdf}
+path: ${dest(it)}
 slug: ${it.slug}
+year: ${it.year}   (the journal ISSUE year; use as paper.year and in the title, not the online-first year)
 hint: ${it.hint ?? ''}
 today: ${TODAY}
 
 Read the conventions and the template first, then read the PDF in full, confirm
-the DOI (printed on the PDF first page) and licence (Crossref), and write
-src/content/docs/papers/${it.slug}.md following the template exactly. This batch
-is extract-only: do NOT set a pdf: mirror even if the article is CC-licensed;
-record the licence accurately and note that CC permits mirroring but it is not
-hosted in this batch. Return the JSON result.`;
+the DOI (printed on the PDF first page) and licence (Crossref), and write the
+page at ${dest(it)} following the template exactly (create parent dirs if
+needed). This batch is extract-only: do NOT set a pdf: mirror even if the
+article is CC-licensed; record the licence accurately and note that CC permits
+mirroring but it is not hosted in this batch. Return the JSON result.`;
 
 const verifyPrompt = (it) => `You are operating as the "paper-verifier" agent. FIRST read
 .claude/agents/paper-verifier.md and follow it exactly as your operating
@@ -77,11 +88,13 @@ instructions. Then perform this task.
 
 pdf: ${it.pdf}
 slug: ${it.slug}
-path: src/content/docs/papers/${it.slug}.md
+path: ${dest(it)}
+today: ${TODAY}
 
 Read the page, then read the cited PDF pages and check every Core results row's
 locator and magnitude, the frontmatter facts, resultsCount, and the no-em-dash /
 no-colorful-adjective rules. Fix clear errors in place on this one file only.
+Then append the role: verified attestation dated ${TODAY} as instructed.
 Return the JSON verdict.`;
 
 const results = await pipeline(
