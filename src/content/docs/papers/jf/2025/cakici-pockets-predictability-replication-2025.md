@@ -28,6 +28,10 @@ paper:
       date: 2026-05-31
       role: extracted
       note: Full text read (pp. 3771–3790, 20 pages); eight results extracted from the PDF. Not human-verified. Not reproduced. Replication code is published as Supporting Information on the journal website but has not been run here.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-05-31
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13484
       checked: 2026-05-31

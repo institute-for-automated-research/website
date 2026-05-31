@@ -26,7 +26,7 @@ It assembles holdings from regulatory filings (US 13-F and equivalents) and
 fund disclosures into a position-level panel, and **classifies each
 holder** by type (mutual fund, hedge fund, pension, bank, insurance company,
 and so on). The
-[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+[Kwan, Liu & Matthies](/wiki/papers/jf/2026/kwan-liu-matthies-2026/) attention paper
 uses LionShares for institutional holdings and institution classification,
 which it needs to separate hedge funds from other investor types.
 

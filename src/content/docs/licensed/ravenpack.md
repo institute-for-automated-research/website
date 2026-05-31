@@ -25,7 +25,7 @@ machine-readable **entity-event records**: each detected company, person, or
 place in a story gets a timestamped row carrying a sentiment score, a
 relevance score, a novelty score, and a topic taxonomy. It is a
 commercial feed for news-based signals in finance. The
-[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+[Kwan, Liu & Matthies](/wiki/papers/jf/2026/kwan-liu-matthies-2026/) attention paper
 uses **RavenPack 1.0** to classify the topic, subject, and sentiment of the
 news that institutional investors read, and to map stories to stock tickers.
 

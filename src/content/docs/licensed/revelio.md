@@ -25,7 +25,7 @@ public professional profiles and online job postings: headcount, hiring and
 attrition flows, role and seniority composition, skills, education (including
 the **advanced-degree share** of staff), inferred compensation, and sentiment.
 It maps this to companies and, where listed, to tickers. The
-[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+[Kwan, Liu & Matthies](/wiki/papers/jf/2026/kwan-liu-matthies-2026/) attention paper
 uses Revelio / LinkedIn data for fund human capital (the advanced-degree share
 of staff) in its result that more efficient funds employ more highly educated
 analysts.

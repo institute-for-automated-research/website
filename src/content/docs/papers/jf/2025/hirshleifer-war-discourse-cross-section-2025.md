@@ -27,6 +27,10 @@ paper:
       date: 2026-05-31
       role: extracted
       note: Full text read (pp. 3589–3637 of the print PDF). Eight results extracted from the paywalled PDF. Not human-verified. Not reproduced. Data and code available upon request from the authors (per p. 3603 fn. 16).
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-05-31
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13482
       checked: 2026-05-31

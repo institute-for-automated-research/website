@@ -1,59 +1,88 @@
 ---
-// The "Distilled papers" table, derived at build time from every page under
-// papers/ (its `paper:` frontmatter). This is what makes adding a paper page
-// safe under parallel agents: a new distillation is one new file in papers/,
-// with no edit to any shared index. Pure build-time, zero client JS; links are
-// written with the explicit /wiki base like TagIndex.astro.
+// The "Distilled papers" index, grouped by journal, derived at build time from
+// every page under papers/<journal>/<year>/<slug>.md (its `paper:` frontmatter
+// plus its path). Adding a paper is one new file in the right journal/year
+// folder, with no edit here: the journal heading, the row, and the ordering all
+// fall out of the path + frontmatter. Pure build-time, zero client JS.
 import { getCollection } from 'astro:content';
+import { journalName } from '../journals.js';
 
 const docs = await getCollection('docs');
 const papers = docs
-  .filter((d) => d.id.startsWith('papers/') && !d.id.endsWith('index'))
+  .filter((d) => {
+    const parts = d.id.split('/');
+    // papers/<journal>/<year>/<slug>
+    return parts[0] === 'papers' && parts.length >= 4;
+  })
   .map((d) => {
+    const parts = d.id.split('/');
+    const journal = parts[1];
     const p = d.data.paper;
-    // Latest distillation date across the stacking extraction[] attestations.
     const dates = (p?.extraction ?? []).map((e) => e.date).sort();
     return {
+      journal,
       href: `/wiki/${d.id}/`,
-      // Descriptive name = title before the "Name: Authors (Year)" colon.
       name: d.data.title.split(/:\s/)[0],
-      year: p?.year ?? 0,
+      year: p?.year ?? Number(parts[2]) ?? 0,
       venue: p?.venueShort ?? p?.venue ?? '',
       license: p?.licenseShort ?? p?.access ?? '',
       pdf: p?.pdf,
       results: p?.resultsCount,
       distilled: dates[dates.length - 1] ?? '',
     };
-  })
-  .sort((a, b) => b.year - a.year || a.name.localeCompare(b.name));
+  });
+
+// Group by journal; journals ordered by display name, papers newest-first.
+const byJournal = new Map();
+for (const p of papers) {
+  if (!byJournal.has(p.journal)) byJournal.set(p.journal, []);
+  byJournal.get(p.journal).push(p);
+}
+const groups = [...byJournal.entries()]
+  .map(([code, list]) => ({
+    code,
+    name: journalName(code),
+    list: list.sort((a, b) => b.year - a.year || a.name.localeCompare(b.name)),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
-<table>
-  <thead>
-    <tr><th>Paper</th><th>Venue</th><th>Source</th><th>Distilled</th></tr>
-  </thead>
-  <tbody>
-    {
-      papers.map((p) => (
-        <tr>
-          <td><a href={p.href}>{p.name}</a></td>
-          <td>{p.venue}</td>
-          <td>
-            {p.license}
-            {p.pdf && (
-              <>
-                {' · '}
-                <a href={p.pdf}>mirror</a>
-              </>
-            )}
-          </td>
-          <td>
-            {p.results ? `${p.results} results` : ''}
-            {p.results && p.distilled ? ', ' : ''}
-            {p.distilled}
-          </td>
-        </tr>
-      ))
-    }
-  </tbody>
-</table>
+{
+  groups.map((g) => (
+    <section>
+      <h3 id={g.code}>{g.name}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Paper</th>
+            <th>Venue</th>
+            <th>Source</th>
+            <th>Distilled</th>
+          </tr>
+        </thead>
+        <tbody>
+          {g.list.map((p) => (
+            <tr>
+              <td><a href={p.href}>{p.name}</a></td>
+              <td>{p.venue}</td>
+              <td>
+                {p.license}
+                {p.pdf && (
+                  <>
+                    {' · '}
+                    <a href={p.pdf}>mirror</a>
+                  </>
+                )}
+              </td>
+              <td>
+                {p.results ? `${p.results} results` : ''}
+                {p.results && p.distilled ? ', ' : ''}
+                {p.distilled}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))
+}

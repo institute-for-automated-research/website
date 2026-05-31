@@ -36,6 +36,10 @@ paper:
       date: 2026-05-31
       role: extracted
       note: Full text read (pp. 2543–2590 of the PDF on disk); all results extracted from the PDF with table/figure/page locators. Not human-verified. Not reproduced. Replication code is published as Supporting Information but has not been run here.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-05-31
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
   rightsSignalConflict: false
 ---
 

@@ -23,7 +23,7 @@ what an adviser *is*: assets under management, client and employee counts,
 private-fund details, ownership, disciplinary history, and a narrative
 brochure of strategies and fees. Papers that classify funds or advisers
 (hedge fund vs mutual fund adviser, private-fund flags) read Form ADV; the
-[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+[Kwan, Liu & Matthies](/wiki/papers/jf/2026/kwan-liu-matthies-2026/) attention paper
 uses it for fund classification.
 
 The one thing to know first: **Form ADV is not on EDGAR.** Advisers file it

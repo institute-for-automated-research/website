@@ -9,6 +9,7 @@
 // revelio.md. Pure build-time component, zero client JS; anchors are plain
 // in-page #tag links.
 import { getCollection } from 'astro:content';
+import { journalName } from '../journals.js';
 
 const AXES: { label: string; tags: string[] }[] = [
   { label: 'Kind', tags: ['paper-summary'] },
@@ -55,6 +56,9 @@ const AXES: { label: string; tags: string[] }[] = [
   { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'academic', 'wrds'] },
   // Open-ended axis: `tags` filled below from every `data:<slug>` actually used.
   { label: 'Dataset', tags: [] },
+  // Derived from each paper page's path (papers/<journal>/<year>/...); filled below.
+  { label: 'Journal', tags: [] },
+  { label: 'Year', tags: [] },
   { label: 'Status', tags: ['peer-reviewed', 'unreplicated'] },
 ];
 
@@ -96,6 +100,23 @@ for (const d of docs) {
   });
 }
 
+// Journal + Year axes: synthetic tags derived from each paper page's path
+// (papers/<journal>/<year>/<slug>), so the journal and year are canonical and
+// cannot drift (no free-text journal/year tag to misspell).
+for (const d of docs) {
+  const parts = d.id.split('/');
+  if (parts[0] !== 'papers' || parts.length < 4) continue;
+  const entry = {
+    title: d.data.title,
+    description: d.data.description ?? '',
+    href: `/wiki/${d.id}/`,
+  };
+  for (const t of [`journal:${parts[1]}`, `year:${parts[2]}`]) {
+    if (!byTag.has(t)) byTag.set(t, []);
+    byTag.get(t)!.push(entry);
+  }
+}
+
 for (const list of byTag.values())
   list.sort((a, b) => a.title.localeCompare(b.title));
 
@@ -104,6 +125,16 @@ for (const list of byTag.values())
 // slugs (and so these tags count as "known", below).
 const dataTags = [...byTag.keys()].filter((t) => t.startsWith('data:')).sort();
 for (const a of AXES) if (a.label === 'Dataset') a.tags = dataTags;
+
+// Journal axis ordered by display name; Year axis newest-first.
+for (const a of AXES) {
+  if (a.label === 'Journal')
+    a.tags = [...byTag.keys()]
+      .filter((t) => t.startsWith('journal:'))
+      .sort((x, y) => journalName(x.slice(8)).localeCompare(journalName(y.slice(8))));
+  if (a.label === 'Year')
+    a.tags = [...byTag.keys()].filter((t) => t.startsWith('year:')).sort().reverse();
+}
 
 // Discovery backlog: a `data:<slug>` with no dataset page of that slug means a
 // paper cites a dataset we have not documented yet. Flag those so finding one
@@ -129,7 +160,13 @@ if (wanted.size)
 // vocabulary is still visible in the build output.
 const closed = new Set(AXES.flatMap((a) => a.tags));
 const extras = [...byTag.keys()]
-  .filter((t) => !closed.has(t) && !t.startsWith('data:'))
+  .filter(
+    (t) =>
+      !closed.has(t) &&
+      !t.startsWith('data:') &&
+      !t.startsWith('journal:') &&
+      !t.startsWith('year:')
+  )
   .sort();
 for (const a of AXES) if (a.label === 'Topic') a.tags = [...a.tags, ...extras];
 if (extras.length)

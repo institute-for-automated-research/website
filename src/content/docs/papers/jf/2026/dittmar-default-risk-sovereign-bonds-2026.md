@@ -50,6 +50,10 @@ paper:
         Full text read (pp. 829–869); eight results extracted from the PDF.
         Not human-verified. Not reproduced. Replication code is published as
         Supporting Information at the publisher's website but has not been run here.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-05-31
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
 ---
 
 **What this is.** The paper's core results, datasets, and theory: enough

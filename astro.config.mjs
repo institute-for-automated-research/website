@@ -1,5 +1,20 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { readdirSync } from 'node:fs';
+import { journalName } from './src/journals.js';
+
+// Distilled literature is organised papers/<journal>/<year>/<slug>.md. Build one
+// sidebar group per journal subdirectory (Starlight autogenerate then nests the
+// year subfolders inside it). Filesystem-driven, so a new journal/year folder
+// appears in the nav with no edit here.
+const papersDir = './src/content/docs/papers';
+const journalGroups = readdirSync(papersDir, { withFileTypes: true })
+  .filter((e) => e.isDirectory())
+  .map((e) => ({
+    label: journalName(e.name),
+    autogenerate: { directory: `papers/${e.name}` },
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 // The hand-authored marketing site + working-paper series live verbatim in
 // public/ (served at /, /about, /papers/...). Starlight owns /wiki/* only.
@@ -72,7 +87,7 @@ export default defineConfig({
         { label: 'Browse by tag', link: '/tags' },
         {
           label: 'Distilled literature',
-          autogenerate: { directory: 'papers' },
+          items: [{ label: 'Overview', link: '/papers/' }, ...journalGroups],
         },
         {
           label: 'Free & verified datasets',

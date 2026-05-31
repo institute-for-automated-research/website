@@ -159,7 +159,7 @@ investment companies**: mutual funds and most ETFs. It is the EDGAR source
 for what a fund *says it is*: investment objective, strategy, fee table,
 share classes, adviser. Papers that classify funds (e.g. growth vs value,
 active vs index) read N-1A prospectus text; the
-[Kwan, Liu & Matthies](/wiki/papers/kwan-liu-matthies-2026/) attention paper
+[Kwan, Liu & Matthies](/wiki/papers/jf/2026/kwan-liu-matthies-2026/) attention paper
 uses it for fund classification. Confirmed live on the verified date:
 `efts.sec.gov` full-text search returns 3,473 `N-1A` hits, and
 `data.sec.gov/submissions` returns `N-1A` and `N-1A/A` rows for a registrant.

@@ -33,6 +33,10 @@ paper:
       date: 2026-05-31
       role: extracted
       note: Full text read (pp. 3639-3694, 12 tables, 12 figures); nine results extracted from the CC-BY PDF. Not human-verified. Not reproduced. Replication code is published as Supporting Information but has not been run here.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-05-31
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
   rightsSignalConflict: false
 ---
 
