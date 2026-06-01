@@ -182,6 +182,13 @@ datasets:
     name: FactSet Revere supply-chain relationships
     provider: FactSet Research Systems
     access: licensed-commercial
+  ftse-all-share:
+    name: FTSE All-Share Index constituents and returns
+    provider: FTSE Russell
+    access: licensed-commercial
+    note: >-
+      Index membership, market capitalisation, and daily returns; licensed
+      from FTSE Russell or via vendor feeds (Datastream, WRDS).
   ibes:
     name: I/B/E/S analyst estimates
     provider: LSEG / Refinitiv (via WRDS)
@@ -273,6 +280,20 @@ datasets:
     name: 401(k) plan administrative records
     provider: Private plan recordkeeper (confidential)
     access: proprietary-confidential
+  bank-proprietary:
+    name: Proprietary retail bank customer data (Germany)
+    provider: Anonymous German bank (confidential)
+    access: proprietary-confidential
+    note: >-
+      Individual-level customer records (product holdings, wealth, income,
+      equity participation) from a single bank under a confidential agreement.
+  bilendi-survey:
+    name: Bilendi commissioned online survey (Germany)
+    provider: Bilendi (panel provider), commissioned by the authors
+    access: proprietary-confidential
+    note: >-
+      Author-commissioned representative survey with individual-level
+      responses; not an off-the-shelf product.
   equifax-credit:
     name: Equifax consumer-credit records
     provider: Equifax
@@ -295,6 +316,13 @@ datasets:
     provider: Institute for Employment Research (IAB), Germany
     access: proprietary-confidential
     note: Confidential German administrative labor records (FDZ access).
+  indifi-loan-applications:
+    name: Indifi FinTech loan application records (India)
+    provider: Indifi Technologies (confidential)
+    access: proprietary-confidential
+    note: >-
+      Loan-level applications with payment-transaction history, applicant
+      characteristics, credit-bureau data, and outcomes from a single lender.
   mcr-nmls:
     name: NMLS Mortgage Call Report
     provider: Conference of State Bank Supervisors (NMLS)
@@ -302,6 +330,20 @@ datasets:
     note: >-
       Aggregate statistics are published, but the company-level Mortgage Call
       Report used in research is obtained under restricted regulatory terms.
+  online-broker:
+    name: Retail online broker account data (Germany)
+    provider: Anonymous German online broker (confidential)
+    access: proprietary-confidential
+    note: >-
+      Individual-level retail investor holdings, trades, and returns from a
+      single broker under a confidential agreement.
+  sli-private-meetings:
+    name: SLI private meeting notes and fund records (abrdn / Standard Life)
+    provider: Standard Life Investments / abrdn (confidential)
+    access: proprietary-confidential
+    note: >-
+      Single-counterparty internal records: meeting notes, analyst ratings,
+      fund holdings, and daily trades, shared under a confidential agreement.
   statistics-norway:
     name: Statistics Norway (SSB) administrative registers
     provider: Statistics Norway (SSB)

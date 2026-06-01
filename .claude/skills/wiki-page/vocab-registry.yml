@@ -71,6 +71,9 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   probit-regression:
     def: Binary-outcome regression using the standard normal CDF as the link function; marginal effects interpreted as changes in probability.
     aliases: [probit]
+  logit-regression:
+    def: Binary-outcome regression using the logistic CDF as the link function; marginal effects interpreted as changes in probability.
+    aliases: [logit, logistic-regression]
   blinder-oaxaca-decomposition:
     def: Decomposition of a mean difference between groups or periods into a portion explained by differences in covariates and an unexplained portion; attributed to Blinder (1973) and Oaxaca (1973).
     aliases: [oaxaca-decomposition, blinder-oaxaca]
@@ -105,6 +108,9 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   text-classification:
     def: Machine-learning or rule-based assignment of text to sentiment or topic categories using classifiers such as maximum entropy, naive Bayes, or proprietary NLP tools.
     aliases: [sentiment-classification, nlp-classification]
+  llm-text-classification:
+    def: Using a large language model prompted with a domain-expert role to classify, score, or extract structured information from free-form text such as meeting notes or earnings calls.
+    aliases: [gpt-classification, llm-parsing]
 
   # ---- structural / life-cycle models ----
   life-cycle-model:
