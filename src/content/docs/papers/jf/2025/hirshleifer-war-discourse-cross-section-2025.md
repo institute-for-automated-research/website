@@ -43,11 +43,11 @@ paper:
     period: 1926-07..2018-12
     frequency: monthly
   relatesTo:
-    - { cite: 'Hirshleifer, Mai & Pukthuanthong (2025)', relation: extends, note: 'extends the War index used there for aggregate return prediction to cross-sectional pricing (p. 3590)' }
+    - { cite: 'Hirshleifer, Mai & Pukthuanthong (2025)', doi: '10.1093/rfs/hhae081', relation: extends, note: 'extends the War index used there for aggregate return prediction to cross-sectional pricing (p. 3590)' }
     - { cite: 'Barro (2006, 2009)', relation: tests, note: 'tests the rare-disaster risk cross-sectional prediction; war-sensitive assets earn lower premia consistent with the model (p. 3601)' }
-    - { cite: 'Manela & Moreira (2017)', relation: contradicts, note: 'NVIX does not command a significant return premium across all six test-asset sets; WarFac is incremental to NVIX (Table IV, p. 3623)' }
-    - { cite: 'Caldara & Iacoviello (2022)', relation: contradicts, note: 'GPR index does not command a significant return premium across all six test-asset sets (Table IV, p. 3623)' }
-    - { cite: 'Berkman, Jacobsen & Lee (2011)', relation: extends, note: 'WarFac provides incremental predictive power beyond CrisisFac for industry portfolios (Table V, p. 3626)' }
+    - { cite: 'Manela & Moreira (2017)', doi: '10.1016/j.jfineco.2016.01.032', relation: contradicts, note: 'NVIX does not command a significant return premium across all six test-asset sets; WarFac is incremental to NVIX (Table IV, p. 3623)' }
+    - { cite: 'Caldara & Iacoviello (2022)', doi: '10.1257/aer.20191823', relation: contradicts, note: 'GPR index does not command a significant return premium across all six test-asset sets (Table IV, p. 3623)' }
+    - { cite: 'Berkman, Jacobsen & Lee (2011)', doi: '10.1016/j.jfineco.2011.02.019', relation: extends, note: 'WarFac provides incremental predictive power beyond CrisisFac for industry portfolios (Table V, p. 3626)' }
     - { cite: 'Bryzgalova, Huang & Julliard (2023)', relation: tests, note: 'uses their ML-based nonlinear portfolios as test assets; WarFac explains 62% of cross-sectional variance there (Table II Panel D, p. 3617)' }
   openQuestions:
     - 'Whether the rational rare-disaster and behavioral-overweighting interpretations can be distinguished; both are observationally consistent with a negative return premium on WarFac (p. 3634).'

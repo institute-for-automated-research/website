@@ -46,10 +46,10 @@ paper:
     frequency: annual
 
   relatesTo:
-    - { cite: 'Nordhaus (2019)', relation: builds-on, note: 'Takes the social cost of carbon S_t as given from Nordhaus calibrations (43 $/tCO2 baseline, 300 $/tCO2 high); translates it into a cost-of-capital adjustment (pp. 561-562).' }
-    - { cite: 'Pastor, Stambaugh & Taylor (2021)', relation: extends, note: 'Extends equilibrium ESG investing framework to show exactly when green finance can and cannot replicate a carbon tax (p. 568).' }
-    - { cite: 'Eskildsen, Ibert, Jensen & Pedersen (2024)', relation: tests, note: 'Uses their cross-sectional regression slope of 4 on emission-to-asset ratio as the empirical calibration of the market-implied carbon price (pp. 564-565, 591).' }
-    - { cite: 'Chittaro, Piazzesi, Sena & Schneider (2025)', relation: extends, note: 'Notes that Chittaro et al. generalize the framework with a rich input-output structure and short-sale constraints (p. 565).' }
+    - { cite: 'Nordhaus (2019)', doi: '10.1257/aer.109.6.1991', relation: builds-on, note: 'Takes the social cost of carbon S_t as given from Nordhaus calibrations (43 $/tCO2 baseline, 300 $/tCO2 high); translates it into a cost-of-capital adjustment (pp. 561-562).' }
+    - { cite: 'Pastor, Stambaugh & Taylor (2021)', doi: '10.1016/j.jfineco.2020.12.011', relation: extends, note: 'Extends equilibrium ESG investing framework to show exactly when green finance can and cannot replicate a carbon tax (p. 568).' }
+    - { cite: 'Eskildsen, Ibert, Jensen & Pedersen (2024)', doi: '10.2139/ssrn.4744608', relation: tests, note: 'Uses their cross-sectional regression slope of 4 on emission-to-asset ratio as the empirical calibration of the market-implied carbon price (pp. 564-565, 591).' }
+    - { cite: 'Chittaro, Piazzesi, Sena & Schneider (2025)', doi: '10.3386/w34342', relation: extends, note: 'Notes that Chittaro et al. generalize the framework with a rich input-output structure and short-sale constraints (p. 565).' }
 
   openQuestions:
     - 'Whether sustainable finance regulation can deliver sufficient cost-of-capital adjustments in practice given the commitment problem: firms may promise low future emissions to secure cheap capital and then emit at full capacity (pp. 571-572, 591).'

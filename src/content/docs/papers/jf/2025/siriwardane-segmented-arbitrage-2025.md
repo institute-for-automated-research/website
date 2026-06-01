@@ -48,12 +48,12 @@ paper:
     period: 2010-01..2020-02
     frequency: mixed
   relatesTo:
-    - { cite: 'He & Krishnamurthy (2013)', relation: contradicts, note: 'canonical single-constraint intermediary model predicts perfect spread correlation; data show mean pairwise rho = 0.22 (Table II, p. 2560)' }
-    - { cite: 'Garleanu & Pedersen (2011)', relation: contradicts, note: 'margin-based asset pricing with integrated funding implies one- or two-factor spread structure; rejected by high-dimensional factor structure (Figure 3, p. 2562)' }
-    - { cite: 'Du, Tepper & Verdelhan (2018)', relation: builds-on, note: 'CIP spread construction and FX arbitrage measurement methodology (p. 2554)' }
-    - { cite: 'Uhlig (2005)', relation: builds-on, note: 'sign-restricted SVAR used to separate supply from demand shocks (pp. 2564-2566)' }
+    - { cite: 'He & Krishnamurthy (2013)', doi: '10.1257/aer.103.2.732', relation: contradicts, note: 'canonical single-constraint intermediary model predicts perfect spread correlation; data show mean pairwise rho = 0.22 (Table II, p. 2560)' }
+    - { cite: 'Garleanu & Pedersen (2011)', doi: '10.1093/rfs/hhr027', relation: contradicts, note: 'margin-based asset pricing with integrated funding implies one- or two-factor spread structure; rejected by high-dimensional factor structure (Figure 3, p. 2562)' }
+    - { cite: 'Du, Tepper & Verdelhan (2018)', doi: '10.1111/jofi.12620', relation: builds-on, note: 'CIP spread construction and FX arbitrage measurement methodology (p. 2554)' }
+    - { cite: 'Uhlig (2005)', doi: '10.1016/j.jmoneco.2004.05.007', relation: builds-on, note: 'sign-restricted SVAR used to separate supply from demand shocks (pp. 2564-2566)' }
     - { cite: 'Anderson, Du & Schlusche (2019)', relation: builds-on, note: '2016 MMF reform event study design (pp. 2570-2573)' }
-    - { cite: 'Siriwardane (2019)', relation: builds-on, note: 'intermediary specialization in credit derivatives (p. 2547)' }
+    - { cite: 'Siriwardane (2019)', doi: '10.1111/jofi.12777', relation: builds-on, note: 'intermediary specialization in credit derivatives (p. 2547)' }
   openQuestions:
     - 'How long segmentation persists: the paper shows quarterly supply-shock correlations have a 1% upper bound of 37%, indicating relatively slow but nonzero capital flows across segments (pp. 2587-2588).'
     - 'Whether segmentation is more pronounced in risky-asset markets where agency problems are more severe; the paper notes its arbitrages are relatively straightforward to execute (p. 2588).'

@@ -45,10 +45,10 @@ paper:
     period: 1997-02..2017-12
     frequency: monthly
   relatesTo:
-    - { cite: 'Merton (1973)', relation: builds-on, note: 'ICAPM framework grounds the theoretical spanning condition; investor deviation portfolios map to hedging demands (pp. 2802-2803)' }
-    - { cite: 'Balasubramaniam, Campbell, Ramadorai & Ranish (2023)', relation: builds-on, note: 'strong factor structure in individual investor portfolios motivates the PCA grouping approach (p. 2792)' }
-    - { cite: 'Kozak, Nagel & Santosh (2020)', relation: builds-on, note: 'covariance shrinkage in bootstrap Sharpe ratio estimation (eq. 24, p. 2815)' }
-    - { cite: 'Fama & French (2018)', relation: builds-on, note: 'bootstrap out-of-sample Sharpe ratio evaluation methodology (p. 2815)' }
+    - { cite: 'Merton (1973)', doi: '10.2307/1913811', relation: builds-on, note: 'ICAPM framework grounds the theoretical spanning condition; investor deviation portfolios map to hedging demands (pp. 2802-2803)' }
+    - { cite: 'Balasubramaniam, Campbell, Ramadorai & Ranish (2023)', doi: '10.1111/jofi.13220', relation: builds-on, note: 'strong factor structure in individual investor portfolios motivates the PCA grouping approach (p. 2792)' }
+    - { cite: 'Kozak, Nagel & Santosh (2020)', doi: '10.1016/j.jfineco.2019.06.008', relation: builds-on, note: 'covariance shrinkage in bootstrap Sharpe ratio estimation (eq. 24, p. 2815)' }
+    - { cite: 'Fama & French (2018)', doi: '10.1016/j.jfineco.2018.02.012', relation: builds-on, note: 'bootstrap out-of-sample Sharpe ratio evaluation methodology (p. 2815)' }
     - { cite: 'Betermier, Calvet & Sodini (2017)', relation: extends, note: 'extends life-cycle links between demographics and value-factor tilts from Swedish households to a full IPF extraction framework (p. 2821)' }
     - { cite: 'Koijen & Yogo (2019)', relation: tests, note: 'IPF* also prices the institutional investor portfolio held on the OSE (Internet Appendix Table IA.VIII; p. 2826)' }
   openQuestions:

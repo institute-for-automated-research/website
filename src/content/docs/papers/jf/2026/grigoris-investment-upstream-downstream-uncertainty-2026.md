@@ -44,13 +44,13 @@ paper:
     period: 1976-01..2019-12
     frequency: mixed
   relatesTo:
-    - { cite: 'Bloom (2009)', relation: builds-on, note: 'canonical bad-news-principle channel that upstream uncertainty operates through; the paper decomposes total uncertainty into upstream vs. downstream components' }
+    - { cite: 'Bloom (2009)', doi: '10.3982/ecta6248', relation: builds-on, note: 'canonical bad-news-principle channel that upstream uncertainty operates through; the paper decomposes total uncertainty into upstream vs. downstream components' }
     - { cite: 'Bernanke (1983)', relation: builds-on, note: 'bad news principle that motivates why upstream uncertainty delays investment unambiguously' }
-    - { cite: 'Majd and Pindyck (1987)', relation: extends, note: 'time-to-build real-option model extended to stochastic volatility and supply-chain location of uncertainty' }
-    - { cite: 'Alfaro, Bloom, and Lin (2024)', relation: builds-on, note: 'IV strategy for supply-chain uncertainty used in robustness section (§III.F / §VIII.D of Internet Appendix)' }
-    - { cite: 'Acemoglu, Akcigit, and Kerr (2016)', relation: tests, note: 'production-network propagation of shocks; paper tests analogous channels for second-moment (uncertainty) shocks' }
-    - { cite: 'Barnichon and Brownlees (2019)', relation: builds-on, note: 'smooth local projections (SLPs) used for macrolevel impulse response estimation (eq. 13)' }
-    - { cite: 'Antras and Chor (2018)', relation: builds-on, note: 'upstreamness measure from BEA I-O tables used to construct macrolevel upstream-downstream industry classification (eq. 12)' }
+    - { cite: 'Majd and Pindyck (1987)', doi: '10.1016/0304-405x(87)90059-6', relation: extends, note: 'time-to-build real-option model extended to stochastic volatility and supply-chain location of uncertainty' }
+    - { cite: 'Alfaro, Bloom, and Lin (2024)', doi: '10.1086/726230', relation: builds-on, note: 'IV strategy for supply-chain uncertainty used in robustness section (§III.F / §VIII.D of Internet Appendix)' }
+    - { cite: 'Acemoglu, Akcigit, and Kerr (2016)', doi: '10.1086/685961', relation: tests, note: 'production-network propagation of shocks; paper tests analogous channels for second-moment (uncertainty) shocks' }
+    - { cite: 'Barnichon and Brownlees (2019)', doi: '10.1162/rest_a_00778', relation: builds-on, note: 'smooth local projections (SLPs) used for macrolevel impulse response estimation (eq. 13)' }
+    - { cite: 'Antras and Chor (2018)', doi: '10.4324/9781351061544-5', relation: builds-on, note: 'upstreamness measure from BEA I-O tables used to construct macrolevel upstream-downstream industry classification (eq. 12)' }
   openQuestions:
     - 'The paper leaves the theoretical exploration of policies that increase time-to-market entry (e.g., more trials and testing) for future research, noting they may promote investment if downstream uncertainty is dominant (p. 454).'
     - 'The causal interpretation of the downstream-investment relation is suggestive; the paper notes that if the relation is noncausal, its sign still contrasts with the typical negative uncertainty-growth association (p. 416, fn. 3).'

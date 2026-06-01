@@ -51,8 +51,8 @@ paper:
   # --- finding-lineage edges ---
   relatesTo:
     - { cite: 'Farmer, Schmidt & Timmermann (2023)', relation: replicates, doi: 10.1111/jofi.13229, note: 'audits FST code; finds two-sided kernel in pocket-ID step introduces lookahead bias that accounts for all claimed predictability' }
-    - { cite: 'Campbell & Thompson (2008)', relation: builds-on, note: 'economic restrictions on forecasts (non-negative return, sign-consistent coefficients) follow their framework' }
-    - { cite: 'Clark & West (2007)', relation: builds-on, note: 'primary statistical test for out-of-sample forecast comparison is the CW test' }
+    - { cite: 'Campbell & Thompson (2008)', doi: '10.1093/rfs/hhm055', relation: builds-on, note: 'economic restrictions on forecasts (non-negative return, sign-consistent coefficients) follow their framework' }
+    - { cite: 'Clark & West (2007)', doi: '10.1016/j.jeconom.2006.05.023', relation: builds-on, note: 'primary statistical test for out-of-sample forecast comparison is the CW test' }
   # --- open questions from the paper ---
   openQuestions:
     - 'Whether the partial improvement from economic restrictions on forecasts (sign constraints on predicted returns and slope coefficients) reflects genuine predictability or a variance-reduction artefact from the constraint mechanics, rather than forecasting model quality (p. 3784, §II.B).'

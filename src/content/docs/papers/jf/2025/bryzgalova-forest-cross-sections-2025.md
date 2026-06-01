@@ -45,10 +45,10 @@ paper:
     period: 1964-01..2016-12
     frequency: monthly
   relatesTo:
-    - { cite: 'Kozak, Nagel & Santosh (2020)', relation: extends, note: 'generalizes their robust SDF recovery by also shrinking the mean, not just the covariance (Prop. 2-3)' }
-    - { cite: 'Fama & French (1993)', relation: contradicts, note: 'standard size/value sorts and their stacked combinations do not span the conditional SDF, so they give a misspecified benchmark' }
+    - { cite: 'Kozak, Nagel & Santosh (2020)', doi: '10.1016/j.jfineco.2019.06.008', relation: extends, note: 'generalizes their robust SDF recovery by also shrinking the mean, not just the covariance (Prop. 2-3)' }
+    - { cite: 'Fama & French (1993)', doi: '10.1016/0304-405x(93)90023-5', relation: contradicts, note: 'standard size/value sorts and their stacked combinations do not span the conditional SDF, so they give a misspecified benchmark' }
     - { cite: 'Gu, Kelly & Xiu (2020)', relation: tests, note: 'AP Trees beat ML return-prediction portfolios (random forest, neural nets) on out-of-sample Sharpe ratio and SDF alpha' }
-    - { cite: 'Barillas & Shanken (2016)', relation: builds-on, note: 'spanning arguments underlying the omitted-test-asset misspecification bound (Prop. 1)' }
+    - { cite: 'Barillas & Shanken (2016)', doi: '10.1093/rfs/hhw101', relation: builds-on, note: 'spanning arguments underlying the omitted-test-asset misspecification bound (Prop. 1)' }
   openQuestions:
     - 'Whether the SDF-spanning cross-section generalizes beyond US equities to other asset classes and international markets, where the characteristic structure differs: the construction is presented as general but tested only on US stocks (pp. 2450, 2455).'
     - 'How much further the construction improves once additional economic constraints (liquidity, market-cap floors, number of test assets, degree of interactions) are imposed, which the paper notes are feasible but does not fully explore (pp. 2452, 2458).'

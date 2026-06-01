@@ -46,10 +46,10 @@ paper:
     period: 1986-01..2015-12
     frequency: annual
   relatesTo:
-    - { cite: 'Bolton and Dewatripont (1994)', relation: builds-on, note: 'firms as communication networks; going public raises task complexity and hierarchy depth (tested as predictions BG.1-BG.4)' }
-    - { cite: 'Garicano (2000)', relation: builds-on, note: 'knowledge-based hierarchies; complexity increases the number of problem-solvers (managers) and narrows control spans (tested as BG.2)' }
-    - { cite: 'Rajan (2012)', relation: tests, note: 'standardization to reduce key-person dependence; human-capital risk drives hierarchy growth (tested as predictions R.1-R.4); evidence supports this channel' }
-    - { cite: 'Caliendo, Monte, and Rossi-Hansberg (2015)', relation: builds-on, note: 'method for assigning employees to layers from occupation codes; adapted here for German KldB1988 classification' }
+    - { cite: 'Bolton and Dewatripont (1994)', doi: '10.2307/2118349', relation: builds-on, note: 'firms as communication networks; going public raises task complexity and hierarchy depth (tested as predictions BG.1-BG.4)' }
+    - { cite: 'Garicano (2000)', doi: '10.1086/317671', relation: builds-on, note: 'knowledge-based hierarchies; complexity increases the number of problem-solvers (managers) and narrows control spans (tested as BG.2)' }
+    - { cite: 'Rajan (2012)', doi: '10.1111/j.1540-6261.2012.01745.x', relation: tests, note: 'standardization to reduce key-person dependence; human-capital risk drives hierarchy growth (tested as predictions R.1-R.4); evidence supports this channel' }
+    - { cite: 'Caliendo, Monte, and Rossi-Hansberg (2015)', doi: '10.1086/681641', relation: builds-on, note: 'method for assigning employees to layers from occupation codes; adapted here for German KldB1988 classification' }
     - { cite: 'Gumpert, Steimer, and Antoni (2021)', relation: builds-on, note: 'validation of KldB1988-to-layer mapping for German administrative data used here directly' }
   openQuestions:
     - 'How a change in a firm''s organizational structure around an IPO affects its performance and innovativeness; the paper documents the reorganization but cannot estimate this causal effect (p. 493).'

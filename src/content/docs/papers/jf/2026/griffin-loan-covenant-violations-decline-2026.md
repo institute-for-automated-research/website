@@ -45,10 +45,10 @@ paper:
     period: 1997-01..2019-12
     frequency: annual
   relatesTo:
-    - { cite: 'Nini, Smith & Sufi (2012)', relation: extends, note: 'extends their 1997-2008 violation sample through 2019 and adds the structural decomposition framework' }
-    - { cite: 'Murfin (2012)', relation: builds-on, note: 'adopts the Murfin covenant strictness measure and its Demerjian-Owens update as the ex ante tightness measure' }
-    - { cite: 'Chava & Roberts (2008)', relation: builds-on, note: 'uses the Chava-Roberts link file to merge Dealscan and Compustat; also uses their imputed-violation measure as robustness check' }
-    - { cite: 'Blinder (1973) / Oaxaca (1973)', relation: builds-on, note: 'employs the Blinder-Oaxaca decomposition to separate explained (observable characteristics) from unexplained portions of the FPR/TPR trends' }
+    - { cite: 'Nini, Smith & Sufi (2012)', doi: '10.1093/rfs/hhs007', relation: extends, note: 'extends their 1997-2008 violation sample through 2019 and adds the structural decomposition framework' }
+    - { cite: 'Murfin (2012)', doi: '10.1111/j.1540-6261.2012.01767.x', relation: builds-on, note: 'adopts the Murfin covenant strictness measure and its Demerjian-Owens update as the ex ante tightness measure' }
+    - { cite: 'Chava & Roberts (2008)', doi: '10.1111/j.1540-6261.2008.01391.x', relation: builds-on, note: 'uses the Chava-Roberts link file to merge Dealscan and Compustat; also uses their imputed-violation measure as robustness check' }
+    - { cite: 'Blinder (1973) / Oaxaca (1973)', doi: '10.2307/144855', relation: builds-on, note: 'employs the Blinder-Oaxaca decomposition to separate explained (observable characteristics) from unexplained portions of the FPR/TPR trends' }
     - { cite: 'Demerjian (2011)', relation: builds-on, note: 'documents the shift from balance-sheet to cash-flow covenants in loan agreements; the paper uses this as a covenant-technology channel' }
   openQuestions:
     - 'Whether the unexplained post-2012 TPR decline reflects a true deterioration in lender monitoring ability or other unobserved sample changes; the paper acknowledges substantial estimation uncertainty for Period 3 due to the low number of distressed firms (p. 405-406).'

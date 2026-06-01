@@ -55,8 +55,8 @@ paper:
     period: 2004-11..2020-12
     frequency: monthly
   relatesTo:
-    - { cite: 'Fleckenstein, Longstaff & Lustig (2014)', relation: extends, note: 'builds on their TIPS-Treasury no-arbitrage puzzle (ILSBEI mispricing); adds credit risk channel to their liquidity/slow-moving-capital explanation (p. 830)' }
-    - { cite: 'Pflueger & Viceira (2016)', relation: contradicts, note: 'they attribute ILSBEI to a liquidity premium; this paper shows credit risk is also a nontrivial driver, especially at long maturities (pp. 830, 862)' }
+    - { cite: 'Fleckenstein, Longstaff & Lustig (2014)', doi: '10.1111/jofi.12032', relation: extends, note: 'builds on their TIPS-Treasury no-arbitrage puzzle (ILSBEI mispricing); adds credit risk channel to their liquidity/slow-moving-capital explanation (p. 830)' }
+    - { cite: 'Pflueger & Viceira (2016)', doi: '10.1002/9781118709207.ch10', relation: contradicts, note: 'they attribute ILSBEI to a liquidity premium; this paper shows credit risk is also a nontrivial driver, especially at long maturities (pp. 830, 862)' }
     - { cite: 'Chernov, Schmid & Schneider (2020)', relation: builds-on, note: 'their macrofinance view of U.S. sovereign CDS premia motivates treating U.S. default risk as nontrivial; this paper uses the same premise applied to relative bond pricing (p. 830)' }
     - { cite: 'Monfort, Pegoraro, Renne & Roussellet (2020)', relation: builds-on, note: 'the affine credit-event modelling approach with gamma-zero processes follows their framework (p. 852)' }
   openQuestions:

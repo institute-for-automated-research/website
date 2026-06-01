@@ -50,10 +50,10 @@ paper:
     frequency: mixed
   # --- edges to prior work ---
   relatesTo:
-    - { cite: 'Carlson & McAfee (1983)', relation: builds-on, note: 'EGain measure is motivated by Carlson-McAfee discrete equilibrium search model (p. 63)' }
-    - { cite: 'Woodward & Hall (2012)', relation: extends, note: 'extends evidence on consumer confusion and sub-optimal shopping to real-time lender-offer benchmark (p. 52)' }
+    - { cite: 'Carlson & McAfee (1983)', doi: '10.1086/261159', relation: builds-on, note: 'EGain measure is motivated by Carlson-McAfee discrete equilibrium search model (p. 63)' }
+    - { cite: 'Woodward & Hall (2012)', doi: '10.1257/aer.102.7.3249', relation: extends, note: 'extends evidence on consumer confusion and sub-optimal shopping to real-time lender-offer benchmark (p. 52)' }
     - { cite: 'Agarwal, Ben-David & Yao (2017)', relation: extends, note: 'extends systematic-mistakes literature to include offer-distribution benchmark and borrower sophistication index (p. 53)' }
-    - { cite: 'Alexandrov & Koulayev (2017)', relation: contradicts, note: 'contrasts with their finding that negotiation plays little role; this paper finds substantial within-lender within-branch-day dispersion consistent with negotiation (p. 52)' }
+    - { cite: 'Alexandrov & Koulayev (2017)', doi: '10.2139/ssrn.2948491', relation: contradicts, note: 'contrasts with their finding that negotiation plays little role; this paper finds substantial within-lender within-branch-day dispersion consistent with negotiation (p. 52)' }
     - { cite: 'Fuster, Lo & Willen (2024)', relation: builds-on, note: 'complements their time-varying price-of-intermediation result: lenders also make worse offers when rates are low, and borrowers are less likely to shop (p. 71)' }
   # --- open questions (paper''s own stated gaps) ---
   openQuestions:

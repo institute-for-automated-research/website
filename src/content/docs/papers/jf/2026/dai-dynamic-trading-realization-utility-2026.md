@@ -43,11 +43,11 @@ paper:
     region: theoretical (calibrated to US equity parameters)
     assetClass: individual equities (single stock plus risk-free asset)
   relatesTo:
-    - { cite: 'Barberis and Xiong (2012)', relation: extends, note: 'adds saving/leverage intensive margin and jump risk to the piecewise-linear realization-utility framework; no-voluntary-loss result of BX (2012) continues to hold in the extended model (Prop. 1, p. 216)' }
-    - { cite: 'Ingersoll and Jin (2013)', relation: extends, note: 'adds intensive margin (w != 0) and downward jumps to the S-shaped CPT realization-utility framework; baseline diffusion parameters match IJ (2013) for comparison (Table II, p. 205)' }
-    - { cite: 'He and Yang (2019)', relation: builds-on, note: 'builds on their four-region characterization of S-shaped realization-utility models; shows the deep-loss holding region is unreachable in diffusion models but reachable with jumps (p. 195, Table I)' }
-    - { cite: 'An et al. (2024)', relation: tests, note: "model's deep-loss realization prediction is broadly consistent with the portfolio-driven disposition effect they document (pp. 193, 213, 218)" }
-    - { cite: 'Heimer and Imas (2022)', relation: tests, note: "leverage-strengthens-disposition-effect and leverage-constraints-mitigate-it predictions are consistent with their empirical findings (pp. 192, 209-210)" }
+    - { cite: 'Barberis and Xiong (2012)', doi: '10.1016/j.jfineco.2011.10.005', relation: extends, note: 'adds saving/leverage intensive margin and jump risk to the piecewise-linear realization-utility framework; no-voluntary-loss result of BX (2012) continues to hold in the extended model (Prop. 1, p. 216)' }
+    - { cite: 'Ingersoll and Jin (2013)', doi: '10.1093/rfs/hhs116', relation: extends, note: 'adds intensive margin (w != 0) and downward jumps to the S-shaped CPT realization-utility framework; baseline diffusion parameters match IJ (2013) for comparison (Table II, p. 205)' }
+    - { cite: 'He and Yang (2019)', doi: '10.1111/mafi.12182', relation: builds-on, note: 'builds on their four-region characterization of S-shaped realization-utility models; shows the deep-loss holding region is unreachable in diffusion models but reachable with jumps (p. 195, Table I)' }
+    - { cite: 'An et al. (2024)', doi: '10.1111/jofi.13378', relation: tests, note: "model's deep-loss realization prediction is broadly consistent with the portfolio-driven disposition effect they document (pp. 193, 213, 218)" }
+    - { cite: 'Heimer and Imas (2022)', doi: '10.1093/rfs/hhab073', relation: tests, note: "leverage-strengthens-disposition-effect and leverage-constraints-mitigate-it predictions are consistent with their empirical findings (pp. 192, 209-210)" }
   openQuestions:
     - 'The investor holds or trades a single stock each period; extending to multiple risky assets requires solving a multidimensional stochastic control problem (noted as technically challenging future research, p. 218).'
     - 'Probability weighting (another key feature of CPT beyond the utility specification) is omitted from the realization-utility formulation; its quantitative importance is acknowledged in fn. 15, p. 200.'

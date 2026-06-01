@@ -15,3 +15,6 @@ dist/
 # ISSN submission confirmations contain personal phone/home address — public repo
 docs/issn-attachments/issn-*-submission-*.pdf
 docs/issn-iar-a-zip-correction.txt
+
+# OpenAlex refs cache (regenerable via ground-relatesto.mjs)
+scripts/openalex/.refs-cache/

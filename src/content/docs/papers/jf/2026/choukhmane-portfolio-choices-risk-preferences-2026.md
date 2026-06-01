@@ -47,10 +47,10 @@ paper:
     period: 2006-12..2017-12
     frequency: annual
   relatesTo:
-    - { cite: 'Goldin and Reck (2020)', relation: extends, note: 'extends their revealed-preference framing framework from binary savings to continuous portfolio-share decisions (pp. 7, 18)' }
-    - { cite: 'Choukhmane (2025)', relation: builds-on, note: 'life-cycle model extends his consumption-saving DC model to include multiple assets and portfolio choice (p. 29)' }
-    - { cite: 'Merton (1969)', relation: tests, note: 'estimated preferences are broadly consistent with his CRRA life-cycle model predictions of declining equity share with age (pp. 8, 25)' }
-    - { cite: 'Gomes (2020)', relation: builds-on, note: 'builds on his survey of life-cycle portfolio choice models as the benchmark framework (p. 8)' }
+    - { cite: 'Goldin and Reck (2020)', doi: '10.1086/706860', relation: extends, note: 'extends their revealed-preference framing framework from binary savings to continuous portfolio-share decisions (pp. 7, 18)' }
+    - { cite: 'Choukhmane (2025)', doi: '10.1257/aer.20210881', relation: builds-on, note: 'life-cycle model extends his consumption-saving DC model to include multiple assets and portfolio choice (p. 29)' }
+    - { cite: 'Merton (1969)', doi: '10.2307/1926560', relation: tests, note: 'estimated preferences are broadly consistent with his CRRA life-cycle model predictions of declining equity share with age (pp. 8, 25)' }
+    - { cite: 'Gomes (2020)', doi: '10.1146/annurev-financial-012820-113815', relation: builds-on, note: 'builds on his survey of life-cycle portfolio choice models as the benchmark framework (p. 8)' }
   openQuestions:
     - 'Results are specific to moderate-income retirement account holders; they may not extend to the wealthiest households who hold sizeable nonretirement financial wealth (p. 39).'
     - 'Per-period participation costs are not a first-order driver in the 401(k) setting; their importance in brokerage accounts (which require filing tax forms and more frequent monitoring) is left open (pp. 8, 34).'

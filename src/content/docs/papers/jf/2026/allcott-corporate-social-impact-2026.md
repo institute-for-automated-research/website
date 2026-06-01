@@ -56,10 +56,10 @@ paper:
     period: 2018..2021
     frequency: annual
   relatesTo:
-    - { cite: 'Berry, Levinsohn & Pakes (1995)', relation: builds-on, note: 'Demand estimation follows the BLP random-coefficient logit framework (§IV.A, p. 302)' }
+    - { cite: 'Berry, Levinsohn & Pakes (1995)', doi: '10.2307/2171802', relation: builds-on, note: 'Demand estimation follows the BLP random-coefficient logit framework (§IV.A, p. 302)' }
     - { cite: 'Berry, Levinsohn & Pakes (2004)', relation: builds-on, note: 'Estimation strategy for differentiated-product markets using micro data (§IV.B, p. 304)' }
     - { cite: 'Brest & Born (2013)', relation: builds-on, note: 'Conceptualizes enterprise impact; the paper operationalizes this as welfare loss from firm exit (§I, p. 291)' }
-    - { cite: 'Serafeim, Trinh & Zochowski (2020)', relation: contradicts, note: 'HBS Impact Weighted Accounts use accounting methods to monetize impact; this paper uses demand estimation instead, yielding different results (§VII, p. 321)' }
+    - { cite: 'Serafeim, Trinh & Zochowski (2020)', doi: '10.2139/ssrn.3532472', relation: contradicts, note: 'HBS Impact Weighted Accounts use accounting methods to monetize impact; this paper uses demand estimation instead, yielding different results (§VII, p. 321)' }
     - { cite: 'Chatterji et al. (2015)', relation: contradicts, note: 'ESG ratings disagree substantially with each other; this paper shows they are also uncorrelated with welfare-grounded estimates (§VII, p. 322)' }
     - { cite: 'Saez (2002)', relation: builds-on, note: 'Social marginal welfare weights inversely proportional to income, rho = 1 benchmark (§I.C.1, p. 294)' }
   openQuestions:

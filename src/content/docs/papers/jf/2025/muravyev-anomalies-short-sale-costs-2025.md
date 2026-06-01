@@ -44,12 +44,12 @@ paper:
     period: 2006-07..2020-12
     frequency: monthly
   relatesTo:
-    - { cite: 'Chen & Zimmermann (2021)', relation: builds-on, note: 'Uses their 162 anomaly signals from openassetpricing.com as the universe of tested anomalies (p. 3648)' }
+    - { cite: 'Chen & Zimmermann (2021)', doi: '10.1561/104.00000112', relation: builds-on, note: 'Uses their 162 anomaly signals from openassetpricing.com as the universe of tested anomalies (p. 3648)' }
     - { cite: 'Drechsler & Drechsler (2021)', relation: contradicts, note: 'That paper finds positive net-of-fee returns on eight anomalies using lender-side fees; this paper uses buy-side fees and a longer, more recent sample and finds near-zero net-of-fee returns (pp. 3643, 3646)' }
     - { cite: 'Hou, Xue & Zhang (2020)', relation: tests, note: 'Tests their claim that anomaly returns are concentrated in microcaps; finds that even microcap anomaly returns disappear once borrow fees are accounted for (pp. 3642, 3668)' }
-    - { cite: 'Nagel (2005)', relation: builds-on, note: 'Limits-to-arbitrage framework connecting short-sale constraints to anomaly persistence (p. 3643)' }
-    - { cite: 'Stambaugh, Yu & Yuan (2012)', relation: builds-on, note: 'Framework connecting short-sale costs to anomaly persistence via sentiment (p. 3643)' }
-    - { cite: 'Daniel, Grinblatt, Titman & Wermers (1997)', relation: builds-on, note: 'Characteristics-matched DGTW benchmark used to compute abnormal returns throughout (p. 3654)' }
+    - { cite: 'Nagel (2005)', doi: '10.1016/j.jfineco.2004.08.008', relation: builds-on, note: 'Limits-to-arbitrage framework connecting short-sale constraints to anomaly persistence (p. 3643)' }
+    - { cite: 'Stambaugh, Yu & Yuan (2012)', doi: '10.1016/j.jfineco.2011.12.001', relation: builds-on, note: 'Framework connecting short-sale costs to anomaly persistence via sentiment (p. 3643)' }
+    - { cite: 'Daniel, Grinblatt, Titman & Wermers (1997)', doi: '10.1111/j.1540-6261.1997.tb02724.x', relation: builds-on, note: 'Characteristics-matched DGTW benchmark used to compute abnormal returns throughout (p. 3654)' }
   openQuestions:
     - 'Why long-side investors continue to hold high-borrow-fee decile 1 stocks despite bearing negative expected returns; candidate explanations include index-fund tracking constraints, capital-gains tax consequences, and inability to identify high-fee stocks (pp. 3679-3680, 3692).'
     - 'Whether the results hold at daily or weekly strategy frequencies, which the paper leaves outside its scope because execution costs scale with trade frequency differently than borrow fees (p. 3644 fn. 4).'

@@ -47,11 +47,11 @@ paper:
     frequency: annual
   relatesTo:
     - { cite: 'Gomes & Michaelides (2008)', relation: extends, note: 'adds an explicit DB pension fund endowment and stochastic contribution rates to their OLG asset pricing framework with limited participation (p. 147)' }
-    - { cite: 'Constantinides & Duffie (1996)', relation: builds-on, note: 'cross-sectional consumption volatility channel: stochastic contribution rates raise idiosyncratic income risk for workers and firms, raising the equity premium (p. 146)' }
-    - { cite: 'Storesletten, Telmer & Yaron (2007)', relation: builds-on, note: 'OLG incomplete-markets production economy framework used as a benchmark (p. 147)' }
-    - { cite: 'Favilukis, Ludvigson & Van Nieuwerburgh (2017)', relation: builds-on, note: 'OLG macro-housing general-equilibrium framework; paper shares the stochastic depreciation device for tractability (p. 149)' }
-    - { cite: 'Guvenen, Ozkan & Song (2014)', relation: builds-on, note: 'countercyclical labor income risk process adopted for the earnings shock mixture distribution (pp. 153, 162)' }
-    - { cite: 'Krusell & Smith (1998)', relation: builds-on, note: 'aggregate-capital forecasting rule used to solve the heterogeneous-agent general equilibrium (p. 158)' }
+    - { cite: 'Constantinides & Duffie (1996)', doi: '10.1086/262023', relation: builds-on, note: 'cross-sectional consumption volatility channel: stochastic contribution rates raise idiosyncratic income risk for workers and firms, raising the equity premium (p. 146)' }
+    - { cite: 'Storesletten, Telmer & Yaron (2007)', doi: '10.1016/j.red.2007.02.004', relation: builds-on, note: 'OLG incomplete-markets production economy framework used as a benchmark (p. 147)' }
+    - { cite: 'Favilukis, Ludvigson & Van Nieuwerburgh (2017)', doi: '10.1086/689606', relation: builds-on, note: 'OLG macro-housing general-equilibrium framework; paper shares the stochastic depreciation device for tractability (p. 149)' }
+    - { cite: 'Guvenen, Ozkan & Song (2014)', doi: '10.1086/675535', relation: builds-on, note: 'countercyclical labor income risk process adopted for the earnings shock mixture distribution (pp. 153, 162)' }
+    - { cite: 'Krusell & Smith (1998)', doi: '10.1086/250034', relation: builds-on, note: 'aggregate-capital forecasting rule used to solve the heterogeneous-agent general equilibrium (p. 158)' }
   openQuestions:
     - 'Further cross-sectional heterogeneity in pension scheme enrollment among households; comparative statics on adjustment rates suggest interesting risk-sharing implications (p. 185).'
     - 'Endogenous government bond supply process; current model treats the bond supply (debt-to-GDP ratio) as exogenous (p. 186).'

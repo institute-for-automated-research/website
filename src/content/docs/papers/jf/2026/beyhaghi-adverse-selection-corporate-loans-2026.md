@@ -50,12 +50,12 @@ paper:
     period: 2014Q4..2019Q4
     frequency: quarterly
   relatesTo:
-    - { cite: 'Broecker (1990)', relation: tests, note: 'core adverse-selection predictions: more banks raises rates, borrower risk, and volume (p. 246)' }
-    - { cite: 'Marquez (2002)', relation: tests, note: 'information-dispersion channel: more banks makes screening harder (p. 246)' }
+    - { cite: 'Broecker (1990)', doi: '10.2307/2938210', relation: tests, note: 'core adverse-selection predictions: more banks raises rates, borrower risk, and volume (p. 246)' }
+    - { cite: 'Marquez (2002)', doi: '10.1093/rfs/15.3.901', relation: tests, note: 'information-dispersion channel: more banks makes screening harder (p. 246)' }
     - { cite: "Dell'Ariccia and Marquez (2006)", relation: tests, note: 'information-holdup channel: incumbent banks extract rents from repeat borrowers (p. 246)' }
-    - { cite: 'Sharpe (1990)', relation: builds-on, note: 'information-holdup theory underlying the Stay Bank markup test (p. 247)' }
-    - { cite: 'Rajan (1992)', relation: builds-on, note: 'information-rent extraction by relationship lenders (p. 247)' }
-    - { cite: 'Favara, Ivanov and Rezende (2021)', relation: builds-on, note: 'GSIB surcharge as a shock to large-bank lending costs, used as the DiD/IV instrument (p. 272)' }
+    - { cite: 'Sharpe (1990)', doi: '10.1111/j.1540-6261.1990.tb02427.x', relation: builds-on, note: 'information-holdup theory underlying the Stay Bank markup test (p. 247)' }
+    - { cite: 'Rajan (1992)', doi: '10.1111/j.1540-6261.1992.tb04662.x', relation: builds-on, note: 'information-rent extraction by relationship lenders (p. 247)' }
+    - { cite: 'Favara, Ivanov and Rezende (2021)', doi: '10.1016/j.jfineco.2021.06.026', relation: builds-on, note: 'GSIB surcharge as a shock to large-bank lending costs, used as the DiD/IV instrument (p. 272)' }
   openQuestions:
     - 'The paper does not provide a welfare analysis of market structure; results suggest standard competition models miss adverse-selection subtleties, but the net welfare effect of more vs. fewer banks is left unresolved (pp. 278-279).'
     - 'The markup measure is relative, not absolute; the paper cannot rule out that some unobserved risk component drives residual variation in interest rates across counties (p. 265).'

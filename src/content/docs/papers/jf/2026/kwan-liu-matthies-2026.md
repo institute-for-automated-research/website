@@ -47,11 +47,11 @@ paper:
     frequency: monthly
 
   relatesTo:
-    - { cite: 'Peng & Xiong (2006)', relation: tests, note: 'Tests prediction that attention-constrained investors shift toward macro news when aggregate volatility is high (p. 801)' }
+    - { cite: 'Peng & Xiong (2006)', doi: '10.1016/j.jfineco.2005.05.003', relation: tests, note: 'Tests prediction that attention-constrained investors shift toward macro news when aggregate volatility is high (p. 801)' }
     - { cite: 'Kacperczyk, Van Nieuwerburgh & Veldkamp (2016)', relation: tests, note: 'Tests prediction that funds with higher attention-reallocation sensitivity to VIX earn higher future returns (pp. 801, 805)' }
     - { cite: 'Van Nieuwerburgh & Veldkamp (2010)', relation: tests, note: 'Tests prediction that attention and portfolio holdings are positively related in equilibrium (pp. 802, 809)' }
-    - { cite: 'Berk & Van Binsbergen (2015)', relation: builds-on, note: 'Position-level value-add measure is conceptually analogous to their fund-level value-add (p. 811)' }
-    - { cite: 'Akepanidtaworn et al. (2023)', relation: builds-on, note: 'Trade-based value-add tests build on their finding that institutional buying adds value while selling does not (p. 815)' }
+    - { cite: 'Berk & Van Binsbergen (2015)', doi: '10.1016/j.jfineco.2015.05.002', relation: builds-on, note: 'Position-level value-add measure is conceptually analogous to their fund-level value-add (p. 811)' }
+    - { cite: 'Akepanidtaworn et al. (2023)', doi: '10.1111/jofi.13271', relation: builds-on, note: 'Trade-based value-add tests build on their finding that institutional buying adds value while selling does not (p. 815)' }
 
   openQuestions:
     - 'Whether results extend to non-US institutional investors or to asset classes beyond equities; the sample covers US funds reading English-language news from Nov 2017 to Jun 2022 only (p. 824).'

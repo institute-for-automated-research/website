@@ -46,9 +46,9 @@ paper:
     period: theoretical
   relatesTo:
     - { cite: 'Coate & Loury (1993)', relation: extends, note: 'generalizes the self-fulfilling stereotype model by adding strategic competition between agents; unlike Coate-Loury, the unfavored group may invest more than the favored group under low stakes' }
-    - { cite: 'Lazear & Rosen (1990)', relation: contradicts, note: 'their model predicts small promotion gaps in high-stakes jobs; this paper predicts the opposite: promotion gaps are larger at higher stakes when discrimination is subtle' }
-    - { cite: 'Prendergast (1993)', relation: builds-on, note: 'uses the same setup of firm-specific human capital incentivized through promotions; adds biased tie-breaking' }
-    - { cite: 'Drugov & Ryvkin (2017)', relation: extends, note: 'extends the biased-contest literature by distinguishing subtle from overt bias and showing their effects differ qualitatively' }
+    - { cite: 'Lazear & Rosen (1990)', doi: '10.1086/298246', relation: contradicts, note: 'their model predicts small promotion gaps in high-stakes jobs; this paper predicts the opposite: promotion gaps are larger at higher stakes when discrimination is subtle' }
+    - { cite: 'Prendergast (1993)', doi: '10.2307/2118343', relation: builds-on, note: 'uses the same setup of firm-specific human capital incentivized through promotions; adds biased tie-breaking' }
+    - { cite: 'Drugov & Ryvkin (2017)', doi: '10.1016/j.geb.2016.02.003', relation: extends, note: 'extends the biased-contest literature by distinguishing subtle from overt bias and showing their effects differ qualitatively' }
   openQuestions:
     - 'Whether the overcompensation and discouragement effects are empirically distinguishable using observational data on promotion gaps across different career tracks; the paper derives the predictions but notes identifying subtle versus overt discrimination empirically is difficult (pp. 359-361).'
     - 'How the model extends to cases where the skill is general (not firm-specific) and agents can move across employers; Internet Appendix Sections II-III present partial extensions but the full treatment is left for future work (p. 339, footnote).'
