@@ -26,6 +26,7 @@ paper:
   machineAccess: 'blocked-paywall (Wiley site; checked 2026-05-31)'
   redistribution: extract-only
   resultsCount: 9
+  citedByCount: 1
   topics: ['Capital Investment and Risk Analysis', 'Market Dynamics and Volatility', 'Innovation and Knowledge Management']
   dataAccess: licensed-commercial
   outcome:

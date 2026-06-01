@@ -30,6 +30,7 @@ paper:
     - cross-sectional stock returns
     - expected return premium on WarFac betas across test-asset sets
   resultsCount: 8
+  citedByCount: 5
   topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Financial Risk and Volatility Modeling']
   methods:
     role: both

@@ -27,7 +27,8 @@ paper:
   machineAccess: 'blocked-paywall (Wiley/J. Finance site; confirmed via Crossref metadata 2026-05-31)'
   redistribution: extract-only
   resultsCount: 7
-  topics: ['Financial Markets and Investment Strategies', 'Decision-Making and Behavioral Economics', 'Financial Literacy, Pension, Retirement Analysis']
+  citedByCount: 0
+  topics: ['Financial Markets and Investment Strategies', 'Decision-Making and Behavioral Economics']
   dataAccess: public
   outcome:
     - optimal loss-realization timing under saving and leverage

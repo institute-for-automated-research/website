@@ -24,6 +24,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  citedByCount: 2
   topics: ['Names, Identity, and Discrimination Research', 'Gender Diversity and Inequality']
   dataAccess: public
   outcome:
@@ -40,7 +41,7 @@ paper:
     family: theory
     buildsFrom: [promotion-contest, principal-agent]
   scope:
-    region: US
+    region: theoretical
     assetClass: labor markets (promotions)
     period: theoretical
   relatesTo:

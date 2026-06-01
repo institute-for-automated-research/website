@@ -38,6 +38,7 @@ paper:
     - borrower probability of default
     - loan markup (risk-orthogonalized interest rate)
   resultsCount: 9
+  citedByCount: 1
   topics: ['Banking stability, regulation, efficiency', 'Corporate Finance and Governance']
   methods:
     role: applies-method

@@ -43,6 +43,7 @@ paper:
     - social impact per dollar of revenue
     - ESG rating correlation with welfare-grounded impact estimates
   resultsCount: 8
+  citedByCount: 0
   topics: ['Community Development and Social Impact', 'Corporate Social Responsibility Reporting', 'Environmental and Social Impact Assessments']
   methods:
     role: both

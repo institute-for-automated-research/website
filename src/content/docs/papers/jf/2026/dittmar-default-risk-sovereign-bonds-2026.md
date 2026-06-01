@@ -30,7 +30,8 @@ paper:
     - nominal Treasury yields
     - TIPS yields
   resultsCount: 8
-  topics: ['Credit Risk and Financial Regulations', 'Global Financial Crisis and Policies', 'Italy: Economic History and Contemporary Issues']
+  citedByCount: 0
+  topics: ['Credit Risk and Financial Regulations', 'Global Financial Crisis and Policies']
   doi: 10.1111/jofi.70014
   license: >-
     Paywalled (Wiley VOR licence: http://onlinelibrary.wiley.com/termsAndConditions#vor,

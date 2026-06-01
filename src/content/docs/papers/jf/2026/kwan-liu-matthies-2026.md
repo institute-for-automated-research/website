@@ -21,6 +21,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  citedByCount: 2
   topics: ['Financial Markets and Investment Strategies', 'Auditing, Earnings Management, Governance', 'Corporate Finance and Governance']
   dataAccess: proprietary-confidential
   outcome:

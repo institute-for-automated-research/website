@@ -22,7 +22,8 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
-  topics: ['Financial Literacy, Pension, Retirement Analysis', 'Corporate Insolvency and Governance', 'Higher Education Research Studies']
+  citedByCount: 0
+  topics: ['Financial Literacy, Pension, Retirement Analysis', 'Higher Education Research Studies']
   dataAccess: proprietary-confidential
   outcome:
     - non-student debt balances and delinquency rates

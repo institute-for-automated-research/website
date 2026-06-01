@@ -24,7 +24,8 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
-  topics: ['Financial Literacy, Pension, Retirement Analysis', 'Insurance, Mortality, Demography, Risk Management', 'Global Health Care Issues']
+  citedByCount: 0
+  topics: ['Financial Literacy, Pension, Retirement Analysis', 'Insurance, Mortality, Demography, Risk Management']
   dataAccess: licensed-commercial
   outcome:
     - equity premium and Sharpe ratio

@@ -50,6 +50,7 @@ paper:
   machineAccess: <what an automated fetch returns today, with date>
   redistribution: <extract-only | hosted ...>      # default extract-only
   resultsCount: <rows in Core results table>
+  citedByCount: <OpenAlex cited_by_count, from the openalex skill (step 3b)>
 
   # --- methodological identity (queryable; the point of the series) ---
   methods:
@@ -59,12 +60,13 @@ paper:
     buildsFrom: [<registry technique slugs the method is built on>]
   # --- sample scope: the axis where gaps hide ---
   scope:
-    region: <e.g. US | Norway | global>
+    region: <e.g. US | Norway | global | theoretical>
     assetClass: <e.g. US equities | corporate loans | sovereign bonds>
     period: <data window, e.g. 1964-01..2016-12>
+    frequency: <daily | weekly | monthly | quarterly | annual | mixed>  # omit for theory papers
   # --- finding-lineage edges to prior work (how lit evolves / what is contested) ---
   relatesTo:
-    - { cite: <author-year or DOI>, relation: <extends|replicates|contradicts|tests|builds-on>, note: <one line> }
+    - { cite: <author-year>, doi: <doi if known>, relation: <extends|replicates|contradicts|tests|builds-on|cites>, note: <one line> }
   # --- the paper's OWN stated open questions / limitations (gaps live here) ---
   openQuestions:
     - <pulled from the conclusion, never invented>
@@ -109,7 +111,8 @@ paper:
 - `relatesTo.relation` values: **extends** (methodological generalization of
   the cited result), **builds-on** (conceptual/foundational dependence),
   **replicates**, **contradicts** (opposes its finding), **tests**
-  (empirically pits the paper against it). Name every `relatesTo` cite
+  (empirically pits the paper against it), **cites** (neutral background
+  reference, no stronger relation). Name every `relatesTo` cite
   somewhere in the body so the edge is locatable; add `doi` when known.
 - `openQuestions` are the paper's OWN stated gaps/limitations/future work
   (with page locators), not your editorializing and not a scope restatement.

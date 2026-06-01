@@ -22,6 +22,7 @@ paper:
   venueShort: J. Finance 2025
   licenseShort: CC BY 4.0
   resultsCount: 8
+  citedByCount: 13
   topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Corporate Finance and Governance']
   dataAccess: licensed-commercial
   outcome:

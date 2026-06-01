@@ -25,7 +25,8 @@ paper:
   doi: 10.1111/jofi.70012
   licenseShort: CC BY 4.0
   resultsCount: 8
-  topics: ['Corporate Finance and Governance', 'Family Business Performance and Succession', 'Intellectual Capital and Performance Analysis']
+  citedByCount: 1
+  topics: ['Corporate Finance and Governance']
   dataAccess: proprietary-confidential
   outcome:
     - number of hierarchical layers in the firm

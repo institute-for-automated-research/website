@@ -23,6 +23,7 @@ paper:
   venueShort: J. Finance 2025
   licenseShort: CC BY 4.0
   resultsCount: 9
+  citedByCount: 5
   topics: ['Financial Markets and Investment Strategies', 'Insurance and Financial Risk Management']
   dataAccess: licensed-commercial
   outcome:

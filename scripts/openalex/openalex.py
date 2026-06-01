@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import ssl
 import sys
 import textwrap
 import time
@@ -32,6 +33,18 @@ from pathlib import Path
 API = "https://api.openalex.org"
 TIMEOUT = 12
 RETRIES = 2
+
+# Use a CA bundle Python can actually find. A missing local issuer cert makes
+# urllib raise CERTIFICATE_VERIFY_FAILED even when the host is up (curl, which
+# uses the OS trust store, succeeds against the same URL). That is a LOCAL cert
+# problem, not "OpenAlex is unreachable" — prefer certifi's bundle when present
+# so the call doesn't fail and get misread as the source being down.
+try:
+    import certifi
+
+    _SSL_CTX = ssl.create_default_context(cafile=certifi.where())
+except Exception:
+    _SSL_CTX = ssl.create_default_context()
 BACKOFF = 1.5
 
 # Aliases for top finance/economics venues. The OpenAlex source IDs below were
@@ -96,7 +109,7 @@ def http_get(path: str, params: dict, mailto: str) -> dict:
     last_err: Exception | None = None
     for attempt in range(RETRIES + 1):
         try:
-            with urllib.request.urlopen(url, timeout=TIMEOUT) as resp:
+            with urllib.request.urlopen(url, timeout=TIMEOUT, context=_SSL_CTX) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as exc:
             last_err = exc
@@ -204,9 +217,10 @@ def project(work: dict) -> dict:
         for t in (work.get("topics") or [])[:4]
         if t.get("display_name")
     ]
+    doi = work.get("doi") or ""
     row = {
         "openalex_id": work.get("id"),
-        "doi": work.get("doi"),
+        "doi": doi.replace("https://doi.org/", "") or None,
         "title": work.get("title") or work.get("display_name"),
         "year": work.get("publication_year"),
         "date": work.get("publication_date"),
@@ -337,7 +351,7 @@ def cmd_refs(args, mailto: str) -> int:
     ids = "|".join(r.rsplit("/", 1)[-1] for r in refs)
     payload = http_get(
         "/works",
-        {"filter": f"openalex_id:{ids}", "per-page": str(len(refs)), "select": work_fields(args.abstracts)},
+        {"filter": f"openalex_id:{ids}", "per-page": str(min(len(refs), 200)), "select": work_fields(args.abstracts)},
         mailto,
     )
     rows = [project(w) for w in (payload.get("results") or [])]

@@ -22,7 +22,8 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: paywalled
   resultsCount: 9
-  topics: ['Auditing, Earnings Management, Governance', 'FinTech, Crowdfunding, Digital Finance', 'Corporate Finance and Governance']
+  citedByCount: 1
+  topics: ['Auditing, Earnings Management, Governance', 'Corporate Finance and Governance']
   dataAccess: licensed-commercial
   outcome:
     - financial covenant violation rate
@@ -36,7 +37,7 @@ paper:
   methods:
     role: both
     contributes: covenant-violation-decomposition
-    family: structural
+    family: descriptive
     buildsFrom: [probit-regression, blinder-oaxaca-decomposition, roc-curve-analysis]
   scope:
     region: US

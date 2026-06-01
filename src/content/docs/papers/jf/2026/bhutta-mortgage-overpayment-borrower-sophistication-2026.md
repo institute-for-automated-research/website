@@ -24,6 +24,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: paywalled
   resultsCount: 8
+  citedByCount: 0
   topics: ['Housing Market and Economics', 'Banking stability, regulation, efficiency', 'Housing, Finance, and Neoliberalism']
   dataAccess: proprietary-confidential
   outcome:

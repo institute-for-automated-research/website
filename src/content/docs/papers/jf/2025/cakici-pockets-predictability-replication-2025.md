@@ -29,6 +29,7 @@ paper:
   machineAccess: 'blocked-paywall (Wiley site wrapper; not tested directly 2026-05-31; CC-BY VOR licence confirmed in publisher DOI metadata)'
   redistribution: 'extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)'
   resultsCount: 8
+  citedByCount: 8
   topics: ['Financial Markets and Investment Strategies', 'Monetary Policy and Economic Impact', 'Financial Risk and Volatility Modeling']
   dataAccess: licensed-commercial
   outcome:

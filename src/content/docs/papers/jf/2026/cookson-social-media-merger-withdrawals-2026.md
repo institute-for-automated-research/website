@@ -23,6 +23,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: paywalled
   resultsCount: 8
+  citedByCount: 4
   topics: ['Auditing, Earnings Management, Governance', 'Media Influence and Politics', 'Digital Marketing and Social Media']
   dataAccess: proprietary-confidential
   outcome:

@@ -36,6 +36,8 @@ const DISTILL_SCHEMA = {
     resultsCount: { type: 'number' },
     dataTags: { type: 'array', items: { type: 'string' } },
     newDatasetBacklog: { type: 'array', items: { type: 'string' } },
+    proposedVocab: { type: 'array' },
+    mode: { type: 'string' },
     notes: { type: 'string' },
     reason: { type: 'string' },
   },
@@ -143,12 +145,16 @@ return {
   flagged: flagged.map((r) => ({ slug: r.slug, unresolved: r.verified?.unresolved })),
   verifyFailed: verifyFailed.map((r) => r.slug),
   failed: failed.map((r) => ({ slug: r.slug, reason: r.distilled?.reason })),
+  // Caller must run vocab-curator once over the batch (SKILL.md step 3) before
+  // building; this flag says whether any page staged new vocab to reconcile.
+  pendingCuration: ok.some((r) => (r.distilled.proposedVocab || []).length > 0),
   pages: ok.map((r) => ({
     slug: r.slug,
     path: r.distilled.path,
     resultsCount: r.distilled.resultsCount,
     dataTags: r.distilled.dataTags,
     newDatasetBacklog: r.distilled.newDatasetBacklog,
+    proposedVocab: r.distilled.proposedVocab,
     verdict: r.verified?.verdict,
   })),
 };

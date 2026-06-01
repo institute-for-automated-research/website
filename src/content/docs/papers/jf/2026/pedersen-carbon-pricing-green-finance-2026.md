@@ -22,6 +22,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  citedByCount: 0
   topics: ['Sustainable Finance and Green Bonds', 'Climate Change Policy and Economics', 'Corporate Social Responsibility Reporting']
   dataAccess: licensed-commercial
   outcome:
@@ -36,7 +37,7 @@ paper:
   methods:
     role: theory
     family: structural
-    buildsFrom: [dynamic-general-equilibrium, pigouvian-taxation, carbon-burden-rate]
+    buildsFrom: [dynamic-general-equilibrium, pigouvian-taxation]
 
   scope:
     region: US

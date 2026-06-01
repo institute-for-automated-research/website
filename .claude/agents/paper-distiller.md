@@ -93,6 +93,8 @@ with the compact JSON result described at the bottom.
     openly licensed (CC) AND gives you a mirror path. Do NOT copy or mirror
     PDFs yourself.
   - `resultsCount`: the number of rows in your Core results table.
+  - `citedByCount`: the OpenAlex `cited_by_count` from step 3b (a static
+    snapshot; influence ranking for gap + evolution queries).
   - `authorList[]`: structured authors, preferring the OpenAlex
     `author_details` (name, orcid, institutions) from step 3b since OpenAlex
     often has ORCIDs Crossref lacks; fall back to the Crossref `author[]` block
@@ -123,7 +125,8 @@ with the compact JSON result described at the bottom.
     `1964-01..2016-12`), `frequency`
     (`daily`|`weekly`|`monthly`|`quarterly`|`annual`|`mixed`).
   - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
-    `replicates` / `contradicts` / `tests`; name each cite in the body too,
+    `replicates` / `contradicts` / `tests` / `cites`; name each cite in the
+    body too,
     add `doi` when known. Omit if none.
   - `openQuestions[]`: the paper's OWN stated gaps/limitations/future work,
     with page locators. Omit if none; do not editorialize or restate scope.

@@ -24,6 +24,7 @@ paper:
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  citedByCount: 0
   topics: ['Financial Literacy, Pension, Retirement Analysis', 'Insurance, Mortality, Demography, Risk Management', 'Financial Markets and Investment Strategies']
   dataAccess: proprietary-confidential
   outcome:

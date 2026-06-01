@@ -42,7 +42,10 @@ export const collections = {
             authorList: z
               .array(
                 z.object({
-                  family: z.string(),
+                  // optional: OpenAlex/PDF give a flat display name for some
+                  // authors (single-name, CJK, hyphenated) that does not split
+                  // cleanly into family/given.
+                  family: z.string().optional(),
                   given: z.string().optional(),
                   orcid: z.string().optional(),
                   affiliation: z.string().optional(),
@@ -59,6 +62,11 @@ export const collections = {
             venueShort: z.string().optional(),
             licenseShort: z.string().optional(),
             resultsCount: z.number().optional(),
+            // OpenAlex forward-citation count at distillation time: influence
+            // ranking and "which results have the most attention/evidence".
+            // Cheap (already fetched in step 3b), high value for gap +
+            // evolution queries; a static snapshot, not kept live.
+            citedByCount: z.number().optional(),
             // JEL classification codes printed on the paper (page 1). A fixed
             // external taxonomy, so inherently controlled: the standard axis
             // for topic-trend / gap bibliometrics over time.
@@ -210,13 +218,15 @@ export const collections = {
                   // extends: methodological generalization of the cited
                   // result; builds-on: conceptual/foundational dependence;
                   // replicates: re-runs it; contradicts: opposes its finding;
-                  // tests: empirically pits the paper against it.
+                  // tests: empirically pits the paper against it; cites:
+                  // neutral background reference with no stronger relation.
                   relation: z.enum([
                     'extends',
                     'replicates',
                     'contradicts',
                     'tests',
                     'builds-on',
+                    'cites',
                   ]),
                   note: z.string().optional(),
                 })

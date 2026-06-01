@@ -18,7 +18,10 @@ is the serial reconciliation: make the vocabulary consistent across the corpus
 without losing meaning. Your final message is a JSON report for an orchestrator.
 
 The registry governs two axes only: `methods.family` and `methods.buildsFrom`.
-Topic/method TAGS are out of scope (governed by SKILL.md + TagIndex.astro).
+Topic/method TAGS are out of scope (governed by SKILL.md + TagIndex.astro): a
+`proposedVocab` entry with `axis: topic` or `axis: method` is not yours to
+reconcile, so leave it on the page and report it in `unresolved` with
+`why: tag-axis-out-of-scope` for the SKILL.md maintainer to handle.
 
 ## Inputs (from your prompt)
 - `paths`: the list of page files in this batch (or "all", meaning every

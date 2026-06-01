@@ -25,6 +25,7 @@ paper:
   venueShort: J. Finance 2025
   licenseShort: paywalled
   resultsCount: 9
+  citedByCount: 4
   topics: ['Financial Markets and Investment Strategies', 'Banking stability, regulation, efficiency', 'Economic theories and models']
   dataAccess: licensed-commercial
   outcome:

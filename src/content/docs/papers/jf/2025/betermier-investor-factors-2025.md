@@ -32,6 +32,7 @@ paper:
     - cross-sectional stock returns (Norwegian equities)
     - investor portfolio tilts toward the age-wealth factor
   resultsCount: 8
+  citedByCount: 0
   topics: ['Financial Markets and Investment Strategies', 'Corporate Finance and Governance']
   methods:
     role: both
