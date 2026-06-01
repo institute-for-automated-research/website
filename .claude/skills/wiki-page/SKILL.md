@@ -203,10 +203,16 @@ Steps:
      labelled 2025). Fix `year`, `title`, `sidebar.label`, and the slug.
    - **Em-dash / colorful-adjective sweep**: verifiers miss these; grep the new
      pages for the em-dash char (U+2014) and obvious promotional adjectives.
-4. **Build clean**: `rm -rf .astro && npm run build`. Acceptable output is only
-   the `datasets cited but undocumented` backlog line. A `Duplicate id` warning
-   is a stale content-layer cache artifact that clears on the `.astro` wipe; it
-   must be gone on the clean rebuild. No `tags not in any axis` orphan.
+     Watch one YAML trap when fixing an em-dash inside an unquoted plain `note:`
+     scalar: replacing ` — ` with `: ` (colon-space) makes YAML read a mapping
+     separator and the build dies with `bad indentation of a mapping entry`.
+     Use `;` `,` or `(` there, or only use `:` inside a `>-` block scalar.
+4. **Build clean**: `rm -rf .astro node_modules/.astro && npm run build`. The
+   content-layer data store lives at `node_modules/.astro/data-store.json`, not
+   the project-root `.astro`; wiping only the latter leaves a stale store that
+   re-emits a `Duplicate id` warning for every page touched since the last clean
+   build. Wipe both. Acceptable output is then only the `datasets cited but
+   undocumented` backlog line. No `Duplicate id`, no `tags not in any axis` orphan.
 5. **Mandated review loop**: launch a Sonnet review agent over the diff; fix
    findings; re-review until `clean` (CLAUDE.md rule).
 6. **Live-check + commit**: confirm `dist/wiki/papers/<journal>/<year>/<slug>/index.html` + the
