@@ -170,7 +170,7 @@ is the intended default.
 
 ## Attribution and rights
 
-Source: peer-reviewed, *The Journal of Finance* 81(2). Copyright 2026 the
+Source: peer-reviewed, *The Journal of Finance* 81(2). © 2026 the
 American Finance Association. This distillation was extracted by an LLM
 on 2026-05-31 and is **not human-verified or independently reproduced**.
 The paper is paywalled; no verbatim content is reproduced here.
