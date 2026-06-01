@@ -23,6 +23,33 @@ const steps = extraction.map((e) => ({
 }));
 const models = [...new Set(steps.map((s) => s.model))];
 
+// Collapse repeated passes for the byline. A re-distilled / augmented page
+// stores one entry per pass in frontmatter — [extracted, verified, extracted,
+// verified, ...] — and that full history stays there for provenance. The
+// rendered line only needs the first extraction and the most recent
+// verification per model, so it reads "extracted <date>, last verified <date>"
+// instead of doubling on every augment pass.
+const collapse = (modelSteps: { model: string; date: string; role: string }[]) => {
+  const extracted = modelSteps.filter((s) => s.role === 'extracted');
+  const verified = modelSteps.filter((s) => s.role === 'verified');
+  const others = modelSteps.filter(
+    (s) => s.role !== 'extracted' && s.role !== 'verified',
+  );
+  const parts: { role: string; date: string }[] = [];
+  if (extracted.length) parts.push({ role: 'extracted', date: extracted[0].date });
+  if (verified.length)
+    parts.push({
+      role: verified.length > 1 ? 'last verified' : 'verified',
+      date: verified[verified.length - 1].date,
+    });
+  for (const o of others) parts.push({ role: o.role, date: o.date });
+  return parts;
+};
+const singleSteps = collapse(steps);
+const multiSteps = models.flatMap((m) =>
+  collapse(steps.filter((s) => s.model === m)).map((p) => ({ ...p, model: m })),
+);
+
 // Direct link to the page's raw Markdown twin, which carries the full
 // frontmatter the rendered HTML does not surface (for papers: methods, scope,
 // relatesTo, topics, dataAccess, the extraction attestations; for datasets: the
@@ -97,7 +124,7 @@ const fmt = (d: string) =>
         <>
           <strong>Distilled by {models[0]}</strong>
           {' · '}
-          {steps.map((s, i) => (
+          {singleSteps.map((s, i) => (
             <>
               {i > 0 && ', '}
               {s.role}
@@ -110,7 +137,7 @@ const fmt = (d: string) =>
         <>
           <strong>Distilled</strong>
           {' · '}
-          {steps.map((s, i) => (
+          {multiSteps.map((s, i) => (
             <>
               {i > 0 && ', '}
               {s.role}
