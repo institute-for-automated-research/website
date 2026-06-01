@@ -77,10 +77,13 @@ today: ${TODAY}
 
 Read the conventions and the template first, then read the PDF in full, confirm
 the DOI (printed on the PDF first page) and licence (Crossref), and write the
-page at ${dest(it)} following the template exactly (create parent dirs if
-needed). This batch is extract-only: do NOT set a pdf: mirror even if the
-article is CC-licensed; record the licence accurately and note that CC permits
-mirroring but it is not hosted in this batch. Return the JSON result.`;
+page (or, if ${dest(it)} already exists, augment it per your Augment mode)
+following your agent definition exactly; create parent dirs if needed. The
+agent definition and the template own the procedure (formal sections,
+frontmatter, augment rules); follow them, this prompt does not restate them.
+Batch policy for this run: extract-only, so do NOT set a pdf: mirror even if the
+article is CC-licensed; note that CC permits mirroring but it is not hosted in
+this batch. Return the JSON result.`;
 
 const verifyPrompt = (it) => `You are operating as the "paper-verifier" agent. FIRST read
 .claude/agents/paper-verifier.md and follow it exactly as your operating
@@ -93,9 +96,13 @@ today: ${TODAY}
 
 Read the page, then read the cited PDF pages and check every Core results row's
 locator and magnitude, the frontmatter facts, resultsCount, and the no-em-dash /
-no-colorful-adjective rules. Fix clear errors in place on this one file only.
-Then append the role: verified attestation dated ${TODAY} as instructed.
-Return the JSON verdict.`;
+no-colorful-adjective rules. ALSO verify every equation and specification in the
+Theory / model, Method, and Empirical specifications sections term-by-term
+against the PDF (your step 3b): subscripts, signs, summation indices,
+transposes, penalty terms, inequality directions, equality conditions, and each
+regression's LHS/RHS/fixed-effects/standard-errors/sample. Fix clear errors in
+place on this one file only. Then append the role: verified attestation dated
+${TODAY} as instructed. Return the JSON verdict.`;
 
 const results = await pipeline(
   items,

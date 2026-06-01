@@ -115,16 +115,29 @@ block.
 
 ## Distilled paper pages
 
-Frontmatter carries a `paper:` block (bibliographic identity + provenance):
-`authors`, `year`, `venue`, `doi`, `license`, `access` (open/paywalled/preprint),
-`machineAccess`, `redistribution`, optional `pdf` (only if redistribution is
-allowed and the verbatim mirror is hosted under `/library`), `licenceVerification[]`
-(where the licence was confirmed against an authoritative source), and
-`extraction[]` (a stacking list of attestations with `by` / `date` /
-`role`: `extracted` | `verified` | `reproduced`). Papers have their own
-provenance ladder via `extraction[].role`; they are excluded from the
-dataset Verification axis. Keep the page findings-first; rights/attribution go
-at the bottom. CC BY attribution blocks must stay verbatim.
+The canonical page shape lives in **`paper-template.md`** (frontmatter blocks,
+the three formal sections, the per-paper-type guide, the optional-field rules).
+Follow it; do not re-list the fields here, so they cannot drift in two places.
+
+In brief, the `paper:` block carries bibliographic identity + provenance
+(`authors`, `authorList`, `year`, `venue`, `doi`, `license`, `access`
+(open/paywalled/preprint), `machineAccess`, `redistribution`, optional `pdf`
+hosted under `/library`, `licenceVerification[]`, and the stacking
+`extraction[]` ladder with `role`: `extracted` | `verified` | `reproduced`),
+plus the queryable axes that make the corpus answerable for gaps and evolution:
+`methods{role,contributes,family,buildsFrom}`, `scope`, `topics`, `dataAccess`,
+`outcome`, `relatesTo`, `openQuestions`, `replicationCode`, `jel`,
+`proposedVocab`. The body is findings-first: TL;DR, Core results, then the three
+formal sections (Theory / model, Method, Empirical specifications) with real
+plain-text equations, Datasets used, When to read, Attribution.
+
+The distiller pulls author ORCIDs + `topics` (the subject classification we use
+since J. Finance prints no JEL) from the **`openalex`** skill, and reuses
+`methods.family` / `methods.buildsFrom` terms from `vocab-registry.yml` before
+minting (new terms stage in `proposedVocab`, reconciled by `vocab-curator`).
+Papers have their own provenance ladder via `extraction[].role`; they are
+excluded from the dataset Verification axis. Rights/attribution go at the
+bottom; CC BY attribution blocks stay verbatim.
 
 ## Ship checklist
 
@@ -160,10 +173,21 @@ around it. This is intentionally a recipe here, not a separate skill, so the
 per-page conventions and the batch recipe stay in one place.
 
 Artifacts (single source of truth, reuse every batch):
-- `.claude/agents/paper-distiller.md` : reads one PDF, writes one
-  `papers/<journal>/<year>/<slug>.md` (Crossref licence check, data:<slug> tags, extracted-only).
+- `.claude/skills/wiki-page/paper-template.md` : THE canonical page shape
+  (frontmatter blocks + TL;DR + Core results + the three formal sections
+  Theory / model, Method, Empirical specifications + Datasets + Attribution).
+  Both agents read it every run.
+- `.claude/skills/wiki-page/vocab-registry.yml` : controlled-but-growing vocab
+  for `methods.family` / `methods.buildsFrom`. Distillers reuse-before-mint and
+  stage genuinely new terms in `paper.proposedVocab` (never edit the registry).
+- `.claude/agents/paper-distiller.md` : reads one PDF, writes (or in Augment
+  mode, extends) one `papers/<journal>/<year>/<slug>.md` (Crossref licence
+  check, data:<slug> tags, the formal sections with equations, extracted-only).
 - `.claude/agents/paper-verifier.md` : adversarially re-checks one page's
-  locators/magnitudes against its PDF.
+  locators/magnitudes AND every equation/specification against its PDF.
+- `.claude/agents/vocab-curator.md` : one serial pass per batch that reconciles
+  every page's `proposedVocab` into the registry and rewrites pages to
+  canonical `methods.buildsFrom`/`family` slugs.
 - `.claude/workflows/distill-papers.js` : fans out distill->verify as a
   `pipeline`, one file per paper. Invoke with
   `Workflow({scriptPath: ".../distill-papers.js", args: {today, items:[{slug,journal,year,pdf,hint}]}})`.
@@ -201,6 +225,11 @@ Steps:
    - **Year vs venue**: a paper's `year` must be its issue year, not the
      online-first year (e.g. J. Finance vol 81(1) is 2026 even if the file is
      labelled 2025). Fix `year`, `title`, `sidebar.label`, and the slug.
+   - **Vocabulary reconciliation**: after distill+verify, run the
+     `vocab-curator` agent ONCE over the batch pages. It folds each page's
+     `paper.proposedVocab` into `vocab-registry.yml`, merges synonyms, and
+     rewrites `methods.buildsFrom`/`family` to canonical slugs. It is serial
+     (one writer, no parallel collision) and must run before the build.
    - **Em-dash / colorful-adjective sweep**: verifiers miss these; grep the new
      pages for the em-dash char (U+2014) and obvious promotional adjectives.
      Watch one YAML trap when fixing an em-dash inside an unquoted plain `note:`

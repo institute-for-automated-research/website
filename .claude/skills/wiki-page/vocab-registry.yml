@@ -1,0 +1,178 @@
+# Controlled-but-growing vocabulary for the distilled-paper METHOD axes.
+# Single source of truth for what each term MEANS. Usage stats (which papers
+# use a term, first-seen year) are DERIVED at build from the pages, never
+# stored here, so parallel distillers never collide on this file.
+#
+# Discipline:
+# - A paper-distiller READS this file and reuses an existing term or one of its
+#   aliases before minting. It NEVER writes here; new terms are staged on the
+#   page in `paper.proposedVocab`.
+# - The vocab-curator (one serial pass per batch) reconciles those proposals
+#   into this file and rewrites pages to the canonical term.
+# - Topic and method TAGS are governed separately by wiki-page/SKILL.md +
+#   TagIndex.astro. This registry governs `methods.family` and
+#   `methods.buildsFrom` only.
+
+family: # methods.family: the method class (also enum-backed in content.config.ts)
+  ml:
+    def: Machine-learning / statistical-learning method (trees, penalized regression, neural nets).
+  structural:
+    def: Estimates the parameters of an explicit economic model (utility, equilibrium, dynamic program).
+  reduced-form-causal:
+    def: Identifies a causal effect via a research design (DiD, IV, RD, event study) without a full structural model.
+  theory:
+    def: Derives propositions from a model; no estimation, or estimation is secondary.
+  descriptive:
+    def: Documents facts / measurement without a causal design or a structural model.
+
+builds-from: # methods.buildsFrom: technique primitives a method is built on
+
+  # ---- portfolio and factor construction ----
+  decision-trees:
+    def: Recursive binary partitioning of the feature/characteristic space.
+    aliases: [regression-trees, cart, classification-trees]
+  conditional-sorts:
+    def: Portfolio sorts where each split is conditional on the previous split (a tree), as opposed to unconditional double/triple sorts.
+    aliases: [conditional-double-sorts]
+  portfolio-sort:
+    def: Ranking assets or agents into quantile buckets by a signal and computing equal- or value-weighted portfolio returns within each bucket.
+    aliases: [decile-sort, anomaly-sort, characteristic-sort, investor-sort, quintile-sort]
+  sdf-projection:
+    def: Projecting the stochastic discount factor onto the space of (characteristic-managed) asset returns.
+    aliases: [sdf-spanning]
+  fama-macbeth:
+    def: Cross-sectional regression run each period; time-series average of coefficients with Newey-West standard errors.
+    aliases: [fm-regression, fama-macbeth-regression]
+
+  # ---- penalized regression / shrinkage ----
+  lasso:
+    def: L1-penalized selection/shrinkage that induces sparsity.
+    aliases: [l1-penalty]
+  ridge-shrinkage:
+    def: L2 penalty on coefficients/weights; covariance/variance shrinkage.
+    aliases: [l2-penalty, variance-shrinkage]
+  robust-mean-variance-optimization:
+    def: Mean-variance/tangency portfolio with shrinkage of both the mean vector and the covariance matrix (elastic-net penalty).
+    aliases: [robust-tangency, shrinkage-mve]
+
+  # ---- panel / regression / causal-inference primitives ----
+  panel-regression:
+    def: OLS/GLS regression on a panel dataset with multi-way fixed effects and clustered standard errors.
+    aliases: [panel-ols, panel-fe, twfe, multi-way-fe, fixed-effects-regression, two-way-clustered-regression, ols-panel, within-estimator, linear-probability-model, lpm]
+  difference-in-differences:
+    def: Panel estimator comparing treated and control units before and after a quasi-natural experiment; includes stacked DiD and dynamic event-study variants.
+    aliases: [diff-in-diff, DiD, did, stacked-did, differences-in-differences]
+  instrumental-variables:
+    def: Estimation using an instrument correlated with the endogenous regressor but not the error; includes 2SLS and Bartik-style designs.
+    aliases: [iv-estimation, 2sls, bartik-iv, IV, 2SLS]
+  event-study:
+    def: Cumulative abnormal return (CAR) estimation around a corporate event date, or a dynamic DiD specification plotting pre-trend and post-treatment coefficient paths.
+    aliases: [car-estimation, abnormal-returns, dynamic-DiD, event-time-regression]
+  probit-regression:
+    def: Binary-outcome regression using the standard normal CDF as the link function; marginal effects interpreted as changes in probability.
+    aliases: [probit]
+  blinder-oaxaca-decomposition:
+    def: Decomposition of a mean difference between groups or periods into a portion explained by differences in covariates and an unexplained portion; attributed to Blinder (1973) and Oaxaca (1973).
+    aliases: [oaxaca-decomposition, blinder-oaxaca]
+  gmm:
+    def: Generalized method of moments estimation; minimizes a quadratic form in sample moment conditions.
+    aliases: [generalized-method-of-moments]
+  method-of-simulated-moments:
+    def: Estimation by minimizing weighted distance between model-simulated and empirical moments.
+    aliases: [smm, msm, simulated-method-of-moments]
+
+  # ---- time-series and forecasting ----
+  kernel-regression:
+    def: Local-constant (Nadaraya-Watson) regression with a kernel weighting function; one-sided kernel uses only past data, two-sided uses a symmetric window.
+    aliases: [nadaraya-watson, local-constant-regression]
+  time-series-forecasting:
+    def: Predicting a scalar time series from lagged predictors; assessed by out-of-sample R-squared or Clark-West test against a prevailing-mean benchmark.
+    aliases: [return-forecasting, predictive-regression]
+  ar1-innovation:
+    def: First-order autoregressive model residual used as a factor shock, estimated on a rolling forward basis to avoid look-ahead bias.
+    aliases: [ar1-residual, ar-innovation]
+  sign-restricted-svar:
+    def: Structural VAR identified by sign restrictions on the impact matrix; estimated using Bayesian draws and the Cholesky decomposition to separate supply from demand shocks.
+    aliases: [sign-svar, bayesian-svar]
+  smooth-local-projections:
+    def: Local projection impulse-response functions shrunk toward a smooth polynomial via penalized B-splines, balancing VAR efficiency and LP robustness.
+    aliases: [slp, barnichon-brownlees]
+
+  # ---- text and classification ----
+  slda-topic-model:
+    def: Semisupervised latent Dirichlet allocation seeded with domain-knowledge words so topic content is stable across rolling re-estimations; estimated on a rolling window to avoid look-ahead bias.
+    aliases: [seeded-lda, semisupervised-lda]
+  text-classification:
+    def: Machine-learning or rule-based assignment of text to sentiment or topic categories using classifiers such as maximum entropy, naive Bayes, or proprietary NLP tools.
+    aliases: [sentiment-classification, nlp-classification]
+
+  # ---- structural / life-cycle models ----
+  life-cycle-model:
+    def: Dynamic optimization model of consumption, saving, and portfolio choice over the working and retirement lifecycle.
+    aliases: [lifecycle-model, life-cycle-portfolio-choice]
+  epstein-zin-weil:
+    def: Recursive utility preferences (Epstein-Zin 1989, Weil 1990) that separate risk aversion from the elasticity of intertemporal substitution.
+    aliases: [ezw-preferences, recursive-utility]
+  overlapping-generations:
+    def: General equilibrium model in which multiple age cohorts coexist; agents born each period overlap with existing cohorts.
+    aliases: [olg]
+  krusell-smith:
+    def: Approximate-aggregation method that forecasts aggregate capital with a low-dimensional statistic (moments of the wealth distribution) to solve heterogeneous-agent general equilibrium models.
+    aliases: [krusell-smith-algorithm, approximate-aggregation]
+  incomplete-markets-olg:
+    def: General equilibrium with overlapping generations and idiosyncratic income risk that cannot be insured (no complete Arrow-Debreu markets).
+    aliases: [incomplete-markets, olg-incomplete]
+  blp-demand:
+    def: Random-coefficient logit discrete-choice demand system identified by micro data on consumer choices and price responses, as in Berry-Levinsohn-Pakes.
+    aliases: [berry-levinsohn-pakes, random-coefficient-logit]
+  shapley-value-allocation:
+    def: Game-theoretic attribution of a total welfare change to individual players by averaging marginal contributions over all orderings.
+    aliases: [shapley-value]
+  real-options:
+    def: Investment model where a firm holds an option to expand capacity with irreversibility and an option value of waiting.
+    aliases: [real-option-model, investment-options]
+  dynamic-general-equilibrium:
+    def: Multi-period general equilibrium model with households, firms, and possibly a social planner; here with explicit pollution externalities.
+    aliases: [dge, general-equilibrium-model]
+  pigouvian-taxation:
+    def: Optimal corrective tax set equal to the social cost of the externality; applied here as a carbon tax equal to the social cost of carbon.
+    aliases: [pigouvian-tax, corrective-tax]
+  carbon-burden-rate:
+    def: Ratio of a firm's untaxed carbon externality to its market value; the per-unit-value cost of a missing carbon tax.
+    aliases: [externality-rate, emission-to-value-ratio]
+  realization-utility:
+    def: Utility bursts received only when gains or losses are realized by selling; prospect-theory-based framework for trading behavior and the disposition effect.
+    aliases: [prospect-theory-trading, disposition-utility]
+  hjb-optimal-stopping:
+    def: Hamilton-Jacobi-Bellman equation approach to optimal stopping and free-boundary problems; characterizes value functions in holding vs. realization domains.
+    aliases: [hjb-variational-inequality, free-boundary-problem]
+  impulse-control:
+    def: Optimal control with discrete interventions (trades) at stopping times chosen by the agent; leads to variational inequalities at realization boundaries.
+    aliases: [optimal-stopping-control]
+  promotion-contest:
+    def: Model in which agents compete for a single promotion by investing in observable skills; equilibrium effort is determined by the promotion premium and cost parameters.
+    aliases: [promotion-tournament, rank-order-tournament]
+  principal-agent:
+    def: Framework with a principal who designs contracts and agents who choose costly actions; here the principal cannot commit to unbiased promotion.
+    aliases: [principal-agent-model]
+  revealed-preference:
+    def: Inferring preferences from observed active choices under variation in defaults or frames, following the Goldin-Reck framework for continuous portfolio-share decisions.
+    aliases: [revealed-preference-analysis]
+  matching:
+    def: Propensity-score or covariate matching of treated units to control units on pre-treatment observables to construct a comparison group.
+    aliases: [propensity-score-matching, covariate-matching]
+  affine-term-structure:
+    def: No-arbitrage pricing model where log bond prices are affine functions of state variables; yields are linear in the state vector.
+    aliases: [atsm, affine-pricing-model]
+  extended-kalman-filter:
+    def: Nonlinear state-space estimation method that approximates the Kalman filter via first-order Taylor expansion of nonlinear measurement equations; used for maximum-likelihood estimation of structural models.
+    aliases: [ekf]
+  gamma-zero-processes:
+    def: Discrete-time non-negative jump processes built as sums of exponentially distributed jumps with a Poisson count; provide closed-form affine pricing formulas for credit and liquidity events.
+    aliases: [varg, gamma-zero]
+  roc-curve-analysis:
+    def: Receiver-operating-characteristic framework mapping the trade-off between true positive rate and false positive rate for a binary classifier at varying thresholds.
+    aliases: [roc-curve, receiver-operating-characteristic]
+  value-function-iteration:
+    def: Numerical solution of a Bellman equation by iterating on the value function over a discretized state space.
+    aliases: [vfi, bellman-iteration]

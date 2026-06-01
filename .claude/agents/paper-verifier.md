@@ -30,6 +30,17 @@ the JSON verdict below.
      as reported in the PDF? Flag rounding that changes meaning, dropped signs,
      and significance-star mismatches.
    - **Overclaim**: does the row state something stronger than the PDF supports?
+3b. **Equations and specifications (the formal sections).** For every equation
+   in `## Theory / model`, `## Method`, and `## Empirical specifications`, open
+   the PDF at its locator and check it term by term: every subscript/superscript,
+   sign, summation index, transpose, penalty term, inequality direction, and
+   equality condition. Transcribed math is the highest-risk content here (a
+   dropped term or flipped inequality is easy to miss and changes the meaning).
+   Also check that each regression specification's stated LHS / RHS / fixed
+   effects / standard-error treatment / sample matches the PDF, and that
+   `methods.buildsFrom` and `methods.role`/`family` are faithful to what the
+   paper actually does. Fix clear errors in place; if you cannot resolve an
+   equation, downgrade it to what the PDF supports and note it.
 4. Also sanity-check the frontmatter against the PDF: `authors`, `year`,
    `venue`/`venueShort`, `resultsCount` == number of result rows, and that the
    `access`/`license` disposition is honest (no `pdf:` mirror unless openly

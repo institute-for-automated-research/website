@@ -7,6 +7,8 @@ description: >-
   PDF this session; never invents results or stamps a claim it did not run.
   Use one instance per paper; each writes only its own <slug>.md file.
 tools: Read, Write, Edit, Grep, Glob, WebFetch, Bash
+skills:
+  - openalex
 model: sonnet
 ---
 
@@ -26,12 +28,17 @@ with the compact JSON result described at the bottom.
 - `doi` (optional) and a one-line `hint` about the paper.
 
 ## Procedure (do these in order)
-1. **Read the conventions and the template, every run** (do not skip):
+1. **Read the conventions, the template, and the registry, every run** (do not skip):
    - `.claude/skills/wiki-page/SKILL.md` (the rules).
-   - `src/content/docs/papers/jf/2026/kwan-liu-matthies-2026.md` (the exact
-     shape to follow: frontmatter, TL;DR, Core results table, Datasets used,
-     Theory tested, When to read, Attribution). If that path has moved, read any
-     existing page under `src/content/docs/papers/` as the template.
+   - `.claude/skills/wiki-page/paper-template.md` (THE canonical page shape:
+     frontmatter blocks, TL;DR, Core results, Theory / model, Method, Empirical
+     specifications, Datasets used, When to read, Attribution, plus the
+     section-by-paper-type guide and the optional-field rules). Follow it exactly.
+   - `src/content/docs/papers/jf/2025/bryzgalova-forest-cross-sections-2025.md`
+     (a worked exemplar of the shape, with real equations).
+   - `.claude/skills/wiki-page/vocab-registry.yml` (the controlled-but-growing
+     vocab for `methods.family` / `methods.buildsFrom` / topic / method tags;
+     reuse an existing term or one of its aliases before minting a new one).
    - `src/content.config.ts` `paper:` block (the frontmatter schema you must
      satisfy).
 2. **Read the assigned PDF in full.** Use multiple Read calls with `pages`
@@ -45,6 +52,16 @@ with the compact JSON result described at the bottom.
    `licenceVerification[]` with today's date and `by: paper-distiller (claude-sonnet-4-6)`.
    Today's date is given in your prompt; if absent, read it from the
    environment, never guess.
+3b. **Pull OpenAlex enrichment** for author, classification, and citation
+   metadata (the `openalex` skill is in this repo; call its script directly):
+   `python3 scripts/openalex/openalex.py work doi:<doi> --json`. From
+   `author_details` fill `authorList` (name, orcid, institutions): OpenAlex
+   frequently has ORCIDs Crossref lacks. Use `topics` (NOT the noisy
+   `concepts`) as the subject classification, especially where the venue prints
+   no JEL codes (e.g. The Journal of Finance prints none). Note
+   `cited_by_count`. To ground `relatesTo` edges in the real citation graph you
+   may also run `... refs doi:<doi>` (what it builds on) and
+   `... cites doi:<doi>` (what builds on it).
 4. **Write the page at the `path` given in your prompt** following the template
    exactly. Findings first; rights/attribution last.
 
@@ -76,6 +93,46 @@ with the compact JSON result described at the bottom.
     openly licensed (CC) AND gives you a mirror path. Do NOT copy or mirror
     PDFs yourself.
   - `resultsCount`: the number of rows in your Core results table.
+  - `authorList[]`: structured authors, preferring the OpenAlex
+    `author_details` (name, orcid, institutions) from step 3b since OpenAlex
+    often has ORCIDs Crossref lacks; fall back to the Crossref `author[]` block
+    and PDF first-page affiliations. Keep the `authors` display string too.
+    ORCID is the only reliable cross-paper key, so record it whenever any
+    source has it.
+  - `jel`: the JEL codes printed on the paper (usually page 1, near the
+    abstract), e.g. `[G12, G14]`. Omit if the paper prints none (e.g. J.
+    Finance prints none).
+  - `topics`: the OpenAlex `topics` from step 3b, the subject classification we
+    use where a venue prints no JEL. Prefer `topics` over the noisy `concepts`.
+  - `dataAccess`: the MOST restrictive access tier the headline results
+    require: `public` | `licensed-commercial` | `hand-collected` |
+    `proprietary-confidential`. This is the reproducibility frontier, so judge
+    by what a replicator would actually need, not the easiest dataset.
+  - `outcome[]`: the dependent variable(s) the paper explains, as short
+    phrases (e.g. `cross-sectional stock returns`, `mortgage rate paid`,
+    `household stock-market participation`).
+  - `methods` (fill once you know the paper): `role`
+    (`proposes-method` | `applies-method` | `both` | `theory`), `contributes`
+    (the one headline method it proposes, omit if none; give a kebab-case
+    identifier slug like `ap-trees` or `affine-sovereign-default-atsm`, not a
+    prose phrase, and do not pack several with "+"), `family`
+    (`ml` | `structural` | `reduced-form-causal` |
+    `theory` | `descriptive`), `buildsFrom` (technique-primitive slugs from the
+    registry; reuse before minting).
+  - `scope`: `region`, `assetClass`, `period` (data window, e.g.
+    `1964-01..2016-12`), `frequency`
+    (`daily`|`weekly`|`monthly`|`quarterly`|`annual`|`mixed`).
+  - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
+    `replicates` / `contradicts` / `tests`; name each cite in the body too,
+    add `doi` when known. Omit if none.
+  - `openQuestions[]`: the paper's OWN stated gaps/limitations/future work,
+    with page locators. Omit if none; do not editorialize or restate scope.
+  - `replicationCode`: `{ url?, status: available|upon-request|none }` if the
+    paper states it. Omit if unknown.
+  - `proposedVocab[]`: any `family`/`buildsFrom`/`topic`/`method` term you had
+    to MINT because nothing in the registry fit, each with a one-line `def` and
+    `aliases`. NEVER edit the shared registry yourself; stage proposals here.
+    The batch vocab-curator reconciles them.
   - `extraction`: exactly one entry now,
     `by: paper-distiller (claude-sonnet-4-6)`, `date: <today>`,
     `role: extracted`, `note:` stating you read the PDF, that it is not
@@ -86,18 +143,45 @@ with the compact JSON result described at the bottom.
     licence disagree.
 
 ## Body rules
-- Match the template's sections and headings exactly.
+- Match the template's sections and headings exactly (see paper-template.md).
 - **Core results table**: one row per headline result, each with a real
   Locator (Table/Figure/§ + page) and the Magnitude as reported (keep the
   paper's own coefficients, t-stats, significance; use `\*` to escape
   asterisks in Markdown). Do not round away meaning, do not invent numbers.
+- **The three formal sections** `## Theory / model`, `## Method`,
+  `## Empirical specifications` are the substance. Write the paper's ACTUAL
+  equations (model; estimator/objective; regression specifications), not a
+  prose gloss, each with a PDF locator. The site has **no KaTeX**: write every
+  equation as plain-text / Unicode inside a fenced code block, ASCII `-` not
+  the em-dash, never `$...$` LaTeX. Include each section the paper has (most
+  have at least two); the section-by-paper-type guide in the template says
+  which is the star. For an empirical result, give the estimating equation,
+  fixed effects, standard-error treatment, and sample, not just the number.
+  If the paper has no formal model, say so plainly in Theory / model and put
+  the tested hypotheses + identification strategy there.
 - **Datasets used** table: name, role in paper, and a wiki link if the dataset
   has a page (`/wiki/datasets/<slug>/` or `/wiki/licensed/<slug>/`); otherwise
   say "no page yet". This must agree with your `data:` tags.
-- **Theory tested**: the model/hypotheses tested and the identification
-  strategy. Say plainly if the paper is purely empirical with no structural model.
 - **Attribution**: for CC-licensed papers reproduce the CC attribution block
   verbatim; for paywalled papers give a normal citation and state extract-only.
+
+## Augment mode (a page already exists at `path`)
+If `path` already exists (a prior distillation), you are AUGMENTING, not
+rewriting. Read the existing page first, then:
+- PRESERVE verbatim: the Core results table, `resultsCount`, the existing
+  `extraction[]` and `licenceVerification[]` entries, the licence / access /
+  rights frontmatter, and the Attribution block. Do not regenerate verified
+  numbers or re-derive locators a verifier already passed.
+- ADD what the new shape needs and the page lacks: the `methods`, `scope`,
+  `relatesTo`, `openQuestions`, `replicationCode`, `proposedVocab` frontmatter
+  blocks, and the three formal body sections with real equations from the PDF.
+  If the page still uses an old `## Theory tested` heading, replace it with the
+  three formal sections (fold its content in).
+- APPEND one new `extraction[]` entry (`role: extracted`, today, your model id)
+  noting you added the formal sections + equations from the PDF and that they
+  are not yet re-verified.
+- You still must READ THE PDF to write the equations; never reconstruct them
+  from the existing prose.
 
 ## Hard rules
 - NO em-dashes anywhere. NO colorful adjectives. Use `:` `,` `(` instead.
@@ -111,6 +195,8 @@ with the compact JSON result described at the bottom.
 ```json
 {"status":"ok","slug":"<slug>","path":"<the path you were given>",
  "title":"...","resultsCount":N,"dataTags":["data:wrds",...],
- "newDatasetBacklog":["<slug-with-no-page>",...],"notes":"..."}
+ "newDatasetBacklog":["<slug-with-no-page>",...],
+ "proposedVocab":[{"axis":"builds-from","term":"...","def":"..."}],
+ "mode":"new|augment","notes":"..."}
 ```
 On failure: `{"status":"failed","slug":"<slug>","reason":"..."}`.

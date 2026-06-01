@@ -32,6 +32,23 @@ export const collections = {
         paper: z
           .object({
             authors: z.string(),
+            // Structured authors for disambiguation + coauthor/affiliation
+            // analysis (how the field evolves: which groups drive which
+            // methods). Populated from the Crossref author[] block already
+            // fetched (family/given/ORCID) plus affiliation-at-publication
+            // from the PDF first page. ORCID is the only reliable cross-paper
+            // key; name matching is best-effort without it. `authors` stays as
+            // the display string.
+            authorList: z
+              .array(
+                z.object({
+                  family: z.string(),
+                  given: z.string().optional(),
+                  orcid: z.string().optional(),
+                  affiliation: z.string().optional(),
+                })
+              )
+              .optional(),
             year: z.number(),
             venue: z.string(),
             // Short display forms for the auto-generated papers index table
@@ -42,6 +59,31 @@ export const collections = {
             venueShort: z.string().optional(),
             licenseShort: z.string().optional(),
             resultsCount: z.number().optional(),
+            // JEL classification codes printed on the paper (page 1). A fixed
+            // external taxonomy, so inherently controlled: the standard axis
+            // for topic-trend / gap bibliometrics over time.
+            jel: z.array(z.string()).optional(),
+            // OpenAlex topics: the subject classification actually used here,
+            // since JF prints no JEL. Accurate subfield labels from OpenAlex's
+            // controlled taxonomy (its legacy "concepts" are noisy; topics are
+            // not). Pulled by the distiller via the openalex skill.
+            topics: z.array(z.string()).optional(),
+            // The reproducibility frontier: the MOST RESTRICTIVE access tier
+            // among the datasets the headline results require ("can anyone
+            // reproduce this?"). public < licensed-commercial < hand-collected
+            // / proprietary-confidential (the last two are effectively closed).
+            dataAccess: z
+              .enum([
+                'public',
+                'licensed-commercial',
+                'hand-collected',
+                'proprietary-confidential',
+              ])
+              .optional(),
+            // The dependent variable(s) the paper explains: the central gap
+            // axis ("what has been predicted/explained, and with what"). Free
+            // for now; a candidate for registry governance once values settle.
+            outcome: z.array(z.string()).optional(),
             doi: z.string().optional(),
             // e.g. "CC BY 4.0 (asserted — artifact p.791, version
             // unspecified; recorded as publisher/AFA OA standard)"
@@ -96,6 +138,119 @@ export const collections = {
               )
               .optional(),
             rightsSignalConflict: z.boolean().default(false),
+            // The paper's METHODOLOGICAL identity, made queryable for
+            // cross-corpus gap + evolution analysis (the whole point of the
+            // series). `role` says whether contributing a method is even the
+            // point of the paper; `contributes` names the method it proposes;
+            // `family` and `buildsFrom` are registry-governed-but-growing
+            // (reuse an existing term before minting a new one — new terms go
+            // in `proposedVocab` below, never straight into the shared
+            // registry). buildsFrom is the technique genealogy edge
+            // (decision-trees, lasso, blp-demand, ...); it answers "where did
+            // this method come from and where has it spread".
+            methods: z
+              .object({
+                role: z.enum([
+                  'proposes-method',
+                  'applies-method',
+                  'both',
+                  'theory',
+                ]),
+                // One primary method. If a paper contributes several, name
+                // the headline one here and describe the rest in prose; do
+                // not pack multiple names with "+".
+                contributes: z.string().optional(),
+                // Method class, an enum so it groups cleanly for gap queries.
+                family: z
+                  .enum([
+                    'ml',
+                    'structural',
+                    'reduced-form-causal',
+                    'theory',
+                    'descriptive',
+                  ])
+                  .optional(),
+                buildsFrom: z.array(z.string()).optional(),
+              })
+              .optional(),
+            // Sample scope: the axis where gaps hide ("all the evidence is US
+            // large-cap, post-2000"). Free strings, but fill them: region,
+            // asset/market, and the data window. Queryable cross-corpus.
+            scope: z
+              .object({
+                // Canonical forms to keep aggregation from fragmenting:
+                // region e.g. US | Norway | global | euro-area; assetClass
+                // e.g. US equities | corporate loans | sovereign bonds.
+                region: z.string().optional(),
+                assetClass: z.string().optional(),
+                period: z.string().optional(), // e.g. "1964-01..2016-12"
+                // Data frequency, enum so "is there daily evidence in X?"
+                // is answerable cross-corpus.
+                frequency: z
+                  .enum([
+                    'daily',
+                    'weekly',
+                    'monthly',
+                    'quarterly',
+                    'annual',
+                    'mixed',
+                  ])
+                  .optional(),
+              })
+              .optional(),
+            // Finding-lineage edges to prior work: the "how the literature
+            // evolves / what is contested" graph, distinct from
+            // methods.buildsFrom (technique genealogy). `relation` says how
+            // THIS paper stands to the cited result.
+            relatesTo: z
+              .array(
+                z.object({
+                  cite: z.string(), // human-readable author-year
+                  doi: z.string().optional(), // for the curator to canonicalize
+                  // extends: methodological generalization of the cited
+                  // result; builds-on: conceptual/foundational dependence;
+                  // replicates: re-runs it; contradicts: opposes its finding;
+                  // tests: empirically pits the paper against it.
+                  relation: z.enum([
+                    'extends',
+                    'replicates',
+                    'contradicts',
+                    'tests',
+                    'builds-on',
+                  ]),
+                  note: z.string().optional(),
+                })
+              )
+              .optional(),
+            // The paper's OWN stated open questions / limitations / future
+            // work. Gaps live here; pull from the conclusion, never invent.
+            openQuestions: z.array(z.string()).optional(),
+            // Replication-code availability, for reproducibility-gap queries
+            // ("which findings even have runnable code?").
+            replicationCode: z
+              .object({
+                url: z.string().optional(),
+                status: z.enum(['available', 'upon-request', 'none']).optional(),
+              })
+              .optional(),
+            // Controlled-but-growing vocab: terms this page wants to mint on
+            // the family / buildsFrom / topic / method axes, staged here
+            // pending the batch vocab-curator pass that reconciles them into
+            // the shared registry. Parallel distillers each write only their
+            // own page, so proposals stage on the page, never in the shared
+            // registry file (which would collide).
+            proposedVocab: z
+              .array(
+                z.object({
+                  // builds-from maps to methods.buildsFrom, family to
+                  // methods.family, topic/method to the tag axes.
+                  axis: z.enum(['family', 'builds-from', 'topic', 'method']),
+                  term: z.string(),
+                  def: z.string(),
+                  aliases: z.array(z.string()).optional(),
+                })
+              )
+              .optional(),
           })
           .optional(),
         verified: z
