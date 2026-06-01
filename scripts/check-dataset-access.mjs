@@ -73,6 +73,15 @@ for (const f of files) {
   }
 }
 
-for (const s of [...usedSlugs].sort()) if (!(s in reg)) console.log(`SLUG NOT IN REGISTRY: ${s}`);
-console.log(`\n${ok} match, ${stricter} paper-stricter, ${mismatches} flagged, ${missing.size} missing-slug`);
-process.exit(mismatches > 0 ? 1 : 0);
+// A used slug with no registry entry is a non-fatal warning (matches the
+// "datasets cited but undocumented" philosophy): a new dataset is staged via
+// proposedVocab and added here by the curator, it should not break the build.
+for (const s of [...usedSlugs].sort())
+  if (!(s in reg)) console.log(`[check-dataset-access] WARN slug not in registry: ${s}`);
+
+console.log(`[check-dataset-access] ${ok} match, ${stricter} paper-stricter, ${mismatches} flagged, ${missing.size} missing-slug`);
+if (mismatches > 0) {
+  console.error('[check-dataset-access] FAIL: a paper under-claims its data access (or is missing dataAccess). See lines above.');
+  process.exit(1);
+}
+console.log('[check-dataset-access] OK');

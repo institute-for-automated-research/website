@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/check-dataset-access.mjs",
     "build": "astro build && node scripts/postbuild.mjs",
     "preview": "astro preview"
   },
