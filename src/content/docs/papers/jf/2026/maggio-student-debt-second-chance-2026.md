@@ -5,23 +5,60 @@ description: >-
   Collegiate paperwork loss), the paper finds debt relief reduces other debt
   balances and delinquency rates, and raises geographic and job mobility and
   income for defaulted borrowers. J. Finance 2026, CC BY 4.0. Eight core
-  results with source locators, datasets used, and the theory tested.
+  results with source locators, datasets used, the identification strategy, and
+  the estimating specifications with equations.
 sidebar:
   label: Di Maggio-Kalda-Yao 2026
   order: 1
 tags: [paper-summary, household-finance, student-debt, debt-relief, consumer-credit, labor-markets, panel-regression, difference-in-differences, open-access, cc-by, peer-reviewed, unreplicated, data:equifax-credit, data:lexisnexis-court]
 paper:
   authors: Marco Di Maggio, Ankit Kalda, Vincent Yao
+  authorList:
+    - { family: Di Maggio, given: Marco, affiliation: Imperial College Business School, London and NBER }
+    - { family: Kalda, given: Ankit, affiliation: Kelley School of Business, Indiana University }
+    - { family: Yao, given: Vincent, affiliation: J. Mack Robinson College of Business, Georgia State University }
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 507–550
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  topics: ['Financial Literacy, Pension, Retirement Analysis', 'Corporate Insolvency and Governance', 'Higher Education Research Studies']
+  dataAccess: proprietary-confidential
+  outcome:
+    - non-student debt balances and delinquency rates
+    - geographic and job mobility
+    - borrower income
   doi: 10.1111/jofi.70002
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-12-14; corroborated by artifact p.507 Creative Commons Attribution License)'
   access: open
   machineAccess: 'blocked-paywall (Wiley site wrapper; tested 2026-05-31; CC-BY VOR licence confirmed in publisher DOI metadata despite access wrapper)'
   redistribution: extract-only (CC BY 4.0 permits mirroring; not hosted in this batch)
+
+  methods:
+    role: applies-method
+    family: reduced-form-causal
+    buildsFrom: [difference-in-differences, event-study, panel-regression]
+
+  scope:
+    region: US
+    assetClass: consumer loans (private student debt, credit cards, mortgages, auto)
+    period: 2010-01..2017-12
+    frequency: monthly
+
+  relatesTo:
+    - { cite: 'Dobbie & Song (2015)', doi: 10.1257/aer.20130612, relation: builds-on, note: 'benchmark for debt-relief effects on credit and labor outcomes via chapter 13 bankruptcy; this paper examines private student debt discharge outside bankruptcy' }
+    - { cite: 'Dobbie & Song (2020)', doi: 10.1257/aer.20171541, relation: builds-on, note: 'targeted credit-card debt relief experiment; this paper finds faster and broader effects for student debt discharge' }
+    - { cite: 'Melzer (2017)', doi: 10.1111/jofi.12519, relation: tests, note: 'debt overhang reducing homeowner investment; here the same mechanism is tested for student-debt borrowers in the labor market' }
+    - { cite: 'Herkenhoff, Phillips & Cohen-Cole (2021)', doi: 10.1016/j.jfineco.2020.07.002, relation: tests, note: 'credit access improving self-employment; this paper tests whether student debt discharge relaxes credit constraints' }
+
+  openQuestions:
+    - 'Whether results generalize to blanket student loan forgiveness programs, where borrowers are not necessarily in default and relief is not unexpected; the paper explicitly notes its findings likely do not speak to blanket forgiveness (p. 513).'
+    - 'The moral hazard costs of debt relief in the student loan market cannot be estimated in this setting, as National Collegiate paperwork loss is plausibly random and not driven by borrower anticipation (p. 548).'
+    - 'Whether the effects operate through hidden income or informal income substitution, which cannot be directly tested because informal income is unobserved (p. 543-544).'
+
+  replicationCode:
+    status: available
+
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70002
       checked: 2026-05-31
@@ -36,6 +73,14 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; one fix applied; R5 job-change significance corrected from *** to ** (Table VI col. 2 shows two stars at 5% level, not three).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: 'Augment pass. Added methods, scope, relatesTo, openQuestions, replicationCode, proposedVocab frontmatter blocks, and three formal body sections (Theory / model, Method, Empirical specifications) with equations transcribed from pp. 517-519 of the source PDF read this session (budget constraint eq., baseline DiD eq. 1, dynamic event-study eq. 2). Core results table is unchanged from the verified version above. The new formal sections are extracted, not yet re-verified by paper-verifier.'
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: 'All 8 core-result locators and magnitudes re-checked against PDF tables (II–VIII, pp. 524–539); all correct. Budget constraint (p. 517) and eq. 1–2 (pp. 518–519) verified term-by-term: subscripts, signs, summation indices, and FE structure match. Formal sections (Theory/model, Method, Empirical specifications) checked against PDF: all accurate. No em-dashes, no colorful adjectives. No fixes required.'
   rightsSignalConflict: false
 ---
 
@@ -88,25 +133,130 @@ Effects persist for at least two years and are not transitory.
 
 Sample: 9,878 treated borrowers; 6,388 control borrowers; 1,283,639 borrower-month observations in the credit data. Lawsuits cover 2010–2017.
 
-## Theory tested
+## Theory / model
 
-**No original structural model.** The paper is empirical. It tests
-hypotheses common to debt-overhang and liquidity-constraint models (Melzer
-2017; Dobbie and Song 2015; Herkenhoff, Phillips and Cohen-Cole 2021):
-(i) debt relief relaxes credit constraints, reducing non-student balances;
-(ii) debt relief reduces delinquency via improved financial condition and
-spillover benefits to other creditors; (iii) debt relief raises labor
-mobility and income by removing debt-overhang distortions to labor supply.
+The paper has no structural model; it is a reduced-form causal study. It
+tests three hypotheses derived from debt-overhang and liquidity-constraint
+models (pp. 519-521):
 
-Identification: difference-in-differences (DiD) with individual fixed effects
-and filing-year-by-calendar-year-month fixed effects. Treatment is the
-plausibly random loss of paperwork by National Collegiate trusts, which
-caused case dismissals uncorrelated with borrower characteristics. Standard
-errors are clustered at the zip code level. Dynamic event-study
-specifications (equation 2, quarterly dummies from -5 to +9 quarters) confirm
-parallel pre-trends and persistent post-discharge effects. The paper also
-estimates specifications using only treated borrowers (staggered timing as
-source of variation) to address concerns about the control group.
+- **Hypothesis 1** (p. 520): Student debt discharge leads to a relative
+  decline in other debt balances. Mechanism: discharge removes a delinquent
+  account from the credit report, relaxes credit constraints, and protects
+  future wages from garnishment, reducing the incentive to borrow further.
+- **Hypothesis 2** (p. 520): Student debt discharge leads to a relative
+  decline in the likelihood of default and experiencing distress. Mechanism:
+  improved financial condition reduces delinquency on all accounts and
+  provides positive spillovers to other creditors.
+- **Hypothesis 3** (p. 521): Student debt discharge leads to a relative
+  increase in mobility and income. Mechanism: debt overhang (analogous to
+  the corporate finance problem) and liquidity constraints distort labor
+  supply decisions; discharge removes these frictions.
+
+The paper formalizes the borrower's budget constraint (p. 517) to clarify
+what is and is not observable:
+
+```
+c_{i,t} = (1 - s^u_{i,t}) * gamma_{i,t-1}
+         + (1 - G_i(t_d))(1 - s_{i,t})(Y^o_{i,t} + Y^h_{i,t} + Y^f_{i,t})
+         - sum_{l=1}^{A} (1 + r_{i,l}) * b_{i,t,l}
+```
+
+where `c_{i,t}` is consumption of individual `i` in period `t`;
+`gamma_{i,t-1}` is wealth at `t-1`; `G_i(t_d)` is a piecewise garnishment
+function equal to rate `g` if `i` is in the control group after default date
+`t_d`, zero otherwise; `Y^o_{i,t}` is observed wage income; `Y^h_{i,t}` is
+hidden wage income; `Y^f_{i,t}` is financial income; `s^u_{i,t}` is the
+savings rate out of assets; `s_{i,t}` is the savings rate out of income;
+`r_{i,l}` and `b_{i,t,l}` are interest rates and balances for loans of type
+`l` (p. 517-518). The paper explicitly notes it cannot observe consumption,
+savings, or hidden income, which limits the set of testable predictions.
+
+**Identification.** The source of variation is the plausibly random loss of
+paperwork by National Collegiate Student Loan Trusts. Courts dismissed
+collection lawsuits against borrowers whose chain of title could not be
+proved. This documentation loss is argued to be orthogonal to borrower
+characteristics (p. 516): the same trust held loans it could and could not
+prove, and the distinction was driven by clerical errors, not by borrower
+type. The paper verifies balance on pre-treatment observables and the absence
+of pre-trends across all outcomes (Figure 2, pp. 525-527).
+
+## Method
+
+The empirical strategy uses a difference-in-differences (DiD) estimator
+building on `difference-in-differences` and `panel-fe`.
+
+**Treatment and control groups.** Treated borrowers are those whose
+National Collegiate cases were dismissed and debt discharged. Control
+borrowers were sued by the same trusts but their debt was not discharged
+during the sample period (either the trust did not lose the paperwork or
+the case was not adjudicated by end of sample). Both groups defaulted on
+loans owned by the same trust and were subject to collection by the same
+agency, making the groups likely to be similar on unobservables (p. 518).
+
+**Standard-error treatment.** Standard errors are clustered at the zip code
+level throughout, allowing within-neighborhood error correlation across
+borrowers (p. 519). Robustness checks use individual-level clustering and
+double clustering by zip code and calendar month (Internet Appendix Table
+IA.I).
+
+**Treated-only robustness.** To address concerns that the control group
+is confounded by wage garnishment, the paper re-estimates the main
+specifications using only treated borrowers, exploiting the staggered
+timing of discharges as the source of variation (Table IX, p. 541).
+Results are qualitatively similar and economically meaningful, supporting
+the validity of the treated group's contribution.
+
+## Empirical specifications
+
+**Baseline DiD (equation 1, p. 518).** The main estimating equation is:
+
+```
+Outcome_{i,j,t} = alpha + beta * (DebtRelief_i * Post_t)
+                + mu_i + gamma_{j x t} + epsilon_{i,j,t}
+```
+
+where `Outcome_{i,j,t}` is the outcome variable for borrower `i`, filing
+year `j`, calendar year-month `t`; `DebtRelief_i` = 1 for treated borrowers
+(debt discharged), 0 for control; `Post_t` = 1 after debt discharge and 0
+before; `mu_i` are individual fixed effects; `gamma_{j x t}` are filing-year
+by calendar-year-month fixed effects (ensuring treated and control borrowers
+are compared within the same filing-year cohort and calendar time); and
+`epsilon_{i,j,t}` is the error term. Standard errors clustered at zip code
+level. N = 1,283,639 borrower-month observations (credit data).
+
+**Dynamic event-study (equation 2, p. 519).** To assess pre-trends and
+persistence:
+
+```
+Outcome_{i,j,t} = alpha + sum_{tau=-5}^{9} beta_tau * (DebtRelief_i * Post_tau)
+                + mu_i + gamma_{j x t} + epsilon_{i,j,t}
+```
+
+where `tau` indexes event-quarters relative to discharge; `tau = -5`
+captures all months before five quarters pre-treatment and `tau = 9`
+captures all months nine or more quarters post-treatment. Coefficients
+`beta_tau` are plotted with confidence intervals (Figure 2, pp. 525-526).
+Pre-trend coefficients are indistinguishable from zero across all outcomes;
+post-discharge coefficients diverge persistently for at least two years.
+
+**Outcome variable groups and samples:**
+- Credit outcomes (R1-R4): full sample, N = 1,283,639; outcomes include
+  SL balance, credit score, total non-SL balance, credit card balance,
+  mortgage balance, credit card utilization, credit limit, account openings,
+  monthly payments, delinquency rates, bankruptcy, foreclosure, medical
+  default.
+- Labor outcomes (R5-R6): subsample with Equifax employment data;
+  N = 211,716 (job change), 197,874 (new industry), 106,580 (income level),
+  91,230 (income growth).
+- Mechanism tests (R7): subsample with adjudicated control-group cases
+  (Table VII Panel A, N = 1,028,559); and control borrowers with prior
+  collections on file (Table VII Panel B, N = 838,295).
+- Wage composition (R8): subsample of workers in Equifax payroll data
+  (Table VIII, N = 39,459 all jobs; 28,653 no-job-change; 22,128 hourly).
+
+The same two-way FE structure (individual + filing-year x YM) applies in
+all specifications; the only variation across tables is the outcome variable
+and the sample restriction.
 
 ## When to read the full paper
 

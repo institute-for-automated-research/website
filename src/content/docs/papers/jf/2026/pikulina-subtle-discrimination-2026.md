@@ -12,16 +12,46 @@ sidebar:
 tags: [paper-summary, discrimination, labor-economics, promotions, human-capital, career-stakes, diversity, contest-theory, open-access, cc-by, peer-reviewed, unreplicated]
 paper:
   authors: Elena S. Pikulina, Daniel Ferreira
+  authorList:
+    - family: Pikulina
+      given: Elena S.
+      affiliation: University of British Columbia
+    - family: Ferreira
+      given: Daniel
+      affiliation: London School of Economics and Political Science, CEPR, ECGI
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 329–369
   venueShort: J. Finance 2026
   licenseShort: CC BY 4.0
   resultsCount: 8
+  topics: ['Names, Identity, and Discrimination Research', 'Gender Diversity and Inequality']
+  dataAccess: public
+  outcome:
+    - promotion probability gap between favored and unfavored agents
+    - skill investment level by each agent
+    - firm profits under endogenous bias
   doi: 10.1111/jofi.13506
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-10-06; corroborated by artifact p.329 Creative Commons Attribution License statement)'
   access: open
   machineAccess: 'blocked-paywall (Wiley site wrapper; checked 2026-05-31; the paywalled wrapper does not override the CC BY VOR licence in the publisher DOI metadata)'
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
+  methods:
+    role: theory
+    family: theory
+    buildsFrom: [promotion-contest, principal-agent]
+  scope:
+    region: US
+    assetClass: labor markets (promotions)
+    period: theoretical
+  relatesTo:
+    - { cite: 'Coate & Loury (1993)', relation: extends, note: 'generalizes the self-fulfilling stereotype model by adding strategic competition between agents; unlike Coate-Loury, the unfavored group may invest more than the favored group under low stakes' }
+    - { cite: 'Lazear & Rosen (1990)', relation: contradicts, note: 'their model predicts small promotion gaps in high-stakes jobs; this paper predicts the opposite: promotion gaps are larger at higher stakes when discrimination is subtle' }
+    - { cite: 'Prendergast (1993)', relation: builds-on, note: 'uses the same setup of firm-specific human capital incentivized through promotions; adds biased tie-breaking' }
+    - { cite: 'Drugov & Ryvkin (2017)', relation: extends, note: 'extends the biased-contest literature by distinguishing subtle from overt bias and showing their effects differ qualitatively' }
+  openQuestions:
+    - 'Whether the overcompensation and discouragement effects are empirically distinguishable using observational data on promotion gaps across different career tracks; the paper derives the predictions but notes identifying subtle versus overt discrimination empirically is difficult (pp. 359-361).'
+    - 'How the model extends to cases where the skill is general (not firm-specific) and agents can move across employers; Internet Appendix Sections II-III present partial extensions but the full treatment is left for future work (p. 339, footnote).'
+    - 'Whether the quota analysis in Internet Appendix Section XI fully captures the welfare effects of affirmative action under subtle discrimination; the paper notes ambiguous Pareto effects remain (p. 355).'
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -31,6 +61,14 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; all 8 rows confirmed correct; Proposition 2 formula (p. 343), Corollary 1 (p. 344), Proposition 3 and Figure 2 (pp. 348–349), Proposition 7 and eq. (15) (p. 353), Figures 3–4 (pp. 352, 354), Corollary 3 (p. 347), eq. (16) §IV.A (p. 356), §IV.C (pp. 358–359); frontmatter authors/year/venue/DOI/resultsCount verified; no em-dashes or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: Augment pass. Added methods, scope, relatesTo, openQuestions, proposedVocab frontmatter blocks and replaced old "Theory tested" body section with the three formal sections (Theory / model, Method, Empirical specifications) with equations transcribed from the source PDF read this session (eq. 1-16, Propositions 1-7, Corollaries 1-4, pp. 336-364). Core results table and verified provenance entries preserved verbatim. New formal sections are extracted, not yet re-verified by paper-verifier.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: Independent re-check of all 8 rows and all equations in Theory/model, Method, and Empirical specifications sections against source PDF; eq. (1) bias definition (p. 336), eq. (2) social planner (p. 341), eq. (3) agent utility (p. 342), eq. (4) reaction functions (p. 342), eqs. (5)-(6) Prop. 2 closed-form (p. 343), Corollary 1 sigma<=1 (p. 344), eq. (10) promotion gap (p. 348), Prop. 3 U-shape (p. 348), eq. (12) IC constraint (p. 350), eq. (13) profit maximization (p. 350), eq. (14) endogenous bias (p. 351), eq. (15) Prop. 7 corner solution (p. 353), eq. (16) analyst accuracy (p. 356), Corollary 3 sigma<=1/(1-delta) (p. 347), fund-flow lexicographic argument (pp. 358-359); all terms, signs, subscripts, and inequality directions confirmed correct; theta-prime approx 2.62 not stated in main text body but appropriately marked (numerical); frontmatter authors/year/venue/DOI/resultsCount all verified; no em-dashes or colorful adjectives found; all rows and equations pass.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13506
       checked: 2026-05-31
@@ -39,7 +77,7 @@ paper:
   rightsSignalConflict: false
 ---
 
-**What this is.** The paper's core results, model, and theory: enough to
+**What this is.** The paper's core results, model equations, and theory: enough to
 know what it found without reading all 41 pages. To replicate or extend it,
 read the full source at the [original](https://doi.org/10.1111/jofi.13506).
 CC BY 4.0 permits redistribution; the PDF is not mirrored in this batch.
@@ -84,42 +122,189 @@ the promotion gap in high-stakes settings, making the discrimination
 hard to detect. Firm-level diversity is predicted to correlate with
 firm productivity and human capital intensity.
 
+## Theory / model
+
+The paper formalizes a concept and solves a model; there is no empirical
+identification. The formal object is a two-player promotion contest
+embedded in a principal-agent setting.
+
+**Decision-maker bias (Definition 1, p. 337).** Two candidates Blue (b)
+and Red (r) have observable skills `s_b` and `s_r`. The principal
+privately observes a subjective signal `x_i` for each agent; the
+decision function `P(s_b, s_r, omega)` is the probability of choosing Blue.
+Bias toward Blue is the excess probability of choosing Blue not justified
+by the qualification gap:
+
+```
+b(s_b, s_r, omega) = P(s_b, s_r, omega) - F( (s_b - s_r) / omega )  >= 0   [eq. 1, p. 336]
+```
+
+where `F(.)` is the CDF of `Delta_x = x_r - x_b`, `omega > 0` weights
+subjective signals. The bias is *subtle* (Definition 1, p. 337) if
+`F( (s_b - s_r) / omega ) > 0`, i.e., there exist signals that could
+justify choosing Blue without proof of bias. It is *overt* (Definition 2)
+if `F = 0`, meaning a single act is conclusive evidence of discrimination.
+
+**Promotion model (§III.A, pp. 338-340).** A firm hires two ex ante
+identical agents for job 1. At Date 1 both simultaneously choose
+investments `e_i in [0, 1]` at cost `c(e_i)` (quadratic: `c(e_i) = k*e_i^2 / 2`).
+Skill `s_i in {0, 1}` is realized; `Pr(s_i = 1) = e_i`. At Date 2 the
+principal promotes one agent to job 2 (the top position), yielding a
+productivity gain `H > 0` if skilled. Wages are `(w_1, w_2 = w_1 + W)`;
+the promotion premium `W` is the main incentive instrument.
+Agent `i`'s utility is:
+
+```
+u_i = w_i - c(e_i)   where w_i is the wage received
+```
+
+The principal's bias toward Blue is captured by `beta in (0, 0.5]`,
+interpreted as agents' belief about the principal's tie-breaking probability:
+if `s_b = s_r = Delta_s = 0`, principal chooses Blue with probability
+`0.5 + beta`. The principal always promotes the skilled agent when the
+two differ in observable skill (no overt discrimination).
+
+**Firm profit (pp. 339-340):**
+
+```
+Pi = l + H(e_b + e_r - e_b * e_r) - 2*w_1 - W
+```
+
+where `l` is the base payoff and `H(e_b + e_r - e_b * e_r)` is the
+expected value added by skilled promotion.
+
+**First-best benchmark (Proposition 1, p. 341).** The social planner
+maximizes total surplus:
+
+```
+max_{(e_b, e_r) in [0,1]^2}  l + H(e_b + e_r - e_b * e_r) - c(e_b) - c(e_r)   [eq. 2, p. 341]
+```
+
+The first-best investment levels are either (i) symmetric `e_b^FB = e_r^FB = e_tilde < 1`,
+or (ii) `e_i^FB > 0` and `e_{-i}^FB = 0` for some `i in {b, r}` (corner solution).
+With quadratic costs `c(e_i) = k*e_i^2 / 2` and `H <= k`: symmetric
+`e_tilde = H / (H + k)`. If `H > k`: corner solution.
+
+**Identification of mechanisms.** The model isolates two opposing forces
+on the unfavored agent's investment (p. 344):
+
+- *Discouragement effect*: Red's probability of promotion is low, so the
+  marginal benefit of investing is low, discouraging investment.
+- *Overcompensation effect*: Red wants to separate from Blue to avoid ties
+  (where she loses), so Red invests more to minimize tie probability.
+
+Which force dominates depends on the premium-cost ratio `sigma = W / k`.
+
+## Method
+
+The paper uses `promotion-contest` analysis and `principal-agent` optimal
+contracting; no econometric estimator is involved.
+
+**Equilibrium characterization (§III.D.1, p. 342).** Under the limiting
+case `omega -> 0` (subjective information negligible), agent `i`'s
+expected utility is:
+
+```
+U_i(e, w) = w_1 + W * [ e_i(1 - e_{-i}) + (1/2 + beta_i)(1 - e_i - e_{-i} + 2*e_i*e_{-i}) ] - k*e_i^2 / 2
+                                                                                    [eq. 3, p. 342]
+```
+
+where `beta_b = -beta_r = beta`. Maximizing over `e_i` taking `e_{-i}` as
+given, the reaction functions are (eq. 4, p. 342):
+
+```
+e_b = (W/k)(1/2 - beta + 2*beta*e_r)    and    e_r = (W/k)(1/2 + beta - 2*beta*e_b)
+```
+
+**Optimal compensation (§III.E, pp. 349-350).** The principal chooses
+promotion premium `sigma` to maximize expected profit net of entry costs:
+
+```
+Pi(k, beta, theta) = max_{sigma in [0, sigma_bar(beta)]}  k*theta*(e_b + e_r - e_b*e_r) - k*sigma   [eq. 13, p. 350]
+```
+
+subject to equilibrium conditions (5) and (6), where `theta = H / k`
+is the *productivity-cost ratio*. The IC constraint for each agent is:
+
+```
+e_i = arg max_{e in [0,1]}  e*W*[(1/2 - beta_i) + 2*beta_i*e_{-i}] - k*e^2/2,  for i in {b, r}   [eq. 12, p. 350]
+```
+
+**Endogenous bias (§III.F, p. 351, eq. 14).** When the firm also chooses
+its subtle bias `beta`, the problem becomes:
+
+```
+Pi(theta) = max_{(sigma, beta) in [0, sigma_bar(beta)] x [0, 0.5]}  theta*(e_b + e_r - e_b*e_r) - sigma
+```
+
+subject to (5) and (6). The optimal policy is characterized in
+Proposition 7 (eq. 15, p. 353):
+
+```
+beta(theta) = 0.5   if theta in (0, theta']
+beta(theta) = 0     if theta in [theta', theta_bar]
+```
+
+with `sigma(theta) < 1` (low stakes) for `theta in (0, theta']` and
+`sigma(theta) > 1` (high stakes) for `theta in [theta', theta_bar]`.
+
+## Empirical specifications
+
+This paper derives theoretical propositions; it has no regression
+specifications or econometric estimates. Empirical content comes in two
+forms: (a) comparative-statics predictions tied to observable proxies,
+and (b) cross-application predictions showing how the framework matches
+existing evidence.
+
+**Promotion-gap specification (Proposition 3 and Figure 2, pp. 348-349).**
+The equilibrium promotion gap between Blue and Red is:
+
+```
+Delta_p = p_b - p_r = (e_b - e_r) + [e_b*e_r + (1 - e_b)(1 - e_r)] * 2*beta   [eq. 10, p. 348]
+```
+
+where the first term is the *achievement gap* and the second is the
+*favoritism gap*. Prediction: `Delta_p` is U-shaped in `sigma`; at high
+`sigma`, the achievement gap dominates, so promotion gaps are large but
+little direct evidence of discrimination is observable.
+
+**Analyst accuracy specification (§IV.A, eq. 16, p. 356).**
+An analyst of type `i` earns promotion via composite metric
+`y_i = y_{1i} + y_{2i}` (accuracy + optimism). With subtle bias `beta`
+and overt bias `delta`, analyst investment levels are:
+
+```
+e_r* = sigma*(1 - delta)*(1 - a*(1 - beta))    and    e_b* = sigma*(1 + delta)*(1 - a*(1 + beta))
+```
+
+where `a in (0,1)` is the accuracy-optimism trade-off and `sigma = W/k`.
+A subtle bias (`delta = 0, beta > 0`) increases Red accuracy relative
+to Blue; an overt bias (`delta > 0`) has the opposite effect.
+
+**Overt vs. subtle specification (Corollary 3, p. 347).**
+With overt bias `delta >= 0` and subtle bias `beta >= delta/2`, the
+overcompensation effect dominates if and only if:
+
+```
+sigma <= 1 / (1 - delta)
+```
+
+The threshold `1/(1 - delta) > 1` is strictly larger than 1, implying
+overt bias attenuates overcompensation: overt discrimination moderates
+the overcompensation effect of subtle discrimination.
+
 ## Datasets used
 
 This paper is entirely theoretical; it presents no empirical analysis
 and uses no data. Empirical predictions are linked to existing
-evidence from the literature (e.g., Bircan, Friebel & Stahl (2023)
+evidence from the literature (e.g., Bircan, Friebel and Stahl (2023)
 on banking; Kumar (2010) on analyst forecasts; Frame et al. (2025) on
 mortgage lending) but the paper itself does not run any regressions or
 construct any dataset. No `data:` tags apply.
 
-## Theory tested
-
-**Structural theoretical model; no empirical identification.**
-
-The paper proposes and solves a novel model of promotion contests with
-subtle bias:
-
-- Two ex ante identical agents (Blue = favored, Red = unfavored) compete
-  for a single promotion by investing in observable but unverifiable
-  binary skills. The principal (firm) has a small bias β toward Blue,
-  exercised as a tie-breaking rule.
-- Key parameter: σ = W/k, the premium-cost ratio ("stakes"). High σ
-  means promotion is highly valuable relative to the cost of investing.
-- Equilibrium characterization (Proposition 2): closed-form investment
-  levels as functions of β and σ. Overcompensation and discouragement
-  effects oppose each other; which dominates depends on σ.
-- Extensions: optimal compensation contracts (Propositions 4-6),
-  endogenous antidiscrimination policy (Propositions 6-7), overt vs
-  subtle bias comparison (Corollary 3), cost heterogeneity (Corollary 2).
-- Further applications: equity analysts, lending, fund flows, banking
-  careers, academia, and entrepreneurial finance (Section IV).
-
-Theoretical predecessors tested/extended: Coate and Loury (1993) on
-affirmative action and self-fulfilling stereotypes; Lazear and Rosen
-(1990) on promotion gaps; Prendergast (1993) on firm-specific human
-capital and promotion; Kawamura and de Barreda (2014) and Drugov and
-Ryvkin (2017) on biased contests.
+| Dataset | Role in paper | Wiki page |
+|---|---|---|
+| None (theoretical paper) | N/A | N/A |
 
 ## When to read the full paper
 
@@ -132,11 +317,11 @@ discouragement vs overcompensation trade-off interacts with cost
 heterogeneity (§III.D.3). For "what did this paper find," the table
 above is sufficient and is the intended default.
 
-## Attribution & rights
+## Attribution and rights
 
 Source: peer-reviewed, *The Journal of Finance* 81(1). This distillation
-was extracted by an LLM on 2026-05-31 and is **not human-verified or
-independently reproduced**.
+was extracted by an LLM on 2026-05-31 and augmented on 2026-06-01; it is
+**not human-verified or independently reproduced**.
 
 > **Attribution (CC BY 4.0).** Pikulina, Elena S., and Daniel Ferreira.
 > "Subtle Discrimination." *The Journal of Finance* 81, no. 1

@@ -7,13 +7,17 @@ description: >-
   competition effects; it also constructs a novel risk-orthogonalized markup
   measure and shows repeat-relationship markups and GSIB-shock evidence support
   the channel. J. Finance 2026, paywalled. Nine core results with source
-  locators, datasets used, and theory tested.
+  locators, datasets used, the theory tested, and the estimating specifications.
 sidebar:
   label: Beyhaghi-Fracassi-Weitzner 2026
   order: 1
 tags: [paper-summary, adverse-selection, banking, corporate-loans, market-structure, information-asymmetry, panel-regression, difference-in-differences, peer-reviewed, unreplicated, data:fr-y14q, data:fdic-summary-of-deposits, data:bls, data:census]
 paper:
   authors: Mehdi Beyhaghi, Cesare Fracassi, Gregory Weitzner
+  authorList:
+    - { family: Beyhaghi, given: Mehdi, affiliation: "Board of Governors of the Federal Reserve System" }
+    - { family: Fracassi, given: Cesare, affiliation: "University of Texas at Austin" }
+    - { family: Weitzner, given: Gregory, affiliation: "McGill University" }
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 239–284
   venueShort: J. Finance 2026
@@ -28,7 +32,35 @@ paper:
   access: paywalled
   machineAccess: blocked-paywall (Wiley site; confirmed paywalled 2026-05-31)
   redistribution: extract-only
+  dataAccess: proprietary-confidential
+  outcome:
+    - loan interest rates
+    - borrower probability of default
+    - loan markup (risk-orthogonalized interest rate)
   resultsCount: 9
+  topics: ['Banking stability, regulation, efficiency', 'Corporate Finance and Governance']
+  methods:
+    role: applies-method
+    family: reduced-form-causal
+    buildsFrom: [panel-regression, difference-in-differences, instrumental-variables]
+  scope:
+    region: US
+    assetClass: corporate loans
+    period: 2014Q4..2019Q4
+    frequency: quarterly
+  relatesTo:
+    - { cite: 'Broecker (1990)', relation: tests, note: 'core adverse-selection predictions: more banks raises rates, borrower risk, and volume (p. 246)' }
+    - { cite: 'Marquez (2002)', relation: tests, note: 'information-dispersion channel: more banks makes screening harder (p. 246)' }
+    - { cite: "Dell'Ariccia and Marquez (2006)", relation: tests, note: 'information-holdup channel: incumbent banks extract rents from repeat borrowers (p. 246)' }
+    - { cite: 'Sharpe (1990)', relation: builds-on, note: 'information-holdup theory underlying the Stay Bank markup test (p. 247)' }
+    - { cite: 'Rajan (1992)', relation: builds-on, note: 'information-rent extraction by relationship lenders (p. 247)' }
+    - { cite: 'Favara, Ivanov and Rezende (2021)', relation: builds-on, note: 'GSIB surcharge as a shock to large-bank lending costs, used as the DiD/IV instrument (p. 272)' }
+  openQuestions:
+    - 'The paper does not provide a welfare analysis of market structure; results suggest standard competition models miss adverse-selection subtleties, but the net welfare effect of more vs. fewer banks is left unresolved (pp. 278-279).'
+    - 'The markup measure is relative, not absolute; the paper cannot rule out that some unobserved risk component drives residual variation in interest rates across counties (p. 265).'
+    - 'The sample covers only large BHC loans to private nonsyndicated borrowers; whether results extend to small banks, online lenders, or syndicated markets is not tested (pp. 241, 264).'
+  replicationCode:
+    status: available
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -46,6 +78,28 @@ paper:
         (rounding only), significance stars, signs, and units all match the PDF.
         Frontmatter authors, year, venue, and resultsCount verified. No em-dashes
         or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: >-
+        Augment pass. Added methods, scope, relatesTo, openQuestions,
+        replicationCode, and proposedVocab frontmatter blocks, and replaced the
+        old Theory tested section with three formal body sections (Theory / model,
+        Method, Empirical specifications) with equations (1)-(7) transcribed from
+        the source PDF (pp. 250-272). Core results table and verified locators
+        preserved unchanged. Not yet re-verified by paper-verifier.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: >-
+        Locators and reported magnitudes re-checked against the source PDF; all
+        9 rows confirmed correct: table numbers, coefficients, t-statistics
+        (rounding only), significance stars, signs, and units all match the PDF.
+        Equations (1)-(7) checked term-by-term against PDF pp. 250-272: all
+        subscripts, signs, fixed-effect sets, and RHS terms match. Spec (7)
+        uses Gamma_2 for Z_{f,t} coefficient where the PDF reuses gamma; this
+        is a defensible disambiguation, not an error. Frontmatter authors, year,
+        venue, and resultsCount verified. No em-dashes or colorful adjectives found.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70011
       checked: 2026-05-31
@@ -105,47 +159,184 @@ which they exploit via information rents on repeat borrowers. Antitrust
 policies that increase the number of banks in local loan markets may raise
 rates and borrower risk as an unintended consequence.
 
+## Theory / model
+
+The paper has no original structural model. It tests predictions derived from
+Broecker (1990) and related adverse-selection models (Riordan 1995, Marquez
+2002, Dell'Ariccia and Marquez 2006). In these models, when lenders cannot
+observe whether a borrower has been previously rejected by another bank, they
+face a winner's curse: the pool of applicants worsens as the number of banks
+in the market increases, because lower-quality borrowers have more chances to
+find an approving lender. Two related mechanisms reinforce each other (p. 246):
+
+1. As the number of banks rises, individual banks become more concerned that
+   applicants have been screened and rejected elsewhere, raising the expected
+   risk of any given applicant and thus the required interest rate.
+2. More banks makes it harder for any one bank to infer whether a borrower
+   has been rejected (Marquez 2002), further worsening adverse selection.
+
+Both mechanisms predict that more banks leads to (i) higher average borrower
+risk conditional on observables, (ii) higher interest rates, and (iii) higher
+lending volume (pp. 246-247).
+
+A second class of predictions concerns market power arising from information
+advantages. Because incumbent banks learn about borrowers through lending
+relationships, they hold private information that competitors lack (Sharpe
+1990, Rajan 1992, Dell'Ariccia and Marquez 2006). This advantage lets them
+charge above-marginal-cost rates to repeat borrowers who would be pooled with
+riskier applicants if they tried to switch banks. More banks in the market
+worsens adverse selection further and thus strengthens the incumbent's
+information advantage and holdup capacity (p. 246).
+
+**Tested predictions:**
+
+1. More banks raises average bank-assessed PD, conditional on observables.
+2. More banks raises interest rates (adverse-selection effect dominates competition).
+3. More banks raises total lending volume.
+4. Markups (interest rates net of risk) rise with bank count.
+5. Repeat borrowers pay higher markups; the effect attenuates when borrowers
+   have prior multi-bank relationships that reduce holdup.
+
+The paper provides no welfare ranking and is fully empirical.
+
+## Method
+
+The paper applies three estimation strategies. All use OLS (or 2SLS) at the
+loan level with multi-way fixed effects; no structural model is estimated.
+The approach builds on `panel-regression`, `difference-in-differences`, and
+`instrumental-variables`.
+
+**Risk-assessment validation (Section II, pp. 250-254).** Before testing
+market-structure predictions, the paper verifies that banks' internal PD and
+LGD reports contain genuine private information. This is critical because the
+markup measure relies entirely on the credibility of these assessments. The
+validation runs two regressions (equations 1 and 2 in the PDF).
+
+**Markup construction (Section IV, p. 264).** Markup is not an externally
+observed price-cost margin; it is constructed residually. Equation (5) regresses
+the interest rate on PD, LGD, their interaction, loan controls, bank x quarter
+FEs, and industry x quarter FEs. The residual after partialling out the risk
+components measures the portion of the interest rate unexplained by the
+bank's own assessment of risk. This makes the measure internally consistent:
+by construction, Table IV shows that interest rates do not predict loan
+performance once PD and LGD are controlled for, so the residual markup
+arguably reflects market power rather than unpriced risk.
+
+**GSIB DiD/IV (Section VII, pp. 272-278).** To address endogeneity of the
+number of banks, the paper uses a Bartik-style design (Goldsmith-Pinkham,
+Sorkin, and Swift 2020): the pre-determined number of GSIBs in a county in
+2015, interacted with a post-surcharge dummy, instruments for changes in the
+number of lending banks. The first stage (column (1) of Table XII) shows that
+more GSIBs in 2015 predicts a significant drop in the total number of banks
+after 2016. The IV strategy identifies the adverse-selection channel by
+exploiting a supply-side cost shock that affected GSIBs differentially across
+counties.
+
+## Empirical specifications
+
+All regressions use loan l in industry i originated by bank b in quarter t as
+the unit of observation unless noted. Standard errors are clustered by county
+throughout.
+
+**Spec (1): Risk assessment and interest rates (Table III, p. 251)**
+
+```
+IR_l = beta_0 * PD_l + beta_1 * LGD_l + beta_2 * (PD_l x LGD_l)
+       + Gamma * X_l + delta_{b,t} + alpha_{i,t} + u_l          (eq. 1, p. 250)
+```
+
+`IR_l` is loan interest rate (%); `PD_l` is bank-assessed probability of
+default (%); `LGD_l` is loss given default (%); `X_l` is a vector of loan
+controls (log maturity, log amount, guarantee dummy, loan purpose FE, loan
+type FE); `delta_{b,t}` is bank x quarter FE; `alpha_{i,t}` is industry x
+quarter FE. Produces results R1 (Table III, p. 251).
+
+**Spec (2): Risk assessments and loan performance (Table IV, p. 254)**
+
+```
+y_l = beta_0 * IR_l + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
+      + Gamma * X_l + delta_{b,t} + alpha_{i,t} + u_l            (eq. 2, p. 252)
+```
+
+`y_l` is either nonperformance (dummy) or realized default (dummy); same
+controls and FEs as spec (1). Produces results R1 (Table IV, p. 254).
+
+**Spec (3): Market structure and interest rates (Table V, p. 255)**
+
+```
+IR_l = beta * NOB_c + Gamma_0 * X_l + Gamma_1 * Z_{f,t}
+       + delta_{b,t} + alpha_{i,t} + u_l                          (eq. 3, p. 254)
+```
+
+`NOB_c` is the number of banks in county c; `Z_{f,t}` is firm characteristics
+(log assets, leverage, tangibility, profitability). Produces results R2
+(Table V, p. 255). The same specification is used with PD as the dependent
+variable for R3 (Table VI, p. 257).
+
+**Spec (4): Market structure and loan volume (Table VII, p. 258)**
+
+```
+Volume_{c,t} = beta_0 * NOB_c + Gamma_0 * X_{c,t} + delta_t + u_{c,t}   (eq. 4, p. 257)
+```
+
+`Volume_{c,t}` is log total dollar loan volume (or log total number of loans)
+in county c in quarter t; `X_{c,t}` is county-level controls (log population
+density, log wages, log financial industry wages, log population);
+`delta_t` is year-quarter FE. Produces results R4 (Table VII, p. 258).
+The same specification with blanket lien as the outcome produces collateral
+results (Table VIII, p. 261).
+
+**Spec (5): Market structure and markups (Table IX, p. 265)**
+
+```
+IR_l = beta_0 * NOB_c + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
+       + Gamma_0 * X_l + Gamma_1 * Z_{f,t} + delta_{b,t} + alpha_{i,t} + u_l   (eq. 5, p. 264-265)
+```
+
+This is spec (3) augmented with the risk measures as controls; the coefficient
+on `NOB_c` now captures the markup effect (interest rate variation beyond risk).
+Produces results R5 (Table IX, p. 265).
+
+**Spec (6): Switching banks and markups (Table XI, p. 271)**
+
+```
+IR_l = beta_0 * Stay Bank_l + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
+       + Gamma_0 * X_l + Gamma_1 * Z_{f,t} + delta_{b,t} + alpha_{i,t} + lambda_{c,t} + u_l  (eq. 6, p. 270)
+```
+
+`Stay Bank_l` equals one when the borrower stays with an existing bank;
+`lambda_{c,t}` is county x quarter FE (additional to bank x quarter FE);
+sample restricted to firms with more than one loan. Produces results R8
+(Table XI, p. 271).
+
+**Spec (7): GSIB surcharges - DiD reduced form and 2SLS (Tables XII-XIII, pp. 273-278)**
+
+```
+y_{t,c} = beta_0 + beta_1 * (NOG2015_c x Post_t)
+          + Gamma_0 * X_l + Gamma_2 * Z_{f,t} + delta_{b,t} + gamma_{b,c} + alpha_{i,t} + u_{t,c}  (eq. 7, p. 272)
+```
+
+`NOG2015_c` is the number of GSIBs in county c in 2015; `Post_t` equals one
+for 2016 and later; `gamma_{b,c}` is bank x county FE; `y_{t,c}` is in
+turns: number of banks, log loan volume, interest rate, PD, or markup.
+Sample period: 2014Q4-2019Q4 except column (1) of Table XII which uses
+2015Q1-2019Q4 for the annual bank-count series. In the 2SLS version
+(Table XIII, p. 278), `NOG2015_c x Post_t` is used as an instrument for
+the annual number of banks in the county. Produces results R9.
+
 ## Datasets used
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Federal Reserve Y-14Q (Schedule H.1) | Confidential supervisory loan-level data: interest rates, PD, LGD, loan characteristics, firm financials, 2014Q4–2019Q4, 21,924 loans from 23 BHCs | [FR Y-14Q](/wiki/datasets/fr-y14q/) (no page yet) |
+| Federal Reserve Y-14Q (Schedule H.1) | Confidential supervisory loan-level data: interest rates, PD, LGD, loan characteristics, firm financials, 2014Q4-2019Q4, 21,924 loans from 23 BHCs | [FR Y-14Q](/wiki/datasets/fr-y14q/) (no page yet) |
 | FDIC Summary of Deposits | Alternative county-level bank count (branches), corroboration of main measure | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) (no page yet) |
 | Bureau of Labor Statistics (BLS) | County-level wage and financial-industry wages | [BLS](/wiki/datasets/bls/) (no page yet) |
 | U.S. Census Bureau | County-level population estimates | [Census](/wiki/datasets/census/) (no page yet) |
 | Zillow | County-level residential rent (robustness) | no page yet |
 
 Sample: 21,924 new corporate loans (private, nonsyndicated borrowers) originated
-2014Q4–2019Q4 by 23 U.S. bank holding companies. Median firm assets $23.6 mm,
+2014Q4-2019Q4 by 23 U.S. bank holding companies. Median firm assets $23.6 mm,
 median revenue $46 mm; median interest rate 3.66% (~150 bp credit spread).
-
-## Theory tested
-
-**Adverse selection in credit markets.** The paper tests predictions from
-Broecker (1990) and related models (Riordan 1995, Marquez 2002, Dell'Ariccia
-and Marquez 2006): in loan markets with asymmetric information across lenders,
-an increase in the number of banks worsens adverse selection because
-lower-quality borrowers have more chances to find a lender that approves them
-(winner's curse analog). Specific predictions tested:
-
-1. More banks leads to higher average borrower risk (PD) conditional on observables.
-2. More banks leads to higher interest rates (adverse selection offsets competition).
-3. More banks leads to higher lending volume.
-4. Markups (interest rates orthogonalized to bank-assessed risk) rise with bank count.
-5. Information rents arise from repeat lending relationships (Sharpe 1990, Rajan 1992).
-
-**Identification strategies:**
-- Baseline: loan-level OLS with bank x quarter and industry x quarter fixed
-  effects to absorb bank funding costs and aggregate industry shocks; standard
-  errors clustered by county.
-- Cross-sectional: tangibility splits (low-tangibility firms face more severe
-  information asymmetry).
-- Quasi-experiment: Bartik-style difference-in-differences using GSIB capital
-  surcharges (phased in 2016–2019) as a shock to lending costs of the largest
-  banks, with NOG2015,c x Post_t as the treatment interaction; followed by
-  two-stage least squares using the same instrument.
-
-The paper is **empirical** throughout: no original structural model is estimated.
 
 ## When to read the full paper
 

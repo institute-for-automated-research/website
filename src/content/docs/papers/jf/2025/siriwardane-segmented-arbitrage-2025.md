@@ -16,16 +16,49 @@ sidebar:
 tags: [paper-summary, asset-pricing, arbitrage, limits-to-arbitrage, intermediary-asset-pricing, fixed-income, foreign-exchange, equities, panel-regression, event-study, svar, peer-reviewed, unreplicated, data:bloomberg, data:cftc-cot, data:markit-cds, data:crane-mmf, data:preqin, data:gsw-yields, data:cboe-options, data:wrds]
 paper:
   authors: Emil N. Siriwardane, Adi Sunderam, Jonathan Wallen
+  authorList:
+    - { family: Siriwardane, given: "Emil N.", affiliation: "Harvard University and NBER" }
+    - { family: Sunderam, given: Adi, affiliation: "Harvard University and NBER" }
+    - { family: Wallen, given: Jonathan, affiliation: "Harvard University" }
   year: 2025
   venue: The Journal of Finance 80(5), October 2025, 2543–2590
   venueShort: J. Finance 2025
   licenseShort: paywalled
   resultsCount: 9
+  topics: ['Financial Markets and Investment Strategies', 'Banking stability, regulation, efficiency', 'Economic theories and models']
+  dataAccess: licensed-commercial
+  outcome:
+    - arbitrage spread levels
+    - pairwise correlation of arbitrage spreads
+    - differential sensitivity of unsecured vs. secured spreads to funding shocks
   doi: 10.1111/jofi.13469
   license: 'Wiley VOR terms (confirmed via Crossref DOI metadata: content-version vor, URL http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days 0, start 2025-08-04); artifact p.2543 states © 2025 the American Finance Association; no Creative Commons licence found'
   access: paywalled
   machineAccess: 'blocked-paywall (Wiley/Journal of Finance site; checked 2026-05-31)'
   redistribution: 'extract-only; paywalled Wiley VOR licence does not permit mirroring'
+  methods:
+    role: both
+    contributes: segmented-arbitrage
+    family: reduced-form-causal
+    buildsFrom: [sign-restricted-svar, panel-regression, difference-in-differences, instrumental-variables]
+  scope:
+    region: US
+    assetClass: equity futures, fixed income, foreign exchange (32 arbitrage spreads)
+    period: 2010-01..2020-02
+    frequency: mixed
+  relatesTo:
+    - { cite: 'He & Krishnamurthy (2013)', relation: contradicts, note: 'canonical single-constraint intermediary model predicts perfect spread correlation; data show mean pairwise rho = 0.22 (Table II, p. 2560)' }
+    - { cite: 'Garleanu & Pedersen (2011)', relation: contradicts, note: 'margin-based asset pricing with integrated funding implies one- or two-factor spread structure; rejected by high-dimensional factor structure (Figure 3, p. 2562)' }
+    - { cite: 'Du, Tepper & Verdelhan (2018)', relation: builds-on, note: 'CIP spread construction and FX arbitrage measurement methodology (p. 2554)' }
+    - { cite: 'Uhlig (2005)', relation: builds-on, note: 'sign-restricted SVAR used to separate supply from demand shocks (pp. 2564-2566)' }
+    - { cite: 'Anderson, Du & Schlusche (2019)', relation: builds-on, note: '2016 MMF reform event study design (pp. 2570-2573)' }
+    - { cite: 'Siriwardane (2019)', relation: builds-on, note: 'intermediary specialization in credit derivatives (p. 2547)' }
+  openQuestions:
+    - 'How long segmentation persists: the paper shows quarterly supply-shock correlations have a 1% upper bound of 37%, indicating relatively slow but nonzero capital flows across segments (pp. 2587-2588).'
+    - 'Whether segmentation is more pronounced in risky-asset markets where agency problems are more severe; the paper notes its arbitrages are relatively straightforward to execute (p. 2588).'
+    - 'What determines the boundaries of the firm for financial intermediaries: why certain trades are grouped together in a market segment (p. 2588).'
+  replicationCode:
+    status: available
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13469
       checked: 2026-05-31
@@ -40,6 +73,14 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: 'Augment pass. Added methods, scope, relatesTo, openQuestions, replicationCode, proposedVocab frontmatter blocks, and three formal body sections (Theory / model, Method, Empirical specifications) with equations transcribed from pp. 2548-2553 and 2564-2586 of the source PDF read this session. Core results table and prior extraction/verification entries are unchanged. New formal sections are extracted, not yet re-verified.'
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: 'All 9 core result rows re-checked against the source PDF (Tables II–VII, Figures 3–8); all locators and magnitudes confirmed correct. Equations 1–13 verified term-by-term: subscripts, signs, summation limits, and matrix entries all match the PDF. No errors found; no edits required.'
   rightsSignalConflict: false
 ---
 
@@ -106,33 +147,188 @@ Sample: 32 arbitrage spreads, daily, January 1, 2010 to February 29, 2020
 (post-GFC, pre-Covid). CDS-bond and Treasury-swap series start Sep 2011 for
 some maturities. CFTC quantity data weekly from July 2010.
 
-## Theory tested
+## Theory / model
 
-**Stylized model (Section I).** The paper presents a reduced-form model of
-competitive, atomistic arbitrageurs facing K balance-sheet constraints and L
-funding sources. The key theoretical benchmarks are: (i) a single
-balance-sheet constraint with funding integration implies all spreads move
-with a single factor and are perfectly correlated; (ii) a single frictional
-funding factor with balance-sheet integration implies the same; (iii) either
-balance-sheet or funding segmentation breaks perfect correlation and generates
-a high-dimensional factor structure. The model is not estimated structurally;
-it organizes the empirical tests.
+The paper develops a stylized model (Section I, pp. 2548-2553) in which a
+unit measure of competitive, atomistic arbitrageurs (intermediaries) trade
+N riskless arbitrage trades. The arbitrageur's objective is (eq. 1, p. 2549):
 
-**Hypothesis tested:** Are cross-market arbitrage spread correlations
-consistent with a representative intermediary facing balance-sheet and
-funding integration, as assumed in the He-Krishnamurthy (2013) and
-Garleanu-Pedersen (2011) class of models?
+```
+max_{q_{n,t}, V_{k,t}}  sum_{n=1}^N q_{n,t} * (s_{n,t} - sum_l w_{n,l} f_{l,t})
+                         - (1/2) sum_{k=1}^K c_{k,t} V_{k,t}^2
+```
 
-**Identification:** (a) OLS panel regressions of arbitrage-implied riskless
-rates on TED spreads (funding proxy), with standard errors clustered by
-strategy-month. (b) Quasi-natural-experiment event study of the 2016 SEC
-Rule 2a-7 MMF reform (a plausibly exogenous shock to unsecured bank funding)
-using a differences-in-differences design. (c) Instrumental variables
-(passive Fidelity MMF flows) for equity-repo funding shocks. (d) Dynamic
-DiD event studies of the 2012 JPMorgan London Whale and 2014 Deutsche Bank
-CDS exit as balance-sheet shocks. (e) Sign-restricted Bayesian SVAR (Uhlig
-2005; Arias, Rubio-Ramirez, Waggoner 2018) on weekly spread and quantity data
-to separate supply from demand shocks.
+where `s_{n,t}` is the arbitrage spread on trade `n` at time `t`, `q_{n,t}`
+is the quantity supplied, `w_{n,l}` is the fraction of trade `n` funded from
+source `l` (with cost `f_{l,t}` in excess of zero), `V_{k,t}` is the
+aggregate scale of activities under balance-sheet constraint `k`, and
+`c_{k,t}` is the marginal cost of meeting constraint `k`. Market clearing
+requires `q_{n,t} = a_{n,t}` (inelastic outside demand).
+
+**Canonical benchmarks.** Under balance-sheet and funding integration with a
+single balance-sheet constraint (`c_{k,t} = 0` for `k > 1`, `f_{l,t} = 0`
+for all `l`), the equilibrium spread is (eq. 2, p. 2550):
+
+```
+s_{n,t} = v_{n,1} c_{1,t} V_{1,t}  =  v_{n,1} c_{1,t} (sum_n a_{n,t} v_{n,1})
+```
+
+All spreads move with the single factor `c_{1,t} V_{1,t}` and are perfectly
+correlated. Under a single frictional funding factor with balance-sheet
+integration (`c_{k,t} = 0`, `v_{n,k} = 0`, `f_{n,1} > 0`, `f_{n,l} = 0`
+for `l > 1`), spreads are `s_{n,t} = w_{n,1} f_{1,t}` -- again a one-factor
+structure. Under integration with many constraints (`L = 1`, `K > 0`) spreads
+have a K+1 factor structure (eq. 3, p. 2550):
+
+```
+s_{n,t} = w_{n,1} f_{1,t} + sum_{k=1}^K v_{n,k} c_{k,t} V_{k,t}
+```
+
+**Funding segmentation.** When trades `n = 1,...,N_1` can use only source
+`l = 1` and trades `n = N_1+1,...,N` can use only source `l = 2`, the
+equilibrium is (eq. 4, p. 2551):
+
+```
+s_{n,t} = { w_{n,1} f_{1,t}    if n <= N_1
+           { w_{n,2} f_{2,t}    if N_1 < n
+```
+
+Cross-group correlation equals only `rho(f_{1,t}, f_{2,t})` (eq. 5, p. 2551):
+
+```
+rho(s_{n1,t}, s_{n2,t}) = { 1                     if n1, n2 <= N_1 or N_1 < n1, n2
+                           { rho(f_{1,t}, f_{2,t}) if n1 <= N_1, n2 > N_1
+```
+
+**Balance-sheet segmentation.** When arbitrageurs in group I specialize in
+trades `n = 1,...,N_1` and group ~I in trades `n = N_1+1,...,N`, with
+different marginal balance-sheet costs, equilibrium spreads are (eq. 6,
+p. 2552):
+
+```
+s_{n,t} = { epsilon_{n,i} + v_{n,1} c_{1,t}^I  V_{1,t}^I    if n <= N_1
+           { epsilon_{n,j} + v_{n,1} c_{1,t}^{~I} V_{1,t}^{~I}  if N_1 < n
+```
+
+The correlation between spreads of the two groups depends on (i) correlation
+of balance-sheet shocks across groups, (ii) correlation of demand shocks, and
+(iii) cross terms (eq. 7, p. 2552):
+
+```
+rho(s_{1,t}, s_{2,t}) = rho(c_{1,t}^I, c_{1,t}^{~I}) * rho(a_{1,t}, a_{2,t})
+                       + rho(c_{1,t}^I, a_{2,t}) * rho(c_{1,t}^{~I}, a_{1,t})
+```
+
+The model is not estimated structurally; it organizes the empirical tests by
+providing testable signatures: funding segmentation implies covariance between
+certain spreads and certain funding rates; balance-sheet segmentation implies
+covariance between certain spreads and specific intermediary balance-sheet
+costs.
+
+## Method
+
+The paper applies four methods, each addressing a different identification
+challenge, building on `sign-restricted-svar`, `panel-regression`,
+`differences-in-differences`, and `instrumental-variables`.
+
+**Sign-restricted SVAR (supply vs. demand decomposition, Section II.C).** For
+each futures-based trade `i`, let `Y_t = [s_t  q_t]'` be the vector of the
+spread and quantity (gross open interest). The structural VAR is (eq. 8,
+p. 2565):
+
+```
+B Y_t = A_0 + A_1 Y_{t-1} + epsilon_t,    epsilon_t = [epsilon_{s,t}  epsilon_{d,t}]'
+```
+
+The reduced form is `Y_t = Phi_0 + Phi_1 Y_{t-1} + u_t` where
+`Phi_0 = B^{-1} A_0`, `Phi_1 = B^{-1} A_1`, and the residual covariance
+`Sigma_u` depends on `B`. Sign restrictions on the impact matrix identify
+the structural shocks (eq. 9, p. 2565):
+
+```
+[u_{s,t}]   [- +] [epsilon_{s,t}]
+[u_{q,t}] = [+ +] [epsilon_{d,t}]
+              B^{-1}
+```
+
+A supply shock (`epsilon_s`) lowers spreads and raises quantities; a demand
+shock (`epsilon_d`) raises both. Estimation follows Arias, Rubio-Ramirez, and
+Waggoner (2018): Bayesian Normal-Wishart prior, 1,000 draws from the posterior
+using Cholesky decomposition of `Sigma_u`. The model is estimated separately
+for each trade; the correlations of supply and demand shocks across trades are
+computed from the median-draw shock series.
+
+**Panel OLS: funding sensitivity (Section III.B, Table III).** The baseline
+funding regression relates monthly changes in arbitrage-implied riskless rates
+to Treasury yield changes and TED spread changes (eq. 10, p. 2569):
+
+```
+Delta r_{i,j,t} = alpha_{i,j} + beta_1 Delta y_{j,t} + beta_2 Delta TED_t + epsilon_{i,j,t}
+```
+
+where `r_{i,j,t}` is the implied riskless rate for trade `i` in strategy `j`,
+`y_{j,t}` is the maturity-matched Treasury yield, and `TED_t` is the
+maturity-matched LIBOR minus Treasury spread (proxy for unsecured funding
+costs). Standard errors are clustered by strategy-month.
+
+## Empirical specifications
+
+**Spec 1: MMF reform DiD (R5, eq. 11, p. 2572).** Baseline differences-in-
+differences estimating the 2016 MMF reform impact on unsecured vs. secured
+spreads, using daily data, trade and time fixed effects, clustered by trade
+and date:
+
+```
+s_{i,t} = alpha_i + alpha_t + beta * 1[i in Unsecured] * 1[t >= October2016] + epsilon_{i,t}
+```
+
+where `s_{i,t}` is the absolute value of the arbitrage spread for trade `i`
+on date `t`, `1[i in Unsecured]` equals 1 for CIP, box, and equity spot-
+futures trades, and `1[t >= October2016]` equals 1 on or after the reform
+month. Column (1) of Table IV (p. 2573) reports `beta = 11.77**` (t = 2.47).
+A dynamic version replaces the single post-reform indicator with monthly
+leads and lags to trace the time profile of adjustment.
+
+**Spec 2: IV for equity repo funding (R6, Table V, p. 2575).** The baseline
+augments eq. (10) with flows into Fidelity IPrime MMFs. The IV instrument is
+passive flows (eq. on p. 2575):
+
+```
+Z_t = F_t * L_{t-3}^I
+```
+
+where `F_t` is total flow into all Fidelity MMFs and `L_{t-3}^I` is the
+lagged share of Fidelity MMF assets that are IPrime. Standard errors are
+clustered by strategy-month. The IV estimate (column 4, Table V) of the
+equity spot-futures spread on Fidelity flows is `beta = -1.09**` (t = -2.25);
+the CIP/box and secured spread coefficients are indistinguishable from zero.
+
+**Spec 3: London Whale dynamic DiD (R7, eq. 12, p. 2583).** In a weekly panel
+of unsecured arbitrage spreads, the event study estimates relative widening of
+equity spot-futures vs. other unsecured spreads around the March 1 and June
+13, 2012 event dates:
+
+```
+s_{i,t} = alpha_i + alpha_t + sum_{j=-4}^{24} beta_j 1[i in Equity SF] * 1[t = j] + epsilon_{i,t}
+```
+
+where `j` indexes weeks since the first event date and `alpha_i`, `alpha_t`
+are trade and time fixed effects. Panel C of Figure 7 (p. 2582) shows equity
+spot-futures spreads were significantly elevated relative to other unsecured
+spreads for several months following each event date.
+
+**Spec 4: Hedge fund balance-sheet forecasting regression (R9, eq. 13,
+p. 2585).** Monthly changes in spread levels on lagged hedge fund returns:
+
+```
+Delta s_{i,t} = alpha + beta r_{t-1}^H + epsilon_{i,t}
+```
+
+where `r_{t-1}^H` is the lagged monthly return of Barclay's fixed-income
+arbitrage hedge fund index (standardized to mean zero, unit variance). Table
+VII (p. 2586) shows `beta = -0.66**` (t = -3.04) for secured spreads and
+`beta = 0.00` (t = 0.01) for unsecured spreads; the effect is concentrated
+in Treasury-swap and CDS-bond sub-strategies.
 
 ## When to read the full paper
 

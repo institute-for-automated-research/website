@@ -13,6 +13,12 @@ sidebar:
 tags: [paper-summary, return-predictability, replication, market-timing, time-series, panel-regression, open-access, cc-by, peer-reviewed, data:wrds, data:ken-french]
 paper:
   authors: Nusret Cakici, Christian Fieberg, Tobias Neumaier, Thorsten Poddig, Adam Zaremba
+  authorList:
+    - { family: Cakici, given: Nusret, affiliation: "Gabelli School of Business, Fordham University" }
+    - { family: Fieberg, given: Christian, affiliation: "HSB Hochschule Bremen - City University of Applied Sciences, University of Luxembourg, and Concordia University" }
+    - { family: Neumaier, given: Tobias, affiliation: "University of Bremen" }
+    - { family: Poddig, given: Thorsten, affiliation: "University of Bremen" }
+    - { family: Zaremba, given: Adam, affiliation: "MBS School of Business, Poznan University of Economics and Business, and Monash University" }
   year: 2025
   venue: The Journal of Finance 80(6), December 2025, 3771–3790
   venueShort: J. Finance 2025
@@ -23,6 +29,38 @@ paper:
   machineAccess: 'blocked-paywall (Wiley site wrapper; not tested directly 2026-05-31; CC-BY VOR licence confirmed in publisher DOI metadata)'
   redistribution: 'extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)'
   resultsCount: 8
+  topics: ['Financial Markets and Investment Strategies', 'Monetary Policy and Economic Impact', 'Financial Risk and Volatility Modeling']
+  dataAccess: licensed-commercial
+  outcome:
+    - aggregate stock market excess return
+    - in-pocket vs out-of-pocket return predictability
+    - market-timing alpha
+
+  # --- methodological identity ---
+  methods:
+    role: applies-method
+    family: descriptive
+    buildsFrom: [kernel-regression, time-series-forecasting]
+  # --- sample scope ---
+  scope:
+    region: US
+    assetClass: US equities (aggregate market, CRSP)
+    period: 1926-01..2016-12
+    frequency: daily
+  # --- finding-lineage edges ---
+  relatesTo:
+    - { cite: 'Farmer, Schmidt & Timmermann (2023)', relation: replicates, doi: 10.1111/jofi.13229, note: 'audits FST code; finds two-sided kernel in pocket-ID step introduces lookahead bias that accounts for all claimed predictability' }
+    - { cite: 'Campbell & Thompson (2008)', relation: builds-on, note: 'economic restrictions on forecasts (non-negative return, sign-consistent coefficients) follow their framework' }
+    - { cite: 'Clark & West (2007)', relation: builds-on, note: 'primary statistical test for out-of-sample forecast comparison is the CW test' }
+  # --- open questions from the paper ---
+  openQuestions:
+    - 'Whether the partial improvement from economic restrictions on forecasts (sign constraints on predicted returns and slope coefficients) reflects genuine predictability or a variance-reduction artefact from the constraint mechanics, rather than forecasting model quality (p. 3784, §II.B).'
+    - 'Whether time-varying predictability in factor returns (SMB, HML) found in Internet Appendix Section IV survives a fully out-of-sample design, given the paper only reports Internet Appendix results qualitatively (pp. 3788-3789, §II.E).'
+  # --- replication code ---
+  replicationCode:
+    url: https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13484
+    status: available
+  # --- vocab to mint ---
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -32,6 +70,20 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: >-
+        Augment pass. Full PDF read (pp. 3771-3790) this session. Added methods,
+        scope, relatesTo, openQuestions, replicationCode, proposedVocab frontmatter
+        blocks, and the three formal body sections (Theory / model, Method, Empirical
+        specifications) with equations transcribed from the PDF (eqs. 1-5, pp.
+        3774-3775). Core results table and prior provenance preserved verbatim.
+        New formal sections are extracted, not yet re-verified.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: 'Full PDF re-read (pp. 3771-3790, all 20 pages); all 8 result rows, equations 1-5, and frontmatter re-checked. One fix: R2 tbl mean integral R² corrected from 0.12% to 0.09% (Table II Panel B, p. 3779). All other locators and magnitudes confirmed correct. Equations 1-5 verified term-by-term. No em-dashes or colorful adjectives found.'
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13484
       checked: 2026-05-31
@@ -69,7 +121,7 @@ point into the source PDF.
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | **Original (two-sided) code reproduces FST exactly**: in-pocket average integral R-squared ranges from 1.48% to 3.70% (daily), with strong in-pocket/out-of-pocket asymmetry | Table II Panel A, p. 3779; Figure 1 p. 3773 | Mean integral R² (daily): dp 1.51%, tbl 1.70%, tsp 2.92%, rvar 2.77% (two-sided kernel) |
-| R2 | **Corrected (one-sided) code collapses predictability**: pockets become roughly 20x more frequent, 10x shorter, and far less predictable | Table II Panel B, p. 3779 | Mean integral R² (daily): dp 0.18%, tbl 0.12%, tsp 0.09%, rvar 0.28% (one-sided kernel) |
+| R2 | **Corrected (one-sided) code collapses predictability**: pockets become roughly 20x more frequent, 10x shorter, and far less predictable | Table II Panel B, p. 3779 | Mean integral R² (daily): dp 0.18%, tbl 0.09%, tsp 0.09%, rvar 0.28% (one-sided kernel) |
 | R3 | **In-pocket CW t-statistics vanish with the one-sided kernel**: under the two-sided code in-pocket CW t-stats commonly exceed 3-4; under the corrected code they are insignificant for nearly all 27 model-predictor combinations | Table III Panel A.1 vs A.2, pp. 3781-3782 | Two-sided in-pocket CW (unrestricted): dp 3.00\*\*\*, tbl 4.75\*\*\*, tsp 3.04\*\*\*; one-sided in-pocket CW (unrestricted): dp -0.47, tbl 0.10, tsp -1.06 |
 | R4 | **In-pocket alphas drop sharply**: unrestricted in-pocket annualised alphas fall from 0.76-6.38% (two-sided) to -0.44-2.51% (one-sided); only one out of nine individual/composite predictors exceeds 1% significance under the one-sided kernel | Table III Panel B.1 vs B.2, pp. 3782-3783 | Average Sharpe ratio drops from 0.71 (two-sided) to 0.44 (one-sided), below the prevailing-mean benchmark 0.46 |
 | R5 | **Benchmark model beats kernel models out-of-pocket (two-sided code)**: out-of-pocket CW t-stats are significantly negative (at 10%) in roughly half of configurations under the original code | Table III Panel A.1, p. 3781 | Out-of-pocket CW: dp -1.62†, tbl (ns), tsp -1.52†, rvar -1.77†† (two-sided, unrestricted) |
@@ -99,26 +151,147 @@ Study period: 1926-2016 (predictor-dependent; see Table I, p. 3777). Data
 sourced directly from the FST replication package ("Replication-code
 20190881.zip", Journal of Finance website).
 
-## Theory tested
+## Theory / model
 
-**No original structural model.** The paper is a pure replication and
-methodological audit. It tests whether the FST claim holds under a correctly
-implemented out-of-sample procedure. The identification strategy is:
+This paper has no original structural economic model. It is a methodological
+audit and replication of Farmer, Schmidt, and Timmermann (2023, FST). The
+theoretical object under scrutiny is the claim that aggregate equity market
+return predictability is time-varying and can be identified ex ante using
+one-sided kernel regressions. The testable hypothesis is:
 
-- **Two-framework comparison**: run all FST analyses twice: (i) verbatim
-  replication using FST's original code (two-sided kernel in pocket
-  identification, equivalent to in-sample estimation), and (ii) corrected
-  code replacing the two-sided kernel with the one-sided Epanechnikov kernel
-  (as described in the FST text) for both steps.
-- **One-sided Epanechnikov kernel** (eq. 3, p. 3775): K(u) = (3/2)(1-u^2) *
-  1{-1 < u < 0}, restricting estimation to data prior to forecast date t.
-- **Squared forecast error differential (SED)** (eq. 4, p. 3775) tracks
-  whether the kernel model beats the prevailing-mean benchmark.
-- **Pocket identification** (eq. 5, p. 3775): a pocket begins when the
-  one-year SED trend coefficient is positive; FST's code used a two-sided
-  (24-month symmetric) window for this step, leaking 12 months of future data.
-- Performance assessed via Clark-West (2007) t-statistics, annualised alphas,
-  and Sharpe ratios from a stock/T-bill timing strategy.
+- **Null**: market-timing strategies built on FST's "pockets" offer no reliable
+  abnormal returns once a correctly out-of-sample pocket-identification kernel
+  is used.
+- **Identification**: the two-framework comparison is the entire identification
+  strategy. Every FST analysis is run twice with all other parameters held
+  fixed; only the kernel type in the second estimation stage differs. Any
+  difference in results is attributed to the kernel type (one-sided vs
+  two-sided), since that is the sole deviation from the FST code.
+
+**The FST return prediction model** (eq. 1, p. 3774):
+
+```
+r_{t+1} = x_t' * beta_t + epsilon_{t+1}
+```
+
+where `r_{t+1}` is the excess U.S. stock market return, `x_t` is a vector of
+predictor variables (dp, tbl, tsp, rvar), `beta_t` are time-varying
+regression coefficients, and `sigma_t^2 = E[epsilon_{t+1}^2 | x_t]` allows
+for conditional heteroskedasticity. The beta_t are estimated by the local
+constant model (eq. 2, p. 3774):
+
+```
+beta_hat_t = arg min_{beta_0} sum_{s=1}^T K_{hT}(s-t) * [r_{s+1} - x_s' * beta_0]^2
+```
+
+with kernel weights `K_{hT}(u) = K(u/hT)/(hT)` and bandwidth `h`. FST use a
+2.5-year bandwidth in this step with a one-sided Epanechnikov kernel (eq. 3,
+p. 3775):
+
+```
+K(u) = (3/2) * (1 - u^2) * 1{-1 < u < 0}
+```
+
+Only data from before time `t` receives positive weight under the one-sided
+kernel, making the beta_t estimation genuinely out-of-sample. The discrepancy
+arises in the second stage.
+
+## Method
+
+The method builds on `kernel-regression` for both the return-prediction
+estimation and the pocket-identification step, and on `time-series-forecasting`
+for evaluating out-of-sample performance against the prevailing-mean benchmark.
+The paper applies these techniques, it does not propose a new one.
+
+**Squared error differential (SED)** (eq. 4, p. 3775) measures whether the
+kernel model outperforms the prevailing-mean benchmark at each date `t`:
+
+```
+SED_t = (r_t - r_bar_{t|t-1})^2 - (r_t - r_hat_{t|t-1})^2
+```
+
+where `r_bar_{t|t-1}` is the prevailing-mean forecast and `r_hat_{t|t-1}` is
+the kernel model forecast. Positive `SED_t` means the kernel model has smaller
+forecast error that period.
+
+**Pocket identification** (eq. 5, p. 3775): a pocket begins when the fitted
+SED trend is positive:
+
+```
+SED_hat_t = gamma_{0,t} + gamma_{1,t} * t > 0
+```
+
+The parameters `gamma_{0,t}` and `gamma_{1,t}` should be estimated with a
+one-sided Epanechnikov kernel and one-year bandwidth. FST's published code
+instead uses a two-sided kernel with a 24-month symmetric window (12 months
+before and 12 months after day `t`), so the identification draws on data that
+is unavailable at forecast time.
+
+**Two-framework comparison design**: the paper runs the complete FST analysis
+twice, in parallel, changing only this kernel choice. Panel A results use the
+original (two-sided) code; Panel B results use the corrected (one-sided) code.
+All other parameters, bandwidth choices, predictor series, and performance
+metrics are identical. This clean design means the contrast of Panel A vs
+Panel B isolates the kernel-type effect.
+
+**Performance metrics** (§II.B, pp. 3780-3783):
+- Clark-West (2007) t-statistic comparing kernel-model forecasts to the
+  prevailing-mean benchmark
+- Annualised alpha from a stock/T-bill timing strategy (holding stocks when the
+  kernel model predicts positive returns, T-bills otherwise), with Newey-West
+  (1987) t-statistics
+- Annualised Sharpe ratio of the timing strategy
+- Three forecast restriction variants: unrestricted, non-negative excess return
+  forecasts only, and sign restrictions on both forecasts and slope coefficients
+
+## Empirical specifications
+
+All regressions use daily U.S. excess stock market returns as the dependent
+variable unless noted (monthly robustness in Table V). The sample varies by
+predictor (Table I, p. 3777): dp starts November 5, 1926; tbl starts January
+4, 1954; tsp starts January 2, 1962; rvar starts January 15, 1927; all end
+December 2016.
+
+**Constant-coefficient replication regressions (Table I, p. 3777).**
+Univariate OLS of daily excess return on each lagged predictor, separately
+for full sample, in-pocket, and out-of-pocket subsamples. Slope coefficients
+and Newey-West (1987) adjusted t-statistics and R-squared reported. The pocket
+partition is the only thing that differs between Panel A and Panel B in this
+table; the regression itself is identical.
+
+**Pocket statistics (Table II, p. 3779).**
+For each predictor and kernel type, counts the number of pockets, their
+fraction of sample, duration (min/mean/max days), and integral R-squared
+(min/mean/max). Integral R-squared `IR^2` is computed as in FST (p. 1289):
+the average within-pocket R-squared, weighting by pocket length. Results
+reported separately for daily and monthly data.
+
+**Clark-West prediction performance (Table III, pp. 3781-3782).**
+CW t-statistic comparing kernel model to the prevailing-mean benchmark
+`r_bar_{t+1} = (1/t) sum_{s=1}^t r_s`. Reported separately for:
+- full sample, in-pocket subperiod, out-of-pocket subperiod
+- Panel A.1 (in-sample / two-sided kernel), Panel A.2 (one-sided kernel)
+- nine predictor/composite specifications (dp, tbl, tsp, rvar, pc, mv,
+  comb1, comb2, comb3)
+- three forecast restriction variants
+Significance under one-tailed test (positive direction) for alphas; two-tailed
+for CW tests.
+
+**Economic significance (Table III Panel B, pp. 3782-3783).**
+Annualised alpha, Newey-West t-statistic, and Sharpe ratio of the asset
+allocation strategy (stocks when forecast is positive, T-bills otherwise).
+Reported for the same nine predictor/composite specifications and three
+restriction variants, separately for the two kernel approaches.
+
+**Bandwidth robustness (Table IV, pp. 3785-3786).**
+CW t-statistics for coefficient estimation windows of 2-, 2.5-, 3-year and
+SED estimation windows of 6-month, 12-month, 15-month. Panel A uses the
+two-sided kernel; Panel B uses the corrected one-sided kernel. Nine predictor
+and composite specifications, daily data.
+
+**Monthly data robustness (Table V, p. 3788).**
+Reproduces Table III (Panel A and Panel B) using monthly returns, following
+FST Table VII Panel A. Estimation period is 2.5 years for monthly forecasts.
 
 ## When to read the full paper
 

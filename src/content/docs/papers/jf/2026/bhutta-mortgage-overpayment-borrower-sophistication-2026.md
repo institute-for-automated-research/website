@@ -7,23 +7,63 @@ description: >-
   rates are low; borrower sophistication (shopping and knowledge) strongly
   predicts lower rates and competition benefits sophisticated borrowers
   most. J. Finance 2026, paywalled. Eight core results with source
-  locators, datasets used, and the theory tested.
+  locators, datasets used, the EGain model, and the key estimating
+  specifications.
 sidebar:
   label: Bhutta-Fuster-Hizmo 2026
   order: 1
 tags: [paper-summary, mortgage-markets, consumer-finance, price-dispersion, borrower-sophistication, household-finance, panel-regression, peer-reviewed, unreplicated, data:optimal-blue, data:nsmo, data:mcr-nmls, data:hmda]
 paper:
   authors: Neil Bhutta, Andreas Fuster, Aurel Hizmo
+  authorList:
+    - { family: Bhutta, given: Neil, affiliation: "Federal Reserve Bank of Philadelphia" }
+    - { family: Fuster, given: Andreas, affiliation: "EPFL, Swiss Finance Institute, and CEPR" }
+    - { family: Hizmo, given: Aurel, affiliation: "Independent" }
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 49–90
   venueShort: J. Finance 2026
   licenseShort: paywalled
   resultsCount: 8
+  topics: ['Housing Market and Economics', 'Banking stability, regulation, efficiency', 'Housing, Finance, and Neoliberalism']
+  dataAccess: proprietary-confidential
+  outcome:
+    - mortgage rate paid relative to available offers
+    - rate dispersion across borrowers and lenders
+    - borrower overpayment by loan program and FICO
   doi: 10.1111/jofi.70001
   license: 'Paywalled (© 2025 the American Finance Association; Crossref license[] returns content-version=vor URL=http://onlinelibrary.wiley.com/termsAndConditions#vor and content-version=tdm URL=http://doi.wiley.com/10.1002/tdm_license_1.1, both delay-in-days=0, start=2025-12-09; no CC licence found)'
   access: paywalled
   machineAccess: 'blocked-paywall (Wiley/Journal of Finance publisher site; checked 2026-05-31)'
   redistribution: extract-only
+
+  # --- methodological identity ---
+  methods:
+    role: applies-method
+    family: reduced-form-causal
+    buildsFrom: [panel-regression]
+  # --- sample scope ---
+  scope:
+    region: US
+    assetClass: residential mortgages
+    period: 2013-01..2019-12
+    frequency: mixed
+  # --- edges to prior work ---
+  relatesTo:
+    - { cite: 'Carlson & McAfee (1983)', relation: builds-on, note: 'EGain measure is motivated by Carlson-McAfee discrete equilibrium search model (p. 63)' }
+    - { cite: 'Woodward & Hall (2012)', relation: extends, note: 'extends evidence on consumer confusion and sub-optimal shopping to real-time lender-offer benchmark (p. 52)' }
+    - { cite: 'Agarwal, Ben-David & Yao (2017)', relation: extends, note: 'extends systematic-mistakes literature to include offer-distribution benchmark and borrower sophistication index (p. 53)' }
+    - { cite: 'Alexandrov & Koulayev (2017)', relation: contradicts, note: 'contrasts with their finding that negotiation plays little role; this paper finds substantial within-lender within-branch-day dispersion consistent with negotiation (p. 52)' }
+    - { cite: 'Fuster, Lo & Willen (2024)', relation: builds-on, note: 'complements their time-varying price-of-intermediation result: lenders also make worse offers when rates are low, and borrowers are less likely to shop (p. 71)' }
+  # --- open questions (paper''s own stated gaps) ---
+  openQuestions:
+    - 'How effective specific policies would be for reducing dispersion (e.g., required disclosure of available rates at lock time, GSE caps on locked-offer spreads): general-equilibrium effects on lender offers are unknown (p. 88).'
+    - 'Whether the pass-through asymmetry (less pass-through of rate cuts due to reduced shopping effort) is a net positive or negative from a monetary policy perspective depends on whether slowing the housing market via higher rates is desirable (p. 88).'
+    - 'The causal mechanism behind sophisticated borrowers benefiting more from competition: whether it reflects better ability to exploit low-concentration markets or selection effects (pp. 87-88).'
+  # --- replication code ---
+  replicationCode:
+    status: available
+    url: https://doi.org/10.1111/jofi.70001
+  # --- vocab proposals ---
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -33,6 +73,14 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; R7 lender and application-process satisfaction figures corrected from -23/-19 pp to -2.3/-1.9 pp (decimal-point errors); all other locators and magnitudes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: Augment pass. Added methods/scope/relatesTo/openQuestions/replicationCode/proposedVocab frontmatter blocks and replaced the old Theory tested section with the three formal body sections (Theory / model, Method, Empirical specifications) with equations and specifications transcribed from the PDF read this session (EGain eq. 1 p. 63; service-quality regression eq. 2 p. 83; sophistication regression eq. 3 p. 85; rate-dispersion regression Table V p. 73; Table IV p. 70). Core results table is unchanged from the verified version above. New formal sections are extracted, not yet re-verified.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: All 8 core result rows, equations 1-3, and FE escalation specs re-checked term-by-term against PDF; all locators, magnitudes, signs, and significance stars confirmed correct; no em-dashes or colorful adjectives found; no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70001
       checked: 2026-05-31
@@ -97,22 +145,185 @@ also impedes pass-through of monetary policy easing to mortgage rates.
 
 Sample sizes: lock data 3.6M (full) / 67,537 (matched to offer data for EGain); dispersion analysis 2,996,149; MCR-Optimal Blue merge 162 lenders, 1,897 lender-quarters; NSMO 22,567 mortgages.
 
-## Theory tested
+## Theory / model
 
-**No original structural model.** The paper is empirical. It tests
-predictions from search-theoretic models of price dispersion and consumer
-search (Carlson and McAfee (1983), Baye et al. (2006)) and from the
-literature on limited financial sophistication in consumer finance
-(Hastings et al. (2013), Woodward and Hall (2012), Agarwal et al.
-(2015, 2017)). The main hypotheses tested: (i) borrowers with lower
-financial sophistication obtain worse mortgage terms; (ii) overpayment
-varies systematically with borrower and loan characteristics; (iii)
-market concentration interacts with borrower sophistication in
-determining rates. Identification relies on comparing locked rates to the
-contemporaneous distribution of lender offers for identical loans
-(same day, same MSA, same FICO/LTV/program), within-market OLS with rich
-fixed effects (lender, branch, loan officer, MSA-by-month), and NSMO OLS
-regressions with administrative loan/borrower controls.
+The paper has no original structural model. It is an empirical paper that
+tests predictions from the consumer-search and price-dispersion literature
+(Carlson and McAfee (1983), Baye et al. (2006)) and from the literature on
+limited financial sophistication in consumer finance (Woodward and Hall (2012),
+Agarwal et al. (2015, 2017)).
+
+The central identification object is the **Expected Gain from Additional
+Search (EGain)**. Given `n` lenders posting rates `r_1 <= r_2 <= ... <= r_n`
+for an identical borrower type on a given day, and a borrower who has already
+found rate `r_k`, the expected gain from one more search is (eq. 1, p. 63):
+
+```
+EGain_k = sum_{i=1}^{k-1} (r_k - r_i) * 1/(n-1)
+         = [ r_k - sum_{i=1}^{k-1} r_i/(k-1) ] * (k-1)/(n-1)
+```
+
+Intuitively, the bracketed term is the locked rate minus the expected rate
+among the `k-1` cheaper lenders; this is scaled by `(k-1)/(n-1)`, the share
+of remaining lenders who offer cheaper rates. The measure accounts for both
+the borrower's position in the distribution and the width of the distribution.
+Lenders that do not offer a given loan type are treated as `r_i = infinity`.
+
+The main hypotheses tested:
+- (H1) Borrowers with lower financial sophistication (less shopping, less
+  knowledge) pay higher rates relative to available offers.
+- (H2) Overpayment varies systematically with borrower type (FICO, LTV,
+  loan program) even after controlling for risk-based pricing in offers.
+- (H3) Market concentration interacts with borrower sophistication: lower
+  concentration (HHI) benefits sophisticated borrowers more.
+- (H4) Expensive lenders are more profitable but do not provide better service,
+  implying pure market power rather than quality differentiation.
+
+Identification for the EGain analysis rests on comparing each locked rate
+to the real-time distribution of lender offers for an identical loan (same
+MSA, same day, same FICO/LTV/program/amount/points), which is observed in
+the Optimal Blue Pricing Insight data. For the dispersion and sophistication
+analyses, identification uses within-market OLS with exhaustive fixed effects
+(lender, branch, loan officer, MSA x month) and the NSMO survey linked to
+administrative loan records.
+
+## Method
+
+The estimating strategy has three parts: (1) constructing EGain from matched
+lock and offer data; (2) OLS regressions of EGain and locked rates on
+borrower/lender characteristics with layered fixed effects; (3) NSMO-based
+OLS regressions of contracted rates on borrower sophistication with
+administrative controls.
+
+**EGain construction.** For each rate-lock, the authors match to the
+offer distribution on the same day in the same MSA for a loan with nearly
+identical FICO, LTV, program, purpose, and amount. They adjust locked rates
+for points paid using the empirical points-rate relationship. The EGain is
+then computed from equation (1) above. The matched sub-sample is 67,537 loans
+from the 20 MSAs with offer data.
+
+**Rate-dispersion regressions (Table V, p. 73).** Locked rates are regressed
+on increasingly rich sets of fixed effects. The outcome of interest is the
+residual variance (measured as standard deviation and 90th-to-10th percentile
+gap) after absorbing each specification:
+
+```
+Rate_{ilt} = beta * X_{ilt} + FE_set + epsilon_{ilt}
+
+FE_set escalates across columns:
+  col (1): Lock Date x MSA F.E.
+  col (2): + FICO x LTV x Program x Lock Month F.E., ZIP Code F.E.,
+             Discount Points x Program x Lock Month F.E.
+  col (3): + Discount Points x Program x Lock Month F.E. (finer)
+  col (4): + Lender F.E.
+  col (5): + Lender x Lock-Day x Program x LTV x Loan Month F.E.
+  col (6): + Lender x FICO x LTV x Program x Lock Month F.E.
+  col (7): + Branch F.E.
+  col (8): + Branch x Lock Month F.E.
+  col (9): + Loan Officer F.E.
+  col (10): + Loan Officer x Lock Year F.E. x Program
+```
+
+Standard errors are two-way clustered by month and lender. Sample: 2,996,149
+loans locked 2015 to 2019, 30-year fixed-rate, fully documented, owner-
+occupied, single-unit purchase mortgages in 277 MSAs.
+
+**EGain-on-Treasury-yield regression (Table IV, p. 70).** The time-series
+variation in overpayment is estimated as:
+
+```
+EGain_{it} = beta * TreasuryYield_t + gamma * Z_{it}
+             + MSA F.E. + [MSA x Month F.E.] + [Lender-Branch F.E.]
+             + epsilon_{it}
+```
+
+where `TreasuryYield_t` is the daily 10-year Treasury yield at the lock date,
+`Z_{it}` includes FICO, LTV, loan amount controls and a DTI-below-36 dummy,
+and `DTI <= 36` is interacted with Treasury yield to test whether
+affordability-constrained borrowers drive the relationship. Standard errors
+are two-way clustered by month and lender. Sample: 67,241 matched loans.
+
+## Empirical specifications
+
+**EGain cross-section (R1, R2; Table II and III).** Cross-sectional
+differences in EGain by loan program, FICO, and LTV are first shown in
+summary statistics (Table II, p. 66), then confirmed in regressions:
+
+```
+EGain_{it} = beta_1 * I_{FICO_bin} + beta_2 * I_{LTV_bin}
+             + gamma * LoanOfficerComp_{it}
+             + Loan Amount F.E. ($10k bins)
+             + MSA x Month F.E.
+             + [Lender-Branch F.E.]
+             + epsilon_{it}
+```
+
+Omitted FICO category: [640, 660); omitted LTV category: [60, 80].
+Standard errors two-way clustered by month and lender.
+Sample: 67,637 matched loans, 30-year fixed-rate purchase, 20 MSAs, 2016-2019.
+Key coefficients: FICO >= 740 vs [640,660) is -0.097\*\*\* (col 1); adding
+lender-branch FEs reduces but does not eliminate the FICO gradient (Table III).
+
+**EGain and market rates (R3; Table IV, p. 70).** The core specification is:
+
+```
+EGain_{it} = beta * TreasuryYield_t + gamma * Z_{it} + MSA F.E. + epsilon_{it}
+```
+
+with columns progressively adding MSA x Month F.E. and Lender-Branch F.E.
+Key result: a 1 pp rise in Treasury yield reduces EGain by about 5 bp
+(col 1: -0.051\*\*\*); with lender-branch FEs: -0.026\*\* (col 3).
+
+**Rate dispersion (R4; Table V, p. 73).** The 10-spec rate dispersion
+regression described in Method above. Key results: 90-10 gap = 55 bp in
+spec (3) (pure observable controls); = 26 bp in spec (10) after full lender,
+branch, and LO FEs. Same-branch same-day gap (spec 8) = 31 bp.
+
+**Lender expensiveness and profits (R5, R6; Tables VII-VIII).** Lender FEs
+from spec (4) of Table V are the dependent variable in lender-level
+regressions on size quartiles, nonbank indicator, and FHA share (Table VII,
+p. 79). Lender expensiveness is then regressed on income/expense line items
+from MCR filings in median regressions with year-quarter FEs (Table VIII, p. 81):
+
+```
+FinancialOutcome_l = beta * LenderExpensiveness_l + year-quarter F.E. + epsilon_l
+```
+
+Key: 1 pp higher rate corresponds to $4.05\*\*\* extra gross income and
+$3.50\*\*\* extra gross expenses per $100 originated; net income rises
+$0.45\*\* (residential originations, precorporate).
+
+**Service quality (R7; eq. 2, Table IX, p. 84).** NSMO borrower survey
+outcomes are regressed on contracted rate, with rich controls:
+
+```
+Y_{ijtw} = beta * Rate_i + Gamma * Z_{ij} + alpha_t + delta_w + epsilon_{ijtw}
+```
+
+where `Y` is a binary satisfaction/delay indicator, `Rate_i` is the
+contracted mortgage rate, `Z_{ij}` includes credit-score and LTV flexible
+controls, county FEs, program indicators, income/employment/wealth/race/
+ethnicity controls, and likelihood-of-moving controls; `alpha_t` are
+origination-month FEs, `delta_w` are survey-wave FEs. Robust standard
+errors. Sample: 22,567 NSMO mortgages, 2013-2019.
+
+**Borrower sophistication and rates (R8; eq. 3, Table X, p. 86).** NSMO
+contracted rates are regressed on a sophistication index and market
+concentration:
+
+```
+Rate_{ijtw} = beta * X_i + Gamma * Z_{ij} + alpha_t + delta_w + epsilon_{ijtw}
+```
+
+where `X_i` is either (col 1) individual shopping/knowledge binary indicators
+or (col 2) a composite Sophistication Index (sum of six shopping/knowledge
+dummies divided by 6, range 0-1), and (col 3) Sophistication Index plus
+`County HHI (last year)` and their interaction. `Z_{ij}`, `alpha_t`,
+`delta_w` are the same rich controls as eq. (2). Standard errors: robust.
+Sample: 22,567 (cols 1-2), 22,563 (col 3). Key results: Sophistication
+Index coef = -0.226\*\*\* (col 2); HHI x Sophistication interaction =
++0.050\*\* (col 3), meaning lower concentration primarily benefits
+sophisticated borrowers.
 
 ## When to read the full paper
 

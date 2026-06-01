@@ -13,6 +13,9 @@ sidebar:
 tags: [paper-summary, corporate-investment, uncertainty, supply-chains, real-options, production-networks, macro, panel-regression, peer-reviewed, unreplicated, data:wrds, data:factset-revere, data:bea-io, data:compustat-segments, data:nber-ces, data:fred]
 paper:
   authors: Fotis Grigoris, Gill Segal
+  authorList:
+    - { family: Grigoris, given: Fotis, affiliation: "Tippie College of Business, University of Iowa" }
+    - { family: Segal, given: Gill, affiliation: "Kenan-Flagler Business School, University of North Carolina at Chapel Hill" }
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 413–457
   venueShort: J. Finance 2026
@@ -23,6 +26,36 @@ paper:
   machineAccess: 'blocked-paywall (Wiley site; checked 2026-05-31)'
   redistribution: extract-only
   resultsCount: 9
+  topics: ['Capital Investment and Risk Analysis', 'Market Dynamics and Volatility', 'Innovation and Knowledge Management']
+  dataAccess: licensed-commercial
+  outcome:
+    - firm investment rate
+    - employment and working capital growth
+    - aggregate GDP, consumption, and investment growth
+  methods:
+    role: both
+    contributes: upstream-downstream-uncertainty
+    family: structural
+    buildsFrom: [real-options, value-function-iteration, panel-regression, smooth-local-projections]
+  scope:
+    region: US
+    assetClass: US equities (CRSP/Compustat non-financial, non-utility firms)
+    period: 1976-01..2019-12
+    frequency: mixed
+  relatesTo:
+    - { cite: 'Bloom (2009)', relation: builds-on, note: 'canonical bad-news-principle channel that upstream uncertainty operates through; the paper decomposes total uncertainty into upstream vs. downstream components' }
+    - { cite: 'Bernanke (1983)', relation: builds-on, note: 'bad news principle that motivates why upstream uncertainty delays investment unambiguously' }
+    - { cite: 'Majd and Pindyck (1987)', relation: extends, note: 'time-to-build real-option model extended to stochastic volatility and supply-chain location of uncertainty' }
+    - { cite: 'Alfaro, Bloom, and Lin (2024)', relation: builds-on, note: 'IV strategy for supply-chain uncertainty used in robustness section (§III.F / §VIII.D of Internet Appendix)' }
+    - { cite: 'Acemoglu, Akcigit, and Kerr (2016)', relation: tests, note: 'production-network propagation of shocks; paper tests analogous channels for second-moment (uncertainty) shocks' }
+    - { cite: 'Barnichon and Brownlees (2019)', relation: builds-on, note: 'smooth local projections (SLPs) used for macrolevel impulse response estimation (eq. 13)' }
+    - { cite: 'Antras and Chor (2018)', relation: builds-on, note: 'upstreamness measure from BEA I-O tables used to construct macrolevel upstream-downstream industry classification (eq. 12)' }
+  openQuestions:
+    - 'The paper leaves the theoretical exploration of policies that increase time-to-market entry (e.g., more trials and testing) for future research, noting they may promote investment if downstream uncertainty is dominant (p. 454).'
+    - 'The causal interpretation of the downstream-investment relation is suggestive; the paper notes that if the relation is noncausal, its sign still contrasts with the typical negative uncertainty-growth association (p. 416, fn. 3).'
+    - 'The macrolevel analysis uses aggregate proxies for upstream and downstream uncertainty; extending the decomposition to other countries or asset classes is not explored (pp. 444-454).'
+  replicationCode:
+    status: available
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -32,6 +65,34 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; R4 magnitude range corrected from "0.05-0.06 (t=3.24-4.60)" to "0.03-0.06 (t=3.15-4.60)" to include Panel B sector-proxy columns of Table V; all other eight rows confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: >-
+        Augment pass. Added methods, scope, relatesTo, openQuestions,
+        replicationCode, and proposedVocab frontmatter from PDF read this
+        session. Replaced the old Theory tested section with three formal body
+        sections (Theory / model, Method, Empirical specifications) with
+        equations transcribed from pp. 421-424 and 437-447 of the source PDF.
+        Core results table and licenceVerification are unchanged from the
+        verified pass above. New formal sections are extracted, not yet
+        re-verified.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: >-
+        All nine result rows re-checked term-by-term against source PDF; R1
+        (Table III col. 4: -0.03, t=-2.80), R2 (col. 6: +0.03, t=3.15), R3
+        (Table IV all panels), R4 (Table V: Long coef 0.03-0.06,
+        t=3.15-4.60, prior fix confirmed correct), R5 (Table VI col. 2:
+        LowReverse -0.05 t=-3.31, HighReverse -0.03 t=-1.42), R6 (col. 4:
+        HighReverse +0.05 t=3.60, LowReverse +0.02 t=1.32), R7 (Figure 6
+        p. 448: IP and GDP -0.15 SD, consumption and investment -0.10 SD),
+        R8 (Figure 7 p. 449: all four macro variables +0.10 SD, PD ratio
+        ~12 quarters, upstream 50% larger), R9 (Figure 9 / p. 453: orthogonal
+        downstream spike March 2020) all confirmed correct. Frontmatter
+        authors/year/venue/DOI/resultsCount confirmed. No em-dashes or
+        colorful adjectives found. No corrections needed.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70010
       checked: 2026-05-31
@@ -99,30 +160,76 @@ investment, not from the magnitude of uncertainty.
 Sample: firm-year panel 1976-2019; ~17,000-50,786 observations depending on
 specification (Table III). Macrolevel analysis: 1976Q1-2019Q4.
 
-## Theory tested
+## Theory / model
 
-**Production-based real-option model with time-to-build (Section II, pp.
-421-434).** The focal firm holds a growth option to expand capacity. The
-key structural feature is time-to-build: the firm pays input costs at time
-0 but receives output revenues only after H periods. This creates an
-asymmetry between upstream uncertainty (input price uncertainty, affecting
-the short run) and downstream uncertainty (output price uncertainty,
-affecting the longer run after the build-up stage concludes).
+The paper builds a production-based real-option model with time-to-build
+(Section II, pp. 421-434). The focal firm has assets-in-place (installed
+capacity `k_t`, depreciating at rate `delta`) and a growth option to expand.
+Operating cash flow per period (eq. 1, p. 421):
 
-Mechanism:
+```
+pi_t = P_t^Out * k_t^alpha - omega * k_t - P_t^In * delta * k_t
+```
 
-- Both uncertainties increase the option value of waiting (bad news
-  principle, Bernanke 1983): higher upstream or downstream uncertainty
-  implies more extreme future input or output prices, making it worth
-  waiting to learn.
-- Only downstream uncertainty also increases the opportunity cost of
-  waiting. During time-to-build, forgone revenues are a convex function of
-  the future output price (because the firm can disinvest if output price
-  falls). This convexity grows with downstream uncertainty, raising the
-  cost of delay (good news principle).
-- Net effect: upstream uncertainty unambiguously delays investment;
-  downstream uncertainty has an ambiguous and potentially positive effect
-  that is increasing in the length of the time-to-build period.
+where `P_t^Out` is the stochastic output price, `P_t^In` is the stochastic
+input price, `alpha in (0,1)` is returns to scale, and `omega` is a
+proportional operating cost. The last term captures maintenance (replacing
+depreciated inputs purchased at the current input price).
+
+Both input and output log-prices follow mean-reverting stochastic volatility
+processes (eqs. 2-3, p. 422). For `j in {In, Out}`:
+
+```
+p^j_{t+1} = rho_p * p^j_t + sigma_p * exp(sigma^j_t / 2) * epsilon^j_{t+1}
+sigma^j_{t+1} = rho_sigma * sigma^j_t + sigma_w * eta^j_{t+1}
+```
+
+where `p^j_t = log(P^j_t)`, innovations `epsilon` and `eta` are i.i.d.
+standard normal. The parameter `rho_p` governs price persistence; `rho_sigma`
+governs volatility persistence; `sigma_w` governs the volatility of volatility.
+
+The firm's recursive Bellman equation (eq. 4, p. 422), choosing future
+capacity `k'` to maximize cum-dividend value `V(k, Gamma)`, where
+`Gamma = [p^In, sigma^In, p^Out, sigma^Out]`:
+
+```
+V(k, Gamma) = max_{k'} { pi(k, Gamma) + Phi(k, k') +
+  max[ P^In(k - k'),                    (if k' <= k, Contraction)
+       -f * k - P^In * w_1(k' - k) + beta * E[V^Build(k, k', Gamma, H-1)] ]
+                                          (if k' > k, Expansion) }
+```
+
+where `f` is the fixed cost of expansion, `w_1` is the fraction of excess
+capacity purchased in period 1 of time-to-build, and `V^Build` (eq. 5,
+p. 423) is the firm's continuation value during the build-up stage.
+
+The price of the focal firm's input equals the output price of its supplier
+`s`, and its output price equals the input price of its customer `c`
+(eq. 8, p. 424):
+
+```
+P_t^In = P_t^{s,Out}   and   P_t^Out = P_t^{c,In}
+```
+
+This links the focal firm's input and output price uncertainty to its
+trading partners' fundamentals. The observable proxy for each uncertainty
+type is the realized stock return volatility of the supplier (customer)
+over a rolling window (eq. 9, p. 424):
+
+```
+sigma_t^Upstream   = Std(R^s_{t-W}, ..., R^s_t)
+sigma_t^Downstream = Std(R^c_{t-W}, ..., R^c_t)
+```
+
+**Key asymmetry (pp. 428-431).** Both uncertainties increase the option
+value of waiting (bad news principle, Bernanke 1983). Only downstream
+uncertainty also raises the opportunity cost of waiting: during
+time-to-build, forgone revenues are a convex function of the future output
+price (the firm can disinvest if the price falls), so higher downstream
+uncertainty raises the cost of delay. Upstream uncertainty is unaffected
+because all input purchases are made up front. Net result: upstream
+uncertainty unambiguously suppresses investment; downstream uncertainty can
+hasten investment when the time-to-build period is sufficiently long.
 
 Four testable hypotheses (§II.C.4, p. 434):
 
@@ -132,14 +239,93 @@ Four testable hypotheses (§II.C.4, p. 434):
 4. Harder-to-abandon firms show a more negative (less positive) upstream
    (downstream) effect.
 
-All four are confirmed empirically.
+## Method
 
-Identification: panel regressions with firm and year fixed effects plus
-controls for firm's own uncertainty. Robustness includes option-implied
-volatility, idiosyncratic volatility, sales-weighted uncertainty measures,
-industry-time FE, and an IV approach following Alfaro et al. (2024).
-Macrolevel evidence uses smooth local projections (SLPs, Barnichon and
-Brownlees 2019) with 1976Q1-2019Q4 data.
+**Model solution.** The model is solved numerically by value function
+iteration (Section II.B, p. 425). Gaussian autoregressive processes are
+discretized using a Tauchen (1986) variant that allows time-varying
+conditional volatility, similar to Alfaro et al. (2024). The state space
+uses a refined, endogenous grid for capital centered around the stochastic
+steady state, with a dense grid near the free boundaries where the growth
+option is exercised. The model is calibrated at the quarterly frequency
+(Table I, p. 425); key parameters: `alpha = 0.40`, `beta = 0.997`,
+`delta = 0.025`, `f = 0.020`, `rho_p = 0.950`, `sigma_p = 0.200`.
+Model-implied moments (Table II, p. 426) match sigma(I/K) = 0.165 and
+skewness = 0.626 in the data within the 95% confidence interval.
+
+This builds on `real-options` and `value-function-iteration`; the macrolevel
+evidence builds on `smooth-local-projections`.
+
+**Uncertainty measures.** Upstream (downstream) uncertainty is the
+equal-weighted average realized daily stock return volatility of
+the firm's suppliers (customers), computed over the prior calendar year
+using CRSP daily data. Firm-level supplier-customer networks are identified
+from Compustat Segments (1976-2002) and FactSet Revere (2003-2019), merged
+to maximize coverage.
+
+## Empirical specifications
+
+All firm-level regressions (Section III, pp. 434-443) are estimated on a
+firm-year panel of CRSP/Compustat firms (NYSE, AMEX, NASDAQ, excl.
+financials SIC 6000-6999 and utilities SIC 4900-4999), 1976-2019.
+Standard errors are clustered at the firm level. Each independent variable
+is scaled by its unconditional standard deviation.
+
+**Baseline investment regression (eq. 10, p. 437; R1-R3):**
+
+```
+y_{i,t} = alpha_i + delta_t + beta_1 * sigma(Own)_{i,t}
+          + beta_2 * sigma(SupplyChain)_{i,t} + gamma' * Z_{i,t} + epsilon_{i,t}
+where sigma(SupplyChain) in { sigma(Upstream), sigma(Downstream) }
+```
+
+`y_{i,t}` is the investment rate (I/K) of firm `i` at time `t`, measured
+from the most recent annual report as of June `t`. `alpha_i` = firm fixed
+effects; `delta_t` = year fixed effects. `sigma(Own)_{i,t}` is the firm's
+own stock return volatility. `Z_{i,t}` includes firm size, leverage,
+tangibility, Tobin's q, profitability, and past returns (Leary and Roberts
+2014). The same equation with `y` replaced by working capital growth,
+employment growth, COGS growth, or intangibles growth gives Table IV results
+(R3). OLS, firm + year FE; ~17,456-50,786 observations (Table III, p. 438).
+
+**Time-to-build heterogeneity regression (eq. 11, p. 440; R4):**
+
+```
+y_{i,t} = alpha_i + delta_t + beta_1 * sigma(Own)_{i,t}
+          + beta_2 * sigma(Downstream)_{i,t} x I[Long]_{i,t}
+          + beta_3 * sigma(Downstream)_{i,t} x I[Short]_{i,t}
+          + gamma' * Z_{i,t} + epsilon_{i,t}
+```
+
+`I[Long]` and `I[Short]` are indicator variables for long and short
+time-to-build firms. Three proxies: (i) inverse depreciation rate,
+(ii) sector (nondurables/services = short; investment goods/durables = long,
+Gomes et al. 2009), (iii) R&D intensity. The null `H0: beta_2 = beta_3`
+(Wald test) is rejected at 10% in all specifications (Table V, p. 442).
+The same interaction structure is used to test reversibility heterogeneity
+(Table VI, p. 443), replacing `I[Long]` with `HighReverse` / `LowReverse`
+(Kim and Kung 2017 capital redeployability measure).
+
+**Macrolevel impulse responses (eq. 13, p. 447; R7-R8):** Smooth local
+projections (SLPs, Barnichon and Brownlees 2019) estimated for forecast
+horizons `h in {1, ..., H}` quarters:
+
+```
+y_{t+h} = beta_{0(h)} + beta_{1(h)} * y_t + beta_{2(h)} * sigma_{U,t}
+           + beta_{3(h)} * sigma_{D,t} + sum_{p=1}^{P} gamma'_{p(h)} * Gamma_{t-p}
+           + epsilon_{t+h}
+```
+
+`y_{t+h}` is one of: quarterly real growth rates of industrial production,
+consumption, private investment, GDP, and the level of market price-dividend
+ratio and risk-free rate. `sigma_{U,t}` (`sigma_{D,t}`) is macrolevel
+upstream (downstream) uncertainty, constructed as the value-weighted average
+realized volatility of firms classified in the top (bottom) 10th percentile
+of the industry upstreamness score (eq. 12, BEA I-O tables). `Gamma_{t-p}`
+includes the dependent variable, both macrolevel uncertainties, excess market
+return, term spread, default spread, and inflation. `P = 4` lags;
+1976Q1-2019Q4 quarterly data. All variables standardized. IRFs plotted with
+90% confidence intervals (Figures 6-7, pp. 448-449).
 
 ## When to read the full paper
 

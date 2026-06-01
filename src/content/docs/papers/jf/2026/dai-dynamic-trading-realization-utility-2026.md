@@ -6,13 +6,17 @@ description: >-
   sufficient, and sell losing stocks after a price rebound when savings are
   low; leverage strengthens the disposition effect while leverage constraints
   mitigate it. J. Finance 2026, paywalled. Seven core results with source
-  locators, the structural model described, and datasets (none: theory paper).
+  locators, the structural model with its equations, and the solution method.
 sidebar:
   label: Dai-Qin-Wang 2026
   order: 1
 tags: [paper-summary, asset-pricing, disposition-effect, behavioral-finance, realization-utility, prospect-theory, portfolio-choice, structural-model, peer-reviewed, unreplicated]
 paper:
   authors: Min Dai, Cong Qin, Neng Wang
+  authorList:
+    - { family: Dai, given: Min, affiliation: "School of Accounting and Finance (Faculty of Business) and Department of Applied Mathematics (Faculty of Computer and Mathematical Sciences), The Hong Kong Polytechnic University" }
+    - { family: Qin, given: Cong, affiliation: "School of Finance, Shanghai University of Finance and Economics" }
+    - { family: Wang, given: Neng, affiliation: "Cheung Kong Graduate School of Business" }
   year: 2026
   venue: The Journal of Finance 81(1), February 2026, 189–238
   venueShort: J. Finance 2026
@@ -23,6 +27,29 @@ paper:
   machineAccess: 'blocked-paywall (Wiley/J. Finance site; confirmed via Crossref metadata 2026-05-31)'
   redistribution: extract-only
   resultsCount: 7
+  topics: ['Financial Markets and Investment Strategies', 'Decision-Making and Behavioral Economics', 'Financial Literacy, Pension, Retirement Analysis']
+  dataAccess: public
+  outcome:
+    - optimal loss-realization timing under saving and leverage
+    - disposition effect strength
+    - stock allocation (saving vs. leverage fraction)
+  methods:
+    role: theory
+    contributes: realization-utility-saving-leverage
+    family: structural
+    buildsFrom: [hjb-optimal-stopping, impulse-control, realization-utility]
+  scope:
+    region: theoretical (calibrated to US equity parameters)
+    assetClass: individual equities (single stock plus risk-free asset)
+  relatesTo:
+    - { cite: 'Barberis and Xiong (2012)', relation: extends, note: 'adds saving/leverage intensive margin and jump risk to the piecewise-linear realization-utility framework; no-voluntary-loss result of BX (2012) continues to hold in the extended model (Prop. 1, p. 216)' }
+    - { cite: 'Ingersoll and Jin (2013)', relation: extends, note: 'adds intensive margin (w != 0) and downward jumps to the S-shaped CPT realization-utility framework; baseline diffusion parameters match IJ (2013) for comparison (Table II, p. 205)' }
+    - { cite: 'He and Yang (2019)', relation: builds-on, note: 'builds on their four-region characterization of S-shaped realization-utility models; shows the deep-loss holding region is unreachable in diffusion models but reachable with jumps (p. 195, Table I)' }
+    - { cite: 'An et al. (2024)', relation: tests, note: "model's deep-loss realization prediction is broadly consistent with the portfolio-driven disposition effect they document (pp. 193, 213, 218)" }
+    - { cite: 'Heimer and Imas (2022)', relation: tests, note: "leverage-strengthens-disposition-effect and leverage-constraints-mitigate-it predictions are consistent with their empirical findings (pp. 192, 209-210)" }
+  openQuestions:
+    - 'The investor holds or trades a single stock each period; extending to multiple risky assets requires solving a multidimensional stochastic control problem (noted as technically challenging future research, p. 218).'
+    - 'Probability weighting (another key feature of CPT beyond the utility specification) is omitted from the realization-utility formulation; its quantitative importance is acknowledged in fn. 15, p. 200.'
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -32,6 +59,22 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; all seven rows confirmed correct; figures, thresholds, and quantitative values match the PDF exactly, no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: >-
+        Augment pass. Added methods, scope, relatesTo, openQuestions, and
+        proposedVocab frontmatter blocks, and replaced the old ## Theory tested
+        section with three formal body sections (Theory / model, Method,
+        Empirical specifications) with equations transcribed from the source
+        PDF read this session (eqs. 1-31, pp. 198-212, Appendix A eqs. A.1-A.5,
+        Appendix B eqs. B.1-B.9). Core results table and provenance are
+        unchanged from the verified version above. The new formal sections are
+        extracted, not yet re-verified.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: 'All seven Core result rows re-checked against the PDF and confirmed correct. All equations (eqs. 1-31, A.1-A.5, B.1-B.10) verified term-by-term; one locator fix applied: the scaled variational inequality in the Method section was mislabelled (A.1) but is eq. (A.4) in the PDF; corrected in place. No other errors found.'
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13472
       checked: 2026-05-31
@@ -84,6 +127,230 @@ retail investor behavior. Quantitatively, the option to save in the risk-free
 asset is worth over 20% of the investor's total trading budget in calibrated
 diffusion models.
 
+## Theory / model
+
+**Two-layered mental accounts.** The investor has a trading account with budget
+`Pi_t > 0` at time `t`, used solely for realization-utility optimization.
+At each trade he allocates a fraction to a risky stock and saves the rest in
+the risk-free asset (the intensive margin `w`). Prior models (BX 2012, IJ 2013,
+HY 2019) force `w = 0` at all times; here `w` is a choice variable.
+
+**State variables and dynamics.** Three state variables: risk-free wealth
+`W_t`, risky wealth `X_t`, and reference level `B_t` (eq. 1, p. 198):
+
+```
+dP_{n,t} / P_{n,t} = mu dt + sigma dZ_{n,t},    t > 0            (1)
+```
+
+Between two consecutive trading times `(tau_i, tau_{i+1})`, risky wealth
+follows the same GBM (eq. 2, p. 198):
+
+```
+dX_t = mu X_t dt + sigma X_t dZ_{n,t},    t in (tau_i, tau_{i+1})     (2)
+dW_t = r W_t dt,                            t in (tau_i, tau_{i+1})     (3)
+```
+
+The mental budget at `t` is (eq. 4, p. 198):
+
+```
+Pi_t = W_t + (1 - theta_s) X_t                                          (4)
+```
+
+where `theta_s` is the proportional sale cost. Post-purchase wealth satisfies
+(eq. 5, p. 199):
+
+```
+W_{tau_i+} = Pi_{tau_i} - (1 + theta_p) X_{tau_i+}                     (5)
+```
+
+The leverage constraint (eq. 6, p. 199):
+
+```
+X_t >= -W_t / kappa,    where 0 < kappa < 1 - theta_s                   (6)
+```
+
+**Reference level and realization utility.** The reference level grows at the
+risk-free rate (eq. 7-8, p. 199):
+
+```
+dB_t = r B_t dt    for t in (tau_i, tau_{i+1})                          (7)
+B_{tau_i+} = X_{tau_i+}                                                  (8)
+```
+
+Realized gain (loss) at `tau_i` is (eq. 9-10, p. 199-200):
+
+```
+G_{tau_i} = (1 - theta_s) X_{tau_i} - B_{tau_i}                        (9)
+g_{tau_i} = G_{tau_i} / B_{tau_i}                                       (10)
+```
+
+Utility burst (eq. 11, p. 200):
+
+```
+U(G, B) = B^beta u(G/B) = B^beta u(g)                                  (11)
+```
+
+The scaled utility function is S-shaped CPT (eq. 12, p. 200):
+
+```
+u(g) = g^{alpha_+}           if g >= 0
+       -lambda (-g)^{alpha_-} if g < 0                                  (12)
+```
+
+with `lambda >= 1` (loss aversion), `alpha_+, alpha_- in (0, 1]`
+(diminishing sensitivity), and `beta <= min{alpha_+, alpha_-}` (eq. 13,
+p. 200) to ensure `|U(G,B)|` decreases in `B` for fixed `G`.
+
+**Optimization problem.** The investor chooses trading times
+`{tau_i >= t}` and stock allocations `X_{tau_i+}` to maximize
+(eq. 14, p. 201):
+
+```
+max  E_t [ sum_{i=1}^inf  e^{-delta(tau_i - t)} U(G_{tau_i}, B_{tau_i}) 1_{tau_i < tau_L}
+                         + e^{-delta(tau_L - t)} U(G_{tau_L}, B_{tau_L}) ]   (14)
+```
+
+subject to the leverage constraint (6) and dynamics (2), (3), (5), (7), (8),
+where `delta > 0` is the subjective discount rate and `tau_L` is the
+liquidity-shock arrival time (exogenous Poisson with rate `xi`).
+
+**Baseline calibration** (Table II, p. 205): `alpha_+ = alpha_- = 0.5`,
+`lambda = 1.5`, `beta = 0.3`, `r = 3%`, `delta = 5%`, `mu = 9%`,
+`sigma = 30%`, `theta_s = theta_p = 1%`, `kappa = 0.79`, `xi = 0`.
+
+**Jump-diffusion extension** (Section IV, p. 211-216): stock prices follow
+(eq. 29, p. 212):
+
+```
+dP_{n,t} / P_{n,t-} = mu dt + sigma dZ_{n,t} - (1 - Y) dJ_{n,t},    P_0 > 0    (29)
+```
+
+where `J_n` is a Poisson process with arrival rate `rho = 0.73/year` and
+jump size `Y in [0,1]` drawn from cdf `Omega(Y) = Y^psi` with `psi = 6.3`,
+implying expected price drop `E[1-Y] = 1/(psi+1) = 14%` per jump. In
+scaled variables (eq. 30, p. 212):
+
+```
+dx_t / x_{t-} = (mu - r) dt + sigma dZ_{n,t} - (1 - Y) dJ_{n,t}      (30)
+```
+
+## Method
+
+**Homogeneity reduction.** Using the homogeneity of the value function
+`V(W,X,B) = B^beta v(w,x)` and payoff function `F(W,X,B) = B^beta f(w,x)`
+(p. 202), the three-state problem reduces to a two-state scaled problem
+with scaled variables (eq. 19, p. 203):
+
+```
+w_t = W_t / B_t    and    x_t = X_t / B_t                              (19)
+```
+
+Since `w_t` is constant between trades (`dw_t = 0`, eq. 21, p. 203), the
+investor optimally picks a constant target ratio `w^*` at each trade. The
+scaled value with budget one is (eq. 24-25, p. 203):
+
+```
+v-hat = max_{w >= -kappa} m(w)                                          (24)
+m(w) = (1 / (w + 1 + theta_p))^beta v(w, 1)                            (25)
+```
+
+The simplified scaled optimization problem is (eq. 22, p. 203):
+
+```
+v(w_t, x_t) = max_tau E_t [ e^{-delta_e(tau-t)} f(w_tau, x_tau) 1_{tau<tau_L}
+                            + e^{-delta_e(tau_L-t)} u((1-theta_s)x_{tau_L} - 1) ]    (22)
+```
+
+where `delta_e = delta - beta r` is the effective discount rate and
+`f(w, x) = u((1-theta_s)x - 1) + [(1-theta_s)x + w]^beta v-hat` (eq. 23,
+p. 203).
+
+**HJB / variational inequality.** In the holding domain the scaled value
+satisfies (eq. 26, p. 204 for the diffusion model; eq. 31, p. 212 for
+jump-diffusion):
+
+```
+Diffusion HJB (eq. 26, p. 204):
+  delta_e v(w,x) = (1/2) sigma^2 x^2 v_{xx} + (mu-r) x v_x
+                  + xi [u((1-theta_s)x - 1) - v(w,x)]
+
+Jump-diffusion HJB (eq. 31, p. 212):
+  delta_e v(w,x) = (sigma^2 x^2 / 2) v_{xx} + (mu-r) x v_x
+                  + rho (E[v(w, Yx)] - v(w,x))
+```
+
+The full variational inequality (Appendix A, pp. 218-219). The unscaled form is (A.1); after applying the homogeneity reduction the scaled variational inequality is (A.4):
+
+```
+max { Lv(w,x),  f(w,x) - v(w,x) } = 0                                 (A.4)
+
+Lv = (1/2) sigma^2 x^2 v_{xx} + (mu-r) x v_x - delta_e v
+     + xi [u((1-theta_s)x - 1) - v]                                    (A.5)
+```
+
+When the leverage constraint (6) binds (`w = -kappa x`):
+`v(w,x) = f(w,x)` (eq. A.3, p. 219).
+
+**Closed-form solution (diffusion, no liquidity shocks).** In the holding
+region, the value function has the form (Appendix B, eq. B.1, p. 222):
+
+```
+v(w,x) = C_1(w) x^{eta_1} + C_2(w) x^{eta_2}                         (B.1)
+```
+
+where `eta_1 > 0` and `eta_2 < 0` are the two roots of the fundamental
+quadratic (eq. B.2, p. 222):
+
+```
+h(eta) = (sigma^2/2) eta(eta - 1) + (mu-r) eta - delta_e = 0          (B.2)
+```
+
+The optimal `w^*` is found by (eq. B.4, p. 222):
+
+```
+w^* = argmax_{w >= -kappa} [C_1(w) + C_2(w)] / [w + (1 + theta_p)]^beta    (B.4)
+```
+
+Value-matching and smooth-pasting conditions at the two boundaries
+`x-bar(w)` (gain) and `x*(w)` (loss) give a system of four equations
+(B.5)-(B.8) jointly with the FOC (B.9), p. 223.
+
+For the **jump-diffusion model**, the variational inequality (B.10, p. 225):
+
+```
+max { L^J v(w,x),  f(w,x) - v(w,x) } = 0    for x >= 0, w >= 0       (B.10)
+```
+
+is solved numerically via a penalty method (Appendix B.3).
+
+## Empirical specifications
+
+This is a purely theoretical paper. There are no regression equations,
+no portfolio sorts, and no empirical datasets used. All quantitative results
+derive from numerical solution of the variational inequality or its
+closed-form analogue under the baseline and jump-diffusion calibrations.
+
+**Calibration targets** (Table II, p. 205 and §IV parameter choices,
+p. 213):
+
+- `alpha_+ = alpha_- = 0.5`, `lambda = 1.5`, `beta = 0.3` match the CPT
+  parameter values in IJ (2013), enabling direct comparison.
+- `mu = 9%`, `r = 3%` target a 6% risk premium consistent with U.S. equity
+  estimates (Hansen and Singleton 1982; Mehra and Prescott 1985).
+- `kappa = 0.79` targets an 80% maximum loan-to-value ratio.
+- Jump parameters `rho = 0.73/year`, `psi = 6.3` (implying 14% expected
+  price drop per jump) follow Barro and Jin (2011) and the rare-disaster
+  literature.
+
+**Comparative statics** are conducted by varying one parameter at a time
+(Figures 2-9, pp. 205-217): `sigma` from 10% to 50% (Fig. 6); `kappa` from
+0.79 to 0.59 (Fig. 5); `sigma` from 30% (Case A) to 24% (Case B) in the
+jump-diffusion extension (Figs. 7-8).
+
+Model predictions are discussed qualitatively against empirical findings in
+Barber et al. (2019), Heimer and Imas (2022), An et al. (2024), and
+Hartzmark (2015) but the paper does not run statistical tests against data.
+
 ## Datasets used
 
 This paper is purely theoretical. No empirical dataset is used; all results
@@ -92,35 +359,7 @@ apply.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| None | Theory and calibration only; parameter values (λ, μ, σ, r, etc.) are taken from prior literature (Andersen et al. 2022, standard equity-premium estimates) | N/A |
-
-## Theory tested
-
-**Structural realization-utility model (original).** The paper builds on and
-extends:
-- Barberis and Xiong (2012): piecewise-linear realization utility, no saving or leverage.
-- Ingersoll and Jin (2013): S-shaped (CPT) realization utility, no saving or leverage.
-- He and Yang (2019): S-shaped utility with terminal expected utility and adaptive reference point, no saving or leverage.
-
-**New features:**
-1. Two-layered mental accounts: a stock-level account for each utility burst
-   and a dynamic trading-account budget (Π_t) that evolves across episodes.
-2. The investor can save a fraction of his budget in the risk-free asset
-   (intensive margin: w\* > 0) or use leverage (w\* < 0).
-3. Stock prices follow a jump-diffusion process (downward jumps with Poisson
-   arrival rate ρ = 0.73/year, expected drop 14%).
-
-**Identification / solution method:** Hamilton-Jacobi-Bellman (HJB) equation
-and variational inequality (impulse-control / optimal-stopping problem).
-Homogeneity of the value function in the reference level B reduces the state
-space to two scaled variables (x = X/B, w = W/B). Closed-form solutions exist
-for the diffusion model without liquidity shocks; the jump-diffusion model is
-solved numerically via a penalty-method iteration.
-
-**Predictions tested against:** The model's predictions are compared
-qualitatively with empirical findings in Barber et al. (2019), Heimer and Imas
-(2022), An et al. (2024), and Hartzmark (2015). The paper is not an empirical
-study; it does not run regressions or portfolio sorts.
+| None | Theory and calibration only; parameter values (lambda, mu, sigma, r, etc.) are taken from prior literature (Andersen et al. 2022, standard equity-premium estimates) | N/A |
 
 ## When to read the full paper
 

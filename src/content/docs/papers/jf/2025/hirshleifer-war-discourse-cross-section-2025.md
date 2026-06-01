@@ -5,13 +5,17 @@ description: >-
   articles via semisupervised topic modelling predicts the cross section of stock
   returns with a significant, negative return premium across six broad sets of test
   assets. J. Finance 2025, paywalled. Eight core results with source locators,
-  datasets used, and the theory tested.
+  datasets used, the model, and the method with defining equations.
 sidebar:
   label: Hirshleifer-Mai-Pukthuanthong 2025
   order: 1
-tags: [paper-summary, asset-pricing, anomalies, text-as-data, factors, disaster-risk, return-predictability, panel-regression, portfolio-sort, peer-reviewed, unreplicated, data:nyt-news, data:wrds, data:ken-french, data:open-source-asset-pricing]
+tags: [paper-summary, asset-pricing, anomalies, text-as-data, factors, disaster-risk, return-predictability, fama-macbeth, portfolio-sort, peer-reviewed, unreplicated, data:nyt-news, data:wrds, data:ken-french, data:open-source-asset-pricing]
 paper:
   authors: David Hirshleifer, Dat Mai, Kuntara Pukthuanthong
+  authorList:
+    - { family: Hirshleifer, given: David, affiliation: "Marshall School of Business, University of Southern California" }
+    - { family: Mai, given: Dat, affiliation: "MKT MediaStats, LLC" }
+    - { family: Pukthuanthong, given: Kuntara, affiliation: "Trulaske College of Business, University of Missouri-Columbia" }
   year: 2025
   venue: The Journal of Finance 80(6), December 2025, 3589–3637
   venueShort: J. Finance 2025
@@ -21,7 +25,34 @@ paper:
   access: paywalled
   machineAccess: 'blocked-paywall (Wiley/Crossref vor terms; checked 2026-05-31)'
   redistribution: 'extract-only. © American Finance Association; no CC licence; redistribution not permitted.'
+  dataAccess: licensed-commercial
+  outcome:
+    - cross-sectional stock returns
+    - expected return premium on WarFac betas across test-asset sets
   resultsCount: 8
+  topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Financial Risk and Volatility Modeling']
+  methods:
+    role: both
+    contributes: warfac
+    family: descriptive
+    buildsFrom: [slda-topic-model, fama-macbeth, ar1-innovation]
+  scope:
+    region: US
+    assetClass: US equities
+    period: 1926-07..2018-12
+    frequency: monthly
+  relatesTo:
+    - { cite: 'Hirshleifer, Mai & Pukthuanthong (2025)', relation: extends, note: 'extends the War index used there for aggregate return prediction to cross-sectional pricing (p. 3590)' }
+    - { cite: 'Barro (2006, 2009)', relation: tests, note: 'tests the rare-disaster risk cross-sectional prediction; war-sensitive assets earn lower premia consistent with the model (p. 3601)' }
+    - { cite: 'Manela & Moreira (2017)', relation: contradicts, note: 'NVIX does not command a significant return premium across all six test-asset sets; WarFac is incremental to NVIX (Table IV, p. 3623)' }
+    - { cite: 'Caldara & Iacoviello (2022)', relation: contradicts, note: 'GPR index does not command a significant return premium across all six test-asset sets (Table IV, p. 3623)' }
+    - { cite: 'Berkman, Jacobsen & Lee (2011)', relation: extends, note: 'WarFac provides incremental predictive power beyond CrisisFac for industry portfolios (Table V, p. 3626)' }
+    - { cite: 'Bryzgalova, Huang & Julliard (2023)', relation: tests, note: 'uses their ML-based nonlinear portfolios as test assets; WarFac explains 62% of cross-sectional variance there (Table II Panel D, p. 3617)' }
+  openQuestions:
+    - 'Whether the rational rare-disaster and behavioral-overweighting interpretations can be distinguished; both are observationally consistent with a negative return premium on WarFac (p. 3634).'
+    - 'Whether WarFac + can be reliably separated from WarFac - as distinct economic channels; the paper finds both price assets but with differing coverage across test-asset sets (p. 3633).'
+  replicationCode:
+    status: upon-request
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -31,6 +62,14 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: extracted
+      note: Augment pass. Added methods, scope, relatesTo, openQuestions, replicationCode, proposedVocab frontmatter blocks, and three formal body sections (Theory / model, Method, Empirical specifications) with equations transcribed from pp. 3596-3603, 3625, 3628-3629 of the source PDF read this session. Core results table preserved verbatim from the verified version. New formal sections are extracted, not yet re-verified by paper-verifier.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-01
+      role: verified
+      note: Locators and reported magnitudes re-checked against the source PDF (all 49 pages read); equations 1-9 verified term-by-term against PDF pp. 3602-3603, 3625, 3628-3629; one fix applied - R1 multifactor R² range corrected from 59-77% to 51-77% (PDF p. 3610 gives FF6 59%, M4 65%, DHS 51%, Q5 77%); all other magnitudes, t-stats, and locators confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13482
       checked: 2026-05-31
@@ -66,7 +105,7 @@ Locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | WarFac commands a **significant negative return premium** on 138 HXZ long-short anomaly portfolios | Table I Panel A, Table II Panel A, p. 3607–3611 | λ = -1.33%/mo (t = -2.87\*\*\*) standalone; remains -0.47%\*\* with all FF6+M4+DHS+Q5 factors; R² = 48% as single factor vs 59–77% for multifactor benchmarks |
+| R1 | WarFac commands a **significant negative return premium** on 138 HXZ long-short anomaly portfolios | Table I Panel A, Table II Panel A, p. 3607–3611 | λ = -1.33%/mo (t = -2.87\*\*\*) standalone; remains -0.47%\*\* with all FF6+M4+DHS+Q5 factors; R² = 48% as single factor vs 51–77% for multifactor benchmarks (FF6 59%, M4 65%, DHS 51%, Q5 77%) |
 | R2 | WarFac return premium is **negative and significant for all six sets** of test assets; consistently ranks in the top three among 11 nontraded factors | Table I (all panels), p. 3607–3610 | λ ranges from -0.66%\*\* (HXZ single-sorted, t = -2.25) to -3.32%\*\*\* (ML portfolios, t = -3.42); no other nontraded factor achieves this across all six sets |
 | R3 | WarFac **explains 62% of cross-sectional variance** in ML-based nonlinear portfolio returns as a single factor, outperforming FF6 (41%), M4 (40%), DHS (35%), Q5 (58%) | Table II Panel D, p. 3617–3618 | Single-factor R² = 62%; adding WarFac to FF6 raises R² by 34%; common pricing error falls from 3.3% to near zero |
 | R4 | WarFac return premium is **incremental to traded factors** (WMP, MKT, SMB, HML, RMW, CMA, MOM and mispricing factors); CMA and WarFac are the only factors significant across all six test-asset sets | Table III (all panels), p. 3619–3622 | WarFac: -1.33%\*\*\* to -3.32%\*\*\* depending on test assets; CMA also consistently significant; WMP -2.19%\*\* to -3.32%\*\*\* |
@@ -100,32 +139,151 @@ news rather than opinion articles.
 
 Sample period for asset pricing tests: Jul 1972–Dec 2016 (532 months). *War* index: Jan 1871–Oct 2019.
 
-## Theory tested
+## Theory / model
 
-Two competing (and observationally equivalent) frameworks are tested and
-supported:
+This paper has no original structural model. It tests two competing,
+observationally equivalent theoretical frameworks:
 
 1. **Rational rare-disaster risk** (Barro 2006, 2009; Gourio 2008; Gabaix
-   2012): investors demand a risk premium for bearing war-related disaster
-   risk; assets that pay off when war risk is high (good hedges) command
-   lower expected returns. A negative return premium on WarFac is the
-   prediction.
+   2012, p. 3601): investors demand a risk premium for bearing war-related
+   disaster risk. Assets that pay off when war risk is high are good hedges
+   and therefore command lower expected returns. A negative cross-sectional
+   return premium on WarFac betas is the central prediction.
 
-2. **Behavioral overweighting** (Daniel, Hirshleifer & Sun 2020; cumulative
-   prospect theory): investors overweight the probability of rare disasters
-   such as war, overvaluing stocks that perform well under high war risk,
-   depressing their subsequent returns. A negative return premium follows
-   for the same empirical reasons.
+2. **Behavioral overweighting** (Daniel, Hirshleifer & Subrahmanyam 2001;
+   Tversky & Kahneman 1992 cumulative prospect theory, p. 3601): investors
+   overweight the probability of rare salient disasters such as war,
+   overvaluing stocks that do well under high war risk, so those stocks
+   subsequently earn lower returns. The same negative premium arises for
+   behavioral reasons.
 
-**No original structural model.** The paper is empirical. Identification
-strategy: standard two-pass Fama-MacBeth cross-sectional tests (Cochrane
-2005, ch. 12) with Shanken (1992) corrected standard errors. First pass:
-time-series regressions of individual portfolio excess returns on factors
-to estimate factor loadings; window July 1972 to December 2016 (T = 532
-for WarFac). Second pass: cross-sectional regression of time-series average
-excess returns on loadings to estimate the return premium. Robustness:
-Pukthuanthong et al. (2019) factor-identification protocol (Tables IA.XV,
-IA.XVI) and Giglio-Xiu (2021) three-pass test (Table IA.XVII).
+The paper tests both frameworks by constructing a text-based proxy for
+investor attention to war risk rather than relying on realized war events,
+which have small sample sizes. Identification rests on the rolling-forward
+estimation of the sLDA model and the AR(1) residual (WarFac), which ensures
+only past information is used at each point in time, avoiding look-ahead
+bias (p. 3591).
+
+## Method
+
+The method has two components: (1) constructing the *War* index via
+semisupervised topic modelling (sLDA), and (2) building WarFac as the
+innovation in *War* via a rolling AR(1). It builds on `slda-topic-model`
+and `ar1-innovation`.
+
+**sLDA topic model (pp. 3596-3598).** Each month `t`, the model is estimated
+on all *New York Times* articles in the preceding 120 months (the rolling
+window `[t-119, t]`). Using Gibbs sampling, the model infers, for each
+document `d`, the document-topic distribution `theta_d` (a vector of topic
+probabilities) and, for each topic `k`, the topic-word distribution
+`phi_k` (a vector of word probabilities). The seed word for the War topic
+is *war* (a single word, for parsimony and to avoid researcher discretion
+in seed-word selection). The global monthly weight of topic `k` in month
+`t` is the length-weighted average across all articles `d` in month `t`:
+
+```
+War_t = (1 / sum_d len_d) * sum_d len_d * theta_{d,k=War}
+```
+
+where `len_d` is article length in n-gram count. The rolling window allows
+topic-word distributions `phi_k` to shift with language over time, which
+is essential for a corpus spanning 1871 to 2019 (p. 3597).
+
+**AR(1) innovation (p. 3603, equations 3 and 4).** Following Berkman,
+Jacobsen & Lee (2011), Liu & Matthies (2022), and Giglio & Xiu (2021),
+WarFac is defined as the residual from a rolling AR(1) fit to *War*,
+estimated at each month `t` using data from 1926 to `t` to avoid
+look-ahead bias:
+
+```
+War_t = rho_0 + rho * War_{t-1} + u_t        (eq. 3, p. 3603)
+WarFac_t = u_t                                 (eq. 4, p. 3603)
+```
+
+The AR(1) coefficients `(rho_0, rho)` are re-estimated each month on the
+growing window of available data. Results are robust to using an ARMA(1,1)
+residual or a rolling-regression residual (pp. 3591, 3603 fn. 13).
+
+**War-mimicking portfolio (WMP).** The traded version of WarFac is
+constructed using the cross-sectional approach of Lehmann & Modest (1988):
+the slope from the monthly second-pass cross-sectional regression of
+asset returns on WarFac betas is the monthly WMP return (p. 3627). As a
+robustness check, the time-series approach projects WarFac onto the space
+of excess returns of 360 tree-based portfolios plus basis assets:
+
+```
+WarFac_t = alpha + beta' R^e_t + epsilon_t    (eq. 8, p. 3628)
+WMP_t     = beta_hat' R^e_t                   (eq. 9, p. 3629)
+```
+
+where `R^e` is the vector of excess returns on basis assets and `beta_hat`
+is estimated by OLS on the full sample.
+
+## Empirical specifications
+
+All asset pricing tests use monthly data, July 1972 to December 2016
+(T = 532 months for WarFac; T = 522 for tests including NVIX_War and GPR).
+
+**First pass: factor loadings (eq. 1, p. 3602).** For each test asset
+`i = 1, ..., N`, excess returns are regressed on a vector of factors `F_t`
+in a multivariate time-series regression:
+
+```
+R^e_{it} = alpha_i + beta_{iF}' F_t + epsilon_{it},   i = 1, ..., N    (eq. 1)
+```
+
+The paper reports `avg(|t|)` (average absolute beta t-statistic) and the
+number of assets with `|t| >= 1.65` (the 5% one-sided threshold). This
+first pass is run for each of the six test-asset sets separately.
+
+**Second pass: cross-sectional return premium (eq. 2, p. 3602).** Time-series
+average excess returns are regressed cross-sectionally on the estimated factor
+loadings:
+
+```
+R-bar^e_{i} = lambda_0 + beta_{iF}' lambda_F + e_i                     (eq. 2)
+```
+
+`lambda_F` is the vector of return premium slopes. Standard errors are
+Shanken (1992) corrected. The paper reports `lambda` and its `t`-statistic,
+cross-sectional `R^2 = 1 - sigma^2_e / sigma^2_{mu}`, and mean absolute
+pricing error MAPE = `|e-bar|`. Under rational pricing, `lambda_0 = 0`.
+
+**Industry portfolios: rolling Fama-MacBeth with betas (eqs. 5-6, p. 3625).**
+For the industry pricing tests (§IV.B), betas are estimated over a rolling
+60-month window for excess returns on factor `X` (WarFac, CrisisFac, or
+CWarFac) plus market, size, and value controls:
+
+```
+R^e_{it} = alpha_i + beta_{it} X_t + beta^{MKT}_{it} MKT_t
+           + beta^{SMB}_{it} SMB_t + beta^{HML}_{it} HML_t + epsilon_{it},
+           window: t-59 to t                                             (eq. 5)
+```
+
+Cross-sectional betas are ranked into quintiles each month `t` and rescaled
+to `[0, 1]`. The monthly return premium is estimated by:
+
+```
+R^e_{it} = lambda_{0t} + lambda_t beta_{i,t-1} + lambda^{MKT}_t beta^{MKT}_{i,t-1}
+           + lambda^{SMB}_t beta^{SMB}_{i,t-1} + lambda^{HML}_t beta^{HML}_{i,t-1}
+           + e_{it}                                                      (eq. 6)
+```
+
+Time-series averages of `lambda_t` are reported; statistical significance
+uses Newey-West (1987) standard errors. Sample period for industry tests:
+July 1926 to December 2018 (T = 1,110 months for Panels A and B of
+Table V, p. 3626).
+
+**WMP spanning test (eq. 7, p. 3628).**
+
+```
+WMP_t = alpha + beta' F_t + epsilon_t                                   (eq. 7)
+```
+
+where `F_t` is the vector of benchmark traded factors. Alpha measures
+whether WMP expands the mean-variance frontier. Monthly alpha of WMP
+against all factors combined is approximately 3.10%, significant at the
+1% level (Internet Appendix Table IA.III, p. 3628).
 
 ## When to read the full paper
 

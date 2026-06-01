@@ -5,23 +5,54 @@ description: >-
   with global SDF-spanning pruning to build interpretable cross-sections of stock
   returns that achieve out-of-sample Sharpe ratios up to three times higher than
   conventional double and triple sorts. J. Finance 2025, CC BY 4.0. Eight core
-  results with source locators, datasets used, and the theory tested.
+  results with source locators, datasets used, the model (SDF projection), and the
+  method (AP Trees + AP Pruning) with its defining equations.
 sidebar:
   label: Bryzgalova-Pelger-Zhu 2025
   order: 1
 tags: [paper-summary, asset-pricing, factors, anomalies, cross-section, portfolio-sort, decision-trees, factor-models, machine-learning, open-access, cc-by, peer-reviewed, unreplicated, data:wrds, data:ken-french]
 paper:
   authors: Svetlana Bryzgalova, Markus Pelger, Jason Zhu
+  authorList:
+    - { family: Bryzgalova, given: Svetlana, affiliation: London Business School }
+    - { family: Pelger, given: Markus, affiliation: Stanford University }
+    - { family: Zhu, given: Jason, affiliation: Microsoft }
   year: 2025
   venue: The Journal of Finance 80(5), October 2025, 2447–2506
   venueShort: J. Finance 2025
   licenseShort: CC BY 4.0
   resultsCount: 8
+  topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Corporate Finance and Governance']
+  dataAccess: licensed-commercial
+  outcome:
+    - cross-sectional stock returns
+    - out-of-sample Sharpe ratio of managed portfolios
+    - SDF alpha against leading factor models
   doi: 10.1111/jofi.13477
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-09-02; corroborated by artifact p.2447 Creative Commons Attribution License notice)'
   access: open
   machineAccess: 'blocked-paywall (Wiley site wrapper; not machine-fetched directly; CC-BY VOR licence confirmed in Crossref DOI metadata 2026-05-31)'
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
+  methods:
+    role: proposes-method
+    contributes: ap-trees
+    family: ml
+    buildsFrom: [decision-trees, conditional-sorts, lasso, ridge-shrinkage, sdf-projection, robust-mean-variance-optimization]
+  scope:
+    region: US
+    assetClass: US equities (CRSP/Compustat common stocks)
+    period: 1964-01..2016-12
+    frequency: monthly
+  relatesTo:
+    - { cite: 'Kozak, Nagel & Santosh (2020)', relation: extends, note: 'generalizes their robust SDF recovery by also shrinking the mean, not just the covariance (Prop. 2-3)' }
+    - { cite: 'Fama & French (1993)', relation: contradicts, note: 'standard size/value sorts and their stacked combinations do not span the conditional SDF, so they give a misspecified benchmark' }
+    - { cite: 'Gu, Kelly & Xiu (2020)', relation: tests, note: 'AP Trees beat ML return-prediction portfolios (random forest, neural nets) on out-of-sample Sharpe ratio and SDF alpha' }
+    - { cite: 'Barillas & Shanken (2016)', relation: builds-on, note: 'spanning arguments underlying the omitted-test-asset misspecification bound (Prop. 1)' }
+  openQuestions:
+    - 'Whether the SDF-spanning cross-section generalizes beyond US equities to other asset classes and international markets, where the characteristic structure differs: the construction is presented as general but tested only on US stocks (pp. 2450, 2455).'
+    - 'How much further the construction improves once additional economic constraints (liquidity, market-cap floors, number of test assets, degree of interactions) are imposed, which the paper notes are feasible but does not fully explore (pp. 2452, 2458).'
+  replicationCode:
+    status: available
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13477
       checked: 2026-05-31
@@ -36,13 +67,18 @@ paper:
       date: 2026-05-31
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; verdict pass.
+    - by: paper-distiller (claude-opus-4-8)
+      date: 2026-05-31
+      role: extracted
+      note: 'Pilot reshape to the deepened schema. Added the methods block (role/contributes/family/buildsFrom), scope, relatesTo, openQuestions, proposedVocab, and three formal body sections (Theory / model, Method, Empirical specifications) with equations transcribed from pp. 2455-2468 of the source PDF read this session (SDF projection, eq. 1, Prop. 1, AP-Pruning Def. 1-2 eq. 2, Prop. 2). The Core results table is unchanged from the verified version above. The new formal sections are extracted, not yet re-verified by paper-verifier.'
   rightsSignalConflict: false
 ---
 
-**What this is.** The paper's core results, datasets, and theory: enough
-to know what it found without reading all 60 pages. To replicate or extend
-it, read the full source at the
-[original](https://doi.org/10.1111/jofi.13477).
+**What this is.** The paper's core results, the model it builds on (the SDF
+projected on stock returns), and the method it contributes (AP Trees and AP
+Pruning) with the defining equations: enough to know what it found and how,
+without reading all 60 pages. To replicate or extend it, read the full source
+at the [original](https://doi.org/10.1111/jofi.13477).
 
 ## TL;DR
 
@@ -81,6 +117,141 @@ interpretable, well-diversified cross-section that genuinely spans the
 conditional SDF projected on characteristics, enabling better model
 evaluation and construction of tradable risk factors.
 
+## Theory / model
+
+The economic object is the stochastic discount factor (SDF) that prices
+individual stocks. Under no-arbitrage there is a unique minimum-variance SDF
+spanned by individual stock excess returns. Given a set of firm characteristics
+`C_{t-1}` (an `N x K` matrix for `N` stocks, `K` characteristics) as the
+conditioning information, the conditional SDF is its projection on individual
+stock excess returns `R_t` (p. 2455):
+
+```
+M_t^C = 1 - sum_{i=1}^N b_{t-1,i} ( R_{t,i} - E_{t-1}[R_{t,i}] ),    b_{t-1,i} = f(C_{t-1,i})
+```
+
+with `f(.)` a general, potentially nonlinear and nonseparable function.
+Reduced-form models approximate this dependence with `J` basis functions
+`f_j(.)`, so `f(C_{t-1,i}) ~ sum_j f_j(C_{t-1,i}) w_j`. That turns the
+conditional problem into an unconditional one over `J` managed portfolios
+(equation 1, p. 2455):
+
+```
+M_t^C = 1 - sum_{j=1}^J w_j ( R^man_{t,j} - E[R^man_{t,j}] ),    R^man_{t,j} = sum_{i=1}^N f_j(C_{t-1,i}) R_{t,i}
+```
+
+There is a one-to-one mapping between the basis functions `f_j` and the managed
+portfolios `R^man`. Managed portfolios **span** the projected SDF exactly when
+their mean-variance-efficient combination achieves the highest Sharpe ratio
+(p. 2456); pricing a spanning set is then equivalent to pricing the SDF itself.
+
+The paper's theoretical contribution is a misspecification result. Suppose a
+researcher uses only a subset `R^select` of the spanning managed portfolios and
+omits `R^omit`, then proposes a `K`-factor model `F` that prices `R^select`
+(intercept `alpha^select = 0`). Proposition 1 (p. 2457) bounds the mispricing of
+the omitted assets by a Sharpe-ratio gap:
+
+```
+SR^2(R^select, R^omit) - SR^2(F)
+   <= alpha^{omit}' (Sigma^omit)^{-1} alpha^{omit}
+   <= SR^2(R^select, R^omit) - SR^2(R^select),
+```
+
+with equalities if `R^select` spans the factors, that is, if
+`SR(R^select) = SR(R^select, F)`. In words: a model that perfectly explains the
+chosen test assets can still be a grossly misspecified model for individual
+stocks if those test assets do not span the SDF. The proof follows the spanning
+arguments of Barillas and Shanken (2016) and is given in the Internet Appendix.
+This is why the choice of test assets, not just the candidate model, matters,
+and it motivates constructing a cross-section that provably spans the SDF.
+
+**Identification.** Fully out-of-sample evaluation with a train / validate /
+test split (Figure 5, p. 2472): portfolio selection and tuning are fixed on the
+first two blocks before the test block, so there is no look-ahead bias.
+
+## Method
+
+The method has two parts: building the tree-based managed portfolios (AP Trees)
+and selecting a sparse spanning subset of them (AP Pruning). It builds on
+`decision-trees` and `conditional-sorts` for the portfolios, and on `lasso`,
+`ridge-shrinkage`, `sdf-projection`, and `robust-mean-variance-optimization`
+for the selection.
+
+**AP Trees.** Stocks are grouped by a sequence of conditional consecutive
+splits (median splits at each node, without loss of generality), so each final
+and intermediate node is a managed portfolio that traces back to firm
+fundamentals (Figure 1, p. 2449). Trees are grown to depth four. With `M`
+candidate splitting characteristics and depth `d`, this yields `M^d * 2^d`
+overlapping portfolios that capture up to `d`-way interactions. Equivalently,
+AP Trees are a nonparametric estimator of the SDF mapping (p. 2463):
+
+```
+f(C_{t-1,i}) = sum_{j=1}^J w_j * 1{ C_{t-1,i} in A_j },    regions A_j given by the recursive tree nodes
+```
+
+**AP Pruning.** The naive SDF weights solving `E[R^man M^C] = 0` are
+`omega = Sigma^{-1} mu`, whose sample version `omega_naive = Sigma_hat^{-1}
+mu_hat` overfits in high dimension. AP Pruning instead selects a sparse set of
+tree nodes that span the SDF, with robust moments. Definition 1 (p. 2466), step
+one, estimates robust SDF weights on the training data:
+
+```
+min_omega  (1/2) ( mu_hat^robust - Sigma_hat^robust * omega )' (Sigma_hat^robust)^{-1} ( mu_hat^robust - Sigma_hat^robust * omega )  +  lambda_1 ||omega||_1
+   with   Sigma_hat^robust = Sigma_hat + lambda_2 * I_N,    mu_hat^robust = mu_hat + lambda_0 * 1
+```
+
+where `||omega||_1 = sum_i |w_i|`, `1` is a vector of ones, and `N` is the number
+of assets. The tuning parameters `(lambda_0, lambda_1, lambda_2)` are chosen on
+the validation block to maximize the robust-SDF Sharpe ratio, then performance
+is evaluated only on the untouched test block.
+
+Proposition 2 (p. 2468) shows AP Pruning is equivalent to a robust tangency
+portfolio (Definition 2, equation 2):
+
+```
+min_omega  (1/2) omega' Sigma_hat omega  +  lambda_1 ||omega||_1  +  (1/2) lambda_2 ||omega||_2^2
+   subject to   omega' 1 = 1,    omega' ( mu_hat + r_f * 1 ) >= mu_0 + r_f
+```
+
+The mapping is exact: the LASSO term `lambda_1` induces sparsity (a small set of
+AP Tree basis assets), the target return `mu_0` corresponds to shrinking the
+mean toward its cross-sectional average, and the ridge term `lambda_2`
+corresponds to variance shrinkage of the covariance matrix. This generalizes the
+robust SDF recovery of Kozak, Nagel, and Santosh (2020), which shrinks only the
+covariance, by also shrinking the mean (Proposition 3). Proposition 4 gives a
+robust-control reading: the shrinkage solves a minimax problem over joint
+estimation uncertainty in means and variances.
+
+## Empirical specifications
+
+Estimation runs on monthly CRSP/Compustat data, January 1964 to December 2016,
+split into training (first 20 years), validation (10 years), and out-of-sample
+testing (last 23 years). Each headline result is the test-block value of one of
+the following constructions, not an OLS regression with fixed effects:
+
+- **Out-of-sample Sharpe ratio (R1, R6, R7, R8).** For a given cross-section,
+  the SDF / tangency portfolio is estimated on training, tuned on validation
+  (Definition 1-2), then its realized monthly SR is computed on the test block.
+  AP Trees are compared against triple sorts, double sorts (25x9), deciles, and
+  quintiles of the same characteristics.
+- **SDF alpha (R2).** The candidate factor models FF3, FF5, XSF
+  (cross-section-specific factors), and FF11 are confronted with each
+  cross-section; the SDF alpha is the pricing error of the cross-section's
+  implied SDF against the model, with `t`-statistics reported (Table I,
+  p. 2482; Figure 6 Panel B). Spanning is assessed by whether one
+  cross-section's SDF is priced by another's factors.
+- **Cross-sectional fit, XS-R² (R3).** The share of cross-sectional variation in
+  average managed-portfolio returns explained by the candidate model (Table I).
+- **Channel decompositions (R4, R5).** Re-running the construction with
+  interaction nodes removed (R4, Figure 8), with a variance-only split criterion
+  (V-Trees, R5, Figure 9), and against ML return-prediction portfolios built
+  from Gu, Kelly, and Xiu (2020) tools (random forest, neural nets; Figure 15),
+  isolating the contribution of interactions and of the SDF-spanning objective.
+
+Robustness reported in the paper: excluding microcaps or restricting to the top
+600 stocks by market cap (Table III, p. 2490), and rolling-window time-varying
+SDF weights (Figure C.6, p. 2502).
+
 ## Datasets used
 
 | Dataset | Role in paper | Wiki page |
@@ -91,32 +262,6 @@ evaluation and construction of tradable risk factors.
 | One-month Treasury bill rate | Proxy for the risk-free rate | No page yet |
 
 Sample: January 1964 to December 2016 (53 years, monthly). Training sample: first 20 years; validation: 10 years; testing (out-of-sample): last 23 years.
-
-## Theory tested
-
-**No original structural model.** The paper is primarily methodological and
-empirical. The theoretical contribution is a formal misspecification result
-(Proposition 1): if the chosen test assets do not span the SDF projected on
-a given set of characteristics, even a model that perfectly explains those
-assets can be misspecified for individual stocks. The paper then constructs
-AP Trees to satisfy the spanning requirement.
-
-The SDF framework is standard no-arbitrage: the conditional SDF
-M^C projected on individual stock excess returns R_t is:
-
-M^C = 1 - sum_i b_{t-1,i} (R_{t,i} - E_{t-1}[R_{t,i}]), with b_{t-1,i} = f(C_{t-1,i}).
-
-AP Pruning (Definitions 1 and 2, pp. 2466–2468) selects a sparse set of
-tree-node portfolios by minimizing weighted pricing errors with LASSO plus
-mean and variance shrinkage. Proposition 2 shows AP Pruning is equivalent
-to constructing a robust tangency portfolio. Proposition 3 shows it
-generalizes the robust SDF recovery of Kozak, Nagel, and Santosh (2020).
-Proposition 4 gives a robust-control interpretation: shrinkage solves a
-minimax problem over estimation uncertainty in means and variances.
-
-Identification: fully out-of-sample evaluation with a train/validate/test
-split (Figure 5, p. 2472); no look-ahead bias; portfolio selection is fixed
-on training+validation data before the testing period.
 
 ## When to read the full paper
 
