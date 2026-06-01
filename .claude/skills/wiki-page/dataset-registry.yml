@@ -49,6 +49,11 @@ datasets:
     name: Consumer Price Index
     provider: U.S. Bureau of Labor Statistics
     access: public
+  call-reports:
+    name: FDIC / FFIEC Call Reports (Reports of Condition and Income)
+    provider: FFIEC / U.S. Federal Deposit Insurance Corporation
+    access: public
+    note: Public bank-level regulatory filings; the confidential supervisory overlay is a distinct slug.
   cftc-cot:
     name: Commitments of Traders
     provider: U.S. Commodity Futures Trading Commission
@@ -69,6 +74,11 @@ datasets:
     name: Summary of Deposits
     provider: U.S. Federal Deposit Insurance Corporation
     access: public
+  fhfa-hpi:
+    name: FHFA House Price Index
+    provider: U.S. Federal Housing Finance Agency
+    access: public
+    note: Public house price indices at national, state, metro, and ZIP-code levels.
   flow-of-funds:
     name: Financial Accounts of the United States (Z.1)
     provider: Federal Reserve Board
@@ -133,6 +143,11 @@ datasets:
     page: datasets/form-adv
 
   # ---- public: academic / freely distributed research databases ----
+  jst-macrohistory:
+    name: Jorda-Schularick-Taylor Macrohistory Database
+    provider: Jorda, Schularick & Taylor (macrohistory.net)
+    access: public
+    note: Freely downloadable long-run macro-financial panel for 17 advanced economies, 1870 onward.
   ken-french:
     name: Kenneth French Data Library
     provider: Dartmouth College (Kenneth R. French)
@@ -147,6 +162,11 @@ datasets:
     provider: Andrew Y. Chen and Tom Zimmermann
     access: public
     page: datasets/open-source-asset-pricing
+  vix:
+    name: CBOE Volatility Index (VIX)
+    provider: Cboe Global Markets
+    access: public
+    note: Historical VIX levels are published free by Cboe; intraday option-derived inputs are a distinct licensed feed.
 
   # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
   audit-analytics:
@@ -157,6 +177,11 @@ datasets:
     name: Bloomberg Terminal data
     provider: Bloomberg L.P.
     access: licensed-commercial
+  blue-chip-forecasts:
+    name: Blue Chip Financial Forecasts survey
+    provider: Wolters Kluwer
+    access: licensed-commercial
+    note: Commercial subscription survey of professional forecasters' interest-rate and GDP projections.
   cboe-options:
     name: CBOE options data
     provider: Cboe Global Markets
@@ -165,6 +190,11 @@ datasets:
     name: Compustat Segment data
     provider: S&P Global Market Intelligence (via WRDS)
     access: licensed-commercial
+  corelogic:
+    name: CoreLogic property and foreclosure data
+    provider: CoreLogic (Cotality)
+    access: licensed-commercial
+    note: Commercial property, foreclosure, and house-price microdata.
   crane-mmf:
     name: Crane money-market-fund data
     provider: Crane Data LLC
@@ -173,6 +203,16 @@ datasets:
     name: LPC DealScan syndicated-loan data
     provider: LSEG / Refinitiv (Loan Pricing Corp.)
     access: licensed-commercial
+  emaxx:
+    name: Lipper eMAXX fixed-income holdings
+    provider: LSEG / Refinitiv (Lipper)
+    access: licensed-commercial
+    note: Quarterly CUSIP-level corporate-bond holdings for insurers, mutual funds, ETFs, and annuities.
+  eurodollar-futures:
+    name: Eurodollar futures intraday prices
+    provider: CME Group (via commercial intraday feeds)
+    access: licensed-commercial
+    note: Daily settlement prices are public; the high-frequency intraday windows used for policy-surprise identification are licensed.
   factset-lionshares:
     name: FactSet LionShares institutional ownership
     provider: FactSet Research Systems
@@ -213,6 +253,11 @@ datasets:
     name: Moody's Ultimate Recovery Database
     provider: Moody's Analytics
     access: licensed-commercial
+  msci-esg:
+    name: MSCI ESG ratings (KLD STATS / IVA)
+    provider: MSCI ESG Research (formerly KLD)
+    access: licensed-commercial
+    note: Annual firm-level environmental, social, and governance indicators.
   nielseniq:
     name: NielsenIQ retail scanner and consumer panel
     provider: NielsenIQ (via Kilts Center, Chicago Booth)
@@ -233,11 +278,21 @@ datasets:
     name: Preqin private-capital data
     provider: Preqin (BlackRock)
     access: licensed-commercial
+  ratewatch:
+    name: RateWatch deposit-rate surveys
+    provider: S&P Global Market Intelligence (RateWatch)
+    access: licensed-commercial
+    note: Branch-level weekly deposit and CD rate survey data.
   ravenpack:
     name: RavenPack news analytics
     provider: RavenPack
     access: licensed-commercial
     page: licensed/ravenpack
+  reprisk:
+    name: RepRisk ESG incident data
+    provider: RepRisk AG
+    access: licensed-commercial
+    note: Firm-level environmental and social incident events sourced from media and stakeholder reports.
   revelio:
     name: Revelio Labs workforce data
     provider: Revelio Labs
@@ -260,6 +315,11 @@ datasets:
     provider: UiT The Arctic University of Norway (Titlon)
     access: licensed-commercial
     note: Free to Nordic academic users but credential-gated, not openly public.
+  trace:
+    name: TRACE (Enhanced) corporate-bond transactions
+    provider: FINRA (Enhanced academic version, via WRDS)
+    access: licensed-commercial
+    note: Standard TRACE is public; the Enhanced version with uncapped volumes used in research is academic-licensed.
   trucost:
     name: Trucost environmental data
     provider: S&P Global (Trucost)
@@ -301,6 +361,20 @@ datasets:
     note: >-
       Individual-level credit microdata (e.g. via the FRBNY Consumer Credit
       Panel); restricted PII, not an off-the-shelf purchase for research.
+  fdic-construction-loans:
+    name: FDIC construction-loan servicing records (single failed bank)
+    provider: U.S. Federal Deposit Insurance Corporation (confidential)
+    access: proprietary-confidential
+    note: >-
+      Loan-level servicing data (terms, draw requests, inspection reports,
+      borrower identifiers, outcomes) for one failed bank held by the FDIC.
+  fdic-supervisory:
+    name: FDIC confidential supervisory and account-level deposit data
+    provider: U.S. Federal Deposit Insurance Corporation (confidential)
+    access: proprietary-confidential
+    note: >-
+      Account-level deposit microdata, enforcement actions, and brokered-deposit
+      waivers; restricted supervisory access.
   fr-y14q:
     name: FR Y-14Q (CCAR / stress-test collection)
     provider: Federal Reserve Board
@@ -344,6 +418,13 @@ datasets:
     note: >-
       Single-counterparty internal records: meeting notes, analyst ratings,
       fund holdings, and daily trades, shared under a confidential agreement.
+  spain-cir:
+    name: Spain Central de Informacion de Riesgos (CIR) credit register
+    provider: Banco de Espana (confidential)
+    access: proprietary-confidential
+    note: >-
+      Loan-level credit register of all corporate loans by Spanish banks;
+      confidential supervisory access through the central bank.
   statistics-norway:
     name: Statistics Norway (SSB) administrative registers
     provider: Statistics Norway (SSB)

@@ -182,3 +182,22 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   value-function-iteration:
     def: Numerical solution of a Bellman equation by iterating on the value function over a discretized state space.
     aliases: [vfi, bellman-iteration]
+
+  # ---- heterogeneous-agent macro models ----
+  d-hank-model:
+    def: Analytical heterogeneous-agent New Keynesian model with Poisson aggregate disaster shocks and heterogeneous beliefs about disaster probability, yielding a tractable four-equation system via approximate block-recursivity.
+    aliases: [disaster-hank, rare-disaster-hank]
+
+  # ---- causal inference / identification ----
+  regression-discontinuity-design:
+    def: Sharp or fuzzy regression discontinuity design exploiting an exogenous threshold in a running variable to identify a causal effect locally around the cutoff.
+    aliases: [rdd, sharp-rdd, fuzzy-rdd, regression-discontinuity]
+
+  trilemma-iv:
+    def: Instrumental variable strategy exploiting the Mundell international finance trilemma; countries with fixed exchange rates and open capital accounts track base-country monetary policy, so residualized base-country rate changes instrument the peg-country rate change.
+    aliases: [mundell-trilemma-iv, trilemma-instrument]
+
+  # ---- monetary policy transmission models ----
+  information-channel-fg:
+    def: Partial-equilibrium model of forward-guidance information effects; the central bank holds a private signal about economic fundamentals and FG announcements reveal that signal, shifting investor beliefs about growth and risk aversion and dominating the conventional interest-rate channel during high-uncertainty periods.
+    aliases: [fg-information-channel, delphic-fg-model]
