@@ -1,0 +1,314 @@
+# Controlled vocabulary for the DATASETS a distilled paper draws on.
+# Single source of truth for what each `data:<slug>` tag MEANS and, crucially,
+# its ACCESS TIER. Access is a property of the DATASET, not of the paper: the
+# FR Y-14Q is confidential supervisory data no matter who uses it, NielsenIQ is
+# licensed-commercial no matter who licenses it. Normalize the tier once here so
+# that a paper's `paper.dataAccess` can be DERIVED as the most-restrictive tier
+# over the paper's `data:<slug>` tags, rather than hand-set per page.
+#
+# Usage stats (which papers cite a dataset, first-seen year) are DERIVED at build
+# from the pages, never stored here, so parallel distillers never collide on this
+# file. Mirrors the discipline in vocab-registry.yml.
+#
+# Discipline:
+# - A paper-distiller READS this file and reuses an existing `data:<slug>` before
+#   minting a new one. It NEVER writes here; a genuinely new dataset is staged on
+#   the page in `paper.proposedVocab` (kind: data) for the curator to reconcile.
+# - The `<slug>` MUST equal the dataset/licensed page filename when a page exists,
+#   so the `page:` pointer and TagIndex's `data:<slug>` link agree.
+# - `page:` is the collection-relative path to the wiki page, or absent when the
+#   dataset is cited but not yet documented (the build backlog). The filesystem is
+#   the canonical check; this pointer is a convenience and the build may verify it.
+#
+# access tier enum (matches content.config.ts paper.dataAccess; ordered least to
+# most restrictive for the DERIVE max):
+#   public                  -> free, openly downloadable, no credentials
+#   licensed-commercial     -> obtainable by anyone who pays a vendor / holds a
+#                              site or research licence (incl. WRDS-gated feeds)
+#   proprietary-confidential-> restricted: supervisory, administrative-registry,
+#                              individual-level, or a single private counterparty;
+#                              not purchasable off the shelf
+# ('hand-collected' is a paper-level tier only and never appears on a dataset.)
+
+datasets:
+
+  # ---- public: government statistical agencies and central banks ----
+  acs:
+    name: American Community Survey
+    provider: U.S. Census Bureau
+    access: public
+  bea-io:
+    name: Input-Output Accounts
+    provider: U.S. Bureau of Economic Analysis
+    access: public
+  bls:
+    name: Bureau of Labor Statistics data
+    provider: U.S. Bureau of Labor Statistics
+    access: public
+  bls-cpi:
+    name: Consumer Price Index
+    provider: U.S. Bureau of Labor Statistics
+    access: public
+  cftc-cot:
+    name: Commitments of Traders
+    provider: U.S. Commodity Futures Trading Commission
+    access: public
+  census:
+    name: U.S. Census Bureau public data products
+    provider: U.S. Census Bureau
+    access: public
+    note: >-
+      Public products (County Business Patterns, decennial, etc.). Confidential
+      establishment microdata accessed through a Census RDC is a distinct,
+      restricted source and gets its own slug.
+  eia-electricity:
+    name: Electricity data
+    provider: U.S. Energy Information Administration
+    access: public
+  fdic-summary-of-deposits:
+    name: Summary of Deposits
+    provider: U.S. Federal Deposit Insurance Corporation
+    access: public
+  flow-of-funds:
+    name: Financial Accounts of the United States (Z.1)
+    provider: Federal Reserve Board
+    access: public
+  fred:
+    name: Federal Reserve Economic Data
+    provider: Federal Reserve Bank of St. Louis
+    access: public
+    page: datasets/fred
+  gsw-yields:
+    name: Gurkaynak-Sack-Wright Treasury yield curve
+    provider: Federal Reserve Board
+    access: public
+  hmda:
+    name: Home Mortgage Disclosure Act loan data
+    provider: CFPB / FFIEC
+    access: public
+    note: >-
+      Public Loan/Application Register (LAR). A confidential FFIEC version with
+      additional fields exists but the public release is what research uses here.
+  nber-ces:
+    name: NBER-CES Manufacturing Industry Database
+    provider: NBER and U.S. Census Bureau
+    access: public
+  nber-cycles:
+    name: NBER business cycle reference dates
+    provider: National Bureau of Economic Research
+    access: public
+  nipa:
+    name: National Income and Product Accounts
+    provider: U.S. Bureau of Economic Analysis
+    access: public
+  nsmo:
+    name: National Survey of Mortgage Originations
+    provider: FHFA and CFPB
+    access: public
+    note: Public-use file release.
+  sipp:
+    name: Survey of Income and Program Participation
+    provider: U.S. Census Bureau
+    access: public
+  scf:
+    name: Survey of Consumer Finances
+    provider: Federal Reserve Board
+    access: public
+    note: Public summary microdata; the internal version with finer detail is restricted.
+  us-epa-supply-chain:
+    name: Supply Chain GHG Emission Factors
+    provider: U.S. Environmental Protection Agency
+    access: public
+
+  # ---- public: government filings / disclosure systems ----
+  edgar:
+    name: SEC EDGAR filings
+    provider: U.S. Securities and Exchange Commission
+    access: public
+    page: datasets/edgar
+  form-adv:
+    name: Form ADV investment-adviser registration
+    provider: U.S. Securities and Exchange Commission (IAPD)
+    access: public
+    page: datasets/form-adv
+
+  # ---- public: academic / freely distributed research databases ----
+  ken-french:
+    name: Kenneth French Data Library
+    provider: Dartmouth College (Kenneth R. French)
+    access: public
+    page: datasets/ken-french
+  lopucki-brd:
+    name: Florida-UCLA-LoPucki Bankruptcy Research Database
+    provider: Lynn M. LoPucki (academic, registration-gated but free)
+    access: public
+  open-source-asset-pricing:
+    name: Open Source Asset Pricing (Chen-Zimmermann predictors)
+    provider: Andrew Y. Chen and Tom Zimmermann
+    access: public
+    page: datasets/open-source-asset-pricing
+
+  # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
+  audit-analytics:
+    name: Audit Analytics
+    provider: Ideagen (Audit Analytics)
+    access: licensed-commercial
+  bloomberg:
+    name: Bloomberg Terminal data
+    provider: Bloomberg L.P.
+    access: licensed-commercial
+  cboe-options:
+    name: CBOE options data
+    provider: Cboe Global Markets
+    access: licensed-commercial
+  compustat-segments:
+    name: Compustat Segment data
+    provider: S&P Global Market Intelligence (via WRDS)
+    access: licensed-commercial
+  crane-mmf:
+    name: Crane money-market-fund data
+    provider: Crane Data LLC
+    access: licensed-commercial
+  dealscan:
+    name: LPC DealScan syndicated-loan data
+    provider: LSEG / Refinitiv (Loan Pricing Corp.)
+    access: licensed-commercial
+  factset-lionshares:
+    name: FactSet LionShares institutional ownership
+    provider: FactSet Research Systems
+    access: licensed-commercial
+    page: licensed/factset-lionshares
+  factset-revere:
+    name: FactSet Revere supply-chain relationships
+    provider: FactSet Research Systems
+    access: licensed-commercial
+  ibes:
+    name: I/B/E/S analyst estimates
+    provider: LSEG / Refinitiv (via WRDS)
+    access: licensed-commercial
+  infousa:
+    name: InfoUSA / Data Axle business and consumer files
+    provider: Data Axle (formerly InfoUSA)
+    access: licensed-commercial
+  lexisnexis-court:
+    name: LexisNexis court records
+    provider: LexisNexis
+    access: licensed-commercial
+  markit-cds:
+    name: Markit CDS pricing
+    provider: S&P Global (IHS Markit)
+    access: licensed-commercial
+  markit-securities-finance:
+    name: Markit Securities Finance (securities lending)
+    provider: S&P Global (IHS Markit)
+    access: licensed-commercial
+  moodys-urd:
+    name: Moody's Ultimate Recovery Database
+    provider: Moody's Analytics
+    access: licensed-commercial
+  nielseniq:
+    name: NielsenIQ retail scanner and consumer panel
+    provider: NielsenIQ (via Kilts Center, Chicago Booth)
+    access: licensed-commercial
+  nyt-news:
+    name: New York Times article archive
+    provider: The New York Times
+    access: licensed-commercial
+  optimal-blue:
+    name: Optimal Blue mortgage rate-lock data
+    provider: Optimal Blue (Constellation Software)
+    access: licensed-commercial
+  orbis-bvd:
+    name: Orbis global company data
+    provider: Moody's / Bureau van Dijk
+    access: licensed-commercial
+  preqin:
+    name: Preqin private-capital data
+    provider: Preqin (BlackRock)
+    access: licensed-commercial
+  ravenpack:
+    name: RavenPack news analytics
+    provider: RavenPack
+    access: licensed-commercial
+    page: licensed/ravenpack
+  revelio:
+    name: Revelio Labs workforce data
+    provider: Revelio Labs
+    access: licensed-commercial
+    page: licensed/revelio
+  rystad:
+    name: Rystad Energy database
+    provider: Rystad Energy
+    access: licensed-commercial
+  sdc-platinum:
+    name: SDC Platinum (M&A, new issues)
+    provider: LSEG / Refinitiv
+    access: licensed-commercial
+  stocktwits:
+    name: StockTwits social-media messages
+    provider: StockTwits Inc.
+    access: licensed-commercial
+  titlon-ose:
+    name: Titlon Oslo Stock Exchange financial data
+    provider: UiT The Arctic University of Norway (Titlon)
+    access: licensed-commercial
+    note: Free to Nordic academic users but credential-gated, not openly public.
+  trucost:
+    name: Trucost environmental data
+    provider: S&P Global (Trucost)
+    access: licensed-commercial
+  wrds:
+    name: Wharton Research Data Services (platform)
+    provider: The Wharton School, University of Pennsylvania
+    access: licensed-commercial
+    page: licensed/wrds
+    note: >-
+      A subscription platform, not a single dataset. When a paper cites the
+      specific feed (Compustat, CRSP, IBES) prefer that slug; data:wrds marks
+      WRDS-mediated access generally. Tier is the platform's licence floor.
+
+  # ---- proprietary-confidential: supervisory, administrative-registry,
+  #      individual-level, or single-counterparty data ----
+  401k-admin:
+    name: 401(k) plan administrative records
+    provider: Private plan recordkeeper (confidential)
+    access: proprietary-confidential
+  equifax-credit:
+    name: Equifax consumer-credit records
+    provider: Equifax
+    access: proprietary-confidential
+    note: >-
+      Individual-level credit microdata (e.g. via the FRBNY Consumer Credit
+      Panel); restricted PII, not an off-the-shelf purchase for research.
+  fr-y14q:
+    name: FR Y-14Q (CCAR / stress-test collection)
+    provider: Federal Reserve Board
+    access: proprietary-confidential
+    note: Confidential supervisory data.
+  iab-establishment-panel:
+    name: IAB Establishment Panel
+    provider: Institute for Employment Research (IAB), Germany
+    access: proprietary-confidential
+    note: Confidential, accessed on-site or via remote execution at the FDZ.
+  ieb-germany:
+    name: Integrated Employment Biographies (IEB)
+    provider: Institute for Employment Research (IAB), Germany
+    access: proprietary-confidential
+    note: Confidential German administrative labor records (FDZ access).
+  mcr-nmls:
+    name: NMLS Mortgage Call Report
+    provider: Conference of State Bank Supervisors (NMLS)
+    access: proprietary-confidential
+    note: >-
+      Aggregate statistics are published, but the company-level Mortgage Call
+      Report used in research is obtained under restricted regulatory terms.
+  statistics-norway:
+    name: Statistics Norway (SSB) administrative registers
+    provider: Statistics Norway (SSB)
+    access: proprietary-confidential
+    note: Aggregate tables are public; the linked registry microdata is restricted.
+  vps-norway:
+    name: Norwegian Central Securities Depository holdings (VPS)
+    provider: Euronext Securities Oslo (VPS)
+    access: proprietary-confidential
+    note: Individual-level securities holdings; restricted research access.
