@@ -24,12 +24,20 @@ const steps = extraction.map((e) => ({
 const models = [...new Set(steps.map((s) => s.model))];
 
 // Direct link to the page's raw Markdown twin, which carries the full
-// structured frontmatter (methods, scope, relatesTo, topics, dataAccess, the
-// extraction attestations, ...) that the rendered HTML does not surface. The
-// twin is written by postbuild.mjs at the same route path + ".md". Shown on
-// distilled-paper pages, where that metadata is richest.
+// frontmatter the rendered HTML does not surface (for papers: methods, scope,
+// relatesTo, topics, dataAccess, the extraction attestations; for datasets: the
+// verified block, access tier, tags). postbuild.mjs writes the twin at the
+// docs-relative source path with a .md extension, so derive the href from the
+// source file path: this stays exact for index pages (foo/index.md ->
+// /wiki/foo/index.md) as well as leaf pages, where a pathname-based guess fails.
 const isPaper = !!Astro.locals.starlightRoute?.entry?.data?.paper;
-const mdHref = Astro.url.pathname.replace(/\/+$/, '') + '.md';
+const filePath: string | undefined = Astro.locals.starlightRoute?.entry?.filePath;
+// Only emit the link when we can derive the twin path exactly from the source
+// file (so index pages map to /wiki/foo/index.md, not /wiki/foo.md). If the
+// loader ever stops exposing filePath, omit the link rather than risk a 404.
+const mdHref = filePath
+  ? `/wiki/${filePath.replace(/^.*?content\/docs\//, '').replace(/\.mdx?$/, '.md')}`
+  : null;
 const fmt = (d: string) =>
   new Date(d).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -119,11 +127,19 @@ const fmt = (d: string) =>
 }
 
 {
-  isPaper && (
-    <p class="iar-meta" aria-label="Structured metadata">
+  mdHref && (
+    <p class="iar-meta" aria-label="Raw Markdown and metadata">
       <span class="iar-mark" aria-hidden="true">{'◈'}</span>
-      Full structured metadata (methods, scope, relatesTo, topics, datasets):{' '}
-      <a href={mdHref}>raw Markdown (.md)</a>
+      {isPaper ? (
+        <>
+          Full structured metadata (methods, scope, relatesTo, topics, datasets):{' '}
+          <a href={mdHref}>raw Markdown (.md)</a>
+        </>
+      ) : (
+        <>
+          View this page as <a href={mdHref}>raw Markdown (.md)</a>
+        </>
+      )}
     </p>
   )
 }
