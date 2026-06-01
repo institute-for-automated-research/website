@@ -35,14 +35,14 @@ tags: [paper-summary, <topic...>, <method...>, <access?>, <status>, unreplicated
 paper:
   authors: <full names as printed>            # display string
   authorList:                                  # structured, from Crossref + page-1 affiliations
-    - { family: <...>, given: <...>, orcid: <... if any>, affiliation: <at publication> }
+    - { family: <...>, given: <...>, orcid: <only if present; OMIT the key otherwise, never null>, affiliation: <at publication> }
   year: <ISSUE year>                # not online-first year
   venue: <full citation string>
   venueShort: <e.g. J. Finance 2025>
   doi: <doi>
   jel: [<G12>, <G14>]                          # JEL codes printed on the paper (omit if none, e.g. J. Finance)
   topics: [<OpenAlex topics via the openalex skill>]   # subject classification, the JEL substitute
-  dataAccess: <public | licensed-commercial | hand-collected | proprietary-confidential>
+  dataAccess: <public | licensed-commercial | hand-collected | proprietary-confidential>  # DERIVED + gate-enforced: most-restrictive tier over the data:<slug> tags (see Optional-field rules)
   outcome: [<dependent variable(s), short phrases>]
   license: <descriptive string>
   licenseShort: <e.g. CC BY 4.0 | paywalled>
@@ -101,6 +101,17 @@ paper:
 - **Omit** `openQuestions`, `relatesTo`, `proposedVocab`, `replicationCode`,
   `scope`, `methods` entirely (not an empty array/object) when the paper gives
   nothing for them. An empty array is noise.
+- **Never write a literal `null`** (or `~`) for an absent value: omit the key
+  instead. A null scalar fails the content schema and breaks the build (a
+  missing `authorList[].orcid` must be omitted, not set to `null`).
+- `dataAccess` is **derived, and the prebuild gate enforces it**: set it to the
+  most-restrictive tier over the paper's `data:<slug>` tags, ordered
+  `public < licensed-commercial < proprietary-confidential` (`hand-collected` is
+  a paper-level tier, used only when the authors gathered the data themselves).
+  `check-dataset-access` FAILS the build if the page under-claims. Confidential
+  supervisory data, a central-bank credit register, individual-level
+  administrative microdata, or a single private counterparty is
+  `proprietary-confidential` even when the paper's other sources are public.
 - `methods.role` is the one always-fill field once `methods` is present:
   `proposes-method | applies-method | both | theory`.
 - `methods.contributes`: one headline method name as a kebab-case identifier

@@ -26,7 +26,9 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 | Licensed-source pages | `src/content/docs/licensed/<slug>.md` |
 | Distilled paper summaries | `src/content/docs/papers/<journal>/<year>/<slug>.md` |
 | Tag browse page + axes | `src/content/docs/tags.mdx` + `src/components/TagIndex.astro` |
-| Verified badge renderer | `src/components/PageTitle.astro` |
+| Verified badge, distilled byline, tags, raw-`.md` link | `src/components/PageTitle.astro` |
+| Dataset registry + access drift gate | `.claude/skills/wiki-page/dataset-registry.yml` + `scripts/check-dataset-access.mjs` (prebuild; fails on `dataAccess` under-claim or a `data:` slug missing from the registry) |
+| Method vocab registry | `.claude/skills/wiki-page/vocab-registry.yml` (reconciled by `vocab-curator`) |
 | Frontmatter schema | `src/content.config.ts` |
 | Section indexes | `<section>/index.md` (keep their tables in sync) |
 

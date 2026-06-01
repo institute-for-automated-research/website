@@ -45,6 +45,19 @@ the JSON verdict below.
    `venue`/`venueShort`, `resultsCount` == number of result rows, and that the
    `access`/`license` disposition is honest (no `pdf:` mirror unless openly
    licensed). Confirm there are no em-dashes and no colorful adjectives.
+4b. **Frontmatter integrity (the access gate's and the build's blind spots).**
+   - `dataAccess` must equal the MOST restrictive tier over the page's
+     `data:<slug>` tags (`public < licensed-commercial < proprietary-confidential`).
+     A central-bank credit register, confidential supervisory or administrative
+     microdata, or a single private counterparty is `proprietary-confidential`
+     even when the paper's other sources are public. Fix an under-claim in place.
+   - Every `relatesTo[].cite` must be named (author-year) somewhere in the body
+     so the edge is locatable. If a real edge is missing its body mention, add a
+     one-line mention in the relevant section; if the cite is not actually used,
+     drop the edge.
+   - No literal `null` (or `~`) anywhere in the frontmatter: omit the key. A null
+     scalar fails the content schema and breaks the build (a missing
+     `authorList[].orcid` must be omitted, not set to `null`).
 5. **Fix in place** any clear, unambiguous error (wrong locator, transcribed
    number, wrong count, an em-dash) with Edit on this one file only. If a claim
    is unsupported and you cannot determine the correct value, downgrade the row
