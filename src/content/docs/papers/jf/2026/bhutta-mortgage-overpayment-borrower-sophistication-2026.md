@@ -274,12 +274,18 @@ $$
 
 with columns progressively adding MSA x Month F.E. and Lender-Branch F.E.
 Key result: a 1 pp rise in Treasury yield reduces EGain by about 5 bp
-(col 1: -0.051\*\*\*); with lender-branch FEs: -0.026\*\* (col 3).
+(col 1: -0.051\*\*\*); with lender-branch FEs: -0.026\*\* (col 3). This
+builds on Fuster, Lo, and Willen (2024) and their time-varying
+price-of-intermediation result: lenders also make worse offers when rates
+are low, and borrowers are less likely to shop (p. 71).
 
 **Rate dispersion (R4; Table V, p. 73).** The 10-spec rate dispersion
 regression described in Method above. Key results: 90-10 gap = 55 bp in
 spec (3) (pure observable controls); = 26 bp in spec (10) after full lender,
-branch, and LO FEs. Same-branch same-day gap (spec 8) = 31 bp.
+branch, and LO FEs. Same-branch same-day gap (spec 8) = 31 bp. This
+contrasts with Alexandrov and Koulayev (2017), who find that negotiation
+plays little role; the substantial within-lender within-branch-day
+dispersion here is consistent with negotiation (p. 52).
 
 **Lender expensiveness and profits (R5, R6; Tables VII-VIII).** Lender FEs
 from spec (4) of Table V are the dependent variable in lender-level

@@ -154,6 +154,11 @@ $$
 - $$\text{utilization}$$ = shares on loan / lendable shares
 - D'Avolio (2002) estimates the spread fraction at approximately 0.3
 
+In contrast to Drechsler and Drechsler (2021), who find positive net-of-fee
+returns on eight anomalies using lender-side fees, this paper uses buy-side
+fees over a longer and more recent sample and finds near-zero net-of-fee
+returns.
+
 **Identification design.** Two complementary approaches test whether anomaly
 returns survive after accounting for fees (p. 3640):
 
@@ -286,7 +291,9 @@ $$
 - Key result: decile 1 $$\alpha$$ changes by +0.27%/mo relative to unadjusted baseline, decile 1 $$\alpha$$ = +0.03% (t = 0.47) vs. -0.24% (t = -2.92) with all stocks
 
 Robustness: microcap extension (all stocks, market cap below 20th percentile
-NYSE, Table IV p. 3669); 20 highest-fee anomalies (Table VI p. 3673); subsets
+NYSE, Table IV p. 3669), which tests the claim of Hou, Xue, and Zhang (2020)
+that anomaly returns are concentrated in microcaps and finds that even microcap
+anomaly returns disappear once borrow fees are accounted for; 20 highest-fee anomalies (Table VI p. 3673); subsets
 by t-statistic, pre-sample Sharpe ratio, and publication venue (Table VII
 p. 3674); long-side investor perspective with varying intermediation fractions
 (Table VIII p. 3678); five specific anomalies (Table X p. 3685); four

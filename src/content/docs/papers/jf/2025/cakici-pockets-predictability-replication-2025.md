@@ -240,8 +240,9 @@ Panel B isolates the kernel-type effect.
   kernel model predicts positive returns, T-bills otherwise), with Newey-West
   (1987) t-statistics
 - Annualised Sharpe ratio of the timing strategy
-- Three forecast restriction variants: unrestricted, non-negative excess return
-  forecasts only, and sign restrictions on both forecasts and slope coefficients
+- Three forecast restriction variants following Campbell and Thompson (2008):
+  unrestricted, non-negative excess return forecasts only, and sign restrictions
+  on both forecasts and slope coefficients
 
 ## Empirical specifications
 

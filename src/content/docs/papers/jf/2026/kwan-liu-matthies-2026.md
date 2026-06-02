@@ -213,6 +213,9 @@ Berk and Van Binsbergen (2015) in spirit (p. 811).
 **Trade-based value-add.** The outcome $$\Delta\text{Position}_{ist-1} \times R_{st}$$
 multiplies the future stock return by the dollar change in holdings from
 $$t-2$$ to $$t-1$$, isolating performance attributable to trading (p. 814).
+These trade-based tests build on Akepanidtaworn et al. (2023), who find
+that institutional buying adds value while selling does not (p. 815 of this
+paper).
 
 **Stock-level return predictability.** Fama-MacBeth cross-sectional
 regressions at the monthly frequency, with controls for size,

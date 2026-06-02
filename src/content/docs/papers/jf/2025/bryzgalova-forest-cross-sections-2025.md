@@ -112,8 +112,10 @@ point into the source PDF.
 | R8 | **Microcaps do not drive results**: excluding small caps (size quantile below 0.4) or restricting to the top 600 stocks by market cap, AP Trees still roughly double the SR of triple sorts | Table III, p. 2490 | Liquid-stocks AP Trees (10): SR = 0.30, α vs FF5 = 0.70 (t=5.04); triple sorts SR = 0.17 (TS32) / 0.17 (TS64) |
 
 **Overall (paper's conclusion).** Conventional single/double/triple sorts and
-their stacked combinations provide an unreliable and often misspecified
-benchmark for asset pricing models. AP Trees resolve this by finding a small,
+their stacked combinations, including the size and value sorts of Fama and
+French (1993), do not span the conditional SDF and so provide an unreliable
+and often misspecified benchmark for asset pricing models. AP Trees resolve
+this by finding a small,
 interpretable, well-diversified cross-section that genuinely spans the
 conditional SDF projected on characteristics, enabling better model
 evaluation and construction of tradable risk factors.

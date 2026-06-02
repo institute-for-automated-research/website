@@ -109,7 +109,9 @@ To replicate or extend, read the full article at [doi.org/10.1111/jofi.70007](ht
 Using confidential daily, account-level deposit records collected by the FDIC from a
 single failing U.S. bank (roughly $2 billion in assets, failed during the
 financial crisis), the paper documents that gross deposit *inflows* are as
-important as outflows for understanding bank funding under distress. Deposit
+important as outflows for understanding bank funding under distress. Granja,
+Matvos, and Seru (2017) document the failed banks of the Great Recession and
+the resulting FDIC Deposit Insurance Fund costs that motivate this question. Deposit
 insurance (regular FDIC coverage, the FDIC-extended $250,000 limit, and the
 temporary TAG program) significantly reduces outflows from insured accounts.
 Simultaneously, the distressed bank raised deposit rates to the 95th percentile
@@ -153,7 +155,9 @@ action (pp. 683-684).
 The paper has no formal structural model. It builds on the framework of Egan,
 Hortacsu, and Matvos (2017), who model a market for insured and uninsured
 deposits where distressed banks raise deposit rates to attract insured funds
-while uninsured funds flee. The paper tests this framework empirically with
+while uninsured funds flee. It also builds on Diamond and Dybvig (1983), the
+foundational bank-run theory that motivates the role of deposit insurance in
+preventing runs. The paper tests this framework empirically with
 granular data. The core hypotheses are:
 
 1. **Outflow hypothesis.** Deposit insurance (regular, temporary TAG/DFA) reduces
@@ -167,6 +171,9 @@ granular data. The core hypotheses are:
    outflows, gross outflows overstate discipline; net outflows (as reported in
    Call Reports) understate it. Understanding bank runs requires decomposing
    gross flows.
+
+The evidence on insured inflows informs the design of optimal deposit
+insurance, as modeled by Davila and Goldstein (2023).
 
 **Identification.** The paper exploits two quasi-natural experiments:
 
@@ -186,6 +193,10 @@ granular data. The core hypotheses are:
 The paper applies linear probability models (LPM), probit, Cox proportional
 hazard models, OLS time-series regressions, and propensity-score matching. It
 does not propose a new method; the contribution is entirely empirical.
+
+The account-level approach extends Iyer and Puri (2012), an earlier
+account-level bank-run study, by using finer daily data and separating
+inflows from outflows.
 
 **Outflow regressions (Section II).** The baseline is a cross-sectional LPM for
 each of four time periods (Placebo, Precrisis, Postcrisis, Formal), separately

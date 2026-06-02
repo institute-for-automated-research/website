@@ -120,6 +120,13 @@ all 42 pages. To replicate or extend it, read the full source at
 
 ## TL;DR
 
+The ILSBEI differential is a version of the TIPS-Treasury no-arbitrage
+mispricing studied by Fleckenstein, Longstaff, and Lustig (2014), and this
+paper extends their liquidity and slow-moving-capital account by adding a
+credit risk channel. Treating U.S. default risk as nontrivial follows the
+macrofinance view of U.S. sovereign CDS premia in Chernov, Schmid, and
+Schneider (2020), applied here to relative bond pricing.
+
 Using monthly U.S. data from June 2005 to December 2020, the paper
 documents that the spread between the inflation-linked swap (ILS) rate and
 the breakeven inflation rate (BEI), the ILSBEI differential, is
@@ -155,8 +162,11 @@ Locators point into the source PDF.
 
 **Overall (paper's conclusion).** Credit risk can drive persistent deviations
 between ILS rates and BEI rates that are often attributed solely to
-liquidity. The interaction between inflation dynamics and default is the
-primary source of differential pricing between nominal Treasuries and TIPS.
+liquidity. Where Pflueger and Viceira (2016) attribute the ILSBEI differential
+to a liquidity premium, this paper finds credit risk is also a nontrivial
+driver, especially at long maturities. The interaction between inflation
+dynamics and default is the primary source of differential pricing between
+nominal Treasuries and TIPS.
 
 ## Theory / model
 

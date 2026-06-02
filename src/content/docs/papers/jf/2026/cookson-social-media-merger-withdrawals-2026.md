@@ -133,7 +133,9 @@ Locators point into the source PDF.
 | R7 | **Effect is driven by longer tweets and by M&A-relevant topics (Company/Business, Deal Terms, Disclosure), not by meme or trading tweets** | Table VI Panels A–B, pp. 126–127 | Long tweets: -1.214\*\*\* to -1.222\*\*\*; short tweets: -0.053 to +0.014 (insig.); Company/Business: -1.202\*\*\*; Deal-Terms: -1.139\*\*\*; Disclosure: -0.868\*\*; Meme: -0.280 (insig.); Technical: -0.487 (insig.) |
 | R8 | **Effect is stronger when AbnSent disagrees with market and news signals, and when social media volume is higher** | Table VII, pp. 129, 130 | High N Tweets vs. low: -2.030\*\*\* vs. -0.516\* (coef. diff. t = 2.28, p = 0.023); split by social media vs. news disagreement drives the result; news-article-count split shows no statistically significant difference |
 
-**Overall (paper's conclusion).** Social media sentiment contains
+**Overall (paper's conclusion).** Building on the parallel test of traditional
+news sentiment for M&A decisions in Liu and McConnell (2013), the paper adds
+social media as a distinct channel. Social media sentiment contains
 information about M&A deal outcomes that is not subsumed by market prices,
 traditional media, or analyst signals. The evidence is consistent with a
 revelatory channel: managers learn from social media, particularly after
@@ -160,8 +162,13 @@ it weakens for deals where withdrawal cannot reflect manager learning (regulator
 or target-rejected deals). Under a pure forecasting channel these patterns would
 not arise. Under a governance channel, predictability would be concentrated in
 negative-CAR mergers and in firms with weaker governance, which is not observed.
+Whereas the Chinese message board study of Ang et al. (2021) emphasizes the
+governance channel, this US-sample paper finds no governance-channel pattern and
+instead supports revelatory learning.
 
-**Identification strategy.** The paper exploits deal-level cross-sectional
+**Identification strategy.** The baseline design of using market reactions to
+predict M&A withdrawal follows Luo (2005), which the paper extends by adding
+social media signals. The paper exploits deal-level cross-sectional
 variation in $$\text{AbnSent}_i$$ (eq. 1, p. 103), which is constructed as the
 difference between announcement-window and pre-announcement-window sentiment,
 removing firm-level baseline sentiment differences. The main specification

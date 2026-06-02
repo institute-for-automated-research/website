@@ -220,7 +220,9 @@ extracting priced long-short portfolios. It builds on `sdf-projection` (the
 tangency-spanning condition) and `portfolio-sort` (investor sorting by
 socioeconomic characteristics).
 
-**Step 1: Factor structure of investor portfolios.** $$G = 90$$ investor groups are
+**Step 1: Factor structure of investor portfolios.** The strong factor structure
+in individual investor portfolios documented by Balasubramaniam, Campbell,
+Ramadorai, and Ranish (2023) motivates the PCA grouping approach. $$G = 90$$ investor groups are
 formed annually by age (12 groups), wealth (12 groups), permanent real income
 (12 groups), gender (2), education (3), region (9), industry (17), and
 occupation (9). For group g with investor equity-wealth weights $$w^g_i$$, the
@@ -308,8 +310,11 @@ $$
 
 where $$\alpha_j = 0$$ for all j if IPF* is correctly specified.
 
-**Portfolio tilt regression (R6, R7; Table VII, p. 2823).** Panel regression of
-investor i's tilt toward IPF AW at annual frequency, 2004-2017 (N = 911,432
+**Portfolio tilt regression (R6, R7; Table VII, p. 2823).** This extends the
+life-cycle links between demographics and value-factor tilts that Betermier,
+Calvet, and Sodini (2017) documented for Swedish households into a full IPF
+extraction framework. The panel regression of
+investor i's tilt toward IPF AW is run at annual frequency, 2004-2017 (N = 911,432
 investor-years):
 
 $$
@@ -328,7 +333,9 @@ classes; extending the spanning-condition theory to institutional holdings;
 using the bootstrap out-of-sample Sharpe methodology (Section III.C) for
 factor evaluation; auditing specific coefficients in Tables III-VIII; or
 reviewing the Internet Appendix robustness tests (alternative age/wealth
-cutoffs, institutional portfolio pricing). The locators above point to the
+cutoffs, institutional portfolio pricing), where IPF* also prices the
+institutional investor portfolio held on the OSE, the pricing question
+studied by Koijen and Yogo (2019). The locators above point to the
 exact tables.
 
 ## Attribution and rights

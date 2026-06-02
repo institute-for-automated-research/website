@@ -90,7 +90,9 @@ read the full source at the
 ## TL;DR
 
 Using hand-collected SEC filings (10-K/10-Q, 1997-2019) merged with
-Dealscan and Compustat, the paper documents that the annual share of U.S.
+Dealscan and Compustat, the paper extends the violation sample of Nini,
+Smith, and Sufi (2012) from 1997-2008 through 2019 and adds a structural
+decomposition framework. It documents that the annual share of U.S.
 public firms reporting a financial covenant violation fell roughly 70%,
 from about 18% at the 2001 peak to around 5% by 2012 and below that
 thereafter. A structural model of optimal covenant design, cast as a
@@ -192,10 +194,18 @@ distressed vs. nondistressed borrower at $$t^*$$. Thus:
   without reducing the TPR.
 - Lower distress prevalence $$\rho$$ also raises $$R$$, loosening covenants.
 
+One covenant-technology channel is the shift from balance-sheet to
+cash-flow covenants in loan agreements documented by Demerjian (2011),
+which the paper treats as a change in how well the metric separates
+distressed from nondistressed borrowers.
+
 The paper estimates parameters by assuming $$r \sim N(\mu_D, 1)$$ for distressed
 firms and $$r \sim N(0, 1)$$ for nondistressed firms, so $$\mu_D$$ indexes covenant
 technology (how well the metric separates the two populations), and $$R$$ is
 estimated from the observed FPR and TPR via the ROC curve slope (p. 393).
+As an ex ante measure of covenant tightness the paper adopts the covenant
+strictness measure of Murfin (2012) together with its Demerjian-Owens
+update.
 
 ## Method
 
@@ -246,7 +256,9 @@ $$
 $$
 
 **Step 3: Blinder-Oaxaca decomposition (Section V, pp. 399-402).** To
-separate observable market changes from unexplained shifts, the paper
+separate the portion of the FPR and TPR trends explained by observable
+characteristics from the unexplained portion, the paper employs the
+decomposition of Blinder (1973) and Oaxaca (1973). It
 estimates two probit regressions: one for the FPR (nondistressed firms
 only) and one for the TPR (distressed firms only). For each, the marginal
 effects of borrower size, credit rating, lender type, and covenant type
@@ -266,7 +278,9 @@ $$
 
 All main specifications use annual firm-year observations from the
 Compustat-EDGAR panel (85,876 firm-years) merged with the Dealscan loan
-sample (17,724 packages) for the FPR/TPR analysis.
+sample (17,724 packages) for the FPR/TPR analysis. The Dealscan-to-Compustat
+merge uses the link file of Chava and Roberts (2008), whose imputed-violation
+measure the paper also uses as a robustness check.
 
 **Creditor recovery rate regression (R4, Table I, p. 387).**
 

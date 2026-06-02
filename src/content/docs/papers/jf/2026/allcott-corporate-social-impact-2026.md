@@ -174,7 +174,10 @@ Magnitudes and significance are as reported. Locators point into the source PDF.
 corporate social impact. Impact investors should consider devoting more
 attention to firms that deliver more consumer surplus, especially for lower
 income people. Making more differentiated products that more consumers want
-to buy is the key to social impact in this framework (p. 324).
+to buy is the key to social impact in this framework (p. 324). Where Chatterji
+et al. (2015) document that ESG ratings disagree substantially with each other,
+this paper shows that they are also uncorrelated with its welfare-grounded
+estimates.
 
 ## Datasets used
 
@@ -199,7 +202,9 @@ Sample: 74 firms; 12 industries (autos, airline, beer, cereal, cigarettes, groce
 
 ## Theory / model
 
-The paper builds a micro-founded partial equilibrium model. There are $$N$$ people
+Building on the concept of enterprise impact in Brest and Born (2013), the paper
+operationalizes social impact as the welfare loss from firm exit. The paper builds
+a micro-founded partial equilibrium model. There are $$N$$ people
 indexed by $$i$$ with income-earning ability $$\theta_i$$. Each person $$i$$ has quasilinear
 utility additively separable in consumption, labor, and externality (eq. 1,
 p. 292):
@@ -282,7 +287,10 @@ inputs are produced at constant marginal cost.
 The estimation proceeds in three parallel modules: (i) differentiated product
 markets via BLP demand, (ii) oil market via price-taking competitive fringe, and
 (iii) labor markets via linear probability model. It builds on `blp-demand`,
-`method-of-simulated-moments`, and `shapley-value-allocation`.
+`method-of-simulated-moments`, and `shapley-value-allocation`. The
+differentiated-product demand follows the random-coefficient logit framework of
+Berry, Levinsohn, and Pakes (1995). The estimation strategy for differentiated-product
+markets using micro data builds on Berry, Levinsohn, and Pakes (2004).
 
 **Differentiated product markets (Sections IV.A-B, pp. 302-305).** Representative
 utility for income group $$z$$ and firm $$f$$ is (eq. 12, p. 303):
@@ -433,7 +441,9 @@ constructing your own social impact measure and need the full derivations
 code at allcott.stanford.edu/research); extending the framework to new
 industries or markets; auditing a specific firm-level estimate (Internet
 Appendix Table IA.V has all 74 firms); or comparing against the Harvard
-Business School Impact Weighted Accounts methodology (Section VII). The
+Business School Impact Weighted Accounts methodology (Section VII). Where
+Serafeim, Trinh, and Zochowski (2020) use accounting methods to monetize impact,
+this paper uses demand estimation instead, yielding different results. The
 locators above point to the exact table or figure.
 
 ## Attribution and rights

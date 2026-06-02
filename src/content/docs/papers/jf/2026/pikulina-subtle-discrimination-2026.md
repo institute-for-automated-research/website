@@ -146,8 +146,10 @@ $$F\!\left(\frac{s_b - s_r}{\omega}\right) > 0$$, i.e., there exist signals that
 justify choosing Blue without proof of bias. It is *overt* (Definition 2)
 if $$F = 0$$, meaning a single act is conclusive evidence of discrimination.
 
-**Promotion model (§III.A, pp. 338-340).** A firm hires two ex ante
-identical agents for job 1. At Date 1 both simultaneously choose
+**Promotion model (§III.A, pp. 338-340).** This setup builds on
+Prendergast (1993), which incentivizes firm-specific human capital
+through promotions; the present model adds biased tie-breaking. A firm
+hires two ex ante identical agents for job 1. At Date 1 both simultaneously choose
 investments $$e_i \in [0, 1]$$ at cost $$c(e_i)$$ (quadratic: $$c(e_i) = k e_i^2 / 2$$).
 Skill $$s_i \in \{0, 1\}$$ is realized; $$\Pr(s_i = 1) = e_i$$. At Date 2 the
 principal promotes one agent to job 2 (the top position), yielding a
@@ -196,6 +198,10 @@ on the unfavored agent's investment (p. 344):
   (where she loses), so Red invests more to minimize tie probability.
 
 Which force dominates depends on the premium-cost ratio $$\sigma = W / k$$.
+This extends Coate and Loury (1993): the self-fulfilling stereotype model
+is generalized by adding strategic competition between agents, and unlike
+Coate and Loury the unfavored group may invest more than the favored group
+under low stakes.
 
 ## Method
 
@@ -273,7 +279,10 @@ $$
 
 Prediction: $$\Delta_p$$ is U-shaped in $$\sigma$$; at high
 $$\sigma$$, the achievement gap dominates, so promotion gaps are large but
-little direct evidence of discrimination is observable.
+little direct evidence of discrimination is observable. This contradicts
+Lazear and Rosen (1990), whose model predicts small promotion gaps in
+high-stakes jobs; here promotion gaps are larger at higher stakes when
+discrimination is subtle.
 
 **Analyst accuracy specification (§IV.A, eq. 16, p. 356).**
 An analyst of type $$i$$ earns promotion via composite metric
@@ -299,7 +308,10 @@ $$
 
 The threshold $$1/(1 - \delta) > 1$$ is strictly larger than 1, implying
 overt bias attenuates overcompensation: overt discrimination moderates
-the overcompensation effect of subtle discrimination.
+the overcompensation effect of subtle discrimination. This extends
+Drugov and Ryvkin (2017) in the biased-contest literature by
+distinguishing subtle from overt bias and showing their effects differ
+qualitatively.
 
 ## Datasets used
 

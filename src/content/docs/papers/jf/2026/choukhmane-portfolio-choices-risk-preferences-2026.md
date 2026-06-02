@@ -150,7 +150,9 @@ control + 52,400 treatment investors at 191 firms.
 ## Theory / model
 
 The paper combines two frameworks: a nonparametric revealed-preference
-approach and a structural life-cycle model.
+approach and a structural life-cycle model. The structural side builds on
+the survey of life-cycle portfolio choice models in Gomes (2020) as the
+benchmark framework.
 
 **Revealed-preference setup (Section II, pp. 19-24).** Individual $$i$$ has
 unobserved preferred participation $$Y^*_{it} \in \{0,1\}$$ and preferred equity
@@ -223,7 +225,9 @@ term. Under Assumption 6 the bias is zero and preferences equal the active
 investors' average choices.
 
 **Life-cycle model (Section III, pp. 29-36).** Investors have Epstein-Zin-Weil
-recursive preferences. The value function for a retired investor (state
+recursive preferences. The estimated preferences are broadly consistent with
+the CRRA life-cycle model of Merton (1969) and its prediction of an equity
+share that declines with age. The value function for a retired investor (state
 vector $$X_t$$) satisfies (p. 35):
 
 $$

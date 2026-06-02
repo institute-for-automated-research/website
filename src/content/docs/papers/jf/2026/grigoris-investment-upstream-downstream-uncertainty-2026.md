@@ -164,7 +164,9 @@ specification (Table III). Macrolevel analysis: 1976Q1-2019Q4.
 ## Theory / model
 
 The paper builds a production-based real-option model with time-to-build
-(Section II, pp. 421-434). The focal firm has assets-in-place (installed
+(Section II, pp. 421-434). It extends the time-to-build real-option model of
+Majd and Pindyck (1987) to stochastic volatility and to the supply-chain
+location of uncertainty. The focal firm has assets-in-place (installed
 capacity $$k_t$$, depreciating at rate $$\delta$$) and a growth option to expand.
 Operating cash flow per period (eq. 1, p. 421):
 
@@ -232,7 +234,9 @@ $$
 \end{aligned}
 $$
 
-**Key asymmetry (pp. 428-431).** Both uncertainties increase the option
+**Key asymmetry (pp. 428-431).** The paper builds on the canonical
+bad-news-principle channel of Bloom (2009) by decomposing total uncertainty
+into upstream and downstream components. Both uncertainties increase the option
 value of waiting (bad news principle, Bernanke 1983). Only downstream
 uncertainty also raises the opportunity cost of waiting: during
 time-to-build, forgone revenues are a convex function of the future output
@@ -317,6 +321,10 @@ The same interaction structure is used to test reversibility heterogeneity
 (Table VI, p. 443), replacing $$I[\text{Long}]$$ with $$\text{HighReverse}$$ / $$\text{LowReverse}$$
 (Kim and Kung 2017 capital redeployability measure).
 
+Where Acemoglu, Akcigit, and Kerr (2016) study the production-network
+propagation of shocks, the paper tests analogous channels for second-moment
+(uncertainty) shocks at the macro level.
+
 **Macrolevel impulse responses (eq. 13, p. 447; R7-R8):** Smooth local
 projections (SLPs, Barnichon and Brownlees 2019) estimated for forecast
 horizons $$h \in \{1, \ldots, H\}$$ quarters:
@@ -328,7 +336,7 @@ y_{t+h} = \beta_{0(h)} + \beta_{1(h)} y_t + \beta_{2(h)} \sigma_{U,t}
 $$
 
 - $$y_{t+h}$$ is one of: quarterly real growth rates of industrial production, consumption, private investment, GDP, and the level of market price-dividend ratio and risk-free rate
-- $$\sigma_{U,t}$$ ($$\sigma_{D,t}$$) is macrolevel upstream (downstream) uncertainty, constructed as the value-weighted average realized volatility of firms classified in the top (bottom) 10th percentile of the industry upstreamness score (eq. 12, BEA I-O tables)
+- $$\sigma_{U,t}$$ ($$\sigma_{D,t}$$) is macrolevel upstream (downstream) uncertainty, constructed as the value-weighted average realized volatility of firms classified in the top (bottom) 10th percentile of the industry upstreamness score (eq. 12), built on the upstreamness measure from BEA I-O tables of Antras and Chor (2018) to form the macrolevel upstream-downstream industry classification
 - $$\Gamma_{t-p}$$ includes the dependent variable, both macrolevel uncertainties, excess market return, term spread, default spread, and inflation
 - $$P = 4$$ lags; 1976Q1-2019Q4 quarterly data; all variables standardized
 - SE/CIs: IRFs plotted with 90% confidence intervals (Figures 6-7, pp. 448-449)

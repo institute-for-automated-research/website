@@ -227,7 +227,9 @@ arguably reflects market power rather than unpriced risk.
 number of banks, the paper uses a Bartik-style design (Goldsmith-Pinkham,
 Sorkin, and Swift 2020): the pre-determined number of GSIBs in a county in
 2015, interacted with a post-surcharge dummy, instruments for changes in the
-number of lending banks. The first stage (column (1) of Table XII) shows that
+number of lending banks. Following Favara, Ivanov, and Rezende (2021), the
+paper treats the GSIB surcharge as a shock to large-bank lending costs and
+uses it to build the DiD/IV instrument (p. 272). The first stage (column (1) of Table XII) shows that
 more GSIBs in 2015 predicts a significant drop in the total number of banks
 after 2016. The IV strategy identifies the adverse-selection channel by
 exploiting a supply-side cost shock that affected GSIBs differentially across

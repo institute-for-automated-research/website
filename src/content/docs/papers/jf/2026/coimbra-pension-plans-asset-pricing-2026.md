@@ -131,7 +131,8 @@ of consumption risk from retirees to workers.
 ## Theory / model
 
 The model is an incomplete-markets overlapping-generations (OLG) production
-economy. Households live from age 20 (adult age 1) to 100 (adult age 81),
+economy, using the framework of Storesletten,
+Telmer, and Yaron (2007) as a benchmark. Households live from age 20 (adult age 1) to 100 (adult age 81),
 working until age 65 and retiring thereafter. Two household types (*A* and
 *B*) have heterogeneous discount factors and EIS but the same risk aversion.
 
@@ -154,8 +155,9 @@ $$
 
 where $$\eta_t$$ is i.i.d. standard normal and both the conditional mean and
 standard deviation of depreciation are correlated with $$U_t$$. This device
-avoids explicit adjustment costs while generating realistic return volatility
-in the incomplete-markets setting.
+avoids explicit adjustment costs while generating return volatility
+in the incomplete-markets setting, sharing the stochastic depreciation device
+for tractability with Favilukis, Ludvigson, and Van Nieuwerburgh (2017).
 
 **Household preferences: Epstein-Zin-Weil (eq. 9, p. 151).**
 
@@ -223,7 +225,9 @@ $$
 
 Baseline calibration: $$\theta^P = 0.5$$ (equal split). This stochastic
 adjustment is the new risk channel: return shocks feed into net wages and firm
-profits, raising cross-sectional consumption volatility.
+profits, raising cross-sectional consumption volatility. Building on
+Constantinides and Duffie (1996), stochastic contribution rates raise
+idiosyncratic income risk for workers and firms, which raises the equity premium.
 
 **Government budget constraint (eq. 8, p. 151).**
 

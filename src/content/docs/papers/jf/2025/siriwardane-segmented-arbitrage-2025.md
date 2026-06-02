@@ -144,6 +144,9 @@ as a whole.
 | CRSP / Compustat (via WRDS) | Supporting equity holdings data (Y-9C bank trading book filings cited; CRSP implied for stock characteristics) | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | Coalition Greenwich / S&P (qualitative) | JPMorgan equity derivatives market share since 2015 (cited contextual fact) | No page yet |
 
+The CIP spread construction and FX arbitrage measurement follow the
+methodology of Du, Tepper, and Verdelhan (2018).
+
 Sample: 32 arbitrage spreads, daily, January 1, 2010 to February 29, 2020
 (post-GFC, pre-Covid). CDS-bond and Treasury-swap series start Sep 2011 for
 some maturities. CFTC quantity data weekly from July 2010.
@@ -175,11 +178,17 @@ s_{n,t} = v_{n,1} c_{1,t} V_{1,t} = v_{n,1} c_{1,t} \left( \sum_n a_{n,t} v_{n,1
 $$
 
 All spreads move with the single factor $$c_{1,t} V_{1,t}$$ and are perfectly
-correlated. Under a single frictional funding factor with balance-sheet
+correlated. This is the prediction the data contradict: the canonical
+single-constraint intermediary model of He and Krishnamurthy (2013) implies
+perfect spread correlation, whereas the mean pairwise correlation is 0.22.
+Under a single frictional funding factor with balance-sheet
 integration ($$c_{k,t} = 0$$, $$v_{n,k} = 0$$, $$f_{n,1} > 0$$, $$f_{n,l} = 0$$
 for $$l > 1$$), spreads are $$s_{n,t} = w_{n,1} f_{1,t}$$ -- again a one-factor
 structure. Under integration with many constraints ($$L = 1$$, $$K > 0$$) spreads
-have a K+1 factor structure (eq. 3, p. 2550):
+have a K+1 factor structure (eq. 3, p. 2550). The margin-based asset pricing
+of Garleanu and Pedersen (2011), in which integrated funding implies a one- or
+two-factor spread structure, is contradicted by the high-dimensional factor
+structure documented in the data:
 
 $$
 s_{n,t} = w_{n,1} f_{1,t} + \sum_{k=1}^{K} v_{n,k} c_{k,t} V_{k,t}
@@ -202,7 +211,8 @@ $$
 **Balance-sheet segmentation.** When arbitrageurs in group I specialize in
 trades $$n = 1,\ldots,N_1$$ and group $$\tilde{I}$$ in trades $$n = N_1+1,\ldots,N$$, with
 different marginal balance-sheet costs, equilibrium spreads are (eq. 6,
-p. 2552):
+p. 2552). The premise that intermediaries specialize draws on evidence of
+intermediary specialization in credit derivatives in Siriwardane (2019):
 
 $$
 s_{n,t} = \begin{cases} \epsilon_{n,i} + v_{n,1} c_{1,t}^{I} V_{1,t}^{I} & \text{if } n \leq N_1 \\ \epsilon_{n,j} + v_{n,1} c_{1,t}^{\tilde{I}} V_{1,t}^{\tilde{I}} & \text{if } N_1 < n \end{cases}
@@ -250,7 +260,9 @@ $$
 $$
 
 A supply shock ($$\epsilon_s$$) lowers spreads and raises quantities; a demand
-shock ($$\epsilon_d$$) raises both. Estimation follows Arias, Rubio-Ramirez, and
+shock ($$\epsilon_d$$) raises both. The sign-restricted SVAR used to separate
+supply from demand shocks builds on Uhlig (2005). Estimation follows Arias,
+Rubio-Ramirez, and
 Waggoner (2018): Bayesian Normal-Wishart prior, 1,000 draws from the posterior
 using Cholesky decomposition of $$\Sigma_u$$. The model is estimated separately
 for each trade; the correlations of supply and demand shocks across trades are
@@ -274,7 +286,8 @@ $$
 **Spec 1: MMF reform DiD (R5, eq. 11, p. 2572).** Baseline differences-in-
 differences estimating the 2016 MMF reform impact on unsecured vs. secured
 spreads, using daily data, trade and time fixed effects, clustered by trade
-and date:
+and date. The 2016 MMF reform event study design builds on Anderson, Du, and
+Schlusche (2019):
 
 $$
 s_{i,t} = \alpha_i + \alpha_t + \beta \cdot \mathbf{1}[i \in \text{Unsecured}] \cdot \mathbf{1}[t \geq \text{October2016}] + \epsilon_{i,t}

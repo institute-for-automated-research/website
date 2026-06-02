@@ -170,7 +170,10 @@ bias (p. 3591).
 The method has two components: (1) constructing the *War* index via
 semisupervised topic modelling (sLDA), and (2) building WarFac as the
 innovation in *War* via a rolling AR(1). It builds on `slda-topic-model`
-and `ar1-innovation`.
+and `ar1-innovation`. The *War* index used here is the same one that the
+companion aggregate-return study of Hirshleifer, Mai, and Pukthuanthong
+(2025, Review of Financial Studies) uses; this paper extends it to
+cross-sectional pricing (p. 3590).
 
 **sLDA topic model (pp. 3596-3598).** Each month $$t$$, the model is estimated
 on all *New York Times* articles in the preceding 120 months (the rolling

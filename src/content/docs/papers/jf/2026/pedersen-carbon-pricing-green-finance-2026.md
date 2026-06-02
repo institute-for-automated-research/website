@@ -135,7 +135,9 @@ to impose a carbon tax have a clearer path to a green transition.
 
 The model is a dynamic general-equilibrium model (Section III, pp. 572-575).
 There are $$N$$ goods-producing firms, green and brown electricity producers, and
-a representative household.
+a representative household. The paper extends the equilibrium ESG investing
+framework of Pastor, Stambaugh, and Taylor (2021) to show exactly when green
+finance can and cannot replicate a carbon tax.
 
 **Goods-producing firms.** Firm $$i$$ at time $$t$$ chooses labor $$L_{it}$$, green
 electricity $$G_{it}$$, brown electricity $$B_{it}$$, scope-1 emissions $$X_{it}$$, and
@@ -231,6 +233,9 @@ utility cost of pollution relative to the marginal utility of consumption.
 - Proposition 3 (p. 577): With scope-2 taxes treating all electricity as
   brown, the social optimum requires a proportional subsidy to green
   electricity producers $$v_{gt} = S_t(F_b - F_g)$$.
+
+Chittaro, Piazzesi, Sena, and Schneider (2025) generalize this framework with
+a rich input-output structure and short-sale constraints (p. 565).
 
 ## Method
 
@@ -336,10 +341,12 @@ $$
 - $$X_{it+1}$$: Trucost scope-1 CO2 emissions in tCO2 for fiscal year 2021
 - $$v_{it}$$: firm market value = CRSP market equity + Compustat book value of debt,
   beginning of calendar year 2021
-- $$S_{t+1} - \tau_{it+1}$$: set to $$S = 43$$ $/tCO2 (Nordhaus baseline; $$\tau = 0$$ for illustration)
+- $$S_{t+1} - \tau_{it+1}$$: set to $$S = 43$$ $/tCO2 (Nordhaus (2019) baseline; $$\tau = 0$$ for illustration)
 - $$r$$: set to 5% for illustration
 
-The resulting firm-level rates are aggregated to value-weighted industry
+The social cost of carbon $$S_t$$ is taken as given from the Nordhaus (2019)
+calibrations and translated into a cost-of-capital adjustment. The resulting
+firm-level rates are aggregated to value-weighted industry
 averages using two-digit GICS sectors (Utilities split into Renewable
 Electricity, Brown Electricity, and Other Utilities).
 

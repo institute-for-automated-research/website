@@ -103,6 +103,12 @@ approximately $3,000 more income over three years. Both the treated group
 (via debt relief) and the control group (via wage garnishment and collections)
 contribute to these differential outcomes.
 
+The paper builds on Dobbie and Song (2015), a benchmark for debt-relief
+effects on credit and labor outcomes via chapter 13 bankruptcy, but examines
+private student debt discharge outside bankruptcy. It also builds on Dobbie
+and Song (2020), a targeted credit-card debt relief experiment, and finds
+faster and broader effects for student debt discharge.
+
 ## Core results
 
 Magnitudes and significance are as reported; `**`/`***` = 5%/1%. Locators
@@ -144,6 +150,9 @@ models (pp. 519-521):
   decline in other debt balances. Mechanism: discharge removes a delinquent
   account from the credit report, relaxes credit constraints, and protects
   future wages from garnishment, reducing the incentive to borrow further.
+  Building on Herkenhoff, Phillips, and Cohen-Cole (2021), who show credit
+  access improving self-employment, the paper tests whether student debt
+  discharge relaxes credit constraints.
 - **Hypothesis 2** (p. 520): Student debt discharge leads to a relative
   decline in the likelihood of default and experiencing distress. Mechanism:
   improved financial condition reduces delinquency on all accounts and
@@ -151,7 +160,9 @@ models (pp. 519-521):
 - **Hypothesis 3** (p. 521): Student debt discharge leads to a relative
   increase in mobility and income. Mechanism: debt overhang (analogous to
   the corporate finance problem) and liquidity constraints distort labor
-  supply decisions; discharge removes these frictions.
+  supply decisions; discharge removes these frictions. Melzer (2017) documents
+  debt overhang reducing homeowner investment; here the same mechanism is
+  tested for student-debt borrowers in the labor market.
 
 The paper formalizes the borrower's budget constraint (p. 517) to clarify
 what is and is not observable:

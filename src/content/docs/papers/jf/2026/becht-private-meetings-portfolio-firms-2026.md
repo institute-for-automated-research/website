@@ -151,7 +151,7 @@ $$
 
 For the soft/hard information split (Table V), $$X_{it}$$ is replaced by $$\text{FM Soft}_{0,5}(\geq \bar{x})$$, $$\text{FM Hard}_{0,5}(\geq \bar{x})$$, $$\text{GS Soft}_{0,5}(\geq \bar{x})$$, and $$\text{GS Hard}_{0,5}(\geq \bar{x})$$, where $$\bar{x}$$ is the sample median LLM-assessed soft-information share. An alternative split at 50% is also used.
 
-**Calendar-time portfolio performance (Table XI).** Monthly time-series Fama-MacBeth-style regressions on long-short portfolios:
+**Calendar-time portfolio performance (Table XI).** The long-short portfolio construction follows the methodology of Bradley, Jame, and Williams (2022), here extended with actual meeting notes and daily trade data. Monthly time-series Fama-MacBeth-style regressions on long-short portfolios:
 
 $$
 R^{\text{LS}}_{t} = \text{Constant} + \beta (\text{Mkt-Rf})_t + s\,\text{SMB}_t + h\,\text{HML}_t + u\,\text{UMD}_t + \varepsilon_t
@@ -164,7 +164,7 @@ $$
 
 ## Empirical specifications
 
-**Baseline meetings-and-trading (Table IV, Panel A).** The sample is the full unbalanced panel of fund-stock-day positions, 2007-2015 (N = 10,436,084 for the full-sample columns; 240,058 for the trades-only column). All specifications include stock and date fixed effects; standard errors are clustered at fund and trading-day level. Columns (1)-(2) use $$\text{Trade}$$ (net % change in shares) as the dependent variable; columns (3)-(4) use linear probability models for $$P(\text{Sell Trade})$$ and $$P(\text{Buy Trade})$$. Results are robust to longer [6,20]-day windows (Panel B).
+**Baseline meetings-and-trading (Table IV, Panel A).** The sample is the full unbalanced panel of fund-stock-day positions, 2007-2015 (N = 10,436,084 for the full-sample columns; 240,058 for the trades-only column). All specifications include stock and date fixed effects; standard errors are clustered at fund and trading-day level. Columns (1)-(2) use $$\text{Trade}$$ (net % change in shares) as the dependent variable; columns (3)-(4) use linear probability models for $$P(\text{Sell Trade})$$ and $$P(\text{Buy Trade})$$. Results are robust to longer [6,20]-day windows (Panel B). The trading-response estimates are about seven times larger than the corporate-jet-visit evidence in Bushee, Gerakos, and Lee (2018), which the paper attributes to its use of daily trade data rather than inferred trading.
 
 **Soft and hard information by meeting type (Table V).** Same specification as Table IV but with meeting-type indicators split by LLM-assessed soft/hard content above and below the sample median. Separately estimated for FM and GS meetings. N = 240,058 (trades) and 10,450,063 (full panel).
 
@@ -189,6 +189,8 @@ $$
 | OpenAI GPT-4 Turbo/GPT-4/GPT-4o API | LLM text classification of meeting notes for soft/hard information content, MNPI likelihood, and consensus assessment | No page yet |
 
 Sample: January 2007 to December 2015 (nine years). Universe: FTSE All-Share Index (353-703 firms at any given time). Meetings cover firms held at any point across 40-50 UK Equities Desk funds.
+
+This study extends an earlier study of the same asset manager, Becht, Franks, Mayer, and Rossi (2009), which examined Hermes UK fund activism; here the analysis uses the SLI/abrdn proprietary meeting notes.
 
 ## When to read the full paper
 

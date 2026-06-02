@@ -151,7 +151,10 @@ information content of U.S. forward guidance dominated the direct interest-rate
 channel: investors interpreted FG promises of low rates as bad news about
 growth, raising risk aversion and triggering a flight to safety. This generated
 dollar appreciation in response to policy easings, contrary to standard
-macroeconomic predictions; equity prices also rose in response to FG easings
+macroeconomic predictions. This contrasts with Rogers, Scotti, and Wright
+(2018), who find conventional-sign dollar responses to unconventional policy
+at longer horizons using a monthly VAR with sign restrictions that rule out
+the information channel by assumption. Equity prices also rose in response to FG easings
 during this period (reversing the pre- and post-GR pattern where easings led to
 equity price declines due to the information effect). The finding implies that
 models of exchange rates and asset prices need to incorporate the information
@@ -163,6 +166,13 @@ uncertainty and calendar-based forward guidance.
 The paper proposes a partial-equilibrium daily model of the U.S. economy and
 a marginal investor SDF. The model is purposefully stripped down to illustrate
 how the information channel can qualitatively reconcile the empirical facts.
+Building on the information-channel model of monetary policy signaling in
+Tang (2015), it adds a partial-equilibrium extension with exchange rates and
+stock prices.
+The signaling model of monetary policy with heterogeneous agents in Melosi
+(2017) co-inspires the theoretical framework, and the forward guidance with
+heterogeneous beliefs in Andrade et al. (2019) informs the information-effect
+model structure.
 
 **U.S. macroeconomic block** (pp. 989-990, eqs. 3-5). Log inflation and real
 output follow:
@@ -281,7 +291,9 @@ inflation channels to dominate.
 
 The estimation strategy is the lag-augmented local projection (LALP) of
 Montiel Olea and Plagborg-Moller (2021), applied to high-frequency monetary
-policy surprises. The approach builds on `event-study` identification and
+policy surprises. The high-frequency monetary policy identification using
+interest-rate futures, and the "information effect" framing, follows Nakamura
+and Steinsson (2018). The approach builds on `event-study` identification and
 `panel-regression` for the cross-currency specification, and uses
 `affine-term-structure` models disciplined by survey forecasts for the channel
 decomposition.
