@@ -204,12 +204,12 @@ indexed by i with income-earning ability theta_i. Each person i has quasilinear
 utility additively separable in consumption, labor, and externality (eq. 1,
 p. 292):
 
-```
-U_i(y; p, w(theta_i)) = U_i( sum_m sum_{t in T_m} sum_{j in J_m} (u_ijt - p_j) y_ijt
-                              + pi_i
-                              + sum_fl (u_ifl + w_ifl(theta_i)) y_ifl
-                              - Phi )
-```
+$$
+U_i(y; p, w(\theta_i)) = U_i\!\left( \sum_m \sum_{t \in T_m} \sum_{j \in J_m} (u_{ijt} - p_j)\, y_{ijt}
+  + \pi_i
+  + \sum_{fl} (u_{ifl} + w_{ifl}(\theta_i))\, y_{ifl}
+  - \Phi \right)
+$$
 
 where y_ijt are binary purchase indicators, y_ifl are binary employment
 indicators, pi_i is person i's share of redistributed profits, and Phi is the
@@ -218,52 +218,54 @@ consumers maximize perceived utility U-tilde_i where u_ijt is replaced by
 u_ijt + gamma_j; gamma_j < 0 is a negative internality. Consumer choice is
 (eq. 2, p. 292):
 
-```
-y* = argmax U-tilde_i(y; p, w(theta_i))
-```
+$$
+y^* = \operatorname*{argmax}\, \tilde U_i(y; p, w(\theta_i))
+$$
 
 Firm f's profits are (eq. 3, p. 292):
 
-```
-Pi_f(p) = sum_{j in J_f} [ p_j q_j(p) - C_j(q_j) ]
-```
+$$
+\Pi_f(p) = \sum_{j \in J_f} \left[ p_j q_j(p) - C_j(q_j) \right]
+$$
 
 Per-capita externality (eq. 4, p. 292):
 
-```
-Phi = (1/N) sum_m sum_{j in J_m} q_j(p) phi_j
-```
+$$
+\Phi = \frac{1}{N} \sum_m \sum_{j \in J_m} q_j(p)\, \phi_j
+$$
 
 Social welfare is the Pareto-weighted sum of indirect utilities (eq. 5, p. 293):
 
-```
-W(p, w) = sum_i omega_i V_i(p, w(theta_i))
-```
+$$
+W(p, w) = \sum_i \omega_i V_i(p, w(\theta_i))
+$$
 
 **Individual impact.** Firm f's individual impact is the welfare loss from its
 exit if all other firms remain (eq. 6-7, p. 293):
 
-```
-Delta W_f(X) := W(p^{X_0}, w^{X_0}) - W(p^{X_0\f}, w^{X_0\f})
+$$
+\Delta W_f(X) := W(p^{X_0}, w^{X_0}) - W(p^{X_0 \setminus f}, w^{X_0 \setminus f})
+$$
 
-Delta W_f^{Individual} = Delta W_f(F)
-```
+$$
+\Delta W_f^{\text{Individual}} = \Delta W_f(F)
+$$
 
 **Share of industry impact.** Defined as firm f's Shapley value for the social
 welfare loss if the entire industry exited. With R_m the set of orderings of
 firms in market m and P_f^R the set of firms preceding f in ordering R
 (eq. 8, p. 293):
 
-```
-Delta W_f^{Shapley} = (1 / F_m!) sum_{R_n} Delta W_f(P_f^R)
-```
+$$
+\Delta W_f^{\text{Shapley}} = \frac{1}{F_m!} \sum_{R_n} \Delta W_f(P_f^R)
+$$
 
 **Social marginal welfare weights.** Following Saez (2002), welfare weights are
 inversely proportional to after-tax income (eq. 9, p. 294):
 
-```
-g_i = kappa * a(z_i)^{-rho},    kappa = N / [ sum_i a(z_i)^{-rho} ]
-```
+$$
+g_i = \kappa\, a(z_i)^{-\rho}, \qquad \kappa = \frac{N}{\sum_i a(z_i)^{-\rho}}
+$$
 
 where a(z_i) is after-tax income and rho = 1 as benchmark (log utility).
 When rho = 0, all people receive equal weight and W is total surplus.
@@ -285,60 +287,62 @@ markets via BLP demand, (ii) oil market via price-taking competitive fringe, and
 **Differentiated product markets (Sections IV.A-B, pp. 302-305).** Representative
 utility for income group z and firm f is (eq. 12, p. 303):
 
-```
-V_{zf}(p_f, v_i) = eta(-p_f + u_ift) - epsilon_ift
-                 = -eta p_f + xi_f + gamma_f + A_i zeta_f + sigma_f v_if + sigma_n v_in
-```
+$$
+\begin{aligned}
+V_{zf}(p_f, v_i) &= \eta(-p_f + u_{ift}) - \epsilon_{ift} \\
+  &= -\eta p_f + \xi_f + \gamma_f + A_i \zeta_f + \sigma_f v_{if} + \sigma_n v_{in}
+\end{aligned}
+$$
 
 where eta is a market-level price scaling factor, xi_f + gamma_f = delta_f is
 firm f's mean utility, zeta_f is an income-firm interaction parameter, and
 sigma_f, sigma_n are standard deviations of firm-specific and inside-good random
 coefficients. Income group z's choice probability (eq. 13, p. 303):
 
-```
-P_{zf}(p) = E_v [ exp(V_{zf}(p_f, v_i)) / (1 + sum_{k in F_m} exp(V_{zk}(p_k, v_i))) ]
-```
+$$
+P_{zf}(p) = E_v\!\left[ \frac{\exp(V_{zf}(p_f, v_i))}{1 + \sum_{k \in F_m} \exp(V_{zk}(p_k, v_i))} \right]
+$$
 
 Consumer surplus loss from firm f's exit (eq. 15, p. 304):
 
-```
-Delta CS_f(X_0) = N sum_z mu_z g(z) T_m [ CS-tilde_{zm}(p^{X_0}) - CS-tilde_{zm}(p^{X_0\f})
-                  - sum_f gamma_f (P_{zf}(p^{X_0}) - P_{zf}(p^{X_0\f})) ]
-```
+$$
+\Delta CS_f(X_0) = N \sum_z \mu_z\, g(z)\, T_m \left[ \widetilde{CS}_{zm}(p^{X_0}) - \widetilde{CS}_{zm}(p^{X_0 \setminus f})
+  - \sum_f \gamma_f \left( P_{zf}(p^{X_0}) - P_{zf}(p^{X_0 \setminus f}) \right) \right]
+$$
 
 **Estimation moments (MSM, p. 305).** Three sets of micro-moments identify the
 structural parameters (Theta^m = {eta, zeta, sigma_f, sigma_n}):
 
 Income-firm moments (informative about zeta_f):
 
-```
-g_f^{inc} = ( sum_i omega_i chi_im )^{-1} sum_i omega_i chi_im
-            [ (A_i F_if - B_i F_if) - (mu_A P_{Af}(p^0) - mu_B P_{Bf}(p^0)) / (1 - P_0(p^0)) ]
-```
+$$
+g_f^{\text{inc}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i \chi_{im}
+  \left[ (A_i F_{if} - B_i F_{if}) - \frac{\mu_A P_{Af}(p^0) - \mu_B P_{Bf}(p^0)}{1 - P_0(p^0)} \right]
+$$
 (eq. 16, p. 305)
 
 Substitution moments (informative about eta and sigma_f):
 
-```
-g_f^{sub} = ( sum_i omega_i chi_im F_if )^{-1} sum_i omega_i chi_im F_if
-            [ H_if - P_f(p_f') / P_f(p^0) ]
-```
+$$
+g_f^{\text{sub}} = \left( \sum_i \omega_i \chi_{im} F_{if} \right)^{-1} \sum_i \omega_i \chi_{im} F_{if}
+  \left[ H_{if} - \frac{P_f(p_f')}{P_f(p^0)} \right]
+$$
 (eq. 17, p. 305)
 
 Outside-good moments (informative about sigma_n):
 
-```
-g^{out} = ( sum_i omega_i chi_im )^{-1} sum_i omega_i chi_im
-          [ O_i - (1 - P_0(p')) / (1 - P_0(p^0)) ]
-```
+$$
+g^{\text{out}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i \chi_{im}
+  \left[ O_i - \frac{1 - P_0(p')}{1 - P_0(p^0)} \right]
+$$
 (eq. 18, p. 305)
 
 Parameters are estimated by minimizing G^m(Theta^m)' G^m(Theta^m). Marginal
 costs are backed out from Nash-Bertrand first-order conditions (eq. 10, p. 302):
 
-```
-p_f - C'_f = q_f / (- partial q_f(p) / partial p_f)
-```
+$$
+p_f - C'_f = \frac{q_f}{-\,\dfrac{\partial q_f(p)}{\partial p_f}}
+$$
 
 Counterfactual equilibrium prices p^X are found by fixed-point iteration
 (Conlon and Gortmaker 2020).
@@ -346,31 +350,33 @@ Counterfactual equilibrium prices p^X are found by fixed-point iteration
 **Oil market (Section IV.D, pp. 308-309).** Oil is treated as an undifferentiated
 globally traded commodity with price-taking firms. Market clearing (eq. 19):
 
-```
+$$
 D(p^X) = S(p^X; F)
-```
+$$
 
 Consumer surplus loss from firm f's exit under linear demand (eq. 20):
 
-```
-Delta CS_f(X_0) = (1/2)( D(p^{X_0\f}) + D(p^{X_0}) ) * (p^{X_0\f} - p^{X_0})
-```
+$$
+\Delta CS_f(X_0) = \tfrac{1}{2}\left( D(p^{X_0 \setminus f}) + D(p^{X_0}) \right)\left( p^{X_0 \setminus f} - p^{X_0} \right)
+$$
 
 **Labor markets (Section V, pp. 311-314).** Worker surplus per worker assuming
 linear labor supply. Normalized surplus relative to outside option (eq. 22-23,
 pp. 311-312):
 
-```
-(u_ifl + w_ifl - u_i0 - w_i0) / w_ifl = epsilon_ifl / (alpha x_ifl),   epsilon ~ U(0,1)
+$$
+\frac{u_{ifl} + w_{ifl} - u_{i0} - w_{i0}}{w_{ifl}} = \frac{\epsilon_{ifl}}{\alpha x_{ifl}}, \qquad \epsilon \sim U(0,1)
+$$
 
-E_i[ WS_ifl ] = integral_0^1 (w_ifl epsilon) / (alpha x_ifl) d epsilon = w_ifl / (2 alpha x_ifl)
-```
+$$
+E_i[ WS_{ifl} ] = \int_0^1 \frac{w_{ifl}\, \epsilon}{\alpha x_{ifl}}\, d\epsilon = \frac{w_{ifl}}{2 \alpha x_{ifl}}
+$$
 
 Total worker surplus loss from firm f's exit (eq. 24, p. 312):
 
-```
-Delta WS_f = sum_{l in L_f} sum_{i in fl} w_ifl / (2 alpha x_ifl)
-```
+$$
+\Delta WS_f = \sum_{l \in L_f} \sum_{i \in fl} \frac{w_{ifl}}{2 \alpha x_{ifl}}
+$$
 
 ## Empirical specifications
 
@@ -378,9 +384,9 @@ Delta WS_f = sum_{l in L_f} sum_{i in fl} w_ifl / (2 alpha x_ifl)
 alpha is estimated from a linear probability model of whether workers leave if
 their employer cuts salaries by 10% (eq. 27, p. 312):
 
-```
-Pr(L_i = 1) = (0.1 alpha) x_ifl
-```
+$$
+\Pr(L_i = 1) = (0.1\,\alpha)\, x_{ifl}
+$$
 
 where x_ifl includes: annual earnings w_ifl (from survey), college degree
 indicator, major occupation indicators (management/business/science reference),

@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import { readdirSync } from 'node:fs';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import { journalName } from './src/journals.js';
 
 // Distilled literature is organised papers/<journal>/<year>/<slug>.md. Build one
@@ -28,6 +30,17 @@ export default defineConfig({
   // Starlight default directory format; vercel.json no longer force-strips
   // trailing slashes, so these links resolve in one shot (zero redirects).
   trailingSlash: 'ignore',
+  // Render $...$ / $$...$$ as typeset math (KaTeX). The .md twins written by
+  // scripts/postbuild.mjs are the verbatim source, so the raw LaTeX survives
+  // for LLM scraping (llms-full.txt) while humans get rendered equations.
+  // singleDollarTextMath:false is load-bearing: these distillations are full of
+  // prose dollar amounts ($150.54 billion, $190/ton), and single-$ inline math
+  // would silently eat the text between two of them. All math is display
+  // ($$...$$); inline single-$ math is intentionally off.
+  markdown: {
+    remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
+    rehypePlugins: [rehypeKatex],
+  },
   integrations: [
     starlight({
       title: 'IAR Wiki',
@@ -56,7 +69,10 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'twitter:card',
           content: 'summary_large_image' } },
       ],
-      customCss: ['./src/styles/theme.css'],
+      // KaTeX stylesheet shipped from the npm package: Vite bundles it and
+      // emits the woff2 glyphs as fingerprinted local assets (no CDN, keeps
+      // the open-by-design / no-external-deps posture).
+      customCss: ['katex/dist/katex.min.css', './src/styles/theme.css'],
       components: {
         Head: './src/components/Head.astro',
         Footer: './src/components/Footer.astro',
