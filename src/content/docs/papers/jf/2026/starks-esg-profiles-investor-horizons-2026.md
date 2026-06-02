@@ -136,7 +136,9 @@ Locators point into the source PDF.
 **Overall (paper's conclusion).** Long-horizon investors consistently prefer
 firms with better ESG profiles, supporting the view that investors have
 heterogeneous preferences regarding corporate ESG profiles and that this
-heterogeneity depends on investor horizons. The information channel and
+heterogeneity depends on investor horizons, related to work linking investor
+horizon to corporate policies (Derrien, Kecskés, and Thesmar 2013). The
+information channel and
 limits-to-arbitrage channel both receive empirical support; the
 clientele-catering channel does not.
 
@@ -169,6 +171,7 @@ stronger nonpecuniary ESG preferences, managers cater by tilting toward
 high-ESG stocks. The testable implication is that ESG preferences of
 end-investors of long-term funds differ from those of short-term funds
 (tested via Morningstar globe flow responses and the CCNI interaction).
+The globe DiD design follows Hartzmark and Sussman (2019).
 
 **Identification.** The primary cross-sectional tests control for investment
 objective by time, fund size, portfolio characteristics, and past return rank
@@ -270,7 +273,7 @@ $$
 \text{FundESG}_{j,t+1} = \alpha_j + \gamma_t + \beta \cdot \text{TreatedFunds}_j \times \text{PostDisclosure}_t + \text{Controls} + \epsilon_{j,t} \tag{13}
 $$
 
-- Reduced-form DiD. Treated funds switched from semiannual to quarterly disclosure; control funds were already disclosing quarterly.
+- Reduced-form DiD. Treated funds switched from semiannual to quarterly disclosure; control funds were already disclosing quarterly. The SEC 2004 mandatory quarterly disclosure rule is used as an exogenous shock to fund horizon following Agarwal et al. (2015).
 - Sample: 2001Q1-2008Q4. Fixed effects: fund ($$\alpha_j$$) and quarter ($$\gamma_t$$). Standard errors: clustered at the fund level.
 
 $$
@@ -298,7 +301,7 @@ $$
 | I/B/E/S | Analyst earnings forecasts; second measure of earnings surprise for Table VII | no page yet |
 | RepRisk | Negative environmental and social (ES) incident data; used in ES-incident trading tests (Table VIII) | no page yet |
 | SEC EDGAR (N-CSR/N-CSRS filings) | Mutual fund shareholder reports; bag-of-words ESG mention analysis (Table III) | [EDGAR](/wiki/datasets/edgar/) |
-| Bushee institutional investor classifications | Transient/dedicated/quasi-indexer classification; supplemental horizon measure for 13f institutions | no page yet |
+| Bushee institutional investor classifications | Transient/dedicated/quasi-indexer classification from Bushee (1998); supplemental horizon measure for 13f institutions | no page yet |
 | Climate Change News Index (CCNI) | Engle et al. (2020) index of WSJ climate reporting intensity; clientele-catering test (Table XII) | no page yet |
 
 Sample: 2000 to 2018 for main analyses; 2001-2008 for SEC 2004 DiD;

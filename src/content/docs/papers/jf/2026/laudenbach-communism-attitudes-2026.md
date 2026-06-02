@@ -106,7 +106,10 @@ proprietary bank records for 326,437 customers, and brokerage data for 230,229
 retail investors), the paper shows that East Germans are 25-28% less likely to
 participate in the stock market than West Germans, and that a significant gap of
 roughly 10% persists after controlling exhaustively for wealth, income,
-financial literacy, trust, social capital, and risk aversion. The paper argues
+financial literacy, trust, social capital, and risk aversion. Where prior work
+such as Fuchs-Schundeln and Haliassos (2021) documents the East-West
+participation gap, this paper shows that a residual gap survives richer controls
+and traces it to ideology. The paper argues
 that the gap is explained by lasting adherence to the GDR's anti-capitalist
 ideology: East Germans with stronger positive experiences of life under
 communism (proxied by geography-based variation and by survey memories) show
@@ -142,7 +145,9 @@ investment, with adverse financial consequences. Negative personal experiences
 under communism reverse the effect. These findings suggest that ideology, not
 only financial experience, shapes long-run investment behavior, and offer a
 micro-level foundation for macroeconomic growth differentials between formerly
-communist and capitalist countries.
+communist and capitalist countries. The broader context for this East-West
+comparison is the review of the long-term effects of communism in Eastern Europe
+by Fuchs-Schundeln and Schundeln (2020).
 
 ## Theory / model
 
@@ -154,7 +159,9 @@ Emotionally charged stimuli are encoded more strongly in long-term memory. The
 valence (positive vs. negative) of an emotional context during an experience
 shapes the memory trace: positive emotions create favorable associations with
 the context, and negative emotions create unfavorable ones (Richter-Levin and
-Akirav, 2003; Dolan, 2002). Applied to the GDR setting, individuals who lived
+Akirav, 2003; Dolan, 2002). This extends the experience-effects framework of
+Malmendier and Nagel (2011), in which lifetime returns shape stock market
+participation, to ideological rather than financial experiences. Applied to the GDR setting, individuals who lived
 under communism with positive experiences are predicted to (i) form stronger
 positive associations with the communist ideology and its anti-capitalist
 stance, (ii) retain these associations in long-term memory, and (iii) carry
@@ -181,7 +188,9 @@ approaches:
    Germany's post-WWII division and 1990 reunification. Pre-trends are
    addressed using historical 1920-1924 bank data showing no pre-existing gap.
    Movers (East Germans who relocated to West Germany after Reunification) are
-   used to rule out contemporaneous environmental confounders.
+   used to rule out contemporaneous environmental confounders, addressing the
+   concern raised by Becker, Mergele, and Woessmann (2020) that reunification
+   may not be a clean natural experiment.
 
 2. **Within-East survey variation** (Section III.B): variation in anti-capitalist
    attitudes among East Germans, related directly to stock market participation
@@ -190,7 +199,9 @@ approaches:
 3. **Within-East geographic variation** (Section IV): four geography-based,
    predetermined (pre-reunification) proxies for positive or negative GDR
    experiences - pollution levels (negative), access to West German TV (negative
-   for lack thereof), living in GDR renamed showcase cities (positive), and
+   for lack thereof, following Bursztyn and Cantoni (2016), who use Western TV
+   access in East Germany as a quasi-exogenous proxy), living in GDR renamed
+   showcase cities (positive), and
    proximity to Olympic gold medal winners (positive) - are used as
    quasi-exogenous instruments for emotional tagging. These proxies are
    orthogonal to current economic conditions and to each other (Internet

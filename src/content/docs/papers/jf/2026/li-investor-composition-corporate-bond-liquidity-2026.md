@@ -80,7 +80,9 @@ the full source at the [original](https://doi.org/10.1111/jofi.70024).
 
 ## TL;DR
 
-From 2005 to 2019 the loading of U.S. corporate bond credit spreads on bid-ask
+Building on Bao, Pan, and Wang (2011), who find that illiquidity explains a
+significant part of common credit spread variation, the paper documents that
+from 2005 to 2019 the loading of U.S. corporate bond credit spreads on bid-ask
 spreads more than doubled, driven by the rapid entry of mutual funds and ETFs
 into the bond market. The authors document this trend and use a 10-year
 time-to-maturity discontinuity in fund mandates as an instrument to show
@@ -114,7 +116,10 @@ Locators point into the source PDF.
 | R7 | The calibrated model matches the key empirical moments; the indirect channel (bid-ask spreads correlated with seller-buyer ratios) accounts for more than 50% of the total sensitivity by 2019 | Table III and Table V, pp. 903-905 | beta_exo (direct component): 0.27 in 2005, 0.35 in 2019; beta_endo (indirect component): 0.65 in 2005, 1.7 in 2019; total empirical beta: 0.54 in 2005, 1.2 in 2019 |
 | R8 | The change in investor composition amplifies the effect of a dealer regulation change for short-term bonds but alleviates it for long-term bonds, highlighting the dual liquidity-provision role | §IV, p. 907; Appendix A | Qualitative result from calibration: for short-term bonds, more short-term investors amplify dealer regulation frictions; for long-term bonds, investor inflows provide liquidity that dampens the regulation effect |
 
-**Overall (paper's conclusion).** The massive growth of mutual funds and ETFs in
+**Overall (paper's conclusion).** Where Wu (2020) attributes similar trends to
+dealer regulation changes, this paper shows that investor composition is an
+independent quantitative explanation even for investment-grade bonds where
+dealer regulation may matter less. The massive growth of mutual funds and ETFs in
 the corporate bond market is quantitatively important in explaining the rising
 sensitivity of credit spreads to secondary-market frictions. The model shows
 this operates through two amplification channels (direct trading frequency,
@@ -148,9 +153,11 @@ $$
 m(\alpha_{s,i},\, \alpha_{b,j}) = \eta \cdot \alpha_{s,i}^{\gamma} \cdot \alpha_{b,j}^{1-\gamma}, \quad \eta > 0,\; \gamma \in (0,1)
 $$
 
-The bid-ask spread decomposes into an endogenous component $$\xi$$ (proportional to
-the trade surplus) and an exogenous component $$\epsilon_{\xi}$$ capturing dealers'
-balance sheet conditions:
+Following the reduced-form bid-ask spread specification of Lester, Rocheteau,
+and Weill (2015), which micro-founds the bid-ask spread as a fraction of the
+trade surplus in directed search, the bid-ask spread decomposes into an
+endogenous component $$\xi$$ (proportional to the trade surplus) and an exogenous
+component $$\epsilon_{\xi}$$ capturing dealers' balance sheet conditions:
 
 $$
 P_{b,i,t} - P_{s,i,t} = \xi_i + \epsilon_{\xi,i} \tag{9}
@@ -199,8 +206,11 @@ $$\theta < \bar{\theta}(r_f)$$ hold risk-free assets; those with $$\theta \geq \
 participate in the bond market. As $$r_f$$ decreases, the cutoff falls and more
 short-term investors enter (Proposition 3, p. 898).
 
-**Equilibrium characterization.** Under Assumption 1 and $$\epsilon_{\xi} = 0$$,
-Proposition 1 (p. 895) establishes positive assortative matching: $$\theta'(\delta+d) > 0$$.
+**Equilibrium characterization.** Unlike Amihud and Mendelson (1986), where
+investors sort on exogenous bid-ask spreads, here bid-ask spreads are endogenous
+and investors sort on maturity and default probability. Under Assumption 1 and
+$$\epsilon_{\xi} = 0$$, Proposition 1 (p. 895) establishes positive assortative
+matching: $$\theta'(\delta+d) > 0$$.
 Proposition 2 (p. 896) characterizes the full equilibrium as a system of ODEs
 in $$\bar{\delta} = \delta + d$$ (eq. 24, p. 896):
 
@@ -275,8 +285,9 @@ $$
 $$
 
 **Instrumental variables design.** Exploiting the 10-year time-to-maturity
-threshold in intermediate-term fund mandates as a sharp discontinuity, using
-the two-stage specification (eqs. 6-7, pp. 885-886):
+threshold in intermediate-term bond fund mandates documented by Bai, Li, and
+Manela (2022) as a sharp discontinuity, using the two-stage specification
+(eqs. 6-7, pp. 885-886):
 
 First stage: $$\text{Inv\_Comp}_{i,t} = \alpha + \beta_1 \cdot \mathbf{1}_{\text{ttm}>10} + \gamma^T X_{i,t} + \epsilon_{i,t}$$
 

@@ -153,6 +153,9 @@ subsequent rate hikes crystallize these vulnerabilities into banking crises
 through realized credit risk. Neither the red zone alone nor U-shaped monetary
 rates alone are sufficient to produce a high crisis probability; their
 combination is what generates the largest crisis risks historically (p. 965-966).
+This differs from Grimm et al. (2023) on mechanism: where they emphasize loose
+policy, this paper uses nominal rates to show the full U-shaped path (not just the
+easing leg) matters, and adds administrative loan-level evidence.
 
 ## Theory / model
 
@@ -303,7 +306,10 @@ The headline results tie to the following specification choices:
   sectors. Used as a mechanism variable to test whether the U-shape crisis
   effect runs through financial booms.
 
-- **Spain micro panel (R8-R10).** Sample: 10% random sample of Spanish
+- **Spain micro panel (R8-R10).** The loan-level analysis follows the Spain CIR
+  approach to bank risk-taking and monetary policy of Jimenez et al. (2014) and
+  the CIR loan-level methodology for separating credit supply from credit demand
+  of Jimenez et al. (2012). Sample: 10% random sample of Spanish
   nonfinancial corporate loans from the Central de Informacion de Riesgos
   (CIR), quarterly 1995 Q1 to 2008 Q3, matched to bank supervisory data and
   firm Mercantile Register data. Credit growth regressions: 1.9 million

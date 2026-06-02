@@ -159,7 +159,12 @@ failing projects). Both the occurrence and the threat of inspections matter.
 ## Theory / model
 
 The paper has no formal structural model. The tested hypotheses derive from a
-set of theoretical predictions in the bank monitoring literature:
+set of theoretical predictions in the bank monitoring literature, and the
+results provide empirical support for the delegated monitoring theory of
+Diamond (1984), under which banks reduce default through monitoring. The
+analysis extends the syndicated-loan monitoring study of Gustafson, Ivanov, and
+Meisenzahl (2021) to single-lender construction loans, adding draw-denial
+outcomes and a causal IV framework:
 
 **H1 (Adverse selection / screening, Diamond 1991, Rajan 1992).** Banks that
 commit to monitoring can offer better terms to borrowers they screen, because
@@ -170,8 +175,11 @@ positively with loan amounts.
 **H2 (Moral hazard, Calomiris and Kahn 1991, Rajan and Winton 1995).** Moral
 hazard is greater when project returns are lower. As collateral value declines
 or foreclosure risk rises, banks intensify monitoring to discipline borrowers.
-Testable implication: monitoring and draw denials increase when local housing
-price growth is negative or local foreclosure rates rise.
+Building on the prior direct evidence in Cerqueiro, Ongena, and Roszbach (2016)
+that collateral value affects monitoring frequency, this paper extends the link
+to loan outcomes and causal identification. Testable implication: monitoring
+and draw denials increase when local housing price growth is negative or local
+foreclosure rates rise.
 
 **H3 (Early intervention, Diamond and Rajan 2001, Acharya, Hasan and Saunders
 2006).** Monitoring allows banks to detect default risk early and cut credit

@@ -118,8 +118,9 @@ equations: enough to understand what was found and how, without reading all
 ## TL;DR
 
 Caramp and Silva build D-HANK: an analytical heterogeneous-agent New Keynesian
-model with (i) rare aggregate disasters and (ii) heterogeneous beliefs about
-disaster risk. A contractionary monetary shock redistributes wealth from
+model that adds rare aggregate disasters and heterogeneous beliefs about disaster
+risk to the HANK setting of Kaplan, Moll, and Violante (2018), who find only a
+minor role for the standard ISE. A contractionary monetary shock redistributes wealth from
 optimistic to pessimistic savers, raising the market-implied disaster
 probability and risk premia on stocks and bonds. This time-varying precautionary
 motive accounts for roughly 60% of the aggregate consumption response on impact;
@@ -164,6 +165,8 @@ and pessimistic savers $$p$$, with masses $$\mu_w$$, $$\mu_o$$, $$\mu_p$$ summin
 Savers invest in short-term bonds, long-term government bonds, and corporate
 equity. They have heterogeneous subjective beliefs $$\lambda_j$$ ($$j \in \{o,p\}$$)
 about the Poisson arrival rate of aggregate disasters, with $$\lambda_o \leq \lambda_p$$.
+The aggregation uses the heterogeneous-beliefs framework of the risk-centric model
+of demand recessions in Caballero and Simsek (2020).
 
 **Savers' problem.** Each saver $$j$$ maximizes (p. 1017):
 
@@ -219,7 +222,9 @@ $$
 and $$\eta_t = e^{-\int_0^t \rho_{s,z}\,dz} C_{s,t}^{-\sigma}$$ is a valid SDF. This
 aggregation result is the key: the heterogeneous economy behaves as a
 representative-agent model with an endogenous, time-varying disaster probability
-that responds to monetary shocks via wealth redistribution.
+that responds to monetary shocks via wealth redistribution. This extends the
+redistribution-via-risk-premia channel of Kekre and Lenel (2022) into a full New
+Keynesian model with analytical aggregation.
 
 **New Keynesian Phillips Curve and interest rate rule (eq. 11, p. 1023; eq. 6, p. 1020):**
 
@@ -253,8 +258,10 @@ The aggregate EIS is amplified by the cyclicality of income inequality $$\chi_y$
 The extra term $$\chi_{p_d} p_{d,t}$$ connects aggregate risk and asset prices
 to real output.
 
-**Wealth effect decomposition (Proposition 6, eq. 26, p. 1033).** Output
-decomposes into three components:
+**Wealth effect decomposition (Proposition 6, eq. 26, p. 1033).** The prior paper
+by the same authors, Caramp and Silva (2023), decomposes output into the ISE and
+the wealth effect; the D-HANK adds aggregate risk and heterogeneity to that
+framework. Output decomposes into three components:
 
 $$
 y_t = \bar{\sigma}^{-1} \hat{y}_{m,t}                                 \quad \text{(ISE)}
@@ -356,8 +363,9 @@ cannot explain.
 
 **Model-vs-data checks (Figures 4-7, pp. 1038-1043):**
 
-- Corporate spread: model predicts 11 bps rise per 100 bps shock; VAR estimates
-  6.5 bps (SE 3.1 bps) for the excess bond premium. Untargeted.
+- Corporate spread: model predicts 11 bps rise per 100 bps shock, matching the
+  VAR-based estimate of Gertler and Karadi (2015) of 6.5 bps (SE 3.1 bps) for the
+  excess bond premium. Untargeted.
 - Equity price: model predicts 4.0% drop; point estimate from Bernanke and
   Kuttner (2005) is the comparison benchmark. Untargeted.
 - Output decomposition: model output drop (~1.15%, estimated fiscal) is

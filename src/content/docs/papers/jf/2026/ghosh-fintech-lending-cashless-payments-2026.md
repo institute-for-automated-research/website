@@ -108,7 +108,10 @@ outflows than inflows, for information-intensive than information-light payment
 records, and for applicants with higher credit scores (an accuracy effect).
 A within-applicant specification with applicant fixed effects and an
 instrumental variable strategy exploiting the 2016 Indian Demonetization
-support a causal interpretation. The authors rationalize the findings with a
+support a causal interpretation. The research question is motivated by the
+FinTech lending landscape surveyed in Berg, Fuster, and Puri (2022), and the
+result that digital footprints complement credit bureau data, documented in
+Berg et al. (2020), here confirmed for cashless payment records specifically. The authors rationalize the findings with a
 signaling model in which cashless payment records serve as "digital
 collateral": bad borrowers face higher expected costs from posting their
 records (because discrepancies are more easily detected upon default), so only
@@ -138,6 +141,9 @@ mechanism (payment technology choice signals creditworthiness) and an accuracy
 effect (the signal is most useful for otherwise good borrowers). This provides
 a rationale for the joint rise of cashless payments and FinTech lending, and
 for open banking policies that expand access to historical payment records.
+This complements the open banking and FinTech-bank competition analysis of
+He, Huang, and Zhou (2023) by showing the informational value of payment
+records.
 
 ## Theory / model
 
@@ -249,6 +255,10 @@ when Demonetization cash shortages were most severe (Table VIII). Currency
 chest branches had better access to new banknotes post-Demonetization, so
 their clients reverted to cash more than non-chest clients during 2018-2019,
 creating plausibly exogenous within-district variation in cashless payment use.
+The cross-district currency chest variation from the 2016 Demonetization used
+here as identification follows Chodorow-Reich et al. (2020), and the design is
+adapted to within-district variation in the spirit of Crouzet, Gupta, and
+Mezzanotti (2023), who also leverage the same Demonetization variation.
 
 ## Empirical specifications
 
