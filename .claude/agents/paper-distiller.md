@@ -125,9 +125,10 @@ with the compact JSON result described at the bottom.
     `1964-01..2016-12`), `frequency`
     (`daily`|`weekly`|`monthly`|`quarterly`|`annual`|`mixed`).
   - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
-    `replicates` / `contradicts` / `tests` / `cites`; name each cite in the
-    body too,
-    add `doi` when known. Omit if none.
+    `replicates` / `contradicts` / `tests` / `cites`; name each cite as an
+    author-year in the body too (first-author surname next to the year, e.g.
+    `Fama and French (1993)`), enforced by `check-relatesto-locatable.mjs` in
+    `prebuild`; add `doi` when known. Omit if none.
   - `openQuestions[]`: the paper's OWN stated gaps/limitations/future work,
     with page locators. Omit if none; do not editorialize or restate scope.
   - `replicationCode`: `{ url?, status: available|upon-request|none }` if the

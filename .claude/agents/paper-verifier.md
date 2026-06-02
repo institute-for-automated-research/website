@@ -51,10 +51,15 @@ the JSON verdict below.
      A central-bank credit register, confidential supervisory or administrative
      microdata, or a single private counterparty is `proprietary-confidential`
      even when the paper's other sources are public. Fix an under-claim in place.
-   - Every `relatesTo[].cite` must be named (author-year) somewhere in the body
-     so the edge is locatable. If a real edge is missing its body mention, add a
-     one-line mention in the relevant section; if the cite is not actually used,
-     drop the edge.
+   - Every `relatesTo[].cite` must appear as an author-year in the body: the
+     first-author surname adjacent to the year (e.g. `Fama and French (1993)`),
+     so the edge is locatable. A bare surname with no year, a year that belongs
+     to a different cited work, or a self-cited author whose surname only shows
+     up in the attribution does NOT satisfy this. If a real edge is missing its
+     body mention, add a one-line mention in the relevant section (derive it from
+     the edge's own `note`, invent nothing); if the cite is not actually used,
+     drop the edge. The build enforces this: `scripts/check-relatesto-locatable.mjs`
+     runs in `prebuild` and fails on any un-locatable cite (run it directly to check).
    - No literal `null` (or `~`) anywhere in the frontmatter: omit the key. A null
      scalar fails the content schema and breaks the build (a missing
      `authorList[].orcid` must be omitted, not set to `null`).

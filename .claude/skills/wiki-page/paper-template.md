@@ -129,8 +129,13 @@ paper:
   the cited result), **builds-on** (conceptual/foundational dependence),
   **replicates**, **contradicts** (opposes its finding), **tests**
   (empirically pits the paper against it), **cites** (neutral background
-  reference, no stronger relation). Name every `relatesTo` cite
-  somewhere in the body so the edge is locatable; add `doi` when known.
+  reference, no stronger relation). Name every `relatesTo` cite as an
+  author-year in the body (first-author surname next to the year, e.g.
+  `Fama and French (1993)`) so the edge is locatable. A bare surname with no
+  year, a year that belongs to a different cited work, or a self-cited author
+  whose surname appears only in the attribution does NOT count. `prebuild` runs
+  `scripts/check-relatesto-locatable.mjs` and the build fails on any
+  un-locatable cite; add `doi` when known.
 - `openQuestions` are the paper's OWN stated gaps/limitations/future work
   (with page locators), not your editorializing and not a scope restatement.
 - `scope.frequency` (enum): `daily | weekly | monthly | quarterly | annual |
