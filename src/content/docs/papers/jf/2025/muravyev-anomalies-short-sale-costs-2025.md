@@ -142,15 +142,17 @@ but only on the fraction of shares actually borrowed. The fee is therefore a
 shadow dividend not recorded in CRSP stock returns. The paper's identification
 logic follows directly (pp. 3640-3641, 3650):
 
-```
-Fee-adjusted return (short side):   R_short_adj = R_stock + f
-Fee-adjusted return (long side):    R_long_adj  = R_stock + utilization * (1 - spread_fraction) * f
-                                                ~= R_stock + utilization * 0.7 * f
-```
+$$
+\begin{aligned}
+R^{\text{short,adj}} &= R_{\text{stock}} + f \\
+R^{\text{long,adj}}  &= R_{\text{stock}} + \text{utilization} \times (1 - \text{spread\_fraction}) \times f \\
+                     &\approx R_{\text{stock}} + \text{utilization} \times 0.7 \times f
+\end{aligned}
+$$
 
-where `f` = indicative borrow fee (annualized, converted to monthly),
-`utilization` = shares on loan / lendable shares, and D'Avolio (2002) estimates
-the spread fraction at approximately 0.3.
+- $$f$$ = indicative borrow fee (annualized, converted to monthly)
+- $$\text{utilization}$$ = shares on loan / lendable shares
+- D'Avolio (2002) estimates the spread fraction at approximately 0.3
 
 **Identification design.** Two complementary approaches test whether anomaly
 returns survive after accounting for fees (p. 3640):
@@ -159,7 +161,7 @@ returns survive after accounting for fees (p. 3640):
    fee > 1%/year from the sorted portfolios (without resorting). Approximately
    12% of stock-months qualify as high-fee; 21% of decile 1 observations do.
 2. Fee-adjust returns: add the full fee to returns for short-side portfolios
-   (deciles 1 and 2); add `utilization * 0.7 * f` to returns for long-side
+   (deciles 1 and 2); add $$\text{utilization} \times 0.7 \times f$$ to returns for long-side
    portfolios (deciles 3-10).
 
 Both approaches use a DGTW characteristics-matched benchmark that excludes
@@ -179,21 +181,17 @@ newly proposed estimator; the methodological contribution is the systematic
 application of buy-side borrow fees to a comprehensive, out-of-sample anomaly
 universe.
 
-**DGTW abnormal return construction (pp. 3654-3655).** For each stock `i` and
-month `t`, the abnormal return is:
+**DGTW abnormal return construction (pp. 3654-3655).** For each stock $$i$$ and
+month $$t$$, the abnormal return is:
 
-```
-DGTW_ETB_{i,t} = R_{i,t} - R_benchmark_{i,t}
-```
+$$
+\text{DGTW\_ETB}_{i,t} = R_{i,t} - R_{\text{benchmark},i,t}
+$$
 
-where `R_benchmark_{i,t}` is the equal-weighted return of the DGTW
-characteristics-matched portfolio, constructed excluding stocks with borrow
-fee > 1%/year (to prevent high-fee benchmark contamination). The benchmark
-portfolios match on market capitalization, book-to-market, and prior six-month
-momentum, following Daniel et al. (1997).
+- $$R_{\text{benchmark},i,t}$$ is the equal-weighted return of the DGTW characteristics-matched portfolio, constructed excluding stocks with borrow fee > 1%/year (to prevent high-fee benchmark contamination). The benchmark portfolios match on market capitalization, book-to-market, and prior six-month momentum, following Daniel et al. (1997).
 
 **Portfolio-level aggregation.** The abnormal return on a sorted decile
-portfolio in month `t` is the cross-sectional average of stock-level abnormal
+portfolio in month $$t$$ is the cross-sectional average of stock-level abnormal
 returns within that decile. For each anomaly, the time-series average is
 computed over the performance evaluation period (July 2006 to December 2020,
 14.5 years). The cross-sectional mean across the 162 anomalies is the headline
@@ -205,9 +203,9 @@ evaluation window. For decile 1 stocks (short side), the full fee is added to
 the stock return. For decile 3-10 stocks (long side, held or lent), the
 expected fee received is:
 
-```
-fee_received_{i,t} = utilization_{i,t} * 0.7 * f_{i,t}
-```
+$$
+\text{fee\_received}_{i,t} = \text{utilization}_{i,t} \times 0.7 \times f_{i,t}
+$$
 
 This is added to the stock return. Decile 2 uses the same adjustment as decile
 1 in both the fee-exclusion analysis and the fee-adjustment analysis (i.e., the
@@ -229,25 +227,25 @@ equation.
 **Specification 1: Cross-sectional mean of decile abnormal returns (R1-R3,
 R5-R6, Table III p. 3659).**
 
-For each anomaly `a`, the time-series average abnormal return on decile `d` is:
+For each anomaly $$a$$, the time-series average abnormal return on decile $$d$$ is:
 
-```
-mu_{a,d} = (1/T) * sum_{t=1}^{T} DGTW_ETB_{a,d,t}
-```
+$$
+\mu_{a,d} = \frac{1}{T} \sum_{t=1}^{T} \text{DGTW\_ETB}_{a,d,t}
+$$
 
 The cross-sectional mean across anomalies (the headline statistic) and the
 corresponding t-statistic are extracted from the panel regression:
 
-```
-DGTW_ETB_{a,d,t} = alpha_d + epsilon_{a,d,t}
+$$
+\text{DGTW\_ETB}_{a,d,t} = \alpha_d + \epsilon_{a,d,t}
+$$
 
-  LHS:  monthly decile portfolio abnormal return for anomaly a, decile d, month t
-  RHS:  decile fixed effects alpha_d (one per decile 1-10)
-  SE:   double-clustered by anomaly a and month t
-  Sample: 162 anomalies, July 2006 to December 2020, varying N per anomaly
-```
+- LHS: monthly decile portfolio abnormal return for anomaly $$a$$, decile $$d$$, month $$t$$
+- RHS: decile fixed effects $$\alpha_d$$ (one per decile 1-10)
+- SE: double-clustered by anomaly $$a$$ and month $$t$$
+- Sample: 162 anomalies, July 2006 to December 2020, varying N per anomaly
 
-The long-short result is `alpha_1 - alpha_10` (decile 1 minus decile 10, since
+The long-short result is $$\alpha_1 - \alpha_{10}$$ (decile 1 minus decile 10, since
 anomaly signals are signed so decile 1 is the short side). The procedure is
 applied in three versions: (A) all stocks, no fee adjustment; (B) excluding
 high-fee stocks (fee > 1%/yr); (C) fee-adjusted returns.
@@ -255,20 +253,20 @@ high-fee stocks (fee > 1%/yr); (C) fee-adjusted returns.
 **Specification 2: Relation between anomaly returns and borrow fees (R4,
 Table V p. 3671).**
 
-For each anomaly, the average decile 1 borrow fee `f_a` is regressed on the
+For each anomaly, the average decile 1 borrow fee $$f_a$$ is regressed on the
 average abnormal return to show the approximately linear relationship:
 
-```
-mu_{a,1} = beta_0 + beta_1 * f_a + u_a
+$$
+\mu_{a,1} = \beta_0 + \beta_1 f_a + u_a
+$$
 
-  LHS:  time-series average abnormal return on decile 1 portfolio, anomaly a
-  RHS:  average indicative borrow fee for decile 1 stocks of anomaly a at portfolio formation date
-  SE:   double-clustered by anomaly and month (panel version with month controls)
-  Key result: beta_1 = -0.0883 (t = -1.96*), approximately -1/12
-```
+- LHS: time-series average abnormal return on decile 1 portfolio, anomaly $$a$$
+- RHS: average indicative borrow fee for decile 1 stocks of anomaly $$a$$ at portfolio formation date
+- SE: double-clustered by anomaly and month (panel version with month controls)
+- Key result: $$\beta_1 = -0.0883$$ (t = -1.96*), approximately $$-1/12$$
 
-The slope of approximately -1/12 means a 1 percentage-point increase in the
-annual fee corresponds to roughly -1/12 percentage points per month in abnormal
+The slope of approximately $$-1/12$$ means a 1 percentage-point increase in the
+annual fee corresponds to roughly $$-1/12$$ percentage points per month in abnormal
 return, consistent with complete fee absorption of the anomaly signal (p. 3671).
 
 **Specification 3: SI/IO exclusion as Markit substitute (R9, Table IX Panel D
@@ -278,15 +276,14 @@ The same Specification 1 panel regression is applied after excluding
 stock-months where short interest divided by institutional holdings (SI/IO,
 from Compustat monthly short interest and 13F filings) exceeds 18%:
 
-```
-DGTW_ETB_{a,d,t} = alpha_d + epsilon_{a,d,t}    [restricted sample]
+$$
+\text{DGTW\_ETB}_{a,d,t} = \alpha_d + \epsilon_{a,d,t} \quad \text{[restricted sample]}
+$$
 
-  Restriction: drop stock-months with (short_interest_{i,t-1} / inst_holdings_{i,t-1}) > 0.18
-  Cutoff 18% chosen to match ~12% of stock-months excluded by fee > 1% cutoff
-  SE:   double-clustered by anomaly and month
-  Key result: decile 1 alpha changes by +0.27%/mo relative to unadjusted baseline,
-              decile 1 alpha = +0.03% (t = 0.47) vs. -0.24% (t = -2.92) with all stocks
-```
+- Restriction: drop stock-months with $$(\text{short\_interest}_{i,t-1} / \text{inst\_holdings}_{i,t-1}) > 0.18$$
+- Cutoff 18% chosen to match approximately 12% of stock-months excluded by fee > 1% cutoff
+- SE: double-clustered by anomaly and month
+- Key result: decile 1 $$\alpha$$ changes by +0.27%/mo relative to unadjusted baseline, decile 1 $$\alpha$$ = +0.03% (t = 0.47) vs. -0.24% (t = -2.92) with all stocks
 
 Robustness: microcap extension (all stocks, market cap below 20th percentile
 NYSE, Table IV p. 3669); 20 highest-fee anomalies (Table VI p. 3673); subsets

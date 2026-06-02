@@ -108,7 +108,7 @@ and the average preferred equity share is 76%, declining with age: patterns
 broadly consistent with standard life-cycle portfolio choice models. These
 preferences differ markedly from observed allocations, where participation
 and equity shares are lower and hump-shaped. A life-cycle model estimated
-via SMM recovers moderate risk aversion (gamma = 2.54), EIS = 0.25, and a
+via SMM recovers moderate risk aversion ($$\gamma = 2.54$$), EIS = 0.25, and a
 $156 portfolio adjustment cost. Low stock market participation in retirement
 accounts is driven by one-time frictions, not nonstandard preferences.
 
@@ -122,9 +122,9 @@ Magnitudes and significance are as reported. Locators point into the source PDF.
 | R2 | **Point estimate: 94% of investors prefer stock market participation** in their retirement accounts (under Assumption 6) | §II.C.3, Fig. IA9 | At tenure = 3: average preferred participation = 94%; average preferred stock share = 76%; stable over life cycle |
 | R3 | **Preferred equity share is high (>60% at all ages) and declining with age** (opposite of the observed hump-shaped profile) | §II.C.4, Fig. 6 (p. 26), right panel | Preferred share ~80% at age 25, declining to ~60% at age 60; observed share hump-shaped and strictly below preferences at all ages |
 | R4 | **Observed participation and equity shares diverge from preferences**; TDF-auto-enrolled investors' choices most closely approximate friction-free preferences | Fig. 7 (p. 27) | SCF 2007-16 stock share: 27%; not-auto-enrolled 401(k): 40%; auto-enrolled TDF: 80%; friction-free preference estimate: 76% |
-| R5 | **Baseline structural estimate: relative risk aversion gamma = 2.54** (EZW model, SMM on 38 moments) | Table III col. (1), p. 41 | gamma = 2.54 (SE 0.09); discount factor beta = 0.94 (SE 0.001); EIS sigma^{-1} = 0.253 (SE 0.018) |
-| R6 | **Portfolio adjustment cost = $156; contribution adjustment cost = $488** | Table III col. (1), p. 41 | k_theta = $156 (SE $6.01); k_s = $488 (SE $16.60); contribution cost larger, consistent with frictions in DC plan enrollment as additional driver of nonparticipation |
-| R7 | **Without frictions, risk-aversion estimates are implausibly heterogeneous**: gamma = 18.94 using money-market-default data alone vs. gamma = 2.25 using TDF-default data alone | Table III cols. (3) and (4), p. 41 | Same population (employees hired within 12 months of the same policy change), frictionless model produces gamma 18.94 vs. 2.25 depending on which half of the data is used; baseline model reconciles both with gamma = 2.54 |
+| R5 | **Baseline structural estimate: relative risk aversion $$\gamma = 2.54$$** (EZW model, SMM on 38 moments) | Table III col. (1), p. 41 | $$\gamma = 2.54$$ (SE 0.09); discount factor $$\beta = 0.94$$ (SE 0.001); EIS $$\sigma^{-1} = 0.253$$ (SE 0.018) |
+| R6 | **Portfolio adjustment cost = $156; contribution adjustment cost = $488** | Table III col. (1), p. 41 | $$k_\theta$$ = $156 (SE $6.01); $$k_s$$ = $488 (SE $16.60); contribution cost larger, consistent with frictions in DC plan enrollment as additional driver of nonparticipation |
+| R7 | **Without frictions, risk-aversion estimates are implausibly heterogeneous**: $$\gamma = 18.94$$ using money-market-default data alone vs. $$\gamma = 2.25$$ using TDF-default data alone | Table III cols. (3) and (4), p. 41 | Same population (employees hired within 12 months of the same policy change), frictionless model produces $$\gamma$$ 18.94 vs. 2.25 depending on which half of the data is used; baseline model reconciles both with $$\gamma = 2.54$$ |
 | R8 | **Treatment group (TDF default) maintains ~95% stock market participation and ~80% equity share** throughout tenure; control group (money market default) starts near 0% and converges over years | Fig. 2 (p. 16), Table IAII | Treatment-control gap: 19-25 pp in participation rate, 20-23 pp in stock share of retirement wealth; convergence is gradual, inconsistent with pure time-dependent (Calvo) frictions |
 
 **Overall (paper's conclusion).** Participation frictions, not nonstandard
@@ -152,56 +152,70 @@ control + 52,400 treatment investors at 191 firms.
 The paper combines two frameworks: a nonparametric revealed-preference
 approach and a structural life-cycle model.
 
-**Revealed-preference setup (Section II, pp. 19-24).** Individual `i` has
-unobserved preferred participation `Y*_it in {0,1}` and preferred equity
-share `theta*_it in [0,1]` at tenure `t`. Observed allocations `Y_it`,
-`theta_it` may differ because of inertia or frictions. The 401(k) plan
-carries a default `D_i in {0,1}` (D=1 means TDF default; D=0 means money
-market or opt-in). Consistency indicators are:
+**Revealed-preference setup (Section II, pp. 19-24).** Individual $$i$$ has
+unobserved preferred participation $$Y^*_{it} \in \{0,1\}$$ and preferred equity
+share $$\theta^*_{it} \in [0,1]$$ at tenure $$t$$. Observed allocations $$Y_{it}$$,
+$$\theta_{it}$$ may differ because of inertia or frictions. The 401(k) plan
+carries a default $$D_i \in \{0,1\}$$ ($$D=1$$ means TDF default; $$D=0$$ means money
+market or opt-in). Consistency indicators are (p. 19):
 
-```
-C^Y_it = 1  if Y_it(0) = Y_it(1),    0 otherwise.      (p. 19)
-C^th_it = 1  if theta_it(0) = theta_it(1),  0 otherwise.
-```
+$$
+C^Y_{it} = 1 \text{ if } Y_{it}(0) = Y_{it}(1), \quad 0 \text{ otherwise.}
+$$
+
+$$
+C^\theta_{it} = 1 \text{ if } \theta_{it}(0) = \theta_{it}(1), \quad 0 \text{ otherwise.}
+$$
 
 Four identifying assumptions (pp. 20-22):
 
-```
-Assumption 1 (Frame Separability):  (Y*_it, theta*_it) independent of D_i.
-Assumption 2 (Frame Exogeneity):    D_i independent of (Y_it(0), Y_it(1), theta_it(0), theta_it(1)).
-Assumption 3 (Frame Monotonicity):  Y_it(1) >= Y_it(0),  theta_it(1) >= theta_it(0).
-Assumption 4 (Consistency):         C^Y_it = 1  =>  Y_it = Y*_it;
-                                     C^th_it = 1  =>  theta_it = theta*_it.
-```
+$$
+\text{Assumption 1 (Frame Separability):} \quad (Y^*_{it}, \theta^*_{it}) \text{ independent of } D_i.
+$$
+
+$$
+\text{Assumption 2 (Frame Exogeneity):} \quad D_i \text{ independent of } (Y_{it}(0), Y_{it}(1), \theta_{it}(0), \theta_{it}(1)).
+$$
+
+$$
+\text{Assumption 3 (Frame Monotonicity):} \quad Y_{it}(1) \geq Y_{it}(0), \quad \theta_{it}(1) \geq \theta_{it}(0).
+$$
+
+$$
+\text{Assumption 4 (Consistency):} \quad C^Y_{it} = 1 \Rightarrow Y_{it} = Y^*_{it}; \quad C^\theta_{it} = 1 \Rightarrow \theta_{it} = \theta^*_{it}.
+$$
 
 Proposition 1 (p. 21) shows the average preference for participation is
 partially identified under Assumptions 1-4:
 
-```
-E_tau(Y*_it) in [E_tau(Y_it | D_i=0),  E_tau(Y_it | D_i=1)].          (eq. 1)
-```
+$$
+\mathbb{E}_\tau(Y^*_{it}) \in [\mathbb{E}_\tau(Y_{it} \mid D_i=0),\ \mathbb{E}_\tau(Y_{it} \mid D_i=1)]. \tag{1}
+$$
 
 For the average equity share (continuous variable), a fifth assumption is
 needed. Assumption 5 (p. 22): an investor who deviates from the default
-chooses her preferred share (consistent with fixed-cost models). Proposition 2:
+chooses her preferred share (consistent with fixed-cost models). Proposition 2 (p. 22):
 
-```
-E_tau(theta*_it) >= E_tau(theta_it | D_i=0).                            (p. 22)
-```
+$$
+\mathbb{E}_\tau(\theta^*_{it}) \geq \mathbb{E}_\tau(\theta_{it} \mid D_i=0).
+$$
 
 For point identification, Assumption 6 (p. 23): preferences of consistent
 (active) and inconsistent (passive) investors are uncorrelated at any tenure:
 
-```
-cov_tau(Y*_it, C^Y_it) = cov_tau(theta*_it, C^th_it) = 0.
-```
+$$
+\text{cov}_\tau(Y^*_{it},\, C^Y_{it}) = \text{cov}_\tau(\theta^*_{it},\, C^\theta_{it}) = 0.
+$$
 
 Under Assumption 6, Proposition 3 (p. 23) gives:
 
-```
-E_tau(Y*_it) = E_tau(Y*_it | C^Y_it = 1) - [1 / E_tau(C^Y_it)] * cov_tau(Y*_it, C^Y_it)   (eq. 2)
-E_tau(theta*_it) = E_tau(theta*_it | C^th_it = 1) - [1 / E_tau(C^th_it)] * cov_tau(theta*_it, C^th_it)  (eq. 3)
-```
+$$
+\mathbb{E}_\tau(Y^*_{it}) = \mathbb{E}_\tau(Y^*_{it} \mid C^Y_{it} = 1) - \frac{1}{\mathbb{E}_\tau(C^Y_{it})} \cdot \text{cov}_\tau(Y^*_{it},\, C^Y_{it}) \tag{2}
+$$
+
+$$
+\mathbb{E}_\tau(\theta^*_{it}) = \mathbb{E}_\tau(\theta^*_{it} \mid C^\theta_{it} = 1) - \frac{1}{\mathbb{E}_\tau(C^\theta_{it})} \cdot \text{cov}_\tau(\theta^*_{it},\, C^\theta_{it}) \tag{3}
+$$
 
 where the first term is the preferences of consistent investors (identified
 as their observed active choices, eq. 4) and the second is a selection bias
@@ -210,51 +224,60 @@ investors' average choices.
 
 **Life-cycle model (Section III, pp. 29-36).** Investors have Epstein-Zin-Weil
 recursive preferences. The value function for a retired investor (state
-vector `X_t`) satisfies (p. 35):
+vector $$X_t$$) satisfies (p. 35):
 
-```
-V_t = max_{d^dc_t, s^l_t, Xi_t}  {(1-beta)*n_t * [(c_t - k_theta*1{Xi_t != Xi_{d,t}} ) / n_t]^{1-sigma}
-       + beta * [m_t * E_t * V^{1-gamma}_{t+1}]^{(1-sigma)/(1-gamma)}}^{1/(1-sigma)}
-subject to: (10),(11),(12),(14),(15),(17), and budget constraint
-```
+$$
+V_t = \max_{d^{dc}_t,\, s^l_t,\, \Xi_t} \left\{ (1-\beta) n_t \left[ \frac{c_t - k_\theta \mathbf{1}\{\Xi_t \neq \Xi_{d,t}\}}{n_t} \right]^{1-\sigma} + \beta \left[ m_t \mathbb{E}_t V^{1-\gamma}_{t+1} \right]^{(1-\sigma)/(1-\gamma)} \right\}^{1/(1-\sigma)}
+$$
 
-where `gamma` = relative risk aversion, `sigma^{-1}` = EIS, `beta` =
-discount factor, `n_t` = equivalence scale, `k_theta` = portfolio adjustment
-cost (utility units), `m_t` = survival probability. For the working life
-(employment states `E` or `JJ`), an additional contribution adjustment cost
-`k_s` is incurred when `s^dc_t != s_{d,t}` (p. 36):
+subject to: (10), (11), (12), (14), (15), (17), and budget constraint
 
-```
-V_t = max_{s^dc_t, s^l_t, Xi_t}  {(1-beta)*n_t * [(c_t - k_theta*1{Xi_t!=Xi_{d,t}} - k_s*1{s^dc_t!=s_{d,t}}) / n_t]^{1-sigma}
-       + beta * [m_t * E_t * V^{1-gamma}_{t+1}]^{(1-sigma)/(1-gamma)}}^{1/(1-sigma)}
-subject to: (7),(8),(10),(11),(12),(14),(15),(17), and
-s^dc_t * w_t + s^l_t = w_t - c_t - tax_i(y^tax_t).
-```
+- $$\gamma$$ = relative risk aversion
+- $$\sigma^{-1}$$ = EIS
+- $$\beta$$ = discount factor
+- $$n_t$$ = equivalence scale
+- $$k_\theta$$ = portfolio adjustment cost (utility units)
+- $$m_t$$ = survival probability
 
-Three financial assets: risk-free bond (gross return `R_f`), risky stock
-(log return process, eq. 10, p. 31):
+For the working life (employment states $$E$$ or $$JJ$$), an additional contribution adjustment cost
+$$k_s$$ is incurred when $$s^{dc}_t \neq s_{d,t}$$ (p. 36):
 
-```
-ln R^S_t = ln R_f + mu_s + epsilon_t,   epsilon_t ~ N(0, sigma^2_s).   (eq. 10)
-```
+$$
+V_t = \max_{s^{dc}_t,\, s^l_t,\, \Xi_t} \left\{ (1-\beta) n_t \left[ \frac{c_t - k_\theta \mathbf{1}\{\Xi_t \neq \Xi_{d,t}\} - k_s \mathbf{1}\{s^{dc}_t \neq s_{d,t}\}}{n_t} \right]^{1-\sigma} + \beta \left[ m_t \mathbb{E}_t V^{1-\gamma}_{t+1} \right]^{(1-\sigma)/(1-\gamma)} \right\}^{1/(1-\sigma)}
+$$
 
-Liquid savings account (eq. 11, p. 31):
+subject to: (7), (8), (10), (11), (12), (14), (15), (17), and
 
-```
-L_{t+1} = (L_t + s^l_t)[1 + r(1 - tau_c)],   L_0 = 0.               (eq. 11)
-```
+$$
+s^{dc}_t \cdot w_t + s^l_t = w_t - c_t - \text{tax}_i(y^{\text{tax}}_t).
+$$
+
+Three financial assets: risk-free bond (gross return $$R_f$$), risky stock
+(log return process, p. 31):
+
+$$
+\ln R^S_t = \ln R_f + \mu_s + \epsilon_t, \quad \epsilon_t \sim N(0,\, \sigma^2_s). \tag{10}
+$$
+
+Liquid savings account (p. 31):
+
+$$
+L_{t+1} = (L_t + s^l_t)[1 + r(1 - \tau_c)], \quad L_0 = 0. \tag{11}
+$$
 
 Labor income follows an AR(1) process with a deterministic cubic-in-age
-component (eqs. 7-9, pp. 30-31):
+component (pp. 30-31):
 
-```
-ln w_t = delta_0 + delta_1*a_t + delta_2*a^2_t + delta_3*a^3_t + eta_t,
-eta_t = rho*eta_{t-1} + xi^E_t,   xi^E_0 ~ N(0, sigma^2_{xi_0}),
-xi^E_t ~ N(0, sigma^2_xi) for t>0.                                      (eq. 7)
-```
+$$
+\ln w_t = \delta_0 + \delta_1 a_t + \delta_2 a^2_t + \delta_3 a^3_t + \eta_t, \tag{7}
+$$
+
+$$
+\eta_t = \rho \eta_{t-1} + \xi^E_t, \quad \xi^E_0 \sim N(0,\, \sigma^2_{\xi_0}), \quad \xi^E_t \sim N(0,\, \sigma^2_\xi) \text{ for } t>0.
+$$
 
 Default options follow: at a new job, defaults are the employer's settings
-`theta^j_{e}` (portfolio) and `s^{dc}_{e}` (contribution rate); in
+$$\theta^j_{e}$$ (portfolio) and $$s^{dc}_{e}$$ (contribution rate); in
 subsequent periods the default is the prior period's choice (eqs. 14-16,
 pp. 33-34).
 
@@ -263,10 +286,10 @@ pp. 33-34).
 The estimation has two stages. The first stage sets demographics,
 income-process parameters, asset returns, and tax/benefit rules outside the
 model using auxiliary data and calibration (pp. 36-38). The second stage
-estimates five preference parameters by `smm` (Simulated Method of Moments):
-`beta`, `gamma`, `sigma^{-1}`, `k_theta`, `k_s` (pp. 36, 39-40).
+estimates five preference parameters by SMM (Simulated Method of Moments):
+$$\beta$$, $$\gamma$$, $$\sigma^{-1}$$, $$k_\theta$$, $$k_s$$ (pp. 36, 39-40).
 
-The `life-cycle-model` is solved by standard numerical discrete-time
+The life-cycle model is solved by standard numerical discrete-time
 dynamic programming. The state vector has 10 dimensions (age, labor
 productivity, employment status, employer identity, tenure, average lifetime
 earnings, DC retirement savings, liquid savings, default portfolio shares,
@@ -274,32 +297,30 @@ default contribution rate). Controls are: consumption, portfolio shares for
 new and accumulated DC assets, DC contribution rate, DC withdrawal, and
 liquid savings.
 
-The `smm` objective minimizes the weighted squared distance between
+The SMM objective minimizes the weighted squared distance between
 model-simulated and empirical moments (pp. 39-40):
 
-```
-min_{theta} (m_hat - m(theta))' W (m_hat - m(theta))
-```
+$$
+\min_{\theta} (\hat{m} - m(\theta))' W (\hat{m} - m(\theta))
+$$
 
-where `m_hat` are 38 empirical moments, `m(theta)` are their model
-counterparts simulated on 7,500 investors (approximately five times the
-estimation sample size), and `W` is the inverse covariance matrix of the
-empirical moments (i.e., the optimal SMM weight matrix), estimated via
-Erickson-Whited (2002) to avoid bootstrapping-weight-matrix bias.
+- $$\hat{m}$$ are 38 empirical moments
+- $$m(\theta)$$ are their model counterparts simulated on 7,500 investors (approximately five times the estimation sample size)
+- $$W$$ is the inverse covariance matrix of the empirical moments (i.e., the optimal SMM weight matrix), estimated via Erickson-Whited (2002) to avoid bootstrapping-weight-matrix bias
 
-The method builds on `epstein-zin-weil` preferences (separating `gamma`
-from `sigma^{-1}`, following Epstein and Zin (1989) and Weil (1990)) and
-on `revealed-preference` bounds (Goldin and Reck (2020) extended to
+The method builds on Epstein-Zin-Weil preferences (separating $$\gamma$$
+from $$\sigma^{-1}$$, following Epstein and Zin (1989) and Weil (1990)) and
+on revealed-preference bounds (Goldin and Reck (2020) extended to
 continuous shares here).
 
 **Key identifying variation for each parameter:**
-- `k_theta` and `k_s`: identified by bunching at default options at various
+- $$k_\theta$$ and $$k_s$$: identified by bunching at default options at various
   tenure levels; the degree of bunching pins down adjustment cost size.
-- `gamma`: identified primarily by asset allocation decisions of consistent
+- $$\gamma$$: identified primarily by asset allocation decisions of consistent
   (active) investors who deviate from the default.
-- `sigma^{-1}`: identified by bunching at the employer match threshold (6%
+- $$\sigma^{-1}$$: identified by bunching at the employer match threshold (6%
   of salary cap), following Best et al. (2020) and Choukhmane (2025).
-- `beta`: identified by the overall level of retirement contributions.
+- $$\beta$$: identified by the overall level of retirement contributions.
 
 ## Empirical specifications
 
@@ -313,12 +334,12 @@ difference in observed portfolio outcomes between investors hired within 12
 months before versus after the 401(k) default asset allocation change at
 the same set of firms:
 
-```
-Outcome_it = f(tenure_t, D_i),   D_i = 1[hired after default change at firm e]
-```
+$$
+\text{Outcome}_{it} = f(\text{tenure}_t,\, D_i), \quad D_i = \mathbf{1}[\text{hired after default change at firm } e]
+$$
 
 No regression equation is reported; the result is the raw time-path of
-stock market participation `Y_t` and equity share `theta_t` by years of
+stock market participation $$Y_t$$ and equity share $$\theta_t$$ by years of
 tenure for treatment vs. control (Figure 2, p. 16). Standard errors are
 clustered by investor (quasi-experiment #1) or by firm (quasi-experiment #2).
 Sample: money-market-to-TDF: 1,086 control + 1,321 treatment at 6 firms;
@@ -326,12 +347,15 @@ opt-in-to-TDF: 40,337 control + 52,400 treatment at 191 firms.
 
 **Nonparametric preference bounds and point estimates (R1-R4, pp. 21-27).**
 The estimating objects are the tenure-specific conditional means from
-Propositions 1-3 applied to the quasi-experimental data:
+Propositions 1-3 applied to the quasi-experimental data (p. 25):
 
-```
-E_tau(Y*_it) = E_tau(Y_it | Y_it != D_i, age=A)         (eq. 5, p. 25)
-E_tau(theta*_it) = E_tau(theta_it | theta_it != theta^d_i(D_i), age=A)  (eq. 6, p. 25)
-```
+$$
+\mathbb{E}_\tau(Y^*_{it}) = \mathbb{E}_\tau(Y_{it} \mid Y_{it} \neq D_i,\, \text{age}=A) \tag{5}
+$$
+
+$$
+\mathbb{E}_\tau(\theta^*_{it}) = \mathbb{E}_\tau(\theta_{it} \mid \theta_{it} \neq \theta^d_i(D_i),\, \text{age}=A) \tag{6}
+$$
 
 Standard errors are clustered by investor (quasi-experiment #1) and by
 firm (quasi-experiment #2). Life-cycle preference profiles by age are
@@ -346,15 +370,18 @@ end of first tenure year; and 8 contribution rate distribution moments
 from the opt-in-to-TDF quasi-experiment. Table III (p. 41) reports the
 five preference parameters with standard errors:
 
-```
-beta = 0.940 (SE 0.001),  gamma = 2.54 (SE 0.09),  sigma^{-1} = 0.253 (SE 0.018),
-k_theta = $156 (SE $6.01),  k_s = $488 (SE $16.60).
-```
+$$
+\beta = 0.940\ (\text{SE}\ 0.001), \quad \gamma = 2.54\ (\text{SE}\ 0.09), \quad \sigma^{-1} = 0.253\ (\text{SE}\ 0.018),
+$$
 
-Robustness: column (2) imposes CRRA (sigma = gamma); column (3) zeros
-adjustment costs and uses only control-group moments (yields gamma = 18.94);
+$$
+k_\theta = \$156\ (\text{SE}\ \$6.01), \quad k_s = \$488\ (\text{SE}\ \$16.60).
+$$
+
+Robustness: column (2) imposes CRRA ($$\sigma = \gamma$$); column (3) zeros
+adjustment costs and uses only control-group moments (yields $$\gamma = 18.94$$);
 column (4) zeros adjustment costs and uses only TDF-default moments (yields
-gamma = 2.25). The stark contrast between columns (3) and (4) is the
+$$\gamma = 2.25$$). The stark contrast between columns (3) and (4) is the
 paper's key identification claim for the role of frictions (R7).
 
 ## When to read the full paper

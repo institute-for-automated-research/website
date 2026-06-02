@@ -159,48 +159,50 @@ a combination that RANK and standard HANK models cannot achieve.
 ## Theory / model
 
 The D-HANK model is a continuous-time heterogeneous-agent New Keynesian model.
-The economy is populated by three types: workers `w`, optimistic savers `o`,
-and pessimistic savers `p`, with masses `mu_w`, `mu_o`, `mu_p` summing to 1.
+The economy is populated by three types: workers $$w$$, optimistic savers $$o$$,
+and pessimistic savers $$p$$, with masses $$\mu_w$$, $$\mu_o$$, $$\mu_p$$ summing to 1.
 Savers invest in short-term bonds, long-term government bonds, and corporate
-equity. They have heterogeneous subjective beliefs `lambda_j` (j in {o,p})
-about the Poisson arrival rate of aggregate disasters, with `lambda_o <= lambda_p`.
+equity. They have heterogeneous subjective beliefs $$\lambda_j$$ ($$j \in \{o,p\}$$)
+about the Poisson arrival rate of aggregate disasters, with $$\lambda_o \leq \lambda_p$$.
 
-**Savers' problem.** Each saver `j` maximizes (p. 1017):
+**Savers' problem.** Each saver $$j$$ maximizes (p. 1017):
 
-```
-V_{j,t}(B_{j,t}) = max E_j [ integral_t^{t*} e^{-int_t^z rho_{j,u}du}
-                    (C_{j,z}^{1-sigma})/(1-sigma) dz
-                    + e^{-int_t^{t*} rho_{j,u}du} V*_{j,t*}(B*_{j,t*}) ]
-```
+$$
+V_{j,t}(B_{j,t}) = \max E_j \!\left[ \int_t^{t^*} e^{-\int_t^z \rho_{j,u}\,du}
+                    \frac{C_{j,z}^{1-\sigma}}{1-\sigma}\, dz
+                    + e^{-\int_t^{t^*} \rho_{j,u}\,du} V^*_{j,t^*}(B^*_{j,t^*}) \right]
+$$
 
 subject to the flow budget constraint:
 
-```
-dB_{j,t} = [(i_t - pi_t)B_{j,t} + r_{L,t}B^L_{j,t} + r_{E,t}B^E_{j,t}
-             + T_{j,t} - C_{j,t}]dt + [B*_{j,t} - B_{j,t}]dN_t
-```
+$$
+dB_{j,t} = \left[(i_t - \pi_t)B_{j,t} + r_{L,t}B^L_{j,t} + r_{E,t}B^E_{j,t}
+             + T_{j,t} - C_{j,t}\right]dt + \left[B^*_{j,t} - B_{j,t}\right]dN_t
+$$
 
-where `i_t` is the nominal rate, `pi_t` is inflation, `r_{L,t}` and `r_{E,t}`
+where $$i_t$$ is the nominal rate, $$\pi_t$$ is inflation, $$r_{L,t}$$ and $$r_{E,t}$$
 are excess returns on long-term bonds and equities conditional on no disaster,
-`T_{j,t}` are transfers, and `N_t` is the Poisson disaster process with
-arrival rate `lambda_bar`.
+$$T_{j,t}$$ are transfers, and $$N_t$$ is the Poisson disaster process with
+arrival rate $$\bar{\lambda}$$.
 
 **Euler equations.** The Euler equation for short-term bonds (eq. 1, p. 1018):
 
-```
-C_dot_{j,t} / C_{j,t} = sigma^{-1}(i_t - pi_t - rho_{j,t})
-                          + (lambda_j / sigma) [(C_{j,t}/C*_{j,t})^sigma - 1]
-```
+$$
+\dot{C}_{j,t} / C_{j,t} = \sigma^{-1}(i_t - \pi_t - \rho_{j,t})
+                          + (\lambda_j / \sigma) \left[(C_{j,t}/C^*_{j,t})^{\sigma} - 1\right]
+$$
 
 The first term is the standard ISE; the second captures the precautionary
 savings motive from disaster risk. The Euler equations for long-term bonds
 and equities (eqs. 2-3, p. 1018):
 
-```
-r_{L,t} = lambda_j (C_{j,t}/C*_{j,t})^sigma * (Q_{L,t} - Q*_{L,t})/Q_{L,t}
+$$
+r_{L,t} = \lambda_j (C_{j,t}/C^*_{j,t})^{\sigma} \cdot (Q_{L,t} - Q^*_{L,t})/Q_{L,t}
+$$
 
-r_{E,t} = lambda_j (C_{j,t}/C*_{j,t})^sigma * (Q_{E,t} - Q*_{E,t})/Q_{E,t}
-```
+$$
+r_{E,t} = \lambda_j (C_{j,t}/C^*_{j,t})^{\sigma} \cdot (Q_{E,t} - Q^*_{E,t})/Q_{E,t}
+$$
 
 where the risk premium equals the price of disaster risk times the quantity of
 risk (the relative loss in asset value in the disaster state).
@@ -209,51 +211,61 @@ risk (the relative loss in asset value in the disaster state).
 heterogeneous beliefs, the economy aggregates as if a representative saver holds
 a CES-weighted belief:
 
-```
-lambda_t = [ (mu_o * C_{o,t}) / (mu_o*C_{o,t} + mu_p*C_{p,t}) * lambda_o^{1/sigma}
-           + (mu_p * C_{p,t}) / (mu_o*C_{o,t} + mu_p*C_{p,t}) * lambda_p^{1/sigma} ]^sigma
-```
+$$
+\lambda_t = \left[ \frac{\mu_o C_{o,t}}{\mu_o C_{o,t} + \mu_p C_{p,t}} \lambda_o^{1/\sigma}
+           + \frac{\mu_p C_{p,t}}{\mu_o C_{o,t} + \mu_p C_{p,t}} \lambda_p^{1/\sigma} \right]^{\sigma}
+$$
 
-and `eta_t = e^{-int_0^t rho_{s,z}dz} C_{s,t}^{-sigma}` is a valid SDF. This
+and $$\eta_t = e^{-\int_0^t \rho_{s,z}\,dz} C_{s,t}^{-\sigma}$$ is a valid SDF. This
 aggregation result is the key: the heterogeneous economy behaves as a
 representative-agent model with an endogenous, time-varying disaster probability
 that responds to monetary shocks via wealth redistribution.
 
 **New Keynesian Phillips Curve and interest rate rule (eq. 11, p. 1023; eq. 6, p. 1020):**
 
-```
-pi_dot_t = (rho_s + lambda) * pi_t - kappa * y_t,    kappa = phi^{-1}*(epsilon-1)*phi*Y
+$$
+\dot{\pi}_t = (\rho_s + \lambda) \pi_t - \kappa y_t, \qquad \kappa = \phi^{-1}(\varepsilon-1)\phi Y
+$$
 
-i_t = r_n + phi_pi * pi_t + u_t
-```
+$$
+i_t = r_n + \phi_{\pi} \pi_t + u_t
+$$
 
 **Aggregate Euler equation (Proposition 2, eq. 10, p. 1023):**
 
-```
-y_dot_t = -sigma_bar^{-1}(i_t - pi_t - r_n) + chi_{p_d} * p_{d,t}
+$$
+\dot{y}_t = -\bar{\sigma}^{-1}(i_t - \pi_t - r_n) + \chi_{p_d} p_{d,t}
+$$
 
-sigma_bar^{-1} = (1 - mu_w)/(1 - mu_w*chi_y) * sigma^{-1}
-chi_{p_d} = (lambda/sigma_bar) * (C_s/C*_s)^sigma
-p_{d,t} = sigma*(c_{s,t} - c*_{s,t}) + lambda_hat_t   (price of disaster risk)
-```
+$$
+\bar{\sigma}^{-1} = \frac{1 - \mu_w}{1 - \mu_w \chi_y} \sigma^{-1}
+$$
 
-The aggregate EIS is amplified by the cyclicality of income inequality `chi_y`.
-The extra term `chi_{p_d} * p_{d,t}` connects aggregate risk and asset prices
+$$
+\chi_{p_d} = (\lambda/\bar{\sigma}) (C_s/C^*_s)^{\sigma}
+$$
+
+$$
+p_{d,t} = \sigma(c_{s,t} - c^*_{s,t}) + \hat{\lambda}_t \qquad \text{(price of disaster risk)}
+$$
+
+The aggregate EIS is amplified by the cyclicality of income inequality $$\chi_y$$.
+The extra term $$\chi_{p_d} p_{d,t}$$ connects aggregate risk and asset prices
 to real output.
 
 **Wealth effect decomposition (Proposition 6, eq. 26, p. 1033).** Output
 decomposes into three components:
 
-```
-y_t = sigma_bar^{-1} * y_hat_{m,t}          (ISE)
-    + chi_lambda * y_hat_{lambda,t}           (time-varying precautionary motive)
-    + (rho - omega) * e^{omega*t} * Omega_0  (GE factor x aggregate wealth effect)
-```
+$$
+y_t = \bar{\sigma}^{-1} \hat{y}_{m,t}                                 \quad \text{(ISE)}
+    + \chi_{\lambda} \hat{y}_{\lambda,t}                               \quad \text{(time-varying precautionary motive)}
+    + (\rho - \omega) e^{\omega t} \Omega_0                            \quad \text{(GE factor} \times \text{aggregate wealth effect)}
+$$
 
-where `Omega_0` is the aggregate wealth effect at impact, `chi_lambda =
-chi_{p_d} * eps_lambda`, and the GE factor `(rho-omega)` ensures that `int_0^infty
-e^{-rho*t}(rho-omega)e^{omega*t}dt = 1`, so the wealth effect shifts output in
-all periods by `rho*Omega_0`, amplified in general equilibrium.
+where $$\Omega_0$$ is the aggregate wealth effect at impact, $$\chi_{\lambda} =
+\chi_{p_d} \varepsilon_{\lambda}$$, and the GE factor $$(\rho - \omega)$$ ensures that $$\int_0^{\infty}
+e^{-\rho t}(\rho-\omega)e^{\omega t}\,dt = 1$$, so the wealth effect shifts output in
+all periods by $$\rho \Omega_0$$, amplified in general equilibrium.
 
 ## Method
 
@@ -261,57 +273,59 @@ The paper contributes two methodological innovations that allow analytical
 aggregation in a setting with heterogeneous portfolios.
 
 **Approximate block-recursivity (Proposition 3, p. 1025).** The market-implied
-disaster probability `lambda_hat_t` and relative net worth `b_{p,t} - b_{o,t}`
+disaster probability $$\hat{\lambda}_t$$ and relative net worth $$b_{p,t} - b_{o,t}$$
 can be solved independently of output and inflation if the effect of savers'
-aggregate consumption `c_{s,t}` on risk premia is second-order (the term
-`r_k*sigma*c_{s,t}` is O(||i_t - r_n||^2)). Under this approximation:
+aggregate consumption $$c_{s,t}$$ on risk premia is second-order (the term
+$$r_k \sigma c_{s,t}$$ is $$O(\|i_t - r_n\|^2)$$). Under this approximation:
 
-```
-lambda_hat_t = e^{-psi_lambda * t} * lambda_hat_0
+$$
+\hat{\lambda}_t = e^{-\psi_{\lambda} t} \hat{\lambda}_0
+$$
 
-lambda_hat_0 = eps_lambda * (i_0 - r_n)
-```
+$$
+\hat{\lambda}_0 = \varepsilon_{\lambda} (i_0 - r_n)
+$$
 
-where `eps_lambda >= 0` and is strictly positive if and only if `lambda_p > lambda_o`.
-The persistence parameter `psi_lambda = xi` (the speed of reversion in Uzawa
+where $$\varepsilon_{\lambda} \geq 0$$ and is strictly positive if and only if $$\lambda_p > \lambda_o$$.
+The persistence parameter $$\psi_{\lambda} = \xi$$ (the speed of reversion in Uzawa
 preferences). The initial price of risk depends linearly on the initial monetary
-shock, with coefficient `eps_lambda` that captures the pass-through of nominal
+shock, with coefficient $$\varepsilon_{\lambda}$$ that captures the pass-through of nominal
 rates to the disaster probability via wealth redistribution.
 
 **Four-equation system.** Combining the aggregate Euler equation (10), the
 NKPC (11), the Taylor rule (6), and the price of risk equation (19):
 
-```
-p_{d,t} = sigma_bar * y_t + e^{-psi_lambda * t} * lambda_hat_0
-```
+$$
+p_{d,t} = \bar{\sigma} y_t + e^{-\psi_{\lambda} t} \hat{\lambda}_0
+$$
 
 the system has the same structure as the textbook three-equation NK model but
 with an additional term connecting asset prices to aggregate dynamics. The
 system is solved analogously to `buildsFrom: value-function-iteration` (matrix
-eigendecomposition of the 2x2 system in [y_t, pi_t]), with the unstable root
+eigendecomposition of the $$2 \times 2$$ system in $$[y_t, \pi_t]$$), with the unstable root
 solved forward and the stable root backward.
 
 **Wealth effect formula (eq. 29, p. 1035).** The aggregate wealth effect can
 be written entirely in terms of policy variables:
 
-```
-Omega_0 = (rho - omega) / [(rho - omega)*chi_tau + d_bar_G*kappa]
-           * [ int_0^infty e^{-rho*t} * DeltaB^L_t * (i_t - r_n + r_L*lambda_hat_t)dt
-               - d_bar_G * int_0^infty e^{-rho*t} pi_hat_t dt
-               - int_0^infty e^{-rho*t} tau_t dt ]
-```
+$$
+\Omega_0 = \frac{\rho - \omega}{(\rho - \omega)\chi_{\tau} + \bar{d}_G \kappa}
+           \left[ \int_0^{\infty} e^{-\rho t} \Delta B^L_t (i_t - r_n + r_L \hat{\lambda}_t)\,dt
+               - \bar{d}_G \int_0^{\infty} e^{-\rho t} \hat{\pi}_t\, dt
+               - \int_0^{\infty} e^{-\rho t} \tau_t\, dt \right]
+$$
 
-where `DeltaB^L_t = (1 - e^{-psi_L*t})*d_bar_G` is the portfolio exposure to
-long-term bonds, and `tau_t` is the fiscal backing (taxes on savers). This
-expression shows that equity revaluations do not affect `Omega_0` (the term
-`r_E` drops out), only government bond revaluations do.
+where $$\Delta B^L_t = (1 - e^{-\psi_L t})\bar{d}_G$$ is the portfolio exposure to
+long-term bonds, and $$\tau_t$$ is the fiscal backing (taxes on savers). This
+expression shows that equity revaluations do not affect $$\Omega_0$$ (the term
+$$r_E$$ drops out), only government bond revaluations do.
 
 **Calibration method.** Parameters are disciplined by four moments: (i) natural
-interest rate `r_n = 1%`; (ii) equity premium of 7.0% in stationary equilibrium
-(implies sigma = 4); (iii) initial five-year yield response of 32 bps per 100
+interest rate $$r_n = 1\%$$; (ii) equity premium of 7.0% in stationary equilibrium
+(implies $$\sigma = 4$$); (iii) initial five-year yield response of 32 bps per 100
 bps monetary shock (from a four-lag VAR on 1962-2007 US data); (iv) the entire
-forward curve estimated by Hanson and Stein (2015), used to pin `eps_lambda` and
-`psi_lambda`. The fiscal backing `tau_t` is estimated from the VAR impulse
+forward curve estimated by Hanson and Stein (2015), used to pin $$\varepsilon_{\lambda}$$ and
+$$\psi_{\lambda}$$. The fiscal backing $$\tau_t$$ is estimated from the VAR impulse
 responses for government revenues and expenditures.
 
 ## Empirical specifications
@@ -329,7 +343,7 @@ five-year constant maturity rate, real value of government debt/GDP. The
 recursiveness assumption identifies the monetary shock: the federal funds rate
 is ordered third to last, five-year rate and government debt last. Bootstrapped
 68% confidence bands are reported (Figure 2). The VAR is used to estimate the
-fiscal backing `tau_t` and the interest-rate impulse response that the model
+fiscal backing $$\tau_t$$ and the interest-rate impulse response that the model
 then matches.
 
 **Forward-curve calibration (Figures 3-4, pp. 1037-1038).** The response of
@@ -372,7 +386,7 @@ calibrating the term premium or credit spread to monetary shocks; or extending
 the model to richer capital structures or full quantitative HANK settings.
 The Internet Appendix contains the forward-curve PDE, additional robustness
 (sticky wages, investment, wealthy hand-to-mouth households), and the mapping
-between `eps_lambda` and underlying belief parameters.
+between $$\varepsilon_{\lambda}$$ and underlying belief parameters.
 
 ## Attribution and rights
 

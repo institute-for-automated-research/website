@@ -139,54 +139,53 @@ Sample: 308,000 individual investors per month on average; 535 unique stocks; 25
 
 The paper's central theoretical object is the tangency portfolio, which prices
 the cross section of excess stock returns. For J stocks with excess return
-vector `R^e`, expected return vector `mu`, and variance-covariance matrix
-`Sigma`, the tangency portfolio has weights (eq. 1, p. 2795):
+vector $$R^e$$, expected return vector $$\mu$$, and variance-covariance matrix
+$$\Sigma$$, the tangency portfolio has weights (eq. 1, p. 2795):
 
-```
-tau = (1/phi) * Sigma^{-1} * (mu - R_f * 1),    phi = 1' Sigma^{-1} (mu - R_f * 1) > 0
-```
+$$
+\tau = \frac{1}{\phi} \Sigma^{-1} (\mu - R_f \mathbf{1}), \qquad \phi = \mathbf{1}' \Sigma^{-1} (\mu - R_f \mathbf{1}) > 0
+$$
 
-Every stock's risk premium satisfies `mu_j - R_f = phi * (Sigma * tau)_j =
-b_{j,tau} * (mu_tau - R_f)`, so pricing the tangency portfolio is equivalent to
+Every stock's risk premium satisfies $$\mu_j - R_f = \phi \, (\Sigma \tau)_j = b_{j,\tau} (\mu_\tau - R_f)$$, so pricing the tangency portfolio is equivalent to
 pricing all stocks (eq. 2, p. 2795).
 
 **Spanning condition.** The key insight is that the researcher can recover the
 tangency portfolio from investor portfolio holdings when Assumption 1 holds
-(p. 2796): there exist N long-short investor portfolios `pi^1, ..., pi^N`
+(p. 2796): there exist N long-short investor portfolios $$\pi^1, \ldots, \pi^N$$
 extracted from the sample such that
 
-```
-tau  in  Span[ m, pi^1, ..., pi^N ],
-```
+$$
+\tau \in \operatorname{Span}[ m, \pi^1, \ldots, \pi^N ],
+$$
 
-where `m` is the market portfolio and `Span[...]` denotes the set of all linear
+where $$m$$ is the market portfolio and $$\operatorname{Span}[\cdot]$$ denotes the set of all linear
 combinations. When this holds, the tangency portfolio is a linear combination
 (eq. 4, p. 2796):
 
-```
-tau = m + sum_{n=1}^{N} eta_n * pi^n,
-```
+$$
+\tau = m + \sum_{n=1}^{N} \eta_n \, \pi^n,
+$$
 
 and every stock's risk premium satisfies a multifactor pricing equation
 (Proposition 1, eq. 6, p. 2797):
 
-```
-mu_j - R_f = beta_{j,M} * (mu_M - R_f) + sum_{n=1}^{N} beta_{j,n} * E(p_n),
-```
+$$
+\mu_j - R_f = \beta_{j,M} (\mu_M - R_f) + \sum_{n=1}^{N} \beta_{j,n} \, E(p_n),
+$$
 
-where `p_n = (pi^n)' R^e` is the return on the n-th IPF and
-`(beta_{j,M}, beta_{j,1}, ..., beta_{j,N})'` is the vector of OLS regression
+where $$p_n = (\pi^n)' R^e$$ is the return on the n-th IPF and
+$$(\beta_{j,M}, \beta_{j,1}, \ldots, \beta_{j,N})'$$ is the vector of OLS regression
 coefficients of stock j's return on the (N+1) factors.
 
 Proposition 1 also implies that a stock's CAPM alpha satisfies (eq. 7, p. 2798):
 
-```
-a_{j,M} = phi * sum_{n=1}^{K} eta_n * (b_{j,n} - b_{j,M} * b_{M,n}) * sigma_n^2,
-```
+$$
+a_{j,M} = \phi \sum_{n=1}^{K} \eta_n (b_{j,n} - b_{j,M} \, b_{M,n}) \sigma_n^2,
+$$
 
-where `b_{j,n} = cov(R^e_j, p_n) / sigma_n^2` and `b_{M,n} = cov(MKT, p_n) / sigma_n^2`.
-Stocks in low demand (positive net exposure `b_{j,n} - b_{j,M} * b_{M,n}` with
-`eta_n > 0`) are underpriced relative to CAPM and tend to have low market betas.
+where $$b_{j,n} = \operatorname{cov}(R^e_j, p_n) / \sigma_n^2$$ and $$b_{M,n} = \operatorname{cov}(\text{MKT}, p_n) / \sigma_n^2$$.
+Stocks in low demand (positive net exposure $$b_{j,n} - b_{j,M} \, b_{M,n}$$ with
+$$\eta_n > 0$$) are underpriced relative to CAPM and tend to have low market betas.
 
 **Theoretical foundations for age and wealth as IPF characteristics.** The paper
 derives the spanning condition under two complementary models (Section I.D,
@@ -196,18 +195,22 @@ pp. 2802-2804):
    i has CRRA utility and holds a portfolio deviating from the tangency by
    hedging demands. Under a Taylor approximation, the portfolio factor structure is
    (eq. 17, p. 2803):
-   ```
-   omega^i_t = tau_t - (T - 1 - A^i_t) * d^1_t - (L^i_t / W^i_t) * d^2_t,
-   ```
-   where `A^i_t` is investor age, `L^i_t / W^i_t` is the income-to-wealth ratio,
-   and `d^1_t, d^2_t` are deviation portfolios. Mature and wealthy investors hold
-   portfolios closer to `tau` and therefore earn higher CAPM alphas.
+
+   $$
+   \omega^i_t = \tau_t - (T - 1 - A^i_t) \, d^1_t - (L^i_t / W^i_t) \, d^2_t,
+   $$
+
+   where $$A^i_t$$ is investor age, $$L^i_t / W^i_t$$ is the income-to-wealth ratio,
+   and $$d^1_t, d^2_t$$ are deviation portfolios. Mature and wealthy investors hold
+   portfolios closer to $$\tau$$ and therefore earn higher CAPM alphas.
 
 2. Sentiment model (Fedyk, Heyerdahl-Larsen, and Walden 2013): sentiment covaries
    with age and wealth, yielding a reduced-form factor structure (eq. 18, p. 2804):
-   ```
-   omega^i_t = tau_t - f_1(A^i_t) * d^1_t - f_2(W^i_t) * d^2_t.
-   ```
+
+   $$
+   \omega^i_t = \tau_t - f_1(A^i_t) \, d^1_t - f_2(W^i_t) \, d^2_t.
+   $$
+
    Both frameworks predict age and wealth as natural IPF sorting characteristics.
 
 ## Method
@@ -217,47 +220,46 @@ extracting priced long-short portfolios. It builds on `sdf-projection` (the
 tangency-spanning condition) and `portfolio-sort` (investor sorting by
 socioeconomic characteristics).
 
-**Step 1: Factor structure of investor portfolios.** G = 90 investor groups are
+**Step 1: Factor structure of investor portfolios.** $$G = 90$$ investor groups are
 formed annually by age (12 groups), wealth (12 groups), permanent real income
 (12 groups), gender (2), education (3), region (9), industry (17), and
-occupation (9). For group g with investor equity-wealth weights `w^g_i`, the
+occupation (9). For group g with investor equity-wealth weights $$w^g_i$$, the
 group portfolio is (eq. 14, p. 2801):
 
-```
-omega^g = sum_{i in I_g} w^g_i * omega^i,    w^g_i = E^i / sum_{i' in I_g} E^{i'}.
-```
+$$
+\omega^g = \sum_{i \in I_g} w^g_i \, \omega^i, \qquad w^g_i = E^i \Big/ \sum_{i' \in I_g} E^{i'}.
+$$
 
-PCA is applied to the G x G variance-covariance matrix of the G = 90 group
-portfolio holdings, `Omega'_t * Omega_t / J_t`, to obtain principal components
-`PC_{k,t}` (eq. 19-20, p. 2806). The first two PCs explain 80% of the
+PCA is applied to the $$G \times G$$ variance-covariance matrix of the $$G = 90$$ group
+portfolio holdings, $$\Omega'_t \Omega_t / J_t$$, to obtain principal components
+$$PC_{k,t}$$ (eq. 19-20, p. 2806). The first two PCs explain 80% of the
 cross-sectional variance in group holdings.
 
 **Step 2: Extracting IPFs as long-short portfolios.** An IPF is a zero-investment
-long-short portfolio `pi^n` formed as a weighted average of group portfolios
+long-short portfolio $$\pi^n$$ formed as a weighted average of group portfolios
 (eq. 15, p. 2802):
 
-```
-pi^n = sum_{g=1}^{G} z^g_n * omega^g,    sum_{g=1}^{G} z^g_n = 0.
-```
+$$
+\pi^n = \sum_{g=1}^{G} z^g_n \, \omega^g, \qquad \sum_{g=1}^{G} z^g_n = 0.
+$$
 
-The age portfolio `pi_{AGE,t}` is long investors aged 70-75 and short investors
+The age portfolio $$\pi_{\text{AGE},t}$$ is long investors aged 70-75 and short investors
 aged 18-30 (equal weights -1/2 on groups 1 and 2). The wealth portfolio
-`pi_{WEALTH,t}` is long the top 1% wealthiest investors and short the bottom
+$$\pi_{\text{WEALTH},t}$$ is long the top 1% wealthiest investors and short the bottom
 10%-30% of wealth (text, p. 2808). The combined age-wealth portfolio is:
 
-```
-pi_{AW,t} = (1/2) * (pi_{AGE,t} + pi_{WEALTH,t}).
-```
+$$
+\pi_{\text{AW},t} = \tfrac{1}{2} \left( \pi_{\text{AGE},t} + \pi_{\text{WEALTH},t} \right).
+$$
 
-Returns on the IPFs are computed as `AW_t = (pi_{AW,t-1})' R^e_t` (net of the
+Returns on the IPFs are computed as $$AW_t = (\pi_{\text{AW},t-1})' R^e_t$$ (net of the
 1-month Norwegian Interbank Offered Rate, NIBOR, as risk-free rate; p. 2810).
 
 **Out-of-sample Sharpe ratio evaluation.** The bootstrap procedure (eq. 24,
-p. 2815) follows Fama and French (2018): 100,000 bootstrap draws of T = 251
+p. 2815) follows Fama and French (2018): 100,000 bootstrap draws of $$T = 251$$
 months from the factor return panel are used. The in-sample covariance matrix is
-shrunk as `Sigma^_p = Sigma_p + gamma * I` (gamma = tr(Sigma_p) / (T *
-E[SR]^2), with E[SR] = 0.5 selected) following Kozak, Nagel, and Santosh (2020), and the tangency portfolio
-is `tau^ = Sigma^{-1}_p * mu_p / (1' * Sigma^{-1}_p * mu_p)`. Out-of-sample SR
+shrunk as $$\hat{\Sigma}_p = \Sigma_p + \gamma I$$ ($$\gamma = \operatorname{tr}(\Sigma_p) / (T \, E[\text{SR}]^2)$$, with $$E[\text{SR}] = 0.5$$ selected) following Kozak, Nagel, and Santosh (2020), and the tangency portfolio
+is $$\hat{\tau} = \hat{\Sigma}_p^{-1} \mu_p / (\mathbf{1}' \hat{\Sigma}_p^{-1} \mu_p)$$. Out-of-sample SR
 is computed on the hold-out months not drawn in each simulation.
 
 ## Empirical specifications
@@ -266,22 +268,20 @@ is computed on the hold-out months not drawn in each simulation.
 PC k is regressed monthly on the market, age, and wealth portfolio weights (OLS,
 eq. 22, p. 2809):
 
-```
-PC_{j,k,t} = a^k_t + lambda^k_{MKT,t} * m_{j,t} + lambda^k_{AGE,t} * pi_{AGE,j,t}
-             + lambda^k_{WEALTH,t} * pi_{WEALTH,j,t} + epsilon^k_{j,t},    j = 1,...,J_t.
-```
+$$
+PC_{j,k,t} = a^k_t + \lambda^k_{\text{MKT},t} \, m_{j,t} + \lambda^k_{\text{AGE},t} \, \pi_{\text{AGE},j,t} + \lambda^k_{\text{WEALTH},t} \, \pi_{\text{WEALTH},j,t} + \epsilon^k_{j,t}, \qquad j = 1,\ldots,J_t.
+$$
 
-Time-average R^2 reported over 2005-2017. Identifies PC1 with market (R^2 = 0.62)
-and PC2 with combined age-wealth factor (R^2 = 0.55).
+Time-average $$R^2$$ reported over 2005-2017. Identifies PC1 with market ($$R^2 = 0.62$$)
+and PC2 with combined age-wealth factor ($$R^2 = 0.55$$).
 
 **IPF alpha and beta regressions (R2, R3; Tables II-III, pp. 2810-2813).** Monthly
 OLS spanning regressions of IPF returns on the market and/or firm factors,
 February 1997 to December 2017 (T = 251):
 
-```
-AW_t = alpha + beta_{MKT} * MKT_t + [beta_{SMB} * SMB_t + beta_{HML} * HML_t
-       + beta_{MOM} * MOM_t + beta_{RMW} * RMW_t + beta_{CMA} * CMA_t] + v_t.
-```
+$$
+AW_t = \alpha + \beta_{\text{MKT}} \, \text{MKT}_t + [\beta_{\text{SMB}} \, \text{SMB}_t + \beta_{\text{HML}} \, \text{HML}_t + \beta_{\text{MOM}} \, \text{MOM}_t + \beta_{\text{RMW}} \, \text{RMW}_t + \beta_{\text{CMA}} \, \text{CMA}_t] + v_t.
+$$
 
 Five Fama-French firm factors (SMB, HML, RMW, CMA) and momentum (MOM) are
 constructed from Norwegian equities using standard accounting and price data
@@ -289,11 +289,11 @@ constructed from Norwegian equities using standard accounting and price data
 heteroskedasticity-robust t-statistics are reported.
 
 **Firm-factor alpha regressions under IPF* (R4; Table IV, p. 2814).** Each firm
-factor `F_t in {SMB, HML, MOM, RMW, CMA}` is regressed on the market and AW:
+factor $$F_t \in \{\text{SMB}, \text{HML}, \text{MOM}, \text{RMW}, \text{CMA}\}$$ is regressed on the market and AW:
 
-```
-F_t = alpha_F + beta_{F,MKT} * MKT_t + beta_{F,AW} * AW_t + v_t.
-```
+$$
+F_t = \alpha_F + \beta_{F,\text{MKT}} \, \text{MKT}_t + \beta_{F,\text{AW}} \, AW_t + v_t.
+$$
 
 AW absorbs ~40% of momentum, profitability, and investment alphas, rendering
 them statistically insignificant at the 5% level (MOM t = 1.04, RMW t = 1.42,
@@ -302,27 +302,24 @@ CMA t = 0.99; Table IV columns 2, 6, 8, 10).
 **IPF* stock-level multifactor model (eq. 23, p. 2811).** The preferred two-factor
 model (labelled IPF*) for each stock j:
 
-```
-R^e_{j,t} = alpha_j + beta_{j,MKT} * MKT_t + beta_{j,AW} * AW_t + v_{j,t},
-```
+$$
+R^e_{j,t} = \alpha_j + \beta_{j,\text{MKT}} \, \text{MKT}_t + \beta_{j,\text{AW}} \, AW_t + v_{j,t},
+$$
 
-where `alpha_j = 0` for all j if IPF* is correctly specified.
+where $$\alpha_j = 0$$ for all j if IPF* is correctly specified.
 
 **Portfolio tilt regression (R6, R7; Table VII, p. 2823).** Panel regression of
 investor i's tilt toward IPF AW at annual frequency, 2004-2017 (N = 911,432
 investor-years):
 
-```
-TILT^i_{AW,t} = delta_t + theta' * chi^i_t + xi^i,
-```
+$$
+\text{TILT}^i_{\text{AW},t} = \delta_t + \theta' \chi^i_t + \xi^i,
+$$
 
-where `TILT^i_{AW,t} = sum_{j=1}^{J_i} omega^i_{j,t} * D_{j,AW,t}` with
-`D_{j,AW,t} = +1 / -1` if stock j is in the long / short leg of AW (eq. 25,
-p. 2819); `chi^i_t` is a vector of investor characteristics (income beta,
-debt indicator, stock market experience, finance occupation, gender, Oslo
-residence, top management dummy); and `delta_t` are year fixed effects with
-additional age-group and wealth-group fixed effects. Standard errors clustered
-by calendar year x investor level.
+- $$\text{TILT}^i_{\text{AW},t} = \sum_{j=1}^{J_i} \omega^i_{j,t} \, D_{j,\text{AW},t}$$ with $$D_{j,\text{AW},t} = +1 / -1$$ if stock j is in the long / short leg of AW (eq. 25, p. 2819).
+- $$\chi^i_t$$ is a vector of investor characteristics (income beta, debt indicator, stock market experience, finance occupation, gender, Oslo residence, top management dummy).
+- $$\delta_t$$ are year fixed effects with additional age-group and wealth-group fixed effects.
+- Standard errors clustered by calendar year x investor level.
 
 ## When to read the full paper
 

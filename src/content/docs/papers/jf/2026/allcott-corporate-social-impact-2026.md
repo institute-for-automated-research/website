@@ -199,8 +199,8 @@ Sample: 74 firms; 12 industries (autos, airline, beer, cereal, cigarettes, groce
 
 ## Theory / model
 
-The paper builds a micro-founded partial equilibrium model. There are N people
-indexed by i with income-earning ability theta_i. Each person i has quasilinear
+The paper builds a micro-founded partial equilibrium model. There are $$N$$ people
+indexed by $$i$$ with income-earning ability $$\theta_i$$. Each person $$i$$ has quasilinear
 utility additively separable in consumption, labor, and externality (eq. 1,
 p. 292):
 
@@ -211,18 +211,18 @@ U_i(y; p, w(\theta_i)) = U_i\!\left( \sum_m \sum_{t \in T_m} \sum_{j \in J_m} (u
   - \Phi \right)
 $$
 
-where y_ijt are binary purchase indicators, y_ifl are binary employment
-indicators, pi_i is person i's share of redistributed profits, and Phi is the
+where $$y_{ijt}$$ are binary purchase indicators, $$y_{ifl}$$ are binary employment
+indicators, $$\pi_i$$ is person $$i$$'s share of redistributed profits, and $$\Phi$$ is the
 per-capita externality. For markets with behavioral biases (cigarettes, soda),
-consumers maximize perceived utility U-tilde_i where u_ijt is replaced by
-u_ijt + gamma_j; gamma_j < 0 is a negative internality. Consumer choice is
+consumers maximize perceived utility $$\tilde{U}_i$$ where $$u_{ijt}$$ is replaced by
+$$u_{ijt} + \gamma_j$$; $$\gamma_j < 0$$ is a negative internality. Consumer choice is
 (eq. 2, p. 292):
 
 $$
 y^* = \operatorname*{argmax}\, \tilde U_i(y; p, w(\theta_i))
 $$
 
-Firm f's profits are (eq. 3, p. 292):
+Firm $$f$$'s profits are (eq. 3, p. 292):
 
 $$
 \Pi_f(p) = \sum_{j \in J_f} \left[ p_j q_j(p) - C_j(q_j) \right]
@@ -240,7 +240,7 @@ $$
 W(p, w) = \sum_i \omega_i V_i(p, w(\theta_i))
 $$
 
-**Individual impact.** Firm f's individual impact is the welfare loss from its
+**Individual impact.** Firm $$f$$'s individual impact is the welfare loss from its
 exit if all other firms remain (eq. 6-7, p. 293):
 
 $$
@@ -251,9 +251,9 @@ $$
 \Delta W_f^{\text{Individual}} = \Delta W_f(F)
 $$
 
-**Share of industry impact.** Defined as firm f's Shapley value for the social
-welfare loss if the entire industry exited. With R_m the set of orderings of
-firms in market m and P_f^R the set of firms preceding f in ordering R
+**Share of industry impact.** Defined as firm $$f$$'s Shapley value for the social
+welfare loss if the entire industry exited. With $$R_m$$ the set of orderings of
+firms in market $$m$$ and $$P_f^R$$ the set of firms preceding $$f$$ in ordering $$R$$
 (eq. 8, p. 293):
 
 $$
@@ -267,8 +267,8 @@ $$
 g_i = \kappa\, a(z_i)^{-\rho}, \qquad \kappa = \frac{N}{\sum_i a(z_i)^{-\rho}}
 $$
 
-where a(z_i) is after-tax income and rho = 1 as benchmark (log utility).
-When rho = 0, all people receive equal weight and W is total surplus.
+where $$a(z_i)$$ is after-tax income and $$\rho = 1$$ as benchmark (log utility).
+When $$\rho = 0$$, all people receive equal weight and $$W$$ is total surplus.
 
 **Identification.** This is a structural quantification exercise, not a
 quasi-experimental design. Demand parameters are identified by survey moments
@@ -285,7 +285,7 @@ markets via BLP demand, (ii) oil market via price-taking competitive fringe, and
 `method-of-simulated-moments`, and `shapley-value-allocation`.
 
 **Differentiated product markets (Sections IV.A-B, pp. 302-305).** Representative
-utility for income group z and firm f is (eq. 12, p. 303):
+utility for income group $$z$$ and firm $$f$$ is (eq. 12, p. 303):
 
 $$
 \begin{aligned}
@@ -294,16 +294,16 @@ V_{zf}(p_f, v_i) &= \eta(-p_f + u_{ift}) - \epsilon_{ift} \\
 \end{aligned}
 $$
 
-where eta is a market-level price scaling factor, xi_f + gamma_f = delta_f is
-firm f's mean utility, zeta_f is an income-firm interaction parameter, and
-sigma_f, sigma_n are standard deviations of firm-specific and inside-good random
-coefficients. Income group z's choice probability (eq. 13, p. 303):
+where $$\eta$$ is a market-level price scaling factor, $$\xi_f + \gamma_f = \delta_f$$ is
+firm $$f$$'s mean utility, $$\zeta_f$$ is an income-firm interaction parameter, and
+$$\sigma_f$$, $$\sigma_n$$ are standard deviations of firm-specific and inside-good random
+coefficients. Income group $$z$$'s choice probability (eq. 13, p. 303):
 
 $$
 P_{zf}(p) = E_v\!\left[ \frac{\exp(V_{zf}(p_f, v_i))}{1 + \sum_{k \in F_m} \exp(V_{zk}(p_k, v_i))} \right]
 $$
 
-Consumer surplus loss from firm f's exit (eq. 15, p. 304):
+Consumer surplus loss from firm $$f$$'s exit (eq. 15, p. 304):
 
 $$
 \Delta CS_f(X_0) = N \sum_z \mu_z\, g(z)\, T_m \left[ \widetilde{CS}_{zm}(p^{X_0}) - \widetilde{CS}_{zm}(p^{X_0 \setminus f})
@@ -311,9 +311,9 @@ $$
 $$
 
 **Estimation moments (MSM, p. 305).** Three sets of micro-moments identify the
-structural parameters (Theta^m = {eta, zeta, sigma_f, sigma_n}):
+structural parameters ($$\Theta^m = \{\eta, \zeta, \sigma_f, \sigma_n\}$$):
 
-Income-firm moments (informative about zeta_f):
+Income-firm moments (informative about $$\zeta_f$$):
 
 $$
 g_f^{\text{inc}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i \chi_{im}
@@ -321,7 +321,7 @@ g_f^{\text{inc}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i
 $$
 (eq. 16, p. 305)
 
-Substitution moments (informative about eta and sigma_f):
+Substitution moments (informative about $$\eta$$ and $$\sigma_f$$):
 
 $$
 g_f^{\text{sub}} = \left( \sum_i \omega_i \chi_{im} F_{if} \right)^{-1} \sum_i \omega_i \chi_{im} F_{if}
@@ -329,7 +329,7 @@ g_f^{\text{sub}} = \left( \sum_i \omega_i \chi_{im} F_{if} \right)^{-1} \sum_i \
 $$
 (eq. 17, p. 305)
 
-Outside-good moments (informative about sigma_n):
+Outside-good moments (informative about $$\sigma_n$$):
 
 $$
 g^{\text{out}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i \chi_{im}
@@ -337,14 +337,14 @@ g^{\text{out}} = \left( \sum_i \omega_i \chi_{im} \right)^{-1} \sum_i \omega_i \
 $$
 (eq. 18, p. 305)
 
-Parameters are estimated by minimizing G^m(Theta^m)' G^m(Theta^m). Marginal
+Parameters are estimated by minimizing $$G^m(\Theta^m)' G^m(\Theta^m)$$. Marginal
 costs are backed out from Nash-Bertrand first-order conditions (eq. 10, p. 302):
 
 $$
 p_f - C'_f = \frac{q_f}{-\,\dfrac{\partial q_f(p)}{\partial p_f}}
 $$
 
-Counterfactual equilibrium prices p^X are found by fixed-point iteration
+Counterfactual equilibrium prices $$p^X$$ are found by fixed-point iteration
 (Conlon and Gortmaker 2020).
 
 **Oil market (Section IV.D, pp. 308-309).** Oil is treated as an undifferentiated
@@ -354,7 +354,7 @@ $$
 D(p^X) = S(p^X; F)
 $$
 
-Consumer surplus loss from firm f's exit under linear demand (eq. 20):
+Consumer surplus loss from firm $$f$$'s exit under linear demand (eq. 20):
 
 $$
 \Delta CS_f(X_0) = \tfrac{1}{2}\left( D(p^{X_0 \setminus f}) + D(p^{X_0}) \right)\left( p^{X_0 \setminus f} - p^{X_0} \right)
@@ -372,7 +372,7 @@ $$
 E_i[ WS_{ifl} ] = \int_0^1 \frac{w_{ifl}\, \epsilon}{\alpha x_{ifl}}\, d\epsilon = \frac{w_{ifl}}{2 \alpha x_{ifl}}
 $$
 
-Total worker surplus loss from firm f's exit (eq. 24, p. 312):
+Total worker surplus loss from firm $$f$$'s exit (eq. 24, p. 312):
 
 $$
 \Delta WS_f = \sum_{l \in L_f} \sum_{i \in fl} \frac{w_{ifl}}{2 \alpha x_{ifl}}
@@ -381,14 +381,14 @@ $$
 ## Empirical specifications
 
 **Labor supply regression (Table V, p. 313).** The labor supply arc elasticity
-alpha is estimated from a linear probability model of whether workers leave if
+$$\alpha$$ is estimated from a linear probability model of whether workers leave if
 their employer cuts salaries by 10% (eq. 27, p. 312):
 
 $$
 \Pr(L_i = 1) = (0.1\,\alpha)\, x_{ifl}
 $$
 
-where x_ifl includes: annual earnings w_ifl (from survey), college degree
+where $$x_{ifl}$$ includes: annual earnings $$w_{ifl}$$ (from survey), college degree
 indicator, major occupation indicators (management/business/science reference),
 natural log of firm total employment in county (from InfoUSA), natural log of
 labor market size (employment in occupation-county cell, from ACS), and a
@@ -399,15 +399,15 @@ respondents. Wages divided by 0.69 to convert from compensation to wages
 Key estimates from column (3): constant = 0.448 (SE 0.079)\*\*\*, total
 compensation ($10,000) = -0.014 (SE 0.002)\*\*\*, college degree = -0.078
 (SE 0.032)\*\*, ln(firm employees in county) = 0.025 (SE 0.006)\*\*\*;
-R^2 = 0.064. (Table V, p. 313.)
+$$R^2 = 0.064$$. (Table V, p. 313.)
 
 **Product market estimation (Section IV.B-C, pp. 304-306).** MSM estimation per
 market. Sample restricted to firms with at least 25 survey respondents as
 customers; all other firms in market pooled as "other" firm. Baseline prices
-p^0 = 1. Parameter identification: firm zeta estimated from share of purchases
-by high- vs. low-income consumers (income-firm moments); market eta and sigma_f
+$$p^0 = 1$$. Parameter identification: firm $$\zeta$$ estimated from share of purchases
+by high- vs. low-income consumers (income-firm moments); market $$\eta$$ and $$\sigma_f$$
 from share of customers who would still buy after a 25% price increase
-(substitution moments); sigma_n from share of inside-good consumption retained
+(substitution moments); $$\sigma_n$$ from share of inside-good consumption retained
 if all prices double (outside moments). Berry (1994) contraction mapping used
 to match aggregate market shares in every iteration. (p. 305.)
 
@@ -417,8 +417,7 @@ U.S. EPA supply-chain CO2 emission factors valued at $190/metric ton (U.S.
 government social cost of carbon, 2020). Consumption externalities: beer $33.60
 per liter of pure alcohol (Herrnstadt et al. 2015); cigarettes $0.64/pack
 (DeCicca et al. 2020); soda 0.85 cents/oz; autos and oil include lifetime
-CO2 emissions discounted at 3%. Cigarette internality = (1 - beta) * H^c =
-(1 - 0.67) * $44.40 per pack ~= $14.65/pack (Chaloupka et al. 2019; Gruber
+CO2 emissions discounted at 3%. Cigarette internality $$= (1 - \beta) \times H^c$$ = (1 - 0.67) * $44.40 per pack $$\approx$$ $14.65/pack (Chaloupka et al. 2019; Gruber
 and Koszegi 2001); soda internality 0.93 cents/oz (Allcott et al. 2019a).
 
 **Robustness checks (Section VI.E, Figure 8, p. 320).** Six panels vary: social

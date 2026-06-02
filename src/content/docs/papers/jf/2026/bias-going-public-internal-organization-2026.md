@@ -170,11 +170,11 @@ organizational changes and assess which channel explains more variation.
 difference-in-differences with matched never-treated private controls. The
 identifying assumptions are (i) no treatment anticipation more than two years
 before the IPO (preparation for a German IPO typically takes 12–24 months,
-so t-3 and earlier are assumed clean); and (ii) conditional parallel trends:
+so $$t{-}3$$ and earlier are assumed clean); and (ii) conditional parallel trends:
 matched controls would have followed the same hierarchy trajectory as IPO
 firms in the absence of the IPO. Parallel trends cannot be tested directly
 but is supported by near-zero, statistically insignificant pre-IPO period
-coefficients at t-5 and t-4 (Table III).
+coefficients at $$t{-}5$$ and $$t{-}4$$ (Table III).
 
 ## Method
 
@@ -196,7 +196,7 @@ codes (KldB1988):
 2. `refined layers` (log): sublayers within each of the four layers, formed
    by clustering employees by wages within each layer (Bonhomme, Lamadon, and
    Manresa (2022)). Captures within-layer heterogeneity. Mean of 5.89 for IPO
-   firms and 5.68 for controls at t-3 (Table II, p. 474).
+   firms and 5.68 for controls at $$t{-}3$$ (Table II, p. 474).
 
 3. `promotion levels`: industry-specific job-ladder positions derived from
    within-firm occupational transitions associated with wage increases, building
@@ -211,36 +211,36 @@ Betriebs-Historik-Panel. The matching algorithm has two steps: (1) match
 each IPO to up to 20 private firms in the same industry with the most similar
 size, age, employment growth, and mean wage three years before the IPO; then
 (2) restrict to controls with the same layer structure as the IPO firm at
-t-3. This yields 312 matched pairs (312 IPO firms and 312 matched private
+$$t{-}3$$. This yields 312 matched pairs (312 IPO firms and 312 matched private
 firms, 4,992 firm-years in the main panel).
 
 ## Empirical specifications
 
 The main specification is the dynamic stacked DiD (Equation 1, p. 476):
 
-```
-y_{f,t,c} = alpha
-  + sum_{k=-5}^{-4} beta_k * 1(IPO)_f * 1(t+k)_{f,t}     [Pre-IPO period]
-  + sum_{k=-2}^{0}  beta_k * 1(IPO)_f * 1(t+k)_{f,t}     [Anticipation period]
-  + sum_{k=1}^{2}   beta_k * 1(IPO)_f * 1(t+k)_{f,t}     [Post-IPO period]
-  + phi_f + psi_{t,c} + Pi * X_{f,t} + epsilon_{f,t}
-```
+$$
+y_{f,t,c} = \alpha
+  + \sum_{k=-5}^{-4} \beta_k \cdot \mathbf{1}(\text{IPO})_f \cdot \mathbf{1}(t{+}k)_{f,t}
+  + \sum_{k=-2}^{0}  \beta_k \cdot \mathbf{1}(\text{IPO})_f \cdot \mathbf{1}(t{+}k)_{f,t}
+  + \sum_{k=1}^{2}   \beta_k \cdot \mathbf{1}(\text{IPO})_f \cdot \mathbf{1}(t{+}k)_{f,t}
+  + \phi_f + \psi_{t,c} + \Pi \cdot X_{f,t} + \epsilon_{f,t}
+$$
 
-where `f` = firm, `t` = year, `c` = cohort of IPO firms going public in the
-focal year. `1(IPO)_f` is an indicator for the IPO (treated) firm.
-`1(t+k)_{f,t}` is an indicator for calendar year `t` being `k` years relative
-to the firm's IPO year. The omitted reference period is `t-3` (the matching
-year). `phi_f` = firm fixed effects (equivalent to cohort-by-firm fixed
-effects). `psi_{t,c}` = cohort-by-year fixed effects. `X_{f,t}` = controls:
-log number of layer-1 employees and log number of establishments. Standard
-errors are clustered at the firm level.
+- $$f$$ = firm, $$t$$ = year, $$c$$ = cohort of IPO firms going public in the focal year.
+- $$\mathbf{1}(\text{IPO})_f$$ is an indicator for the IPO (treated) firm.
+- $$\mathbf{1}(t{+}k)_{f,t}$$ is an indicator for calendar year $$t$$ being $$k$$ years relative to the firm's IPO year.
+- The omitted reference period is $$t{-}3$$ (the matching year).
+- $$\phi_f$$ = firm fixed effects (equivalent to cohort-by-firm fixed effects).
+- $$\psi_{t,c}$$ = cohort-by-year fixed effects.
+- $$X_{f,t}$$ = controls: log number of layer-1 employees and log number of establishments.
+- Standard errors are clustered at the firm level.
 
-The dependent variable `y_{f,t,c}` varies by table:
-- **Table III**: `layers` (cols. 1-2) and `log(refined layers)` (cols. 3-4),
+The dependent variable $$y_{f,t,c}$$ varies by table:
+- **Table III**: `layers` (cols. 1-2) and $$\log(\text{refined layers})$$ (cols. 3-4),
   the extensive margin of hierarchy. Columns (2) and (4) add firm-growth
   controls.
-- **Table IV**: `log(employment in layer L)` for layers 2, 3, 4 and
-  `log(control span of layer L)` for layers 2, 3, 4, the intensive margin.
+- **Table IV**: $$\log(\text{employment in layer } L)$$ for layers 2, 3, 4 and
+  $$\log(\text{control span of layer } L)$$ for layers 2, 3, 4, the intensive margin.
 - **Table V**: employment share in production/service, administration,
   management, finance/accounting, legal experts, and public-firm experts.
 - **Table VII**: `promotion levels` (industry-specific job-ladder alignment).
@@ -251,37 +251,36 @@ The dependent variable `y_{f,t,c}` varies by table:
 To test whether human capital risk or regulatory complexity moderates the
 main effect, the paper adds a triple interaction:
 
-```
-y_{f,t,c} = alpha
-  + sum_period beta_k * 1(IPO)_f * 1(period)_{f,t}
-  + sum_period gamma_k * 1(IPO)_f * 1(period)_{f,t} * 1(Split)_f
-  + delta * 1(Split)_f * 1(period)_{f,t}
-  + phi_f + psi_{t,c} + Pi * X_{f,t} + epsilon_{f,t}
-```
+$$
+y_{f,t,c} = \alpha
+  + \sum_{\text{period}} \beta_k \cdot \mathbf{1}(\text{IPO})_f \cdot \mathbf{1}(\text{period})_{f,t}
+  + \sum_{\text{period}} \gamma_k \cdot \mathbf{1}(\text{IPO})_f \cdot \mathbf{1}(\text{period})_{f,t} \cdot \mathbf{1}(\text{Split})_f
+  + \delta \cdot \mathbf{1}(\text{Split})_f \cdot \mathbf{1}(\text{period})_{f,t}
+  + \phi_f + \psi_{t,c} + \Pi \cdot X_{f,t} + \epsilon_{f,t}
+$$
 
-where `1(Split)_f` is an indicator for higher human capital risk (human-
-capital-intensive industry, highly skilled labor force, R&D-intensive industry)
-or for higher IPO proceeds or listing in a more regulated market segment.
-The coefficient of interest is `gamma_k` in the post-IPO period.
+- $$\mathbf{1}(\text{Split})_f$$ is an indicator for higher human capital risk (human-capital-intensive industry, highly skilled labor force, R&D-intensive industry) or for higher IPO proceeds or listing in a more regulated market segment.
+- The coefficient of interest is $$\gamma_k$$ in the post-IPO period.
 
 **Formalization cross-section (Figure 4, p. 489, footnote p. 490).**
 Using the IAB Establishment Panel survey, the paper regresses 10 standardization/
 reorganization indicators on number-of-layers dummies, controlling for
 establishment and year fixed effects:
 
-```
-1(standardization/reorganization)_{j,t}
-  = alpha
-  + beta_1 * 1(firm has two layers)_{j,t}
-  + beta_2 * 1(firm has three layers)_{j,t}
-  + beta_3 * 1(firm has four layers)_{j,t}
-  + phi_j + psi_t + epsilon_{j,t}
-```
+$$
+\mathbf{1}(\text{standardization/reorganization})_{j,t}
+  = \alpha
+  + \beta_1 \cdot \mathbf{1}(\text{firm has two layers})_{j,t}
+  + \beta_2 \cdot \mathbf{1}(\text{firm has three layers})_{j,t}
+  + \beta_3 \cdot \mathbf{1}(\text{firm has four layers})_{j,t}
+  + \phi_j + \psi_t + \epsilon_{j,t}
+$$
 
-where `j` = establishment, `phi_j` = establishment fixed effects,
-`psi_t` = year fixed effects. The omitted category is firms with one layer.
-Vertical bars in Figure 4 are 95% confidence intervals from heteroskedasticity-
-consistent standard errors clustered at the establishment level.
+- $$j$$ = establishment.
+- $$\phi_j$$ = establishment fixed effects.
+- $$\psi_t$$ = year fixed effects.
+- The omitted category is firms with one layer.
+- Vertical bars in Figure 4 are 95% confidence intervals from heteroskedasticity-consistent standard errors clustered at the establishment level.
 
 ## Datasets used
 
@@ -296,7 +295,7 @@ consistent standard errors clustered at the establishment level.
 | IAB Establishment Panel | Representative survey of German establishments; used to test whether hierarchical changes correlate with formalization of internal processes | No page yet |
 | Bureau van Dijk Orbis / VentureSource | PE growth investment sample (71 firms) | No page yet |
 
-Sample: 312 IPO firms and 312 matched private-firm controls; 4,992 firm-years in the main panel (eight-year window, t-5 to t+2). IPOs span 1986–2015; primarily Manufacturing (34.9%), Information and Communication (21.8%), Wholesale and Retail Trade (15.3%), and Professional, Scientific, and Technical Activities (14.4%).
+Sample: 312 IPO firms and 312 matched private-firm controls; 4,992 firm-years in the main panel (eight-year window, $$t{-}5$$ to $$t{+}2$$). IPOs span 1986–2015; primarily Manufacturing (34.9%), Information and Communication (21.8%), Wholesale and Retail Trade (15.3%), and Professional, Scientific, and Technical Activities (14.4%).
 
 ## When to read the full paper
 

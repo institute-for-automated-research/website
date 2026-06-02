@@ -209,16 +209,16 @@ These build on `panel-regression`, `event-study`, and `matching` primitives.
 
 **Baseline LPM (equation 1, p. 653):**
 
-```
-1(Liquidation_i) = alpha + beta * Controls_i + delta_b + epsilon_i
-```
+$$
+\mathbf{1}(\text{Liquidation}_i) = \alpha + \beta \times \text{Controls}_i + \delta_b + \epsilon_i
+$$
 
-Where subscript `i` indexes deposit accounts; `delta_b` is a set of branch
-fixed effects. `Liquidation_i` = 1 if the account balance falls by 75% or more
+Where subscript $$i$$ indexes deposit accounts; $$\delta_b$$ is a set of branch
+fixed effects. $$\text{Liquidation}_i$$ = 1 if the account balance falls by 75% or more
 relative to start-of-period and stays at or below 25% of the starting balance
-for at least 61 days. `Controls_i` includes: Uninsured dummy, TAG/DFA Eligible
+for at least 61 days. $$\text{Controls}_i$$ includes: Uninsured dummy, TAG/DFA Eligible
 dummy, Checking dummy, Direct Deposit dummy, Log(Age), Prior Transactions,
-Prior Transactions^2, Institutional-Any dummy, Trust dummy, Brokered/Placed
+$$\text{Prior Transactions}^2$$, Institutional-Any dummy, Trust dummy, Brokered/Placed
 dummy (term only), Log(Days to Maturity) (term only). Standard errors are
 asymptotically normal. Run separately for each of four periods and for
 transaction vs. term deposits (Tables III, VI). Alternative specifications use
@@ -230,10 +230,9 @@ transaction and term deposits.
 
 ### New-depositor characteristics (equation 2, p. 667)
 
-```
-1(Characteristic_{i,t}) = alpha + sum_{t=1}^{5} beta_t * Time Period Dummy_t
-                         * 1(Extant Depositor_{i,t}) + epsilon_{i,t}
-```
+$$
+\mathbf{1}(\text{Characteristic}_{i,t}) = \alpha + \sum_{t=1}^{5} \beta_t \times \text{Time Period Dummy}_t \times \mathbf{1}(\text{Extant Depositor}_{i,t}) + \epsilon_{i,t}
+$$
 
 OLS, N = 188,834, six separate regressions (one per account characteristic as
 dependent variable). Omitted category is extant depositors in the Placebo
@@ -241,28 +240,28 @@ period.
 
 ### Time-series inflow regressions (equations 3, p. 669)
 
-```
-y_t = alpha + beta * Time Period Dummy_t + gamma * X_t + epsilon_t
-```
+$$
+y_t = \alpha + \beta \times \text{Time Period Dummy}_t + \gamma \times X_t + \epsilon_t
+$$
 
-`y_t` is either the share of deposits that are new that day (Table X) or the
-log of dollar volume of new deposits (Table XI). `X_t` includes Log(VIX), GDP
+$$y_t$$ is either the share of deposits that are new that day (Table X) or the
+log of dollar volume of new deposits (Table XI). $$X_t$$ includes Log(VIX), GDP
 Growth, Housing Starts, Daily S&P 500 Return, AR(1) term, OFR Financial Stress
 Index, Rate Spread to Market (dollar-weighted average). OLS with Newey-West
 standard errors (lag length 9, Newey-West rule of thumb).
 
 ### Generalization: panel with regulatory action dummy (equations 4-5, pp. 676-677)
 
-```
-y_{j,t} = alpha + beta * Under Reg. Action_{j,t} + gamma * X_{j,t}
-         + delta_j + zeta_t + epsilon_{j,t}                          (4)
+$$
+y_{j,t} = \alpha + \beta \times \text{Under Reg. Action}_{j,t} + \gamma \times X_{j,t} + \delta_j + \zeta_t + \epsilon_{j,t} \tag{4}
+$$
 
-y_{j,t} = alpha + sum_{i=-4}^{>=5} beta_i * Under Reg. Action_{j,t=tau+i}
-         + gamma * X_{j,t} + delta_j + zeta_t + epsilon_{j,t}        (5)
-```
+$$
+y_{j,t} = \alpha + \sum_{i=-4}^{\geq 5} \beta_i \times \text{Under Reg. Action}_{j,t=\tau+i} + \gamma \times X_{j,t} + \delta_j + \zeta_t + \epsilon_{j,t} \tag{5}
+$$
 
-`y_{j,t}` is a funding-share outcome for bank `j` at quarter `t`. Bank and
-quarter fixed effects (`delta_j`, `zeta_t`). `X_{j,t}` includes NPL/Assets,
+$$y_{j,t}$$ is a funding-share outcome for bank $$j$$ at quarter $$t$$. Bank and
+quarter fixed effects ($$\delta_j$$, $$\zeta_t$$). $$X_{j,t}$$ includes NPL/Assets,
 one-year asset growth rate, log assets, deposits/assets, term deposits/assets.
 Panel covers ~10,000 U.S. banks, 2000-2016, quarterly. Equation (4) produces
 Table XII; equation (5) produces Table XIII and Figure 5. A propensity-score-

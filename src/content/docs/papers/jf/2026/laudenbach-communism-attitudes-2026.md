@@ -204,21 +204,21 @@ is used. The estimating framework is described in Section II.B (p. 1118).
 
 **Main logit specification (equation 1, p. 1118):**
 
-```
-P(y_{it} = 1 | East_i, x_{it}, z_{c(i),t}, v_t) = Phi(alpha + beta * East_i + gamma' * x_{it} + delta' * z_{c(i),t} + v_t)
-```
+$$
+P(y_{it} = 1 \mid \text{East}_i, x_{it}, z_{c(i),t}, v_t) = \Phi(\alpha + \beta \cdot \text{East}_i + \gamma' x_{it} + \delta' z_{c(i),t} + v_t)
+$$
 
 where:
-- `y_{it}` = 1 if investor `i` participates in the stock market in year `t`
-- `East_i` = 1 if investor lives in East Germany (former GDR)
-- `x_{it}` = individual-level controls (gender, age, marital status, risk
+- $$y_{it}$$ = 1 if investor $$i$$ participates in the stock market in year $$t$$
+- $$\text{East}_i$$ = 1 if investor lives in East Germany (former GDR)
+- $$x_{it}$$ = individual-level controls (gender, age, marital status, risk
   tolerance, wealth, income, financial literacy, trust, social capital,
   return expectations, peer effects; data-set specific)
-- `z_{c(i),t}` = municipality-level controls (in broker data: number of bank
+- $$z_{c(i),t}$$ = municipality-level controls (in broker data: number of bank
   branches, population, real estate wealth, share with high-school degree,
   county GDP, number of local firms, Facebook social connectedness index)
-- `v_t` = year fixed effects (broker data only)
-- `Phi(.)` = logistic CDF (the paper's notation for the logit link function)
+- $$v_t$$ = year fixed effects (broker data only)
+- $$\Phi(\cdot)$$ = logistic CDF (the paper's notation for the logit link function)
 
 Coefficients are reported as **average marginal effects**. Standard errors are
 clustered by municipality in the survey and bank data; by broker customer in
@@ -243,9 +243,9 @@ broker data. Results are qualitatively unchanged.
 Three separate logit regressions are run on each of the three data sets (Table
 III, pp. 1119-1120):
 
-```
-P(stock market participant = 1) = Phi(alpha + beta * East_i + controls)
-```
+$$
+P(\text{stock market participant} = 1) = \Phi(\alpha + \beta \cdot \text{East}_i + \text{controls})
+$$
 
 - **Survey data (Panel A):** N = 9,695; cross-section, 2023; SE clustered by
   municipality. Controls include gender, age, marital status, wealth (8-level),
@@ -270,21 +270,21 @@ variable (col 4, Panel B), (v) HAC standard errors.
 
 ### Movers specification (R3)
 
-```
-P(stock market participant = 1) = Phi(alpha + beta_1 * Mover_i + beta_2 * East_i + controls)
-```
+$$
+P(\text{stock market participant} = 1) = \Phi(\alpha + \beta_1 \cdot \text{Mover}_i + \beta_2 \cdot \text{East}_i + \text{controls})
+$$
 
-where `Mover_i` = 1 if respondent moved from East to West Germany after 1989
-and lived in GDR for at least 10 years. The `East_i` coefficient is set to
+where $$\text{Mover}_i$$ = 1 if respondent moved from East to West Germany after 1989
+and lived in GDR for at least 10 years. The $$\text{East}_i$$ coefficient is set to
 zero in columns (2) and (4) (West-Germans-only subsample). Estimated on survey
 data (col 1-2, N = 9,695/4,409) and a bank survey subsample (col 3-4, N =
 241/198). Table IV, p. 1125.
 
 ### Stock type preference: "communist" vs. "capitalist" stocks (R4)
 
-```
-P(hold stock type k = 1) = Phi(alpha + beta * East_i + controls)
-```
+$$
+P(\text{hold stock type } k = 1) = \Phi(\alpha + \beta \cdot \text{East}_i + \text{controls})
+$$
 
 run separately for financial-industry stocks, U.S.-company stocks, Chinese
 stocks, and East European stocks. Survey: willingness to buy (Table V Panel A,
@@ -295,9 +295,9 @@ broker customer (broker data).
 
 ### Anti-capitalist attitudes and participation (R5)
 
-```
-P(stock market participant = 1) = Phi(alpha + beta * Attitude_{qi} + controls)
-```
+$$
+P(\text{stock market participant} = 1) = \Phi(\alpha + \beta \cdot \text{Attitude}_{qi} + \text{controls})
+$$
 
 estimated separately for each of nine attitude survey questions on four-point
 Likert scales, restricted to the East German survey subsample (N = 5,286). Questions
@@ -307,20 +307,20 @@ clustered by municipality.
 
 ### Geographic experience proxies and participation (R6)
 
-```
-P(stock market participant = 1) = Phi(alpha + beta_k * Proxy_k + controls + year FE)
-```
+$$
+P(\text{stock market participant} = 1) = \Phi(\alpha + \beta_k \cdot \text{Proxy}_k + \text{controls} + \text{year FE})
+$$
 
 run separately for each of four proxy variables on the East German broker
 subsample (N = 171,343 investor-years):
 
-- `Pollution_c` = 1 if investor lives in a municipality on the 1990 GDR
+- $$\text{Pollution}_c$$ = 1 if investor lives in a municipality on the 1990 GDR
   environmental emergency list (negative experience proxy)
-- `NoWestTV_c` = 1 if municipality did not receive West German TV signals
+- $$\text{NoWestTV}_c$$ = 1 if municipality did not receive West German TV signals
   (negative experience proxy)
-- `RenamedCity_c` = 1 if municipality was renamed under the GDR communist
+- $$\text{RenamedCity}_c$$ = 1 if municipality was renamed under the GDR communist
   regime (positive experience proxy)
-- `OlympicGold_c` = indicator scaled by inverse population rank for whether
+- $$\text{OlympicGold}_c$$ = indicator scaled by inverse population rank for whether
   an Olympic gold medal winner was born in the same municipality (positive
   experience proxy)
 
@@ -336,9 +336,9 @@ municipality.
 
 ### Portfolio return and characteristic regressions (R8, R9)
 
-```
-alpha_{E-W, t} = Long East portfolio - Short West portfolio
-```
+$$
+\alpha_{E\text{-}W,\, t} = \text{Long East portfolio} - \text{Short West portfolio}
+$$
 
 Monthly portfolio returns (including dividends, from Thomson Reuters
 Datastream) are regressed on CAPM, Fama-French three-factor, and Carhart

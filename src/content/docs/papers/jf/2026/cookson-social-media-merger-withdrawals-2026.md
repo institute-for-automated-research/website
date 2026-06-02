@@ -153,7 +153,7 @@ introduced by Bond, Edmans, and Goldstein (2012) and Bai, Philippon, and Savov
   input.
 
 The key empirical test distinguishes these channels: under the revelatory channel
-the predictive coefficient on `AbnSent_i` is large and robust to controlling for
+the predictive coefficient on $$\text{AbnSent}_i$$ is large and robust to controlling for
 all other signals managers are known to rely on; it grows stronger after the firm
 engages actively with social media (registering a corporate Twitter account); and
 it weakens for deals where withdrawal cannot reflect manager learning (regulator-
@@ -162,13 +162,13 @@ not arise. Under a governance channel, predictability would be concentrated in
 negative-CAR mergers and in firms with weaker governance, which is not observed.
 
 **Identification strategy.** The paper exploits deal-level cross-sectional
-variation in `AbnSent_i` (eq. 1, p. 103), which is constructed as the
+variation in $$\text{AbnSent}_i$$ (eq. 1, p. 103), which is constructed as the
 difference between announcement-window and pre-announcement-window sentiment,
 removing firm-level baseline sentiment differences. The main specification
 (eq. 2, p. 106) further controls for the acquirer CAR, traditional news
 sentiment, analyst recommendations, deal characteristics, year-by-quarter time
 fixed effects, and acquirer-industry fixed effects. Coefficient stability as
-controls are added (R^2 rising from 0.001 to 0.216 with a stable beta, following
+controls are added ($$R^2$$ rising from 0.001 to 0.216 with a stable beta, following
 Oster (2019)) is the primary guard against omitted-variable concerns. The
 Twitter-account timing test (eq. 4, p. 121) uses within-acquirer before/after
 variation as an additional quasi-experimental design.
@@ -177,21 +177,16 @@ variation as an additional quasi-experimental design.
 
 **Step 1: Constructing abnormal sentiment (equation 1, p. 103).**
 
-```
-AbnSent_i = ( (1/|J_{i,[0,3]}|) * sum_{j in J_{i,[0,3]}} Sentiment_{i,j(t)} )
-           - ( (1/|J_{i,[-13,-7]}|) * sum_{j in J_{i,[-13,-7]}} Sentiment_{i,j(t)} )
-```
+$$
+\text{AbnSent}_i = \left( \frac{1}{|J_{i,[0,3]}|} \sum_{j \in J_{i,[0,3]}} \text{Sentiment}_{i,j(t)} \right)
+- \left( \frac{1}{|J_{i,[-13,-7]}|} \sum_{j \in J_{i,[-13,-7]}} \text{Sentiment}_{i,j(t)} \right)
+\tag{1}
+$$
 
-where `Sentiment_{i,j(t)}` is the sentiment of tweet `j` about acquiring firm `i`
-occurring `t` days after the merger announcement date (day 0). `J_{i,[t1,t2]}` is
-the set of tweets about firm `i` between day `t1` and `t2`. The first term
-averages sentiment over the four-day announcement window `[0, 3]`; the second
-term averages over a reference period `[-13, -7]` (7 to 13 days prior to
-announcement), omitting the 6 days immediately before the announcement to
-address information leakage. The primary sentiment scores are from StockTwits'
-proprietary MarketLex classifier, bounded in `[-1, 1]`; robustness uses
-maximum entropy and naive Bayes classifiers trained on user-labelled bullish/bearish
-tags, and SMA Twitter sentiment bounded in `[0, 1]`.
+- $$\text{Sentiment}_{i,j(t)}$$ is the sentiment of tweet $$j$$ about acquiring firm $$i$$ occurring $$t$$ days after the merger announcement date (day 0).
+- $$J_{i,[t_1,t_2]}$$ is the set of tweets about firm $$i$$ between day $$t_1$$ and $$t_2$$.
+- The first term averages sentiment over the four-day announcement window $$[0, 3]$$; the second term averages over a reference period $$[-13, -7]$$ (7 to 13 days prior to announcement), omitting the 6 days immediately before the announcement to address information leakage.
+- The primary sentiment scores are from StockTwits' proprietary MarketLex classifier, bounded in $$[-1, 1]$$; robustness uses maximum entropy and naive Bayes classifiers trained on user-labelled bullish/bearish tags, and SMA Twitter sentiment bounded in $$[0, 1]$$.
 
 **Step 2: Estimating abnormal sentiment in a text classifier.** To construct
 alternative sentiment measures, a maximum entropy (MaxEnt) classifier and a
@@ -199,15 +194,15 @@ naive Bayes (Bayes) classifier are trained on StockTwits posts with user-provide
 sentiment tags (bullish/bearish), following Antweiler and Frank (2004) and
 Cookson and Niessner (2020). The classifiers assign a continuous sentiment
 score to each tweet and are validated against held-out samples (Section I.A of
-the Internet Appendix; cross-sample correlations 0.85–0.90, Table IA.I, p. 99
+the Internet Appendix; cross-sample correlations 0.85-0.90, Table IA.I, p. 99
 of the Internet Appendix).
 
 **Step 3: Topic classification via Biterm Topic Model (BTM, p. 128).** To
 decompose the social media signal into fundamental vs. meme/technical content,
-the paper trains a BTM with eight topics on all tweets in the `[0, 3]` window
+the paper trains a BTM with eight topics on all tweets in the $$[0, 3]$$ window
 around merger announcements, following Yan et al. (2013). Six topics are
 retained: Company/Business, Disclosure, Deal Terms, Trading, Technical, and
-Memes. Separate `AbnSent` measures are constructed for each topic subset.
+Memes. Separate $$\text{AbnSent}$$ measures are constructed for each topic subset.
 
 The method builds on `panel-regression` for the estimating equation, `event-study`
 for the CAR controls, and `text-classification` for the sentiment and topic scores.
@@ -216,69 +211,59 @@ for the CAR controls, and `text-classification` for the sentiment and topic scor
 
 **Baseline withdrawal regression (equation 2, p. 106, produces R1–R3).**
 
-```
-Deal_Withdrawn_i = beta_1 * AbnSent_i + beta_2 * CAR_i + Gamma * X_i
-                   + alpha_t + gamma_j + epsilon_i
-```
+$$
+\text{Deal\_Withdrawn}_i = \beta_1 \cdot \text{AbnSent}_i + \beta_2 \cdot \text{CAR}_i + \Gamma \cdot X_i
++ \alpha_t + \gamma_j + \epsilon_i
+\tag{2}
+$$
 
-`Deal_Withdrawn_i` is an indicator equal to 1 if M&A deal `i` was subsequently
-withdrawn, multiplied by 100. `AbnSent_i` is eq. (1) above, standardized to
-mean 0, SD 1. `CAR_i` is the acquirer CAR[-1, 10] from the Fama-French
-three-factor model (100-day pre-event window, 10-day gap), also standardized.
-`X_i` includes CAR[-5, -1], news sentiment (RavenPack ESS), analyst
-recommendation changes (IBES), deal value, pct. shares held, white-knight/
-competing-bidder/rumored/hostile deal indicators, termination fee, N tweets,
-N news articles, and acquirer firm size, leverage, cash. `alpha_t` = year-by-quarter
-fixed effects; `gamma_j` = acquirer industry (GIC 2-digit) fixed effects.
-Standard errors clustered at the year-by-quarter level. Sample: 5,932–6,306
-deal-level observations (2010–2021).
+- $$\text{Deal\_Withdrawn}_i$$ is an indicator equal to 1 if M&A deal $$i$$ was subsequently withdrawn, multiplied by 100.
+- $$\text{AbnSent}_i$$ is eq. (1) above, standardized to mean 0, SD 1.
+- $$\text{CAR}_i$$ is the acquirer CAR[-1, 10] from the Fama-French three-factor model (100-day pre-event window, 10-day gap), also standardized.
+- $$X_i$$ includes CAR[-5, -1], news sentiment (RavenPack ESS), analyst recommendation changes (IBES), deal value, pct. shares held, white-knight/competing-bidder/rumored/hostile deal indicators, termination fee, N tweets, N news articles, and acquirer firm size, leverage, cash.
+- $$\alpha_t$$ = year-by-quarter fixed effects; $$\gamma_j$$ = acquirer industry (GIC 2-digit) fixed effects.
+- Standard errors clustered at the year-by-quarter level. Sample: 5,932-6,306 deal-level observations (2010-2021).
 
 **BHAR regression (equation 3, p. 118, produces R4).**
 
-```
-BHAR_{i,[11, T_conclusion]} = beta_1 * 1(Deal Withdrawn)_i + beta_2 * AbnSent_i
-                              + beta_3 * 1(Deal Withdrawn)_i * AbnSent_i
-                              + Gamma * X_i + epsilon_i
-```
+$$
+\text{BHAR}_{i,[11, T_{\text{conclusion}}]} = \beta_1 \cdot \mathbf{1}(\text{Deal Withdrawn})_i + \beta_2 \cdot \text{AbnSent}_i
++ \beta_3 \cdot \mathbf{1}(\text{Deal Withdrawn})_i \times \text{AbnSent}_i
++ \Gamma \cdot X_i + \epsilon_i
+\tag{3}
+$$
 
-`BHAR_{i,[11, T_conclusion]}` is the buy-and-hold abnormal return from day 11
-after the merger announcement until deal conclusion (withdrawal or completion),
-using the Fama-French three-factor model. `1(Deal Withdrawn)_i` equals 1 for
-withdrawn deals. The coefficient of interest is `beta_3` on the interaction: a
-negative `beta_3` means that initial negative social media reaction predicts
-the market eventually responds positively to a merger withdrawal. Industry (GIC2)
-and year-by-quarter fixed effects included. Standard errors clustered at year-by-
-quarter level. Sample restricted to deals with interim period > 25 days (and > 75
-days for robustness) to avoid overlap with the announcement window; target-rejected
-deals excluded. N = 1,784–3,343 (Table IV, p. 119).
+- $$\text{BHAR}_{i,[11, T_{\text{conclusion}}]}$$ is the buy-and-hold abnormal return from day 11 after the merger announcement until deal conclusion (withdrawal or completion), using the Fama-French three-factor model.
+- $$\mathbf{1}(\text{Deal Withdrawn})_i$$ equals 1 for withdrawn deals.
+- The coefficient of interest is $$\beta_3$$ on the interaction: a negative $$\beta_3$$ means that initial negative social media reaction predicts the market eventually responds positively to a merger withdrawal.
+- Industry (GIC2) and year-by-quarter fixed effects included. Standard errors clustered at year-by-quarter level.
+- Sample restricted to deals with interim period > 25 days (and > 75 days for robustness) to avoid overlap with the announcement window; target-rejected deals excluded. N = 1,784-3,343 (Table IV, p. 119).
 
 **Twitter-account timing test (equation 4, p. 121, produces R5).**
 
-```
-Deal_Withdrawn_i = beta_1 * AbnSent_i + beta_2 * AbnSent_i * Post_{i,t}
-                   + beta_3 * Post_{i,t} + Gamma * X_i + alpha_t + gamma_j + epsilon_i
-```
+$$
+\text{Deal\_Withdrawn}_i = \beta_1 \cdot \text{AbnSent}_i + \beta_2 \cdot \text{AbnSent}_i \times \text{Post}_{i,t}
++ \beta_3 \cdot \text{Post}_{i,t} + \Gamma \cdot X_i + \alpha_t + \gamma_j + \epsilon_i
+\tag{4}
+$$
 
-`Post_{i,t}` equals 1 for acquisitions by firm `i` announced after firm `i`
-registered its corporate Twitter account. Columns vary whether any Twitter account
-counts (cols 1–2), whether the account must have an above-median follower count
-(cols 3–4), or whether it must be a verified account (cols 5–6). `X_i` includes
-the same controls as eq. (2) including `CAR_i`. The identification relies on
-within-acquirer before/after variation in Twitter engagement. Sample: 5,932
-observations with year-by-quarter and industry FE; acquirer FE added in cols 2,
-4, 6 (Table V, pp. 122–123).
+- $$\text{Post}_{i,t}$$ equals 1 for acquisitions by firm $$i$$ announced after firm $$i$$ registered its corporate Twitter account.
+- Columns vary whether any Twitter account counts (cols 1-2), whether the account must have an above-median follower count (cols 3-4), or whether it must be a verified account (cols 5-6).
+- $$X_i$$ includes the same controls as eq. (2) including $$\text{CAR}_i$$.
+- The identification relies on within-acquirer before/after variation in Twitter engagement.
+- Sample: 5,932 observations with year-by-quarter and industry FE; acquirer FE added in cols 2, 4, 6 (Table V, pp. 122-123).
 
-**Content heterogeneity regressions (Table VI, pp. 126–127, produces R6–R7).**
-Variants of eq. (2) replacing the single `AbnSent_i` with two simultaneous
-signals: `AbnSent_i (Technical=N)` and `AbnSent_i (Technical=Y)` in Panel A
-columns 1–2 (technical vs. fundamental traders); `AbnSent_i (Long=Y)` and
-`AbnSent_i (Long=N)` in columns 3–4 (above-/below-median word count); and one
-topic-specific `AbnSent` per topic in Panel B (Company/Business, Deal Terms,
+**Content heterogeneity regressions (Table VI, pp. 126-127, produces R6-R7).**
+Variants of eq. (2) replacing the single $$\text{AbnSent}_i$$ with two simultaneous
+signals: $$\text{AbnSent}_i(\text{Technical}=\text{N})$$ and $$\text{AbnSent}_i(\text{Technical}=\text{Y})$$ in Panel A
+columns 1-2 (technical vs. fundamental traders); $$\text{AbnSent}_i(\text{Long}=\text{Y})$$ and
+$$\text{AbnSent}_i(\text{Long}=\text{N})$$ in columns 3-4 (above-/below-median word count); and one
+topic-specific $$\text{AbnSent}$$ per topic in Panel B (Company/Business, Deal Terms,
 Disclosure, Meme, Technical, Trading). Same FE structure and clustering.
 
 **Information-source heterogeneity regressions (Table VII, p. 129, produces R8).**
-Variants of eq. (2) with sample split at median N Tweets (cols 1–2), N News
-Articles (cols 3–4), and |CAR| (cols 5–6); coefficient difference tested with
+Variants of eq. (2) with sample split at median N Tweets (cols 1-2), N News
+Articles (cols 3-4), and $$|\text{CAR}|$$ (cols 5-6); coefficient difference tested with
 a Wald t-statistic.
 
 ## Datasets used

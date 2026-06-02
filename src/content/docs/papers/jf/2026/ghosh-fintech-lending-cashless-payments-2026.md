@@ -121,16 +121,16 @@ point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | A one-SD increase in cashless payment share raises loan approval probability by **2 percentage points** (full controls) | Table II, col. (2), p. 1067 | beta = 0.017\*\*\* (SE 0.001); baseline approval ~21%; represents ~8% of baseline |
-| R2 | A one-SD increase in cashless payments **reduces offered interest rate by 44 bps** (full controls) | Table II, col. (4), p. 1067 | beta = -0.440\*\*\* (SE 0.024); mean rate 25.4% |
-| R3 | A one-SD increase in cashless payments **raises offered loan amount by 13%** (log) | Table II, col. (6), p. 1067 | beta = 0.134\*\*\* (SE 0.006) |
-| R4 | A one-SD increase in cashless payments **reduces default probability by 2 pp** (11% of baseline) | Table III, col. (2), p. 1069 | beta = -0.023\*\*\* (SE 0.003); baseline default rate ~18% of matured loans |
-| R5 | **Payment outflows** have 2x larger effects on loan approval and amount than inflows; interest-rate effects are not significantly different by direction | Table V, Panel A, p. 1073 | Outflow approval beta = 0.022\*\*\* vs inflow beta = 0.008\*\*\*; outflow default beta = -0.021\*\*\* vs inflow beta = -0.009\*\*\* |
-| R6 | **Information-intensive** cashless payments (individually identifiable counterparty) have larger effects than information-light payments | Table V, Panel B, p. 1073 | Info-intensive approval beta = 0.050\*\*\* (vs Table II baseline 0.017\*\*\*); info-intensive default beta = -0.017\*\*\* |
-| R7 | **Within-applicant** (repeat borrowers, applicant FE): a firm-level increase in cashless payments raises approval probability; applicant fixed effects absorbed | Table VI, col. (2), p. 1075 | beta = 0.009\*\*\* (SE 0.003); spending-only beta = 0.010\*\*\*, info-intensive beta = 0.021\*\*\* |
-| R8 | Cashless payment benefit is **complementary, not substitute**, with credit score (accuracy effect): interaction term positive and significant for approval and amount | Table VII, Panel A, p. 1077 | Cashless x Cibil Score beta on approval = 0.012\*\*\* (SE 0.001); on log amount = 0.039\*\*\* (SE 0.005) |
-| R9 | **2SLS IV estimate** (Demonetization x currency chest instrument): a one-SD increase in cashless use raises approval by **12 pp** (larger than OLS, consistent with attenuation bias) | Table VIII, col. (4), p. 1082 | IV beta = 0.117\* (SE 0.064), second-stage col. (4); full-FE first-stage F-stat = 26.90 (col. 2); banking at chest branch in 2018-19 reduces cashless share by ~10 pp |
-| R10 | **Online marketplace transactions** (BigTech-style digital records) show similar effects to cashless payments and their effects are cumulative | Table IV, p. 1071 | Marketplace approval beta = 0.061\*\*\* (SE 0.002); conditional on cashless share, marketplace beta remains 0.016\*\*\*; default beta = -0.006\*\*\* |
+| R1 | A one-SD increase in cashless payment share raises loan approval probability by **2 percentage points** (full controls) | Table II, col. (2), p. 1067 | $$\beta = 0.017^{***}$$ (SE 0.001); baseline approval ~21%; represents ~8% of baseline |
+| R2 | A one-SD increase in cashless payments **reduces offered interest rate by 44 bps** (full controls) | Table II, col. (4), p. 1067 | $$\beta = -0.440^{***}$$ (SE 0.024); mean rate 25.4% |
+| R3 | A one-SD increase in cashless payments **raises offered loan amount by 13%** (log) | Table II, col. (6), p. 1067 | $$\beta = 0.134^{***}$$ (SE 0.006) |
+| R4 | A one-SD increase in cashless payments **reduces default probability by 2 pp** (11% of baseline) | Table III, col. (2), p. 1069 | $$\beta = -0.023^{***}$$ (SE 0.003); baseline default rate ~18% of matured loans |
+| R5 | **Payment outflows** have 2x larger effects on loan approval and amount than inflows; interest-rate effects are not significantly different by direction | Table V, Panel A, p. 1073 | Outflow approval $$\beta = 0.022^{***}$$ vs inflow $$\beta = 0.008^{***}$$; outflow default $$\beta = -0.021^{***}$$ vs inflow $$\beta = -0.009^{***}$$ |
+| R6 | **Information-intensive** cashless payments (individually identifiable counterparty) have larger effects than information-light payments | Table V, Panel B, p. 1073 | Info-intensive approval $$\beta = 0.050^{***}$$ (vs Table II baseline $$0.017^{***}$$); info-intensive default $$\beta = -0.017^{***}$$ |
+| R7 | **Within-applicant** (repeat borrowers, applicant FE): a firm-level increase in cashless payments raises approval probability; applicant fixed effects absorbed | Table VI, col. (2), p. 1075 | $$\beta = 0.009^{***}$$ (SE 0.003); spending-only $$\beta = 0.010^{***}$$, info-intensive $$\beta = 0.021^{***}$$ |
+| R8 | Cashless payment benefit is **complementary, not substitute**, with credit score (accuracy effect): interaction term positive and significant for approval and amount | Table VII, Panel A, p. 1077 | Cashless $$\times$$ Cibil Score $$\beta$$ on approval $$= 0.012^{***}$$ (SE 0.001); on log amount $$= 0.039^{***}$$ (SE 0.005) |
+| R9 | **2SLS IV estimate** (Demonetization $$\times$$ currency chest instrument): a one-SD increase in cashless use raises approval by **12 pp** (larger than OLS, consistent with attenuation bias) | Table VIII, col. (4), p. 1082 | IV $$\beta = 0.117^{*}$$ (SE 0.064), second-stage col. (4); full-FE first-stage F-stat = 26.90 (col. 2); banking at chest branch in 2018-19 reduces cashless share by ~10 pp |
+| R10 | **Online marketplace transactions** (BigTech-style digital records) show similar effects to cashless payments and their effects are cumulative | Table IV, p. 1071 | Marketplace approval $$\beta = 0.061^{***}$$ (SE 0.002); conditional on cashless share, marketplace $$\beta$$ remains $$0.016^{***}$$; default $$\beta = -0.006^{***}$$ |
 
 **Overall (paper's conclusion).** The use of cashless payments provides an
 informational synergy for FinTech lending that operates through a selection
@@ -143,72 +143,78 @@ for open banking policies that expand access to historical payment records.
 
 The paper develops a three-date model of signaling via payment technology
 choice, building on Parlour, Rajan, and Zhu (2022). There is a continuum of
-risk-neutral entrepreneurs (fraction alpha good, 1-alpha bad) and a competitive
-lender. Entrepreneurs operate a production technology n times during t=0 to
-t=1 (the "production stage"). Output y_i in {0, theta} with failure probability
-pi_j for type j in {G, B} (p. 1083).
+risk-neutral entrepreneurs (fraction $$\alpha$$ good, $$1-\alpha$$ bad) and a competitive
+lender. Entrepreneurs operate a production technology $$n$$ times during $$t=0$$ to
+$$t=1$$ (the "production stage"). Output $$y_i \in \{0, \theta\}$$ with failure probability
+$$\pi_j$$ for type $$j \in \{G, B\}$$ (p. 1083).
 
 At t=0, the entrepreneur chooses a payment method: cash (production outcomes
-Y are unverifiable) or cashless (outcomes become verifiable payment records X).
-The cashless payment technology generates a record x_i for each production
-outcome y_i with informational precision q in [1/2, 1] (p. 1084, eq. 5):
+$$Y$$ are unverifiable) or cashless (outcomes become verifiable payment records $$X$$).
+The cashless payment technology generates a record $$x_i$$ for each production
+outcome $$y_i$$ with informational precision $$q \in [1/2, 1]$$ (p. 1084, eq. 5):
 
-```
-Pr(x_i = theta | y_i = theta) = Pr(x_i = 0 | y_i = 0) = q
-Pr(x_i = 0  | y_i = theta) = Pr(x_i = theta | y_i = 0) = 1 - q
-```
+$$
+\Pr(x_i = \theta \mid y_i = \theta) = \Pr(x_i = 0 \mid y_i = 0) = q
+$$
+
+$$
+\Pr(x_i = 0 \mid y_i = \theta) = \Pr(x_i = \theta \mid y_i = 0) = 1 - q
+$$
 
 If a borrower with cashless payment records defaults at t=2, she incurs a cost
-C proportional to the discrepancies between production capacity theta and
-realized records X (p. 1084, eq. 6):
+$$C$$ proportional to the discrepancies between production capacity $$\theta$$ and
+realized records $$X$$ (p. 1084, eq. 6):
 
-```
-C = phi * sum_{i=1}^{n} (theta - x_i) ,    phi > 0
-```
+$$
+C = \phi \sum_{i=1}^{n} (\theta - x_i), \quad \phi > 0
+$$
 
-This cost C rises with the number of cashless records n, failure probability
-pi_j (bad types have more deviations), and informational precision q. In
-equilibrium the lender offers two contracts: r_cashless (for borrowers who
-committed to cashless at t=0) and r_cash (for those who did not). The
-borrower type j's expected utility under each contract is (pp. 1085-1086,
+This cost $$C$$ rises with the number of cashless records $$n$$, failure probability
+$$\pi_j$$ (bad types have more deviations), and informational precision $$q$$. In
+equilibrium the lender offers two contracts: $$r_{\text{cashless}}$$ (for borrowers who
+committed to cashless at t=0) and $$r_{\text{cash}}$$ (for those who did not). The
+borrower type $$j$$'s expected utility under each contract is (pp. 1085-1086,
 eqs. 7-8):
 
-```
-w_j(r_cashless, C | pi_j) = (1 - pi_j)(theta - r_cashless) - pi_j * E_j[C]
-w_j(r_cash | pi_j)        = (1 - pi_j)(theta - r_cash)
-```
+$$
+w_j(r_{\text{cashless}}, C \mid \pi_j) = (1 - \pi_j)(\theta - r_{\text{cashless}}) - \pi_j E_j[C]
+$$
 
-**Proposition 1** (p. 1086): A separating equilibrium with r_cashless < r_cash
+$$
+w_j(r_{\text{cash}} \mid \pi_j) = (1 - \pi_j)(\theta - r_{\text{cash}})
+$$
+
+**Proposition 1** (p. 1086): A separating equilibrium with $$r_{\text{cashless}} < r_{\text{cash}}$$
 exists when two conditions hold:
 
-(i) The cost phi*n*theta is intermediate so that good types prefer cashless but
+(i) The cost $$\phi n \theta$$ is intermediate so that good types prefer cashless but
 bad types do not (incentive compatibility, eq. 14):
 
-```
-(pi_B - pi_G) / [pi_B(1 - pi_G)(1 - q - pi_B + 2*q*pi_B)]
-  <= phi*n*theta <=
-(pi_B - pi_G) / [(1 - pi_B)*pi_G*(1 - q - pi_G + 2*q*pi_G)]
-```
+$$
+\frac{\pi_B - \pi_G}{\pi_B (1 - \pi_G)(1 - q - \pi_B + 2q\pi_B)}
+  \leq \phi n \theta \leq
+\frac{\pi_B - \pi_G}{(1 - \pi_B)\pi_G (1 - q - \pi_G + 2q\pi_G)}
+$$
 
-(ii) The average borrower quality (1 - pi_bar) is not so high that a pooling
+(ii) The average borrower quality $$(1 - \bar{\pi})$$ is not so high that a pooling
 contract dominates (eq. 15):
 
-```
-1 - pi_bar <= (1 - pi_G) / [1 + phi*n*theta*pi_G*(1 - q - pi_G + 2*q*pi_G)]
-```
+$$
+1 - \bar{\pi} \leq \frac{1 - \pi_G}{1 + \phi n \theta \pi_G (1 - q - \pi_G + 2q\pi_G)}
+$$
 
-The selection effect is stronger when n (number of cashless records) is larger
-and when q (informational precision) is higher, which the model maps directly
-to the empirical patterns: outflows have higher q than inflows, and
-information-intensive records have higher q than information-light records.
+The selection effect is stronger when $$n$$ (number of cashless records) is larger
+and when $$q$$ (informational precision) is higher, which the model maps directly
+to the empirical patterns: outflows have higher $$q$$ than inflows, and
+information-intensive records have higher $$q$$ than information-light records.
 
 **Proposition 2** (p. 1088, eq. 16): The accuracy effect: in the separating
-equilibrium, the benefit from cashless payments (r_cash - r_cashless) is larger
+equilibrium, the benefit from cashless payments $$(r_{\text{cash}} - r_{\text{cashless}})$$ is larger
 for firms with lower relative default probability:
 
-```
-d(r_cash - r_cashless) / d(pi_B - pi_G) > 0
-```
+$$
+\frac{d(r_{\text{cash}} - r_{\text{cashless}})}{d(\pi_B - \pi_G)} > 0
+$$
 
 This implies better entrepreneurs benefit more, consistent with the empirical
 complementarity between cashless payment usage and credit score (Table VII).
@@ -250,69 +256,57 @@ creating plausibly exogenous within-district variation in cashless payment use.
 
 Specification (1), p. 1065:
 
-```
-FinancingOutcome_i = beta * CashlessShare_i + gamma * X_i
-                   + sum_k theta_{F_k(i)} + epsilon_i
-```
+$$
+\text{FinancingOutcome}_i = \beta \cdot \text{CashlessShare}_i + \gamma X_i
+                   + \sum_k \theta_{F_k(i)} + \epsilon_i
+$$
 
-where `FinancingOutcome_i` is (i) an indicator for loan approval, (ii) offered
-interest rate, or (iii) log offered loan amount; `CashlessShare_i` is the
-standardized amount-weighted share of transactions in cashless technology over
-six months prior to application (average of inflow and outflow shares);
-`X_i` includes log number of payments, credit history length, business vintage,
-log owner age, missing credit score indicator, and top-up loan indicator; fixed
-effects `F_k(i)` include industry (67), application month, Cibil score group
-(10-point bands), 3-digit zip code, and revenue decile. Sample: 311,942-314,538
-observations (cols. 1-6 of Table II). Standard errors: clustered at application
-month level.
+- $$\text{FinancingOutcome}_i$$ is (i) an indicator for loan approval, (ii) offered interest rate, or (iii) log offered loan amount.
+- $$\text{CashlessShare}_i$$ is the standardized amount-weighted share of transactions in cashless technology over six months prior to application (average of inflow and outflow shares).
+- $$X_i$$ includes log number of payments, credit history length, business vintage, log owner age, missing credit score indicator, and top-up loan indicator.
+- Fixed effects $$F_k(i)$$ include industry (67), application month, Cibil score group (10-point bands), 3-digit zip code, and revenue decile.
+- Sample: 311,942-314,538 observations (cols. 1-6 of Table II). Standard errors: clustered at application month level.
 
 ### Loan default (R4)
 
 Specification (2), p. 1068:
 
-```
-Default_i = beta * CashlessShare_i + gamma * X_i
-           + sum_k theta_{F_k(i)} + epsilon_i
-```
+$$
+\text{Default}_i = \beta \cdot \text{CashlessShare}_i + \gamma X_i
+           + \sum_k \theta_{F_k(i)} + \epsilon_i
+$$
 
-Same controls and fixed effects as specification (1); sample restricted to
-matured/outstanding loans as of November 2022 (41,227 observations, Table III
-cols. 1-4). Additional columns (3-4) add log offered interest rate and log
-disbursed amount as controls. Columns (5-8) use time-to-first-delinquency and
-time-to-full-repayment as dependent variables (OLS on the loans that reached
-the respective event; note repayment regression run internally by Indifi due
-to data-privacy regulation).
+- Same controls and fixed effects as specification (1).
+- Sample: restricted to matured/outstanding loans as of November 2022 (41,227 observations, Table III cols. 1-4).
+- Additional columns (3-4) add log offered interest rate and log disbursed amount as controls.
+- Columns (5-8) use time-to-first-delinquency and time-to-full-repayment as dependent variables (OLS on the loans that reached the respective event; note repayment regression run internally by Indifi due to data-privacy regulation).
 
 ### Complementarity with credit quality (R8)
 
 Specification (4), p. 1075:
 
-```
-FinancingOutcomes_i = beta_1 * CashlessShare_i + beta_2 * FirmQuality_i
-                    + beta_3 * CashlessShare_i x FirmQuality_i
-                    + gamma * X_i + sum_k theta_{F_k(i)} + epsilon_i
-```
+$$
+\text{FinancingOutcomes}_i = \beta_1 \cdot \text{CashlessShare}_i + \beta_2 \cdot \text{FirmQuality}_i
+                    + \beta_3 \cdot \text{CashlessShare}_i \times \text{FirmQuality}_i
+                    + \gamma X_i + \sum_k \theta_{F_k(i)} + \epsilon_i
+$$
 
-FirmQuality proxied by (i) Cibil score (Table VII Panel A, N=277,323) and
-(ii) weekly outflow volatility constructed from payment records (Table VII
-Panel B, N=311,938). Full set of fixed effects including credit score band FE.
+- $$\text{FirmQuality}$$ proxied by (i) Cibil score (Table VII Panel A, N=277,323) and (ii) weekly outflow volatility constructed from payment records (Table VII Panel B, N=311,938).
+- Full set of fixed effects including credit score band FE.
 
 ### Instrumental variable (R9)
 
 First stage of specification (Table VIII), p. 1082:
 
-```
-CashlessShare_i = delta * (ChestBank_i x Year2018-19_i) + lambda * ChestBank_i
-               + gamma * X_i + sum_k theta_{F_k(i)} + v_i
-```
+$$
+\text{CashlessShare}_i = \delta \cdot (\text{ChestBank}_i \times \text{Year2018-19}_i) + \lambda \cdot \text{ChestBank}_i
+               + \gamma X_i + \sum_k \theta_{F_k(i)} + v_i
+$$
 
-Table VIII layout (p. 1082): cols. (1) and (2) report the first stage (year
-FE only, then full fixed effects); cols. (3), (4), and (5) report the second
-stage (approved loan indicator on instrumented cashless share). The effective
-F-statistic is reported only for the first-stage columns: 37.41 (col. 1) /
-26.90 (col. 2), above Montiel Olea-Pflueger critical values. Column (5)
-additionally instruments the interaction of cashless share x Cibil Score.
-Sample: 316,407 (year FE) / 311,941 (full FE) observations.
+- Table VIII layout (p. 1082): cols. (1) and (2) report the first stage (year FE only, then full fixed effects); cols. (3), (4), and (5) report the second stage (approved loan indicator on instrumented cashless share).
+- The effective F-statistic is reported only for the first-stage columns: 37.41 (col. 1) / 26.90 (col. 2), above Montiel Olea-Pflueger critical values.
+- Column (5) additionally instruments the interaction of cashless share $$\times$$ Cibil Score.
+- Sample: 316,407 (year FE) / 311,941 (full FE) observations.
 
 ## Datasets used
 

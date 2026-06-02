@@ -119,7 +119,7 @@ Locators point into the source PDF.
 | R4 | **False negatives cost lenders 7-11 pps in creditor recovery rates** at bankruptcy | Table I, p. 387 | No-Violation coefficient: -11.4\*\*\* (col. 1), -10.1\*\*\* (col. 2), -9.8\*\*\* (col. 3), -6.7\*\* (col. 4, with Bank Debt Share); N = 403 corporate defaults from Moody's URD |
 | R5 | **FPR fell from ~6% to under 0.5%** (a 90% drop), explaining 61% of total violation decline | Table II, Figure 5, pp. 389-391 | Period 1 (1997-2003) FPR 5.3%; Period 3 (2012-2019) FPR 0.5%; FPR drop explains 4.6 pps of total 7.6 pp decline |
 | R6 | **Distress rate decline explains 25%** and **TPR decline explains 14%** of the total drop | Table II Panel B, p. 390-391 | Distress rate contributes -1.9 pps; TPR decline (from ~72% to ~52%) contributes -1.1 pps over full period |
-| R7 | **Preference parameter R nearly doubled then nearly quintupled** across periods in structural estimates (roughly tenfold overall), while covenant technology improved modestly | Table III, p. 393 | R: 3.10 (1997-2003) to 6.06 (2004-2011) to 30.29 (2012-2019); technology parameter mu_D: 2.21 to 2.68 to 2.65 |
+| R7 | **Preference parameter R nearly doubled then nearly quintupled** across periods in structural estimates (roughly tenfold overall), while covenant technology improved modestly | Table III, p. 393 | R: 3.10 (1997-2003) to 6.06 (2004-2011) to 30.29 (2012-2019); technology parameter $$\mu_D$$: 2.21 to 2.68 to 2.65 |
 | R8 | **Observable loan-market changes** (borrower size, rating, lender type, covenant type) explain ~52% of FPR decline and ~69% of TPR decline | Table V, p. 402; Table VI, p. 404 | Observable characteristics explain 5.1 pp of the 7.6 pp total violation decline (~two-thirds); borrower size and speculative-grade rating are the largest contributors |
 | R9 | **Unexplained post-2012 drop in TPR** is consistent with heightened investor sentiment, not deterioration in covenant technology | Table VII, Figure 10, pp. 405-406 | Absent characteristic changes, R rises ~80% (from 3.10 to 5.69) vs. ~880% raw; counterfactual violation rate 4.0% vs. realized 1.4% in Period 3 |
 
@@ -135,28 +135,34 @@ borrowers.
 
 The paper develops a model of optimal financial covenant thresholds as a
 binary-classification problem (Section II, pp. 381-383). Borrowers are
-either distressed (`D = 1`) or nondistressed (`D = 0`). The lender observes
-a financial metric `r` (e.g., a coverage or leverage ratio) correlated with
-but not perfectly identifying `D`. A covenant sets a contractual threshold
-`t`; a violation occurs when `r > t` (for covenants written so that a higher
+either distressed ($$D = 1$$) or nondistressed ($$D = 0$$). The lender observes
+a financial metric $$r$$ (e.g., a coverage or leverage ratio) correlated with
+but not perfectly identifying $$D$$. A covenant sets a contractual threshold
+$$t$$; a violation occurs when $$r > t$$ (for covenants written so that a higher
 ratio signals distress). Distressed and nondistressed firms have
-distributions over `r`:
+distributions over $$r$$:
 
-```
-Pr(r < t | D = 1) = F_D(t)      (distressed CDF)
-Pr(r < t | D = 0) = F_ND(t)     (nondistressed CDF)
-```
+$$
+\Pr(r < t \mid D = 1) = F_D(t) \qquad \text{(distressed CDF)}
+$$
+
+$$
+\Pr(r < t \mid D = 0) = F_{ND}(t) \qquad \text{(nondistressed CDF)}
+$$
 
 The false negative rate (FNR) and false positive rate (FPR) follow:
 
-```
-FNR(t) = Pr(r < t | D = 1) = F_D(t)
-FPR(t) = Pr(r > t | D = 0) = 1 - F_ND(t)
-```
+$$
+\text{FNR}(t) = \Pr(r < t \mid D = 1) = F_D(t)
+$$
 
-Because FNR(t) is increasing in `t` and FPR(t) is decreasing in `t`, there
+$$
+\text{FPR}(t) = \Pr(r > t \mid D = 0) = 1 - F_{ND}(t)
+$$
+
+Because $$\text{FNR}(t)$$ is increasing in $$t$$ and $$\text{FPR}(t)$$ is decreasing in $$t$$, there
 is a trade-off: tighter thresholds catch more truly distressed firms
-(lower FNR, higher TPR = 1 - FNR) at the cost of more nuisance violations
+(lower FNR, higher $$\text{TPR} = 1 - \text{FNR}$$) at the cost of more nuisance violations
 for healthy firms (higher FPR). The ROC curve traces this trade-off;
 better covenant "technology" shifts the ROC curve further from the
 45-degree diagonal, allowing a lower FPR at any given TPR (Figure 4, p. 385).
@@ -164,33 +170,31 @@ better covenant "technology" shifts the ROC curve further from the
 The optimal threshold minimizes total expected costs of both error types
 (equation (1), p. 382):
 
-```
-min_t  (1 - rho) * FPR(t) * C_FP  +  rho * FNR(t) * C_FN
-```
+$$
+\min_t \; (1 - \rho) \cdot \text{FPR}(t) \cdot C_{\text{FP}} \;+\; \rho \cdot \text{FNR}(t) \cdot C_{\text{FN}}
+$$
 
-where `rho` is the unconditional probability of distress and `C_FP`, `C_FN`
+where $$\rho$$ is the unconditional probability of distress and $$C_{\text{FP}}$$, $$C_{\text{FN}}$$
 are the costs of false positives and false negatives, respectively. The
-first-order condition identifies the optimal threshold `t*`:
+first-order condition identifies the optimal threshold $$t^*$$:
 
-```
-(1 - rho)     C_FP       f_D(t*)
----------  *  ----  =  ----------        (equation 1, p. 382)
-   rho         C_FN      f_ND(t*)
-```
+$$
+\frac{1 - \rho}{\rho} \cdot \frac{C_{\text{FP}}}{C_{\text{FN}}} = \frac{f_D(t^*)}{f_{ND}(t^*)} \tag{1}
+$$
 
-The left side is the preference parameter `R = ((1-rho)/rho) * (C_FP / C_FN)`,
+The left side is the preference parameter $$R = \frac{1-\rho}{\rho} \cdot \frac{C_{\text{FP}}}{C_{\text{FN}}}$$,
 the ratio of expected costs of false positives to false negatives. The right
 side is the likelihood ratio for the relative probability of violation for a
-distressed vs. nondistressed borrower at `t*`. Thus:
-- A higher `R` (more costly false positives relative to false negatives)
-  raises `t*`, loosening the covenant and reducing both FPR and TPR.
+distressed vs. nondistressed borrower at $$t^*$$. Thus:
+- A higher $$R$$ (more costly false positives relative to false negatives)
+  raises $$t^*$$, loosening the covenant and reducing both FPR and TPR.
 - Better technology (ROC curve farther from 45 degrees) allows a lower FPR
   without reducing the TPR.
-- Lower distress prevalence `rho` also raises `R`, loosening covenants.
+- Lower distress prevalence $$\rho$$ also raises $$R$$, loosening covenants.
 
-The paper estimates parameters by assuming `r ~ N(mu_D, 1)` for distressed
-firms and `r ~ N(0, 1)` for nondistressed firms, so `mu_D` indexes covenant
-technology (how well the metric separates the two populations), and `R` is
+The paper estimates parameters by assuming $$r \sim N(\mu_D, 1)$$ for distressed
+firms and $$r \sim N(0, 1)$$ for nondistressed firms, so $$\mu_D$$ indexes covenant
+technology (how well the metric separates the two populations), and $$R$$ is
 estimated from the observed FPR and TPR via the ROC curve slope (p. 393).
 
 ## Method
@@ -201,25 +205,25 @@ parameters from realized violation rates.
 
 **Step 1: Structural parameter estimation (Section IV, pp. 392-393).**
 Under the normality assumption, the optimal threshold satisfies
-`FPR = 1 - Phi(t*)`, so:
+$$\text{FPR} = 1 - \Phi(t^*)$$, so:
 
-```
-t* = Phi^{-1}(1 - FPR_t)
-```
+$$
+t^* = \Phi^{-1}(1 - \text{FPR}_t)
+$$
 
-where `Phi(.)` is the standard normal CDF. Given `t*`, the technology
-parameter `mu_D` is recovered from the TPR:
+where $$\Phi(\cdot)$$ is the standard normal CDF. Given $$t^*$$, the technology
+parameter $$\mu_D$$ is recovered from the TPR:
 
-```
-TPR = 1 - Phi(t* - mu_D)    =>    mu_D = t* - Phi^{-1}(1 - TPR)
-```
+$$
+\text{TPR} = 1 - \Phi(t^* - \mu_D) \implies \mu_D = t^* - \Phi^{-1}(1 - \text{TPR})
+$$
 
-The preference parameter `R` is then recovered from the likelihood ratio
+The preference parameter $$R$$ is then recovered from the likelihood ratio
 condition of equation (1):
 
-```
-R = e^{(t* - mu_D / 2) * mu_D}
-```
+$$
+R = e^{(t^* - \mu_D / 2) \cdot \mu_D}
+$$
 
 Standard errors use the delta method, since the parameters are functions
 of sample proportions with known sampling variances (Table III, p. 393).
@@ -227,18 +231,19 @@ of sample proportions with known sampling variances (Table III, p. 393).
 **Step 2: Violation-rate decomposition (Section III, p. 388).** The annual
 violation rate is decomposed using the identity (equation (2), p. 388):
 
-```
-V_t = rho_t * TPR_t  +  (1 - rho_t) * FPR_t
-```
+$$
+V_t = \rho_t \cdot \text{TPR}_t \;+\; (1 - \rho_t) \cdot \text{FPR}_t \tag{2}
+$$
 
-where `rho_t = (FN_t + TP_t) / N_t` is the realized distress rate,
-`TPR_t = TP_t / (TP_t + FN_t)`, and `FPR_t = FP_t / (FP_t + TN_t)`.
-The change in violation rate from period `s` to period `t` decomposes as:
+- $$\rho_t = (\text{FN}_t + \text{TP}_t) / N_t$$ is the realized distress rate.
+- $$\text{TPR}_t = \text{TP}_t / (\text{TP}_t + \text{FN}_t)$$.
+- $$\text{FPR}_t = \text{FP}_t / (\text{FP}_t + \text{TN}_t)$$.
 
-```
-DeltaV_{s,t} = rho_s * (DeltaTPR)  +  (1 - rho_s) * (DeltaFPR)  +  (TPR_t - FPR_t) * (Deltarho)
-               -------"TPR"------     -----------"FPR"-----------     --------"Distress"----------
-```
+The change in violation rate from period $$s$$ to period $$t$$ decomposes as:
+
+$$
+\Delta V_{s,t} = \underbrace{\rho_s \cdot (\Delta\text{TPR})}_{\text{"TPR"}} \;+\; \underbrace{(1 - \rho_s) \cdot (\Delta\text{FPR})}_{\text{"FPR"}} \;+\; \underbrace{(\text{TPR}_t - \text{FPR}_t) \cdot (\Delta\rho)}_{\text{"Distress"}}
+$$
 
 **Step 3: Blinder-Oaxaca decomposition (Section V, pp. 399-402).** To
 separate observable market changes from unexplained shifts, the paper
@@ -248,17 +253,14 @@ effects of borrower size, credit rating, lender type, and covenant type
 are estimated. The Blinder-Oaxaca decomposition of the change in violation
 rates across periods takes the form (equation (3), p. 402):
 
-```
-Viol_bar^t - Viol_bar^s = [Phi(X_bar^t * beta_hat) - Phi(X_bar^s * beta_hat)]  +  U
-                           -------------------"Explained"--------------------       "Unexplained"
-```
+$$
+\bar{V}^t - \bar{V}^s = \underbrace{\bigl[\Phi(\bar{X}^t \hat{\beta}) - \Phi(\bar{X}^s \hat{\beta})\bigr]}_{\text{"Explained"}} \;+\; \underbrace{U}_{\text{"Unexplained"}} \tag{3}
+$$
 
-where `Phi` is the normal CDF, `beta_hat` is the estimated probit
-coefficient vector from Table IV, `X` is the set of explanatory variables
-(borrower size, rating, lender type, loan type, covenant type), and
-`U` captures changes in the mapping from `X` to violation status beyond
-observable composition shifts. The Yun (2004) method attributes the
-explained portion to individual characteristics.
+- $$\Phi$$ is the normal CDF.
+- $$\hat{\beta}$$ is the estimated probit coefficient vector from Table IV.
+- $$X$$ is the set of explanatory variables (borrower size, rating, lender type, loan type, covenant type).
+- $$U$$ captures changes in the mapping from $$X$$ to violation status beyond observable composition shifts. The Yun (2004) method attributes the explained portion to individual characteristics.
 
 ## Empirical specifications
 
@@ -268,42 +270,31 @@ sample (17,724 packages) for the FPR/TPR analysis.
 
 **Creditor recovery rate regression (R4, Table I, p. 387).**
 
-```
-Recovery_Rate_i = alpha + beta * NoViolation_i + gamma' * X_i + epsilon_i
-```
+$$
+\text{RecoveryRate}_i = \alpha + \beta \cdot \text{NoViolation}_i + \gamma' X_i + \epsilon_i
+$$
 
-LHS: firm-level par value-weighted average recovery rate (Moody's URD).
-`NoViolation` is an indicator equal to 1 if the firm did not report a
-covenant violation in the year before bankruptcy. `X_i` includes operating
-cash flow/assets, debt/assets, interest expense/assets, net worth/assets,
-current ratio, market-to-book, cash/assets, and (in column 4) bank debt
-share. Specification: OLS, year and industry fixed effects (columns 2-4),
-standard errors in parentheses. Sample: 403 corporate bankruptcies
-(Moody's URD, 1997-2020). Winsorized at 1/99%.
+- $$\text{RecoveryRate}_i$$: firm-level par value-weighted average recovery rate (Moody's URD).
+- $$\text{NoViolation}_i$$: indicator equal to 1 if the firm did not report a covenant violation in the year before bankruptcy.
+- $$X_i$$: controls including operating cash flow/assets, debt/assets, interest expense/assets, net worth/assets, current ratio, market-to-book, cash/assets, and (in column 4) bank debt share.
+- Specification: OLS, year and industry fixed effects (columns 2-4), standard errors in parentheses.
+- Sample: 403 corporate bankruptcies (Moody's URD, 1997-2020). Winsorized at 1/99%.
 
 **Probit regressions for FPR and TPR determinants (R8, Table IV, p. 401).**
 
-```
-V_i = Phi(alpha + beta_1 * BorrowerSize_i + beta_2 * SpeculativeRating_i
-          + beta_3 * InvestmentRating_i + beta_4 * UniversalBank_i
-          + beta_5 * InstitutionalLoan_i + beta_6 * BalanceSheetCovenant_i
-          + gamma' * IndustryFE_i + epsilon_i)
-```
+$$
+V_i = \Phi\!\left(\alpha + \beta_1 \cdot \text{BorrowerSize}_i + \beta_2 \cdot \text{SpeculativeRating}_i + \beta_3 \cdot \text{InvestmentRating}_i + \beta_4 \cdot \text{UniversalBank}_i + \beta_5 \cdot \text{InstitutionalLoan}_i + \beta_6 \cdot \text{BalanceSheetCovenant}_i + \gamma' \cdot \text{IndustryFE}_i + \epsilon_i\right)
+$$
 
-LHS: covenant violation indicator (1 = violation). Two separate
-regressions: (i) nondistressed firms only (FPR regression,
-N = 29,719 full sample; period sub-samples 5,792 / 6,715 / 7,500)
-and (ii) distressed firms only (TPR regression, N = 1,102 full sample;
-period sub-samples 968 / ... / 763). Specification: probit, Fama-French
-12-industry fixed effects, standard errors clustered implicitly via
-delta-method SE for marginal effects. Coefficients reported as estimated
-marginal effects. `BorrowerSize` is log(total assets, real 2000 dollars).
-Ratings and lender/covenant-type indicators are as described in Section V.
+- $$V_i$$: covenant violation indicator (1 = violation).
+- Two separate regressions: (i) nondistressed firms only (FPR regression, N = 29,719 full sample; period sub-samples 5,792 / 6,715 / 7,500) and (ii) distressed firms only (TPR regression, N = 1,102 full sample; period sub-samples 968 / ... / 763).
+- Specification: probit, Fama-French 12-industry fixed effects, standard errors via delta-method for marginal effects. Coefficients reported as estimated marginal effects.
+- $$\text{BorrowerSize}$$: log(total assets, real 2000 dollars). Ratings and lender/covenant-type indicators are as described in Section V.
 
 **Blinder-Oaxaca decomposition (R8, Table V, p. 402).** Based on probit
 coefficients from Table IV and period-specific sample means. The explained
 portion equals the predicted change due to shifts in the distribution of
-`X` using a constant coefficient vector; the unexplained portion is the
+$$X$$ using a constant coefficient vector; the unexplained portion is the
 residual. Standard errors via delta method.
 
 ## Datasets used

@@ -155,20 +155,20 @@ limited financial sophistication in consumer finance (Woodward and Hall (2012),
 Agarwal et al. (2015, 2017)).
 
 The central identification object is the **Expected Gain from Additional
-Search (EGain)**. Given `n` lenders posting rates `r_1 <= r_2 <= ... <= r_n`
+Search (EGain)**. Given $$n$$ lenders posting rates $$r_1 \leq r_2 \leq \cdots \leq r_n$$
 for an identical borrower type on a given day, and a borrower who has already
-found rate `r_k`, the expected gain from one more search is (eq. 1, p. 63):
+found rate $$r_k$$, the expected gain from one more search is (eq. 1, p. 63):
 
-```
-EGain_k = sum_{i=1}^{k-1} (r_k - r_i) * 1/(n-1)
-         = [ r_k - sum_{i=1}^{k-1} r_i/(k-1) ] * (k-1)/(n-1)
-```
+$$
+\text{EGain}_k = \sum_{i=1}^{k-1} (r_k - r_i) \times \frac{1}{n-1}
+= \left[ r_k - \frac{\sum_{i=1}^{k-1} r_i}{k-1} \right] \times \frac{k-1}{n-1}
+$$
 
 Intuitively, the bracketed term is the locked rate minus the expected rate
-among the `k-1` cheaper lenders; this is scaled by `(k-1)/(n-1)`, the share
+among the $$k-1$$ cheaper lenders; this is scaled by $$\frac{k-1}{n-1}$$, the share
 of remaining lenders who offer cheaper rates. The measure accounts for both
 the borrower's position in the distribution and the width of the distribution.
-Lenders that do not offer a given loan type are treated as `r_i = infinity`.
+Lenders that do not offer a given loan type are treated as $$r_i = \infty$$.
 
 The main hypotheses tested:
 - (H1) Borrowers with lower financial sophistication (less shopping, less
@@ -208,22 +208,22 @@ on increasingly rich sets of fixed effects. The outcome of interest is the
 residual variance (measured as standard deviation and 90th-to-10th percentile
 gap) after absorbing each specification:
 
-```
-Rate_{ilt} = beta * X_{ilt} + FE_set + epsilon_{ilt}
+$$
+\text{Rate}_{ilt} = \beta \, X_{ilt} + \text{FE\_set} + \varepsilon_{ilt}
+$$
 
-FE_set escalates across columns:
-  col (1): Lock Date x MSA F.E.
-  col (2): + FICO x LTV x Program x Lock Month F.E., ZIP Code F.E.,
-             Discount Points x Program x Lock Month F.E.
-  col (3): + Discount Points x Program x Lock Month F.E. (finer)
-  col (4): + Lender F.E.
-  col (5): + Lender x Lock-Day x Program x LTV x Loan Month F.E.
-  col (6): + Lender x FICO x LTV x Program x Lock Month F.E.
-  col (7): + Branch F.E.
-  col (8): + Branch x Lock Month F.E.
-  col (9): + Loan Officer F.E.
-  col (10): + Loan Officer x Lock Year F.E. x Program
-```
+- $$\text{FE\_set}$$ escalates across columns:
+- col (1): Lock Date x MSA F.E.
+- col (2): + FICO x LTV x Program x Lock Month F.E., ZIP Code F.E., Discount Points x Program x Lock Month F.E.
+- col (3): + Discount Points x Program x Lock Month F.E. (finer)
+- col (4): + Lender F.E.
+- col (5): + Lender x Lock-Day x Program x LTV x Loan Month F.E.
+- col (6): + Lender x FICO x LTV x Program x Lock Month F.E.
+- col (7): + Branch F.E.
+- col (8): + Branch x Lock Month F.E.
+- col (9): + Loan Officer F.E.
+- col (10): + Loan Officer x Lock Year F.E. x Program
+- SE: two-way clustered by month and lender.
 
 Standard errors are two-way clustered by month and lender. Sample: 2,996,149
 loans locked 2015 to 2019, 30-year fixed-rate, fully documented, owner-
@@ -232,17 +232,17 @@ occupied, single-unit purchase mortgages in 277 MSAs.
 **EGain-on-Treasury-yield regression (Table IV, p. 70).** The time-series
 variation in overpayment is estimated as:
 
-```
-EGain_{it} = beta * TreasuryYield_t + gamma * Z_{it}
-             + MSA F.E. + [MSA x Month F.E.] + [Lender-Branch F.E.]
-             + epsilon_{it}
-```
+$$
+\text{EGain}_{it} = \beta \cdot \text{TreasuryYield}_t + \gamma \, Z_{it}
++ \text{MSA F.E.} + [\text{MSA} \times \text{Month F.E.}] + [\text{Lender-Branch F.E.}]
++ \varepsilon_{it}
+$$
 
-where `TreasuryYield_t` is the daily 10-year Treasury yield at the lock date,
-`Z_{it}` includes FICO, LTV, loan amount controls and a DTI-below-36 dummy,
-and `DTI <= 36` is interacted with Treasury yield to test whether
-affordability-constrained borrowers drive the relationship. Standard errors
-are two-way clustered by month and lender. Sample: 67,241 matched loans.
+- $$\text{TreasuryYield}_t$$: daily 10-year Treasury yield at the lock date.
+- $$Z_{it}$$: FICO, LTV, loan amount controls and a DTI-below-36 dummy.
+- $$\text{DTI} \leq 36$$ is interacted with Treasury yield to test whether affordability-constrained borrowers drive the relationship.
+- SE: two-way clustered by month and lender.
+- Sample: 67,241 matched loans.
 
 ## Empirical specifications
 
@@ -250,26 +250,27 @@ are two-way clustered by month and lender. Sample: 67,241 matched loans.
 differences in EGain by loan program, FICO, and LTV are first shown in
 summary statistics (Table II, p. 66), then confirmed in regressions:
 
-```
-EGain_{it} = beta_1 * I_{FICO_bin} + beta_2 * I_{LTV_bin}
-             + gamma * LoanOfficerComp_{it}
-             + Loan Amount F.E. ($10k bins)
-             + MSA x Month F.E.
-             + [Lender-Branch F.E.]
-             + epsilon_{it}
-```
+$$
+\text{EGain}_{it} = \beta_1 \, I_{\text{FICO\_bin}} + \beta_2 \, I_{\text{LTV\_bin}}
++ \gamma \cdot \text{LoanOfficerComp}_{it}
++ \text{Loan Amount F.E. (\$10k bins)}
++ \text{MSA} \times \text{Month F.E.}
++ [\text{Lender-Branch F.E.}]
++ \varepsilon_{it}
+$$
 
-Omitted FICO category: [640, 660); omitted LTV category: [60, 80].
-Standard errors two-way clustered by month and lender.
-Sample: 67,637 matched loans, 30-year fixed-rate purchase, 20 MSAs, 2016-2019.
-Key coefficients: FICO >= 740 vs [640,660) is -0.097\*\*\* (col 1); adding
-lender-branch FEs reduces but does not eliminate the FICO gradient (Table III).
+- $$I_{\text{FICO\_bin}}$$: indicator dummies for FICO bins; omitted category [640, 660).
+- $$I_{\text{LTV\_bin}}$$: indicator dummies for LTV bins; omitted category [60, 80].
+- $$\text{LoanOfficerComp}_{it}$$: loan officer compensation controls.
+- SE: two-way clustered by month and lender.
+- Sample: 67,637 matched loans, 30-year fixed-rate purchase, 20 MSAs, 2016-2019.
+- Key coefficients: FICO >= 740 vs [640,660) is -0.097\*\*\* (col 1); adding lender-branch FEs reduces but does not eliminate the FICO gradient (Table III).
 
 **EGain and market rates (R3; Table IV, p. 70).** The core specification is:
 
-```
-EGain_{it} = beta * TreasuryYield_t + gamma * Z_{it} + MSA F.E. + epsilon_{it}
-```
+$$
+\text{EGain}_{it} = \beta \cdot \text{TreasuryYield}_t + \gamma \, Z_{it} + \text{MSA F.E.} + \varepsilon_{it}
+$$
 
 with columns progressively adding MSA x Month F.E. and Lender-Branch F.E.
 Key result: a 1 pp rise in Treasury yield reduces EGain by about 5 bp
@@ -286,9 +287,9 @@ regressions on size quartiles, nonbank indicator, and FHA share (Table VII,
 p. 79). Lender expensiveness is then regressed on income/expense line items
 from MCR filings in median regressions with year-quarter FEs (Table VIII, p. 81):
 
-```
-FinancialOutcome_l = beta * LenderExpensiveness_l + year-quarter F.E. + epsilon_l
-```
+$$
+\text{FinancialOutcome}_l = \beta \cdot \text{LenderExpensiveness}_l + \text{year-quarter F.E.} + \varepsilon_l
+$$
 
 Key: 1 pp higher rate corresponds to $4.05\*\*\* extra gross income and
 $3.50\*\*\* extra gross expenses per $100 originated; net income rises
@@ -297,34 +298,33 @@ $0.45\*\* (residential originations, precorporate).
 **Service quality (R7; eq. 2, Table IX, p. 84).** NSMO borrower survey
 outcomes are regressed on contracted rate, with rich controls:
 
-```
-Y_{ijtw} = beta * Rate_i + Gamma * Z_{ij} + alpha_t + delta_w + epsilon_{ijtw}
-```
+$$
+Y_{ijtw} = \beta \cdot \text{Rate}_i + \Gamma \, Z_{ij} + \alpha_t + \delta_w + \varepsilon_{ijtw}
+\tag{2}
+$$
 
-where `Y` is a binary satisfaction/delay indicator, `Rate_i` is the
-contracted mortgage rate, `Z_{ij}` includes credit-score and LTV flexible
-controls, county FEs, program indicators, income/employment/wealth/race/
-ethnicity controls, and likelihood-of-moving controls; `alpha_t` are
-origination-month FEs, `delta_w` are survey-wave FEs. Robust standard
-errors. Sample: 22,567 NSMO mortgages, 2013-2019.
+- $$Y_{ijtw}$$: binary satisfaction/delay indicator.
+- $$\text{Rate}_i$$: contracted mortgage rate.
+- $$Z_{ij}$$: credit-score and LTV flexible controls, county FEs, program indicators, income/employment/wealth/race/ethnicity controls, and likelihood-of-moving controls.
+- $$\alpha_t$$: origination-month FEs.
+- $$\delta_w$$: survey-wave FEs.
+- SE: robust.
+- Sample: 22,567 NSMO mortgages, 2013-2019.
 
 **Borrower sophistication and rates (R8; eq. 3, Table X, p. 86).** NSMO
 contracted rates are regressed on a sophistication index and market
 concentration:
 
-```
-Rate_{ijtw} = beta * X_i + Gamma * Z_{ij} + alpha_t + delta_w + epsilon_{ijtw}
-```
+$$
+\text{Rate}_{ijtw} = \beta \, X_i + \Gamma \, Z_{ij} + \alpha_t + \delta_w + \varepsilon_{ijtw}
+\tag{3}
+$$
 
-where `X_i` is either (col 1) individual shopping/knowledge binary indicators
-or (col 2) a composite Sophistication Index (sum of six shopping/knowledge
-dummies divided by 6, range 0-1), and (col 3) Sophistication Index plus
-`County HHI (last year)` and their interaction. `Z_{ij}`, `alpha_t`,
-`delta_w` are the same rich controls as eq. (2). Standard errors: robust.
-Sample: 22,567 (cols 1-2), 22,563 (col 3). Key results: Sophistication
-Index coef = -0.226\*\*\* (col 2); HHI x Sophistication interaction =
-+0.050\*\* (col 3), meaning lower concentration primarily benefits
-sophisticated borrowers.
+- $$X_i$$: either (col 1) individual shopping/knowledge binary indicators or (col 2) a composite Sophistication Index (sum of six shopping/knowledge dummies divided by 6, range 0-1), or (col 3) Sophistication Index plus County HHI (last year) and their interaction.
+- $$Z_{ij}$$, $$\alpha_t$$, $$\delta_w$$: the same rich controls as eq. (2).
+- SE: robust.
+- Sample: 22,567 (cols 1-2), 22,563 (col 3).
+- Key results: Sophistication Index coef = -0.226\*\*\* (col 2); HHI x Sophistication interaction = +0.050\*\* (col 3), meaning lower concentration primarily benefits sophisticated borrowers.
 
 ## When to read the full paper
 

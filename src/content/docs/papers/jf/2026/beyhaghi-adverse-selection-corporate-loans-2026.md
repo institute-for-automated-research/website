@@ -235,95 +235,99 @@ counties.
 
 ## Empirical specifications
 
-All regressions use loan l in industry i originated by bank b in quarter t as
+All regressions use loan $$l$$ in industry $$i$$ originated by bank $$b$$ in quarter $$t$$ as
 the unit of observation unless noted. Standard errors are clustered by county
 throughout.
 
 **Spec (1): Risk assessment and interest rates (Table III, p. 251)**
 
-```
-IR_l = beta_0 * PD_l + beta_1 * LGD_l + beta_2 * (PD_l x LGD_l)
-       + Gamma * X_l + delta_{b,t} + alpha_{i,t} + u_l          (eq. 1, p. 250)
-```
+$$
+\text{IR}_l = \beta_0 \cdot \text{PD}_l + \beta_1 \cdot \text{LGD}_l + \beta_2 \cdot (\text{PD}_l \times \text{LGD}_l)
+       + \Gamma X_l + \delta_{b,t} + \alpha_{i,t} + u_l \tag{1}
+$$
 
-`IR_l` is loan interest rate (%); `PD_l` is bank-assessed probability of
-default (%); `LGD_l` is loss given default (%); `X_l` is a vector of loan
-controls (log maturity, log amount, guarantee dummy, loan purpose FE, loan
-type FE); `delta_{b,t}` is bank x quarter FE; `alpha_{i,t}` is industry x
-quarter FE. Produces results R1 (Table III, p. 251).
+- $$\text{IR}_l$$ is loan interest rate (%);
+- $$\text{PD}_l$$ is bank-assessed probability of default (%);
+- $$\text{LGD}_l$$ is loss given default (%);
+- $$X_l$$ is a vector of loan controls (log maturity, log amount, guarantee dummy, loan purpose FE, loan type FE);
+- $$\delta_{b,t}$$ is bank x quarter FE;
+- $$\alpha_{i,t}$$ is industry x quarter FE.
+
+Produces results R1 (Table III, p. 251).
 
 **Spec (2): Risk assessments and loan performance (Table IV, p. 254)**
 
-```
-y_l = beta_0 * IR_l + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
-      + Gamma * X_l + delta_{b,t} + alpha_{i,t} + u_l            (eq. 2, p. 252)
-```
+$$
+y_l = \beta_0 \cdot \text{IR}_l + \beta_1 \cdot \text{PD}_l + \beta_2 \cdot \text{LGD}_l + \beta_3 \cdot (\text{PD}_l \times \text{LGD}_l)
+      + \Gamma X_l + \delta_{b,t} + \alpha_{i,t} + u_l \tag{2}
+$$
 
-`y_l` is either nonperformance (dummy) or realized default (dummy); same
-controls and FEs as spec (1). Produces results R1 (Table IV, p. 254).
+- $$y_l$$ is either nonperformance (dummy) or realized default (dummy);
+- same controls and FEs as spec (1).
+
+Produces results R1 (Table IV, p. 254).
 
 **Spec (3): Market structure and interest rates (Table V, p. 255)**
 
-```
-IR_l = beta * NOB_c + Gamma_0 * X_l + Gamma_1 * Z_{f,t}
-       + delta_{b,t} + alpha_{i,t} + u_l                          (eq. 3, p. 254)
-```
+$$
+\text{IR}_l = \beta \cdot \text{NOB}_c + \Gamma_0 X_l + \Gamma_1 Z_{f,t}
+       + \delta_{b,t} + \alpha_{i,t} + u_l \tag{3}
+$$
 
-`NOB_c` is the number of banks in county c; `Z_{f,t}` is firm characteristics
-(log assets, leverage, tangibility, profitability). Produces results R2
-(Table V, p. 255). The same specification is used with PD as the dependent
-variable for R3 (Table VI, p. 257).
+- $$\text{NOB}_c$$ is the number of banks in county $$c$$;
+- $$Z_{f,t}$$ is firm characteristics (log assets, leverage, tangibility, profitability).
+
+Produces results R2 (Table V, p. 255). The same specification is used with $$\text{PD}$$ as the dependent variable for R3 (Table VI, p. 257).
 
 **Spec (4): Market structure and loan volume (Table VII, p. 258)**
 
-```
-Volume_{c,t} = beta_0 * NOB_c + Gamma_0 * X_{c,t} + delta_t + u_{c,t}   (eq. 4, p. 257)
-```
+$$
+\text{Volume}_{c,t} = \beta_0 \cdot \text{NOB}_c + \Gamma_0 X_{c,t} + \delta_t + u_{c,t} \tag{4}
+$$
 
-`Volume_{c,t}` is log total dollar loan volume (or log total number of loans)
-in county c in quarter t; `X_{c,t}` is county-level controls (log population
-density, log wages, log financial industry wages, log population);
-`delta_t` is year-quarter FE. Produces results R4 (Table VII, p. 258).
-The same specification with blanket lien as the outcome produces collateral
-results (Table VIII, p. 261).
+- $$\text{Volume}_{c,t}$$ is log total dollar loan volume (or log total number of loans) in county $$c$$ in quarter $$t$$;
+- $$X_{c,t}$$ is county-level controls (log population density, log wages, log financial industry wages, log population);
+- $$\delta_t$$ is year-quarter FE.
+
+Produces results R4 (Table VII, p. 258). The same specification with blanket lien as the outcome produces collateral results (Table VIII, p. 261).
 
 **Spec (5): Market structure and markups (Table IX, p. 265)**
 
-```
-IR_l = beta_0 * NOB_c + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
-       + Gamma_0 * X_l + Gamma_1 * Z_{f,t} + delta_{b,t} + alpha_{i,t} + u_l   (eq. 5, p. 264-265)
-```
+$$
+\text{IR}_l = \beta_0 \cdot \text{NOB}_c + \beta_1 \cdot \text{PD}_l + \beta_2 \cdot \text{LGD}_l + \beta_3 \cdot (\text{PD}_l \times \text{LGD}_l)
+       + \Gamma_0 X_l + \Gamma_1 Z_{f,t} + \delta_{b,t} + \alpha_{i,t} + u_l \tag{5}
+$$
 
-This is spec (3) augmented with the risk measures as controls; the coefficient
-on `NOB_c` now captures the markup effect (interest rate variation beyond risk).
-Produces results R5 (Table IX, p. 265).
+This is spec (3) augmented with the risk measures as controls; the coefficient on $$\text{NOB}_c$$ now captures the markup effect (interest rate variation beyond risk). Produces results R5 (Table IX, p. 265).
 
 **Spec (6): Switching banks and markups (Table XI, p. 271)**
 
-```
-IR_l = beta_0 * Stay Bank_l + beta_1 * PD_l + beta_2 * LGD_l + beta_3 * (PD_l x LGD_l)
-       + Gamma_0 * X_l + Gamma_1 * Z_{f,t} + delta_{b,t} + alpha_{i,t} + lambda_{c,t} + u_l  (eq. 6, p. 270)
-```
+$$
+\text{IR}_l = \beta_0 \cdot \text{Stay Bank}_l + \beta_1 \cdot \text{PD}_l + \beta_2 \cdot \text{LGD}_l + \beta_3 \cdot (\text{PD}_l \times \text{LGD}_l)
+       + \Gamma_0 X_l + \Gamma_1 Z_{f,t} + \delta_{b,t} + \alpha_{i,t} + \lambda_{c,t} + u_l \tag{6}
+$$
 
-`Stay Bank_l` equals one when the borrower stays with an existing bank;
-`lambda_{c,t}` is county x quarter FE (additional to bank x quarter FE);
-sample restricted to firms with more than one loan. Produces results R8
-(Table XI, p. 271).
+- $$\text{Stay Bank}_l$$ equals one when the borrower stays with an existing bank;
+- $$\lambda_{c,t}$$ is county x quarter FE (additional to bank x quarter FE);
+- Sample restricted to firms with more than one loan.
+
+Produces results R8 (Table XI, p. 271).
 
 **Spec (7): GSIB surcharges - DiD reduced form and 2SLS (Tables XII-XIII, pp. 273-278)**
 
-```
-y_{t,c} = beta_0 + beta_1 * (NOG2015_c x Post_t)
-          + Gamma_0 * X_l + Gamma_2 * Z_{f,t} + delta_{b,t} + gamma_{b,c} + alpha_{i,t} + u_{t,c}  (eq. 7, p. 272)
-```
+$$
+y_{t,c} = \beta_0 + \beta_1 \cdot (\text{NOG2015}_c \times \text{Post}_t)
+          + \Gamma_0 X_l + \Gamma_2 Z_{f,t} + \delta_{b,t} + \gamma_{b,c} + \alpha_{i,t} + u_{t,c} \tag{7}
+$$
 
-`NOG2015_c` is the number of GSIBs in county c in 2015; `Post_t` equals one
-for 2016 and later; `gamma_{b,c}` is bank x county FE; `y_{t,c}` is in
-turns: number of banks, log loan volume, interest rate, PD, or markup.
-Sample period: 2014Q4-2019Q4 except column (1) of Table XII which uses
-2015Q1-2019Q4 for the annual bank-count series. In the 2SLS version
-(Table XIII, p. 278), `NOG2015_c x Post_t` is used as an instrument for
-the annual number of banks in the county. Produces results R9.
+- $$\text{NOG2015}_c$$ is the number of GSIBs in county $$c$$ in 2015;
+- $$\text{Post}_t$$ equals one for 2016 and later;
+- $$\gamma_{b,c}$$ is bank x county FE;
+- $$y_{t,c}$$ is in turns: number of banks, log loan volume, interest rate, PD, or markup.
+- Sample period: 2014Q4-2019Q4 except column (1) of Table XII which uses 2015Q1-2019Q4 for the annual bank-count series.
+- In the 2SLS version (Table XIII, p. 278), $$\text{NOG2015}_c \times \text{Post}_t$$ is used as an instrument for the annual number of banks in the county.
+
+Produces results R9.
 
 ## Datasets used
 

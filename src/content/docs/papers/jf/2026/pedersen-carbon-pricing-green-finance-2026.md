@@ -116,14 +116,14 @@ source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Carbon tax at the social cost is sufficient; green finance should not be used** when carbon is efficiently priced | Proposition 1, p. 576 | Social optimum implemented by scope-1 taxes at tau = S; discount rates stay at r for all firms; green finance distorts the equilibrium if applied on top |
-| R2 | **Sustainable discount rate implements the social optimum** when carbon tax is too low, if firms can commit to future emissions | Proposition 4, pp. 578–579, eq. (17) | r\*\_it = r + (S\_{t+1} - tau\_{it+1}) X\_{it+1} / v\_{it}; equals normal rate plus firm's carbon burden rate (untaxed externality scaled by firm value) |
-| R3 | **Scope 1+2 sustainable discount rates can handle stranded assets** where scope-1-only rates fail | Proposition 5, pp. 579–580, eq. (18) | Discount rate adds both direct (scope 1) and indirect (scope 2) carbon burden; brown electricity firms collapse as in the social optimum; stranded-asset problem resolved |
-| R4 | **Green electricity firms can receive subsidized discount rates** as compensation for implicit over-taxation via scope-2 rules | Proposition 6, pp. 580, eqs. (19)–(20) | Green electricity discount rate r\_gt = r - (S\_{t+1} - tau\_{t+1})(F\_b - F\_g) G\_{t+1} / v\_{gt}; lower than normal rate r; mirrors Proposition 3 green-subsidy result |
+| R1 | **Carbon tax at the social cost is sufficient; green finance should not be used** when carbon is efficiently priced | Proposition 1, p. 576 | Social optimum implemented by scope-1 taxes at $$\tau = S$$; discount rates stay at $$r$$ for all firms; green finance distorts the equilibrium if applied on top |
+| R2 | **Sustainable discount rate implements the social optimum** when carbon tax is too low, if firms can commit to future emissions | Proposition 4, pp. 578-579, eq. (17) | $$r^*_{it} = r + (S_{t+1} - \tau_{it+1}) X_{it+1} / v_{it}$$; equals normal rate plus firm's carbon burden rate (untaxed externality scaled by firm value) |
+| R3 | **Scope 1+2 sustainable discount rates can handle stranded assets** where scope-1-only rates fail | Proposition 5, pp. 579-580, eq. (18) | Discount rate adds both direct (scope 1) and indirect (scope 2) carbon burden; brown electricity firms collapse as in the social optimum; stranded-asset problem resolved |
+| R4 | **Green electricity firms can receive subsidized discount rates** as compensation for implicit over-taxation via scope-2 rules | Proposition 6, pp. 580, eqs. (19)-(20) | Green electricity discount rate $$r_{gt} = r - (S_{t+1} - \tau_{t+1})(F_b - F_g) G_{t+1} / v_{gt}$$; lower than normal rate $$r$$; mirrors Proposition 3 green-subsidy result |
 | R5 | **Market-value-weighted average sustainable discount rate adjustment is 0.19 pp** for U.S. firms at S = 43 $/tCO2 (scope 1) | Figure 1 / Figure 3, pp. 564, 584; §VI.A | Median scope-1 burden rate 0.01%; market-weighted average 0.19%; scope 1+2 weighted average 0.23% (median 0.04%); most firms near baseline, a minority account for bulk of economy-wide emissions |
-| R6 | **Brown electricity sector requires a 3.2 pp average increase** in cost of capital (scope 1); alternative calibration gives 8 pp | Figure 1, p. 564; §VI.C, p. 587, eq. (27) | Brown electricity average 8.2% (3.2 pp above 5% baseline) at S = 43$/tCO2; alternative calibration (zero-profit, F\_b = 820x10\*\*-6 tCO2/kWh, 40% profit margin): r\_bt = 5% + 8.0% = 13% |
-| R7 | **Empirical green finance implies an effective carbon tax of only ~4 $/tCO2**, far below the social cost | Figure 1, p. 564–565; Eskildsen et al. (2024) | Slope of 4 on emission-to-value ratio from regressing firms' implied cost of capital; corresponds to implicit S - tau = 4$/tCO2; at least an order of magnitude below what a green transition requires |
-| R8 | **Carbon offset markets exhibit low and variable prices**, predicted by the model as a sign of greenwashing | Appendix D, pp. 599–600 | In equilibrium, offset prices must be proportional to quality (phi\_q = phi-bar * q); any price dispersion implies poor-quality offsets; firms buying low-quality offsets face an effective carbon tax reduced to ~10% of intended level |
+| R6 | **Brown electricity sector requires a 3.2 pp average increase** in cost of capital (scope 1); alternative calibration gives 8 pp | Figure 1, p. 564; §VI.C, p. 587, eq. (27) | Brown electricity average 8.2% (3.2 pp above 5% baseline) at S = 43 $/tCO2; alternative calibration (zero-profit, $$F_b = 820 \times 10^{-6}$$ tCO2/kWh, 40% profit margin): $$r_{bt} = 5\% + 8.0\% = 13\%$$ |
+| R7 | **Empirical green finance implies an effective carbon tax of only ~4 $/tCO2**, far below the social cost | Figure 1, p. 564-565; Eskildsen et al. (2024) | Slope of 4 on emission-to-value ratio from regressing firms' implied cost of capital; corresponds to implicit $$S - \tau = 4$$ $/tCO2; at least an order of magnitude below what a green transition requires |
+| R8 | **Carbon offset markets exhibit low and variable prices**, predicted by the model as a sign of greenwashing | Appendix D, pp. 599-600 | In equilibrium, offset prices must be proportional to quality ($$\phi_q = \bar{\phi} \cdot q$$); any price dispersion implies poor-quality offsets; firms buying low-quality offsets face an effective carbon tax reduced to ~10% of intended level |
 
 **Overall (paper's conclusion).** Green finance is a second-best response
 when carbon pricing is inadequate, but implementation challenges (commitment
@@ -134,103 +134,103 @@ to impose a carbon tax have a clearer path to a green transition.
 ## Theory / model
 
 The model is a dynamic general-equilibrium model (Section III, pp. 572-575).
-There are N goods-producing firms, green and brown electricity producers, and
+There are $$N$$ goods-producing firms, green and brown electricity producers, and
 a representative household.
 
-**Goods-producing firms.** Firm i at time t chooses labor L\_{it}, green
-electricity G\_{it}, brown electricity B\_{it}, scope-1 emissions X\_{it}, and
-investment I\_{it} to maximize endogenous firm value V\_{it}. Output is
-Y\_{it}(z\_{it}) where z\_{it} = (K\_{it}, L\_{it}, G\_{it}, B\_{it}, X\_{it}).
-Capital accumulates as K\_{it} = (1 - delta) K\_{it-1} + I\_{it-1}.
+**Goods-producing firms.** Firm $$i$$ at time $$t$$ chooses labor $$L_{it}$$, green
+electricity $$G_{it}$$, brown electricity $$B_{it}$$, scope-1 emissions $$X_{it}$$, and
+investment $$I_{it}$$ to maximize endogenous firm value $$V_{it}$$. Output is
+$$Y_{it}(z_{it})$$ where $$z_{it} = (K_{it}, L_{it}, G_{it}, B_{it}, X_{it})$$.
+Capital accumulates as $$K_{it} = (1 - \delta) K_{it-1} + I_{it-1}$$.
 Firm profit (eq. 8, p. 573):
 
-```
-Pi_{it}(z_{it}) = Y_{it} - w_t L_{it} - p_{gt} G_{it} - p_{bt} B_{it}
-                  - tau_{it} X_{it} - tau_{it}^{(2)} f_b B_{it} - tau_{it}^{(2)} f_g G_{it}
-```
+$$
+\Pi_{it}(z_{it}) = Y_{it} - w_t L_{it} - p_{gt} G_{it} - p_{bt} B_{it}
+                  - \tau_{it} X_{it} - \tau_{it}^{(2)} f_b B_{it} - \tau_{it}^{(2)} f_g G_{it}
+$$
 
-where tau\_{it} is a scope-1 carbon tax on direct emissions X\_{it};
-tau\_{it}^{(2)} is a scope-2 carbon tax on indirect emissions via electricity
-use; f\_b (f\_g) is the fossil intensity of brown (green) electricity in tCO2/kWh.
+where $$\tau_{it}$$ is a scope-1 carbon tax on direct emissions $$X_{it}$$;
+$$\tau_{it}^{(2)}$$ is a scope-2 carbon tax on indirect emissions via electricity
+use; $$f_b$$ ($$f_g$$) is the fossil intensity of brown (green) electricity in tCO2/kWh.
 
 The firm maximizes its endogenous value (eq. 9, p. 573):
 
-```
-V_{it}(K_{it}) = max_{z_{it+1}} ( Pi_{it+1}(z_{it+1}) + V_{it+1}(K_{it+1}) ) / (1 + r_{it}) - I_{it}
-```
+$$
+V_{it}(K_{it}) = \max_{z_{it+1}} \frac{\Pi_{it+1}(z_{it+1}) + V_{it+1}(K_{it+1})}{1 + r_{it}} - I_{it}
+$$
 
-taking the discount rate r\_{it} as given.
+taking the discount rate $$r_{it}$$ as given.
 
 **Stylized two-period model (Section II, pp. 570-572).** A single firm uses
-capital K and fuel X, with output (eq. 4, p. 570):
+capital $$K$$ and fuel $$X$$, with output (eq. 4, p. 570):
 
-```
-Y = AK - (1 / fK) * (fK - X)^2
-```
+$$
+Y = AK - \frac{1}{fK}(fK - X)^2
+$$
 
-where A > 0 is productivity and f > 0 captures how polluting the firm is.
-Given a carbon tax tau, profit is (eq. 5, p. 570):
+where $$A > 0$$ is productivity and $$f > 0$$ captures how polluting the firm is.
+Given a carbon tax $$\tau$$, profit is (eq. 5, p. 570):
 
-```
-Pi = AK - (1/fK)(fK - X)^2 - tau * X
-```
+$$
+\Pi = AK - \frac{1}{fK}(fK - X)^2 - \tau X
+$$
 
-The profit-maximizing emission is X = (1 - tau/2) fK.
+The profit-maximizing emission is $$X = (1 - \tau/2) fK$$.
 
 **Electricity firms.** Green electricity producer profit (eq. 10, p. 574):
 
-```
-Pi_{gt}(z_{gt}) = (p_{gt} + v_{gt} - tau_{gt} F_g) G_t(z_{gt}) - chi_{gt}(z_{gt})
-```
+$$
+\Pi_{gt}(z_{gt}) = (p_{gt} + v_{gt} - \tau_{gt} F_g) G_t(z_{gt}) - \chi_{gt}(z_{gt})
+$$
 
-where v\_{gt} is a proportional government subsidy and chi\_{gt} is production
+where $$v_{gt}$$ is a proportional government subsidy and $$\chi_{gt}$$ is production
 cost. Brown electricity producer profit (eq. 11, p. 574):
 
-```
-Pi_{bt}(z_{bt}) = (p_{bt} - tau_{bt} F_b) B_t(z_{bt}) - chi_{bt}(z_{bt})
-```
+$$
+\Pi_{bt}(z_{bt}) = (p_{bt} - \tau_{bt} F_b) B_t(z_{bt}) - \chi_{bt}(z_{bt})
+$$
 
-where tau\_{bt} is the direct carbon tax and F\_b > F\_g is the fossil intensity
+where $$\tau_{bt}$$ is the direct carbon tax and $$F_b > F_g$$ is the fossil intensity
 of brown electricity.
 
-**Households.** The household owns shares theta\_{it} in each firm. Consumption
+**Households.** The household owns shares $$\theta_{it}$$ in each firm. Consumption
 (eq. 12, p. 574):
 
-```
-C_t = w_t L_t + sum_{i in I} theta_{i,t-1} (Pi_{it} + V_{it})
-      - sum_{i in I} theta_{it} (V_{it} + I_{it}) + G_t
-```
+$$
+C_t = w_t L_t + \sum_{i \in I} \theta_{i,t-1} (\Pi_{it} + V_{it})
+      - \sum_{i \in I} \theta_{it} (V_{it} + I_{it}) + G_t
+$$
 
-where G\_t is the government budget (carbon taxes net subsidies). Household
+where $$G_t$$ is the government budget (carbon taxes net subsidies). Household
 utility (eq. 13, p. 574):
 
-```
-U = sum_{t=1}^{inf} beta^t [ u_t(C_t) - d_t(X_t) ]
-```
+$$
+U = \sum_{t=1}^{\infty} \beta^t [ u_t(C_t) - d_t(X_t) ]
+$$
 
-where beta is the time-preference rate, u\_t is consumption utility, d\_t is the
-damage of aggregate emissions X\_t = sum\_i X\_{it} + X\_{gt} + X\_{bt}.
+where $$\beta$$ is the time-preference rate, $$u_t$$ is consumption utility, $$d_t$$ is the
+damage of aggregate emissions $$X_t = \sum_i X_{it} + X_{gt} + X_{bt}$$.
 
-**Social planner's problem.** The planner maximizes U subject to resource
+**Social planner's problem.** The planner maximizes $$U$$ subject to resource
 constraints (eq. 14, p. 575):
 
-```
-sum_i G_{it} = G_t,   sum_i B_{it} = B_t,   sum_i L_{it} = L_t,   theta_{it} = 1
-```
+$$
+\sum_i G_{it} = G_t, \quad \sum_i B_{it} = B_t, \quad \sum_i L_{it} = L_t, \quad \theta_{it} = 1
+$$
 
-The social cost of carbon S\_t = d'\_t(X\_t) / u'\_t(C\_t) is the marginal
+The social cost of carbon $$S_t = d'_t(X_t) / u'_t(C_t)$$ is the marginal
 utility cost of pollution relative to the marginal utility of consumption.
 
 **Key propositions.**
 - Proposition 1 (p. 576): The social optimum is a competitive equilibrium
-  with scope-1 carbon taxes tau\_{it} = S\_t for all firms, no green subsidies,
-  and discount rate r\_{it} = r for all i.
+  with scope-1 carbon taxes $$\tau_{it} = S_t$$ for all firms, no green subsidies,
+  and discount rate $$r_{it} = r$$ for all $$i$$.
 - Proposition 2 (p. 576): The social optimum can also be implemented via
-  scope-2 carbon taxes tau\_{it}^{(2)} = S\_t with no direct scope-1 taxes on
+  scope-2 carbon taxes $$\tau_{it}^{(2)} = S_t$$ with no direct scope-1 taxes on
   goods producers.
 - Proposition 3 (p. 577): With scope-2 taxes treating all electricity as
   brown, the social optimum requires a proportional subsidy to green
-  electricity producers v\_{gt} = S\_t(F\_b - F\_g).
+  electricity producers $$v_{gt} = S_t(F_b - F_g)$$.
 
 ## Method
 
@@ -239,78 +239,84 @@ analytically and then calibrates them with external data. The method builds on
 `dynamic-general-equilibrium` and `pigouvian-taxation`.
 
 **Deriving the sustainable discount rate (Section V.A, pp. 577-579).** Green
-finance must set each firm's discount rate r\_{it} such that the firm's
-optimization problem under the too-low carbon tax tau\_{it} yields the same
-choices z\_{it+1} as the star-equilibrium under the social cost S\_t. The
+finance must set each firm's discount rate $$r_{it}$$ such that the firm's
+optimization problem under the too-low carbon tax $$\tau_{it}$$ yields the same
+choices $$z_{it+1}$$ as the star-equilibrium under the social cost $$S_t$$. The
 condition (eq. 15, p. 577) is:
 
-```
-max_{z_{it+1}} [ Pi_{it+1}(z_{it+1}) + V_{it+1} ] / (1 + r_{it}) - I_{it}
+$$
+\max_{z_{it+1}} \frac{\Pi_{it+1}(z_{it+1}) + V_{it+1}}{1 + r_{it}} - I_{it}
   = V_{it}
-  = max_{z_{it+1}} [ Pi_{it+1}(z_{it+1}) + V_{it+1} - (S_{t+1} - tau_{it+1}) X_{it+1} ] / (1 + r) - I_{it}
-```
+  = \max_{z_{it+1}} \frac{\Pi_{it+1}(z_{it+1}) + V_{it+1} - (S_{t+1} - \tau_{it+1}) X_{it+1}}{1 + r} - I_{it}
+$$
 
 where the right side is the star-equilibrium firm problem under the optimal
-carbon tax. Solving for r\_{it} (eq. 16, p. 578; full derivation pp. 578):
+carbon tax. Solving for $$r_{it}$$ (eq. 16, p. 578; full derivation pp. 578):
 
-```
-r_{it} = (1+r)(Pi_{it+1} + V_{it+1}) / (Pi_{it+1} + V_{it+1} - (S_{t+1} - tau_{it+1}) X_{it+1}) - 1
-       = r + (S_{t+1} - tau_{it+1}) X_{it+1} / v_{it}
-```
+$$
+r_{it} = \frac{(1+r)(\Pi_{it+1} + V_{it+1})}{\Pi_{it+1} + V_{it+1} - (S_{t+1} - \tau_{it+1}) X_{it+1}} - 1
+       = r + \frac{(S_{t+1} - \tau_{it+1}) X_{it+1}}{v_{it}}
+$$
 
-where v\_{it} = (Pi\_{it+1} + V\_{it+1} - (S\_{t+1} - tau\_{it+1}) X\_{it+1}) / (1 + r)
+where $$v_{it} = (\Pi_{it+1} + V_{it+1} - (S_{t+1} - \tau_{it+1}) X_{it+1}) / (1 + r)$$
 is the firm's social value, equal to its market value in equilibrium.
-This is the `carbon-burden-rate` term: the missing carbon tax (S - tau) times
-emissions X, scaled by firm value v. Equations (17)-(20) state the four
+This is the `carbon-burden-rate` term: the missing carbon tax $$(S - \tau)$$ times
+emissions $$X$$, scaled by firm value $$v$$. Equations (17)-(20) state the four
 Propositions (4, 5, 6) in this notation (pp. 578-580).
 
 **Investor preferences that generate the sustainable discount rate (Section V.B,
 p. 581).** When investors experience a disutility proportional to their
 carbon-footprint ownership (eq. 21, p. 581):
 
-```
-sum_i theta_{it} (Pi_{it+1} + V_{it+1}) + (W_t - sum_{i!=1} theta_{it} v_{it})(1+r)
-  - sum_i (S_{t+1} - tau_{it+1}) theta_{it} X_{it+1}
-```
+$$
+\sum_i \theta_{it} (\Pi_{it+1} + V_{it+1}) + \left(W_t - \sum_{i \neq 1} \theta_{it} v_{it}\right)(1+r)
+  - \sum_i (S_{t+1} - \tau_{it+1}) \theta_{it} X_{it+1}
+$$
 
-the FOC w.r.t. theta\_{it} yields the required return (eq. 22, p. 581):
+the FOC w.r.t. $$\theta_{it}$$ yields the required return (eq. 22, p. 581):
 
-```
-r_{it} = r + (S_{t+1} - tau_{it+1}) X_{it+1} / v_{it}
-```
+$$
+r_{it} = r + \frac{(S_{t+1} - \tau_{it+1}) X_{it+1}}{v_{it}}
+$$
 
 which is exactly the sustainable discount rate (17). This shows green finance
 works precisely when the marginal investor fully internalizes externalities.
 
 **Long-term sustainable discount rate (Section VII.A, pp. 587-588).** Using a
-Gordon growth model with dividend growth g\_Pi and externality growth g\_X
+Gordon growth model with dividend growth $$g_{\Pi}$$ and externality growth $$g_X$$
 (eq. 30, p. 588):
 
-```
-r-bar^x_i = r + (S - tau_i) X_i / v_i * (r - g_{Pi}) / (r - g_{X_i})
-           = r + PV[(S - tau_i) X_i] / v_i * 1 / Dur_i
-```
+$$
+\bar{r}^x_i = r + \frac{(S - \tau_i) X_i}{v_i} \cdot \frac{r - g_{\Pi}}{r - g_{X_i}}
+           = r + \frac{\text{PV}[(S - \tau_i) X_i]}{v_i} \cdot \frac{1}{\text{Dur}_i}
+$$
 
-where Dur\_{i} = 1 / (r - g\_{Pi}) is the modified duration of dividends. The
+where $$\text{Dur}_i = 1 / (r - g_{\Pi})$$ is the modified duration of dividends. The
 long-term sustainable discount rate is smaller than the short-term rate
-r\*\_{it} when emission growth is below dividend growth (g\_{X} < g\_{Pi}).
+$$r^*_{it}$$ when emission growth is below dividend growth ($$g_X < g_{\Pi}$$).
 
 **Alternative calibration for brown electricity (Section VI.C, pp. 586-587).**
-With a constant-returns-to-scale brown electricity technology B\_t = a K\_{bt},
-cost chi\_{bt} = chi-bar * a K\_{bt}, and the zero-profit condition (eq. 24-27):
+With a constant-returns-to-scale brown electricity technology $$B_t = a K_{bt}$$,
+cost $$\chi_{bt} = \bar{\chi} \cdot a K_{bt}$$, and the zero-profit condition (eq. 24-27):
 
-```
-p_{bt+1} = tau_{bt+1} F_b + chi-bar + (r_{bt} + delta) / a
-r_{bt} = r + (S_{t+1} - tau_{bt+1}) F_b * a     ... eq. (25)
-       = r + [(S_{t+1} - tau_{bt+1}) F_b / ((r+delta)/a)] * (r + delta)   ... eq. (26)
-```
+$$
+p_{bt+1} = \tau_{bt+1} F_b + \bar{\chi} + \frac{r_{bt} + \delta}{a} \tag{24}
+$$
 
-Calibrated at S = 43 $/tCO2, F\_b = 820e-6 tCO2/kWh, (r+delta)/a = 0.40 * 0.11 $/kWh (eq. 27, p. 587):
+$$
+r_{bt} = r + (S_{t+1} - \tau_{bt+1}) F_b \cdot a \tag{25}
+$$
 
-```
-r_{bt} = 5% + (43$/tCO2 * 820e-6 tCO2/kWh) / (0.40 * 0.11$/kWh) * (5% + 5%)
-       = 5% + 0.035 / 0.044 * 10% = 5% + 8.0% = 13%
-```
+$$
+r_{bt} = r + \frac{(S_{t+1} - \tau_{bt+1}) F_b}{(r+\delta)/a} \cdot (r + \delta) \tag{26}
+$$
+
+Calibrated at S = 43 $/tCO2, $$F_b = 820 \times 10^{-6}$$ tCO2/kWh, $$(r+\delta)/a = 0.40 \times 0.11$$ $/kWh (eq. 27, p. 587):
+
+$$
+r_{bt} = 5\% + \frac{43 \times 820 \times 10^{-6}}{0.40 \times 0.11} \times (5\% + 5\%)
+       = 5\% + \frac{0.035}{0.044} \times 10\% = 5\% + 8.0\% = 13\% \tag{27}
+$$
 
 ## Empirical specifications
 
@@ -323,23 +329,22 @@ For each U.S. publicly listed firm with Trucost scope-1 emissions data (fiscal
 year 2021), the scope-1 sustainable discount rate from Proposition 4 is
 computed as (eq. 17):
 
-```
-r^x_{it} = r + (S_{t+1} - tau_{it+1}) X_{it+1} / v_{it}
-```
+$$
+r^x_{it} = r + \frac{(S_{t+1} - \tau_{it+1}) X_{it+1}}{v_{it}}
+$$
 
-with:
-- X\_{it+1}: Trucost scope-1 CO2 emissions in tCO2 for fiscal year 2021
-- v\_{it}: firm market value = CRSP market equity + Compustat book value of debt,
+- $$X_{it+1}$$: Trucost scope-1 CO2 emissions in tCO2 for fiscal year 2021
+- $$v_{it}$$: firm market value = CRSP market equity + Compustat book value of debt,
   beginning of calendar year 2021
-- S\_{t+1} - tau\_{it+1}: set to S = 43 $/tCO2 (Nordhaus baseline; tau = 0 for illustration)
-- r: set to 5% for illustration
+- $$S_{t+1} - \tau_{it+1}$$: set to $$S = 43$$ $/tCO2 (Nordhaus baseline; $$\tau = 0$$ for illustration)
+- $$r$$: set to 5% for illustration
 
 The resulting firm-level rates are aggregated to value-weighted industry
 averages using two-digit GICS sectors (Utilities split into Renewable
 Electricity, Brown Electricity, and Other Utilities).
 
 **Scope 1+2 calibration (Section VI.B, p. 585).** Same procedure as above but
-using Proposition 5, adding scope-2 emissions X\^{scope2}\_{it+1} = F\_b B\_{it+1} + F\_g G\_{it+1}
+using Proposition 5, adding scope-2 emissions $$X^{\text{scope2}}_{it+1} = F_b B_{it+1} + F_g G_{it+1}$$
 (also from Trucost). Each firm's scope-2 electricity estimate is
 multiplied by 1/0.6 = 1.67 to proxy total brown-equivalent consumption
 (60% of U.S. electricity from fossil fuels, 40% from renewables/nuclear).
@@ -348,13 +353,13 @@ multiplied by 1/0.6 = 1.67 to proxy total brown-equivalent consumption
 Eskildsen et al. (2024) regress firms' implied cost of capital on their
 emission-to-asset ratio, controlling for risk characteristics:
 
-```
-implied_COC_i = alpha + beta * (X_i / v_i) + gamma * controls_i + epsilon_i
-```
+$$
+\text{implied\_COC}_i = \alpha + \beta \cdot \frac{X_i}{v_i} + \gamma \cdot \text{controls}_i + \epsilon_i
+$$
 
-The estimated slope beta = 4 ($/value per tCO2/value = $/tCO2). The paper
+The estimated slope $$\beta = 4$$ ($/value per tCO2/value = $/tCO2). The paper
 reads this as empirical evidence that the market is pricing carbon externalities
-as if the implicit social cost minus explicit carbon tax is S - tau = 4 $/tCO2,
+as if the implicit social cost minus explicit carbon tax is $$S - \tau = 4$$ $/tCO2,
 far below Nordhaus's 43 $/tCO2 estimate (R7 above).
 
 No panel regressions, fixed effects, or standard-error treatments are applied
@@ -366,7 +371,7 @@ data.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Trucost (scope 1 and scope 2 emissions, fiscal year 2021) | Firm-level carbon emission data for calibrating sustainable discount rates; scope 1 emissions in tCO2 per fiscal year; scope 2 electricity-based emissions | No page yet |
-| CRSP and Compustat (2021) | Market value of equity and book value of debt for constructing firm value v\_{it} used in calibration; also used to identify GICS industry sectors | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP and Compustat (2021) | Market value of equity and book value of debt for constructing firm value $$v_{it}$$ used in calibration; also used to identify GICS industry sectors | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | Eskildsen et al. (2024) working paper data | Cross-sectional regression of firms' implied cost of capital on emission-to-asset ratio; slope estimate of 4 used as empirical calibration of effective implicit carbon tax | No page yet |
 | U.S. Energy Information Administration (electricity price data, 2021) | Average electricity price 0.11 $/kWh used in alternative calibration (§VI.C) | No page yet |
 

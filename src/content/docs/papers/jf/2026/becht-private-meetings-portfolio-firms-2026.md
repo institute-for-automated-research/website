@@ -138,48 +138,39 @@ The paper combines three methodological building blocks, each with its own speci
 
 **Panel regression (baseline trading).** The main estimating equation (p. 760, equation 1) is:
 
-```
-Trade_{ijt} = alpha + beta' X_{it} + gamma' Y_{ijt} + Lambda + e_{ijt}
+$$
+\text{Trade}_{ijt} = \alpha + \beta' X_{it} + \gamma' Y_{ijt} + \Lambda + e_{ijt}
+$$
 
-where:
-  Trade_{ijt} = daily % change in shares of company i held by fund j on day t
-                (or a 0/1 indicator for sell/buy trade)
-  X_{it}      = meeting indicators FM_{0,5}, GS_{0,5} (= 1 if meeting in [0,5]-day window)
-  Y_{ijt}     = controls: Ln(Shrout), Stake Held, Day Return
-  Lambda      = stock fixed effects + date fixed effects
-  SE          = clustered at fund and trading-day level
-  Sample      = 2007-2015, FTSE All-Share; restricted to positions with
-                at least one FM meeting, at least one GS meeting, and at
-                least one nonzero trade during the sample period
-```
+- $$\text{Trade}_{ijt}$$ = daily % change in shares of company i held by fund j on day t (or a 0/1 indicator for sell/buy trade)
+- $$X_{it}$$ = meeting indicators $$\text{FM}_{0,5}$$, $$\text{GS}_{0,5}$$ (= 1 if meeting in [0,5]-day window)
+- $$Y_{ijt}$$ = controls: Ln(Shrout), Stake Held, Day Return
+- $$\Lambda$$ = stock fixed effects + date fixed effects
+- SE = clustered at fund and trading-day level
+- Sample = 2007-2015, FTSE All-Share; restricted to positions with at least one FM meeting, at least one GS meeting, and at least one nonzero trade during the sample period
 
-For the soft/hard information split (Table V), `X_{it}` is replaced by `FM Soft_{0,5}(>=x-bar)`, `FM Hard_{0,5}(>=x-bar)`, `GS Soft_{0,5}(>=x-bar)`, and `GS Hard_{0,5}(>=x-bar)`, where `x-bar` is the sample median LLM-assessed soft-information share. An alternative split at 50% is also used.
+For the soft/hard information split (Table V), $$X_{it}$$ is replaced by $$\text{FM Soft}_{0,5}(\geq \bar{x})$$, $$\text{FM Hard}_{0,5}(\geq \bar{x})$$, $$\text{GS Soft}_{0,5}(\geq \bar{x})$$, and $$\text{GS Hard}_{0,5}(\geq \bar{x})$$, where $$\bar{x}$$ is the sample median LLM-assessed soft-information share. An alternative split at 50% is also used.
 
 **Calendar-time portfolio performance (Table XI).** Monthly time-series Fama-MacBeth-style regressions on long-short portfolios:
 
-```
-R^{LS}_{t} = Constant + beta (Mkt-Rf)_t + s SMB_t + h HML_t + u UMD_t + eps_t
+$$
+R^{\text{LS}}_{t} = \text{Constant} + \beta (\text{Mkt-Rf})_t + s\,\text{SMB}_t + h\,\text{HML}_t + u\,\text{UMD}_t + \varepsilon_t
+$$
 
-where:
-  R^{LS}_{t} = monthly return on a long-short portfolio
-               Long: top tercile of buy-trade stocks after meeting day
-               Short: bottom tercile of sell-trade stocks after meeting day
-               Portfolios rebalanced daily; monthly returns compounded
-  Factors    = Fama-French (1993) + Carhart (1997) momentum, UK version
-               from Gregory, Tharayan & Christidis (2013)
-  Constant   = risk-adjusted alpha in % per month
-  SE         = robust standard errors; N = 108 monthly observations
-```
+- $$R^{\text{LS}}_{t}$$ = monthly return on a long-short portfolio; Long: top tercile of buy-trade stocks after meeting day; Short: bottom tercile of sell-trade stocks after meeting day; Portfolios rebalanced daily; monthly returns compounded
+- Factors = Fama-French (1993) + Carhart (1997) momentum, UK version from Gregory, Tharayan & Christidis (2013)
+- $$\text{Constant}$$ = risk-adjusted alpha in % per month
+- SE = robust standard errors; N = 108 monthly observations
 
 ## Empirical specifications
 
-**Baseline meetings-and-trading (Table IV, Panel A).** The sample is the full unbalanced panel of fund-stock-day positions, 2007-2015 (N = 10,436,084 for the full-sample columns; 240,058 for the trades-only column). All specifications include stock and date fixed effects; standard errors are clustered at fund and trading-day level. Columns (1)-(2) use `Trade` (net % change in shares) as the dependent variable; columns (3)-(4) use linear probability models for `P(Sell Trade)` and `P(Buy Trade)`. Results are robust to longer [6,20]-day windows (Panel B).
+**Baseline meetings-and-trading (Table IV, Panel A).** The sample is the full unbalanced panel of fund-stock-day positions, 2007-2015 (N = 10,436,084 for the full-sample columns; 240,058 for the trades-only column). All specifications include stock and date fixed effects; standard errors are clustered at fund and trading-day level. Columns (1)-(2) use $$\text{Trade}$$ (net % change in shares) as the dependent variable; columns (3)-(4) use linear probability models for $$P(\text{Sell Trade})$$ and $$P(\text{Buy Trade})$$. Results are robust to longer [6,20]-day windows (Panel B).
 
 **Soft and hard information by meeting type (Table V).** Same specification as Table IV but with meeting-type indicators split by LLM-assessed soft/hard content above and below the sample median. Separately estimated for FM and GS meetings. N = 240,058 (trades) and 10,450,063 (full panel).
 
 **Meeting quality and sentiment (Table VIII, Panel A).** FM meetings are split by the analyst's human-assigned quality rating (Low 1-2, Average 3, High 4-5) and by the ratio of negative to positive words using the Loughran-McDonald (2011) dictionary (Neg Tone: ratio > 0.5; Pos Tone: ratio <= 0.5). Each indicator interacted with the [0,5]-day meeting window.
 
-**Consensus and recommendation changes (Table IX).** For consensus, meeting notes are redacted of any recommendation language, then the LLM assesses the no-consensus likelihood. The interaction `Upgrade_{0,5} x Consensus_{-30,0}` combines a recommendation upgrade within [0,5] days with an FM meeting assessed as leading to consensus within the prior 30 trading days. Standard errors clustered at fund and trading-day level; stock and date fixed effects.
+**Consensus and recommendation changes (Table IX).** For consensus, meeting notes are redacted of any recommendation language, then the LLM assesses the no-consensus likelihood. The interaction $$\text{Upgrade}_{0,5} \times \text{Consensus}_{-30,0}$$ combines a recommendation upgrade within [0,5] days with an FM meeting assessed as leading to consensus within the prior 30 trading days. Standard errors clustered at fund and trading-day level; stock and date fixed effects.
 
 **MNPI event-time analysis (Figure 5, p. 777).** For the 17 confirmed MNPI meetings, event-time coefficients of the Table IV Panel A specification are estimated with event indicators from t-5 to t+5 around the MNPI meeting date. The dependent variable is the daily % change in shares held; no coefficient is statistically significant.
 

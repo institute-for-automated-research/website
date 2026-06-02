@@ -167,57 +167,63 @@ multivariate term structure model (Section III, p. 852).
 **Toy model (Section II, eq. 1, p. 844).** The real pricing kernel and
 inflation rate are:
 
-```
-log M*_{t+1} = M_bar + Lambda_delta * 1{ delta^(c)_{t+1} > 0 }
+$$
+\log M^*_{t+1} = \bar{M} + \Lambda_\delta \cdot \mathbf{1}\{\delta^{(c)}_{t+1} > 0\}
+$$
 
-pi_{t+1} = kappa_0 + kappa_y * lambda_t + kappa_delta * 1{ delta^(c)_{t+1} > 0 }
-```
+$$
+\pi_{t+1} = \kappa_0 + \kappa_y \lambda_t + \kappa_\delta \cdot \mathbf{1}\{\delta^{(c)}_{t+1} > 0\}
+$$
 
-where `delta^(c)_{t+1}` is a nonnegative default process with conditional
-jump probability `lambda_t`, `Lambda_delta > 0` is the price of default
-risk, `kappa_0` governs average inflation, `kappa_y` is the loading of
-inflation dynamics on default probability, and `kappa_delta` is the
+where $$\delta^{(c)}_{t+1}$$ is a nonnegative default process with conditional
+jump probability $$\lambda_t$$, $$\Lambda_\delta > 0$$ is the price of default
+risk, $$\kappa_0$$ governs average inflation, $$\kappa_y$$ is the loading of
+inflation dynamics on default probability, and $$\kappa_\delta$$ is the
 inflation jump upon default. Under independence (default event is transitory),
 all bond prices are in closed form.
 
 **Bond yield decomposition (eq. 2, p. 845).** Any nominal Treasury yield can
 be decomposed into four parts:
 
-```
-R^(n)_t  =  r^(n)*_t               (a) real risk-free rate
-          + r^(n)_t - r^(n)*_t      (b) ILS
-          + R^(n)*_t - r^(n)*_t     (c) real credit spread
-          + R^(n)_t - r^(n)_t - (R^(n)*_t - r^(n)*_t)   (d) -ILSBEI
-```
+$$
+\begin{aligned}
+R^{(n)}_t \;=\; & r^{(n)*}_t & &\text{(a) real risk-free rate} \\
+               + & \bigl(r^{(n)}_t - r^{(n)*}_t\bigr) & &\text{(b) ILS} \\
+               + & \bigl(R^{(n)*}_t - r^{(n)*}_t\bigr) & &\text{(c) real credit spread} \\
+               + & \bigl(R^{(n)}_t - r^{(n)}_t\bigr) - \bigl(R^{(n)*}_t - r^{(n)*}_t\bigr) & &\text{(d) -ILSBEI}
+\end{aligned}
+$$
 
-where `*` denotes real yields and capitalization denotes defaultable bond
+where $$*$$ denotes real yields and capitalization denotes defaultable bond
 yields. The ILSBEI spread in component (d) is negative when the nominal
 credit spread exceeds the real credit spread, that is, when nominal
 Treasuries are more exposed to default than TIPS. Expanding around small
-default probability `lambda_t`, the nominal Treasury yield decomposes as
+default probability $$\lambda_t$$, the nominal Treasury yield decomposes as
 (eqs. 3.a-3.d, pp. 845-846):
 
-```
-R^(n)_t ~= -M_bar + lambda_t * (1 - e^{Lambda_delta})             (3.a: risk-free real yield)
-         + kappa_0 + kappa_y * lambda_t + lambda_t * e^{Lambda_delta} * (1 - e^{-kappa_delta})   (3.b: ILS)
-         + lambda_t * e^{Lambda_delta} * LGD*                      (3.c: real credit spread)
-         + lambda_t * e^{Lambda_delta} * (e^{-kappa_delta} * LGD - LGD*)   (3.d: -ILSBEI)
-```
+$$
+\begin{aligned}
+R^{(n)}_t \;\approx\; & -\bar{M} + \lambda_t(1 - e^{\Lambda_\delta}) & &\text{(3.a: risk-free real yield)} \\
+                    + & \kappa_0 + \kappa_y \lambda_t + \lambda_t e^{\Lambda_\delta}(1 - e^{-\kappa_\delta}) & &\text{(3.b: ILS)} \\
+                    + & \lambda_t e^{\Lambda_\delta} \cdot \text{LGD}^* & &\text{(3.c: real credit spread)} \\
+                    + & \lambda_t e^{\Lambda_\delta}(e^{-\kappa_\delta} \cdot \text{LGD} - \text{LGD}^*) & &\text{(3.d: -ILSBEI)}
+\end{aligned}
+$$
 
-where `LGD` (`LGD*`) is the loss given default of a nominal (real) Treasury.
+where $$\text{LGD}$$ ($$\text{LGD}^*$$) is the loss given default of a nominal (real) Treasury.
 Equation (3.d) shows that even equal LGDs produce a nonzero ILSBEI if
-`kappa_delta > 0`, that is, if there is hyperinflation upon default.
+$$\kappa_\delta > 0$$, that is, if there is hyperinflation upon default.
 
 **Three channels.** The model identifies three channels through which
 default affects ILSBEI (pp. 844, 865):
 
-1. Default priced in the SDF (`Lambda_delta`): a price of default risk that
+1. Default priced in the SDF ($$\Lambda_\delta$$): a price of default risk that
    lowers riskless real bond yields through the pricing kernel.
-2. Inflation jump upon default (`kappa_delta^pi`): hyperinflation upon
+2. Inflation jump upon default ($$\kappa_\delta^{(\pi)}$$): hyperinflation upon
    default raises the value of inflation swaps relative to nominal
    Treasuries, widening ILSBEI.
 3. Negative correlation between default probability and inflation
-   (`kappa_y^pi < 0`): higher default probability predicts lower current
+   ($$\kappa_y^{(\pi)} < 0$$): higher default probability predicts lower current
    inflation, lowering the ILS rate.
 
 **Lucas tree motivation (Section II.D, p. 850).** The inflation/default
@@ -226,7 +232,7 @@ economy with long-run risk and a central bank following a Taylor rule with
 coefficient on inflation less than one (passive monetary policy). The
 passive central bank stance means the Taylor principle is violated: inflation
 must fall when default probability rises, consistent with the negative
-`kappa_y` in the regression results.
+$$\kappa_y$$ in the regression results.
 
 ## Method
 
@@ -237,62 +243,71 @@ as building blocks.
 
 **Risk factors (eqs. 5-8, pp. 852-853).** Three blocks of state variables:
 
-Riskless real short rate driven by three Gaussian factors `x_t` (eq. 5):
-```
-r^{(1)*}_t = kappa_0^(r) + kappa_x^(r)' * x_t
-```
+Riskless real short rate driven by three Gaussian factors $$x_t$$ (eq. 5):
+
+$$
+r^{(1)*}_t = \kappa_0^{(r)} + \kappa_x^{(r)\prime} x_t
+$$
 
 with VAR(1) dynamics (eq. 6):
-```
-x_t = Phi_x * x_{t-1} + epsilon_{x,t},    epsilon_{x,t} ~iid N(0, I_3)
-```
 
-Credit and liquidity event processes `delta_t = (delta^(c)_t, delta^(l)_t)`
-modelled as gamma-zero processes (eq. 7): for `i in {c, l}`,
-```
-delta^(i)_t = sum_{j=1}^{P^(i)_t} xi^(i)_{j,t},
-  where P^(i)_t | lambda^(i)_t ~ Poisson(lambda^(i)_t)
-  and   xi^(i)_{j,t} ~ Exp(1 / c^(i)_delta)
-```
+$$
+x_t = \Phi_x x_{t-1} + \epsilon_{x,t}, \qquad \epsilon_{x,t} \sim \text{iid}\; N(0, I_3)
+$$
 
-Event intensities driven by nonnegative factors `y_t = (y^(c)_{1,t}, y^(c)_{2,t}, y^(l)_t)` following VARG dynamics (eq. 8):
-```
-lambda^(c)_t = beta^(c)_{lambda,1} * y^(c)_{1,t} + beta^(c)_{lambda,2} * y^(c)_{2,t}
-lambda^(l)_t = beta^(l)_lambda * y^(l)_t
-```
+Credit and liquidity event processes $$\delta_t = (\delta^{(c)}_t, \delta^{(l)}_t)$$
+modelled as gamma-zero processes (eq. 7): for $$i \in \{c, l\}$$,
+
+$$
+\delta^{(i)}_t = \sum_{j=1}^{P^{(i)}_t} \xi^{(i)}_{j,t},
+\quad \text{where } P^{(i)}_t \mid \lambda^{(i)}_t \sim \text{Poisson}(\lambda^{(i)}_t)
+\text{ and } \xi^{(i)}_{j,t} \sim \text{Exp}(1/c^{(i)}_\delta)
+$$
+
+Event intensities driven by nonnegative factors $$y_t = (y^{(c)}_{1,t}, y^{(c)}_{2,t}, y^{(l)}_t)$$ following VARG dynamics (eq. 8):
+
+$$
+\begin{aligned}
+\lambda^{(c)}_t &= \beta^{(c)}_{\lambda,1} y^{(c)}_{1,t} + \beta^{(c)}_{\lambda,2} y^{(c)}_{2,t} \\
+\lambda^{(l)}_t &= \beta^{(l)}_\lambda y^{(l)}_t
+\end{aligned}
+$$
 
 **Pricing kernel (eq. 9, p. 853):**
-```
-log(M*_{t+1}) = -r^{(1)*}_t + Lambda_{x,t}' * x_{t+1} + Lambda_y' * y_{t+1}
-                + Lambda_delta * delta^(c)_{t+1} - zeta_t
-```
 
-where `Lambda_{x,t} = Lambda_{0,x} + Lambda_{1,x} * x_t` are the prices of
-riskless factor risk, `Lambda_y` are the prices of credit/liquidity factor
-risk, and `Lambda_delta` is the price of credit event risk. The structure-
+$$
+\log(M^*_{t+1}) = -r^{(1)*}_t + \Lambda_{x,t}' x_{t+1} + \Lambda_y' y_{t+1}
+                  + \Lambda_\delta \delta^{(c)}_{t+1} - \zeta_t
+$$
+
+where $$\Lambda_{x,t} = \Lambda_{0,x} + \Lambda_{1,x} x_t$$ are the prices of
+riskless factor risk, $$\Lambda_y$$ are the prices of credit/liquidity factor
+risk, and $$\Lambda_\delta$$ is the price of credit event risk. The structure-
 preserving property of the pricing kernel ensures the model belongs to the
 affine class, so all pricing formulas are in closed form.
 
 **Inflation dynamics (eq. 10, p. 854):**
-```
-pi_t = kappa_0^(pi) + kappa_x^(pi)' * x_t + kappa_y^(pi)' * y_t + kappa_delta^(pi) * delta^(c)_t
-```
 
-The expected positive sign on `kappa_delta^(pi)` (hyperinflation upon
-default) and expected negative sign on `kappa_y^(pi)` (lower inflation when
+$$
+\pi_t = \kappa_0^{(\pi)} + \kappa_x^{(\pi)\prime} x_t + \kappa_y^{(\pi)\prime} y_t + \kappa_\delta^{(\pi)} \delta^{(c)}_t
+$$
+
+The expected positive sign on $$\kappa_\delta^{(\pi)}$$ (hyperinflation upon
+default) and expected negative sign on $$\kappa_y^{(\pi)}$$ (lower inflation when
 default probability is high) are both key model predictions tested against
 the data.
 
 **Estimation (eq. 11, p. 856).** The model is cast in state-space form with
-23 observable variables `y_t in R^23` (ILS, nominal yields, TIPS, CDS at
+23 observable variables $$\mathbf{y}_t \in \mathbb{R}^{23}$$ (ILS, nominal yields, TIPS, CDS at
 multiple maturities, OIS, CPI, TIPS liquidity proxy):
-```
-y_t = F(x_t, y_t, delta_t, theta^Q) + eta_t,    eta_t ~ N(0, Sigma_eta)
-```
 
-where `F(.)` is a nonlinear closed-form function summarizing the affine
-pricing equations and `theta^Q` is the set of risk-neutral parameters.
-Since `F(.)` is nonlinear (due to the gamma-zero processes), the model is
+$$
+\mathbf{y}_t = F(x_t, y_t, \delta_t, \theta^Q) + \eta_t, \qquad \eta_t \sim N(0, \Sigma_\eta)
+$$
+
+where $$F(\cdot)$$ is a nonlinear closed-form function summarizing the affine
+pricing equations and $$\theta^Q$$ is the set of risk-neutral parameters.
+Since $$F(\cdot)$$ is nonlinear (due to the gamma-zero processes), the model is
 estimated by Extended Kalman Filter approximate maximum likelihood (`extended-kalman-filter`). CDS measurement error standard deviations are allowed to
 depend on a CDS liquidity proxy (Grischenko and Huang (2013)) to account
 for mismeasurement.
@@ -302,30 +317,44 @@ for mismeasurement.
 **Baseline regression (Tables II-IV, pp. 837-840).** OLS in levels and first
 differences of the five-year ILSBEI spread on measures of default risk:
 
-```
-ILSBEI_t = alpha + beta * G_t + epsilon_t                     (level)
-Delta(ILSBEI_t) = alpha + beta * Delta(G_t) + epsilon_t       (first diff)
-```
+$$
+\text{ILSBEI}_t = \alpha + \beta G_t + \epsilon_t \qquad \text{(level)}
+$$
 
-where `G_t` is the year-over-year log growth in Treasury debt held by the
-public (level regressions) or monthly log variation (first-difference).
-Standard errors are Newey-West with three lags. Sample: June 2005 to
-December 2020, monthly.
+$$
+\Delta\text{ILSBEI}_t = \alpha + \beta\, \Delta G_t + \epsilon_t \qquad \text{(first diff)}
+$$
+
+- $$\text{ILSBEI}_t$$: five-year inflation-linked swap rate minus breakeven inflation rate at time $$t$$
+- $$G_t$$: year-over-year log growth in Treasury debt held by the public (level regressions) or monthly log variation (first-difference)
+- $$\alpha$$: intercept
+- $$\beta$$: slope coefficient on default risk proxy
+- $$\epsilon_t$$: error term
+- Standard errors: Newey-West with three lags
+- Sample: June 2005 to December 2020, monthly
 
 Extended specification adds liquidity controls:
-```
-ILSBEI_t = alpha + beta_G * G_t + beta_CDS * CDS_t
-           + beta_VIX * VIX_t + beta_OIS * (L-OIS)_t
-           + beta_OTR * OTR_t + beta_HPW * HPW_t + epsilon_t
-```
+
+$$
+\text{ILSBEI}_t = \alpha + \beta_G G_t + \beta_{\text{CDS}} \text{CDS}_t
+                 + \beta_{\text{VIX}} \text{VIX}_t + \beta_{\text{OIS}} (L\text{-}OIS)_t
+                 + \beta_{\text{OTR}} \text{OTR}_t + \beta_{\text{HPW}} \text{HPW}_t + \epsilon_t
+$$
+
+- $$G_t$$: Treasury debt growth (default risk proxy)
+- $$\text{CDS}_t$$: Euro-denominated five-year U.S. sovereign CDS spread
+- $$\text{VIX}_t$$: CBOE Volatility Index (liquidity/risk-aversion control)
+- $$(L\text{-}OIS)_t$$: LIBOR-OIS spread (counterparty risk / liquidity control)
+- $$\text{OTR}_t$$: off-the-run/on-the-run 10-year Treasury spread (liquidity control)
+- $$\text{HPW}_t$$: Hu-Pan-Wang noise measure (slow-moving capital proxy)
 
 **Instrumental variables (Tables V-VI, pp. 841-843).** Single-stage GMM
-using `G_t` (Treasury debt growth) as an instrument for CDS spreads.
-First stage: regress each liquidity/slow-moving-capital control on `G_t`
-to obtain orthogonalized residuals `VIX^perp`, `(L-OIS)^perp`, `OTR^perp`,
-`HPW^perp`; then regress `CDS_t` on `G_t` and these residuals. Second stage:
-regress `ILSBEI_t` (and individually: ILS, nominal TSY, TIPS) on the
-first-stage predicted `CDS_hat_t` and the orthogonalized liquidity controls.
+using $$G_t$$ (Treasury debt growth) as an instrument for CDS spreads.
+First stage: regress each liquidity/slow-moving-capital control on $$G_t$$
+to obtain orthogonalized residuals $$\text{VIX}^\perp$$, $$(L\text{-}OIS)^\perp$$, $$\text{OTR}^\perp$$,
+$$\text{HPW}^\perp$$; then regress $$\text{CDS}_t$$ on $$G_t$$ and these residuals. Second stage:
+regress $$\text{ILSBEI}_t$$ (and individually: ILS, nominal TSY, TIPS) on the
+first-stage predicted $$\widehat{\text{CDS}}_t$$ and the orthogonalized liquidity controls.
 Standard errors are Newey-West with three lags, estimated simultaneously
 via single-stage GMM. Specification repeated at 2y, 3y, 5y, 7y, 10y tenors.
 Identifying assumption: Treasury debt issuance decisions are exogenous to
@@ -339,12 +368,12 @@ Treasuries (1-10y), TIPS (implied from BEI), sovereign CDS (5y, 10y), OIS
 (6m), monthly CPI inflation, and the Grischenko-Huang TIPS liquidity index.
 The riskless real one-period yield and all bond prices are derived in closed
 form under the affine structure. Model parameters are estimated jointly
-including `kappa_delta^pi`, `kappa_y^pi`, `Lambda_delta`, recovery fractions,
-and the TIPS disindexation rate `rho*`.
+including $$\kappa_\delta^{(\pi)}$$, $$\kappa_y^{(\pi)}$$, $$\Lambda_\delta$$, recovery fractions,
+and the TIPS disindexation rate $$\rho^*$$.
 
 **Comparative statics (Figure 10, Section IV.F, pp. 865-866).** Sequential
-counterfactuals setting `Lambda_delta = 0`, `kappa_delta^pi = 0`, or
-`kappa_y^pi = 0` in turn, computing the deviation between fitted and
+counterfactuals setting $$\Lambda_\delta = 0$$, $$\kappa_\delta^{(\pi)} = 0$$, or
+$$\kappa_y^{(\pi)} = 0$$ in turn, computing the deviation between fitted and
 counterfactual yield curves. The median contribution of each channel to
 ILSBEI is measured in basis points at each maturity, with 95% confidence
 intervals across sample dates.

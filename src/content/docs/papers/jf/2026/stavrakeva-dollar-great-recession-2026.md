@@ -167,105 +167,113 @@ how the information channel can qualitatively reconcile the empirical facts.
 **U.S. macroeconomic block** (pp. 989-990, eqs. 3-5). Log inflation and real
 output follow:
 
-```
-pi^us_t = alpha * y^us_t                                         (3)
-y^us_t = -v(i^us_t - pi^us_t) + eps^{y,us}_t                    (4)
-```
+$$
+\pi^{us}_t = \alpha \, y^{us}_t \tag{3}
+$$
+
+$$
+y^{us}_t = -v(i^{us}_t - \pi^{us}_t) + \varepsilon^{y,us}_t \tag{4}
+$$
 
 with a Taylor rule:
-```
-i^us_t = phi^y * y^us_t + phi^pi * pi^us_t + eps^{mp,us}_t
-```
 
-where `eps^{y,us}_t ~ N(0, sigma^2_y)` is the demand shock and
-`eps^{mp,us}_t ~ N(0, sigma^2_mp)` is the monetary policy shock.
+$$
+i^{us}_t = \phi^y y^{us}_t + \phi^\pi \pi^{us}_t + \varepsilon^{mp,us}_t
+$$
+
+where $$\varepsilon^{y,us}_t \sim N(0, \sigma^2_y)$$ is the demand shock and
+$$\varepsilon^{mp,us}_t \sim N(0, \sigma^2_{mp})$$ is the monetary policy shock.
 Solving the system (eq. 5, p. 990):
 
-```
-y^us_t  = (eps^{y,us}_t - v*eps^{mp,us}_t) / (1+v*kappa)
-pi^us_t = alpha * (eps^{y,us}_t - v*eps^{mp,us}_t) / (1+v*kappa)
-r^us_t  = (kappa*eps^{y,us}_t + eps^{mp,us}_t) / (1+v*kappa)
-```
+$$
+\begin{aligned}
+y^{us}_t  &= \frac{\varepsilon^{y,us}_t - v\,\varepsilon^{mp,us}_t}{1+v\kappa} \\
+\pi^{us}_t &= \frac{\alpha(\varepsilon^{y,us}_t - v\,\varepsilon^{mp,us}_t)}{1+v\kappa} \\
+r^{us}_t  &= \frac{\kappa\,\varepsilon^{y,us}_t + \varepsilon^{mp,us}_t}{1+v\kappa}
+\end{aligned}
+$$
 
-where `kappa = phi^y + alpha*(phi^pi - 1)`.
+where $$\kappa = \phi^y + \alpha(\phi^\pi - 1)$$.
 
 **Investor SDF and pricing conditions** (pp. 990-991, eqs. 6-7). The real
-log SDF is `sdf_{t,t+1} = ln(beta) - rho_t*Delta*c_{t+1} - c_t*Delta*rho_t`
+log SDF is $$\text{sdf}_{t,t+1} = \ln(\beta) - \rho_t \Delta c_{t+1} - c_t \Delta \rho_t$$
 with CRRA preferences. The exchange rate pricing condition is:
 
-```
-E_t[ SDF_{t,t+1} * exp(-pi_{t+1}) * ((1+i^us_t) - S_{t+1}/S_t * (1+i^i_t)) ] = 0   (6)
-```
+$$
+E_t\!\left[ \text{SDF}_{t,t+1} \cdot e^{-\pi_{t+1}} \cdot \left((1+i^{us}_t) - \frac{S_{t+1}}{S_t}(1+i^i_t)\right) \right] = 0 \tag{6}
+$$
 
 and the equity pricing condition:
-```
-E_t[ SDF_{t,t+1} * (exp(r^eq_{t+1}) - (1+i^us_t)) ] = 0                              (7)
-```
+
+$$
+E_t\!\left[ \text{SDF}_{t,t+1} \cdot \left(e^{r^{eq}_{t+1}} - (1+i^{us}_t)\right) \right] = 0 \tag{7}
+$$
 
 **Currency risk premium** (p. 991, eqs. 8-10). The expected excess return
-from being long the U.S. bond and short currency i:
+from being long the U.S. bond and short currency $$i$$:
 
-```
-lambda_t = E_t[Delta*s_{t+1}] - i-tilde_t
-         = sigma^2_s/2 + sigma_{pi,s} + rho_t * sigma_{c,s}      (10)
-```
+$$
+\lambda_t = E_t[\Delta s_{t+1}] - \tilde{i}_t
+          = \frac{\sigma^2_s}{2} + \sigma_{\pi,s} + \rho_t \, \sigma_{c,s} \tag{10}
+$$
 
 **Risk aversion is countercyclical** (eq. 12, p. 991):
 
-```
-rho_t = rho_y * y^us_t,   rho_y < 0
-```
+$$
+\rho_t = \rho_y \, y^{us}_t, \quad \rho_y < 0 \tag{12}
+$$
 
 so a negative demand shock raises risk aversion, consistent with habit
 formation and intermediary asset pricing.
 
 **Information channel mechanics** (pp. 992-995, eqs. 14-16). The central
-bank receives a private signal `tilde_eps^{y,us,CB}_{t+1} = eps^{y,us}_{t+1} + hat_eps_{t+1}`
+bank receives a private signal $$\tilde{\varepsilon}^{y,us,CB}_{t+1} = \varepsilon^{y,us}_{t+1} + \hat{\varepsilon}_{t+1}$$
 about future demand. Investors initially believe the signal is less precise
-(market perception variance inflated by `q^CB_{t+l} = hat_q_CB > 0` for
-`l < l^m`, where `l^m` is the date of the FOMC minutes release). At the
+(market perception variance inflated by $$q^{CB}_{t+l} = \hat{q}_{CB} > 0$$ for
+$$l < l^m$$, where $$l^m$$ is the date of the FOMC minutes release). At the
 FG announcement, investors apply Bayes' rule:
 
-```
-E_{t+l}[y^us_{t+h}] - E_t[y^us_{t+h}] = K_{t+l} * a_{t+1},   1 <= l < h    (15)
-```
+$$
+E_{t+l}[y^{us}_{t+h}] - E_t[y^{us}_{t+h}] = K_{t+l} \cdot a_{t+1}, \quad 1 \leq l < h \tag{15}
+$$
 
-where `K_{t+l}` (eq. 16, p. 994) is:
+where $$K_{t+l}$$ (eq. 16, p. 994) is:
 
-```
-K_{t+l} = [ (kappa+alpha)*sigma^2_y/sigma^2_mp - ((sigma^2_{eps,CB}+q^CB_{t+l})/sigma^2_y + 1)*v*eta ]
-           / [ (kappa+alpha)^2 * sigma^2_y/sigma^2_mp + ((sigma^2_{eps,CB}+q^CB_{t+l})/sigma^2_y + 1)*eta^2 ]
-```
+$$
+K_{t+l} = \frac{(\kappa+\alpha)\,\sigma^2_y/\sigma^2_{mp} - \left((\sigma^2_{\varepsilon,CB}+q^{CB}_{t+l})/\sigma^2_y + 1\right)v\eta}{(\kappa+\alpha)^2\,\sigma^2_y/\sigma^2_{mp} + \left((\sigma^2_{\varepsilon,CB}+q^{CB}_{t+l})/\sigma^2_y + 1\right)\eta^2} \tag{16}
+$$
 
-When `sigma^2_y/sigma^2_mp` is large (high fundamental uncertainty relative to
-policy uncertainty), `K_{t+l} > 0`: a negative FG surprise (lower rates
+When $$\sigma^2_y/\sigma^2_{mp}$$ is large (high fundamental uncertainty relative to
+policy uncertainty), $$K_{t+l} > 0$$: a negative FG surprise (lower rates
 promised) causes investors to revise down expected future GDP, raising risk
-aversion and triggering the flight-to-safety channel. The bias `q^CB > 0`
-makes `K < 0` on the FOMC day itself but turns positive once minutes are
-released (at `l = l^m`, `q^CB = 0`), generating the delayed reversal in
+aversion and triggering the flight-to-safety channel. The bias $$q^{CB} > 0$$
+makes $$K < 0$$ on the FOMC day itself but turns positive once minutes are
+released (at $$l = l^m$$, $$q^{CB} = 0$$), generating the delayed reversal in
 estimated impulse responses.
 
 **Exchange rate decomposition** (pp. 995-997, eqs. 17-21). The exchange
 rate change is decomposed into:
 
-```
-Delta*s_{t+l,t} = psi^{EH}_{t+l,t}    (interest rate differential component)
-                + psi^{lambda}_{t+l,t} (currency risk premium component)
-                + psi^{LR}_{t+l,t}     (long-run inflation / real exchange rate component)
-```
+$$
+\Delta s_{t+l,t} = \psi^{EH}_{t+l,t} + \psi^{\lambda}_{t+l,t} + \psi^{LR}_{t+l,t}
+$$
+
+- $$\psi^{EH}_{t+l,t}$$: interest rate differential component
+- $$\psi^{\lambda}_{t+l,t}$$: currency risk premium component
+- $$\psi^{LR}_{t+l,t}$$: long-run inflation / real exchange rate component
 
 The derivative of the currency risk premium component with respect to the
 FG announcement (eq. 20, p. 996):
 
-```
-d(psi^lambda_{t+l,t}) / d(a_{t+1}) = -rho_y * sigma_{c,s} * K_{t+l}    (20)
-```
+$$
+\frac{d\,\psi^{\lambda}_{t+l,t}}{d\,a_{t+1}} = -\rho_y \, \sigma_{c,s} \, K_{t+l} \tag{20}
+$$
 
-Since `rho_y < 0` and `K_{t+l} > 0` when the information channel dominates,
+Since $$\rho_y < 0$$ and $$K_{t+l} > 0$$ when the information channel dominates,
 this derivative is positive (dollar appreciates) for currencies where
-`sigma_{c,s} < 0` (currencies that are poor hedges: they tend to depreciate
+$$\sigma_{c,s} < 0$$ (currencies that are poor hedges: they tend to depreciate
 when U.S. consumption/output falls). The interest rate component is
-unconditionally positive and independent of `K_{t+l}`, so it pushes in the
+unconditionally positive and independent of $$K_{t+l}$$, so it pushes in the
 conventional direction; the structural break requires the flight-to-safety and
 inflation channels to dominate.
 
@@ -278,7 +286,7 @@ policy surprises. The approach builds on `event-study` identification and
 `affine-term-structure` models disciplined by survey forecasts for the channel
 decomposition.
 
-**Monetary policy surprise** (p. 977). The surprise `mp_tau` is the change in
+**Monetary policy surprise** (p. 977). The surprise $$mp_\tau$$ is the change in
 Eurodollar futures expiring three quarters hence (ED4) over a one-hour window
 (15 minutes before to 45 minutes after) around FOMC announcements and
 QE announcements made outside regular FOMC meetings. ED4 captures
@@ -286,43 +294,40 @@ unconventional policy during the ZLB period (Swanson (2021)).
 
 **Baseline impulse response regression** (eq. 1, p. 977):
 
-```
-s-bar_{tau+n} - s-bar_{tau-1} = alpha_n + beta^{Delta*s}_n * mp_tau + gamma_n*(s-bar_{tau-1} - s-bar_{tau-2}) + error_{tau,n}
-```
+$$
+\bar{s}_{\tau+n} - \bar{s}_{\tau-1} = \alpha_n + \beta^{\Delta s}_n \, mp_\tau + \gamma_n(\bar{s}_{\tau-1} - \bar{s}_{\tau-2}) + \text{error}_{\tau,n} \tag{1}
+$$
 
-where `s-bar_t = (1/K) * sum_{k=1}^K s_{k,t}` is the average log exchange
-rate across K currencies (units of currency k per USD). The coefficient
-`beta^{Delta*s}_n` is the impulse response at horizon n (n = 0,...,90 days).
-Standard errors are Newey-West, with lag length set to the maximum number of
-overlapping FOMC dates within the estimation window for each horizon.
+- $$\bar{s}_t = \frac{1}{K}\sum_{k=1}^K s_{k,t}$$: average log exchange rate across $$K$$ currencies (units of currency $$k$$ per USD)
+- $$\beta^{\Delta s}_n$$: impulse response at horizon $$n$$ ($$n = 0,\ldots,90$$ days)
+- Sample: full sample with pre-GR, GR, and post-GR subsamples estimated separately
+- SE: Newey-West, lag length set to the maximum number of overlapping FOMC dates within the estimation window for each horizon
 
 **Cross-currency heterogeneity regression** (eq. 2, p. 984):
 
-```
-s_{k,tau+n} - s_{k,tau-1} = alpha_{k,n} + beta^{Delta*s}_n * mp_tau
-                            + beta^{hedge}_n * hedge_k * mp_tau
-                            + gamma_{n,h}*(s_{k,tau-1} - s_{k,tau-2}) + error_{tau,n}
-```
+$$
+s_{k,\tau+n} - s_{k,\tau-1} = \alpha_{k,n} + \beta^{\Delta s}_n \, mp_\tau + \beta^{\text{hedge}}_n \cdot \text{hedge}_k \cdot mp_\tau + \gamma_{n,h}(s_{k,\tau-1} - s_{k,\tau-2}) + \text{error}_{\tau,n} \tag{2}
+$$
 
-where `hedge_k` is currency k's hedging quality (covariance of exchange rate
-change with the SDF proxy: log S&P 500, log intermediary capital ratio, or
-U.S. minus country k average interest rate differential), standardized to unit
-variance. `beta^{hedge}_n` measures how the response to tightening varies with
-hedge quality.
+- $$\text{hedge}_k$$: currency $$k$$'s hedging quality (covariance of exchange rate change with the SDF proxy: log S&P 500, log intermediary capital ratio, or U.S. minus country $$k$$ average interest rate differential), standardized to unit variance
+- $$\beta^{\text{hedge}}_n$$: measures how the response to tightening varies with hedge quality
+- Fixed effects: currency-specific intercept $$\alpha_{k,n}$$
+- Sample: GR non-QE subsample (19 dates)
 
 **Channel decomposition** (eqs. 23-24, p. 1002). The estimated
-`beta^{Delta*s}_n` is decomposed by replacing the dependent variable with each
+$$\beta^{\Delta s}_n$$ is decomposed by replacing the dependent variable with each
 exchange rate change component estimated from an affine term structure VAR
 disciplined by Blue Chip Financial Forecasts survey data:
 
-```
-beta^{Delta*s}_n = beta^{psi^EH}_n + beta^{psi^{lambda}+psi^{LR}}_n       (23)
-```
+$$
+\beta^{\Delta s}_n = \beta^{\psi^{EH}}_n + \beta^{\psi^{\lambda}+\psi^{LR}}_n \tag{23}
+$$
 
 and analogously for equity prices:
-```
-beta^{Delta*p^eq}_n = beta^{psi^{EH,eq}}_n + beta^{psi^{lambda,eq}+psi^{D,eq}}_n   (24)
-```
+
+$$
+\beta^{\Delta p^{eq}}_n = \beta^{\psi^{EH,eq}}_n + \beta^{\psi^{\lambda,eq}+\psi^{D,eq}}_n \tag{24}
+$$
 
 **FG vs QE separation** (pp. 977-978). Two complementary approaches: (i)
 restrict to FOMC announcement dates without QE announcements (19 of 33 GR
@@ -341,7 +346,7 @@ log exchange rate changes against 9 advanced-economy currencies (AUD, CAD, CHF,
 EUR/DEM pre-1999, GBP, JPY, NOK, NZD, SEK) and 15 emerging-market currencies
 (BRL, CLP, COP, CZK, ILS, INR, ISK, KRW, MXN, PHP, RUB, SGD, THB, TRY, ZAR).
 Pegged-regime observations excluded. Newey-West SE with horizon-specific lags.
-Fixed effects: date-of-announcement intercept `alpha_n`.
+Fixed effects: date-of-announcement intercept $$\alpha_n$$.
 
 **FG vs. LSAP factor comparison (R3).** Same dependent variable, but monetary
 policy surprise replaced by the (negated) LSAP factor and the FG factor from
@@ -350,8 +355,8 @@ December 16, 2008 through September 13, 2012. 30 GR observation dates for each
 factor (Table III, p. 983).
 
 **Cross-currency heterogeneity (R4).** Panel regression (eq. 2) on GR non-QE
-subsample (19 dates), with currency-specific fixed effect `alpha_{k,n}` and
-interaction `beta^{hedge}_n`. Three hedge quality proxies used separately
+subsample (19 dates), with currency-specific fixed effect $$\alpha_{k,n}$$ and
+interaction $$\beta^{\text{hedge}}_n$$. Three hedge quality proxies used separately
 (Figure 3, p. 985; Figure 4, p. 986).
 
 **Risk aversion outcome (R6).** Dependent variable replaced by log VIX or log
@@ -372,7 +377,7 @@ Forecasts (25th-75th percentile range), and Baker-Bloom-Davis (2016) monetary
 policy uncertainty index, all standardized 1990-2019 (Table IV, p. 1006).
 GR subsample means significantly higher for macro uncertainty and GDP
 dispersion; monetary policy uncertainty declines slightly, supporting the
-high-`sigma^2_y / sigma^2_mp` interpretation.
+high-$$\sigma^2_y / \sigma^2_{mp}$$ interpretation.
 
 ## Datasets used
 

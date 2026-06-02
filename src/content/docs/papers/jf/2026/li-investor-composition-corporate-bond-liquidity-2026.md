@@ -124,115 +124,111 @@ dealer regulatory changes in complex ways depending on bond maturity.
 ## Theory / model
 
 The paper builds a directed-search model with two-sided heterogeneity: investors
-differ in their liquidity shock frequency theta and bonds differ in their
-maturity intensity delta and default intensity d. Time is continuous. All agents
+differ in their liquidity shock frequency $$\theta$$ and bonds differ in their
+maturity intensity $$\delta$$ and default intensity $$d$$. Time is continuous. All agents
 are infinitely lived and risk-neutral.
 
-**Investors.** Each period measure m_I of new investors enter with discount rate
-rho. Investor j faces liquidity shocks arriving at Poisson rate theta_j in
-[theta_bar, +infinity), a permanent feature with CDF F(.) and PDF f(.). Upon a
+**Investors.** Each period measure $$m_I$$ of new investors enter with discount rate
+$$\rho$$. Investor $$j$$ faces liquidity shocks arriving at Poisson rate $$\theta_j \in
+[\bar{\theta}, +\infty)$$, a permanent feature with CDF $$F(\cdot)$$ and PDF $$f(\cdot)$$. Upon a
 liquidity shock an investor becomes impatient and values flow coupon at a
-discount Delta units less. The effective flow to an impatient investor is thus
-r_i - Delta (p. 889, §II.A).
+discount $$\Delta$$ units less. The effective flow to an impatient investor is thus
+$$r_i - \Delta$$ (p. 889, §II.A).
 
-**Bonds.** There is a continuum of bonds indexed by i in I. Bond i has face value 1,
-coupon r_i (determined in equilibrium), matures at rate delta_i, and defaults at
-Poisson intensity d_i with recovery s_i. Bonds are ordered so that delta_i + d_i
-<= delta_j + d_j for i <= j (p. 889, §II.A.2).
+**Bonds.** There is a continuum of bonds indexed by $$i \in I$$. Bond $$i$$ has face value 1,
+coupon $$r_i$$ (determined in equilibrium), matures at rate $$\delta_i$$, and defaults at
+Poisson intensity $$d_i$$ with recovery $$s_i$$. Bonds are ordered so that $$\delta_i + d_i
+\leq \delta_j + d_j$$ for $$i \leq j$$ (p. 889, §II.A.2).
 
 **Secondary market and bid-ask spread.** In each submarket (indexed by bond type
-and price), sellers search for buyers via a Cobb-Douglas matching function:
+and price), sellers search for buyers via a Cobb-Douglas matching function
+(p. 890, II.A.2):
 
-```
-m(alpha_{s,i}, alpha_{b,j}) = eta * alpha_{s,i}^gamma * alpha_{b,j}^{1-gamma},
-   eta > 0, gamma in (0,1)         [p. 890, §II.A.2]
-```
+$$
+m(\alpha_{s,i},\, \alpha_{b,j}) = \eta \cdot \alpha_{s,i}^{\gamma} \cdot \alpha_{b,j}^{1-\gamma}, \quad \eta > 0,\; \gamma \in (0,1)
+$$
 
-The bid-ask spread decomposes into an endogenous component xi (proportional to
-the trade surplus) and an exogenous component epsilon_xi capturing dealers'
+The bid-ask spread decomposes into an endogenous component $$\xi$$ (proportional to
+the trade surplus) and an exogenous component $$\epsilon_{\xi}$$ capturing dealers'
 balance sheet conditions:
 
-```
-P_{b,i,t} - P_{s,i,t} = xi_i + epsilon_{xi,i}    (eq. 9, p. 891)
+$$
+P_{b,i,t} - P_{s,i,t} = \xi_i + \epsilon_{\xi,i} \tag{9}
+$$
 
-Assumption 1:  xi_i = kappa * (V_{h,i}(theta) - V_{b,i}(theta) - V_{s,i}),
-               kappa in (0,1)                         [eq. 14, p. 892]
-```
+$$
+\text{Assumption 1:} \quad \xi_i = \kappa \bigl(V_{h,i}(\theta) - V_{b,i}(\theta) - V_{s,i}\bigr), \quad \kappa \in (0,1) \tag{14}
+$$
 
-**Value functions.** The HJB equation for a patient bondholder of type theta
-holding bond i is (eq. 10, p. 891):
+**Value functions.** The HJB equation for a patient bondholder of type $$\theta$$
+holding bond $$i$$ is (eq. 10, p. 891):
 
-```
-rho * V_{h,i}(theta) = r_i + delta_i * (1 - V_{h,i}(theta))
-                           + d_i * (s_i - V_{h,i}(theta))
-                           + theta * (V_{s,i} - V_{h,i}(theta))
-```
+$$
+\rho \, V_{h,i}(\theta) = r_i + \delta_i \bigl(1 - V_{h,i}(\theta)\bigr)
+                           + d_i \bigl(s_i - V_{h,i}(\theta)\bigr)
+                           + \theta \bigl(V_{s,i} - V_{h,i}(\theta)\bigr) \tag{10}
+$$
 
 The seller's HJB is (eq. 11, p. 892):
 
-```
-rho * V_{s,i} = r_i - Delta + delta_i * (1 - V_{s,i})
-              + d_i * (s_i - V_{s,i})
-              + mu_s(lambda(i, P_s)) * (P_s - V_{s,i})
-```
+$$
+\rho \, V_{s,i} = r_i - \Delta + \delta_i \bigl(1 - V_{s,i}\bigr)
+              + d_i \bigl(s_i - V_{s,i}\bigr)
+              + \mu_s\!\bigl(\lambda(i, P_s)\bigr) \bigl(P_s - V_{s,i}\bigr) \tag{11}
+$$
 
-The buyer's HJB for type theta searching in bond i's submarket is (eq. 12,
+The buyer's HJB for type $$\theta$$ searching in bond $$i$$'s submarket is (eq. 12,
 p. 892):
 
-```
-rho * V_{b,i}(theta) = mu_b(lambda(i, P_s)) * (V_{h,i}(theta) - V_{b,i}(theta) - P_{b,i})
-```
+$$
+\rho \, V_{b,i}(\theta) = \mu_b\!\bigl(\lambda(i, P_s)\bigr) \bigl(V_{h,i}(\theta) - V_{b,i}(\theta) - P_{b,i}\bigr) \tag{12}
+$$
 
-where mu_b(lambda) = eta * lambda^gamma and mu_s(lambda) = eta * lambda^{gamma-1}
+where $$\mu_b(\lambda) = \eta \lambda^{\gamma}$$ and $$\mu_s(\lambda) = \eta \lambda^{\gamma-1}$$
 are the buyer and seller meeting intensities given Cobb-Douglas matching.
 
 **Equilibrium conditions.** In equilibrium buyers are indifferent between
 primary and secondary markets:
 
-```
-V_{h,i}(theta) - 1 = V_{b,i}(theta)    (eq. 15, p. 893)
-```
+$$
+V_{h,i}(\theta) - 1 = V_{b,i}(\theta) \tag{15}
+$$
 
 The investor participation decision features a cutoff strategy: investors with
-theta < theta_bar(r_f) hold risk-free assets; those with theta >= theta_bar
-participate in the bond market. As r_f decreases, the cutoff falls and more
+$$\theta < \bar{\theta}(r_f)$$ hold risk-free assets; those with $$\theta \geq \bar{\theta}$$
+participate in the bond market. As $$r_f$$ decreases, the cutoff falls and more
 short-term investors enter (Proposition 3, p. 898).
 
-**Equilibrium characterization.** Under Assumption 1 and epsilon_xi = 0,
-Proposition 1 (p. 895) establishes positive assortative matching: theta'(delta+d) > 0.
+**Equilibrium characterization.** Under Assumption 1 and $$\epsilon_{\xi} = 0$$,
+Proposition 1 (p. 895) establishes positive assortative matching: $$\theta'(\delta+d) > 0$$.
 Proposition 2 (p. 896) characterizes the full equilibrium as a system of ODEs
-in delta_bar = delta + d (eq. 24, p. 896):
+in $$\bar{\delta} = \delta + d$$ (eq. 24, p. 896):
 
-```
-{ lambda'(delta_bar) = [ lambda * [(1-gamma)/alpha_b * lambda - gamma/alpha_b * theta' * (1/(alpha_b) + (1-gamma) * (1/rho + 1/alpha_b)) ] ]
-                        / [ gamma * (1-gamma) * (rho + delta_bar + theta) ]
+$$
+\begin{cases}
+\lambda'(\bar{\delta}) = \dfrac{\lambda \left[\frac{1-\gamma}{\alpha_b}\,\lambda - \frac{\gamma}{\alpha_b}\,\theta'\!\left(\frac{1}{\alpha_b} + (1-\gamma)\!\left(\frac{1}{\rho} + \frac{1}{\alpha_b}\right)\right)\right]}{\gamma(1-\gamma)(\rho + \bar{\delta} + \theta)} \\[10pt]
+\theta'(\bar{\delta}) = \dfrac{\bar{\delta} + \rho\,\alpha_s / (\rho + \mu_s + \bar{\delta} + d)}{m_I\, f(\theta)}
+\end{cases} \tag{24}
+$$
 
-  theta'(delta_bar) = (delta_bar + rho * alpha_s / (rho + mu_s + delta_bar + d)) / (m_I * f(theta))
-```
-
-with boundary conditions theta(delta_bar + d_bar) = theta_bar and
-theta(delta_bar_end + d_bar) = theta_bar_end.
+with boundary conditions $$\theta(\bar{\delta} + \bar{d}) = \bar{\theta}$$ and
+$$\theta(\bar{\delta}_{\text{end}} + \bar{d}) = \bar{\theta}_{\text{end}}$$.
 
 **Interest rate and credit spread sensitivity.** In equilibrium the interest
-rate for bond j is (Lemma 2, eq. 26, p. 899):
+rate for bond $$j$$ is (Lemma 2, eq. 26, p. 899):
 
-```
-r = rho / (rho + delta + theta)   [discount rate part]
-  + d*(1-s) / (rho + delta + theta)   [default spread part]
-  + theta * Delta / (rho + delta + theta)
-  + [exo and endo bid-ask spread terms]   [search frictions part]
-```
+$$
+r = \frac{\rho}{\rho + \delta + \theta} + \frac{d(1-s)}{\rho + \delta + \theta} + \frac{\theta\,\Delta}{\rho + \delta + \theta} + [\text{exo and endo bid-ask spread terms}] \tag{26}
+$$
 
 The sensitivity of the interest rate to exogenous bid-ask spread changes is
 (Corollary 2, eq. 27, p. 900):
 
-```
-dr/d epsilon_xi = [ theta/(rho+delta+theta) * gamma/lambda - (rho+delta)/(rho) * (1-gamma) ]
-                  / [ (1/mu_s + (1-kappa)/(rho+delta+theta)) * gamma/lambda
-                      + ((1-kappa)/rho + 1/mu_b) * (1-gamma) ]
-```
+$$
+\frac{dr}{d\epsilon_{\xi}} = \frac{\dfrac{\theta}{\rho+\delta+\theta}\cdot\dfrac{\gamma}{\lambda} - \dfrac{\rho+\delta}{\rho}\cdot(1-\gamma)}{\left(\dfrac{1}{\mu_s} + \dfrac{1-\kappa}{\rho+\delta+\theta}\right)\dfrac{\gamma}{\lambda} + \left(\dfrac{1-\kappa}{\rho} + \dfrac{1}{\mu_b}\right)(1-\gamma)} \tag{27}
+$$
 
-When r_f decreases (more short-term investors enter), dr/d epsilon_xi increases
+When $$r_f$$ decreases (more short-term investors enter), $$dr/d\epsilon_{\xi}$$ increases
 for all bonds.
 
 ## Method
@@ -244,11 +240,11 @@ solved via ordinary differential equations (ODEs).
 **Reduced-form evidence.** The baseline cross-sectional regression is
 (eq. 1, p. 880):
 
-```
-CS_{i,t} = alpha_t + beta_t * BA_{i,t} + gamma_t^T * X_{i,t} + epsilon_{i,t}
-```
+$$
+\text{CS}_{i,t} = \alpha_t + \beta_t \cdot \text{BA}_{i,t} + \gamma_t^T X_{i,t} + \epsilon_{i,t} \tag{1}
+$$
 
-Run quarter by quarter; X_{i,t} includes bond characteristics (bond age,
+Run quarter by quarter; $$X_{i,t}$$ includes bond characteristics (bond age,
 time-to-maturity, coupon, offering amount, rating) and firm characteristics
 (leverage, size, profitability, equity volatility, total asset value) and
 industry fixed effects. Standard errors are clustered at the firm level.
@@ -256,68 +252,74 @@ industry fixed effects. Standard errors are clustered at the firm level.
 The liquidity component is defined following Dick-Nielsen, Feldhutter, and
 Lando (2012) as (eq. 2, p. 881):
 
-```
-liquidity_component_{i,t} = (beta_t x BA_{i,t}) / CS_{i,t}
-```
+$$
+\text{liquidity\_component}_{i,t} = \frac{\beta_t \times \text{BA}_{i,t}}{\text{CS}_{i,t}} \tag{2}
+$$
 
 **Investor composition measure.** Fund-level net transaction rate (eq. 3, p. 882):
 
-```
-net_transaction_{j,t} = |sum_i holding_{i,j,t} - sum_i holding_{i,j,t-1}|
-                        / sum_i holding_{i,j,t-1}
-```
+$$
+\text{net\_transaction}_{j,t} = \frac{\left|\sum_i \text{holding}_{i,j,t} - \sum_i \text{holding}_{i,j,t-1}\right|}{\sum_i \text{holding}_{i,j,t-1}} \tag{3}
+$$
 
 Smoothed over four quarters (eq. 4, p. 883):
 
-```
-NT_{j,t} = (1/4) * sum_{t'=1}^{4} net_transaction_{j,t-t'}
-```
+$$
+\text{NT}_{j,t} = \frac{1}{4} \sum_{t'=1}^{4} \text{net\_transaction}_{j,t-t'} \tag{4}
+$$
 
 Bond-level investor composition (eq. 5, p. 883):
 
-```
-investor_comp_{i,t} = sum_j holding_{i,j,t} x NT_{j,t} / sum_j holding_{i,j,t}
-```
+$$
+\text{investor\_comp}_{i,t} = \frac{\sum_j \text{holding}_{i,j,t} \times \text{NT}_{j,t}}{\sum_j \text{holding}_{i,j,t}} \tag{5}
+$$
 
 **Instrumental variables design.** Exploiting the 10-year time-to-maturity
 threshold in intermediate-term fund mandates as a sharp discontinuity, using
 the two-stage specification (eqs. 6-7, pp. 885-886):
 
-First stage: `Inv_Comp_{i,t} = alpha + beta_1 * 1_{ttm>10} + gamma^T X_{i,t} + epsilon_{i,t}`
+First stage: $$\text{Inv\_Comp}_{i,t} = \alpha + \beta_1 \cdot \mathbf{1}_{\text{ttm}>10} + \gamma^T X_{i,t} + \epsilon_{i,t}$$
 
-Second stage: `Y_{i,t} = alpha + beta_1 * hat{Inv_Comp}_{i,t} + gamma^T X_{i,t} + epsilon_{i,t}`
+Second stage: $$Y_{i,t} = \alpha + \beta_1 \cdot \widehat{\text{Inv\_Comp}}_{i,t} + \gamma^T X_{i,t} + \epsilon_{i,t}$$
 
 with optimal bandwidth around the 10-year cutoff (Calonico, Cattaneo, and
-Titiunik 2014). Also instruments the interaction term Inv_Comp x BA with
-1_{ttm>10} x BA for the credit-spread loading regression (eq. 8, p. 886):
+Titiunik 2014). Also instruments the interaction term $$\text{Inv\_Comp} \times \text{BA}$$ with
+$$\mathbf{1}_{\text{ttm}>10} \times \text{BA}$$ for the credit-spread loading regression (eq. 8, p. 886):
 
-```
-CS_{i,t} = alpha + beta_1 * BA_{i,t} + beta_2 * hat{Inv_Comp}_{i,t}
-           + beta_3 * BA_{i,t} x hat{Inv_Comp}_{i,t} + gamma^T X_{i,t} + epsilon_{i,t}
-```
+$$
+\text{CS}_{i,t} = \alpha + \beta_1 \cdot \text{BA}_{i,t} + \beta_2 \cdot \widehat{\text{Inv\_Comp}}_{i,t}
+           + \beta_3 \cdot \text{BA}_{i,t} \times \widehat{\text{Inv\_Comp}}_{i,t} + \gamma^T X_{i,t} + \epsilon_{i,t} \tag{8}
+$$
 
 Standard errors are clustered by industry and time; estimation uses demeaned
 bid-ask spreads for interpretability.
 
 **Calibration.** The structural model is calibrated to annual-level moments
-for bonds with 2 to 15 years to maturity (delta_bar in [1/15, 0.5]).
+for bonds with 2 to 15 years to maturity ($$\bar{\delta} \in [1/15,\, 0.5]$$).
 Parameters are set to match six moments in 2005 and 2019: bond turnover rates,
 the loading coefficient on bid-ask spreads, average credit spreads, average
 bid-ask spreads, and the ratio of residualized standard deviations (Table III,
-p. 903). The model is then simulated for N = 1,000 bonds and the following
-regression run on simulated data to obtain the model-implied beta:
+p. 903). The model is then simulated for $$N = 1{,}000$$ bonds and the following
+regression run on simulated data to obtain the model-implied $$\beta$$:
 
-```
-CS_i = beta_0 + beta * BA_i + beta_M * delta_i + epsilon_i    (eq. 32, p. 902)
-```
+$$
+\text{CS}_i = \beta_0 + \beta \cdot \text{BA}_i + \beta_M \cdot \delta_i + \epsilon_i \tag{32}
+$$
 
 The mechanism decomposition separates the loading into an exogenous component
-(eq. 34, p. 904): `CS_i = beta_0 + beta_exo * epsilon_{xi,i} + beta_M * delta_i + epsilon_i`
+(eq. 34, p. 904):
+
+$$
+\text{CS}_i = \beta_0 + \beta_{\text{exo}} \cdot \epsilon_{\xi,i} + \beta_M \cdot \delta_i + \epsilon_i \tag{34}
+$$
 
 and an endogenous component (eq. 35, p. 905):
-`CS_i = beta_0 + beta_endo * BA_{endo,i} + beta_M * delta_i + epsilon_i`
 
-where BA_{endo,i} is the endogenous part of bid-ask spreads with epsilon_xi set
+$$
+\text{CS}_i = \beta_0 + \beta_{\text{endo}} \cdot \text{BA}_{\text{endo},i} + \beta_M \cdot \delta_i + \epsilon_i \tag{35}
+$$
+
+where $$\text{BA}_{\text{endo},i}$$ is the endogenous part of bid-ask spreads with $$\epsilon_{\xi}$$ set
 to zero.
 
 ## Empirical specifications
@@ -329,7 +331,7 @@ with ratings below CCC- are excluded.
 
 **Aggregate trend (R1, R2).** Regression (1) run quarter by quarter on all
 bonds using WRDS bid-ask spreads; standard errors clustered at the firm level
-(Figure 1, p. 880). The aggregate loading beta_t and the liquidity component
+(Figure 1, p. 880). The aggregate loading $$\beta_t$$ and the liquidity component
 median are the key time-series outcomes.
 
 **Cross-sectional analysis, investor composition effects (R3).** Table I
@@ -344,17 +346,17 @@ date fixed effects.
 **Credit spreads and bid-ask spreads interaction (R4).** Table II (p. 887)
 reports four specifications of regression (8): full sample OLS, full sample IV,
 subsample OLS, subsample IV. Investor composition is instrumented with
-1_{ttm>10}; the interaction Inv_Comp x BA is instrumented with 1_{ttm>10} x BA.
+$$\mathbf{1}_{\text{ttm}>10}$$; the interaction $$\text{Inv\_Comp} \times \text{BA}$$ is instrumented with $$\mathbf{1}_{\text{ttm}>10} \times \text{BA}$$.
 Standard errors are clustered by industry and time. The key finding is the
-significant positive coefficient on Inv_Comp x Bid_Ask (48.65\*\*\* OLS full
+significant positive coefficient on $$\text{Inv\_Comp} \times \text{Bid\_Ask}$$ (48.65\*\*\* OLS full
 sample; 55.86\*\*\* IV subsample).
 
 **Structural equilibrium and calibration (R5-R7).** The model is simulated in
 2005 and 2019 with calibrated parameters (Table IV, p. 903). The mechanism
-decomposition (Table V, p. 905) shows beta_exo = 0.27/0.35 (2005/2019) vs
-empirical beta = 0.54/1.2, confirming the indirect channel (via seller-buyer
+decomposition (Table V, p. 905) shows $$\beta_{\text{exo}} = 0.27/0.35$$ (2005/2019) vs
+empirical $$\beta = 0.54/1.2$$, confirming the indirect channel (via seller-buyer
 ratio correlation) must explain the remainder. The indirect loading
-beta_endo = 0.65/1.7 matches the total pattern.
+$$\beta_{\text{endo}} = 0.65/1.7$$ matches the total pattern.
 
 ## Datasets used
 

@@ -137,14 +137,14 @@ Magnitudes and significance are as reported; `*`/`**`/`***` = 10%/5%/1%.
 |---|---|---|---|
 | R1 | U-shaped monetary rate path is more than twice as frequent before banking crises as unconditionally; 100% of deep post-WWII crises preceded by U shape | Table I, p. 935 | Crisis conditional frequency: U shape 55% (all crises) vs 27% unconditional; 100% for post-WWII deep crises |
 | R2 | U-shaped rate path is associated with 18% three-year crisis frequency, roughly double the 10% unconditional probability; deep and post-WWII crises show even larger gaps | Table II, p. 936 | U shape: 18%`***` crisis frequency vs 6-9% for other rate paths; deep crisis: 12%`***` vs 1-4% |
-| R3 | OLS regression: the interaction of rate hikes with previous cuts (U-shape) significantly raises crisis probability; 1 ppt hike after cuts raises three-year crisis probability by 9 ppts (sum of coefficients) | Table III col. (2), p. 939 | `Delta_3Rate * Cut` interaction = 0.03`**` (s.e. 0.01); sum of first three coefficients approx 0.09 |
-| R4 | IV result (trilemma instrument): 1 ppt rate increase over three years, after rates were cut for five years, raises three-year crisis probability by approximately 10 to 12 ppts | Table III col. (4), p. 939-940 | `Delta_3Rate * Cut` (IV) = 0.07`**` (s.e. 0.03); sum approx 0.10-0.12; Kleibergen-Paap weak ID = 27.48 |
-| R5 | U-shaped rates are not associated with nonfinancial recession risk; for recessions the interaction term is small and insignificant | Table IV, p. 942 | `Delta_3Rate * Cut` in recession regression = 0.02 (s.e. 0.01), insignificant; rate level alone raises recession risk |
+| R3 | OLS regression: the interaction of rate hikes with previous cuts (U-shape) significantly raises crisis probability; 1 ppt hike after cuts raises three-year crisis probability by 9 ppts (sum of coefficients) | Table III col. (2), p. 939 | $$\Delta_3\text{Rate} \times \text{Cut}$$ interaction = 0.03`**` (s.e. 0.01); sum of first three coefficients approx 0.09 |
+| R4 | IV result (trilemma instrument): 1 ppt rate increase over three years, after rates were cut for five years, raises three-year crisis probability by approximately 10 to 12 ppts | Table III col. (4), p. 939-940 | $$\Delta_3\text{Rate} \times \text{Cut}$$ (IV) = 0.07`**` (s.e. 0.03); sum approx 0.10-0.12; Kleibergen-Paap weak ID = 27.48 |
+| R5 | U-shaped rates are not associated with nonfinancial recession risk; for recessions the interaction term is small and insignificant | Table IV, p. 942 | $$\Delta_3\text{Rate} \times \text{Cut}$$ in recession regression = 0.02 (s.e. 0.01), insignificant; rate level alone raises recession risk |
 | R6 | A residual (above-and-beyond-systematic) U-shaped monetary path raises the three-year crisis frequency to 26%; combining the residual U shape with the financial red zone raises it to 45% (all crises), versus 36% for any U-shaped path with a red zone and 22% for a systematic U shape with a red zone | Tables V and VIII, pp. 943, 951 | Strong residual U crisis frequency: 26% (Table V, all crises). Table VIII: any U-shape + red zone = 36% (Panel A, 18/50); residual U-shape + red zone = 45% (Panel B, 14/30 all crises; 48% post-WWII, 11/22); systematic U-shape + red zone = 22% (3/15) |
-| R7 | Red zones (high credit and asset price growth) are strongly associated with future crises only if preceded by a U-shaped monetary rate path; monetary rate hikes while in the red zone raise crisis risk (R-zone x rate hike interaction = 0.18`***` to 0.38`***`) | Tables VII and IX, pp. 950, 953 | `R-zone * I(Delta_3Rate >= 0)` = 0.18`***` (OLS, s.e. 0.05), 0.38`***` (IV, s.e. 0.15); R-zones pre-raised: interaction 0.22`***` (OLS, s.e. 0.08) |
-| R8 | Spain loan level: monetary rate cuts increase credit growth, especially from weaker banks to riskier firms; 1 ppt cut raises credit growth by 4.8 ppt at the bank-firm level, rising 2.8 ppt further per interquartile increase in bank NPL ratio | Table XI Panel A, p. 962 | `Cut` = 4.80`**` (col. 2); `Cut * Bank NPL ratio` = 2.62`**` (col. 3); triple interaction with real estate firms: up to 7.9 ppt additional (col. 6) |
-| R9 | Spain loan level: monetary rate cuts reduce firm cost of debt by 20 bps on average, with larger reductions for firms borrowing from weaker (high-NPL) banks, consistent with credit supply and mispricing | Table XI Panel B, p. 962 | `Cut` = -0.20`***` (col. 1); `Cut * Bank NPL ratio` = -0.13`***` to -0.32`***` (cols. 2-5) |
-| R10 | Spain loan level: U-shaped monetary path raises loan default probability; 1 ppt rate hike after cuts raises three-year delinquency probability by 11.2% relative, with effects stronger for loans by weaker banks to real estate firms | Table XII, pp. 964-965 | `Delta_3Rate` (col. 3) = 0.002`***`; `Cut` = 0.011`***`; `Delta_3Rate * Cut` (col. 3) = 0.005`***`; quadruple interaction (Delta_3Rate x Cut x Bank NPL x Real estate, col. 6) = 0.005`***` |
+| R7 | Red zones (high credit and asset price growth) are strongly associated with future crises only if preceded by a U-shaped monetary rate path; monetary rate hikes while in the red zone raise crisis risk (R-zone x rate hike interaction = 0.18`***` to 0.38`***`) | Tables VII and IX, pp. 950, 953 | $$\text{R-zone} \times I(\Delta_3\text{Rate} \geq 0)$$ = 0.18`***` (OLS, s.e. 0.05), 0.38`***` (IV, s.e. 0.15); R-zones pre-raised: interaction 0.22`***` (OLS, s.e. 0.08) |
+| R8 | Spain loan level: monetary rate cuts increase credit growth, especially from weaker banks to riskier firms; 1 ppt cut raises credit growth by 4.8 ppt at the bank-firm level, rising 2.8 ppt further per interquartile increase in bank NPL ratio | Table XI Panel A, p. 962 | $$\text{Cut}$$ = 4.80`**` (col. 2); $$\text{Cut} \times \text{Bank NPL ratio}$$ = 2.62`**` (col. 3); triple interaction with real estate firms: up to 7.9 ppt additional (col. 6) |
+| R9 | Spain loan level: monetary rate cuts reduce firm cost of debt by 20 bps on average, with larger reductions for firms borrowing from weaker (high-NPL) banks, consistent with credit supply and mispricing | Table XI Panel B, p. 962 | $$\text{Cut}$$ = -0.20`***` (col. 1); $$\text{Cut} \times \text{Bank NPL ratio}$$ = -0.13`***` to -0.32`***` (cols. 2-5) |
+| R10 | Spain loan level: U-shaped monetary path raises loan default probability; 1 ppt rate hike after cuts raises three-year delinquency probability by 11.2% relative, with effects stronger for loans by weaker banks to real estate firms | Table XII, pp. 964-965 | $$\Delta_3\text{Rate}$$ (col. 3) = 0.002`***`; $$\text{Cut}$$ = 0.011`***`; $$\Delta_3\text{Rate} \times \text{Cut}$$ (col. 3) = 0.005`***`; quadruple interaction ($$\Delta_3\text{Rate} \times \text{Cut} \times \text{Bank NPL} \times \text{Real estate}$$, col. 6) = 0.005`***` |
 
 **Overall (paper's conclusion).** The dynamic path of monetary policy rates is
 crucial for financial stability. Prolonged rate cuts fuel credit and asset price
@@ -190,94 +190,91 @@ mechanical policy responses to business-cycle conditions.
 
 **Crisis-window regressions (equation 1, p. 932).**
 
-```
-y_{i,t+h} - y_{i,t} = alpha_{i,h} + alpha_{d,h} + beta_h * 1[Crisis_{i,t}=1] + epsilon_{i,t+h}
+$$
+y_{i,t+h} - y_{i,t} = \alpha_{i,h} + \alpha_{d,h} + \beta_h \cdot 1[\text{Crisis}_{i,t}=1] + \epsilon_{i,t+h}
+$$
 
-  h = -7, ..., 0, ..., 7   (years relative to crisis onset)
-  y = monetary policy rate level
-  alpha_i = country FE, alpha_d = decade FE
-```
+- $$h = -7, \ldots, 0, \ldots, 7$$: years relative to crisis onset
+- $$y$$: monetary policy rate level
+- $$\alpha_i$$: country FE; $$\alpha_d$$: decade FE
 
 This plots the average path of monetary rates around historical crisis events,
 with 90% confidence intervals, for different crisis definitions and subsamples.
 
 **Linear probability model for crisis risk (equation 2, p. 937-938).**
 
-```
-Crisis_{i,t to t+2} = alpha_i + beta_1 * Delta_3Rate_{i,t} + beta_2 * Cut_{i,t-8,t-3}
-                      + beta_3 * Delta_3Rate_{i,t} * Cut_{i,t-8,t-3}
-                      + gamma * X_{i,t} + u_{i,t}
+$$
+\text{Crisis}_{i,t\text{ to }t+2} = \alpha_i + \beta_1 \cdot \Delta_3\text{Rate}_{i,t} + \beta_2 \cdot \text{Cut}_{i,t-8,t-3}
+  + \beta_3 \cdot \Delta_3\text{Rate}_{i,t} \times \text{Cut}_{i,t-8,t-3}
+  + \gamma \cdot X_{i,t} + u_{i,t}
+$$
 
-  Delta_3Rate = three-year change in monetary policy rate (ppts)
-  Cut = 1 if monetary rates were cumulatively cut (t-8 to t-3)
-  X = contemporaneous values and eight lags of local and global inflation and GDP growth
-  SE: Driscoll-Kraay (five lags) to account for cross-country, cross-time correlation
-```
+- $$\Delta_3\text{Rate}$$: three-year change in monetary policy rate (ppts)
+- $$\text{Cut}$$: 1 if monetary rates were cumulatively cut (t-8 to t-3)
+- $$X$$: contemporaneous values and eight lags of local and global inflation and GDP growth
+- SE: Driscoll-Kraay (five lags) to account for cross-country, cross-time correlation
 
-The coefficient `beta_3` is the U-shape test: it captures whether rate hikes
+The coefficient $$\beta_3$$ is the U-shape test: it captures whether rate hikes
 are especially crisis-inducing when preceded by prolonged cuts.
 
 **Trilemma IV (equation 3, p. 938).**
 
-```
-Trilemma IV_{i,t} = DeltaRate^Residual_{b(i),t} * PEG_{i,t} * PEG_{i,t-1} * KOPEN_{i,t}
+$$
+\text{Trilemma IV}_{i,t} = \Delta\text{Rate}^{\text{Residual}}_{b(i),t} \times \text{PEG}_{i,t} \times \text{PEG}_{i,t-1} \times \text{KOPEN}_{i,t}
+$$
 
-  DeltaRate^Residual_{b(i),t} = residualized monetary rate change of the base country b(i)
-                                  (e.g. Germany for ERM members)
-  PEG = 1 if fixed exchange rate regime
-  KOPEN = degree of capital account openness (Quinn-Schindler-Toyoda rescaled)
-```
+- $$\Delta\text{Rate}^{\text{Residual}}_{b(i),t}$$: residualized monetary rate change of the base country $$b(i)$$ (e.g. Germany for ERM members)
+- $$\text{PEG}$$: 1 if fixed exchange rate regime
+- $$\text{KOPEN}$$: degree of capital account openness (Quinn-Schindler-Toyoda rescaled)
 
-The IV strategy instruments `Delta_3Rate` with the three-year change in the
-residualized trilemma variable, and the interaction with `Cut` with the
+The IV strategy instruments $$\Delta_3\text{Rate}$$ with the three-year change in the
+residualized trilemma variable, and the interaction with $$\text{Cut}$$ with the
 trilemma variable interacted with the cut dummy. Standard errors remain
 Driscoll-Kraay. First-stage Kleibergen-Paap weak ID statistics are well above
 conventional thresholds (27.48 to 65.68 across columns; Table III, p. 939).
 
 **Local projections for red zone interaction (equation 4, p. 954).**
 
-```
-Delta_h y_{i,t} = alpha_{i,h} + beta_{1,h} * DeltaRate_{i,t} + beta_{2,h} * I(Delta_3 y_{i,t} >= Rz)
-                  + beta_{3,h} * DeltaRate_{i,t} * I(Delta_3 y_{i,t} >= Rz)
-                  + gamma * X + epsilon_{i,t+h},   h = 1, ..., 10
+$$
+\Delta_h y_{i,t} = \alpha_{i,h} + \beta_{1,h} \cdot \Delta\text{Rate}_{i,t} + \beta_{2,h} \cdot I(\Delta_3 y_{i,t} \geq \text{Rz})
+  + \beta_{3,h} \cdot \Delta\text{Rate}_{i,t} \times I(\Delta_3 y_{i,t} \geq \text{Rz})
+  + \gamma \cdot X + \epsilon_{i,t+h}, \quad h = 1, \ldots, 10
+$$
 
-  y = household credit, house prices, business credit, or equity prices
-  Rz = red zone threshold (80th pctile for credit, 66.7th pctile for asset prices,
-       following Greenwood et al. 2022)
-  beta_{3,h} = main coefficient: does a rate hike reverse vulnerabilities more
-               strongly when the financial variable is already elevated?
-  SE: Driscoll-Kraay with 1.5 * h lags; 10% confidence intervals
-```
+- $$y$$: household credit, house prices, business credit, or equity prices
+- $$\text{Rz}$$: red zone threshold (80th pctile for credit, 66.7th pctile for asset prices, following Greenwood et al. 2022)
+- $$\beta_{3,h}$$: main coefficient: does a rate hike reverse vulnerabilities more strongly when the financial variable is already elevated?
+- SE: Driscoll-Kraay with $$1.5 \times h$$ lags; 10% confidence intervals
 
 **Spain loan-level credit supply regression (equation 5, p. 960).**
 
-```
-Delta y_{i,j,t} = beta_1 * Cut_{t-5,t} + beta_2 * Cut_{t-5,t} * Bank risk_{i,t-1}
-                  + beta_3 * Cut_{t-5,t} * Bank risk_{i,t-1} * Firm risk_{j,t-1}
-                  + gamma_1 * F_{j,t-1} + gamma_2 * B_{i,t-1} + gamma_3 * M_t + u_{i,j,t}
+$$
+\Delta y_{i,j,t} = \beta_1 \cdot \text{Cut}_{t-5,t} + \beta_2 \cdot \text{Cut}_{t-5,t} \times \text{Bank risk}_{i,t-1}
+  + \beta_3 \cdot \text{Cut}_{t-5,t} \times \text{Bank risk}_{i,t-1} \times \text{Firm risk}_{j,t-1}
+  + \gamma_1 \cdot F_{j,t-1} + \gamma_2 \cdot B_{i,t-1} + \gamma_3 \cdot M_t + u_{i,j,t}
+$$
 
-  Delta y = log change in credit granted by bank i to firm j
-  Cut = 1 if overnight rates were below their average between t-5 and t
-  Bank risk = bank NPL ratio (proxy for ex ante bank risk)
-  Firm risk = 1 if firm is in construction/real estate sector
-  F = firm-level controls (industry, location) and FE
-  B = bank-level controls and FE
-  M = macro controls and time FE; also firm*bank and firm*time FE variants
-  SE: clustered at time and bank levels
-```
+- $$\Delta y$$: log change in credit granted by bank $$i$$ to firm $$j$$
+- $$\text{Cut}$$: 1 if overnight rates were below their average between t-5 and t
+- $$\text{Bank risk}$$: bank NPL ratio (proxy for ex ante bank risk)
+- $$\text{Firm risk}$$: 1 if firm is in construction/real estate sector
+- $$F$$: firm-level controls (industry, location) and FE
+- $$B$$: bank-level controls and FE
+- $$M$$: macro controls and time FE; also firm*bank and firm*time FE variants
+- SE: clustered at time and bank levels
 
 **Spain loan-level default regression (equation 6, p. 963).**
 
-```
-Loan Default_{i,j,t,t+3} = beta_1 * Delta_3Rate_{t,t+3} + beta_2 * Cut_{t-5,t}
-                            + beta_3 * Delta_3Rate_{t,t+3} * Cut_{t-5,t}
-                            + gamma_1 * F_{j,t-1} + gamma_2 * B_{i,t-1} + gamma_3 * M_t + u_{i,j,t,t+3}
+$$
+\text{Loan Default}_{i,j,t,t+3} = \beta_1 \cdot \Delta_3\text{Rate}_{t,t+3} + \beta_2 \cdot \text{Cut}_{t-5,t}
+  + \beta_3 \cdot \Delta_3\text{Rate}_{t,t+3} \times \text{Cut}_{t-5,t}
+  + \gamma_1 \cdot F_{j,t-1} + \gamma_2 \cdot B_{i,t-1} + \gamma_3 \cdot M_t + u_{i,j,t,t+3}
+$$
 
-  Loan Default = 1 if loan becomes delinquent (>90 days overdue) in t+1 to t+3
-  Delta_3Rate = ppt change in monetary rate between t and t+3
-  beta_3 > 0: hikes are more crisis-inducing when preceded by cuts (U-shape test)
-  SE: clustered at time and bank levels
-```
+- $$\text{Loan Default}$$: 1 if loan becomes delinquent (>90 days overdue) in t+1 to t+3
+- $$\Delta_3\text{Rate}$$: ppt change in monetary rate between t and t+3
+- $$\beta_3 > 0$$: hikes are more crisis-inducing when preceded by cuts (U-shape test)
+- SE: clustered at time and bank levels
 
 ## Empirical specifications
 
@@ -292,8 +289,8 @@ The headline results tie to the following specification choices:
   fixed effects (Table III; Internet Appendix Tables IA.VI-IA.XI).
 
 - **U-shape path classification.** An eight-year window is classified into four
-  shapes based on the direction of the cumulative change in `t-8` to `t-3` and
-  in `t-3` to `t`. U shape = cumulative cut in the first five years followed by
+  shapes based on the direction of the cumulative change in t-8 to t-3 and
+  in t-3 to t. U shape = cumulative cut in the first five years followed by
   a raise in the last three years. This classification is used in frequency
   comparisons (Tables I, II, V, VIII) and interacted with rate changes in
   regression (equation 2).

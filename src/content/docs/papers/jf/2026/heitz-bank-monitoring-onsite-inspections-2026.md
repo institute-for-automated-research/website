@@ -195,39 +195,33 @@ proposed.
 **Cross-sectional monitoring determinants (equation 1, p. 707).** OLS and
 Poisson regressions of monitoring measures on loan origination characteristics:
 
-```
-Monitoring_l = gamma * Origination_l + beta * X_l + epsilon_l
-```
+$$\text{Monitoring}_l = \gamma \cdot \text{Origination}_l + \beta \cdot X_l + \epsilon_l$$
 
-`Monitoring_l` is ALLINSPECTIONS, ALLTOTERMINAL, or TIMETOFIRST.
-`Origination_l` are loan terms (log amount, spread, fees, CLTV, TERM).
-`X_l` are fixed effects: property zip (3-digit), borrower zip, loan
-origination day. Poisson regression is used for count variables
-(ALLINSPECTIONS, columns 1 and 4); OLS elsewhere.
+- $$\text{Monitoring}_l$$ is ALLINSPECTIONS, ALLTOTERMINAL, or TIMETOFIRST.
+- $$\text{Origination}_l$$ are loan terms (log amount, spread, fees, CLTV, TERM).
+- $$X_l$$ are fixed effects: property zip (3-digit), borrower zip, loan origination day. Poisson regression is used for count variables (ALLINSPECTIONS, columns 1 and 4); OLS elsewhere.
 
 **Panel regressions for draw denials and inspections (equations 2-3, pp. 708,
 712).** Daily loan-day or draw-request panel regressions:
 
-```
-DrawDenied_dtl = gamma * Covariate_dtl + zeta * Z_l + epsilon_dtl    (2)
+$$
+\text{DrawDenied}_{dtl} = \gamma \cdot \text{Covariate}_{dtl} + \zeta \cdot Z_l + \epsilon_{dtl} \tag{2}
+$$
 
-InspectionDate_lt = gamma * Covariate_lt + zeta * Z_l + epsilon_lt   (3)
-```
+$$
+\text{InspectionDate}_{lt} = \gamma \cdot \text{Covariate}_{lt} + \zeta \cdot Z_l + \epsilon_{lt} \tag{3}
+$$
 
-`Z_l` are loan fixed effects (absorbing all time-invariant loan
-characteristics). Covariates include HOUSING PRICE INDEX and FORECLOSURE RATE
-(time-varying, at the five-digit zip code level) and YEARBEFOREFAILURE /
-STARTOFYEARBEFOREFAILURE (bank distress). Standard errors clustered at the
-three-digit property zip code level.
+- $$Z_l$$ are loan fixed effects (absorbing all time-invariant loan characteristics).
+- Covariates include HOUSING PRICE INDEX and FORECLOSURE RATE (time-varying, at the five-digit zip code level) and YEARBEFOREFAILURE / STARTOFYEARBEFOREFAILURE (bank distress).
+- Standard errors clustered at the three-digit property zip code level.
 
 **Instrumental variable estimation (Table VIII).** Three separate 2SLS
 specifications for the causal effect of monitoring on eventual default:
 
-```
-First stage:  ALLTOTERMINAL_l = pi * Instrument_l + delta * Controls_l + nu_l
+$$\text{First stage:} \quad \text{ALLTOTERMINAL}_l = \pi \cdot \text{Instrument}_l + \delta \cdot \text{Controls}_l + \nu_l$$
 
-Second stage: EVENTUALDEFAULT_l = alpha * ALLTOTERMINAL_hat_l + beta * Controls_l + epsilon_l
-```
+$$\text{Second stage:} \quad \text{EVENTUALDEFAULT}_l = \alpha \cdot \widehat{\text{ALLTOTERMINAL}}_l + \beta \cdot \text{Controls}_l + \epsilon_l$$
 
 Three instruments are used in three independent panels:
 - Panel A: DRAWTOTERMINAL (the draw schedule frequency, set at origination).
@@ -243,10 +237,9 @@ by three-digit zip code and loan origination day.
 **Text sentiment scoring (Loughran-McDonald, §IV, pp. 719-720).** From each
 on-site inspection report, the paper calculates:
 
-```
-POSITIVEWORDS = (count of positive words) / (comment length in chars) * 100
-NEGATIVEWORDS = (count of negative words) / (comment length in chars) * 100
-```
+$$\text{POSITIVEWORDS} = \frac{\text{count of positive words}}{\text{comment length in chars}} \times 100$$
+
+$$\text{NEGATIVEWORDS} = \frac{\text{count of negative words}}{\text{comment length in chars}} \times 100$$
 
 using the Loughran-McDonald (2011) financial sentiment dictionary. These
 sentiment scores are then entered as covariates in a draw-denial panel

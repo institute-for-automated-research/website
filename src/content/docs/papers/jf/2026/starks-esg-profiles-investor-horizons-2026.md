@@ -200,9 +200,9 @@ estimators are:
   (eq. 13) and around the 2016 Morningstar sustainability globe introduction
   (eq. 16), including fund fixed effects for within-fund identification.
 
-The churn ratio `CR` is constructed at the quarterly level, using the
+The churn ratio $$\text{CR}$$ is constructed at the quarterly level, using the
 four-quarter moving average (Gaspar, Massa, and Matos 2005), and the
-adjusted churn ratio `CR_Adj` mitigates flow bias by taking the minimum of
+adjusted churn ratio $$\text{CR\_Adj}$$ mitigates flow bias by taking the minimum of
 buy-side and sell-side churn (Yan and Zhang 2009). Both measures are used
 interchangeably throughout.
 
@@ -210,85 +210,78 @@ interchangeably throughout.
 
 **Investor-level ESG regression (R3, R4), eq. 7, p. 615:**
 
-```
-FundESG_{j,t+1} = alpha_t + beta_1 * Horizon_{j,t} + beta_2 * Controls_{j,t} + epsilon_{j,t}
-```
+$$
+\text{FundESG}_{j,t+1} = \alpha_t + \beta_1 \cdot \text{Horizon}_{j,t} + \beta_2 \cdot \text{Controls}_{j,t} + \epsilon_{j,t} \tag{7}
+$$
 
-where `FundESG_{j,t+1}` is the value-weighted average MSCI ESG score of
-fund `j`'s portfolio holdings at the end of the following quarter;
-`Horizon_{j,t}` is the fund's annual turnover ratio, churn ratio, or
-adjusted churn ratio (four-quarter moving average); controls include
-ln(Fund TNA), number of portfolio holdings, value-weighted portfolio market
-cap and book-to-market, past 12-month return, and fractional return rank.
-Investment objective-by-quarter fixed effects included. Standard errors
-two-way clustered at the fund and quarter level.
+- $$\text{FundESG}_{j,t+1}$$ is the value-weighted average MSCI ESG score of fund $$j$$'s portfolio holdings at the end of the following quarter.
+- $$\text{Horizon}_{j,t}$$ is the fund's annual turnover ratio, churn ratio, or adjusted churn ratio (four-quarter moving average).
+- Controls include ln(Fund TNA), number of portfolio holdings, value-weighted portfolio market cap and book-to-market, past 12-month return, and fractional return rank.
+- Sample: all fund-quarter observations. Fixed effects: investment objective-by-quarter. Standard errors: two-way clustered at the fund and quarter level.
 
 **Firm-level horizon regression (R5), eq. 8, p. 619:**
 
-```
-InvestorHorizon_{i,t+1} = alpha_t + beta_1 * ESG_{i,t} + beta_2 * Controls_{i,t} + epsilon_{i,t}
-```
+$$
+\text{InvestorHorizon}_{i,t+1} = \alpha_t + \beta_1 \cdot \text{ESG}_{i,t} + \beta_2 \cdot \text{Controls}_{i,t} + \epsilon_{i,t} \tag{8}
+$$
 
-where `InvestorHorizon_{i,t+1}` is the weighted-average turnover ratio or
-churn ratio of firm `i`'s mutual fund or 13f shareholders; `ESG_{i,t}` is
-the MSCI ESG score; controls include ln(market cap), book-to-market,
-dividend yield, profitability, past return, return volatility, stock
-turnover, and fund flow volatility. Industry (two-digit SIC) and year fixed
-effects. Standard errors double clustered at stock and year.
+- $$\text{InvestorHorizon}_{i,t+1}$$ is the weighted-average turnover ratio or churn ratio of firm $$i$$'s mutual fund or 13f shareholders.
+- $$\text{ESG}_{i,t}$$ is the MSCI ESG score.
+- Controls include ln(market cap), book-to-market, dividend yield, profitability, past return, return volatility, stock turnover, and fund flow volatility.
+- Fixed effects: industry (two-digit SIC) and year. Standard errors: double-clustered at stock and year.
 
 **Earnings-surprise trading regression (R6, information channel), eq. 9, p. 626:**
 
-```
-Dummy(Sell)_{i,j,t} = alpha_{j,t} + beta_1 * EarningsShortfall_{i,t}
-                     + beta_2 * LongTermInvestor_{j,t} * EarningsShortfall_{i,t}
-                     + Controls_{j,t} + epsilon_{i,j,t}
-```
+$$
+\text{Dummy(Sell)}_{i,j,t} = \alpha_{j,t} + \beta_1 \cdot \text{EarningsShortfall}_{i,t} + \beta_2 \cdot \text{LongTermInvestor}_{j,t} \times \text{EarningsShortfall}_{i,t} + \text{Controls}_{j,t} + \epsilon_{i,j,t} \tag{9}
+$$
 
-Sample: interquarter changes for positions held in previous quarter.
-`LongTermInvestor` is an indicator for funds whose four-quarter trailing
-churn ratio falls below the 30th percentile. Fund-by-quarter fixed effects.
-Standard errors double-clustered at the fund and quarter level.
+- $$\text{Dummy(Sell)}_{i,j,t}$$ is an indicator for fund $$j$$ selling stock $$i$$ in quarter $$t$$.
+- $$\text{EarningsShortfall}_{i,t}$$ is a negative earnings surprise measure for stock $$i$$.
+- $$\text{LongTermInvestor}_{j,t}$$ is an indicator for funds whose four-quarter trailing churn ratio falls below the 30th percentile.
+- Sample: interquarter changes for positions held in previous quarter. Fixed effects: fund-by-quarter. Standard errors: double-clustered at the fund and quarter level.
 
 **ES-incident trading regression (R6, information channel), eq. 10, p. 628:**
 
-```
-Dummy(Sell)_{i,j,t} = alpha_{j,t} + beta_1 * ESIncident_{i,t-1}
-                     + beta_2 * LongTermInvestor_{j,t} * ESIncident_{i,t-1}
-                     + Controls_{j,t} + epsilon_{i,j,t}
-```
+$$
+\text{Dummy(Sell)}_{i,j,t} = \alpha_{j,t} + \beta_1 \cdot \text{ESIncident}_{i,t-1} + \beta_2 \cdot \text{LongTermInvestor}_{j,t} \times \text{ESIncident}_{i,t-1} + \text{Controls}_{j,t} + \epsilon_{i,j,t} \tag{10}
+$$
 
-`ESIncident` is an indicator from RepRisk for severe negative environmental
-or social incidents in the previous quarter. Specifications include both
-fund-by-quarter and stock-by-quarter fixed effects (columns 4-6 of Table
-VIII absorb all stock-time variation, isolating differential fund responses).
+- $$\text{ESIncident}_{i,t-1}$$ is an indicator from RepRisk for severe negative environmental or social incidents in the previous quarter.
+- $$\text{LongTermInvestor}_{j,t}$$ is an indicator for low-churn funds (below 30th percentile trailing churn ratio).
+- Specifications include both fund-by-quarter and stock-by-quarter fixed effects (columns 4-6 of Table VIII absorb all stock-time variation, isolating differential fund responses).
 
 **Flow-performance sensitivity and ESG (R7, limits-to-arbitrage), eqs. 11-12, p. 630:**
 
-```
-FPS_{j,t} = alpha_t + beta_1 * Horizon_{j,t} + beta_2 * Controls_{j,t} + epsilon_{j,t}
-FundESG_{j,t+1} = alpha_t + beta_1 * FPS_{j,t} + beta_2 * Controls_{j,t} + epsilon_{j,t}
-```
+$$
+\text{FPS}_{j,t} = \alpha_t + \beta_1 \cdot \text{Horizon}_{j,t} + \beta_2 \cdot \text{Controls}_{j,t} + \epsilon_{j,t} \tag{11}
+$$
 
-`FPS` estimated from a 24-month rolling OLS of monthly net fund flows on
-past 12-month average monthly return; investment objective-by-quarter fixed
-effects.
+$$
+\text{FundESG}_{j,t+1} = \alpha_t + \beta_1 \cdot \text{FPS}_{j,t} + \beta_2 \cdot \text{Controls}_{j,t} + \epsilon_{j,t} \tag{12}
+$$
+
+- $$\text{FPS}_{j,t}$$ is the flow-performance sensitivity of fund $$j$$, estimated from a 24-month rolling OLS of monthly net fund flows on past 12-month average monthly return.
+- Fixed effects: investment objective-by-quarter. Standard errors match the investor-level specification.
 
 **SEC 2004 DiD and 2SLS (R8, causal test), eqs. 13-15, pp. 632-633:**
 
-```
-FundESG_{j,t+1} = alpha_j + gamma_t + beta * TreatedFunds_j * PostDisclosure_t + Controls + epsilon_{j,t}
-```
+$$
+\text{FundESG}_{j,t+1} = \alpha_j + \gamma_t + \beta \cdot \text{TreatedFunds}_j \times \text{PostDisclosure}_t + \text{Controls} + \epsilon_{j,t} \tag{13}
+$$
 
-(reduced-form DiD; treated = switched from semiannual to quarterly
-disclosure; sample 2001Q1-2008Q4; fund and quarter fixed effects)
+- Reduced-form DiD. Treated funds switched from semiannual to quarterly disclosure; control funds were already disclosing quarterly.
+- Sample: 2001Q1-2008Q4. Fixed effects: fund ($$\alpha_j$$) and quarter ($$\gamma_t$$). Standard errors: clustered at the fund level.
 
-```
-Horizon_{j,t} = alpha_j + gamma_t + beta * TreatedFunds_j * PostDisclosure_t + Controls + epsilon_{j,t}
-FundESG_{j,t+1} = alpha_j + gamma_t + beta_1 * Horizon-hat_{j,t} + beta_2 * Controls + epsilon_{j,t}
-```
+$$
+\text{Horizon}_{j,t} = \alpha_j + \gamma_t + \beta \cdot \text{TreatedFunds}_j \times \text{PostDisclosure}_t + \text{Controls} + \epsilon_{j,t} \tag{14}
+$$
 
-(first and second stages of 2SLS; standard errors clustered at the fund
-level for serial dependence)
+$$
+\text{FundESG}_{j,t+1} = \alpha_j + \gamma_t + \beta_1 \cdot \widehat{\text{Horizon}}_{j,t} + \beta_2 \cdot \text{Controls} + \epsilon_{j,t} \tag{15}
+$$
+
+- Eq. 14 is the first stage of 2SLS; eq. 15 is the second stage, with $$\widehat{\text{Horizon}}_{j,t}$$ the fitted value from eq. 14. Standard errors: clustered at the fund level for serial dependence.
 
 ## Datasets used
 

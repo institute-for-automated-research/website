@@ -11,10 +11,16 @@ prose: they are what lets someone ask "which methods reached fixed income",
 Rendering notes (do not break these):
 - No em-dashes, no colorful adjectives, anywhere (titles, descriptions, body).
   Use `:` `,` `(` and ASCII `-` (hyphen-minus), never the `-` em-dash.
-- This site has **no KaTeX**. Write every equation as **plain-text / Unicode**
-  inside a fenced code block (display) or inline back-ticks. Use `Sigma`, `mu`,
-  `lambda`, `<=`, `>=`, subscripts as `_{...}`, superscripts as `^...`. Do not
-  emit `$...$` LaTeX; it renders literally.
+- This site renders math with **KaTeX**. Write every equation as **real LaTeX**
+  inside `$$ ... $$`. A `$$ ... $$` on its own line(s) renders as a display block;
+  `$$ ... $$` mid-sentence renders inline. **Single `$` is disabled** (so prose
+  dollar amounts like "$5 million" stay literal) - never use single-`$` math.
+  Use real control sequences (`\Sigma`, `\mu`, `\lambda`, `\sum`, `\frac{}{}`,
+  `\leq`, `\geq`, `\times`, `\setminus`, `\tilde`, `\hat`), subscripts `_{...}`,
+  superscripts `^{...}`. Wrap multi-letter / word variables in `\text{...}`
+  (e.g. `\text{Trade}_{ijt}`). Equation numbers use `\tag{N}` (display blocks
+  only; never in inline math). Never put a page/section locator or the `§` sign
+  inside math; locators belong in the surrounding prose.
 - Keep findings first; rights/attribution last.
 
 ---
@@ -157,8 +163,9 @@ original (link) to replicate or extend>
 
 ## Theory / model            # the economic content: model + hypotheses + identification
 <Write the model's actual equations (utility, FOC/Euler, budget, equilibrium,
-law of motion, pricing equation) in plain-text fenced blocks, each with its
-PDF locator. Then the identification logic. If the paper has NO formal model,
+law of motion, pricing equation) as `$$ ... $$` LaTeX display blocks, each with
+its PDF locator in the surrounding prose. Then the identification logic. If the
+paper has NO formal model,
 say so plainly and give the tested hypotheses + identification strategy here.>
 
 ## Method                    # the estimator / proposed technique / solution method

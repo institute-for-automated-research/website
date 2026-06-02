@@ -131,7 +131,8 @@ plus the queryable axes that make the corpus answerable for gaps and evolution:
 `outcome`, `relatesTo`, `openQuestions`, `replicationCode`, `jel`,
 `proposedVocab`. The body is findings-first: TL;DR, Core results, then the three
 formal sections (Theory / model, Method, Empirical specifications) with real
-plain-text equations, Datasets used, When to read, Attribution.
+LaTeX equations in `$$ ... $$` (KaTeX; single `$` is disabled), Datasets used,
+When to read, Attribution.
 
 The distiller pulls author ORCIDs + `topics` (the subject classification we use
 since J. Finance prints no JEL) from the **`openalex`** skill, and reuses

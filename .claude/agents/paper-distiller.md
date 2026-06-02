@@ -154,9 +154,12 @@ with the compact JSON result described at the bottom.
 - **The three formal sections** `## Theory / model`, `## Method`,
   `## Empirical specifications` are the substance. Write the paper's ACTUAL
   equations (model; estimator/objective; regression specifications), not a
-  prose gloss, each with a PDF locator. The site has **no KaTeX**: write every
-  equation as plain-text / Unicode inside a fenced code block, ASCII `-` not
-  the em-dash, never `$...$` LaTeX. Include each section the paper has (most
+  prose gloss, each with a PDF locator in the prose. The site renders math with
+  **KaTeX**: write every equation as real LaTeX inside `$$ ... $$` (display on
+  its own line, inline mid-sentence), word variables in `\text{...}`, `\tag{N}`
+  for equation numbers in display blocks only, ASCII `-` not the em-dash. Single
+  `$` is disabled, so never use single-`$` math and never put a locator or `§`
+  inside math. Include each section the paper has (most
   have at least two); the section-by-paper-type guide in the template says
   which is the star. For an empirical result, give the estimating equation,
   fixed effects, standard-error treatment, and sample, not just the number.

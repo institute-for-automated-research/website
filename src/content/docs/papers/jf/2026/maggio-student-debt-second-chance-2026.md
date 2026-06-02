@@ -156,20 +156,20 @@ models (pp. 519-521):
 The paper formalizes the borrower's budget constraint (p. 517) to clarify
 what is and is not observable:
 
-```
-c_{i,t} = (1 - s^u_{i,t}) * gamma_{i,t-1}
+$$
+c_{i,t} = (1 - s^u_{i,t}) \cdot \gamma_{i,t-1}
          + (1 - G_i(t_d))(1 - s_{i,t})(Y^o_{i,t} + Y^h_{i,t} + Y^f_{i,t})
-         - sum_{l=1}^{A} (1 + r_{i,l}) * b_{i,t,l}
-```
+         - \sum_{l=1}^{A} (1 + r_{i,l}) \cdot b_{i,t,l}
+$$
 
-where `c_{i,t}` is consumption of individual `i` in period `t`;
-`gamma_{i,t-1}` is wealth at `t-1`; `G_i(t_d)` is a piecewise garnishment
-function equal to rate `g` if `i` is in the control group after default date
-`t_d`, zero otherwise; `Y^o_{i,t}` is observed wage income; `Y^h_{i,t}` is
-hidden wage income; `Y^f_{i,t}` is financial income; `s^u_{i,t}` is the
-savings rate out of assets; `s_{i,t}` is the savings rate out of income;
-`r_{i,l}` and `b_{i,t,l}` are interest rates and balances for loans of type
-`l` (p. 517-518). The paper explicitly notes it cannot observe consumption,
+where $$c_{i,t}$$ is consumption of individual $$i$$ in period $$t$$;
+$$\gamma_{i,t-1}$$ is wealth at $$t-1$$; $$G_i(t_d)$$ is a piecewise garnishment
+function equal to rate $$g$$ if $$i$$ is in the control group after default date
+$$t_d$$, zero otherwise; $$Y^o_{i,t}$$ is observed wage income; $$Y^h_{i,t}$$ is
+hidden wage income; $$Y^f_{i,t}$$ is financial income; $$s^u_{i,t}$$ is the
+savings rate out of assets; $$s_{i,t}$$ is the savings rate out of income;
+$$r_{i,l}$$ and $$b_{i,t,l}$$ are interest rates and balances for loans of type
+$$l$$ (p. 517-518). The paper explicitly notes it cannot observe consumption,
 savings, or hidden income, which limits the set of testable predictions.
 
 **Identification.** The source of variation is the plausibly random loss of
@@ -211,34 +211,33 @@ the validity of the treated group's contribution.
 
 **Baseline DiD (equation 1, p. 518).** The main estimating equation is:
 
-```
-Outcome_{i,j,t} = alpha + beta * (DebtRelief_i * Post_t)
-                + mu_i + gamma_{j x t} + epsilon_{i,j,t}
-```
+$$
+\text{Outcome}_{i,j,t} = \alpha + \beta \cdot (\text{DebtRelief}_i \times \text{Post}_t)
+                + \mu_i + \gamma_{j \times t} + \epsilon_{i,j,t}
+\tag{1}
+$$
 
-where `Outcome_{i,j,t}` is the outcome variable for borrower `i`, filing
-year `j`, calendar year-month `t`; `DebtRelief_i` = 1 for treated borrowers
-(debt discharged), 0 for control; `Post_t` = 1 after debt discharge and 0
-before; `mu_i` are individual fixed effects; `gamma_{j x t}` are filing-year
-by calendar-year-month fixed effects (ensuring treated and control borrowers
-are compared within the same filing-year cohort and calendar time); and
-`epsilon_{i,j,t}` is the error term. Standard errors clustered at zip code
-level. N = 1,283,639 borrower-month observations (credit data).
+- $$\text{Outcome}_{i,j,t}$$ is the outcome variable for borrower $$i$$, filing year $$j$$, calendar year-month $$t$$.
+- $$\text{DebtRelief}_i$$ = 1 for treated borrowers (debt discharged), 0 for control.
+- $$\text{Post}_t$$ = 1 after debt discharge and 0 before.
+- $$\mu_i$$ are individual fixed effects.
+- $$\gamma_{j \times t}$$ are filing-year by calendar-year-month fixed effects (ensuring treated and control borrowers are compared within the same filing-year cohort and calendar time).
+- $$\epsilon_{i,j,t}$$ is the error term.
+- Standard errors clustered at zip code level. N = 1,283,639 borrower-month observations (credit data).
 
 **Dynamic event-study (equation 2, p. 519).** To assess pre-trends and
 persistence:
 
-```
-Outcome_{i,j,t} = alpha + sum_{tau=-5}^{9} beta_tau * (DebtRelief_i * Post_tau)
-                + mu_i + gamma_{j x t} + epsilon_{i,j,t}
-```
+$$
+\text{Outcome}_{i,j,t} = \alpha + \sum_{\tau=-5}^{9} \beta_\tau \cdot (\text{DebtRelief}_i \times \text{Post}_\tau)
+                + \mu_i + \gamma_{j \times t} + \epsilon_{i,j,t}
+\tag{2}
+$$
 
-where `tau` indexes event-quarters relative to discharge; `tau = -5`
-captures all months before five quarters pre-treatment and `tau = 9`
-captures all months nine or more quarters post-treatment. Coefficients
-`beta_tau` are plotted with confidence intervals (Figure 2, pp. 525-526).
-Pre-trend coefficients are indistinguishable from zero across all outcomes;
-post-discharge coefficients diverge persistently for at least two years.
+- $$\tau$$ indexes event-quarters relative to discharge.
+- $$\tau = -5$$ captures all months before five quarters pre-treatment and $$\tau = 9$$ captures all months nine or more quarters post-treatment.
+- Coefficients $$\beta_\tau$$ are plotted with confidence intervals (Figure 2, pp. 525-526).
+- Pre-trend coefficients are indistinguishable from zero across all outcomes; post-discharge coefficients diverge persistently for at least two years.
 
 **Outcome variable groups and samples:**
 - Credit outcomes (R1-R4): full sample, N = 1,283,639; outcomes include

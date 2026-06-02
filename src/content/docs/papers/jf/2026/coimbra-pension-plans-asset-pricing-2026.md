@@ -137,118 +137,121 @@ working until age 65 and retiring thereafter. Two household types (*A* and
 
 **Production technology (eq. 1, p. 149).**
 
-```
-Y_t = Z_t K_t^alpha L_t^{1-alpha}
-```
+$$
+Y_t = Z_t K_t^{\alpha} L_t^{1-\alpha}
+$$
 
-where `Z_t = G_t U_t` is aggregate productivity (`G_t = (1+g)^t` is
-deterministic growth; `U_t` is a two-state Markov business-cycle shock),
-`K` is the beginning-of-period capital stock, and `L` is labor supply (eq.
+where $$Z_t = G_t U_t$$ is aggregate productivity ($$G_t = (1+g)^t$$ is
+deterministic growth; $$U_t$$ is a two-state Markov business-cycle shock),
+$$K$$ is the beginning-of-period capital stock, and $$L$$ is labor supply (eq.
 2, p. 149).
 
 **Stochastic depreciation (eq. 3, p. 149).**
 
-```
-delta_t = delta_bar(U_t) + sigma^delta(U_t) * eta_t
-```
+$$
+\delta_t = \bar{\delta}(U_t) + \sigma^{\delta}(U_t) \cdot \eta_t
+$$
 
-where `eta_t` is i.i.d. standard normal and both the conditional mean and
-standard deviation of depreciation are correlated with `U_t`. This device
+where $$\eta_t$$ is i.i.d. standard normal and both the conditional mean and
+standard deviation of depreciation are correlated with $$U_t$$. This device
 avoids explicit adjustment costs while generating realistic return volatility
 in the incomplete-markets setting.
 
 **Household preferences: Epstein-Zin-Weil (eq. 9, p. 151).**
 
-```
-V_{a,t} = { (1-beta)(C^i_{a,t})^{1-1/psi}
-             + beta( E_t(p_a V^{1-gamma}_{a+1,t+1}) )^{(1-1/psi)/(1-gamma)} }^{1/(1-1/psi)}
-```
+$$
+V_{a,t} = \left\{ (1-\beta)(C^i_{a,t})^{1-1/\psi}
+             + \beta\left( \mathbb{E}_t\!\left(p_a V^{1-\gamma}_{a+1,t+1}\right) \right)^{(1-1/\psi)/(1-\gamma)} \right\}^{1/(1-1/\psi)}
+$$
 
-where `beta` is the discount factor, `gamma` is relative risk aversion, and
-`psi` is the elasticity of intertemporal substitution (EIS). Type-*B*
-households: `beta^B = 0.965`, `psi^B = 0.65`; type-*A*: `beta^A = 0.83`,
-`psi^A = 0.25`; both have `gamma = 6` (Table I, p. 160).
+where $$\beta$$ is the discount factor, $$\gamma$$ is relative risk aversion, and
+$$\psi$$ is the elasticity of intertemporal substitution (EIS). Type-*B*
+households: $$\beta^B = 0.965$$, $$\psi^B = 0.65$$; type-*A*: $$\beta^A = 0.83$$,
+$$\psi^A = 0.25$$; both have $$\gamma = 6$$ (Table I, p. 160).
 
 **Labor income (eqs. 13-16, pp. 152-153).** Individual labor income is
-`H^i_{a,t} = W_t L^i_{a,t}`, with individual productivity `L^i_{a,t} = P^i_{a,t} epsilon^i_t`
+$$H^i_{a,t} = W_t L^i_{a,t}$$, with individual productivity $$L^i_{a,t} = P^i_{a,t} \epsilon^i_t$$
 (permanent component times transitory shock). The permanent component follows:
 
-```
-P^i_{a,t} = exp(f(a)) P^i_{a-1,t-1} xi^i_t
-```
+$$
+P^i_{a,t} = \exp(f(a))\, P^i_{a-1,t-1}\, \xi^i_t
+$$
 
-where `f(a)` is a deterministic age profile (hump-shaped). Following Guvenen,
-Ozkan, and Song (2014), `ln xi^i_t` is a mixture of two normals conditional on
-the aggregate state `U_t`, capturing countercyclical earnings risk.
+where $$f(a)$$ is a deterministic age profile (hump-shaped). Following Guvenen,
+Ozkan, and Song (2014), $$\ln \xi^i_t$$ is a mixture of two normals conditional on
+the aggregate state $$U_t$$, capturing countercyclical earnings risk.
 
 **Retirement income (eq. 17, p. 153).** Retired households receive:
 
-```
-H^i_{a,t} = (lambda^ss + lambda^db) P^i_{a^R, t^R} W_t,    a > a^R
-```
+$$
+H^i_{a,t} = (\lambda^{ss} + \lambda^{db})\, P^i_{a^R, t^R}\, W_t, \qquad a > a^R
+$$
 
-where `lambda^ss` and `lambda^db` are the social security and DB pension
+where $$\lambda^{ss}$$ and $$\lambda^{db}$$ are the social security and DB pension
 replacement ratios, calibrated to 0.4596 and 0.2225 respectively (Table I).
 
 **Pension fund endowment and return (eq. 19, p. 155).**
 
-```
-R^P_t = alpha^P R^K_t + (1 - alpha^P) R^B_t
-```
+$$
+R^P_t = \alpha^P R^K_t + (1 - \alpha^P) R^B_t
+$$
 
-where `alpha^P` is the risky (equity) share of the pension fund portfolio,
+where $$\alpha^P$$ is the risky (equity) share of the pension fund portfolio,
 calibrated to 52% to match the historical Flow of Funds average.
 
 **Pension fund budget constraint and contribution rates.** The fund keeps
-endowment `omega^P` constant and adjusts contribution rates each year. In the
+endowment $$\omega^P$$ constant and adjusts contribution rates each year. In the
 general case (eq. 22-24, pp. 156-157), the shortfall before adjustments is:
 
-```
-omega_tilde^P_t = (1 + R^P_t) omega^P
-                  + sum_{a=20}^{65} integral_{i in I^a} tau_bar^{db} L^i_{a,t} w_t di
-                  - sum_{a=66}^{100} integral_{i in I^a} [lambda^{db} exp(f(a^R)) w_t P^i_{a^R, t^R}] di
-```
+$$
+\tilde{\omega}^P_t = (1 + R^P_t)\, \omega^P
+                  + \sum_{a=20}^{65} \int_{i \in I^a} \bar{\tau}^{db} L^i_{a,t}\, w_t\, di
+                  - \sum_{a=66}^{100} \int_{i \in I^a} \left[\lambda^{db} \exp(f(a^R))\, w_t\, P^i_{a^R, t^R}\right] di
+$$
 
-The fraction `theta^P` of the shortfall is absorbed by employer contributions:
+The fraction $$\theta^P$$ of the shortfall is absorbed by employer contributions:
 
-```
-tau^{kdb}_t = theta^P * (omega^P - omega_tilde^P_t) / (k_t - alpha^P omega^P)
-```
+$$
+\tau^{kdb}_t = \theta^P \cdot \frac{\omega^P - \tilde{\omega}^P_t}{k_t - \alpha^P \omega^P}
+$$
 
-and the remainder `(1 - theta^P)` by employee contributions:
+and the remainder $$(1 - \theta^P)$$ by employee contributions:
 
-```
-tau^{db}_t - tau_bar^{db} = (1 - theta^P) * (omega^P - omega_tilde^P_t) /
-                              sum_{a=20}^{65} integral_{i in I^a} L^i_{a,t} w_t di
-```
+$$
+\tau^{db}_t - \bar{\tau}^{db} = (1 - \theta^P) \cdot \frac{\omega^P - \tilde{\omega}^P_t}{\displaystyle\sum_{a=20}^{65} \int_{i \in I^a} L^i_{a,t}\, w_t\, di}
+$$
 
-Baseline calibration: `theta^P = 0.5` (equal split). This stochastic
+Baseline calibration: $$\theta^P = 0.5$$ (equal split). This stochastic
 adjustment is the new risk channel: return shocks feed into net wages and firm
 profits, raising cross-sectional consumption volatility.
 
 **Government budget constraint (eq. 8, p. 151).**
 
-```
-C^G_t + (1 + R^B_t) B_t = B_{t+1} + T_t
-```
+$$
+C^G_t + (1 + R^B_t)\, B_t = B_{t+1} + T_t
+$$
 
 Bond supply is calibrated to a debt-to-GDP ratio of 42% (average U.S.
 Treasury holdings by the public). Interest payments are financed by taxes on
-capital income (rate `tau^K = 40%`), bond interest (`tau^B = 20%`), wages
-(`tau^W`), and bequests.
+capital income (rate $$\tau^K = 40\%$$), bond interest ($$\tau^B = 20\%$$), wages
+($$\tau^W$$), and bequests.
 
 **Equilibrium conditions (eqs. 34-36, p. 160).** Markets clear in capital,
 bonds, and the consumption good:
 
-```
-k_{t+1} = int int P^i_{a,t} k^i_{a,t+1} da di
+$$
+k_{t+1} = \int \int P^i_{a,t}\, k^i_{a,t+1}\, da\, di
+$$
 
-b_{t+1} = int int P^i_{a,t} b^i_{a,t+1} da di
+$$
+b_{t+1} = \int \int P^i_{a,t}\, b^i_{a,t+1}\, da\, di
+$$
 
-U_t k_t^alpha L_t^{1-alpha} = C^G_t / G_t^{1/(1-alpha)}
-                              + (1+g)^{1/(1-alpha)} k_{t+1} - (1-delta_t) k_t
-                              + int int P^i_{a,t} c^i_{a,t} da di
-```
+$$
+U_t k_t^{\alpha} L_t^{1-\alpha} = \frac{C^G_t}{G_t^{1/(1-\alpha)}}
+                              + (1+g)^{1/(1-\alpha)} k_{t+1} - (1-\delta_t) k_t
+                              + \int \int P^i_{a,t}\, c^i_{a,t}\, da\, di
+$$
 
 ## Method
 
@@ -260,61 +263,63 @@ preferences, and `incomplete-markets-olg` techniques.
 **Household optimization (eq. 30, pp. 158-159).** Households solve the
 Bellman equation:
 
-```
-V_a(x^i_{a,t}, E^i_a, k_t, U_t, eta_t, P^B_t) =
-  max_{k^i_{a+1,t+1}, b^i_{a+1,t+1}} {
-    (1-beta) (c^i_{a,t})^{1-1/psi}
-    + beta ( E_t [ (P^i_{a+1,t+1}/P^i_{a,t} * (1+g))^{1-rho}
-             * p_a V^{1-rho}(x^i_{a+1,t+1}, E^i_{a+1}; k_{t+1}, U_{t+1}, eta_{t+1}, P^B_{t+1}) ] )^{(1-1/psi)/(1-rho)} }^{1/(1-1/psi)}
-```
+$$
+V_a(x^i_{a,t}, E^i_a, k_t, U_t, \eta_t, P^B_t) =
+  \max_{k^i_{a+1,t+1},\, b^i_{a+1,t+1}} \left\{
+    (1-\beta) (c^i_{a,t})^{1-1/\psi}
+    + \beta \left( \mathbb{E}_t \left[ \left(\frac{P^i_{a+1,t+1}}{P^i_{a,t}} (1+g)\right)^{1-\rho}
+             p_a V^{1-\rho}(x^i_{a+1,t+1}, E^i_{a+1}; k_{t+1}, U_{t+1}, \eta_{t+1}, P^B_{t+1}) \right] \right)^{(1-1/\psi)/(1-\rho)} \right\}^{1/(1-1/\psi)}
+$$
 
-subject to: `k^i >= 0`, `b^i >= 0`, budget constraint `c + b' + k' = x` (eq. 32),
+subject to: $$k^i \geq 0$$, $$b^i \geq 0$$, budget constraint $$c + b' + k' = x$$ (eq. 32),
 and the wealth transition (eqs. 26-27) that includes after-tax capital and
 bond income, net labor income (less social security and DB contribution taxes
 for workers), and retirement income (for retirees).
 
-State variables: age `a`, normalized cash-on-hand `x^i_{a,t}`, entry-cost
-dummy `E^i_a`, plus four aggregate variables `(k_t, U_t, eta_t, P^B_t)`.
+State variables: age $$a$$, normalized cash-on-hand $$x^i_{a,t}$$, entry-cost
+dummy $$E^i_a$$, plus four aggregate variables $$(k_t, U_t, \eta_t, P^B_t)$$.
 
 **Aggregate forecasting rules (eqs. 28-29, p. 158).**
 
-```
-k_{t+1} = Gamma_K(k_t, U_t, eta_t)
+$$
+k_{t+1} = \Gamma_K(k_t, U_t, \eta_t)
+$$
 
-P^B_{t+1} = Gamma_P(P^B_t, k_t, U_t, eta_t)
-```
+$$
+P^B_{t+1} = \Gamma_P(P^B_t, k_t, U_t, \eta_t)
+$$
 
 These log-linear rules are estimated on simulated data and iterated to
 convergence (following Krusell and Smith 1998, and Gomes and Michaelides 2008).
 
 **Calibration procedure.** Aggregate parameters are calibrated to NBER
-business cycle frequencies (Markov chain `pi_r = 16/37`), capital share
-`alpha = 34%`, depreciation `mean(delta) = 10%`, vol(delta) = 10%.
+business cycle frequencies (Markov chain $$\pi_r = 16/37$$), capital share
+$$\alpha = 34\%$$, depreciation $$\text{mean}(\delta) = 10\%$$, $$\text{vol}(\delta) = 10\%$$.
 Household parameters are chosen to jointly match: the standard deviation of
 consumption growth, the riskless rate level, and limited stock market
-participation. The pension fund risky share (`alpha^P = 52%`) is calibrated
+participation. The pension fund risky share ($$\alpha^P = 52\%$$) is calibrated
 to the 1970-2023 Flow of Funds average (Table I, p. 160; Section I.H.3, p. 162).
 
 **Alternative DB pension fund portfolio rules (eqs. 37-38, p. 166).**
 
-The baseline uses a constant `alpha^P`. Two alternatives are also studied:
+The baseline uses a constant $$\alpha^P$$. Two alternatives are also studied:
 elastic allocation proportional to the equity premium:
 
-```
-alpha^P_t = a^P + c^P (E[R^K_t] - R^B_t),    c^P = 0.25
-```
+$$
+\alpha^P_t = a^P + c^P \bigl(\mathbb{E}[R^K_t] - R^B_t\bigr), \qquad c^P = 0.25
+$$
 
 and reaching-for-yield allocation varying with the riskless rate:
 
-```
-alpha^P_t = a^P + b^P R^B_t,    b^P = -2
-```
+$$
+\alpha^P_t = a^P + b^P R^B_t, \qquad b^P = -2
+$$
 
 Both deliver nearly identical asset pricing moments (Table II, cols 1-3), so
 the results are insensitive to the precise specification.
 
-**DC-only counterfactual (eq. 39, p. 178).** Setting `lambda^{db} = 0` and
-`omega^P = 0` removes the DB pension fund entirely; households finance
+**DC-only counterfactual (eq. 39, p. 178).** Setting $$\lambda^{db} = 0$$ and
+$$\omega^P = 0$$ removes the DB pension fund entirely; households finance
 retirement from private savings and social security only. The DC economy
 incorporates tax benefits via a reduced capital gains tax rate scaled to the
 increase in private household wealth, and a 10% early-withdrawal penalty
@@ -328,19 +333,19 @@ are steady-state moments from the calibrated structural model, compared
 against empirical counterparts. The "specifications" are the alternative
 calibrated economies:
 
-**Baseline DB economy (R1, R5):** `alpha^P = 52%`, `theta^P = 0.5`, two household
+**Baseline DB economy (R1, R5):** $$\alpha^P = 52\%$$, $$\theta^P = 0.5$$, two household
 types (A and B), calibrated to match riskless rate SD, participation rate, and
 equity premium. Key moments computed at the stationary distribution of the
 model (Table II, p. 164). Asset pricing data from CRSP; real risk-free rate
 from Croce et al. (2012); participation from SCF; consumption/GDP from NIPA
 1929-2023.
 
-**Comparison with PPG model (R2):** same parameter values, but `omega^P = 0`
+**Comparison with PPG model (R2):** same parameter values, but $$\omega^P = 0$$
 so the fund is a pure pass-through with no endowment and constant
 contribution rates (Table III, p. 167). Two recalibrations (rPPG1, rPPG2)
 additionally match the riskless rate or consumption growth SD of the baseline.
 
-**Risk channel decomposition (R3):** the pension fund risky share `alpha^P`
+**Risk channel decomposition (R3):** the pension fund risky share $$\alpha^P$$
 is varied from 42% to 72% (Table V, p. 171) to isolate the bond-demand
 channel; all other parameters are held at the baseline.
 
@@ -348,14 +353,14 @@ channel; all other parameters are held at the baseline.
 deviation of consumption growth reported by cohort (ages 20-35, 36-65, 66+)
 for the baseline and rPPG1 economy (Table IV, p. 170).
 
-**Adjustment rule robustness (R5):** `theta^P` is varied from 0.2 (mostly
+**Adjustment rule robustness (R5):** $$\theta^P$$ is varied from 0.2 (mostly
 employee adjustment) to 0.8 (mostly employer adjustment) with the same
 aggregate parameters (Table VIII, p. 177).
 
-**DC-only counterfactual (R6-R8):** the DB fund is shut down (`lambda^{db} = 0`,
-`omega^P = 0`) and the model is solved for the new stationary equilibrium.
+**DC-only counterfactual (R6-R8):** the DB fund is shut down ($$\lambda^{db} = 0$$,
+$$\omega^P = 0$$) and the model is solved for the new stationary equilibrium.
 Three scenarios: (1) same participation costs, (2) lower participation costs
-(`F^0 = 3%`, `F^1 = 0.1%`), (3) higher debt-to-GDP (0.6). Asset pricing and
+($$F^0 = 3\%$$, $$F^1 = 0.1\%$$), (3) higher debt-to-GDP (0.6). Asset pricing and
 macro moments from Table IX (p. 182) are compared to the baseline.
 
 ## Datasets used

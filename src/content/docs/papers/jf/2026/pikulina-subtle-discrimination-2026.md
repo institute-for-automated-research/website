@@ -130,61 +130,62 @@ identification. The formal object is a two-player promotion contest
 embedded in a principal-agent setting.
 
 **Decision-maker bias (Definition 1, p. 337).** Two candidates Blue (b)
-and Red (r) have observable skills `s_b` and `s_r`. The principal
-privately observes a subjective signal `x_i` for each agent; the
-decision function `P(s_b, s_r, omega)` is the probability of choosing Blue.
+and Red (r) have observable skills $$s_b$$ and $$s_r$$. The principal
+privately observes a subjective signal $$x_i$$ for each agent; the
+decision function $$P(s_b, s_r, \omega)$$ is the probability of choosing Blue.
 Bias toward Blue is the excess probability of choosing Blue not justified
 by the qualification gap:
 
-```
-b(s_b, s_r, omega) = P(s_b, s_r, omega) - F( (s_b - s_r) / omega )  >= 0   [eq. 1, p. 336]
-```
+$$
+b(s_b, s_r, \omega) = P(s_b, s_r, \omega) - F\!\left(\frac{s_b - s_r}{\omega}\right) \geq 0 \tag{1}
+$$
 
-where `F(.)` is the CDF of `Delta_x = x_r - x_b`, `omega > 0` weights
+where $$F(\cdot)$$ is the CDF of $$\Delta_x = x_r - x_b$$, $$\omega > 0$$ weights
 subjective signals. The bias is *subtle* (Definition 1, p. 337) if
-`F( (s_b - s_r) / omega ) > 0`, i.e., there exist signals that could
+$$F\!\left(\frac{s_b - s_r}{\omega}\right) > 0$$, i.e., there exist signals that could
 justify choosing Blue without proof of bias. It is *overt* (Definition 2)
-if `F = 0`, meaning a single act is conclusive evidence of discrimination.
+if $$F = 0$$, meaning a single act is conclusive evidence of discrimination.
 
 **Promotion model (§III.A, pp. 338-340).** A firm hires two ex ante
 identical agents for job 1. At Date 1 both simultaneously choose
-investments `e_i in [0, 1]` at cost `c(e_i)` (quadratic: `c(e_i) = k*e_i^2 / 2`).
-Skill `s_i in {0, 1}` is realized; `Pr(s_i = 1) = e_i`. At Date 2 the
+investments $$e_i \in [0, 1]$$ at cost $$c(e_i)$$ (quadratic: $$c(e_i) = k e_i^2 / 2$$).
+Skill $$s_i \in \{0, 1\}$$ is realized; $$\Pr(s_i = 1) = e_i$$. At Date 2 the
 principal promotes one agent to job 2 (the top position), yielding a
-productivity gain `H > 0` if skilled. Wages are `(w_1, w_2 = w_1 + W)`;
-the promotion premium `W` is the main incentive instrument.
-Agent `i`'s utility is:
+productivity gain $$H > 0$$ if skilled. Wages are $$(w_1, w_2 = w_1 + W)$$;
+the promotion premium $$W$$ is the main incentive instrument.
+Agent $$i$$'s utility is:
 
-```
-u_i = w_i - c(e_i)   where w_i is the wage received
-```
+$$
+u_i = w_i - c(e_i)
+$$
 
-The principal's bias toward Blue is captured by `beta in (0, 0.5]`,
+- $$w_i$$ is the wage received
+
+The principal's bias toward Blue is captured by $$\beta \in (0, 0.5]$$,
 interpreted as agents' belief about the principal's tie-breaking probability:
-if `s_b = s_r = Delta_s = 0`, principal chooses Blue with probability
-`0.5 + beta`. The principal always promotes the skilled agent when the
+if $$s_b = s_r$$, $$\Delta_s = 0$$, principal chooses Blue with probability
+$$0.5 + \beta$$. The principal always promotes the skilled agent when the
 two differ in observable skill (no overt discrimination).
 
 **Firm profit (pp. 339-340):**
 
-```
-Pi = l + H(e_b + e_r - e_b * e_r) - 2*w_1 - W
-```
+$$
+\Pi = l + H(e_b + e_r - e_b e_r) - 2w_1 - W
+$$
 
-where `l` is the base payoff and `H(e_b + e_r - e_b * e_r)` is the
-expected value added by skilled promotion.
+- $$l$$ is the base payoff and $$H(e_b + e_r - e_b e_r)$$ is the expected value added by skilled promotion
 
 **First-best benchmark (Proposition 1, p. 341).** The social planner
 maximizes total surplus:
 
-```
-max_{(e_b, e_r) in [0,1]^2}  l + H(e_b + e_r - e_b * e_r) - c(e_b) - c(e_r)   [eq. 2, p. 341]
-```
+$$
+\max_{(e_b,\, e_r) \in [0,1]^2} \; l + H(e_b + e_r - e_b e_r) - c(e_b) - c(e_r) \tag{2}
+$$
 
-The first-best investment levels are either (i) symmetric `e_b^FB = e_r^FB = e_tilde < 1`,
-or (ii) `e_i^FB > 0` and `e_{-i}^FB = 0` for some `i in {b, r}` (corner solution).
-With quadratic costs `c(e_i) = k*e_i^2 / 2` and `H <= k`: symmetric
-`e_tilde = H / (H + k)`. If `H > k`: corner solution.
+The first-best investment levels are either (i) symmetric $$e_b^{FB} = e_r^{FB} = \tilde{e} < 1$$,
+or (ii) $$e_i^{FB} > 0$$ and $$e_{-i}^{FB} = 0$$ for some $$i \in \{b, r\}$$ (corner solution).
+With quadratic costs $$c(e_i) = k e_i^2 / 2$$ and $$H \leq k$$: symmetric
+$$\tilde{e} = H / (H + k)$$. If $$H > k$$: corner solution.
 
 **Identification of mechanisms.** The model isolates two opposing forces
 on the unfavored agent's investment (p. 344):
@@ -194,7 +195,7 @@ on the unfavored agent's investment (p. 344):
 - *Overcompensation effect*: Red wants to separate from Blue to avoid ties
   (where she loses), so Red invests more to minimize tie probability.
 
-Which force dominates depends on the premium-cost ratio `sigma = W / k`.
+Which force dominates depends on the premium-cost ratio $$\sigma = W / k$$.
 
 ## Method
 
@@ -202,52 +203,56 @@ The paper uses `promotion-contest` analysis and `principal-agent` optimal
 contracting; no econometric estimator is involved.
 
 **Equilibrium characterization (§III.D.1, p. 342).** Under the limiting
-case `omega -> 0` (subjective information negligible), agent `i`'s
+case $$\omega \to 0$$ (subjective information negligible), agent $$i$$'s
 expected utility is:
 
-```
-U_i(e, w) = w_1 + W * [ e_i(1 - e_{-i}) + (1/2 + beta_i)(1 - e_i - e_{-i} + 2*e_i*e_{-i}) ] - k*e_i^2 / 2
-                                                                                    [eq. 3, p. 342]
-```
+$$
+U_i(e, w) = w_1 + W \left[ e_i(1 - e_{-i}) + \left(\tfrac{1}{2} + \beta_i\right)(1 - e_i - e_{-i} + 2 e_i e_{-i}) \right] - \frac{k e_i^2}{2} \tag{3}
+$$
 
-where `beta_b = -beta_r = beta`. Maximizing over `e_i` taking `e_{-i}` as
-given, the reaction functions are (eq. 4, p. 342):
+- $$\beta_b = -\beta_r = \beta$$
 
-```
-e_b = (W/k)(1/2 - beta + 2*beta*e_r)    and    e_r = (W/k)(1/2 + beta - 2*beta*e_b)
-```
+Maximizing over $$e_i$$ taking $$e_{-i}$$ as given, the reaction functions are (eq. 4, p. 342):
+
+$$
+e_b = \frac{W}{k}\!\left(\tfrac{1}{2} - \beta + 2\beta e_r\right) \qquad \text{and} \qquad e_r = \frac{W}{k}\!\left(\tfrac{1}{2} + \beta - 2\beta e_b\right) \tag{4}
+$$
 
 **Optimal compensation (§III.E, pp. 349-350).** The principal chooses
-promotion premium `sigma` to maximize expected profit net of entry costs:
+promotion premium $$\sigma$$ to maximize expected profit net of entry costs:
 
-```
-Pi(k, beta, theta) = max_{sigma in [0, sigma_bar(beta)]}  k*theta*(e_b + e_r - e_b*e_r) - k*sigma   [eq. 13, p. 350]
-```
+$$
+\Pi(k, \beta, \theta) = \max_{\sigma \in [0,\, \bar{\sigma}(\beta)]} \; k\theta(e_b + e_r - e_b e_r) - k\sigma \tag{13}
+$$
 
-subject to equilibrium conditions (5) and (6), where `theta = H / k`
-is the *productivity-cost ratio*. The IC constraint for each agent is:
+- subject to equilibrium conditions (5) and (6), where $$\theta = H / k$$ is the *productivity-cost ratio*
 
-```
-e_i = arg max_{e in [0,1]}  e*W*[(1/2 - beta_i) + 2*beta_i*e_{-i}] - k*e^2/2,  for i in {b, r}   [eq. 12, p. 350]
-```
+The IC constraint for each agent is:
+
+$$
+e_i = \operatorname*{arg\,max}_{e \in [0,1]} \; e W \!\left[\left(\tfrac{1}{2} - \beta_i\right) + 2\beta_i e_{-i}\right] - \frac{k e^2}{2}, \quad i \in \{b, r\} \tag{12}
+$$
 
 **Endogenous bias (§III.F, p. 351, eq. 14).** When the firm also chooses
-its subtle bias `beta`, the problem becomes:
+its subtle bias $$\beta$$, the problem becomes:
 
-```
-Pi(theta) = max_{(sigma, beta) in [0, sigma_bar(beta)] x [0, 0.5]}  theta*(e_b + e_r - e_b*e_r) - sigma
-```
+$$
+\Pi(\theta) = \max_{(\sigma,\, \beta) \in [0,\, \bar{\sigma}(\beta)] \times [0,\, 0.5]} \; \theta(e_b + e_r - e_b e_r) - \sigma \tag{14}
+$$
 
 subject to (5) and (6). The optimal policy is characterized in
 Proposition 7 (eq. 15, p. 353):
 
-```
-beta(theta) = 0.5   if theta in (0, theta']
-beta(theta) = 0     if theta in [theta', theta_bar]
-```
+$$
+\beta(\theta) = 0.5 \quad \text{if } \theta \in (0, \theta'] \tag{15}
+$$
 
-with `sigma(theta) < 1` (low stakes) for `theta in (0, theta']` and
-`sigma(theta) > 1` (high stakes) for `theta in [theta', theta_bar]`.
+$$
+\beta(\theta) = 0 \quad \text{if } \theta \in [\theta', \bar{\theta}]
+$$
+
+with $$\sigma(\theta) < 1$$ (low stakes) for $$\theta \in (0, \theta']$$ and
+$$\sigma(\theta) > 1$$ (high stakes) for $$\theta \in [\theta', \bar{\theta}]$$.
 
 ## Empirical specifications
 
@@ -260,37 +265,39 @@ existing evidence.
 **Promotion-gap specification (Proposition 3 and Figure 2, pp. 348-349).**
 The equilibrium promotion gap between Blue and Red is:
 
-```
-Delta_p = p_b - p_r = (e_b - e_r) + [e_b*e_r + (1 - e_b)(1 - e_r)] * 2*beta   [eq. 10, p. 348]
-```
+$$
+\Delta_p = p_b - p_r = (e_b - e_r) + \bigl[e_b e_r + (1 - e_b)(1 - e_r)\bigr] \cdot 2\beta \tag{10}
+$$
 
-where the first term is the *achievement gap* and the second is the
-*favoritism gap*. Prediction: `Delta_p` is U-shaped in `sigma`; at high
-`sigma`, the achievement gap dominates, so promotion gaps are large but
+- the first term is the *achievement gap* and the second is the *favoritism gap*
+
+Prediction: $$\Delta_p$$ is U-shaped in $$\sigma$$; at high
+$$\sigma$$, the achievement gap dominates, so promotion gaps are large but
 little direct evidence of discrimination is observable.
 
 **Analyst accuracy specification (§IV.A, eq. 16, p. 356).**
-An analyst of type `i` earns promotion via composite metric
-`y_i = y_{1i} + y_{2i}` (accuracy + optimism). With subtle bias `beta`
-and overt bias `delta`, analyst investment levels are:
+An analyst of type $$i$$ earns promotion via composite metric
+$$y_i = y_{1i} + y_{2i}$$ (accuracy + optimism). With subtle bias $$\beta$$
+and overt bias $$\delta$$, analyst investment levels are:
 
-```
-e_r* = sigma*(1 - delta)*(1 - a*(1 - beta))    and    e_b* = sigma*(1 + delta)*(1 - a*(1 + beta))
-```
+$$
+e_r^* = \sigma(1 - \delta)(1 - a(1 - \beta)) \qquad \text{and} \qquad e_b^* = \sigma(1 + \delta)(1 - a(1 + \beta)) \tag{16}
+$$
 
-where `a in (0,1)` is the accuracy-optimism trade-off and `sigma = W/k`.
-A subtle bias (`delta = 0, beta > 0`) increases Red accuracy relative
-to Blue; an overt bias (`delta > 0`) has the opposite effect.
+- $$a \in (0,1)$$ is the accuracy-optimism trade-off and $$\sigma = W/k$$
+
+A subtle bias ($$\delta = 0$$, $$\beta > 0$$) increases Red accuracy relative
+to Blue; an overt bias ($$\delta > 0$$) has the opposite effect.
 
 **Overt vs. subtle specification (Corollary 3, p. 347).**
-With overt bias `delta >= 0` and subtle bias `beta >= delta/2`, the
+With overt bias $$\delta \geq 0$$ and subtle bias $$\beta \geq \delta/2$$, the
 overcompensation effect dominates if and only if:
 
-```
-sigma <= 1 / (1 - delta)
-```
+$$
+\sigma \leq \frac{1}{1 - \delta}
+$$
 
-The threshold `1/(1 - delta) > 1` is strictly larger than 1, implying
+The threshold $$1/(1 - \delta) > 1$$ is strictly larger than 1, implying
 overt bias attenuates overcompensation: overt discrimination moderates
 the overcompensation effect of subtle discrimination.
 

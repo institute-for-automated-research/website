@@ -171,30 +171,31 @@ one-sided kernel regressions. The testable hypothesis is:
 
 **The FST return prediction model** (eq. 1, p. 3774):
 
-```
-r_{t+1} = x_t' * beta_t + epsilon_{t+1}
-```
+$$
+r_{t+1} = x_t' \beta_t + \epsilon_{t+1} \tag{1}
+$$
 
-where `r_{t+1}` is the excess U.S. stock market return, `x_t` is a vector of
-predictor variables (dp, tbl, tsp, rvar), `beta_t` are time-varying
-regression coefficients, and `sigma_t^2 = E[epsilon_{t+1}^2 | x_t]` allows
-for conditional heteroskedasticity. The beta_t are estimated by the local
-constant model (eq. 2, p. 3774):
+- $$r_{t+1}$$ is the excess U.S. stock market return
+- $$x_t$$ is a vector of predictor variables (dp, tbl, tsp, rvar)
+- $$\beta_t$$ are time-varying regression coefficients
+- $$\sigma_t^2 = E[\epsilon_{t+1}^2 \mid x_t]$$ allows for conditional heteroskedasticity
 
-```
-beta_hat_t = arg min_{beta_0} sum_{s=1}^T K_{hT}(s-t) * [r_{s+1} - x_s' * beta_0]^2
-```
+The $$\beta_t$$ are estimated by the local constant model (eq. 2, p. 3774):
 
-with kernel weights `K_{hT}(u) = K(u/hT)/(hT)` and bandwidth `h`. FST use a
+$$
+\hat{\beta}_t = \operatorname*{arg\,min}_{\beta_0} \sum_{s=1}^{T} K_{hT}(s-t) \cdot [r_{s+1} - x_s' \beta_0]^2 \tag{2}
+$$
+
+with kernel weights $$K_{hT}(u) = K(u/hT)/(hT)$$ and bandwidth $$h$$. FST use a
 2.5-year bandwidth in this step with a one-sided Epanechnikov kernel (eq. 3,
 p. 3775):
 
-```
-K(u) = (3/2) * (1 - u^2) * 1{-1 < u < 0}
-```
+$$
+K(u) = \tfrac{3}{2}(1 - u^2) \cdot \mathbf{1}\{-1 < u < 0\} \tag{3}
+$$
 
-Only data from before time `t` receives positive weight under the one-sided
-kernel, making the beta_t estimation genuinely out-of-sample. The discrepancy
+Only data from before time $$t$$ receives positive weight under the one-sided
+kernel, making the $$\beta_t$$ estimation genuinely out-of-sample. The discrepancy
 arises in the second stage.
 
 ## Method
@@ -205,28 +206,25 @@ for evaluating out-of-sample performance against the prevailing-mean benchmark.
 The paper applies these techniques, it does not propose a new one.
 
 **Squared error differential (SED)** (eq. 4, p. 3775) measures whether the
-kernel model outperforms the prevailing-mean benchmark at each date `t`:
+kernel model outperforms the prevailing-mean benchmark at each date $$t$$:
 
-```
-SED_t = (r_t - r_bar_{t|t-1})^2 - (r_t - r_hat_{t|t-1})^2
-```
+$$
+\text{SED}_t = (r_t - \bar{r}_{t|t-1})^2 - (r_t - \hat{r}_{t|t-1})^2 \tag{4}
+$$
 
-where `r_bar_{t|t-1}` is the prevailing-mean forecast and `r_hat_{t|t-1}` is
-the kernel model forecast. Positive `SED_t` means the kernel model has smaller
-forecast error that period.
+- $$\bar{r}_{t|t-1}$$ is the prevailing-mean forecast
+- $$\hat{r}_{t|t-1}$$ is the kernel model forecast
+- Positive $$\text{SED}_t$$ means the kernel model has smaller forecast error that period
 
 **Pocket identification** (eq. 5, p. 3775): a pocket begins when the fitted
 SED trend is positive:
 
-```
-SED_hat_t = gamma_{0,t} + gamma_{1,t} * t > 0
-```
+$$
+\widehat{\text{SED}}_t = \gamma_{0,t} + \gamma_{1,t} \cdot t > 0 \tag{5}
+$$
 
-The parameters `gamma_{0,t}` and `gamma_{1,t}` should be estimated with a
-one-sided Epanechnikov kernel and one-year bandwidth. FST's published code
-instead uses a two-sided kernel with a 24-month symmetric window (12 months
-before and 12 months after day `t`), so the identification draws on data that
-is unavailable at forecast time.
+- $$\gamma_{0,t}$$ and $$\gamma_{1,t}$$ should be estimated with a one-sided Epanechnikov kernel and one-year bandwidth
+- FST's published code instead uses a two-sided kernel with a 24-month symmetric window (12 months before and 12 months after day $$t$$), so the identification draws on data that is unavailable at forecast time
 
 **Two-framework comparison design**: the paper runs the complete FST analysis
 twice, in parallel, changing only this kernel choice. Panel A results use the
@@ -263,13 +261,13 @@ table; the regression itself is identical.
 **Pocket statistics (Table II, p. 3779).**
 For each predictor and kernel type, counts the number of pockets, their
 fraction of sample, duration (min/mean/max days), and integral R-squared
-(min/mean/max). Integral R-squared `IR^2` is computed as in FST (p. 1289):
+(min/mean/max). Integral R-squared $$IR^2$$ is computed as in FST (p. 1289):
 the average within-pocket R-squared, weighting by pocket length. Results
 reported separately for daily and monthly data.
 
 **Clark-West prediction performance (Table III, pp. 3781-3782).**
 CW t-statistic comparing kernel model to the prevailing-mean benchmark
-`r_bar_{t+1} = (1/t) sum_{s=1}^t r_s`. Reported separately for:
+$$\bar{r}_{t+1} = (1/t)\sum_{s=1}^{t} r_s$$. Reported separately for:
 - full sample, in-pocket subperiod, out-of-pocket subperiod
 - Panel A.1 (in-sample / two-sided kernel), Panel A.2 (one-sided kernel)
 - nine predictor/composite specifications (dp, tbl, tsp, rvar, pc, mv,

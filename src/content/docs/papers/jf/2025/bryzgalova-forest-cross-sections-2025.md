@@ -123,43 +123,43 @@ evaluation and construction of tradable risk factors.
 The economic object is the stochastic discount factor (SDF) that prices
 individual stocks. Under no-arbitrage there is a unique minimum-variance SDF
 spanned by individual stock excess returns. Given a set of firm characteristics
-`C_{t-1}` (an `N x K` matrix for `N` stocks, `K` characteristics) as the
+$$C_{t-1}$$ (an $$N \times K$$ matrix for $$N$$ stocks, $$K$$ characteristics) as the
 conditioning information, the conditional SDF is its projection on individual
-stock excess returns `R_t` (p. 2455):
+stock excess returns $$R_t$$ (p. 2455):
 
-```
-M_t^C = 1 - sum_{i=1}^N b_{t-1,i} ( R_{t,i} - E_{t-1}[R_{t,i}] ),    b_{t-1,i} = f(C_{t-1,i})
-```
+$$
+M_t^C = 1 - \sum_{i=1}^N b_{t-1,i} \left( R_{t,i} - \mathbb{E}_{t-1}[R_{t,i}] \right), \qquad b_{t-1,i} = f(C_{t-1,i})
+$$
 
-with `f(.)` a general, potentially nonlinear and nonseparable function.
-Reduced-form models approximate this dependence with `J` basis functions
-`f_j(.)`, so `f(C_{t-1,i}) ~ sum_j f_j(C_{t-1,i}) w_j`. That turns the
-conditional problem into an unconditional one over `J` managed portfolios
+with $$f(\cdot)$$ a general, potentially nonlinear and nonseparable function.
+Reduced-form models approximate this dependence with $$J$$ basis functions
+$$f_j(\cdot)$$, so $$f(C_{t-1,i}) \sim \sum_j f_j(C_{t-1,i}) w_j$$. That turns the
+conditional problem into an unconditional one over $$J$$ managed portfolios
 (equation 1, p. 2455):
 
-```
-M_t^C = 1 - sum_{j=1}^J w_j ( R^man_{t,j} - E[R^man_{t,j}] ),    R^man_{t,j} = sum_{i=1}^N f_j(C_{t-1,i}) R_{t,i}
-```
+$$
+M_t^C = 1 - \sum_{j=1}^J w_j \left( R^{\text{man}}_{t,j} - \mathbb{E}[R^{\text{man}}_{t,j}] \right), \qquad R^{\text{man}}_{t,j} = \sum_{i=1}^N f_j(C_{t-1,i}) R_{t,i}
+$$
 
-There is a one-to-one mapping between the basis functions `f_j` and the managed
-portfolios `R^man`. Managed portfolios **span** the projected SDF exactly when
+There is a one-to-one mapping between the basis functions $$f_j$$ and the managed
+portfolios $$R^{\text{man}}$$. Managed portfolios **span** the projected SDF exactly when
 their mean-variance-efficient combination achieves the highest Sharpe ratio
 (p. 2456); pricing a spanning set is then equivalent to pricing the SDF itself.
 
 The paper's theoretical contribution is a misspecification result. Suppose a
-researcher uses only a subset `R^select` of the spanning managed portfolios and
-omits `R^omit`, then proposes a `K`-factor model `F` that prices `R^select`
-(intercept `alpha^select = 0`). Proposition 1 (p. 2457) bounds the mispricing of
+researcher uses only a subset $$R^{\text{select}}$$ of the spanning managed portfolios and
+omits $$R^{\text{omit}}$$, then proposes a $$K$$-factor model $$F$$ that prices $$R^{\text{select}}$$
+(intercept $$\alpha^{\text{select}} = 0$$). Proposition 1 (p. 2457) bounds the mispricing of
 the omitted assets by a Sharpe-ratio gap:
 
-```
-SR^2(R^select, R^omit) - SR^2(F)
-   <= alpha^{omit}' (Sigma^omit)^{-1} alpha^{omit}
-   <= SR^2(R^select, R^omit) - SR^2(R^select),
-```
+$$
+\text{SR}^2(R^{\text{select}}, R^{\text{omit}}) - \text{SR}^2(F)
+   \leq {\alpha^{\text{omit}}}' (\Sigma^{\text{omit}})^{-1} \alpha^{\text{omit}}
+   \leq \text{SR}^2(R^{\text{select}}, R^{\text{omit}}) - \text{SR}^2(R^{\text{select}}),
+$$
 
-with equalities if `R^select` spans the factors, that is, if
-`SR(R^select) = SR(R^select, F)`. In words: a model that perfectly explains the
+with equalities if $$R^{\text{select}}$$ spans the factors, that is, if
+$$\text{SR}(R^{\text{select}}) = \text{SR}(R^{\text{select}}, F)$$. In words: a model that perfectly explains the
 chosen test assets can still be a grossly misspecified model for individual
 stocks if those test assets do not span the SDF. The proof follows the spanning
 arguments of Barillas and Shanken (2016) and is given in the Internet Appendix.
@@ -181,42 +181,48 @@ for the selection.
 **AP Trees.** Stocks are grouped by a sequence of conditional consecutive
 splits (median splits at each node, without loss of generality), so each final
 and intermediate node is a managed portfolio that traces back to firm
-fundamentals (Figure 1, p. 2449). Trees are grown to depth four. With `M`
-candidate splitting characteristics and depth `d`, this yields `M^d * 2^d`
-overlapping portfolios that capture up to `d`-way interactions. Equivalently,
+fundamentals (Figure 1, p. 2449). Trees are grown to depth four. With $$M$$
+candidate splitting characteristics and depth $$d$$, this yields $$M^d \times 2^d$$
+overlapping portfolios that capture up to $$d$$-way interactions. Equivalently,
 AP Trees are a nonparametric estimator of the SDF mapping (p. 2463):
 
-```
-f(C_{t-1,i}) = sum_{j=1}^J w_j * 1{ C_{t-1,i} in A_j },    regions A_j given by the recursive tree nodes
-```
+$$
+f(C_{t-1,i}) = \sum_{j=1}^J w_j \cdot \mathbf{1}\{ C_{t-1,i} \in A_j \}, \qquad \text{regions } A_j \text{ given by the recursive tree nodes}
+$$
 
-**AP Pruning.** The naive SDF weights solving `E[R^man M^C] = 0` are
-`omega = Sigma^{-1} mu`, whose sample version `omega_naive = Sigma_hat^{-1}
-mu_hat` overfits in high dimension. AP Pruning instead selects a sparse set of
+**AP Pruning.** The naive SDF weights solving $$\mathbb{E}[R^{\text{man}} M^C] = 0$$ are
+$$\omega = \Sigma^{-1} \mu$$, whose sample version $$\hat{\omega}_{\text{naive}} = \hat{\Sigma}^{-1}
+\hat{\mu}$$ overfits in high dimension. AP Pruning instead selects a sparse set of
 tree nodes that span the SDF, with robust moments. Definition 1 (p. 2466), step
 one, estimates robust SDF weights on the training data:
 
-```
-min_omega  (1/2) ( mu_hat^robust - Sigma_hat^robust * omega )' (Sigma_hat^robust)^{-1} ( mu_hat^robust - Sigma_hat^robust * omega )  +  lambda_1 ||omega||_1
-   with   Sigma_hat^robust = Sigma_hat + lambda_2 * I_N,    mu_hat^robust = mu_hat + lambda_0 * 1
-```
+$$
+\min_{\omega} \; \tfrac{1}{2} \left( \hat{\mu}^{\text{robust}} - \hat{\Sigma}^{\text{robust}} \omega \right)' \left(\hat{\Sigma}^{\text{robust}}\right)^{-1} \left( \hat{\mu}^{\text{robust}} - \hat{\Sigma}^{\text{robust}} \omega \right) + \lambda_1 \|\omega\|_1
+$$
 
-where `||omega||_1 = sum_i |w_i|`, `1` is a vector of ones, and `N` is the number
-of assets. The tuning parameters `(lambda_0, lambda_1, lambda_2)` are chosen on
+$$
+\text{with} \quad \hat{\Sigma}^{\text{robust}} = \hat{\Sigma} + \lambda_2 I_N, \qquad \hat{\mu}^{\text{robust}} = \hat{\mu} + \lambda_0 \mathbf{1}
+$$
+
+where $$\|\omega\|_1 = \sum_i |w_i|$$, $$\mathbf{1}$$ is a vector of ones, and $$N$$ is the number
+of assets. The tuning parameters $$(\lambda_0, \lambda_1, \lambda_2)$$ are chosen on
 the validation block to maximize the robust-SDF Sharpe ratio, then performance
 is evaluated only on the untouched test block.
 
 Proposition 2 (p. 2468) shows AP Pruning is equivalent to a robust tangency
 portfolio (Definition 2, equation 2):
 
-```
-min_omega  (1/2) omega' Sigma_hat omega  +  lambda_1 ||omega||_1  +  (1/2) lambda_2 ||omega||_2^2
-   subject to   omega' 1 = 1,    omega' ( mu_hat + r_f * 1 ) >= mu_0 + r_f
-```
+$$
+\min_{\omega} \; \tfrac{1}{2} \omega' \hat{\Sigma} \omega + \lambda_1 \|\omega\|_1 + \tfrac{1}{2} \lambda_2 \|\omega\|_2^2
+$$
 
-The mapping is exact: the LASSO term `lambda_1` induces sparsity (a small set of
-AP Tree basis assets), the target return `mu_0` corresponds to shrinking the
-mean toward its cross-sectional average, and the ridge term `lambda_2`
+$$
+\text{subject to} \quad \omega' \mathbf{1} = 1, \qquad \omega' \left( \hat{\mu} + r_f \mathbf{1} \right) \geq \mu_0 + r_f
+$$
+
+The mapping is exact: the LASSO term $$\lambda_1$$ induces sparsity (a small set of
+AP Tree basis assets), the target return $$\mu_0$$ corresponds to shrinking the
+mean toward its cross-sectional average, and the ridge term $$\lambda_2$$
 corresponds to variance shrinkage of the covariance matrix. This generalizes the
 robust SDF recovery of Kozak, Nagel, and Santosh (2020), which shrinks only the
 covariance, by also shrinking the mean (Proposition 3). Proposition 4 gives a
@@ -238,7 +244,7 @@ the following constructions, not an OLS regression with fixed effects:
 - **SDF alpha (R2).** The candidate factor models FF3, FF5, XSF
   (cross-section-specific factors), and FF11 are confronted with each
   cross-section; the SDF alpha is the pricing error of the cross-section's
-  implied SDF against the model, with `t`-statistics reported (Table I,
+  implied SDF against the model, with $$t$$-statistics reported (Table I,
   p. 2482; Figure 6 Panel B). Spanning is assessed by whether one
   cross-section's SDF is priced by another's factors.
 - **Cross-sectional fit, XS-R² (R3).** The share of cross-sectional variation in

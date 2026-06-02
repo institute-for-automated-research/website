@@ -172,36 +172,41 @@ semisupervised topic modelling (sLDA), and (2) building WarFac as the
 innovation in *War* via a rolling AR(1). It builds on `slda-topic-model`
 and `ar1-innovation`.
 
-**sLDA topic model (pp. 3596-3598).** Each month `t`, the model is estimated
+**sLDA topic model (pp. 3596-3598).** Each month $$t$$, the model is estimated
 on all *New York Times* articles in the preceding 120 months (the rolling
-window `[t-119, t]`). Using Gibbs sampling, the model infers, for each
-document `d`, the document-topic distribution `theta_d` (a vector of topic
-probabilities) and, for each topic `k`, the topic-word distribution
-`phi_k` (a vector of word probabilities). The seed word for the War topic
+window $$[t-119, t]$$). Using Gibbs sampling, the model infers, for each
+document $$d$$, the document-topic distribution $$\theta_d$$ (a vector of topic
+probabilities) and, for each topic $$k$$, the topic-word distribution
+$$\phi_k$$ (a vector of word probabilities). The seed word for the War topic
 is *war* (a single word, for parsimony and to avoid researcher discretion
-in seed-word selection). The global monthly weight of topic `k` in month
-`t` is the length-weighted average across all articles `d` in month `t`:
+in seed-word selection). The global monthly weight of topic $$k$$ in month
+$$t$$ is the length-weighted average across all articles $$d$$ in month $$t$$:
 
-```
-War_t = (1 / sum_d len_d) * sum_d len_d * theta_{d,k=War}
-```
+$$
+\text{War}_t = \frac{1}{\sum_d \text{len}_d} \sum_d \text{len}_d \cdot \theta_{d,k=\text{War}}
+$$
 
-where `len_d` is article length in n-gram count. The rolling window allows
-topic-word distributions `phi_k` to shift with language over time, which
+- $$\text{len}_d$$ is article length in n-gram count.
+
+The rolling window allows
+topic-word distributions $$\phi_k$$ to shift with language over time, which
 is essential for a corpus spanning 1871 to 2019 (p. 3597).
 
 **AR(1) innovation (p. 3603, equations 3 and 4).** Following Berkman,
 Jacobsen & Lee (2011), Liu & Matthies (2022), and Giglio & Xiu (2021),
 WarFac is defined as the residual from a rolling AR(1) fit to *War*,
-estimated at each month `t` using data from 1926 to `t` to avoid
+estimated at each month $$t$$ using data from 1926 to $$t$$ to avoid
 look-ahead bias:
 
-```
-War_t = rho_0 + rho * War_{t-1} + u_t        (eq. 3, p. 3603)
-WarFac_t = u_t                                 (eq. 4, p. 3603)
-```
+$$
+\text{War}_t = \rho_0 + \rho \cdot \text{War}_{t-1} + u_t \tag{3}
+$$
 
-The AR(1) coefficients `(rho_0, rho)` are re-estimated each month on the
+$$
+\text{WarFac}_t = u_t \tag{4}
+$$
+
+The AR(1) coefficients $$(\rho_0, \rho)$$ are re-estimated each month on the
 growing window of available data. Results are robust to using an ARMA(1,1)
 residual or a rolling-regression residual (pp. 3591, 3603 fn. 13).
 
@@ -212,13 +217,16 @@ asset returns on WarFac betas is the monthly WMP return (p. 3627). As a
 robustness check, the time-series approach projects WarFac onto the space
 of excess returns of 360 tree-based portfolios plus basis assets:
 
-```
-WarFac_t = alpha + beta' R^e_t + epsilon_t    (eq. 8, p. 3628)
-WMP_t     = beta_hat' R^e_t                   (eq. 9, p. 3629)
-```
+$$
+\text{WarFac}_t = \alpha + \beta' R^e_t + \epsilon_t \tag{8}
+$$
 
-where `R^e` is the vector of excess returns on basis assets and `beta_hat`
-is estimated by OLS on the full sample.
+$$
+\text{WMP}_t = \hat{\beta}' R^e_t \tag{9}
+$$
+
+- $$R^e$$ is the vector of excess returns on basis assets.
+- $$\hat{\beta}$$ is estimated by OLS on the full sample.
 
 ## Empirical specifications
 
@@ -226,65 +234,58 @@ All asset pricing tests use monthly data, July 1972 to December 2016
 (T = 532 months for WarFac; T = 522 for tests including NVIX_War and GPR).
 
 **First pass: factor loadings (eq. 1, p. 3602).** For each test asset
-`i = 1, ..., N`, excess returns are regressed on a vector of factors `F_t`
+$$i = 1, \ldots, N$$, excess returns are regressed on a vector of factors $$F_t$$
 in a multivariate time-series regression:
 
-```
-R^e_{it} = alpha_i + beta_{iF}' F_t + epsilon_{it},   i = 1, ..., N    (eq. 1)
-```
+$$
+R^e_{it} = \alpha_i + \beta_{iF}' F_t + \epsilon_{it}, \quad i = 1, \ldots, N \tag{1}
+$$
 
-The paper reports `avg(|t|)` (average absolute beta t-statistic) and the
-number of assets with `|t| >= 1.65` (the 5% one-sided threshold). This
+The paper reports $$\text{avg}(|t|)$$ (average absolute beta t-statistic) and the
+number of assets with $$|t| \geq 1.65$$ (the 5% one-sided threshold). This
 first pass is run for each of the six test-asset sets separately.
 
 **Second pass: cross-sectional return premium (eq. 2, p. 3602).** Time-series
 average excess returns are regressed cross-sectionally on the estimated factor
 loadings:
 
-```
-R-bar^e_{i} = lambda_0 + beta_{iF}' lambda_F + e_i                     (eq. 2)
-```
+$$
+\bar{R}^e_{i} = \lambda_0 + \beta_{iF}' \lambda_F + e_i \tag{2}
+$$
 
-`lambda_F` is the vector of return premium slopes. Standard errors are
-Shanken (1992) corrected. The paper reports `lambda` and its `t`-statistic,
-cross-sectional `R^2 = 1 - sigma^2_e / sigma^2_{mu}`, and mean absolute
-pricing error MAPE = `|e-bar|`. Under rational pricing, `lambda_0 = 0`.
+- $$\lambda_F$$ is the vector of return premium slopes.
+- Standard errors are Shanken (1992) corrected.
+- The paper reports $$\lambda$$ and its $$t$$-statistic, cross-sectional $$R^2 = 1 - \sigma^2_e / \sigma^2_{\mu}$$, and mean absolute pricing error $$\text{MAPE} = |\bar{e}|$$.
+- Under rational pricing, $$\lambda_0 = 0$$.
 
 **Industry portfolios: rolling Fama-MacBeth with betas (eqs. 5-6, p. 3625).**
 For the industry pricing tests (§IV.B), betas are estimated over a rolling
-60-month window for excess returns on factor `X` (WarFac, CrisisFac, or
+60-month window for excess returns on factor $$X$$ (WarFac, CrisisFac, or
 CWarFac) plus market, size, and value controls:
 
-```
-R^e_{it} = alpha_i + beta_{it} X_t + beta^{MKT}_{it} MKT_t
-           + beta^{SMB}_{it} SMB_t + beta^{HML}_{it} HML_t + epsilon_{it},
-           window: t-59 to t                                             (eq. 5)
-```
+$$
+R^e_{it} = \alpha_i + \beta_{it} X_t + \beta^{\text{MKT}}_{it} \text{MKT}_t + \beta^{\text{SMB}}_{it} \text{SMB}_t + \beta^{\text{HML}}_{it} \text{HML}_t + \epsilon_{it}, \quad \text{window: } t\text{-}59 \text{ to } t \tag{5}
+$$
 
-Cross-sectional betas are ranked into quintiles each month `t` and rescaled
-to `[0, 1]`. The monthly return premium is estimated by:
+Cross-sectional betas are ranked into quintiles each month $$t$$ and rescaled
+to $$[0, 1]$$. The monthly return premium is estimated by:
 
-```
-R^e_{it} = lambda_{0t} + lambda_t beta_{i,t-1} + lambda^{MKT}_t beta^{MKT}_{i,t-1}
-           + lambda^{SMB}_t beta^{SMB}_{i,t-1} + lambda^{HML}_t beta^{HML}_{i,t-1}
-           + e_{it}                                                      (eq. 6)
-```
+$$
+R^e_{it} = \lambda_{0t} + \lambda_t \beta_{i,t-1} + \lambda^{\text{MKT}}_t \beta^{\text{MKT}}_{i,t-1} + \lambda^{\text{SMB}}_t \beta^{\text{SMB}}_{i,t-1} + \lambda^{\text{HML}}_t \beta^{\text{HML}}_{i,t-1} + e_{it} \tag{6}
+$$
 
-Time-series averages of `lambda_t` are reported; statistical significance
-uses Newey-West (1987) standard errors. Sample period for industry tests:
-July 1926 to December 2018 (T = 1,110 months for Panels A and B of
-Table V, p. 3626).
+- Time-series averages of $$\lambda_t$$ are reported; statistical significance uses Newey-West (1987) standard errors.
+- Sample period for industry tests: July 1926 to December 2018 (T = 1,110 months for Panels A and B of Table V, p. 3626).
 
 **WMP spanning test (eq. 7, p. 3628).**
 
-```
-WMP_t = alpha + beta' F_t + epsilon_t                                   (eq. 7)
-```
+$$
+\text{WMP}_t = \alpha + \beta' F_t + \epsilon_t \tag{7}
+$$
 
-where `F_t` is the vector of benchmark traded factors. Alpha measures
-whether WMP expands the mean-variance frontier. Monthly alpha of WMP
-against all factors combined is approximately 3.10%, significant at the
-1% level (Internet Appendix Table IA.III, p. 3628).
+- $$F_t$$ is the vector of benchmark traded factors.
+- $$\alpha$$ measures whether WMP expands the mean-variance frontier.
+- Monthly alpha of WMP against all factors combined is approximately 3.10%, significant at the 1% level (Internet Appendix Table IA.III, p. 3628).
 
 ## When to read the full paper
 

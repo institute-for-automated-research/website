@@ -195,24 +195,24 @@ no new estimator.
 
 **Attention measures.** The core attention measure is the fraction of a
 fund's reading of news articles covering either macroeconomic conditions
-(`InstAttn^{macro}_{it}`) or a specific firm (`InstAttn_{ist}`), derived
+($$\text{InstAttn}^{\text{macro}}_{it}$$) or a specific firm ($$\text{InstAttn}_{ist}$$), derived
 from event-level Internet news-reading data matched to fund identities via
 the Data Partner (p. 796-799). Article topics and firm-stock mappings come
 from RavenPack 1.0 (p. 797).
 
 **Macroeconomic attention beta.** For each fund-quarter, the macroeconomic
-attention sensitivity to aggregate volatility (`beta^{VIX^2}_{it}`) is
+attention sensitivity to aggregate volatility ($$\beta^{\text{VIX}^2}_{it}$$) is
 estimated by regressing weekly attention to macro news on contemporaneous
-VIX^2 over a trailing 52-week window (p. 804). This fund-quarter-level
+$$\text{VIX}^2$$ over a trailing 52-week window (p. 804). This fund-quarter-level
 beta is then used as a predictor in quarterly fund-return regressions.
 
-**Position-level value-add.** The outcome `h_{ist-1} x R_{st}` weights
+**Position-level value-add.** The outcome $$h_{ist-1} \times R_{st}$$ weights
 the stock return by the fund's prior-period dollar holding share, following
 Berk and Van Binsbergen (2015) in spirit (p. 811).
 
-**Trade-based value-add.** The outcome `DeltaPosition_{ist-1} x R_{st}`
+**Trade-based value-add.** The outcome $$\Delta\text{Position}_{ist-1} \times R_{st}$$
 multiplies the future stock return by the dollar change in holdings from
-`t-2` to `t-1`, isolating performance attributable to trading (p. 814).
+$$t-2$$ to $$t-1$$, isolating performance attributable to trading (p. 814).
 
 **Stock-level return predictability.** Fama-MacBeth cross-sectional
 regressions at the monthly frequency, with controls for size,
@@ -225,90 +225,74 @@ with two lags are used in both (pp. 821, 822).
 
 ### Specification 1: Macro attention and aggregate volatility (eq. 1, p. 803)
 
-```
-InstAttn^macro_{it} = beta * VIX^2_{t-1} + mu_i + Controls + epsilon_{it}
-```
+$$
+\text{InstAttn}^{\text{macro}}_{it} = \beta \cdot \text{VIX}^2_{t-1} + \mu_i + \text{Controls} + \epsilon_{it}
+$$
 
-- LHS: fraction of fund `i`'s reading in month `t` about macro news.
-- RHS: `VIX^2_{t-1}`, the average VIX-squared in the prior month (normalized
-  to mean 0, SD 1); `mu_i` = fund fixed effects; controls include market
-  return.
+- LHS: fraction of fund $$i$$'s reading in month $$t$$ about macro news.
+- RHS: $$\text{VIX}^2_{t-1}$$, the average VIX-squared in the prior month (normalized to mean 0, SD 1); $$\mu_i$$ = fund fixed effects; controls include market return.
 - SE: clustered by fund and time (p. 804).
 - Sample: 234,934 fund-month observations (Table III, p. 804).
-- Robustness: replaces VIX^2 with VIX and with realized S&P 500 daily
-  volatility (columns 3-4 of Table III).
+- Robustness: replaces $$\text{VIX}^2$$ with VIX and with realized S&P 500 daily volatility (columns 3-4 of Table III).
 
 ### Specification 2: Fund-level return predictability (Table IV, p. 806)
 
-```
-Fund Ret_{it} = gamma * beta^{VIX^2}_{it-1} + lambda * [beta^{VIX^2}_{it-1} x VIX_{t-1}]
-                + FundFE + TimeFE + Controls + epsilon_{it}
-```
+$$
+\text{Fund Ret}_{it} = \gamma \cdot \beta^{\text{VIX}^2}_{it-1} + \lambda \cdot [\beta^{\text{VIX}^2}_{it-1} \times \text{VIX}_{t-1}]
+                + \text{FundFE} + \text{TimeFE} + \text{Controls} + \epsilon_{it}
+$$
 
-- LHS: quarterly fund return weighted by holdings at `t-1`.
-- RHS: `beta^{VIX^2}_{it-1}` (attention-reallocation sensitivity, normalized);
-  interaction with VIX level; controls include log AUM and log articles read.
+- LHS: quarterly fund return weighted by holdings at $$t-1$$.
+- RHS: $$\beta^{\text{VIX}^2}_{it-1}$$ (attention-reallocation sensitivity, normalized); interaction with VIX level; controls include log AUM and log articles read.
 - SE: clustered by fund and time (p. 806).
 - Sample: 51,207 fund-quarter observations (Table IV, p. 806).
 
 ### Specification 3: Attention and holdings - intensive margin (eq. 2, p. 810)
 
-```
-InstAttn_{ist} = alpha + beta * h_{ist-1} + epsilon_{ist}
-```
+$$
+\text{InstAttn}_{ist} = \alpha + \beta \cdot h_{ist-1} + \epsilon_{ist}
+$$
 
-- LHS: share of fund `i`'s reading devoted to firm `s` in quarter `t`.
-- RHS: `h_{ist-1}` = dollar share of firm `s` in fund `i`'s portfolio at
-  end of quarter `t-1`; `alpha` denotes fixed effects (fund x time, firm x
-  time in various columns).
+- LHS: share of fund $$i$$'s reading devoted to firm $$s$$ in quarter $$t$$.
+- RHS: $$h_{ist-1}$$ = dollar share of firm $$s$$ in fund $$i$$'s portfolio at end of quarter $$t-1$$; $$\alpha$$ denotes fixed effects (fund $$\times$$ time, firm $$\times$$ time in various columns).
 - SE: clustered by fund, firm, and time (p. 809).
-- Sample: held stocks only (`h_{ist-1} > 0`); 11,910,288 fund-stock-quarter
-  observations (Table V, p. 809).
+- Sample: held stocks only ($$h_{ist-1} > 0$$); 11,910,288 fund-stock-quarter observations (Table V, p. 809).
 
 ### Specification 4: Position-level value-add (eq. 3, p. 812)
 
-```
-h_{ist-1} x R_{st} = alpha + beta * InstAttn_{ist-1} + delta * h_{ist-2} + epsilon_{ist}
-```
+$$
+h_{ist-1} \times R_{st} = \alpha + \beta \cdot \text{InstAttn}_{ist-1} + \delta \cdot h_{ist-2} + \epsilon_{ist}
+$$
 
-- LHS: position-level value-add (holding weight times next-quarter return,
-  scaled by 100).
-- RHS: `InstAttn_{ist-1}` = fraction of reading about firm `s` in `t-1`
-  relative to total fund reading; `h_{ist-2}` controls for prior-period
-  holdings.
-- FE: fund x time; or fund x time + firm x time (columns 1-3, Table VI,
-  p. 813).
+- LHS: position-level value-add (holding weight times next-quarter return, scaled by 100).
+- RHS: $$\text{InstAttn}_{ist-1}$$ = fraction of reading about firm $$s$$ in $$t-1$$ relative to total fund reading; $$h_{ist-2}$$ controls for prior-period holdings.
+- FE: fund $$\times$$ time; or fund $$\times$$ time + firm $$\times$$ time (columns 1-3, Table VI, p. 813).
 - SE: clustered by fund, firm, and time.
-- Sample: held stocks (`h_{ist-1} > 0`); ~11.9M fund-stock-quarter obs.
+- Sample: held stocks ($$h_{ist-1} > 0$$); ~11.9M fund-stock-quarter obs.
 
 ### Specification 5: Trade-based value-add (eq. 4, p. 814)
 
-```
-DeltaPosition_{ist-1} x R_{st} = alpha + beta * InstAttn_{ist-1} + delta * h_{ist-2} + epsilon_{ist}
-```
+$$
+\Delta\text{Position}_{ist-1} \times R_{st} = \alpha + \beta \cdot \text{InstAttn}_{ist-1} + \delta \cdot h_{ist-2} + \epsilon_{ist}
+$$
 
-- LHS: trade-based value-add (dollar change in holdings from `t-2` to `t-1`
-  times return at `t`, scaled by 100).
+- LHS: trade-based value-add (dollar change in holdings from $$t-2$$ to $$t-1$$ times return at $$t$$, scaled by 100).
 - RHS: same regressors as specification 4; also interacted with trade size.
-- FE: firm x time; fund x time (Table VI, Panel B, p. 813).
+- FE: firm $$\times$$ time; fund $$\times$$ time (Table VI, Panel B, p. 813).
 - SE: clustered by fund, firm, and time.
 - Sample: traded positions only; ~11.1M fund-stock-quarter observations.
 
 ### Specification 6: Stock-level Fama-MacBeth return predictability (Table X, p. 821)
 
-```
-R_{st+1} x 100 = a_t + b_t * AttnBuying_{st} + controls_t + u_{st}
-```
+$$
+R_{st+1} \times 100 = a_t + b_t \cdot \text{AttnBuying}_{st} + \text{controls}_t + u_{st}
+$$
 
 - LHS: monthly stock return times 100.
-- RHS: attention by buying (or holding/selling) hedge funds, mutual funds, or
-  other funds; controls include size, book-to-market, gross profitability,
-  investment, log news coverage, and log number of funds in the action
-  category.
+- RHS: attention by buying (or holding/selling) hedge funds, mutual funds, or other funds; controls include size, book-to-market, gross profitability, investment, log news coverage, and log number of funds in the action category.
 - Coefficients: time-series average of cross-sectional OLS slopes.
 - SE: Newey-West with two lags (p. 821).
-- Sample: 54 monthly periods (Nov 2017 to Jun 2022); each period ~500-3000
-  stocks with adequate news coverage.
+- Sample: 54 monthly periods (Nov 2017 to Jun 2022); each period ~500-3000 stocks with adequate news coverage.
 
 ### Specification 7: Portfolio sorts by buying-fund attention (Table XI, p. 822-823)
 
