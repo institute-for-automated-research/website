@@ -49,8 +49,8 @@ paper:
   relatesTo:
     - { cite: 'Dobbie & Song (2015)', doi: 10.1257/aer.20130612, relation: builds-on, note: 'benchmark for debt-relief effects on credit and labor outcomes via chapter 13 bankruptcy; this paper examines private student debt discharge outside bankruptcy' }
     - { cite: 'Dobbie & Song (2020)', doi: 10.1257/aer.20171541, relation: builds-on, note: 'targeted credit-card debt relief experiment; this paper finds faster and broader effects for student debt discharge' }
-    - { cite: 'Melzer (2017)', doi: 10.1111/jofi.12519, relation: tests, note: 'debt overhang reducing homeowner investment; here the same mechanism is tested for student-debt borrowers in the labor market' }
-    - { cite: 'Herkenhoff, Phillips & Cohen-Cole (2021)', doi: 10.1016/j.jfineco.2020.07.002, relation: tests, note: 'credit access improving self-employment; this paper tests whether student debt discharge relaxes credit constraints' }
+    - { cite: 'Melzer (2017)', doi: '10.1111/jofi.12482', relation: tests, note: 'debt overhang reducing homeowner investment; here the same mechanism is tested for student-debt borrowers in the labor market' }
+    - { cite: 'Herkenhoff, Phillips & Cohen-Cole (2021)', doi: '10.1016/j.jfineco.2021.03.004', relation: tests, note: 'credit access improving self-employment; this paper tests whether student debt discharge relaxes credit constraints' }
 
   openQuestions:
     - 'Whether results generalize to blanket student loan forgiveness programs, where borrowers are not necessarily in default and relief is not unexpected; the paper explicitly notes its findings likely do not speak to blanket forgiveness (p. 513).'

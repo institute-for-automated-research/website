@@ -61,7 +61,7 @@ paper:
     - { cite: 'Fleckenstein and Longstaff (2024)', doi: '10.1111/jofi.13371', relation: builds-on, note: 'Treasury richness and collateral demand for Treasuries' }
     - { cite: 'Siriwardane, Sunderam and Wallen (2025)', doi: '10.1111/jofi.13469', relation: cites, note: 'law-of-one-price violations weakly integrated across markets; segmented arbitrage' }
     - { cite: 'Bech and Klee (2011)', doi: '10.1016/j.jmoneco.2011.05.007', relation: cites, note: 'limited access to IORB created a wedge between IORB and fed funds; partial segmentation example' }
-    - { cite: "d'Avernas and Vandeweyer (2024)", doi: '10.1111/jofi.13302', relation: cites, note: 'Treasury bill shortages and pricing of short-term assets' }
+    - { cite: "d'Avernas and Vandeweyer (2024)", relation: cites, note: 'Treasury bill shortages and pricing of short-term assets' }
 
   openQuestions:
     - 'Whether money funds will behave more elastically in a future T-bill scarcity episode given gradual learning in the first episode; the model implies even if they do, the collateral-driven corner mechanism means spreads can still become large (p. 3216).'

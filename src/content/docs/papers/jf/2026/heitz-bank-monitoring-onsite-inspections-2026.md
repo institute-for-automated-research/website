@@ -68,17 +68,17 @@ paper:
         note: "provides empirical support for delegated monitoring theory predicting banks reduce default via monitoring" }
     - { cite: "Diamond (1991)", doi: "10.1086/261775", relation: tests,
         note: "tests prediction that monitoring effectiveness associates with lower loan spreads and more frequent monitoring for riskier loans" }
-    - { cite: "Rajan and Winton (1995)", doi: "10.1111/j.1540-6261.1995.tb04799.x", relation: tests,
+    - { cite: "Rajan and Winton (1995)", doi: '10.1111/j.1540-6261.1995.tb04052.x', relation: tests,
         note: "finds consistent evidence that shorter-term loans are monitored more frequently per unit time" }
     - { cite: "Calomiris and Kahn (1991)", relation: tests,
         note: "consistent with moral hazard channel: inspections and denials increase when housing prices fall or foreclosure rates rise" }
-    - { cite: "Gustafson, Ivanov and Meisenzahl (2021)", doi: "10.1016/j.jfineco.2020.09.005", relation: extends,
+    - { cite: "Gustafson, Ivanov and Meisenzahl (2021)", doi: '10.1016/j.jfineco.2020.08.017', relation: extends,
         note: "extends their syndicated-loan monitoring study to single-lender construction loans, adding draw-denial outcomes and causal IV framework" }
     - { cite: "Cerqueiro, Ongena and Roszbach (2016)", doi: "10.1111/jofi.12332", relation: builds-on,
         note: "prior direct evidence that collateral value affects monitoring frequency; this paper extends to loan outcomes and causal identification" }
     - { cite: "Kling (2006)", doi: "10.1257/aer.96.3.863", relation: builds-on,
         note: "judge/inspector fixed effects IV design adapted for inspector-level instrument in Panel C of Table VIII" }
-    - { cite: "Frandsen, Lefgren and Leslie (2023)", doi: "10.1257/aer.20210927", relation: builds-on,
+    - { cite: "Frandsen, Lefgren and Leslie (2023)", doi: '10.1257/aer.20201860', relation: builds-on,
         note: "judge fixed effects methodology applied to inspector assignment instrument" }
     - { cite: "Loughran and McDonald (2011)", doi: "10.1111/j.1540-6261.2010.01625.x", relation: builds-on,
         note: "word sentiment dictionary used to score positive and negative language in inspection report comments" }

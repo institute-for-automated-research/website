@@ -72,7 +72,7 @@ paper:
     frequency: <daily | weekly | monthly | quarterly | annual | mixed>  # omit for theory papers
   # --- finding-lineage edges to prior work (how lit evolves / what is contested) ---
   relatesTo:
-    - { cite: <author-year>, doi: <doi if known>, relation: <extends|replicates|contradicts|tests|builds-on|cites>, note: <one line> }
+    - { cite: <author-year>, relation: <extends|replicates|contradicts|tests|builds-on|cites>, note: <one line> }  # add doi only if read from an authoritative source, never guessed
   # --- the paper's OWN stated open questions / limitations (gaps live here) ---
   openQuestions:
     - <pulled from the conclusion, never invented>
@@ -135,7 +135,9 @@ paper:
   year, a year that belongs to a different cited work, or a self-cited author
   whose surname appears only in the attribution does NOT count. `prebuild` runs
   `scripts/check-relatesto-locatable.mjs` and the build fails on any
-  un-locatable cite; add `doi` when known.
+  un-locatable cite. Do NOT guess a `doi`: add one only when read from the edge's
+  own authoritative record this run, else omit it and let `ground-relatesto.mjs`
+  fill it from the real reference list.
 - `openQuestions` are the paper's OWN stated gaps/limitations/future work
   (with page locators), not your editorializing and not a scope restatement.
 - `scope.frequency` (enum): `daily | weekly | monthly | quarterly | annual |

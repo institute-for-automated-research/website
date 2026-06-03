@@ -63,7 +63,7 @@ paper:
     - { cite: "Greenwood et al. (2022)", doi: "10.1111/jofi.13105", relation: builds-on, note: "uses their financial red zone definition (joint high credit and asset price growth) as the mechanism variable" }
     - { cite: "Jorda, Schularick & Taylor (2016a)", doi: '10.1093/epolic/eiv017', relation: builds-on, note: "uses their macrohistory database of 17 advanced economies and banking crisis chronology" }
     - { cite: "Jorda, Schularick & Taylor (2020)", doi: "10.1016/j.jmoneco.2019.01.021", relation: builds-on, note: "follows their trilemma IV strategy for instrumenting monetary rate changes" }
-    - { cite: "Baron, Verner & Xiong (2021)", doi: "10.1093/qje/qjab034", relation: tests, note: "results robust to their alternative crisis chronology based on bank stock returns" }
+    - { cite: "Baron, Verner & Xiong (2021)", doi: '10.1093/qje/qjaa034', relation: tests, note: "results robust to their alternative crisis chronology based on bank stock returns" }
     - { cite: "Boissay et al. (2023)", doi: '10.2139/ssrn.4201911', relation: tests, note: "empirical findings are consistent with their New Keynesian model of U-shaped monetary policy and endogenous crises" }
     - { cite: "Grimm et al. (2023)", doi: '10.1093/restud/rdag044', relation: contradicts, note: "differ on mechanism: this paper uses nominal rates and shows the full path (not just loose policy) matters; also adds administrative loan-level evidence" }
     - { cite: "Jimenez et al. (2012)", doi: "10.1257/aer.102.5.2301", relation: builds-on, note: "Spain CIR loan-level methodology for identifying credit supply vs demand channels" }

@@ -56,8 +56,8 @@ paper:
     - { cite: 'Egan, Hortacsu & Matvos (2017)', doi: '10.1257/aer.20150342', relation: tests, note: 'Confirms EHM predictions: distressed banks raise deposit rates; insured depositors flow in; uninsured depositors flee (pp. 644, 646, 673).' }
     - { cite: 'Iyer & Puri (2012)', doi: '10.1257/aer.102.4.1414', relation: builds-on, note: 'Earlier account-level bank-run study; present paper uses finer daily data and separates inflows from outflows (p. 647).' }
     - { cite: 'Diamond & Dybvig (1983)', doi: '10.1086/261155', relation: builds-on, note: 'Foundational bank-run theory motivating the role of deposit insurance in preventing runs (p. 647).' }
-    - { cite: 'Granja, Matvos & Seru (2017)', doi: '10.1111/jofi.12519', relation: cites, note: 'Cited for evidence on failed banks during the Great Recession and FDIC DIF costs (p. 644).' }
-    - { cite: 'Davila & Goldstein (2023)', doi: '10.1086/726230', relation: cites, note: 'Cited for model of optimal deposit insurance; paper notes insured inflows inform the optimal design (p. 665).' }
+    - { cite: 'Granja, Matvos & Seru (2017)', doi: '10.1111/jofi.12512', relation: cites, note: 'Cited for evidence on failed banks during the Great Recession and FDIC DIF costs (p. 644).' }
+    - { cite: 'Davila & Goldstein (2023)', doi: '10.1086/723633', relation: cites, note: 'Cited for model of optimal deposit insurance; paper notes insured inflows inform the optimal design (p. 665).' }
   openQuestions:
     - 'Whether the insured deposit inflow phenomenon and its scale generalize beyond community and mid-size banks to very large (systemically important) banks, where enforcement actions are rare and the paper acknowledges insufficient sample power (pp. 681-682).'
     - 'Whether deposit rate caps of 75 bps above the national average would be more effective when short-term rates are substantially above zero, versus the zero-lower-bound environment covering the entire sample period (pp. 674-675).'

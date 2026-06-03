@@ -128,7 +128,12 @@ with the compact JSON result described at the bottom.
     `replicates` / `contradicts` / `tests` / `cites`; name each cite as an
     author-year in the body too (first-author surname next to the year, e.g.
     `Fama and French (1993)`), enforced by `check-relatesto-locatable.mjs` in
-    `prebuild`; add `doi` when known. Omit if none.
+    `prebuild`. Omit if none. **Do NOT guess a `doi:` for an edge.** A wrong DOI
+    points the citation graph at the wrong paper and survives verification. Add a
+    `doi:` only when you read it from an authoritative source this run (the edge's
+    own Crossref/OpenAlex record, with title/authors matching the cite); otherwise
+    leave the edge DOI-less and let `ground-relatesto.mjs` fill it afterward from
+    the paper's real OpenAlex reference list.
   - `openQuestions[]`: the paper's OWN stated gaps/limitations/future work,
     with page locators. Omit if none; do not editorialize or restate scope.
   - `replicationCode`: `{ url?, status: available|upon-request|none }` if the

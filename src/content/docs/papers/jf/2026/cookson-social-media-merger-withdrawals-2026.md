@@ -49,8 +49,8 @@ paper:
   relatesTo:
     - { cite: 'Luo (2005)', relation: builds-on, doi: 10.1111/j.1540-6261.2005.00755.x, note: 'baseline design for using market reactions to predict M&A withdrawal; paper extends it with social media signals' }
     - { cite: 'Bond, Edmans & Goldstein (2012)', relation: tests, doi: 10.1146/annurev-financial-110311-101826, note: 'tests the revelatory vs. forecasting price-efficiency distinction in the social media context' }
-    - { cite: 'Bai, Philippon & Savov (2016)', relation: tests, doi: 10.1016/j.jfineco.2016.01.030, note: 'applies their revelatory price efficiency concept to social media sentiment instead of stock prices' }
-    - { cite: 'Liu & McConnell (2013)', relation: builds-on, doi: 10.1016/j.jfineco.2013.04.008, note: 'parallel test using traditional news sentiment for M&A decisions; paper adds social media as a distinct, nonsubsumed channel' }
+    - { cite: 'Bai, Philippon & Savov (2016)', doi: '10.1016/j.jfineco.2016.08.005', relation: tests, note: 'applies their revelatory price efficiency concept to social media sentiment instead of stock prices' }
+    - { cite: 'Liu & McConnell (2013)', doi: '10.1016/j.jfineco.2013.06.003', relation: builds-on, note: 'parallel test using traditional news sentiment for M&A decisions; paper adds social media as a distinct, nonsubsumed channel' }
     - { cite: 'Ang et al. (2021)', relation: contradicts, note: 'Chinese message board study emphasizes governance channel; this US-sample paper finds no governance-channel pattern and instead supports revelatory learning' }
 
   openQuestions:

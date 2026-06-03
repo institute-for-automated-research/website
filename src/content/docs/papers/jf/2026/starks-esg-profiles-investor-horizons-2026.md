@@ -58,15 +58,15 @@ paper:
 
   relatesTo:
     - { cite: "Gaspar, Massa & Matos (2005)", doi: "10.1016/j.jfineco.2004.10.002", relation: builds-on, note: "churn ratio methodology for measuring investor horizon (eq. 1-4, p. 610)" }
-    - { cite: "Giannetti & Kahraman (2018)", doi: "10.1093/rfs/hhx027", relation: builds-on, note: "open-end fund structure, flow-performance sensitivity, and limits-to-arbitrage channel (p. 630)" }
-    - { cite: "Hartzmark & Sussman (2019)", doi: "10.1111/jofi.12888", relation: builds-on, note: "Morningstar sustainability globe DiD design for clientele-catering test (pp. 635-637)" }
-    - { cite: "Berg, Koelbel & Rigobon (2022)", doi: "10.1093/rfs/hhac033", relation: builds-on, note: "ESG rating disagreement treated as errors-in-variables; 2SLS remedy (pp. 605, 622-624)" }
+    - { cite: "Giannetti & Kahraman (2018)", doi: '10.1093/rfs/hhx057', relation: builds-on, note: "open-end fund structure, flow-performance sensitivity, and limits-to-arbitrage channel (p. 630)" }
+    - { cite: "Hartzmark & Sussman (2019)", doi: '10.1111/jofi.12841', relation: builds-on, note: "Morningstar sustainability globe DiD design for clientele-catering test (pp. 635-637)" }
+    - { cite: "Berg, Koelbel & Rigobon (2022)", doi: '10.1093/rof/rfac033', relation: builds-on, note: "ESG rating disagreement treated as errors-in-variables; 2SLS remedy (pp. 605, 622-624)" }
     - { cite: "Pedersen, Fitzgibbons & Pomorski (2021)", doi: "10.1016/j.jfineco.2020.11.001", relation: builds-on, note: "limits-to-arbitrage in ESG pricing motivating the second mechanism tested (p. 606)" }
     - { cite: "Froot, Perold & Stein (1992)", doi: '10.1111/j.1745-6622.1992.tb00489.x', relation: builds-on, note: "theoretical basis: long-term investors better at valuing long-payoff projects such as ESG (pp. 605, 624)" }
-    - { cite: "Bushee (1998)", doi: "10.2308/accr.1998.73.3.305", relation: builds-on, note: "Bushee classification of transient/dedicated/quasi-indexer institutions used as supplemental horizon measure (p. 611)" }
-    - { cite: "Derrien, Kecskés & Thesmar (2013)", doi: "10.1017/S0022109013000616", relation: cites, note: "investor horizon and corporate policies, related work on horizon heterogeneity (p. 608)" }
+    - { cite: "Bushee (1998)", relation: builds-on, note: "Bushee classification of transient/dedicated/quasi-indexer institutions used as supplemental horizon measure (p. 611)" }
+    - { cite: "Derrien, Kecskés & Thesmar (2013)", relation: cites, note: "investor horizon and corporate policies, related work on horizon heterogeneity (p. 608)" }
     - { cite: "Agarwal et al. (2015)", doi: '10.1111/jofi.12245', relation: builds-on, note: "SEC 2004 mandatory quarterly disclosure as an exogenous shock to fund horizon, used in IV/DiD design (pp. 632-633)" }
-    - { cite: "Yan & Zhang (2009)", doi: "10.1093/rfs/hhp057", relation: builds-on, note: "adjusted churn ratio methodology mitigating flow-driven bias in horizon measurement (p. 610)" }
+    - { cite: "Yan & Zhang (2009)", relation: builds-on, note: "adjusted churn ratio methodology mitigating flow-driven bias in horizon measurement (p. 610)" }
 
   openQuestions:
     - "Whether the catering channel can be definitively ruled out is noted as uncertain; the two empirical tests designed to detect it fail to find supportive evidence, but the authors acknowledge that measuring clientele catering is inherently difficult (p. 639)."

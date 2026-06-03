@@ -18,3 +18,6 @@ docs/issn-iar-a-zip-correction.txt
 
 # OpenAlex refs cache (regenerable via ground-relatesto.mjs)
 scripts/openalex/.refs-cache/
+
+# Crossref resolve cache (regenerable via check-relatesto-dois.mjs)
+scripts/openalex/.crossref-cache/

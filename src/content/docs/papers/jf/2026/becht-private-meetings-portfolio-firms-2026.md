@@ -53,10 +53,10 @@ paper:
     period: 2007-01..2015-12
     frequency: daily
   relatesTo:
-    - { cite: 'Bradley, Jame & Williams (2022)', doi: '10.1111/jofi.13096', relation: builds-on, note: 'follows their methodology for constructing long-short meeting portfolios; extends it with actual meeting notes and daily trade data' }
-    - { cite: 'Bushee, Gerakos & Lee (2018)', doi: '10.1016/j.jacceco.2018.06.001', relation: tests, note: 'compares trading response magnitude; finds estimates ~7x larger than their corporate-jet-visit evidence due to daily (vs inferred) data' }
-    - { cite: 'Liberti & Petersen (2019)', doi: '10.1093/rcfs/cfz010', relation: builds-on, note: 'adopts their definition of hard vs soft information to classify meeting content via LLM' }
-    - { cite: 'Becht, Franks, Mayer & Rossi (2009)', doi: '10.1093/rfs/hhn080', relation: extends, note: 'prior study of the same asset manager using Hermes UK fund activism; this paper uses SLI/abrdn proprietary meeting notes' }
+    - { cite: 'Bradley, Jame & Williams (2022)', relation: builds-on, note: 'follows their methodology for constructing long-short meeting portfolios; extends it with actual meeting notes and daily trade data' }
+    - { cite: 'Bushee, Gerakos & Lee (2018)', relation: tests, note: 'compares trading response magnitude; finds estimates ~7x larger than their corporate-jet-visit evidence due to daily (vs inferred) data' }
+    - { cite: 'Liberti & Petersen (2019)', relation: builds-on, note: 'adopts their definition of hard vs soft information to classify meeting content via LLM' }
+    - { cite: 'Becht, Franks, Mayer & Rossi (2009)', relation: extends, note: 'prior study of the same asset manager using Hermes UK fund activism; this paper uses SLI/abrdn proprietary meeting notes' }
   openQuestions:
     - 'The paper does not examine the outcomes of firm-level engagements, i.e., whether private meetings improve portfolio firm share prices or governance, which would benefit all shareholders (pp. 782-783).'
     - 'External validity: results are based on one asset manager (SLI); the strict UK regulatory environment may not generalise to less regulated markets such as the United States (pp. 744-745).'

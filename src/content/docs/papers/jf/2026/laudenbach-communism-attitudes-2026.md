@@ -56,9 +56,9 @@ paper:
     frequency: mixed
 
   relatesTo:
-    - { cite: "Fuchs-Schundeln & Haliassos (2021)", doi: "10.1016/j.jmoneco.2020.01.004", relation: extends, note: "prior paper documents the East-West participation gap; this paper shows a significant residual ~10 pp gap with richer controls and explains it via ideology" }
-    - { cite: "Malmendier & Nagel (2011)", doi: "10.1093/qje/qjr001", relation: builds-on, note: "experience-effects framework: lifetime returns shape stock market participation; this paper applies the logic to ideological rather than financial experiences" }
-    - { cite: "Bursztyn & Cantoni (2016)", doi: "10.1162/REST_a_00538", relation: builds-on, note: "Western TV access in East Germany as a quasi-exogenous instrument; this paper adopts the same proxy for negative GDR experience" }
+    - { cite: "Fuchs-Schundeln & Haliassos (2021)", relation: extends, note: "prior paper documents the East-West participation gap; this paper shows a significant residual ~10 pp gap with richer controls and explains it via ideology" }
+    - { cite: "Malmendier & Nagel (2011)", doi: '10.1093/qje/qjq004', relation: builds-on, note: "experience-effects framework: lifetime returns shape stock market participation; this paper applies the logic to ideological rather than financial experiences" }
+    - { cite: "Bursztyn & Cantoni (2016)", doi: '10.1162/rest_a_00522', relation: builds-on, note: "Western TV access in East Germany as a quasi-exogenous instrument; this paper adopts the same proxy for negative GDR experience" }
     - { cite: "Fuchs-Schundeln & Schundeln (2020)", doi: "10.1257/jep.34.2.172", relation: cites, note: "review of long-term effects of communism in Eastern Europe; provides the broader context for the East-West comparison" }
     - { cite: "Becker, Mergele & Woessmann (2020)", doi: "10.1257/jep.34.2.143", relation: tests, note: "questions whether German reunification is a clean natural experiment; this paper addresses the critique with within-East variation and movers analysis" }
 

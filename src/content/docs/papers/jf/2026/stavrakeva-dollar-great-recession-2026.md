@@ -57,13 +57,13 @@ paper:
     frequency: daily
   relatesTo:
     - { cite: 'Nakamura & Steinsson (2018)', doi: '10.1093/qje/qjy004', relation: builds-on, note: 'high-frequency monetary policy identification using interest-rate futures (the "information effect" framing)' }
-    - { cite: 'Swanson (2021)', doi: '10.1016/j.jmoneco.2020.03.011', relation: extends, note: 'decomposes FOMC surprises into FG and LSAP factors; Stavrakeva-Tang use these factors to verify that the sign reversal is driven by FG alone, not QE' }
+    - { cite: 'Swanson (2021)', doi: '10.1016/j.jmoneco.2020.09.003', relation: extends, note: 'decomposes FOMC surprises into FG and LSAP factors; Stavrakeva-Tang use these factors to verify that the sign reversal is driven by FG alone, not QE' }
     - { cite: 'Tang (2015)', relation: builds-on, note: 'information-channel model of monetary policy signaling; Stavrakeva-Tang build a partial-equilibrium extension with exchange rates and stock prices' }
-    - { cite: 'Melosi (2017)', doi: '10.1093/restud/rdx050', relation: builds-on, note: 'signaling model of monetary policy with heterogeneous agents; co-inspires the theoretical framework here' }
-    - { cite: 'Andrade et al. (2019)', doi: '10.1257/mac.20180090', relation: builds-on, note: 'forward guidance with heterogeneous beliefs; informs the information-effect model structure' }
+    - { cite: 'Melosi (2017)', relation: builds-on, note: 'signaling model of monetary policy with heterogeneous agents; co-inspires the theoretical framework here' }
+    - { cite: 'Andrade et al. (2019)', doi: '10.1257/mac.20180141', relation: builds-on, note: 'forward guidance with heterogeneous beliefs; informs the information-effect model structure' }
     - { cite: 'He, Kelly & Manela (2017)', doi: '10.1016/j.jfineco.2017.08.002', relation: cites, note: 'intermediary capital ratio used as an SDF proxy for measuring currency hedging quality (Figure 3, Panel B)' }
-    - { cite: 'Montiel Olea & Plagborg-Moller (2021)', doi: '10.3982/ECTA17813', relation: builds-on, note: 'lag-augmented local projection inference method used for all impulse response estimation' }
-    - { cite: 'Rogers, Scotti & Wright (2018)', doi: '10.1111/jmcb.12501', relation: contradicts, note: 'find conventional-sign dollar responses to unconventional policy at longer horizons using a monthly VAR with sign restrictions that rule out the information channel by assumption' }
+    - { cite: 'Montiel Olea & Plagborg-Moller (2021)', relation: builds-on, note: 'lag-augmented local projection inference method used for all impulse response estimation' }
+    - { cite: 'Rogers, Scotti & Wright (2018)', doi: '10.1111/jmcb.12511', relation: contradicts, note: 'find conventional-sign dollar responses to unconventional policy at longer horizons using a monthly VAR with sign restrictions that rule out the information channel by assumption' }
   openQuestions:
     - 'Whether the information channel was a special feature of calendar-based forward guidance (Dec 2008 to Sep 2012) or could recur under analogous ZLB-adjacent forward guidance regimes in other economies (p. 1007).'
     - 'Why cross-currency heterogeneity in the exchange rate response aligns with hedging quality and carry-trade properties; the paper documents the pattern and provides a model explanation but notes that further microfounding the carry-trade mechanism is beyond its scope (p. 992).'

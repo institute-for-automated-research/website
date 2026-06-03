@@ -60,6 +60,15 @@ the JSON verdict below.
      the edge's own `note`, invent nothing); if the cite is not actually used,
      drop the edge. The build enforces this: `scripts/check-relatesto-locatable.mjs`
      runs in `prebuild` and fails on any un-locatable cite (run it directly to check).
+   - Every `relatesTo[].doi` must RESOLVE to the cited work; a locatable cite can
+     still carry a guessed DOI that the locatability guard waves through. For each
+     edge with a `doi:`, fetch `https://api.crossref.org/works/<doi>` and confirm
+     the resolved title/authors match the cite (first-author surname present;
+     handle `et al.`, particles, diacritics). Flag a 404, an author mismatch, or
+     two edges on the page sharing one DOI. A wrong DOI is worse than none: delete
+     just the `doi:` field (keep the cite and note); `ground-relatesto.mjs` refills
+     it later. Never invent a replacement. (`scripts/check-relatesto-dois.mjs` runs
+     this audit corpus-wide for the orchestrator; you fix only your one page.)
    - No literal `null` (or `~`) anywhere in the frontmatter: omit the key. A null
      scalar fails the content schema and breaks the build (a missing
      `authorList[].orcid` must be omitted, not set to `null`).

@@ -62,9 +62,9 @@ paper:
   relatesTo:
     - { cite: "Kaplan, Moll & Violante (2018)", doi: "10.1257/aer.20160042", relation: extends,
         note: "Adds aggregate disaster risk and heterogeneous beliefs to the HANK setting; Kaplan et al. find only a minor role for the standard ISE" }
-    - { cite: "Caballero & Simsek (2020)", doi: "10.1093/qje/qjz029", relation: builds-on,
+    - { cite: "Caballero & Simsek (2020)", doi: '10.1093/qje/qjaa008', relation: builds-on,
         note: "Risk-centric model of demand recessions; the D-HANK aggregation uses their heterogeneous-beliefs framework" }
-    - { cite: "Kekre & Lenel (2022)", doi: "10.3982/ecta18672", relation: extends,
+    - { cite: "Kekre & Lenel (2022)", doi: '10.3982/ecta18014', relation: extends,
         note: "Paper extends the redistribution-via-risk-premia channel of Kekre and Lenel into a full New Keynesian model with analytical aggregation" }
     - { cite: "Bernanke & Kuttner (2005)", doi: "10.1111/j.1540-6261.2005.00760.x", relation: tests,
         note: "Model generates a 4.0% drop in stocks to a 100 bps shock, consistent with their empirical estimate" }
@@ -72,7 +72,7 @@ paper:
         note: "Model-implied corporate spread response (11 bps) matches their VAR-based estimate (6.5 bps, SE 3.1)" }
     - { cite: "Hanson & Stein (2015)", doi: "10.1016/j.jfineco.2014.11.001", relation: tests,
         note: "Forward-curve response to monetary shocks used as a calibration target; model matches long-horizon forward rates that standard models cannot" }
-    - { cite: "Caramp & Silva (2023)", doi: "10.1016/j.red.2022.08.002", relation: builds-on,
+    - { cite: "Caramp & Silva (2023)", doi: '10.1016/j.red.2023.08.001', relation: builds-on,
         note: "Prior paper by the same authors decomposes output into ISE and wealth effect; the D-HANK adds aggregate risk and heterogeneity to that framework" }
 
   openQuestions:

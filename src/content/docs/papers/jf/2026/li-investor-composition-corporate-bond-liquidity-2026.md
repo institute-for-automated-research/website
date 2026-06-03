@@ -55,7 +55,7 @@ paper:
     frequency: quarterly
   relatesTo:
     - { cite: "Bao, Pan & Wang (2011)", doi: "10.1111/j.1540-6261.2011.01655.x", relation: builds-on, note: "uses their finding that illiquidity explains a significant part of common credit spread variation; extends by documenting the growing loading over time" }
-    - { cite: "Dick-Nielsen, Feldhutter & Lando (2012)", doi: "10.1016/j.jfineco.2012.01.009", relation: builds-on, note: "adopts their TRACE filtering and liquidity factor construction; uses their liquidity component definition (beta x BA / CS)" }
+    - { cite: "Dick-Nielsen, Feldhutter & Lando (2012)", relation: builds-on, note: "adopts their TRACE filtering and liquidity factor construction; uses their liquidity component definition (beta x BA / CS)" }
     - { cite: "Lester, Rocheteau & Weill (2015)", doi: '10.1111/jmcb.12215', relation: builds-on, note: "provides theoretical micro-foundation for bid-ask spread as fraction of trade surplus in directed search; model follows their reduced-form bid-ask spread specification" }
     - { cite: "Amihud & Mendelson (1986)", doi: '10.1016/0304-405x(86)90065-6', relation: contradicts, note: "in their model investors sort on exogenous bid-ask spreads; in this paper bid-ask spreads are endogenous and investors sort on maturity and default probability, a distinct mechanism" }
     - { cite: "Bai, Li & Manela (2022)", doi: '10.2139/ssrn.4343095', relation: cites, note: "exploits their 10-year maturity threshold discontinuity in intermediate-term bond fund mandates as an IV for investor composition" }
