@@ -168,6 +168,28 @@ datasets:
     access: public
     note: Historical VIX levels are published free by Cboe; intraday option-derived inputs are a distinct licensed feed.
 
+  # ---- public: international official statistics + freely published research data ----
+  bis-rer:
+    name: BIS effective exchange rate indices
+    provider: Bank for International Settlements
+    access: public
+    note: Nominal and real effective exchange rate indices, freely downloadable from the BIS statistics portal.
+  imf-ifs:
+    name: IMF International Financial Statistics
+    provider: International Monetary Fund
+    access: public
+    note: Cross-country macro-financial series, freely accessible via the IMF data portal.
+  shiller-irrational-exuberance:
+    name: Robert Shiller long-run market and housing data
+    provider: Robert J. Shiller (Yale)
+    access: public
+    note: Freely published series accompanying Irrational Exuberance, incl. the long-run real S&P price index and the real home price index.
+  forbes-executive-compensation:
+    name: Forbes annual executive compensation surveys
+    provider: Forbes (published surveys)
+    access: public
+    note: CEO pay figures compiled from the published annual Forbes surveys; historical print issues, no licence to read.
+
   # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
   audit-analytics:
     name: Audit Analytics
@@ -333,6 +355,55 @@ datasets:
       A subscription platform, not a single dataset. When a paper cites the
       specific feed (Compustat, CRSP, IBES) prefer that slug; data:wrds marks
       WRDS-mediated access generally. Tier is the platform's licence floor.
+  ancestry-death-records:
+    name: Ancestry.com death and genealogical records
+    provider: Ancestry.com
+    access: licensed-commercial
+    note: Individual-level death records via paid subscription; used to date executive mortality.
+  capital-iq:
+    name: S&P Capital IQ
+    provider: S&P Global Market Intelligence
+    access: licensed-commercial
+  compustat-global:
+    name: Compustat Global
+    provider: S&P Global Market Intelligence (via WRDS)
+    access: licensed-commercial
+  consensus-economics:
+    name: Consensus Economics forecast surveys
+    provider: Consensus Economics Inc.
+    access: licensed-commercial
+    note: Subscription panel of professional macro and exchange-rate forecasts.
+  gettyimages-ceo-photos:
+    name: Getty Images executive photographs
+    provider: Getty Images
+    access: licensed-commercial
+    note: Licensed press photographs of CEOs; used to construct apparent-age measures.
+  markit-quanto:
+    name: Markit quanto and cross-currency quotes
+    provider: S&P Global (IHS Markit)
+    access: licensed-commercial
+    note: Quanto quotes used to extract the quanto-implied risk premium.
+  morningstar:
+    name: Morningstar fund and sustainability data
+    provider: Morningstar, Inc.
+    access: licensed-commercial
+  nets:
+    name: National Establishment Time-Series (NETS)
+    provider: Walls & Associates (from Dun & Bradstreet microdata)
+    access: licensed-commercial
+    note: Establishment-level employment and location panel built from D&B records.
+  pitchbook:
+    name: PitchBook private-capital data
+    provider: PitchBook (Morningstar)
+    access: licensed-commercial
+  thomson-13f:
+    name: Thomson Reuters institutional holdings (13F, s34)
+    provider: LSEG / Refinitiv (via WRDS)
+    access: licensed-commercial
+  worldscope:
+    name: Refinitiv Worldscope fundamentals
+    provider: LSEG / Refinitiv (via WRDS)
+    access: licensed-commercial
 
   # ---- proprietary-confidential: supervisory, administrative-registry,
   #      individual-level, or single-counterparty data ----
@@ -435,3 +506,32 @@ datasets:
     provider: Euronext Securities Oslo (VPS)
     access: proprietary-confidential
     note: Individual-level securities holdings; restricted research access.
+  discount-window-confidential:
+    name: Federal Reserve discount window lending records
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Loan-level primary-credit borrowing; supervisory, released only with a long lag.
+  fed-funds-confidential:
+    name: Confidential federal funds transaction data
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+  fedwire:
+    name: Fedwire Funds Service transaction data
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Bank-to-bank payment-level records; restricted supervisory access.
+  nic-fed:
+    name: National Information Center (NIC) supervisory data
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Confidential CAMELS composite and component ratings plus BHC ownership and listing history.
+  stbl-fed:
+    name: Survey of Terms of Business Lending (STBL)
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Confidential loan-level C&I risk ratings (1 to 5 scale), 1997 to 2012.
+  tsp-user-list:
+    name: Technology service provider user list
+    provider: Confidential (bank-TSP relationships)
+    access: proprietary-confidential
+    note: Confidential identification of banks using the attacked third-party technology service provider.

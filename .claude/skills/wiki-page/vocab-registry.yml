@@ -183,6 +183,31 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Numerical solution of a Bellman equation by iterating on the value function over a discretized state space.
     aliases: [vfi, bellman-iteration]
 
+  # ---- survival analysis ----
+  survival-analysis:
+    def: Cox proportional hazards model or Kaplan-Meier estimator for time-to-event data; baseline hazard stratified by industry or cohort.
+    aliases: [cox-proportional-hazards, hazard-model, kaplan-meier]
+
+  # ---- exchange rate and currency models ----
+  quanto-implied-risk-premium:
+    def: Risk-neutral covariance between exchange rate and equity market returns extracted from quanto forward prices; the QRP of Kremens and Martin (2019).
+    aliases: [qrp, quanto-forward-pricing]
+
+  # ---- structural firm dynamics ----
+  arpl-mrpl-dynamics:
+    def: Dynamic firm heterogeneity model in which firms differ in the ratio of average-revenue-product-of-labor to marginal-revenue-product-of-labor, capturing rent share and labor intensity differences across cohorts.
+    aliases: [arpl-mrpl-ratio-model, revenue-employment-divergence]
+
+  # ---- segmented-markets housing and asset pricing ----
+  segmented-markets-lucas-tree:
+    def: Two-type OLG model with separate Lucas trees for stocks and housing, connected only through a bond or credit market; households trade only their type-specific asset plus bonds.
+    aliases: [segmented-markets-housing-model]
+
+  # ---- intermediary heterogeneity ----
+  heterogeneous-elasticity-intermediation:
+    def: Model in which intermediaries differ in elasticity of substitution between two assets; aggregate elasticity falls as more-elastic intermediaries exhaust their positions and drop out, amplifying supply-shock price impact.
+    aliases: [corner-solution-intermediation, heterogeneous-intermediary-model]
+
   # ---- heterogeneous-agent macro models ----
   d-hank-model:
     def: Analytical heterogeneous-agent New Keynesian model with Poisson aggregate disaster shocks and heterogeneous beliefs about disaster probability, yielding a tractable four-equation system via approximate block-recursivity.
