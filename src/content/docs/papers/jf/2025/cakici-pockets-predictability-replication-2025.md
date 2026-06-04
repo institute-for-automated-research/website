@@ -53,6 +53,51 @@ paper:
     dataType: [market]
     granularity: [aggregate]
     n: "23,786 daily obs for dp (1926-2016); 23,727 for rvar (1927-2016); 15,860 for tbl (1954-2016); 13,846 for tsp (1962-2016) (Table I, p. 3777)"
+  # --- the "what works" effectiveness axis ---
+  findings:
+    - ref: R1
+      outcome: aggregate stock market excess return
+      metric: r-squared
+      value: "Mean integral R² (daily, two-sided): dp 1.51%, tbl 1.70%, tsp 2.92%, rvar 2.77%"
+      direction: positive
+      vsBenchmark: in-sample (two-sided kernel) reproduces FST; in-pocket vs out-of-pocket asymmetry large
+    - ref: R2
+      outcome: aggregate stock market excess return
+      metric: r-squared
+      value: "Mean integral R² (daily, one-sided): dp 0.18%, tbl 0.09%, tsp 0.09%, rvar 0.28%"
+      direction: none
+      vsBenchmark: ~20x collapse vs two-sided kernel (R1); in-pocket predictability effectively vanishes
+    - ref: R3
+      outcome: in-pocket vs out-of-pocket return predictability
+      metric: t-stat
+      value: "In-pocket CW (two-sided, unrestricted): dp 3.00***, tbl 4.75***, tsp 3.04***; In-pocket CW (one-sided, unrestricted): dp -0.47, tbl 0.10, tsp -1.06"
+      direction: none
+      vsBenchmark: strong in-pocket CW t-stats under two-sided code disappear entirely under one-sided correction
+    - ref: R4
+      outcome: market-timing alpha
+      metric: sharpe-ratio
+      value: "Average SR 0.71 (two-sided) vs 0.44 (one-sided); annualised alphas drop from 0.76-6.38% to -0.44-2.51%"
+      direction: negative
+      vsBenchmark: one-sided SR 0.44 falls below prevailing-mean benchmark (0.46)
+    - ref: R5
+      outcome: aggregate stock market excess return
+      metric: t-stat
+      value: "Out-of-pocket CW (two-sided, unrestricted): dp -1.62†, tbl -1.33†, tsp -1.52†, rvar -1.77††"
+      direction: negative
+      vsBenchmark: benchmark prevailing-mean beats kernel model out-of-pocket even under two-sided code
+    - ref: R6
+      outcome: in-pocket vs out-of-pocket return predictability
+      metric: t-stat
+      value: "All Panel B in-pocket CW entries insignificant across all bandwidth and window combinations (Table IV)"
+      direction: none
+      vsBenchmark: no configuration of the corrected code recovers in-pocket predictability vs prevailing mean
+    - ref: R7
+      outcome: aggregate stock market excess return
+      metric: t-stat
+      value: "Monthly in-pocket CW (one-sided, unrestricted): dp 0.90, tbl 1.22, tsp 0.57, rvar 1.01"
+      direction: none
+      vsBenchmark: monthly one-sided results match daily null; two-sided monthly in-pocket CW strong (tbl 3.55***, tsp 2.44**)
+  resultType: overturns
   # --- finding-lineage edges ---
   relatesTo:
     - { cite: 'Farmer, Schmidt & Timmermann (2023)', relation: replicates, doi: 10.1111/jofi.13229, note: 'audits FST code; finds two-sided kernel in pocket-ID step introduces lookahead bias that accounts for all claimed predictability' }
@@ -98,6 +143,22 @@ paper:
       date: 2026-06-03
       role: verified
       note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; one fix applied - scope.n corrected from approximate "~22,700" to exact per-series counts from Table I (dp 23,786, rvar 23,727, tbl 15,860, tsp 13,846); all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the results table and confirmed against the PDF;
+        7 findings for 8 rows (R8 is qualitative-only, no reported magnitude, so
+        it carries no finding); existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied - R5 tbl out-of-pocket CW
+        corrected from "insignificant" to -1.33† (Table III Panel A.1, p. 3781);
+        all other entries and resultType confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13484
       checked: 2026-05-31
@@ -138,7 +199,7 @@ point into the source PDF.
 | R2 | **Corrected (one-sided) code collapses predictability**: pockets become roughly 20x more frequent, 10x shorter, and far less predictable | Table II Panel B, p. 3779 | Mean integral R² (daily): dp 0.18%, tbl 0.09%, tsp 0.09%, rvar 0.28% (one-sided kernel) |
 | R3 | **In-pocket CW t-statistics vanish with the one-sided kernel**: under the two-sided code in-pocket CW t-stats commonly exceed 3-4; under the corrected code they are insignificant for nearly all 27 model-predictor combinations | Table III Panel A.1 vs A.2, pp. 3781-3782 | Two-sided in-pocket CW (unrestricted): dp 3.00\*\*\*, tbl 4.75\*\*\*, tsp 3.04\*\*\*; one-sided in-pocket CW (unrestricted): dp -0.47, tbl 0.10, tsp -1.06 |
 | R4 | **In-pocket alphas drop sharply**: unrestricted in-pocket annualised alphas fall from 0.76-6.38% (two-sided) to -0.44-2.51% (one-sided); only one out of nine individual/composite predictors exceeds 1% significance under the one-sided kernel | Table III Panel B.1 vs B.2, pp. 3782-3783 | Average Sharpe ratio drops from 0.71 (two-sided) to 0.44 (one-sided), below the prevailing-mean benchmark 0.46 |
-| R5 | **Benchmark model beats kernel models out-of-pocket (two-sided code)**: out-of-pocket CW t-stats are significantly negative (at 10%) in roughly half of configurations under the original code | Table III Panel A.1, p. 3781 | Out-of-pocket CW: dp -1.62†, tbl (ns), tsp -1.52†, rvar -1.77†† (two-sided, unrestricted) |
+| R5 | **Benchmark model beats kernel models out-of-pocket (two-sided code)**: out-of-pocket CW t-stats are significantly negative (at 10%) for most individual predictors under the original code | Table III Panel A.1, p. 3781 | Out-of-pocket CW: dp -1.62†, tbl -1.33†, tsp -1.52†, rvar -1.77†† (two-sided, unrestricted) |
 | R6 | **Alternative bandwidth robustness: corrected code always fails to identify in-pocket predictability** across 2-, 2.5-, and 3-year estimation windows and 6-, 12-, 18-month SED windows; not a single significant in-pocket CW t-stat in Panel B | Table IV Panel B, pp. 3785-3786 | All Panel B in-pocket CW entries insignificant across all bandwidth/window combinations |
 | R7 | **Monthly data confirms the result**: monthly in-pocket CW t-stats are strong under the two-sided kernel (e.g., tbl 3.55\*\*\*, tsp 2.44\*\*\*) but mostly insignificant under the one-sided kernel | Table V Panels A and B, p. 3788 | One-sided in-pocket monthly CW: dp 0.90, tbl 1.22, tsp 0.57, rvar 1.01 |
 | R8 | **Partial exception: factor returns (SMB, HML) retain some time-varying predictability** even with the corrected one-sided kernel, though weaker than FST documented with the two-sided approach | §II.E, p. 3788-3789 (Internet Appendix Section IV) | Qualitative finding: significant CW stats and market-timing gains persist for factor portfolios; aggregate equity market is the null result |

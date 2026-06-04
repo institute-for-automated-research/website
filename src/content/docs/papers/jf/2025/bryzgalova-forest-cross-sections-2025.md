@@ -57,6 +57,56 @@ paper:
   openQuestions:
     - 'Whether the SDF-spanning cross-section generalizes beyond US equities to other asset classes and international markets, where the characteristic structure differs: the construction is presented as general but tested only on US stocks (pp. 2450, 2455).'
     - 'How much further the construction improves once additional economic constraints (liquidity, market-cap floors, number of test assets, degree of interactions) are imposed, which the paper notes are feasible but does not fully explore (pp. 2452, 2458).'
+  findings:
+    - ref: R1
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "AP Trees (10) SR = 0.65, AP Trees (40) SR = 0.69 monthly (test block); TS(32) SR = 0.51, TS(64) SR = 0.53; across 36 three-characteristic cross-sections the AP Tree SR is up to 3x the triple-sort SR"
+      direction: positive
+      vsBenchmark: up to 3x triple-sort SR across 36 cross-sections (Table I, Table B.II)
+    - ref: R2
+      outcome: SDF alpha against leading factor models
+      metric: alpha
+      value: "AP Trees (10): alpha vs FF3 = 0.94 (t=10.11), vs FF5 = 0.81 (t=8.76); TS(32): alpha vs FF3 = 0.75 (t=7.40), vs FF5 = 0.47 (t=5.57)"
+      direction: positive
+      vsBenchmark: AP Trees alpha significantly larger than triple-sort alpha vs all four factor models; triple-sort SDFs routinely spanned
+    - ref: R3
+      outcome: cross-sectional stock returns
+      metric: r-squared
+      value: "AP Trees (10) XS-R2 vs FF5 = 11%; AP Trees (40) XS-R2 vs FF5 = 64%; TS(32) XS-R2 vs FF5 = 91%"
+      direction: negative
+      vsBenchmark: AP Trees (10) XS-R2 is 80pp below TS(32) vs FF5, confirming AP Trees contain pricing information absent from standard factors
+    - ref: R4
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "Dropping interaction nodes reduces AP Tree (10) monthly SR from ~0.4-0.65 to roughly the XSF long-short factor level (~0.2); approximately half the SR is lost"
+      direction: positive
+      vsBenchmark: interaction nodes account for roughly half of AP Trees SR; removing them halves out-of-sample SR (Figure 8)
+    - ref: R5
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "AP Trees monthly SR ~0.4-0.65; V-Trees (variance criterion only) SR ~0.2-0.3; ML prediction-based portfolios (DL-MV, RF-MV) SR ~0.2-0.35; V-Trees 2-3x lower than AP Trees"
+      direction: positive
+      vsBenchmark: SDF-spanning objective raises SR 2-3x over V-Trees; AP Trees SR at least double ML return-prediction portfolios (Figures 9, 15)
+    - ref: R6
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "AP Trees (10) SR = 0.65 vs AP Trees (40) SR = 0.69 (size/OP/investment); 10 portfolios retain roughly 90% of the SR of 40 portfolios (paper's stated characterization, p. 2477)"
+      direction: positive
+      vsBenchmark: 10 pruned portfolios retain roughly 90% of the SR of 40-portfolio cross-section (Figure 7, Table I)
+    - ref: R7
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "AP Trees (10/40) SR ~0.5; best DS25 combination SR ~0.4-0.45; decile-sort SR ~0.3; quintile SR ~0.25; AP Trees raise monthly SR by ~0.1 over best 25x9 double-sort"
+      direction: positive
+      vsBenchmark: ~20% SR gain over best 25x9 double sorts; 80-100% gain over anomaly-based deciles (Figure 14)
+    - ref: R8
+      outcome: out-of-sample Sharpe ratio of managed portfolios
+      metric: sharpe-ratio
+      value: "Liquid-stocks (size quantile above 0.4) AP Trees (10): SR = 0.48, alpha vs FF5 = 0.45 (t=5.70); TS(32) SR = 0.25. Top-600-stocks AP Trees (10): SR = 0.30, alpha vs FF3 = 0.70 (t=5.04), alpha vs FF5 = 0.32 (t=3.87); TS(32) SR = 0.17"
+      direction: positive
+      vsBenchmark: AP Trees SR roughly double triple-sort SR even excluding microcaps; all AP Tree alphas remain significant at 1% while triple-sort SDFs are routinely spanned (Table III)
+  resultType: new-finding
   replicationCode:
     status: available
   licenceVerification:
@@ -85,6 +135,25 @@ paper:
       date: 2026-06-03
       role: verified
       note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; all axes confirmed correct, no changes needed.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the results table and confirmed against the PDF;
+        corrected R8 table magnitude (page had alpha vs FF5 = 0.70 t=5.04,
+        which is actually the FF3 alpha; PDF Table III Panel B gives alpha vs
+        FF3 = 0.70 t=5.04 and alpha vs FF5 = 0.32 t=3.87); existing results
+        and sections otherwise unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R6 value corrected from "~94%" to "roughly 90%"
+        to match the paper's own stated characterization (p. 2477, Figure 7
+        discussion); all other finding magnitudes confirmed against Table I
+        (p. 2482) and Table III (p. 2490); resultType new-finding confirmed.
   rightsSignalConflict: false
 ---
 
@@ -122,7 +191,7 @@ point into the source PDF.
 | R5 | **SDF-spanning objective drives the result**: V-Trees (same splits, variance criterion only) have 2–3x lower SR; ML return-prediction portfolios (deep learning, random forest) have SR at best half that of AP Trees | Figure 9, p. 2481; Figure 15, p. 2494 | AP Trees monthly SR ~0.4–0.65; V-Trees ~0.2–0.3; DL-MV, RF-MV ~0.2–0.35 across 10-characteristic cross-sections |
 | R6 | **10 pruned AP Tree portfolios retain ~90% of the SR** of 40-portfolio cross-sections, showing the quality of the cross-section is not driven by size | Figure 7, p. 2477; Table I, p. 2482 | AP Trees (10) SR = 0.65 vs AP Trees (40) SR = 0.69 for size/OP/investment; 10 portfolios already span ~90% of the SDF |
 | R7 | **In the large-dimension setting (10 characteristics), AP Trees raise monthly SR by ~0.1 over the best 25x9 double-sort cross-section** (roughly 20% gain), and 80–100% over anomaly-based deciles | Figure 14, p. 2493; §V | AP Trees (10/40) achieve SR ~0.5; best DS25 combination reaches ~0.4–0.45; decile-sort SR ~0.3; quintile SR ~0.25 |
-| R8 | **Microcaps do not drive results**: excluding small caps (size quantile below 0.4) or restricting to the top 600 stocks by market cap, AP Trees still roughly double the SR of triple sorts | Table III, p. 2490 | Liquid-stocks AP Trees (10): SR = 0.30, α vs FF5 = 0.70 (t=5.04); triple sorts SR = 0.17 (TS32) / 0.17 (TS64) |
+| R8 | **Microcaps do not drive results**: excluding small caps (size quantile below 0.4) or restricting to the top 600 stocks by market cap, AP Trees still roughly double the SR of triple sorts | Table III, p. 2490 | Top-600-stocks AP Trees (10): SR = 0.30, alpha vs FF3 = 0.70 (t=5.04), alpha vs FF5 = 0.32 (t=3.87); triple sorts SR = 0.17 (TS32) / 0.17 (TS64) |
 
 **Overall (paper's conclusion).** Conventional single/double/triple sorts and
 their stacked combinations, including the size and value sorts of Fama and
