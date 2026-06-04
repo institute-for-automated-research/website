@@ -48,12 +48,19 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, logit-regression, difference-in-differences, matching]
+    identification: natural-experiment
+  contributionType: [new-fact, new-data]
+  mechanisms: [behavioral-bias]
+  introducesData: true
 
   scope:
     region: Germany (East vs. West)
     assetClass: household equity (stocks, equity funds, ETFs)
     period: 2004-06..2023-06
     frequency: mixed
+    dataType: [survey, administrative, market]
+    granularity: [individual]
+    n: "9,695 survey respondents; 326,437 bank customers; 839,292 investor-years (broker)"
 
   relatesTo:
     - { cite: "Fuchs-Schundeln & Haliassos (2021)", relation: extends, note: "prior paper documents the East-West participation gap; this paper shows a significant residual ~10 pp gap with richer controls and explains it via ideology" }
@@ -84,6 +91,26 @@ paper:
       date: 2026-06-01
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; all 10 result rows confirmed correct. Fixed two errors: (1) topics field contained two unrelated placeholder topics ('Climate Change Communication and Perception', 'Media Influence and Health') replaced with accurate topics; (2) colorful adverb 'strikingly' removed from R1 description per house style."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - natural-experiment identification matches primary
+        German division design, new-fact and new-data contribution types
+        supported by three novel data sources (abstract p.1103), behavioral-bias
+        mechanism maps to belief-distortion alias for ideology channel (Section
+        III), introducesData true per fielded Bilendi survey + proprietary bank
+        and broker data, and all scope fields match Table I counts and dataset
+        descriptions.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70006

@@ -39,12 +39,19 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, event-study, panel-regression]
+    identification: natural-experiment
+  contributionType: [new-data, new-fact]
+  mechanisms: [financial-constraint, debt-overhang]
+  introducesData: true
 
   scope:
     region: US
     assetClass: consumer loans (private student debt, credit cards, mortgages, auto)
     period: 2010-01..2017-12
     frequency: monthly
+    dataType: [administrative]
+    granularity: [individual]
+    n: "1,283,639 borrower-months (9,878 treated; 6,388 control borrowers)"
 
   relatesTo:
     - { cite: 'Dobbie & Song (2015)', doi: 10.1257/aer.20130612, relation: builds-on, note: 'benchmark for debt-relief effects on credit and labor outcomes via chapter 13 bankruptcy; this paper examines private student debt discharge outside bankruptcy' }
@@ -82,6 +89,26 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'All 8 core-result locators and magnitudes re-checked against PDF tables (II–VIII, pp. 524–539); all correct. Budget constraint (p. 517) and eq. 1–2 (pp. 518–519) verified term-by-term: subscripts, signs, summation indices, and FE structure match. Formal sections (Theory/model, Method, Empirical specifications) checked against PDF: all accurate. No em-dashes, no colorful adjectives. No fixes required.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all
+        axes confirmed correct - natural-experiment from National Collegiate
+        paperwork-loss quasi-experiment (pp. 508-509, 516), new-data and
+        new-fact contributions both supported, financial-constraint and
+        debt-overhang mechanisms match PDF sections A.1 and A.2 (pp. 534-539),
+        introducesData=true confirmed by hand-collected LexisNexis dataset
+        (p. 508), scope fields match Table I and Table II sample counts; no
+        fixes required.
   rightsSignalConflict: false
 ---
 

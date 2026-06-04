@@ -39,11 +39,16 @@ paper:
     contributes: ap-trees
     family: ml
     buildsFrom: [decision-trees, conditional-sorts, lasso, ridge-shrinkage, sdf-projection, robust-mean-variance-optimization]
+    identification: descriptive
+  contributionType: [new-method, new-theory, new-fact]
   scope:
     region: US
     assetClass: US equities (CRSP/Compustat common stocks)
     period: 1964-01..2016-12
     frequency: monthly
+    dataType: [market, accounting]
+    granularity: [security]
+    n: "CRSP common stocks, Jan 1964-Dec 2016 (53 years, monthly)"
   relatesTo:
     - { cite: 'Kozak, Nagel & Santosh (2020)', doi: '10.1016/j.jfineco.2019.06.008', relation: extends, note: 'generalizes their robust SDF recovery by also shrinking the mean, not just the covariance (Prop. 2-3)' }
     - { cite: 'Fama & French (1993)', doi: '10.1016/0304-405x(93)90023-5', relation: contradicts, note: 'standard size/value sorts and their stacked combinations do not span the conditional SDF, so they give a misspecified benchmark' }
@@ -72,6 +77,14 @@ paper:
       date: 2026-05-31
       role: extracted
       note: 'Pilot reshape to the deepened schema. Added the methods block (role/contributes/family/buildsFrom), scope, relatesTo, openQuestions, proposedVocab, and three formal body sections (Theory / model, Method, Empirical specifications) with equations transcribed from pp. 2455-2468 of the source PDF read this session (SDF projection, eq. 1, Prop. 1, AP-Pruning Def. 1-2 eq. 2, Prop. 2). The Core results table is unchanged from the verified version above. The new formal sections are extracted, not yet re-verified by paper-verifier.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: Added classification axes (identification, contributionType, mechanisms, introducesData, data-scope) from a fresh PDF read; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; all axes confirmed correct, no changes needed.
   rightsSignalConflict: false
 ---
 

@@ -52,11 +52,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, instrumental-variables, panel-regression, matching]
+    identification: natural-experiment
+  contributionType: [new-fact]
+  mechanisms: [behavioral-bias, agency]
   scope:
     region: US
     assetClass: US commercial banks (depository institutions)
     period: 1990-01..2012-12
     frequency: quarterly
+    dataType: [market, accounting, administrative]
+    granularity: [firm, transaction]
+    n: "178,980 bank-quarters (7,166 banks); IPO sample 8,237 bank-quarters (276 BHCs)"
   relatesTo:
     - { cite: 'Stein (1989)', doi: '10.2307/2937861', relation: tests, note: 'the paper tests the short-termism prediction that public market pressure induces managers to boost short-run earnings at the expense of long-run value' }
     - { cite: 'Bernstein (2015)', doi: '10.1111/jofi.12275', relation: builds-on, note: 'follows Bernstein (2015) in using withdrawn IPO filings as the control group for identifying IPO effects on firm behavior' }
@@ -91,6 +97,22 @@ paper:
         one fix applied: Empirical specifications section incorrectly stated
         Table X Panel A used the "full 178,980 bank-quarter universe" when it
         uses the pre-crisis window (90,733 observations).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; one fix
+        applied - granularity corrected from [firm, security] to [firm,
+        transaction] because STBL regressions use loan-level observations and
+        no security-level unit of observation appears in any regression.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13502
       checked: 2026-06-03

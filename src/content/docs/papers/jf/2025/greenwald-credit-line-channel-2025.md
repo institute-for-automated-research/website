@@ -46,11 +46,17 @@ paper:
     role: both
     family: structural
     buildsFrom: [panel-regression, instrumental-variables, difference-in-differences, method-of-simulated-moments]
+    identification: natural-experiment
+  contributionType: [new-fact, new-theory]
+  mechanisms: [intermediary-constraint, financial-constraint]
   scope:
     region: US
     assetClass: corporate loans (bank credit lines and term loans)
     period: 2012-Q3..2020-Q4
     frequency: quarterly
+    dataType: [administrative, accounting]
+    granularity: [firm, transaction]
+    n: "207,505 distinct firm TINs; 4,496,353 loan facility observations"
   relatesTo:
     - { cite: 'Khwaja and Mian (2008)', doi: '10.1257/aer.98.4.1413', relation: builds-on, note: 'firm fixed effect approach to isolate credit supply shifts, applied here to the bank-firm Y14 panel' }
     - { cite: 'Ivashina and Scharfstein (2010)', doi: '10.1016/j.jfineco.2009.12.001', relation: extends, note: 'similar drawdown pattern in the 2007-09 crisis; this paper provides actual drawdown measures and crowding-out regressions' }
@@ -81,6 +87,22 @@ paper:
         eight result rows confirmed correct (Table I p.3144, Figure 5 p.3149,
         Tables III-V pp.3152-3157, Figure 7 p.3175, IA Figure IA.6 p.3176);
         all equations (1-15, A.20) verified term-by-term; no errors found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; corrected
+        identification from 'instrument' to 'natural-experiment' (primary design
+        is the Khwaja-Mian COVID-19 bank-firm FE natural experiment, pp.3150-3151;
+        IV in eqs.3-5 is secondary); all other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13486
       checked: 2026-06-03

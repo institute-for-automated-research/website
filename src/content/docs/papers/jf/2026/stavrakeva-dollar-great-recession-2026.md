@@ -50,11 +50,17 @@ paper:
     contributes: information-channel-fg
     family: reduced-form-causal
     buildsFrom: [event-study, panel-regression, affine-term-structure]
+    identification: instrument
+  contributionType: [new-fact, new-theory]
+  mechanisms: [information-asymmetry, flight-to-safety]
   scope:
     region: global
     assetClass: currency (USD vs 9 advanced + 15 emerging market), US equities, global equities
     period: 1990-01..2019-12
     frequency: daily
+    dataType: [market, survey]
+    granularity: [aggregate, security]
+    n: "24 currencies x 266 FOMC announcement dates (1990-2019); GR subsample 33 dates"
   relatesTo:
     - { cite: 'Nakamura & Steinsson (2018)', doi: '10.1093/qje/qjy004', relation: builds-on, note: 'high-frequency monetary policy identification using interest-rate futures (the "information effect" framing)' }
     - { cite: 'Swanson (2021)', doi: '10.1016/j.jmoneco.2020.09.003', relation: extends, note: 'decomposes FOMC surprises into FG and LSAP factors; Stavrakeva-Tang use these factors to verify that the sign reversal is driven by FG alone, not QE' }
@@ -95,6 +101,26 @@ paper:
         term-by-term against PDF; no transcription errors found. Frontmatter
         facts, resultsCount, venue, DOI, and author affiliations confirmed.
         No em-dashes or colorful adjectives detected.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - instrument identification via ED4 high-frequency
+        surprises supported (pp. 976-978), new-fact and new-theory contributions
+        confirmed (pp. 972-973/989), information-asymmetry and flight-to-safety
+        mechanisms explicitly invoked, introducesData correctly absent, market
+        and survey dataTypes confirmed, aggregate and security granularity
+        confirmed, n=24 currencies x 266 dates confirmed (Table I); no fixes
+        required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70025
       checked: 2026-06-01

@@ -45,11 +45,17 @@ paper:
     contributes: segmented-markets-housing-beta
     family: structural
     buildsFrom: [overlapping-generations, life-cycle-model, segmented-markets-lucas-tree]
+    identification: structural
+  contributionType: [new-fact, new-theory]
+  mechanisms: [collateral, risk-sharing]
   scope:
     region: US
     assetClass: US equities and residential real estate
     period: 1930-01..2024-12
     frequency: annual
+    dataType: [market, accounting]
+    granularity: [aggregate, individual]
+    n: "annual, 1930-2024 (returns and cashflows)"
   relatesTo:
     - { cite: 'Piazzesi and Schneider (2016)', doi: '10.1016/bs.hesmac.2016.06.003', relation: builds-on, note: 'survey of the housing and macroeconomics literature that motivates studying stocks and housing jointly (p. 3103)' }
     - { cite: 'Piazzesi and Schneider (2007)', relation: builds-on, note: 'search model for momentum traders in housing; the current paper extends the heterogeneous-agent framework (p. 3111)' }
@@ -71,6 +77,23 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; one fix applied: equation (4) log argument parenthesised (wiki had log applied to R̃ alone rather than the full portfolio return R̃ α + R(1−α)); all 8 result rows, frontmatter facts, relatesTo body mentions, and no-em-dash rule confirmed correct."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; two fixes
+        applied - removed demand-elasticity from mechanisms (paper invokes credit
+        market channel via asymmetric portfolio weights, not demand-based asset
+        pricing) and added individual to scope.granularity (CoreLogic
+        individual-house transaction data used in Figure 6 / R4).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70000
       checked: 2026-06-03

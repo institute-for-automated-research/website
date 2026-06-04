@@ -51,11 +51,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, event-study, difference-in-differences]
+    identification: selection-on-observables
+  contributionType: [new-fact, measurement]
+  mechanisms: [esg-reputation, learning]
   scope:
     region: global
     assetClass: global equities
     period: 2008-01..2019-12
     frequency: monthly
+    dataType: [market, accounting, text]
+    granularity: [firm, security]
+    n: "744,858 firm-months; 9,737 firms in 49 countries; 81,749 ESG incidents"
   relatesTo:
     - { cite: "Glosner (2021)", relation: builds-on, note: "documents that negative ESG shocks predict negative future stock returns, suggesting underreaction; motivates studying the analyst channel" }
     - { cite: "Pedersen, Fitzgibbons & Pomorski (2021)", doi: '10.1016/j.jfineco.2020.11.001', relation: builds-on, note: "models the cash flow channel through which ESG information affects expected returns" }
@@ -86,6 +92,25 @@ paper:
         10.44% is the at-least-one share (6.57% exactly one, 3.87% at least two)
         per p. 3508. All other locators, coefficients, t-stats, equations (1)-(8),
         and frontmatter verified correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - selection-on-observables matches the within-firm FE
+        design with no instrument or quasi-experiment; new-fact and measurement
+        match the paper's contributions; esg-reputation and learning match the
+        two channels explicitly tested in Sections III and VI; introducesData
+        correctly absent; dataType [market, accounting, text] and n confirmed
+        against p. 3508.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13498
       checked: 2026-06-03

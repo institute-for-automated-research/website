@@ -47,11 +47,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, event-study, text-classification, llm-text-classification, fama-macbeth]
+    identification: selection-on-observables
+  contributionType: [new-data, new-fact]
+  mechanisms: [information-asymmetry]
+  introducesData: true
   scope:
     region: UK
     assetClass: UK equities (FTSE All-Share)
     period: 2007-01..2015-12
     frequency: daily
+    dataType: [text, market, administrative]
+    granularity: [security, firm, individual]
+    n: "10,436,084 fund-stock-days; 4,700 meetings"
   relatesTo:
     - { cite: 'Bradley, Jame & Williams (2022)', relation: builds-on, note: 'follows their methodology for constructing long-short meeting portfolios; extends it with actual meeting notes and daily trade data' }
     - { cite: 'Bushee, Gerakos & Lee (2018)', relation: tests, note: 'compares trading response magnitude; finds estimates ~7x larger than their corporate-jet-visit evidence due to daily (vs inferred) data' }
@@ -82,6 +89,22 @@ paper:
         from *** to ** (Table XI Panel A col.(3) shows 1.802** not 1.802***);
         equation (1) transcription and four-factor portfolio spec confirmed correct;
         no em-dashes or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; one fix
+        applied - scope.granularity corrected from [firm, individual] to
+        [security, firm, individual] to reflect the primary fund-stock-day
+        unit of observation (N=10.4M in Table IV); all other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13495
       checked: 2026-06-01

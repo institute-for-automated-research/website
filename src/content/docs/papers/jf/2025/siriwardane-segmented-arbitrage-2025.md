@@ -42,11 +42,17 @@ paper:
     contributes: segmented-arbitrage
     family: reduced-form-causal
     buildsFrom: [sign-restricted-svar, panel-regression, difference-in-differences, instrumental-variables]
+    identification: natural-experiment
+  contributionType: [new-fact, new-theory]
+  mechanisms: [limits-to-arbitrage, intermediary-constraint, liquidity]
   scope:
     region: US
     assetClass: equity futures, fixed income, foreign exchange (32 arbitrage spreads)
     period: 2010-01..2020-02
     frequency: mixed
+    dataType: [market, accounting]
+    granularity: [security, aggregate]
+    n: "32 arbitrage spreads, daily 2010-2020; 496 pairwise spread combinations"
   relatesTo:
     - { cite: 'He & Krishnamurthy (2013)', doi: '10.1257/aer.103.2.732', relation: contradicts, note: 'canonical single-constraint intermediary model predicts perfect spread correlation; data show mean pairwise rho = 0.22 (Table II, p. 2560)' }
     - { cite: 'Garleanu & Pedersen (2011)', doi: '10.1093/rfs/hhr027', relation: contradicts, note: 'margin-based asset pricing with integrated funding implies one- or two-factor spread structure; rejected by high-dimensional factor structure (Figure 3, p. 2562)' }
@@ -82,6 +88,24 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'All 9 core result rows re-checked against the source PDF (Tables II–VII, Figures 3–8); all locators and magnitudes confirmed correct. Equations 1–13 verified term-by-term: subscripts, signs, summation limits, and matrix entries all match the PDF. No errors found; no edits required.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct -- natural-experiment identification via 2016 MMF reform
+        DiD is the primary design, new-fact and new-theory contribution types match,
+        mechanisms (limits-to-arbitrage, intermediary-constraint, liquidity/funding)
+        are all invoked, introducesData correctly absent, and scope fields faithful
+        to the 32-spread daily 2010-2020 sample; no edits required.
   rightsSignalConflict: false
 ---
 

@@ -39,11 +39,18 @@ paper:
     contributes: covenant-violation-decomposition
     family: descriptive
     buildsFrom: [probit-regression, blinder-oaxaca-decomposition, roc-curve-analysis]
+    identification: descriptive
+  contributionType: [new-method, new-fact, new-data]
+  mechanisms: [agency, information-asymmetry]
+  introducesData: true
   scope:
     region: US
     assetClass: corporate loans (syndicated bank loans to public firms)
     period: 1997-01..2019-12
     frequency: annual
+    dataType: [accounting, text, administrative]
+    granularity: [firm, transaction]
+    n: "85,876 firm-years; 17,724 loan packages; 403 bankruptcies"
   relatesTo:
     - { cite: 'Nini, Smith & Sufi (2012)', doi: '10.1093/rfs/hhs007', relation: extends, note: 'extends their 1997-2008 violation sample through 2019 and adds the structural decomposition framework' }
     - { cite: 'Murfin (2012)', doi: '10.1111/j.1540-6261.2012.01767.x', relation: builds-on, note: 'adopts the Murfin covenant strictness measure and its Demerjian-Owens update as the ex ante tightness measure' }
@@ -73,6 +80,23 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'All 9 core result rows re-checked against source PDF (pp. 378-407). Locators, magnitudes, signs, and significance stars confirmed correct. All equations in Theory/model, Method, and Empirical specifications sections checked term-by-term against PDF pp. 381-393, 402: eq. (1) FOC, cost objective, FNR/FPR definitions, eq. (2) violation decomposition and change decomposition, t*/mu_D/R recovery formulas, eq. (3) Blinder-Oaxaca -- all match. Regression LHS/RHS/FE/SE/sample for Table I and Table IV specifications confirmed. No em-dashes or colorful adjectives found. No errors requiring correction.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; removed
+        financial-constraint and behavioral-bias from mechanisms (not invoked as
+        channels in the paper's own framework -- the paper's channels are agency
+        and imperfect-screening information asymmetry; investor sentiment is
+        cited associatively not as a tested mechanism slug).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70005
       checked: 2026-05-31

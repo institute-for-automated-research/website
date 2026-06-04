@@ -39,6 +39,8 @@ paper:
     contributes: realization-utility-saving-leverage
     family: structural
     buildsFrom: [hjb-optimal-stopping, impulse-control, realization-utility]
+  contributionType: [new-theory]
+  mechanisms: [behavioral-bias]
   scope:
     region: theoretical (calibrated to US equity parameters)
     assetClass: individual equities (single stock plus risk-free asset)
@@ -76,6 +78,24 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'All seven Core result rows re-checked against the PDF and confirmed correct. All equations (eqs. 1-31, A.1-A.5, B.1-B.10) verified term-by-term; one locator fix applied: the scaled variational inequality in the Method section was mislabelled (A.1) but is eq. (A.4) in the PDF; corrected in place. No other errors found.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - identification omitted (theory paper, no empirical
+        design), contributionType [new-theory] matches model-only contribution,
+        mechanisms [behavioral-bias] matches prospect-theory realization-utility
+        channel, introducesData absent (no new dataset), scope dataType/granularity/n
+        absent (theory paper); no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13472
       checked: 2026-05-31

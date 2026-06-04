@@ -44,11 +44,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, event-study, panel-regression, survival-analysis]
+    identification: natural-experiment
+  contributionType: [new-fact, new-data, measurement]
+  mechanisms: [agency, occupational-stress]
+  introducesData: true
   scope:
     region: US
     assetClass: US equities (Fortune 1000 / Forbes Executive Compensation survey firms)
     period: 1975-01..2017-10
     frequency: annual
+    dataType: [market, accounting, administrative, other]
+    granularity: [individual, firm]
+    n: "3,002 CEO images (453 CEOs) for aging analysis; 1,900 CEOs, 58,034 CEO-year observations for mortality analysis"
   relatesTo:
     - { cite: 'Bertrand and Mullainathan (2003)', relation: builds-on, note: 'antitakeover-law variation as a proxy for CEO monitoring intensity' }
     - { cite: 'Gibbons and Murphy (1992)', relation: builds-on, note: 'CEO Mortality Data Set extends their Forbes Executive Compensation Surveys 1975-1991' }
@@ -71,6 +78,24 @@ paper:
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-03, role: extracted, note: 'Full text read (pp. 3401-3442); eight results extracted from the CC-BY PDF. Not human-verified. Not reproduced.' }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-03, role: verified, note: 'Locators and reported magnitudes re-checked against the source PDF; one fix applied: R7 nondistressed Kaplan-Meier milestone corrected from ~33 to ~32 years (PDF p. 3426 states "approximately 32 years"); all other rows, equations, and frontmatter facts confirmed.' }
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - natural-experiment identification supported by DiD
+        and BC law quasi-experiments, new-fact/new-data/measurement contribution
+        types all substantiated, occupational-stress and agency mechanisms both
+        invoked, introducesData true for two hand-collected datasets, and
+        data-scope fields match reported sample sizes exactly.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13497
       checked: 2026-06-03

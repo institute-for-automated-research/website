@@ -38,11 +38,17 @@ paper:
     contributes: upstream-downstream-uncertainty
     family: structural
     buildsFrom: [real-options, value-function-iteration, panel-regression, smooth-local-projections]
+    identification: selection-on-observables
+  contributionType: [new-theory, new-fact, measurement]
+  mechanisms: [networks]
   scope:
     region: US
     assetClass: US equities (CRSP/Compustat non-financial, non-utility firms)
     period: 1976-01..2019-12
     frequency: mixed
+    dataType: [market, accounting, other]
+    granularity: [aggregate, industry, firm]
+    n: "17,456-50,786 firm-years (Table III); macro 1976Q1-2019Q4"
   relatesTo:
     - { cite: 'Bloom (2009)', doi: '10.3982/ecta6248', relation: builds-on, note: 'canonical bad-news-principle channel that upstream uncertainty operates through; the paper decomposes total uncertainty into upstream vs. downstream components' }
     - { cite: 'Bernanke (1983)', relation: builds-on, note: 'bad news principle that motivates why upstream uncertainty delays investment unambiguously' }
@@ -94,6 +100,22 @@ paper:
         downstream spike March 2020) all confirmed correct. Frontmatter
         authors/year/venue/DOI/resultsCount confirmed. No em-dashes or
         colorful adjectives found. No corrections needed.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF;
+        granularity corrected from [aggregate, firm] to [aggregate, industry, firm]
+        (BEA I-O industry upstreamness scores are the unit in the macro analysis);
+        all other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70010
       checked: 2026-05-31

@@ -49,12 +49,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, fama-macbeth, portfolio-sort, instrumental-variables, difference-in-differences]
+    identification: selection-on-observables
+  contributionType: [new-fact, measurement]
+  mechanisms: [information-asymmetry, limits-to-arbitrage]
 
   scope:
     region: US
     assetClass: US equities (mutual funds and 13f institutions)
     period: 2000-01..2018-12
     frequency: quarterly
+    dataType: [market, accounting, text]
+    granularity: [individual, firm]
+    n: "98,252 fund-years; 166,185 institution-year observations; 26,217 firm-years"
 
   relatesTo:
     - { cite: "Gaspar, Massa & Matos (2005)", doi: "10.1016/j.jfineco.2004.10.002", relation: builds-on, note: "churn ratio methodology for measuring investor horizon (eq. 1-4, p. 610)" }
@@ -86,6 +92,26 @@ paper:
       date: 2026-06-01
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF (all 40 pages); all nine result rows pass: coefficients, standard errors, significance stars, and table/figure locators match the PDF exactly. Equations 7-15 verified term-by-term against PDF originals; all subscripts, signs, and fixed-effects descriptions are faithful. No em-dashes or colorful adjectives found. No corrections needed."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF.
+        identification is selection-on-observables: the primary design across 8
+        of 9 results is panel FE with controls, and the SEC 2004 disclosure
+        shock (R8 only) is a supporting causal check, not the primary design.
+        contributionType (new-fact, measurement), mechanisms
+        (information-asymmetry, limits-to-arbitrage), introducesData absent, and
+        data scope (market/accounting/text, individual/firm, sample sizes) all
+        match the PDF; no other corrections needed.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70008

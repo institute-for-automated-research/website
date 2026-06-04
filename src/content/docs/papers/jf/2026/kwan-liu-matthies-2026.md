@@ -39,12 +39,19 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, fama-macbeth, portfolio-sort]
+    identification: selection-on-observables
+  contributionType: [new-data, new-fact]
+  mechanisms: [learning, information-asymmetry]
+  introducesData: true
 
   scope:
     region: US
     assetClass: US equities, institutional funds
     period: 2017-11..2022-06
     frequency: monthly
+    dataType: [market, accounting, text]
+    granularity: [individual, security, firm]
+    n: "481,820,400 fund-firm-quarters; 4,075 distinct funds"
 
   relatesTo:
     - { cite: 'Peng & Xiong (2006)', doi: '10.1016/j.jfineco.2005.05.003', relation: tests, note: 'Tests prediction that attention-constrained investors shift toward macro news when aggregate volatility is high (p. 801)' }
@@ -99,6 +106,20 @@ paper:
         Panel B) is 0.446*** (1% level), corrected from ** to ***. All other
         locators, coefficients, t-stats, sample sizes, and equations (eqs.
         1-4) confirmed correct. No em-dashes or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct -- no fixes required.
 
   rightsSignalConflict: true
 ---

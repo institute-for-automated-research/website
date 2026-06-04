@@ -42,12 +42,17 @@ paper:
     role: applies-method
     family: descriptive
     buildsFrom: [kernel-regression, time-series-forecasting]
+    identification: descriptive
+  contributionType: [replication, new-fact]
   # --- sample scope ---
   scope:
     region: US
     assetClass: US equities (aggregate market, CRSP)
     period: 1926-01..2016-12
     frequency: daily
+    dataType: [market]
+    granularity: [aggregate]
+    n: "23,786 daily obs for dp (1926-2016); 23,727 for rvar (1927-2016); 15,860 for tbl (1954-2016); 13,846 for tsp (1962-2016) (Table I, p. 3777)"
   # --- finding-lineage edges ---
   relatesTo:
     - { cite: 'Farmer, Schmidt & Timmermann (2023)', relation: replicates, doi: 10.1111/jofi.13229, note: 'audits FST code; finds two-sided kernel in pocket-ID step introduces lookahead bias that accounts for all claimed predictability' }
@@ -85,6 +90,14 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'Full PDF re-read (pp. 3771-3790, all 20 pages); all 8 result rows, equations 1-5, and frontmatter re-checked. One fix: R2 tbl mean integral R² corrected from 0.12% to 0.09% (Table II Panel B, p. 3779). All other locators and magnitudes confirmed correct. Equations 1-5 verified term-by-term. No em-dashes or colorful adjectives found.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: Added classification axes (identification, contributionType, mechanisms, introducesData, data-scope) from a fresh PDF read; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; one fix applied - scope.n corrected from approximate "~22,700" to exact per-series counts from Table I (dp 23,786, rvar 23,727, tbl 15,860, tsp 13,846); all other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13484
       checked: 2026-05-31

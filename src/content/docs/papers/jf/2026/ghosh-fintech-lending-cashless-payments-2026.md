@@ -47,12 +47,19 @@ paper:
     contributes: digital-collateral-signaling-model
     family: reduced-form-causal
     buildsFrom: [panel-regression, instrumental-variables, text-classification]
+    identification: instrument
+  contributionType: [new-fact, new-theory, new-data]
+  mechanisms: [information-asymmetry, moral-hazard]
+  introducesData: true
 
   scope:
     region: India
     assetClass: unsecured small-business loans (FinTech)
     period: 2015-09..2022-11
     frequency: mixed
+    dataType: [administrative]
+    granularity: [firm, transaction]
+    n: "316,719 loan applications; 152 million transactions"
 
   relatesTo:
     - { cite: "Parlour, Rajan & Zhu (2022)", doi: '10.1093/rfs/hhac022', relation: builds-on, note: "model of payment-lending synergy; authors extend to make cashless payment technology choice itself the selection mechanism (digital collateral)" }
@@ -82,6 +89,23 @@ paper:
       date: 2026-06-01
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; one fix applied: R6 info-intensive default beta corrected from -0.020*** to -0.017*** (Table V Panel B col 7); all other rows, equations, and specifications confirmed correct."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - instrument (2SLS/Demonetization IV), new-fact +
+        new-theory + new-data, information-asymmetry + moral-hazard, introducesData
+        true (novel Indifi proprietary dataset), administrative data at firm and
+        transaction granularity, n confirmed from Table I and p.1062.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70003

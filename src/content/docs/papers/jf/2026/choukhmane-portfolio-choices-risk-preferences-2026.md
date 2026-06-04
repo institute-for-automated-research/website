@@ -41,11 +41,17 @@ paper:
     contributes: revealed-preference-portfolio-bounds
     family: structural
     buildsFrom: [method-of-simulated-moments, revealed-preference, life-cycle-model, epstein-zin-weil]
+    identification: natural-experiment
+  contributionType: [new-method, new-fact, measurement]
+  mechanisms: [participation-frictions]
   scope:
     region: US
     assetClass: US retirement accounts (401k DC plans)
     period: 2006-12..2017-12
     frequency: annual
+    dataType: [administrative, survey]
+    granularity: [individual]
+    n: "~4 million employees, >600k 401(k) plans; quasi-experiment #1: 2,407 investors at 6 firms; quasi-experiment #2: 92,737 investors at 191 firms"
   relatesTo:
     - { cite: 'Goldin and Reck (2020)', doi: '10.1086/706860', relation: extends, note: 'extends their revealed-preference framing framework from binary savings to continuous portfolio-share decisions (pp. 7, 18)' }
     - { cite: 'Choukhmane (2025)', doi: '10.1257/aer.20210881', relation: builds-on, note: 'life-cycle model extends his consumption-saving DC model to include multiple assets and portfolio choice (p. 29)' }
@@ -90,6 +96,23 @@ paper:
         objective corrected from W^{-1} to W, consistent with W defined as the inverse
         covariance (optimal weight) matrix (p. 40). All Core result locators and
         magnitudes confirmed. No em-dashes or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes re-checked against the source PDF; fixed mechanisms
+        from behavioral-bias (which the paper explicitly rejects as the driver)
+        to participation-frictions (the paper's actual invoked channel, one-time
+        fixed adjustment costs), staged in proposedVocab; all other axes
+        (identification natural-experiment, contributionType, introducesData
+        absent, data-scope) confirmed correct.
   rightsSignalConflict: false
 ---
 

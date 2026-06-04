@@ -50,12 +50,18 @@ paper:
     role: applies-method
     family: descriptive
     buildsFrom: [panel-regression, time-series-forecasting, fama-macbeth, quanto-implied-risk-premium]
+    identification: descriptive
+  contributionType: [new-fact, measurement]
+  mechanisms: [risk-sharing, intermediary-constraint]
 
   scope:
     region: global
     assetClass: foreign exchange (six high-income currency pairs vs USD)
     period: 1994-12..2021-03
     frequency: monthly
+    dataType: [market, survey]
+    granularity: [security]
+    n: "672 currency-months (post-GFC baseline); 1,340 currency-months (full sample, 1994-2021)"
 
   relatesTo:
     - { cite: 'Kremens and Martin (2019)', doi: '10.1257/aer.20180019', relation: extends, note: 'extends their quanto-implied risk premium (QRP) as an FX predictor; this paper adds survey expectations as a complementary and stronger univariate predictor' }
@@ -89,6 +95,21 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; R4 corrected (coefficients and R-squared 53.6% belong to col 7 not col 8; removed overclaim of 'from 0' baseline); R7 corrected (1M not 3M forecasts predicting 24M RXR*); all other rows, equations, and frontmatter confirmed against PDF."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct; removed pre-existing literal-false rightsSignalConflict
+        (schema violation, key must be omitted when false).
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13504
@@ -96,7 +117,6 @@ paper:
       by: paper-distiller (claude-sonnet-4-6)
       found: "license[].content-version=vor, URL=http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days=0, start=2025-09-29; no CC license found; paper is paywalled"
 
-  rightsSignalConflict: false
 ---
 
 **What this is.** The paper's core results, the SDF-based UIP identity it uses, and the main regression specifications: enough to know what it found and how, without reading all 30 pages. To replicate or extend it, read the full source at [doi:10.1111/jofi.13504](https://doi.org/10.1111/jofi.13504).

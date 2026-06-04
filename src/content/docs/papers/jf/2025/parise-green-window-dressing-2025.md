@@ -46,11 +46,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, event-study, fama-macbeth]
+    identification: natural-experiment
+  contributionType: [new-fact, measurement]
+  mechanisms: [agency, information-asymmetry]
   scope:
     region: US
     assetClass: US equity mutual funds
     period: 2016-03..2022-12
     frequency: daily
+    dataType: [market, accounting]
+    granularity: [individual, security]
+    n: "223 ESG active equity mutual funds; 4,063 fund-event observations (main test)"
   relatesTo:
     - { cite: "Kacperczyk, Sialm & Zheng (2008)", doi: '10.1016/j.jfineco.2008.09.001', relation: builds-on, note: "return-gap methodology used to compare realized vs. disclosed-portfolio returns (Section II.B)" }
     - { cite: "Agarwal, Gay & Ling (2014)", doi: '10.1093/rfs/hhu045', relation: builds-on, note: "traditional window dressing framework and portfolio disclosure timing design" }
@@ -78,6 +84,22 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; all eight result rows confirmed correct (Table II, IV, V, VI, VII, Figure 4 values and SEs match); equations 1-7 verified term-by-term; relatesTo cites all locatable in body; no em-dashes or colorful adjectives found; no fixes required."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; fixed
+        scope.granularity from [security, firm] to [individual, security] --
+        primary unit is fund (individual), secondary is stock (security); all
+        other axes confirmed correct.
   rightsSignalConflict: false
 ---
 

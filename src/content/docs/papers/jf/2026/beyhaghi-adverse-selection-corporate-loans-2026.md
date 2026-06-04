@@ -44,11 +44,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, difference-in-differences, instrumental-variables]
+    identification: natural-experiment
+  contributionType: [new-fact, measurement]
+  mechanisms: [information-asymmetry, market-power]
   scope:
     region: US
     assetClass: corporate loans
     period: 2014Q4..2019Q4
     frequency: quarterly
+    dataType: [administrative, accounting]
+    granularity: [transaction, firm]
+    n: "21,924 corporate loans, 2014Q4-2019Q4, 23 BHCs"
   relatesTo:
     - { cite: 'Broecker (1990)', doi: '10.2307/2938210', relation: tests, note: 'core adverse-selection predictions: more banks raises rates, borrower risk, and volume (p. 246)' }
     - { cite: 'Marquez (2002)', doi: '10.1093/rfs/15.3.901', relation: tests, note: 'information-dispersion channel: more banks makes screening harder (p. 246)' }
@@ -101,6 +107,24 @@ paper:
         uses Gamma_2 for Z_{f,t} coefficient where the PDF reuses gamma; this
         is a defensible disambiguation, not an error. Frontmatter authors, year,
         venue, and resultsCount verified. No em-dashes or colorful adjectives found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - natural-experiment matches GSIB DiD/IV primary design
+        (p. 272), new-fact and measurement match stated first-paper claims (pp. 243,
+        245), information-asymmetry and market-power match invoked channels (pp.
+        240, 246), introducesData correctly absent, and scope dataType/granularity/n
+        all match PDF pp. 247-248.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70011
       checked: 2026-05-31

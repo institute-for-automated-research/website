@@ -47,11 +47,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, event-study, probit-regression, matching]
+    identification: natural-experiment
+  contributionType: [new-fact, new-data]
+  mechanisms: [information-asymmetry, moral-hazard]
+  introducesData: true
   scope:
     region: US
     assetClass: bank deposits (transaction and term accounts)
     period: 2006-01..2016-12
-    frequency: daily
+    frequency: mixed
+    dataType: [administrative, survey]
+    granularity: [individual, firm]
+    n: "~44,000 deposit accounts (single failed bank); up to 554,180 bank-quarters (generalization panel, ~10,000 banks, 2000-2016)"
   relatesTo:
     - { cite: 'Egan, Hortacsu & Matvos (2017)', doi: '10.1257/aer.20150342', relation: tests, note: 'Confirms EHM predictions: distressed banks raise deposit rates; insured depositors flow in; uninsured depositors flee (pp. 644, 646, 673).' }
     - { cite: 'Iyer & Puri (2012)', doi: '10.1257/aer.102.4.1414', relation: builds-on, note: 'Earlier account-level bank-run study; present paper uses finer daily data and separates inflows from outflows (p. 647).' }
@@ -86,6 +93,21 @@ paper:
         col.(4) Formal 5.124** t=2.32; Table XII and XV coefficients confirmed.
         Equations 1-5 checked term-by-term and match. No em-dashes or colorful
         adjectives found. Frontmatter facts verified.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; one fix
+        applied - scope.frequency changed from daily to mixed (primary micro-data
+        is daily but generalization panel in Section IV is quarterly).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70007
       checked: 2026-06-01

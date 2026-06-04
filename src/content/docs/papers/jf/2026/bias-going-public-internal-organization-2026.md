@@ -40,11 +40,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, panel-regression, matching]
+    identification: natural-experiment
+  contributionType: [new-fact, measurement]
+  mechanisms: [agency, organizational-complexity]
   scope:
     region: Germany
     assetClass: private and public firms (non-financial, non-utility)
     period: 1986-01..2015-12
     frequency: annual
+    dataType: [administrative, accounting, survey]
+    granularity: [firm, individual]
+    n: "312 IPO firms + 312 matched controls; 4,992 firm-years"
   relatesTo:
     - { cite: 'Bolton and Dewatripont (1994)', doi: '10.2307/2118349', relation: builds-on, note: 'firms as communication networks; going public raises task complexity and hierarchy depth (tested as predictions BG.1-BG.4)' }
     - { cite: 'Garicano (2000)', doi: '10.1086/317671', relation: builds-on, note: 'knowledge-based hierarchies; complexity increases the number of problem-solvers (managers) and narrows control spans (tested as BG.2)' }
@@ -76,6 +82,24 @@ paper:
       date: 2026-06-01
       role: verified
       note: Locators and magnitudes re-checked against source PDF Tables III-IX (pp. 479-494) and Figures 2-4; two fixes applied -- R4 production share relative figure corrected from erroneous "-4.8%" to "10.3% relative decline" (PDF p.485); R5 finance/accounting significance corrected from *** to ** (Table V col.(4) t-stat=2.378, p=0.018); equations and specifications in Theory/model, Method, and Empirical specifications sections verified term-by-term against PDF pp. 476-490 and confirmed correct; all other rows confirmed supported.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against source PDF pp. 461-486;
+        all axes confirmed correct -- natural-experiment (stacked DiD on IPO
+        event with matched controls), new-fact+measurement, agency+organizational-complexity
+        (both channels genuinely invoked), introducesData absent (no new source),
+        and scope [administrative, accounting, survey] / [firm, individual] /
+        312+312 firms all match PDF; no fixes required.
   rightsSignalConflict: false
 ---
 

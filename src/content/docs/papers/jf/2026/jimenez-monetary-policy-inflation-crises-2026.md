@@ -51,12 +51,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, instrumental-variables, trilemma-iv, event-study, difference-in-differences]
+    identification: instrument
+  contributionType: [new-fact]
+  mechanisms: [moral-hazard, intermediary-constraint]
 
   scope:
     region: global (17 advanced economies) and Spain
     assetClass: banking sector, corporate loans, credit and house prices
     period: 1870-01..2020-12
     frequency: annual
+    dataType: [administrative, accounting, market]
+    granularity: [aggregate, transaction]
+    n: "77 crisis observations across 17 economies (1870-2020); 1.9 million bank-firm-quarter loan observations (Spain credit growth); 1.1 million loan observations (Spain defaults)"
 
   relatesTo:
     - { cite: "Schularick & Taylor (2012)", doi: "10.1257/aer.102.2.1029", relation: extends, note: "extends their credit-boom-as-crisis-predictor result by showing U-shaped monetary rate path is the key conditioning factor" }
@@ -100,6 +106,24 @@ paper:
         23% (Table VIII col. 2; 30% is post-WWII deep, col. 4); R10 Delta_3Rate*Cut
         interaction corrected from 0.003 to 0.005 (Table XII col. 3). All equations
         (eq. 1-6), locators, and remaining magnitudes confirmed against PDF.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes re-checked against the source PDF; one fix applied,
+        mechanisms changed from [moral-hazard, financial-constraint] to
+        [moral-hazard, intermediary-constraint] (paper invokes bank risk-taking
+        and search-for-yield and loan-loss / bank-stress channels, not a firm
+        financing-constraint wedge); identification instrument, contributionType
+        [new-fact], introducesData absent, and data-scope fields all confirmed
+        correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70023
       checked: 2026-06-01

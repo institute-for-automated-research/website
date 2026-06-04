@@ -40,11 +40,16 @@ paper:
     role: theory
     family: structural
     buildsFrom: [overlapping-generations, epstein-zin-weil, krusell-smith, incomplete-markets-olg]
+  contributionType: [new-theory, new-fact]
+  mechanisms: [demand-elasticity, risk-sharing]
   scope:
     region: US
     assetClass: US equities and government bonds
     period: 1929-01..2023-12
     frequency: annual
+    dataType: [market, administrative, survey]
+    granularity: [aggregate]
+    n: "U.S. aggregate moments 1929-2023; pension fund data 1970-2023"
   relatesTo:
     - { cite: 'Gomes & Michaelides (2008)', relation: extends, note: 'adds an explicit DB pension fund endowment and stochastic contribution rates to their OLG asset pricing framework with limited participation (p. 147)' }
     - { cite: 'Constantinides & Duffie (1996)', doi: '10.1086/262023', relation: builds-on, note: 'cross-sectional consumption volatility channel: stochastic contribution rates raise idiosyncratic income risk for workers and firms, raising the equity premium (p. 146)' }
@@ -86,6 +91,23 @@ paper:
       date: 2026-06-01
       role: verified
       note: "All 8 result rows re-checked against Tables II-V, VIII-IX (pp. 164-182): every locator, magnitude, sign, and significance confirmed correct. Equations 1-39 verified term-by-term against pp. 149-178: subscripts, signs, summation indices, and equality conditions all match the PDF. No errors found; no corrections required."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; removed
+        erroneous identification field (theory paper; field must be omitted per
+        template rules) and removed accounting from dataType (paper uses only
+        CRSP market data, Flow of Funds and NIPA administrative aggregates, and
+        SCF survey data - no firm-level accounting data used).
   rightsSignalConflict: false
 ---
 

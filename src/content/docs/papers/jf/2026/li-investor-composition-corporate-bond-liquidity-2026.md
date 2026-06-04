@@ -48,11 +48,17 @@ paper:
     contributes: heterogeneous-investor-bond-search-model
     family: structural
     buildsFrom: [panel-regression, instrumental-variables, gmm]
+    identification: rdd
+  contributionType: [new-theory, new-fact, measurement]
+  mechanisms: [liquidity, search-frictions]
   scope:
     region: US
     assetClass: US corporate bonds
     period: 2005-Q2..2019-Q2
     frequency: quarterly
+    dataType: [market, accounting, administrative]
+    granularity: [security, firm]
+    n: "15,256 unique bonds, 3,217 unique firms"
   relatesTo:
     - { cite: "Bao, Pan & Wang (2011)", doi: "10.1111/j.1540-6261.2011.01655.x", relation: builds-on, note: "uses their finding that illiquidity explains a significant part of common credit spread variation; extends by documenting the growing loading over time" }
     - { cite: "Dick-Nielsen, Feldhutter & Lando (2012)", relation: builds-on, note: "adopts their TRACE filtering and liquidity factor construction; uses their liquidity component definition (beta x BA / CS)" }
@@ -67,6 +73,23 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: "2026-06-01", role: extracted, note: "Full text read (pp. 871-922); eight results extracted from the PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: "2026-06-01", role: verified, note: "All 8 result rows re-checked against PDF: locators correct, magnitudes match (Table I, II, III, IV, V). Fixed eq. 27 (Corollary 2): numerator and denominator both had lambda^gamma / lambda^{gamma+1} where the PDF shows gamma/lambda in both positions." }
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; fixed
+        methods.identification from "instrument" to "rdd" - the paper explicitly
+        uses a regression discontinuity design (10-year maturity threshold, p.885)
+        with Calonico-Cattaneo-Titiunik optimal bandwidth; contributionType,
+        mechanisms, and scope fields are accurate.
   licenceVerification:
     - { source: "Crossref REST API works/10.1111/jofi.70024", checked: "2026-06-01", by: "paper-distiller (claude-sonnet-4-6)", found: "license[0]: content-version=vor, URL=http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days=0, start=2026-01-21; license[1]: content-version=tdm, URL=http://doi.wiley.com/10.1002/tdm_license_1.1. No CC license present." }
   rightsSignalConflict: false

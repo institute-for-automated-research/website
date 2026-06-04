@@ -52,12 +52,18 @@ paper:
     family: structural
     buildsFrom: [life-cycle-model, epstein-zin-weil, overlapping-generations,
                  value-function-iteration, gmm]
+    identification: structural
+  contributionType: [new-theory, new-method, new-fact]
+  mechanisms: [risk-sharing]
 
   scope:
     region: US
     assetClass: US equities, government bonds, corporate bonds
     period: 1962-01..2007-09
     frequency: quarterly
+    dataType: [market, accounting]
+    granularity: [aggregate]
+    n: "12 macro variables, 1962:Q1-2007:Q3 (quarterly VAR for calibration)"
 
   relatesTo:
     - { cite: "Kaplan, Moll & Violante (2018)", doi: "10.1257/aer.20160042", relation: extends,
@@ -97,6 +103,24 @@ paper:
       date: 2026-06-01
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; all eight result rows confirmed correct. One fix applied: NKPC equation locator corrected from 'eqs. 5-6, pp. 1020-1021' to 'eq. 11, p. 1023; eq. 6, p. 1020' (eq. 5 is the nonlinear NKPC; the linearized form shown is eq. 11). All model equations (eqs. 1-4, 6, 10, 17-19, 26, 29) verified term-by-term against the PDF; all match."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; two fixes
+        applied - mechanisms dropped behavioral-bias (heterogeneous beliefs are
+        dogmatic subjective priors, not a behavioral-bias per the registry
+        definition) and scope.dataType corrected from [market, administrative]
+        to [market, accounting] (VAR uses national-accounts aggregates, not
+        individual-level administrative records); all other axes confirmed.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70021

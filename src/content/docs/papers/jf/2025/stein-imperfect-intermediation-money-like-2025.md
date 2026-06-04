@@ -47,12 +47,18 @@ paper:
     contributes: heterogeneous-elasticity-intermediation
     family: theory
     buildsFrom: [panel-regression, instrumental-variables]
+    identification: instrument
+  contributionType: [new-theory, new-fact]
+  mechanisms: [demand-elasticity, intermediary-constraint, collateral, limits-to-arbitrage]
 
   scope:
     region: US
     assetClass: US Treasury bills, money market instruments
     period: 2013-09..2024-06
     frequency: monthly
+    dataType: [market, accounting]
+    granularity: [aggregate, firm, security]
+    n: "130 monthly obs (money market); 2,730 firm-years (corporate collateral)"
 
   relatesTo:
     - { cite: 'Nagel (2016)', doi: '10.1093/qje/qjw028', relation: builds-on, note: 'liquidity premium on near-money assets; T-bills as near-money with collateral value' }
@@ -74,6 +80,23 @@ paper:
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-03, role: extracted, note: "Full text read (pp. 3185-3222); eight results extracted. Not human-verified. Not reproduced. Replication code referenced in paper (Supporting Information) but not run here." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-03, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; all eight result rows verified correct against cited tables and figures; all equations (1)-(25) checked term-by-term with no errors found; frontmatter authors/year/venue/resultsCount correct; relatesTo body-mention locatability confirmed for all seven edges; no em-dashes or null values detected." }
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - instrument identification (IV on Treasury supply),
+        [new-theory, new-fact] contribution, four mechanism slugs all registry-matched
+        and PDF-supported, introducesData absent (no new source), and scope fields
+        faithful to Tables I-IV; no corrections required.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13500

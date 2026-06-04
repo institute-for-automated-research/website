@@ -47,12 +47,19 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, difference-in-differences, probit-regression]
+    identification: natural-experiment
+  contributionType: [new-fact, new-data]
+  mechanisms: [political-capture]
+  introducesData: true
 
   scope:
     region: global
     assetClass: large non-financial and financial firms (privately held and publicly traded)
     period: 1900-01..2018-12
     frequency: annual
+    dataType: [accounting, other]
+    granularity: [firm, aggregate]
+    n: "1,115 firms (60 countries, circa 1910); 30,891 firm-years (47 countries, 2000 Worldscope panel); 3,835 obs / 226 firms (Italy DiD, 1921-1971)"
 
   relatesTo:
     - { cite: "Fogel, Morck & Yeung (2008)", doi: '10.1016/j.jfineco.2007.06.004', relation: extends, note: "extends their 44-country, 2-decade evidence to 75 countries over up to a century and investigates the mechanisms" }
@@ -79,6 +86,24 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against source PDF Tables I-VIII; two fixes applied: R4 magnitude corrected from -0.1070** (p=0.011) to -0.0927*** (p=0.009) per Table IV col. (1), and empirical-specs significance stars corrected from *** to ** for R6 upper bound 0.0384."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes re-checked against the source PDF; fixed two issues:
+        removed market-power from mechanisms (market dominance is the outcome, not
+        the channel - political-capture is the genuine mechanism the paper argues
+        for) and removed literal false from rightsSignalConflict (field must be
+        omitted when not true per template rules); identification=natural-experiment,
+        contributionType=[new-fact,new-data], introducesData=true, and data-scope
+        all confirmed correct against PDF.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13481
@@ -86,7 +111,6 @@ paper:
       by: paper-distiller (claude-sonnet-4-6)
       found: "license[].content-version=vor, URL=http://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-08-20"
 
-  rightsSignalConflict: false
 ---
 
 **What this is.** The paper's core results, the identification strategy (including the Italy quasi-experiment), and the empirical specifications with real equations: enough to know what it found and how, without reading all 41 pages. To replicate or extend it, read the full source at the [original](https://doi.org/10.1111/jofi.13481).

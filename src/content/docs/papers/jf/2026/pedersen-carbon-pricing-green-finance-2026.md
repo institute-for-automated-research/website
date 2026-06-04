@@ -38,12 +38,17 @@ paper:
     role: theory
     family: structural
     buildsFrom: [dynamic-general-equilibrium, pigouvian-taxation]
+  contributionType: [new-theory, new-fact]
+  mechanisms: [externality]
 
   scope:
     region: US
     assetClass: US equities (Trucost/CRSP/Compustat universe)
     period: 2021..2021
     frequency: annual
+    dataType: [market, accounting, other]
+    granularity: [firm, aggregate]
+    n: "~3,000+ U.S. publicly listed firms, fiscal year 2021 cross-section"
 
   relatesTo:
     - { cite: 'Nordhaus (2019)', doi: '10.1257/aer.109.6.1991', relation: builds-on, note: 'Takes the social cost of carbon S_t as given from Nordhaus calibrations (43 $/tCO2 baseline, 300 $/tCO2 high); translates it into a cost-of-capital adjustment (pp. 561-562).' }
@@ -82,6 +87,23 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'Locators and reported magnitudes re-checked against the source PDF (all 42 pages); all 8 result rows confirmed correct. One fix: "(r+delta)/a = 0.44 * 0.11 $/kWh" corrected to "0.40 * 0.11 $/kWh" in the Alternative Calibration section (PDF p. 587 states 0.40, not 0.44; arithmetic result 0.044 was already correct). All equations (4-18, 21-22, 25-27, 30) verified term-by-term; all propositions and locators confirmed. No em-dashes or colorful adjectives found.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; two fixes
+        applied - mechanisms changed from [taxes] to [externality] (pollution
+        externality is the primary channel; taxes is the instrument, not the
+        friction; externality proposed in proposedVocab), and scope.dataType
+        extended to [market, accounting, other] to cover Trucost emissions data.
   rightsSignalConflict: false
 ---
 

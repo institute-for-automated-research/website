@@ -39,12 +39,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, event-study, text-classification]
+    identification: selection-on-observables
+  contributionType: [new-fact, measurement]
+  mechanisms: [learning, information-asymmetry]
 
   scope:
     region: US
     assetClass: US equities (M&A acquirers, public firms)
     period: 2010-01..2021-12
     frequency: daily
+    dataType: [market, accounting, text]
+    granularity: [firm]
+    n: "6,438 M&A announcements; 5,932-6,306 deal-level observations in main regressions (2010-2021)"
 
   relatesTo:
     - { cite: 'Luo (2005)', relation: builds-on, doi: 10.1111/j.1540-6261.2005.00755.x, note: 'baseline design for using market reactions to predict M&A withdrawal; paper extends it with social media signals' }
@@ -89,6 +95,20 @@ paper:
         8 core result rows; equations (1)-(4) checked term-by-term against pp. 103,
         106, 118, 121; all correct. No em-dashes or colorful adjectives found.
         No fixes required; verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - no fixes required; verdict pass.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13508
       checked: 2026-05-31

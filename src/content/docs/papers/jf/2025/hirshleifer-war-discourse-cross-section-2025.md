@@ -37,11 +37,17 @@ paper:
     contributes: warfac
     family: descriptive
     buildsFrom: [slda-topic-model, fama-macbeth, ar1-innovation]
+    identification: descriptive
+  contributionType: [new-method, new-fact, measurement]
+  mechanisms: [behavioral-bias, disaster-risk-premium]
   scope:
     region: US
     assetClass: US equities
     period: 1926-07..2018-12
     frequency: monthly
+    dataType: [text, market]
+    granularity: [security]
+    n: "up to 4,964 portfolios as test assets; 532 months (Jul 1972-Dec 2016) for main pricing tests; ~7M NYT articles (Jan 1871-Oct 2019)"
   relatesTo:
     - { cite: 'Hirshleifer, Mai & Pukthuanthong (2025)', doi: '10.1093/rfs/hhae081', relation: extends, note: 'extends the War index used there for aggregate return prediction to cross-sectional pricing (p. 3590)' }
     - { cite: 'Barro (2006, 2009)', relation: tests, note: 'tests the rare-disaster risk cross-sectional prediction; war-sensitive assets earn lower premia consistent with the model (p. 3601)' }
@@ -71,6 +77,24 @@ paper:
       date: 2026-06-01
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF (all 49 pages read); equations 1-9 verified term-by-term against PDF pp. 3602-3603, 3625, 3628-3629; one fix applied - R1 multifactor R² range corrected from 59-77% to 51-77% (PDF p. 3610 gives FF6 59%, M4 65%, DHS 51%, Q5 77%); all other magnitudes, t-stats, and locators confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; one fix
+        applied - added new-method to contributionType (methods.role is both,
+        and the sLDA-based cross-sectional war factor construction is a proposed
+        method); identification=descriptive, mechanisms, scope confirmed correct;
+        introducesData correctly absent (War index introduced in companion RFS
+        paper, not here).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13482
       checked: 2026-05-31

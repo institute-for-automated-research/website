@@ -49,11 +49,17 @@ paper:
     contributes: affine-sovereign-default-atsm
     family: structural
     buildsFrom: [affine-term-structure, extended-kalman-filter, instrumental-variables, gmm, gamma-zero-processes]
+    identification: instrument
+  contributionType: [new-fact, new-method, new-theory]
+  mechanisms: [liquidity, limits-to-arbitrage, credit-inflation-channel]
   scope:
     region: US
     assetClass: sovereign bonds (nominal Treasuries, TIPS, ILS, sovereign CDS)
     period: 2004-11..2020-12
     frequency: monthly
+    dataType: [market]
+    granularity: [aggregate]
+    n: "187 monthly observations (Jun 2005-Dec 2020, regressions); 23 observable series (Nov 2004-Dec 2019, model estimation)"
   relatesTo:
     - { cite: 'Fleckenstein, Longstaff & Lustig (2014)', doi: '10.1111/jofi.12032', relation: extends, note: 'builds on their TIPS-Treasury no-arbitrage puzzle (ILSBEI mispricing); adds credit risk channel to their liquidity/slow-moving-capital explanation (p. 830)' }
     - { cite: 'Pflueger & Viceira (2016)', doi: '10.1002/9781118709207.ch10', relation: contradicts, note: 'they attribute ILSBEI to a liquidity premium; this paper shows credit risk is also a nontrivial driver, especially at long maturities (pp. 830, 862)' }
@@ -109,6 +115,20 @@ paper:
         faithful to the PDF. Minor fix applied: R6 ILSBEI RMSE range clarified to
         "7.77-10.92 bps" (wiki had "8-11 bps"); all other numbers exact. No em-dashes;
         no colorful adjectives. Verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all five
+        axes confirmed correct - no fixes required.
 ---
 
 **What this is.** The paper's core results, the model it builds on (an affine

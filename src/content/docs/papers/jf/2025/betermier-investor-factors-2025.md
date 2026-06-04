@@ -39,11 +39,17 @@ paper:
     contributes: investor-pricing-factors
     family: descriptive
     buildsFrom: [sdf-projection, portfolio-sort]
+    identification: descriptive
+  contributionType: [new-method, new-fact]
+  mechanisms: [behavioral-bias, risk-sharing]
   scope:
     region: Norway
     assetClass: Norwegian equities (OSE)
     period: 1997-02..2017-12
     frequency: monthly
+    dataType: [market, accounting, administrative]
+    granularity: [individual, security]
+    n: "308,000 investors/month on average; 535 stocks; 251 months"
   relatesTo:
     - { cite: 'Merton (1973)', doi: '10.2307/1913811', relation: builds-on, note: 'ICAPM framework grounds the theoretical spanning condition; investor deviation portfolios map to hedging demands (pp. 2802-2803)' }
     - { cite: 'Balasubramaniam, Campbell, Ramadorai & Ranish (2023)', doi: '10.1111/jofi.13220', relation: builds-on, note: 'strong factor structure in individual investor portfolios motivates the PCA grouping approach (p. 2792)' }
@@ -73,6 +79,22 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'Locators and reported magnitudes re-checked against source PDF (all 42 pages read); all 8 Core results rows confirmed. Two fixes applied: (1) gamma formula in eq. 24 corrected (removed spurious 0.5 coefficient; PDF footnote 26 gives gamma = tr(Sigma_p) / [T(E[SR])^2] with E[SR] = 0.5 as the selected value); (2) wealth portfolio locator changed from "(eq. 21, p. 2808)" to "(text, p. 2808)" (eq. 21 is the AW combination formula, not the wealth portfolio definition).'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; one fix
+        applied - removed demand-elasticity from mechanisms (paper invokes
+        hedging/risk-sharing and sentiment/behavioral-bias channels only, not
+        inelastic-demand-based asset pricing).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13474
       checked: 2026-05-31

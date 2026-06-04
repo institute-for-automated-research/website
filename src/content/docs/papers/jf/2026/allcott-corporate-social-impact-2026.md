@@ -50,11 +50,18 @@ paper:
     contributes: corporate-social-impact-framework
     family: structural
     buildsFrom: [blp-demand, method-of-simulated-moments, shapley-value-allocation]
+    identification: structural
+  contributionType: [new-theory, new-data, measurement]
+  mechanisms: [behavioral-bias, market-power]
+  introducesData: true
   scope:
     region: US
     assetClass: US large firms (12 industries, 74 firms)
     period: 2018..2021
     frequency: annual
+    dataType: [survey, accounting, administrative, other]
+    granularity: [firm, individual]
+    n: "74 firms, 12 industries; survey n = 3,544 respondents"
   relatesTo:
     - { cite: 'Berry, Levinsohn & Pakes (1995)', doi: '10.2307/2171802', relation: builds-on, note: 'Demand estimation follows the BLP random-coefficient logit framework (§IV.A, p. 302)' }
     - { cite: 'Berry, Levinsohn & Pakes (2004)', relation: builds-on, note: 'Estimation strategy for differentiated-product markets using micro data (§IV.B, p. 304)' }
@@ -116,6 +123,25 @@ paper:
         belongs inside the N sum_z mu_z g(z) T_m [...] bracket (p. 304), not
         outside it as previously transcribed. No em-dashes, no colorful adjectives
         found.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - structural identification from BLP survey moments
+        is accurate; new-theory/new-data/measurement contribution types are all
+        supported; behavioral-bias (internalities for cigarettes/soda) and
+        market-power (business-stealing under Nash-Bertrand) are both genuinely
+        invoked; introducesData=true confirmed by new 3,544-person survey; scope
+        dataType/granularity/n all faithful to the data used; no fixes applied.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70004
       checked: 2026-05-31

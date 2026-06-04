@@ -44,11 +44,18 @@ paper:
     role: both
     family: reduced-form-causal
     buildsFrom: [panel-regression, difference-in-differences, fama-macbeth]
+    identification: selection-on-observables
+  contributionType: [new-fact, new-data, new-theory]
+  mechanisms: [information-asymmetry, moral-hazard, agency]
+  introducesData: true
   scope:
     region: Dutch Republic / Suriname
     assetClass: plantation mortgage-backed securities
     period: 1750..1796
     frequency: mixed
+    dataType: [market, accounting, administrative]
+    granularity: [firm, security, transaction]
+    n: "46 MBS, 23 merchant banks, 4,605 auction transactions (price regressions); 315 mortgages, 26 banks (mortgage quality analysis)"
   relatesTo:
     - { cite: 'Griffin, Lowery & Saretto (2014)', doi: '10.1093/rfs/hhu030', relation: contradicts, note: 'that paper finds high-reputation banks issued worse MBS in the 2000s; this paper argues the difference stems from limited personal downside exposure and short-termism of modern bankers' }
     - { cite: 'Piskorski, Seru & Witkin (2015)', doi: '10.1111/jofi.12271', relation: contradicts, note: 'that paper shows similar misrepresentation rates regardless of reputation in modern RMBS; this setting shows reputation can matter when bankers bear long-run reputational losses personally' }
@@ -71,6 +78,23 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against source PDF; fixed R1 (wiki had Low Rep Preboom LTV values instead of High Rep Boom), fixed R4 (ABE vol col-4 was 1.63* t=0.85 not 7.03; N deeds col-5 was 2.10 t=2.03 not 4.29**), corrected Prediction 5 direction (low delta_b, not high, corresponds to short-run focus per Lemma 1 and Prediction 5)."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; fixed
+        identification from natural-experiment to selection-on-observables
+        (no quasi-random shock; the paper uses a predetermined 1742 census
+        reputation proxy in OLS with year and MBS FE, and explicitly disclaims
+        an instrument - all other axes confirmed correct).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13503
       checked: 2026-06-03

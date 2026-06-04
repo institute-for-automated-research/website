@@ -56,12 +56,19 @@ paper:
       - panel-regression
       - instrumental-variables
       - text-classification
+    identification: instrument
+  contributionType: [new-fact, new-data]
+  mechanisms: [information-asymmetry, moral-hazard]
+  introducesData: true
 
   scope:
     region: US
     assetClass: construction loans (residential, single-family)
     period: "~1999..2010"
     frequency: daily
+    dataType: [administrative, text]
+    granularity: [individual, transaction]
+    n: "28,939 loans; 11,586,385 loan-day observations"
 
   relatesTo:
     - { cite: "Diamond (1984)", doi: "10.2307/2297430", relation: tests,
@@ -98,6 +105,23 @@ paper:
       date: 2026-06-01
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; two errors fixed in R5: NEGATIVEWORDS upper-bound t-stat corrected from 3.30 to 4.54 (col 4, not col 5), and POSITIVEWORDS significance corrected from *** to ** for the -0.00243 entry (col 3 of Table VI). All other locators, coefficients, and t-stats verified correct."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF;
+        one fix applied - granularity changed from [transaction, firm] to
+        [individual, transaction] because 46% of borrowers are individual
+        homeowners (OWNERBUILDER program, p. 701/704) and the primary IV
+        unit is the loan/borrower, not a firm; all other axes confirmed correct.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70026

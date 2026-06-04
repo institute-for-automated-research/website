@@ -42,12 +42,18 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression]
+    identification: selection-on-observables
+  contributionType: [new-fact, measurement]
+  mechanisms: [behavioral-bias, market-power, information-asymmetry]
   # --- sample scope ---
   scope:
     region: US
     assetClass: residential mortgages
     period: 2013-01..2019-12
     frequency: mixed
+    dataType: [market, administrative, survey]
+    granularity: [individual, transaction, firm]
+    n: "3.6M rate-lock agreements (full); 67,537 matched for EGain; 2,996,149 for dispersion; 22,567 NSMO mortgages"
   # --- edges to prior work ---
   relatesTo:
     - { cite: 'Carlson & McAfee (1983)', doi: '10.1086/261159', relation: builds-on, note: 'EGain measure is motivated by Carlson-McAfee discrete equilibrium search model (p. 63)' }
@@ -82,6 +88,20 @@ paper:
       date: 2026-06-01
       role: verified
       note: All 8 core result rows, equations 1-3, and FE escalation specs re-checked term-by-term against PDF; all locators, magnitudes, signs, and significance stars confirmed correct; no em-dashes or colorful adjectives found; no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF;
+        removed introducesData (Optimal Blue is an existing industry platform, not a new source introduced by this paper) and dropped new-data from contributionType for the same reason; all other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70001
       checked: 2026-05-31

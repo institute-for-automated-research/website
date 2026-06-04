@@ -48,6 +48,8 @@ paper:
     role: theory
     family: theory
     buildsFrom: [principal-agent, promotion-contest]
+  contributionType: [new-theory]
+  mechanisms: [moral-hazard, agency, information-asymmetry]
 
   scope:
     region: theoretical
@@ -93,6 +95,14 @@ paper:
         caption). One equation error fixed: principal payoff written as
         v=(1-b)π^θ corrected to v=(1-b)π (p. 3451). All other equations
         term-by-term verified correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: Added classification axes (identification, contributionType, mechanisms, introducesData, data-scope) from a fresh PDF read; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; all axes confirmed correct - theory paper, no identification field (correctly omitted), contributionType [new-theory] accurate, mechanisms [moral-hazard, agency, information-asymmetry] all invoked in the model, introducesData correctly absent, scope region:theoretical correct with no data fields.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13496

@@ -47,11 +47,17 @@ paper:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, panel-regression, event-study]
+    identification: natural-experiment
+  contributionType: [new-fact]
+  mechanisms: [liquidity, networks]
   scope:
     region: US
     assetClass: bank payment flows (Fedwire)
     period: confidential (multiday event, disclosed only as occurring after 2015)
     frequency: daily
+    dataType: [administrative]
+    granularity: [transaction, firm]
+    n: "546,631 sender-receiver-pair-day observations (first-round); 58,357 receiver-bank-day observations (second-round); 304,663 observations (third-round)"
   relatesTo:
     - { cite: "Eisenbach, Kovner & Lee (2022)", relation: builds-on, note: "uses their depository-institution-level RSSD aggregation of Fedwire payment flows and their framework for cyber risk in the US financial system" }
     - { cite: "Duffie & Younger (2019)", relation: tests, note: "finds that the 12 largest US banks had sufficient reserves to withstand the attack, consistent with Duffie and Younger (2019) on wholesale funding cyber runs" }
@@ -74,6 +80,24 @@ paper:
       date: 2026-06-03
       role: verified
       note: "Locators and reported magnitudes re-checked against source PDF; R3 locator corrected (col.(4) only, not col.(4) and (6)) and colorful-adjective language removed; all other rows and equations confirmed correct."
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; removed
+        introducesData (paper uses existing Fed administrative data, not a new
+        source), removed new-data from contributionType (same reason), removed
+        market from scope.dataType (all data are administrative records, no
+        market prices used); identification=natural-experiment, mechanisms and
+        granularity confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13475
       checked: 2026-06-03

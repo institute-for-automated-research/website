@@ -38,11 +38,17 @@ paper:
     role: applies-method
     family: descriptive
     buildsFrom: [portfolio-sort, panel-regression]
+    identification: descriptive
+  contributionType: [new-fact, measurement]
+  mechanisms: [limits-to-arbitrage]
   scope:
     region: US
     assetClass: US equities (CRSP common stocks)
     period: 2006-07..2020-12
     frequency: monthly
+    dataType: [market, accounting]
+    granularity: [security]
+    n: "554,253 stock-months (162 anomaly signals, Jul 2006-Dec 2020)"
   relatesTo:
     - { cite: 'Chen & Zimmermann (2021)', doi: '10.1561/104.00000112', relation: builds-on, note: 'Uses their 162 anomaly signals from openassetpricing.com as the universe of tested anomalies (p. 3648)' }
     - { cite: 'Drechsler & Drechsler (2021)', relation: contradicts, note: 'That paper finds positive net-of-fee returns on eight anomalies using lender-side fees; this paper uses buy-side fees and a longer, more recent sample and finds near-zero net-of-fee returns (pp. 3643, 3646)' }
@@ -78,6 +84,20 @@ paper:
       date: 2026-06-01
       role: verified
       note: 'Locators and reported magnitudes re-checked against source PDF for all 9 rows; all confirmed correct. One fix applied: decile 2 fee-adjustment treatment corrected from "long-side" to "short-side" (full fee added), matching p. 3650 of the PDF. No em-dashes found; no colorful adjectives found.'
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; all axes
+        confirmed correct - no fixes required.
   rightsSignalConflict: false
 ---
 

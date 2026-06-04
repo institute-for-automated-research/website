@@ -50,11 +50,17 @@ paper:
     contributes: arpl-mrpl-dynamics
     family: structural
     buildsFrom: [panel-regression, dynamic-general-equilibrium, real-options]
+    identification: structural
+  contributionType: [new-fact, new-theory]
+  mechanisms: [market-power]
   scope:
     region: US
     assetClass: US equities, private firms, establishments
     period: 1985-01..2019-12
     frequency: annual
+    dataType: [market, accounting, administrative]
+    granularity: [aggregate, firm]
+    n: "7,565 firms, 82,823 firm-years (Compustat 1985-2014); 213,792 acquisitions (NETS 1998-2014)"
   relatesTo:
     - { cite: 'Decker et al. (2016a)', relation: builds-on, note: 'documents declining business dynamism and young-firm employment contribution that this paper reconciles with VC-industry strength (pp. 3728, 3769)' }
     - { cite: 'De Loecker, Eeckhout & Mongey (2021)', doi: '10.3386/w28761', relation: builds-on, note: 'jointly explain labor share decline and declining dynamism via rising markups; this paper differs by using a dynamic model and presenting new empirical evidence on the employment-value divergence (pp. 3730, 3768)' }
@@ -79,6 +85,24 @@ paper:
       date: 2026-06-03
       role: verified
       note: Locators and reported magnitudes re-checked against the source PDF; one fix applied - R4 Post-2005 interaction lower bound corrected from -0.148 to -0.145 (Table III, p. 3744); all other magnitudes, locators, equations (eqs. 2, 6, 7, 8, 12, 13, 15, 16, 17, 23, 30), and frontmatter confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF;
+        mechanisms set to [market-power] (the rising-markups channel, pp. 3727,
+        3747-3749, 3752, 3760-3764). A declining labor-intensity (alpha) driver
+        was considered but reconciled out of the mechanisms axis as a
+        production-technology characteristic, not an economic channel; all
+        other axes confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13505
       checked: 2026-06-03

@@ -40,6 +40,8 @@ paper:
     role: theory
     family: theory
     buildsFrom: [promotion-contest, principal-agent]
+  contributionType: [new-theory]
+  mechanisms: [agency]
   scope:
     region: theoretical
     assetClass: labor markets (promotions)
@@ -70,6 +72,26 @@ paper:
       date: 2026-06-01
       role: verified
       note: Independent re-check of all 8 rows and all equations in Theory/model, Method, and Empirical specifications sections against source PDF; eq. (1) bias definition (p. 336), eq. (2) social planner (p. 341), eq. (3) agent utility (p. 342), eq. (4) reaction functions (p. 342), eqs. (5)-(6) Prop. 2 closed-form (p. 343), Corollary 1 sigma<=1 (p. 344), eq. (10) promotion gap (p. 348), Prop. 3 U-shape (p. 348), eq. (12) IC constraint (p. 350), eq. (13) profit maximization (p. 350), eq. (14) endogenous bias (p. 351), eq. (15) Prop. 7 corner solution (p. 353), eq. (16) analyst accuracy (p. 356), Corollary 3 sigma<=1/(1-delta) (p. 347), fund-flow lexicographic argument (pp. 358-359); all terms, signs, subscripts, and inequality directions confirmed correct; theta-prime approx 2.62 not stated in main text body but appropriately marked (numerical); frontmatter authors/year/venue/DOI/resultsCount all verified; no em-dashes or colorful adjectives found; all rows and equations pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: extracted
+      note: >-
+        Added classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) from a fresh PDF read; existing results and
+        sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-03
+      role: verified
+      note: >-
+        Classification axes (identification, contributionType, mechanisms,
+        introducesData, data-scope) re-checked against the source PDF; identification
+        correctly absent (theory paper); contributionType set to [new-theory]
+        (purely theoretical paper; the three contributions on p. 331 are all
+        model results, not an empirical fact); introducesData and
+        data-scope fields correctly absent (no data used); information-asymmetry
+        removed from mechanisms - the paper's named channels are discouragement and
+        overcompensation effects, both driven by biased agency rather than an
+        adverse-selection or signaling friction; agency retained as sole mechanism.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13506
       checked: 2026-05-31
