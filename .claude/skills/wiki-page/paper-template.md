@@ -197,27 +197,43 @@ paper:
   rather than invent a metric. Each entry: `ref` (the row id, e.g. `R1`, so it
   stays traceable; omit only if the page has no row ids), `outcome` (the
   dependent variable, reuse the paper-level `outcome` phrasing), `metric` (a
-  kebab-case slug for the statistic reported: `sharpe-ratio`, `alpha`, `t-stat`,
-  `r-squared`, `oos-r-squared`, `coefficient`, `elasticity`, `hazard-ratio`,
-  `auc`, `rmse`, `return-spread`, `correlation`, ...; reuse a slug another row /
-  page already uses before coining a near-synonym, this axis is a
-  registry-governance candidate), `value` (the magnitude as reported, free
-  string), `direction` (`positive | negative | none | mixed`; `none` = no
-  significant effect / a null finding, **never write `null`** which YAML reads as
-  the null scalar and fails the build), and `vsBenchmark` (free string comparing
-  to the baseline, e.g. `"~3x triple-sort SR"`, `"beats FF5"`; omit when the row
+  kebab-case slug for the statistic reported; reuse a slug another row / page
+  already uses before coining a near-synonym, this axis is a registry-governance
+  candidate. Canonical slugs span the subfields: asset pricing / factors
+  `sharpe-ratio`, `alpha`, `information-ratio`, `beta`, `return-spread`,
+  `oos-r-squared`, `r-squared`; regressions `coefficient`, `elasticity`,
+  `pp-effect` (a percentage-point effect), `sd-effect` (effect per 1-SD change),
+  `basis-points`, `t-stat`; corporate / event studies `car` (cumulative abnormal
+  return); durations / discrete outcomes `hazard-ratio`, `odds-ratio`;
+  classification / fit `auc`, `rmse`, `correlation`), `value` (the magnitude as
+  reported, free string), `direction` is the sign of the effect: `positive` (the
+  estimated effect is positive, or the subject beats its benchmark), `negative`
+  (the effect is negative, or the subject falls below its benchmark), `none` (no
+  statistically significant effect, a null), `mixed` (sign or significance flips
+  across specs / subsamples). Do NOT code a row `positive` merely because the
+  paper frames a failure or rejection as its point: a "model is rejected / does
+  not predict / fit is low" row is `none` if the effect is insignificant, or
+  `negative` if the subject underperforms a benchmark. **Never write `null`**
+  (YAML reads bare null as the null scalar and fails the build). Last, `vsBenchmark`
+  (free string naming the baseline and the comparison outcome, e.g. `"~3x
+  triple-sort SR"`, `"beats FF5"`, `"below prevailing-mean"`; omit when the row
   has no benchmark contrast). **Omit the whole `findings` block for a pure-theory
   paper** that reports no empirical result.
 - `resultType` (enum, paper-level verdict): the headline "what works" call.
   `confirms` (evidence supports a prior hypothesis/finding), `overturns`
   (contradicts a prior established result), `null-result` (the central test finds
   no effect), `mixed` (holds in some specs/subsamples, not others), `new-finding`
-  (establishes a new fact/method with no prior to confirm or overturn, the usual
-  case for a method or first-measurement paper). Spelled `null-result`, not
-  `null`, to dodge the YAML null collision. A paper can both establish a new
-  finding AND overturn a prior; pick the one that best describes its headline
-  contribution, and let the per-row `findings` + `relatesTo` (`contradicts` /
-  `tests`) carry the rest. Omit for a pure-theory paper.
+  (establishes a new fact/method with no prior to confirm or overturn). Spelled
+  `null-result`, not `null`, to dodge the YAML null collision. **Choose the value
+  from the page's `relatesTo` edges, do not default to `new-finding`:** a headline
+  `contradicts` edge points to `overturns`; a `replicates` edge that holds is
+  `confirms`, one that fails is `overturns`; a `tests` / `extends` edge whose
+  prior holds is `confirms`, that holds only partially is `mixed`. Reserve
+  `new-finding` for a genuinely first-of-its-kind fact or method with no prior
+  result it confirms or overturns. A paper can both establish a new finding AND
+  overturn a prior; pick the one that best describes its headline contribution and
+  let the per-row `findings` + `relatesTo` carry the rest. Omit for a pure-theory
+  paper.
 
 ---
 

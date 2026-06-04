@@ -147,25 +147,22 @@ with the compact JSON result described at the bottom.
     `n` (sample size as the paper states it, free string). Omit data-related
     scope fields for a theory paper.
   - `findings[]`: the "what works" effectiveness axis, one entry per
-    quantitative **Core-results row**, in row order. Build it from your own
-    Core-results table. Each: `ref` (the row id, e.g. `R1`), `outcome` (the
-    dependent variable, reuse the `outcome[]` phrasing), `metric` (a kebab slug
-    for the statistic: `sharpe-ratio`, `alpha`, `t-stat`, `r-squared`,
-    `oos-r-squared`, `coefficient`, `elasticity`, `hazard-ratio`, `return-spread`,
-    `auc`, `rmse`, `correlation`, ...; reuse a slug before coining a near-synonym),
-    `value` (magnitude as
-    reported), `direction` (`positive`|`negative`|`none`|`mixed`; `none` = no
-    significant effect, NEVER write `null`, YAML reads it as the null scalar and
-    fails the build), and `vsBenchmark` (comparison to baseline, omit if none).
-    Skip purely qualitative rows. OMIT `findings` entirely for a pure-theory
-    paper with no empirical result.
-  - `resultType`: the paper-level verdict: `confirms` (supports a prior
-    hypothesis/finding) | `overturns` (contradicts a prior established result) |
-    `null-result` (central test finds no effect) | `mixed` (holds in some
-    specs/subsamples, not others) | `new-finding` (establishes a new fact/method
-    with no prior to confirm or overturn, the usual case for a method or
-    first-measurement paper). Spelled `null-result`, not `null`. Omit for pure
-    theory.
+    quantitative **Core-results row**, in row order, built from your own
+    Core-results table. Each: `ref` (row id, e.g. `R1`), `outcome` (the dependent
+    variable, reuse the `outcome[]` phrasing), `metric` (a kebab slug for the
+    statistic), `value` (magnitude as reported), `direction`
+    (`positive`|`negative`|`none`|`mixed`), and `vsBenchmark` (comparison to
+    baseline, omit if none). Skip purely qualitative rows; OMIT `findings`
+    entirely for a pure-theory paper. The canonical metric slugs, the exact
+    `direction` rule (sign of the effect, not "good for the paper"; do not code a
+    rejection `positive`; `none` = a null; NEVER write `null`), and the omit rules
+    are in paper-template.md, the Optional-field rules: follow them.
+  - `resultType`: the paper-level verdict: `confirms` | `overturns` |
+    `null-result` | `mixed` | `new-finding` (spelled `null-result`, not `null`).
+    Choose it from the page's `relatesTo` edges (a `contradicts` headline ->
+    `overturns`; a `replicates`/`tests`/`extends` prior that holds -> `confirms`,
+    partial -> `mixed`); reserve `new-finding` for a genuinely first-of-its-kind
+    result, do not default every paper to it. Omit for pure theory.
   - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
     `replicates` / `contradicts` / `tests` / `cites`; name each cite as an
     author-year in the body too (first-author surname next to the year, e.g.

@@ -57,13 +57,19 @@ the JSON verdict below.
    entry should mirror a quantitative Core-results row: confirm its `ref` points
    at the right row, its `value` matches that row's reported magnitude (this is a
    magnitude check, against the PDF), its `metric` names the statistic actually
-   reported, its `direction` (`positive`|`negative`|`none`|`mixed`; `none` = no
-   significant effect) matches the sign/significance in the PDF, and `vsBenchmark`
-   describes a comparison the paper actually makes. A qualitative row may have no
-   finding; that is fine. Check `resultType` against the paper's headline: does it
-   confirm a prior, overturn one, report a null, mix, or establish a new
-   fact/method (`new-finding`). Fix clear mismatches in place. Value `null` must
-   never appear (it is `null-result` / `none`); a bare `null` fails the build.
+   reported, its `direction` matches the PDF. `direction` is the SIGN of the
+   effect (`positive` = effect positive or subject beats benchmark; `negative` =
+   effect negative or subject below benchmark; `none` = no significant effect /
+   null; `mixed` = flips across specs), NOT whether the result is good for the
+   paper: a rejection / no-predictability / low-fit row coded `positive` is a
+   mistake (it is `none` or `negative`). `vsBenchmark` describes a comparison the
+   paper actually makes. A qualitative row may have no finding; that is fine.
+   Check `resultType` is consistent with the page's `relatesTo` edges (a headline
+   `contradicts` -> `overturns`; a `replicates`/`tests`/`extends` prior that holds
+   -> `confirms`, partial -> `mixed`; `new-finding` only when no prior is
+   confirmed or overturned), not reflexively `new-finding`. Fix clear mismatches
+   in place. Value `null` must never appear (it is `null-result` / `none`); a bare
+   `null` fails the build.
 4. Also sanity-check the frontmatter against the PDF: `authors`, `year`,
    `venue`/`venueShort`, `resultsCount` == number of result rows, and that the
    `access`/`license` disposition is honest (no `pdf:` mirror unless openly

@@ -62,7 +62,9 @@ wiki page. This is a focused augment, not a rewrite. FIRST read, in order:
 Then do the task.
 
 page: ${dest(it)}   (READ it; it already exists, with a Core results table)
-pdf:  ${it.pdf}     (READ it; you confirm the magnitudes against the actual paper)
+pdf:  ${it.pdf}     (the page's Core-results VALUES were already PDF-verified in a
+                    prior pass; open the PDF ONLY to resolve a metric/direction
+                    ambiguity or to settle resultType, not to re-derive numbers)
 slug: ${it.slug}
 today: ${TODAY}
 hint: ${it.hint ?? ''}
@@ -73,30 +75,38 @@ Task: add ONLY these two frontmatter axes to the paper: block:
       ref:        the row id as printed in the table's # column (e.g. R1). If the
                   table uses bare 1,2,3 with no R prefix, use that exact token.
       outcome:    the dependent variable, reusing the paper-level outcome[] phrasing.
-      metric:     a kebab-case slug for the statistic that row reports
-                  (sharpe-ratio, alpha, t-stat, r-squared, oos-r-squared,
-                  coefficient, elasticity, hazard-ratio, return-spread, auc,
-                  rmse, correlation, ...); reuse a slug you already used on an
-                  earlier row before coining a near-synonym.
-      value:      the magnitude as reported (free string). CONFIRM it against the
-                  PDF at that row's locator; if the page's number is wrong, do NOT
-                  silently copy it, fix the finding to the PDF value and note it.
-      direction:  positive | negative | none | mixed. none = no significant effect
-                  (a null row). NEVER write null (YAML reads bare null as the null
-                  scalar and the build fails).
-      vsBenchmark: the comparison to a baseline the row makes (free string), or
-                  omit the key when the row has no benchmark contrast.
+      metric:     a kebab-case slug for the statistic that row reports; use the
+                  canonical slugs in the template's findings rule (they span asset
+                  pricing, regressions, event studies, durations, fit) and reuse a
+                  slug you already used on an earlier row before coining a
+                  near-synonym.
+      value:      the magnitude as reported, taken from the page's (already
+                  PDF-verified) Core-results row. You need not re-open the PDF for
+                  this; the later verify pass re-checks values against the PDF.
+      direction:  positive | negative | none | mixed. The SIGN of the effect
+                  (positive = effect positive or subject beats benchmark; negative
+                  = effect negative or subject below benchmark; none = no
+                  significant effect / a null; mixed = flips across specs), NOT
+                  whether the result is good for the paper: do NOT code a rejection
+                  / no-predictability / low-fit row positive (it is none or
+                  negative). NEVER write null (bare null fails the build).
+      vsBenchmark: name the baseline and the comparison outcome the row makes
+                  (free string, e.g. "below prevailing-mean", "beats FF5"), or omit
+                  the key when the row has no benchmark contrast.
     Skip purely qualitative rows (no quantitative magnitude). OMIT findings
     entirely for a pure-theory paper with no empirical result.
   - resultType   the paper-level verdict, one of: confirms | overturns |
-    null-result | mixed | new-finding. Read the abstract + conclusion: confirms a
-    prior, overturns a prior, reports a null, mixed across specs, or establishes a
-    new fact/method with no prior to confirm/overturn (new-finding, the usual case
-    for method and first-measurement papers). Omit for a pure-theory paper.
+    null-result | mixed | new-finding. CHOOSE IT FROM the page's relatesTo edges,
+    do NOT default to new-finding: a headline contradicts edge -> overturns; a
+    replicates edge that holds -> confirms, that fails -> overturns; a tests /
+    extends prior that holds -> confirms, partial -> mixed. Reserve new-finding for
+    a genuinely first-of-its-kind result with no prior to confirm or overturn.
+    Read the abstract + conclusion to decide. Omit for a pure-theory paper.
 
-Determine these HONESTLY from the page's table and the PDF. When a row is
-genuinely ambiguous for metric or direction, prefer the most defensible single
-value; when the whole axis does not apply (pure theory), omit it.
+Work primarily FROM the page (its Core-results table and its relatesTo edges are
+already PDF-grounded); consult the PDF only to resolve a genuine metric/direction
+ambiguity or to settle resultType. When a row is ambiguous, prefer the most
+defensible single value; when the whole axis does not apply (pure theory), omit it.
 
 PRESERVE EVERYTHING ELSE BYTE-FOR-BYTE: do not touch the title, description,
 tags, the Core results TABLE itself (you read it, you do not rewrite it),
@@ -115,8 +125,8 @@ a plain one-line scalar (a colon-space inside a plain note breaks the build):
       role: extracted
       note: >-
         Added the effectiveness axis (findings[] per Core-results row,
-        resultType) built from the results table and confirmed against the PDF;
-        existing results and sections unchanged.
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
 
 Hard rules: NO em-dashes, NO colorful adjectives. No literal null (omit the key
 or use none / null-result). Edit ONLY ${dest(it)}. Never touch another file, the
@@ -138,13 +148,18 @@ today: ${TODAY}
 Check against the PDF and fix clear mismatches IN PLACE on this one file only:
   - each findings[] entry mirrors a quantitative Core-results row: ref points at
     the right row, value matches that row's reported magnitude IN THE PDF (a real
-    magnitude check), metric names the statistic actually reported, direction
-    (positive|negative|none|mixed; none = no significant effect) matches the
-    sign/significance, vsBenchmark describes a comparison the paper makes.
+    magnitude check; the build pass did not re-derive values, so this is where
+    they are checked), metric names the statistic actually reported, direction is
+    the SIGN of the effect (positive = effect positive or beats benchmark;
+    negative = effect negative or below benchmark; none = no significant effect;
+    mixed = flips across specs), NOT good-for-the-paper: a rejection/low-fit row
+    coded positive is wrong. vsBenchmark describes a comparison the paper makes.
   - a purely qualitative row may have no finding (fine); a quantitative row that
     is missing one is a gap worth flagging.
-  - resultType matches the paper's headline (confirms | overturns | null-result |
-    mixed | new-finding).
+  - resultType is consistent with the page's relatesTo edges (contradicts headline
+    -> overturns; replicates/tests/extends prior that holds -> confirms, partial
+    -> mixed; new-finding only when no prior is confirmed or overturned), not
+    reflexively new-finding.
 Confirm the findings pass did NOT alter the Core results table values (unless it
 corrected a genuine error and said so), resultsCount, body sections, or other
 frontmatter (if it did, that is a flag). No em-dashes. No literal null (none /
