@@ -179,8 +179,74 @@ export const collections = {
                   ])
                   .optional(),
                 buildsFrom: z.array(z.string()).optional(),
+                // The IDENTIFICATION design: the source of variation a result
+                // leans on, kept separate from buildsFrom (which is estimator
+                // genealogy) so "is the field getting more causal, and via
+                // which designs" is answerable. This is the credibility-
+                // revolution axis. Enum, design-focused (not estimator-named):
+                // randomized (RCT/field experiment); natural-experiment (a
+                // quasi-random shock, e.g. a policy or regulatory change,
+                // exploited via DiD/event-study); instrument (IV/2SLS); rdd
+                // (regression discontinuity); selection-on-observables
+                // (matching or panel FE + controls; identification rests on
+                // conditional ignorability, the weakest empirical design);
+                // structural (identification from a model's restrictions);
+                // descriptive (documents facts, makes no causal claim). OMIT
+                // for a theory paper (no empirical design); use `descriptive`
+                // for an acausal empirical paper, so theory does not pollute
+                // the "% of empirical papers that are causally identified"
+                // denominator. Name the PRIMARY design; secondary designs go
+                // in the Empirical-specifications prose.
+                identification: z
+                  .enum([
+                    'randomized',
+                    'natural-experiment',
+                    'instrument',
+                    'rdd',
+                    'selection-on-observables',
+                    'structural',
+                    'descriptive',
+                  ])
+                  .optional(),
               })
               .optional(),
+            // What KIND of contribution the paper makes, orthogonal to
+            // methods.role: it answers "is the field tilting from theory toward
+            // empirics / new data, and how much is replication vs new fact".
+            // An array (multi) because a paper can do several at once (propose a
+            // method AND introduce data). new-theory (a new model/proposition),
+            // new-method (a new estimator/technique), new-data (introduces a new
+            // dataset/source), new-fact (a new empirical regularity), replication
+            // (re-runs prior work), measurement (constructs a measure/index),
+            // survey (a review). Near-always present; pick the headline kinds,
+            // do not list every minor aspect.
+            contributionType: z
+              .array(
+                z.enum([
+                  'new-theory',
+                  'new-method',
+                  'new-data',
+                  'new-fact',
+                  'replication',
+                  'measurement',
+                  'survey',
+                ])
+              )
+              .optional(),
+            // The economic CHANNEL(S) / friction(s) the paper invokes: the axis
+            // that turns the fragmented topic list into a tractable "which
+            // frictions does the field study, and which are crowded vs
+            // neglected". Controlled-but-growing like methods.buildsFrom: draws
+            // from the `mechanisms:` section of vocab-registry.yml; a new term
+            // stages in proposedVocab (axis: mechanism) and the curator
+            // reconciles it. Omit when the paper invokes no clear channel (pure
+            // measurement/description).
+            mechanisms: z.array(z.string()).optional(),
+            // Data-novelty flag: true when the paper INTRODUCES a new dataset or
+            // source (hand-collected, a newly linked administrative file, a novel
+            // text corpus). Answers "where is new data entering the field". Omit
+            // (do not write false) when the paper only reuses existing sources.
+            introducesData: z.boolean().optional(),
             // Sample scope: the axis where gaps hide ("all the evidence is US
             // large-cap, post-2000"). Free strings, but fill them: region,
             // asset/market, and the data window. Queryable cross-corpus.
@@ -204,6 +270,48 @@ export const collections = {
                     'mixed',
                   ])
                   .optional(),
+                // The NATURE of the data, kept separate from dataAccess (the
+                // access tier) and granularity (the unit). Array, since a paper
+                // often combines sources. market (prices/returns/quotes/trades);
+                // accounting (financial statements, fundamentals); administrative
+                // (government/regulator records, credit registers, tax);
+                // survey (survey or expectations data); experimental (lab/field
+                // experiment); text (filings, news, transcripts); other. Omit
+                // for a theory paper with no data.
+                dataType: z
+                  .array(
+                    z.enum([
+                      'market',
+                      'accounting',
+                      'administrative',
+                      'survey',
+                      'experimental',
+                      'text',
+                      'other',
+                    ])
+                  )
+                  .optional(),
+                // The UNIT of observation. Array (a paper may use more than
+                // one). aggregate (country/market level); industry; firm;
+                // individual (household/person); security (asset/bond/stock
+                // level); transaction (trade/loan level). Omit for theory.
+                granularity: z
+                  .array(
+                    z.enum([
+                      'aggregate',
+                      'industry',
+                      'firm',
+                      'individual',
+                      'security',
+                      'transaction',
+                    ])
+                  )
+                  .optional(),
+                // Sample size, as the paper states it. A free string because
+                // N is reported many ways ("12,345 firm-months", "1.2M loans",
+                // "640 funds, 1984-2019"). Makes "how big are the samples in
+                // fixed income" answerable. Omit for theory.
+                n: z.string().optional(),
               })
               .optional(),
             // Finding-lineage edges to prior work: the "how the literature
@@ -254,7 +362,13 @@ export const collections = {
                 z.object({
                   // builds-from maps to methods.buildsFrom, family to
                   // methods.family, topic/method to the tag axes.
-                  axis: z.enum(['family', 'builds-from', 'topic', 'method']),
+                  axis: z.enum([
+                    'family',
+                    'builds-from',
+                    'topic',
+                    'method',
+                    'mechanism',
+                  ]),
                   term: z.string(),
                   def: z.string(),
                   aliases: z.array(z.string()).optional(),

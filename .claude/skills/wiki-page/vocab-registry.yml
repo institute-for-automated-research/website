@@ -10,8 +10,8 @@
 # - The vocab-curator (one serial pass per batch) reconciles those proposals
 #   into this file and rewrites pages to the canonical term.
 # - Topic and method TAGS are governed separately by wiki-page/SKILL.md +
-#   TagIndex.astro. This registry governs `methods.family` and
-#   `methods.buildsFrom` only.
+#   TagIndex.astro. This registry governs `methods.family`,
+#   `methods.buildsFrom`, and `mechanisms` (the economic-channel axis).
 
 family: # methods.family: the method class (also enum-backed in content.config.ts)
   ml:
@@ -226,3 +226,83 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   information-channel-fg:
     def: Partial-equilibrium model of forward-guidance information effects; the central bank holds a private signal about economic fundamentals and FG announcements reveal that signal, shifting investor beliefs about growth and risk aversion and dominating the conventional interest-rate channel during high-uncertainty periods.
     aliases: [fg-information-channel, delphic-fg-model]
+
+mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
+  information-asymmetry:
+    def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
+    aliases: [adverse-selection, asymmetric-information, private-information, signaling]
+  moral-hazard:
+    def: "Hidden action: an agent's unobserved effort or risk-taking responds to incentives, distinct from hidden-type adverse selection."
+    aliases: [hidden-action, risk-shifting]
+  agency:
+    def: Conflicts of interest between a principal and an agent (manager vs shareholder, owner vs creditor) that distort decisions away from first best.
+    aliases: [agency-conflict, principal-agent-friction, managerial-agency]
+  limits-to-arbitrage:
+    def: Frictions (capital constraints, noise-trader risk, slow-moving capital) that prevent arbitrageurs from correcting mispricing.
+    aliases: [slow-moving-capital, arbitrage-constraint, mispricing-persistence]
+  intermediary-constraint:
+    def: Financial intermediaries' balance-sheet, capital, or leverage constraints bind and affect asset prices and credit supply.
+    aliases: [balance-sheet-constraint, dealer-constraint, intermediary-capital]
+  collateral:
+    def: Borrowing is limited by the pledgeable value of collateral; collateral values and haircuts drive credit and amplification.
+    aliases: [collateral-constraint, pledgeability, margin-constraint]
+  financial-constraint:
+    def: Firms or households face a wedge between internal and external finance that limits investment or consumption.
+    aliases: [financing-constraint, external-finance-premium, credit-constraint]
+  liquidity:
+    def: Market liquidity (price impact, bid-ask cost) or funding liquidity (access to short-term financing) affects prices, trading, or real outcomes.
+    aliases: [market-liquidity, funding-liquidity, price-impact, illiquidity]
+  search-frictions:
+    def: Trade requires costly bilateral search and bargaining, as in over-the-counter markets, generating dispersion and intermediation rents.
+    aliases: [search-and-matching, otc-search, bargaining-friction]
+  risk-sharing:
+    def: Incomplete markets limit the pooling of idiosyncratic or aggregate risk, affecting consumption smoothing and risk premia.
+    aliases: [incomplete-risk-sharing, consumption-insurance, incomplete-markets-channel]
+  behavioral-bias:
+    def: Systematic departures from rational expectations or utility (overextrapolation, inattention, prospect-theory preferences) drive choices and prices.
+    aliases: [belief-distortion, extrapolation, inattention, prospect-theory]
+  learning:
+    def: Agents update beliefs from data (Bayesian or adaptive); incomplete information about parameters or states drives dynamics.
+    aliases: [bayesian-learning, belief-updating, parameter-uncertainty]
+  demand-elasticity:
+    def: Inelastic or downward-sloping demand for assets means flows and supply shifts move prices, as in demand-based asset pricing.
+    aliases: [inelastic-demand, demand-based-asset-pricing, price-inelasticity]
+  market-power:
+    def: Imperfect competition lets firms or intermediaries set prices above marginal cost, affecting markups, spreads, or quantities.
+    aliases: [competition, imperfect-competition, market-concentration]
+  networks:
+    def: Interconnections among firms, banks, or markets propagate and amplify shocks (contagion, spillovers, common exposures).
+    aliases: [contagion, interconnectedness, spillovers, financial-networks]
+  taxes:
+    def: Tax incentives or distortions shape financing, payout, portfolio, or real decisions.
+    aliases: [tax-incentive, tax-distortion, taxation-channel]
+  occupational-stress:
+    def: Job demands or work-related stressors impose direct physiological or psychological costs on workers, manifesting as health deterioration, accelerated aging, or mortality.
+    aliases: [job-demands, work-stress, managerial-stress]
+  esg-reputation:
+    def: Reputational damage from ESG incidents causes customers or stakeholders to reduce purchases or engagement, transmitting ESG shocks into lower future sales and cash flows.
+    aliases: [customer-demand-channel, reputational-damage, esg-cash-flow-channel]
+  political-capture:
+    def: Incumbent firms use political connections to lobby for regulatory barriers to entry and capital flows, entrenching their market positions against competitive replacement.
+    aliases: [regulatory-capture, political-connections-entrenchment]
+  disaster-risk-premium:
+    def: Cross-sectional hedging channel in which assets that co-vary positively with rare-disaster risk earn lower expected returns because they are good hedges for aggregate consumption disasters.
+    aliases: [rare-disaster-hedging, disaster-hedging-channel]
+  organizational-complexity:
+    def: Increased operational complexity (task variety, information load, regulatory demands) drives firms to restructure hierarchies, add layers, and specialize roles.
+    aliases: [task-complexity, information-processing-hierarchy]
+  participation-frictions:
+    def: One-time fixed costs of entering or adjusting a market position, distinct from per-period costs; generates inertia and a wedge between observed and preferred choices.
+    aliases: [adjustment-costs, fixed-participation-cost, portfolio-adjustment-cost]
+  credit-inflation-channel:
+    def: Sovereign default risk differentially prices nominal versus real bonds via the correlation between default probability and inflation dynamics (deflation pre-default, inflation upon default).
+    aliases: [sovereign-default-inflation-channel, inflation-upon-default, default-inflation-correlation, credit-inflation-correlation]
+  externality:
+    def: Unpriced or under-priced negative externality (pollution, carbon emissions) distorts firm decisions; corrective taxes or cost-of-capital adjustments restore the social optimum.
+    aliases: [pollution-externality, carbon-externality, negative-externality]
+  flight-to-safety:
+    def: Investors reallocate toward safe-haven assets when perceived macroeconomic risk or risk aversion rises, driving safe-asset appreciation independent of interest rate differentials.
+    aliases: [safe-haven-demand, risk-off, safety-channel]
+  debt-overhang:
+    def: Outstanding debt distorts a borrower's or firm's effort and investment decisions because a fraction of future income or returns accrues to creditors rather than the agent.
+    aliases: [debt-burden-distortion, student-debt-overhang]

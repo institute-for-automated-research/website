@@ -64,12 +64,19 @@ paper:
     contributes: <named method it proposes, omit if none>
     family: <registry term: ml | structural | reduced-form-causal | theory | descriptive>
     buildsFrom: [<registry technique slugs the method is built on>]
+    identification: <randomized | natural-experiment | instrument | rdd | selection-on-observables | structural | descriptive>  # primary design; OMIT for theory papers
+  contributionType: [<new-theory | new-method | new-data | new-fact | replication | measurement | survey>]  # array (multi); near-always present
+  mechanisms: [<registry slug: information-asymmetry | liquidity | agency | ...>]  # economic channel(s); omit if none; reuse-before-mint via proposedVocab (axis: mechanism)
+  introducesData: <true>     # only when the paper introduces a NEW dataset/source; OMIT (never false) otherwise
   # --- sample scope: the axis where gaps hide ---
   scope:
     region: <e.g. US | Norway | global | theoretical>
     assetClass: <e.g. US equities | corporate loans | sovereign bonds>
     period: <data window, e.g. 1964-01..2016-12>
     frequency: <daily | weekly | monthly | quarterly | annual | mixed>  # omit for theory papers
+    dataType: [<market | accounting | administrative | survey | experimental | text | other>]  # nature of the data; omit for theory
+    granularity: [<aggregate | industry | firm | individual | security | transaction>]  # unit of observation; omit for theory
+    n: <sample size as the paper states it, e.g. "12,345 firm-months">  # omit for theory
   # --- finding-lineage edges to prior work (how lit evolves / what is contested) ---
   relatesTo:
     - { cite: <author-year>, relation: <extends|replicates|contradicts|tests|builds-on|cites>, note: <one line> }  # add doi only if read from an authoritative source, never guessed
@@ -78,7 +85,7 @@ paper:
     - <pulled from the conclusion, never invented>
   # --- vocab the page wants to MINT, staged for the curator (never the shared registry) ---
   proposedVocab:
-    - { axis: <family|builds-from|topic|method>, term: <slug>, def: <one line>, aliases: [<...>] }
+    - { axis: <family|builds-from|topic|method|mechanism>, term: <slug>, def: <one line>, aliases: [<...>] }
 
   extraction:
     - { by: paper-distiller (<model id>), date: <today>, role: extracted, note: "<read PDF; not human-verified; not reproduced>" }
@@ -125,6 +132,35 @@ paper:
   name secondary methods in the Method prose.
 - `methods.family` (enum): `ml | structural | reduced-form-causal | theory |
   descriptive`.
+- `methods.identification` (enum): the PRIMARY source of variation, design-named
+  not estimator-named: `randomized` (RCT/field experiment), `natural-experiment`
+  (a quasi-random shock, e.g. a policy or regulatory change, exploited via
+  DiD/event-study), `instrument` (IV/2SLS), `rdd` (regression discontinuity),
+  `selection-on-observables` (matching or panel FE + controls; the weakest
+  empirical design), `structural` (identification from model restrictions),
+  `descriptive` (documents facts, no causal claim). **OMIT only for a paper with
+  no empirical design of its own** (a pure-theory paper, `role: theory`); a
+  `role: both` paper that empirically tests its model records that test's design
+  (e.g. `instrument`), so omission keys on `role: theory`, not on `family`. Use
+  `descriptive` for an acausal empirical paper,
+  including asset-pricing / return-prediction / factor papers that build or test
+  a pricing object without identifying a causal effect (they are empirical and
+  not causally identified, which is exactly what `descriptive` records). The
+  omit-vs-`descriptive` distinction is load-bearing: it keeps theory papers out
+  of the "share of empirical work that is causally identified" denominator. Name
+  the primary design only; secondary designs go in Empirical-specifications prose.
+- `contributionType` (array enum, near-always present): `new-theory | new-method
+  | new-data | new-fact | replication | measurement | survey`. Multi, because a
+  paper can do several (propose a method AND introduce data). List the headline
+  kinds, not every minor aspect.
+- `mechanisms` (array, controlled-but-growing): the economic channel(s) /
+  friction(s), e.g. `information-asymmetry`, `liquidity`, `agency`,
+  `limits-to-arbitrage`. Reuse a `mechanisms:` registry term (or alias) before
+  minting; stage a genuinely new one in `proposedVocab` with `axis: mechanism`.
+  Omit when the paper invokes no clear channel (pure measurement/description).
+- `introducesData`: `true` only when the paper introduces a NEW dataset or source
+  (hand-collected, a newly linked administrative file, a novel text corpus).
+  **Omit it (never write `false`)** when the paper only reuses existing sources.
 - `relatesTo.relation` values: **extends** (methodological generalization of
   the cited result), **builds-on** (conceptual/foundational dependence),
   **replicates**, **contradicts** (opposes its finding), **tests**
@@ -143,6 +179,14 @@ paper:
 - `scope.frequency` (enum): `daily | weekly | monthly | quarterly | annual |
   mixed`. Use canonical `region` / `assetClass` forms (US, global, Norway;
   US equities, corporate loans, sovereign bonds).
+- `scope.dataType` (array enum): the NATURE of the data, distinct from
+  `dataAccess` (the access tier) and `granularity` (the unit): `market |
+  accounting | administrative | survey | experimental | text | other`. Omit for
+  a theory paper with no data.
+- `scope.granularity` (array enum): the UNIT of observation: `aggregate |
+  industry | firm | individual | security | transaction`. Omit for theory.
+- `scope.n`: sample size as the paper states it (free string, e.g.
+  `"12,345 firm-months"`, `"640 funds, 1984-2019"`). Omit for theory.
 
 ---
 
