@@ -120,10 +120,32 @@ with the compact JSON result described at the bottom.
     prose phrase, and do not pack several with "+"), `family`
     (`ml` | `structural` | `reduced-form-causal` |
     `theory` | `descriptive`), `buildsFrom` (technique-primitive slugs from the
-    registry; reuse before minting).
+    registry; reuse before minting), and `identification` (the PRIMARY design,
+    design-named not estimator-named: `randomized` | `natural-experiment` |
+    `instrument` | `rdd` | `selection-on-observables` | `structural` |
+    `descriptive`). OMIT `identification` only when the paper has no empirical
+    design of its own (`role: theory`); a `role: both` paper that empirically
+    tests its model records that design. Use `descriptive`
+    for an empirical paper that makes no causal claim (the omit-vs-`descriptive`
+    split is load-bearing for the meta query, so get it right).
+  - `contributionType[]`: the KIND(S) of contribution, an array (multi):
+    `new-theory` | `new-method` | `new-data` | `new-fact` | `replication` |
+    `measurement` | `survey`. Near-always present; list the headline kinds.
+  - `mechanisms[]`: the economic channel(s)/friction(s) the paper invokes
+    (slugs from the registry `mechanisms:` section, e.g. `information-asymmetry`,
+    `liquidity`, `agency`, `limits-to-arbitrage`; reuse before minting). Omit if
+    the paper invokes no clear channel.
+  - `introducesData`: `true` only when the paper introduces a NEW dataset/source
+    (hand-collected, a newly linked administrative file, a novel text corpus).
+    OMIT it (never write `false`) when it only reuses existing sources.
   - `scope`: `region`, `assetClass`, `period` (data window, e.g.
     `1964-01..2016-12`), `frequency`
-    (`daily`|`weekly`|`monthly`|`quarterly`|`annual`|`mixed`).
+    (`daily`|`weekly`|`monthly`|`quarterly`|`annual`|`mixed`), `dataType[]`
+    (nature of data: `market`|`accounting`|`administrative`|`survey`|
+    `experimental`|`text`|`other`), `granularity[]` (unit of observation:
+    `aggregate`|`industry`|`firm`|`individual`|`security`|`transaction`), and
+    `n` (sample size as the paper states it, free string). Omit data-related
+    scope fields for a theory paper.
   - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
     `replicates` / `contradicts` / `tests` / `cites`; name each cite as an
     author-year in the body too (first-author surname next to the year, e.g.
@@ -138,10 +160,11 @@ with the compact JSON result described at the bottom.
     with page locators. Omit if none; do not editorialize or restate scope.
   - `replicationCode`: `{ url?, status: available|upon-request|none }` if the
     paper states it. Omit if unknown.
-  - `proposedVocab[]`: any `family`/`buildsFrom`/`topic`/`method` term you had
-    to MINT because nothing in the registry fit, each with a one-line `def` and
-    `aliases`. NEVER edit the shared registry yourself; stage proposals here.
-    The batch vocab-curator reconciles them.
+  - `proposedVocab[]`: any `family`/`builds-from`/`mechanism`/`topic`/`method`
+    term you had to MINT because nothing in the registry fit, each with a
+    one-line `def` and `aliases`. NEVER edit the shared registry yourself; stage
+    proposals here. The batch vocab-curator reconciles the
+    `family`/`builds-from`/`mechanism` axes.
   - `extraction`: exactly one entry now,
     `by: paper-distiller (claude-sonnet-4-6)`, `date: <today>`,
     `role: extracted`, `note:` stating you read the PDF, that it is not
@@ -187,8 +210,13 @@ rewriting. Read the existing page first, then:
 - ADD what the new shape needs and the page lacks: the `methods`, `scope`,
   `relatesTo`, `openQuestions`, `replicationCode`, `proposedVocab` frontmatter
   blocks, and the three formal body sections with real equations from the PDF.
-  If the page still uses an old `## Theory tested` heading, replace it with the
-  three formal sections (fold its content in).
+  This also includes the queryable axes added later that older pages predate:
+  `methods.identification`, top-level `contributionType` / `mechanisms` /
+  `introducesData`, and `scope.dataType` / `scope.granularity` / `scope.n`. Add
+  any of these the page is missing, following the frontmatter rules above (omit
+  the ones that do not apply, e.g. identification + data scope for a theory
+  paper). If the page still uses an old `## Theory tested` heading, replace it
+  with the three formal sections (fold its content in).
 - APPEND one new `extraction[]` entry (`role: extracted`, today, your model id)
   noting you added the formal sections + equations from the PDF and that they
   are not yet re-verified.

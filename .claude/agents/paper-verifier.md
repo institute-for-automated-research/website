@@ -41,6 +41,18 @@ the JSON verdict below.
    `methods.buildsFrom` and `methods.role`/`family` are faithful to what the
    paper actually does. Fix clear errors in place; if you cannot resolve an
    equation, downgrade it to what the PDF supports and note it.
+3c. **Queryable classification axes.** Check the newer axes against the PDF and
+   fix clear mismatches in place: `methods.identification` (the PRIMARY design,
+   OMITTED only when the paper has no empirical design of its own (`role: theory`)
+   but `descriptive` for an acausal empirical paper, never the other way round; a
+   `role: both` paper that empirically tests its model keeps its design, e.g.
+   `instrument`); `contributionType` (does the paper really do each
+   kind listed); `mechanisms` (the channels it actually invokes); `introducesData`
+   (present and `true` ONLY if it introduces a new source, omitted otherwise,
+   never `false`); and `scope.dataType` / `scope.granularity` / `scope.n`
+   (faithful to the data actually used). These are honest-classification checks,
+   not magnitude checks: when the PDF is genuinely ambiguous, prefer omitting the
+   field over guessing.
 4. Also sanity-check the frontmatter against the PDF: `authors`, `year`,
    `venue`/`venueShort`, `resultsCount` == number of result rows, and that the
    `access`/`license` disposition is honest (no `pdf:` mirror unless openly
