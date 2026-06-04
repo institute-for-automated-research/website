@@ -146,6 +146,26 @@ with the compact JSON result described at the bottom.
     `aggregate`|`industry`|`firm`|`individual`|`security`|`transaction`), and
     `n` (sample size as the paper states it, free string). Omit data-related
     scope fields for a theory paper.
+  - `findings[]`: the "what works" effectiveness axis, one entry per
+    quantitative **Core-results row**, in row order. Build it from your own
+    Core-results table. Each: `ref` (the row id, e.g. `R1`), `outcome` (the
+    dependent variable, reuse the `outcome[]` phrasing), `metric` (a kebab slug
+    for the statistic: `sharpe-ratio`, `alpha`, `t-stat`, `r-squared`,
+    `oos-r-squared`, `coefficient`, `elasticity`, `hazard-ratio`, `return-spread`,
+    `auc`, `rmse`, `correlation`, ...; reuse a slug before coining a near-synonym),
+    `value` (magnitude as
+    reported), `direction` (`positive`|`negative`|`none`|`mixed`; `none` = no
+    significant effect, NEVER write `null`, YAML reads it as the null scalar and
+    fails the build), and `vsBenchmark` (comparison to baseline, omit if none).
+    Skip purely qualitative rows. OMIT `findings` entirely for a pure-theory
+    paper with no empirical result.
+  - `resultType`: the paper-level verdict: `confirms` (supports a prior
+    hypothesis/finding) | `overturns` (contradicts a prior established result) |
+    `null-result` (central test finds no effect) | `mixed` (holds in some
+    specs/subsamples, not others) | `new-finding` (establishes a new fact/method
+    with no prior to confirm or overturn, the usual case for a method or
+    first-measurement paper). Spelled `null-result`, not `null`. Omit for pure
+    theory.
   - `relatesTo[]`: edges to prior work this paper `extends` / `builds-on` /
     `replicates` / `contradicts` / `tests` / `cites`; name each cite as an
     author-year in the body too (first-author surname next to the year, e.g.
@@ -212,10 +232,12 @@ rewriting. Read the existing page first, then:
   blocks, and the three formal body sections with real equations from the PDF.
   This also includes the queryable axes added later that older pages predate:
   `methods.identification`, top-level `contributionType` / `mechanisms` /
-  `introducesData`, and `scope.dataType` / `scope.granularity` / `scope.n`. Add
-  any of these the page is missing, following the frontmatter rules above (omit
-  the ones that do not apply, e.g. identification + data scope for a theory
-  paper). If the page still uses an old `## Theory tested` heading, replace it
+  `introducesData`, `scope.dataType` / `scope.granularity` / `scope.n`, and the
+  "what works" axis `findings[]` + `resultType` (build `findings` from the
+  page's Core-results table, one per quantitative row, then confirm against the
+  PDF). Add any of these the page is missing, following the frontmatter rules
+  above (omit the ones that do not apply, e.g. identification + data scope +
+  findings + resultType for a theory paper). If the page still uses an old `## Theory tested` heading, replace it
   with the three formal sections (fold its content in).
 - APPEND one new `extraction[]` entry (`role: extracted`, today, your model id)
   noting you added the formal sections + equations from the PDF and that they

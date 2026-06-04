@@ -314,6 +314,59 @@ export const collections = {
                 n: z.string().optional(),
               })
               .optional(),
+            // The "what works" effectiveness axis. The other axes say which
+            // method/design/channel a paper used and what outcome it studied,
+            // but not whether the model WORKED. findings[] records each headline
+            // result as a structured row so the corpus answers "what kind of
+            // models/effects actually work, with what magnitude, against which
+            // benchmark" without reading prose. One entry per Core-results row;
+            // `ref` ties it to that row so it stays traceable and verifiable.
+            // Omit findings (and resultType) for a pure-theory paper that
+            // reports no empirical result.
+            findings: z
+              .array(
+                z.object({
+                  // The Core-results row this finding restates (e.g. "R1"), so
+                  // it is traceable to the page's table and a verifier can
+                  // cross-check it. Omit only if the page has no row ids.
+                  ref: z.string().optional(),
+                  // The dependent variable / object this result speaks to.
+                  // Reuse the paper-level `outcome` phrasing so the two align.
+                  outcome: z.string(),
+                  // The metric reported, as a kebab-case slug (sharpe-ratio,
+                  // alpha, t-stat, r-squared, oos-r-squared, coefficient,
+                  // elasticity, hazard-ratio, auc, rmse, return-spread,
+                  // correlation, ...). Free string for now, a candidate for
+                  // registry governance once values settle (like topics /
+                  // outcome); meta.mjs tallies it so fragmentation stays visible.
+                  metric: z.string(),
+                  // The magnitude as the paper reports it, a free string since
+                  // values come in many forms ("0.65 monthly", "1.2pp", "t=10.11").
+                  value: z.string(),
+                  // Sign / significance of the effect. `none` = no significant
+                  // effect (a null finding). The value is `none`, not `null`,
+                  // because a bare `null` in YAML parses as the null scalar and
+                  // would fail the schema (and break the build).
+                  direction: z.enum(['positive', 'negative', 'none', 'mixed']),
+                  // How the result compares to its benchmark / baseline, when
+                  // the paper makes such a comparison (free string, e.g.
+                  // "~3x triple-sort SR", "beats FF5"). Omit when there is none.
+                  vsBenchmark: z.string().optional(),
+                })
+              )
+              .optional(),
+            // Paper-level verdict on its central claim, the "what works"
+            // headline, answerable as "how much of the corpus confirms priors
+            // vs overturns vs finds nulls vs establishes new facts". confirms
+            // (evidence supports a prior hypothesis/finding); overturns
+            // (contradicts a prior established result); null-result (the central
+            // test finds no effect); mixed (holds in some specs/subsamples, not
+            // others); new-finding (establishes a new fact/method with no prior
+            // to confirm or overturn). Spelled `null-result`, not `null`, to
+            // avoid the YAML null collision. Omit for a pure-theory paper.
+            resultType: z
+              .enum(['confirms', 'overturns', 'null-result', 'mixed', 'new-finding'])
+              .optional(),
             // Finding-lineage edges to prior work: the "how the literature
             // evolves / what is contested" graph, distinct from
             // methods.buildsFrom (technique genealogy). `relation` says how

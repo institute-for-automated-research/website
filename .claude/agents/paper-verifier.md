@@ -53,6 +53,17 @@ the JSON verdict below.
    (faithful to the data actually used). These are honest-classification checks,
    not magnitude checks: when the PDF is genuinely ambiguous, prefer omitting the
    field over guessing.
+3d. **The "what works" axis (`findings[]` + `resultType`).** Each `findings[]`
+   entry should mirror a quantitative Core-results row: confirm its `ref` points
+   at the right row, its `value` matches that row's reported magnitude (this is a
+   magnitude check, against the PDF), its `metric` names the statistic actually
+   reported, its `direction` (`positive`|`negative`|`none`|`mixed`; `none` = no
+   significant effect) matches the sign/significance in the PDF, and `vsBenchmark`
+   describes a comparison the paper actually makes. A qualitative row may have no
+   finding; that is fine. Check `resultType` against the paper's headline: does it
+   confirm a prior, overturn one, report a null, mix, or establish a new
+   fact/method (`new-finding`). Fix clear mismatches in place. Value `null` must
+   never appear (it is `null-result` / `none`); a bare `null` fails the build.
 4. Also sanity-check the frontmatter against the PDF: `authors`, `year`,
    `venue`/`venueShort`, `resultsCount` == number of result rows, and that the
    `access`/`license` disposition is honest (no `pdf:` mirror unless openly

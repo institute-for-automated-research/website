@@ -129,8 +129,9 @@ hosted under `/library`, `licenceVerification[]`, and the stacking
 `extraction[]` ladder with `role`: `extracted` | `verified` | `reproduced`),
 plus the queryable axes that make the corpus answerable for gaps and evolution:
 `methods{role,contributes,family,buildsFrom}`, `scope`, `topics`, `dataAccess`,
-`outcome`, `relatesTo`, `openQuestions`, `replicationCode`, `jel`,
-`proposedVocab`. The body is findings-first: TL;DR, Core results, then the three
+`outcome`, the "what works" effectiveness axis (`findings[]` per Core-results
+row + paper-level `resultType`), `relatesTo`, `openQuestions`, `replicationCode`,
+`jel`, `proposedVocab`. The body is findings-first: TL;DR, Core results, then the three
 formal sections (Theory / model, Method, Empirical specifications) with real
 LaTeX equations in `$$ ... $$` (KaTeX; single `$` is disabled), Datasets used,
 When to read, Attribution.

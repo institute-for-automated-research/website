@@ -77,6 +77,10 @@ paper:
     dataType: [<market | accounting | administrative | survey | experimental | text | other>]  # nature of the data; omit for theory
     granularity: [<aggregate | industry | firm | individual | security | transaction>]  # unit of observation; omit for theory
     n: <sample size as the paper states it, e.g. "12,345 firm-months">  # omit for theory
+  # --- the "what works" effectiveness axis: did the model/effect work, with what magnitude ---
+  findings:                  # one entry per Core-results row; omit entirely for a pure-theory paper
+    - { ref: <R1>, outcome: <dep var, reuse paper-level outcome phrasing>, metric: <kebab slug: sharpe-ratio | alpha | t-stat | r-squared | coefficient | ...>, value: <magnitude as reported>, direction: <positive | negative | none | mixed>, vsBenchmark: <comparison to baseline, omit if none> }
+  resultType: <confirms | overturns | null-result | mixed | new-finding>  # paper-level verdict; omit for pure theory
   # --- finding-lineage edges to prior work (how lit evolves / what is contested) ---
   relatesTo:
     - { cite: <author-year>, relation: <extends|replicates|contradicts|tests|builds-on|cites>, note: <one line> }  # add doi only if read from an authoritative source, never guessed
@@ -187,6 +191,33 @@ paper:
   industry | firm | individual | security | transaction`. Omit for theory.
 - `scope.n`: sample size as the paper states it (free string, e.g.
   `"12,345 firm-months"`, `"640 funds, 1984-2019"`). Omit for theory.
+- `findings` (array, the "what works" axis): one entry per **Core-results row**
+  that reports a quantitative result, in row order. Build it FROM the page's own
+  Core-results table (then confirm against the PDF); skip purely qualitative rows
+  rather than invent a metric. Each entry: `ref` (the row id, e.g. `R1`, so it
+  stays traceable; omit only if the page has no row ids), `outcome` (the
+  dependent variable, reuse the paper-level `outcome` phrasing), `metric` (a
+  kebab-case slug for the statistic reported: `sharpe-ratio`, `alpha`, `t-stat`,
+  `r-squared`, `oos-r-squared`, `coefficient`, `elasticity`, `hazard-ratio`,
+  `auc`, `rmse`, `return-spread`, `correlation`, ...; reuse a slug another row /
+  page already uses before coining a near-synonym, this axis is a
+  registry-governance candidate), `value` (the magnitude as reported, free
+  string), `direction` (`positive | negative | none | mixed`; `none` = no
+  significant effect / a null finding, **never write `null`** which YAML reads as
+  the null scalar and fails the build), and `vsBenchmark` (free string comparing
+  to the baseline, e.g. `"~3x triple-sort SR"`, `"beats FF5"`; omit when the row
+  has no benchmark contrast). **Omit the whole `findings` block for a pure-theory
+  paper** that reports no empirical result.
+- `resultType` (enum, paper-level verdict): the headline "what works" call.
+  `confirms` (evidence supports a prior hypothesis/finding), `overturns`
+  (contradicts a prior established result), `null-result` (the central test finds
+  no effect), `mixed` (holds in some specs/subsamples, not others), `new-finding`
+  (establishes a new fact/method with no prior to confirm or overturn, the usual
+  case for a method or first-measurement paper). Spelled `null-result`, not
+  `null`, to dodge the YAML null collision. A paper can both establish a new
+  finding AND overturn a prior; pick the one that best describes its headline
+  contribution, and let the per-row `findings` + `relatesTo` (`contradicts` /
+  `tests`) carry the rest. Omit for a pure-theory paper.
 
 ---
 
@@ -210,6 +241,9 @@ original (link) to replicate or extend>
 ## Core results
 <table: # | Result | Locator (Table/Figure/§ + page) | Magnitude as reported>
 <keep the paper's own coefficients, t-stats, signs, significance; escape \* >
+<use row ids R1, R2, ... in the # column: the frontmatter `findings[].ref`
+points back to them, so the structured "what works" axis stays traceable to the
+table. Each quantitative row should have a matching `findings` entry.>
 **Overall (paper's conclusion).** <one paragraph>
 
 ## Theory / model            # the economic content: model + hypotheses + identification

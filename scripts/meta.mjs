@@ -134,7 +134,26 @@ function analyze(papers) {
     'scope.dataType': has((p) => p.scope?.dataType),
     'scope.granularity': has((p) => p.scope?.granularity),
     'scope.n': has((p) => p.scope?.n),
+    findings: has((p) => p.findings),
+    resultType: has((p) => p.resultType),
   };
+
+  // The "what works" effectiveness axis. findings[] is per-result, so flatten
+  // to one record per finding (a paper carries many); these tallies are
+  // per-finding, not per-paper. resultType is the paper-level verdict.
+  const findings = papers.flatMap((x) => asArray(x.p.findings).map((f) => ({ ...f, _slug: x.slug })));
+  const tallyF = (pick) => {
+    const m = new Map();
+    for (const f of findings) {
+      const v = pick(f);
+      if (v == null) continue;
+      m.set(v, (m.get(v) ?? 0) + 1);
+    }
+    return [...m.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])));
+  };
+  const benchmarked = findings.filter((f) => f.vsBenchmark);
+  const benchmarkedDir = {};
+  for (const f of benchmarked) benchmarkedDir[f.direction] = (benchmarkedDir[f.direction] ?? 0) + 1;
 
   // Contested / tested edges: the contestation subgraph.
   const contested = [];
@@ -161,6 +180,14 @@ function analyze(papers) {
       : { identified: 0, of: 0, unclassified: empirical.length },
     contributionType: tally(papers, (p) => p.contributionType, { multi: true }),
     contributionTypeByYear: crossYear(papers, (p) => p.contributionType, { multi: true }),
+    resultType: tally(papers, (p) => p.resultType),
+    resultTypeByYear: crossYear(papers, (p) => p.resultType),
+    findingsN: findings.length,
+    findingsPages: coverage.findings,
+    findingMetric: tallyF((f) => f.metric),
+    findingDirection: tallyF((f) => f.direction),
+    benchmarkedN: benchmarked.length,
+    benchmarkedDir,
     mechanisms: tally(papers, (p) => p.mechanisms, { multi: true }),
     buildsFrom: tally(papers, (p) => p.methods?.buildsFrom, { multi: true }),
     topics: tally(papers, (p) => p.topics, { multi: true }),
@@ -261,6 +288,21 @@ function report(a) {
   }
 
   console.log('\n' + '-'.repeat(70));
+  console.log('WHAT WORKS (the effectiveness axis)');
+  console.log('-'.repeat(70));
+  printDist('resultType (paper verdict)', a.resultType);
+  printCrossYear('resultType x issue year', a.resultTypeByYear);
+  printDist('findings.metric (per finding)', a.findingMetric);
+  printDist('findings.direction (per finding)', a.findingDirection);
+  console.log(`\nStructured findings: ${a.findingsN} across ${a.findingsPages} pages; ${a.benchmarkedN} carry a benchmark comparison.`);
+  if (a.benchmarkedN) {
+    const w = a.benchmarkedDir;
+    console.log(
+      `Among benchmarked findings: ${w.positive ?? 0} positive, ${w.negative ?? 0} negative, ${w.none ?? 0} none, ${w.mixed ?? 0} mixed.`
+    );
+  }
+
+  console.log('\n' + '-'.repeat(70));
   console.log('WHERE THE EVIDENCE IS (scope / gaps)');
   console.log('-'.repeat(70));
   printDist('scope.region', a.region);
@@ -303,6 +345,8 @@ function reportMissing(papers) {
     'scope.dataType': (p) => (Array.isArray(p.scope?.dataType) && p.scope.dataType.length > 0) || isTheory(p),
     'scope.granularity': (p) => (Array.isArray(p.scope?.granularity) && p.scope.granularity.length > 0) || isTheory(p),
     'scope.n': (p) => p.scope?.n != null || isTheory(p),
+    findings: (p) => (Array.isArray(p.findings) && p.findings.length > 0) || isTheory(p),
+    resultType: (p) => p.resultType != null || isTheory(p),
   };
   for (const [axis, ok] of Object.entries(axes)) {
     const missing = papers.filter((x) => !ok(x.p));
@@ -330,6 +374,7 @@ if (args.includes('--missing')) {
           familyByYear: mapToObj(a.familyByYear),
           identificationByYear: mapToObj(a.identificationByYear),
           contributionTypeByYear: mapToObj(a.contributionTypeByYear),
+          resultTypeByYear: mapToObj(a.resultTypeByYear),
         },
         null,
         2
