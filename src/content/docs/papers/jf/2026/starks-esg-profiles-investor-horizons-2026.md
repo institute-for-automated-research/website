@@ -79,6 +79,18 @@ paper:
     - "The welfare implications of long-termism versus short-termism in institutional investment are left open; the paper takes no stance on whether longer investment horizons are socially efficient (p. 609)."
     - "Whether the documented ESG preference of long-term investors generalizes beyond US domestic equity mutual funds and 13f institutions to international investors or other asset classes is not examined (p. 603)."
 
+  findings:
+    - { ref: R1, outcome: fund portfolio weighted-average ESG score, metric: return-spread, value: "0.91 vs. 0.42; spread = 28% of a standard deviation", direction: positive, vsBenchmark: "long-horizon quintile (turnover 20%) vs. short-horizon quintile (turnover 161%)" }
+    - { ref: R2, outcome: fund portfolio weighted-average ESG score, metric: return-spread, value: "1.55 vs. 0.44; monotonically decreasing", direction: positive, vsBenchmark: "long-horizon 13f (churn 10%) vs. short-horizon 13f (churn 92%)" }
+    - { ref: R3, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "-0.0968*** (s.e. 0.0197); 1-SD increase in turnover corresponds to -0.05-point ESG score", direction: negative }
+    - { ref: R4, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "Churn Ratio -0.216*** (s.e. 0.0402); Adjusted Churn Ratio -0.555*** (s.e. 0.0962); 13f Churn Ratio -0.321*** (s.e. 0.0310)", direction: negative }
+    - { ref: R5, outcome: firm-level shareholder investment horizon, metric: coefficient, value: "MSCI ESG Score -0.222** (s.e. 0.102); 1-SD increase (2.32) corresponds to -0.51 pp in weighted-average fund turnover ratio", direction: negative }
+    - { ref: R6, outcome: probability of fund ESG mention in shareholder reports, metric: coefficient, value: "ES-incident interaction: D(sell) = 4.652*** (s.e. 1.171); D(liq) = 3.244*** (s.e. 1.348) percentage points", direction: positive, vsBenchmark: "long-term vs. short-term fund response to ES incident" }
+    - { ref: R7, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "Turnover on FPS = 1.125*** (s.e. 0.294); FPS on Portfolio ESG = -0.337*** (s.e. 0.0875)", direction: negative, vsBenchmark: "mediated by flow-performance sensitivity" }
+    - { ref: R8, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "DiD: TreatedFunds x PostDisclosure = -0.0430** (s.e. 0.0185); 2SLS second stage: Fund Turnover = -0.683** (s.e. 0.333)", direction: negative, vsBenchmark: "treated funds (newly required quarterly disclosure) vs. control funds post-2004 SEC rule" }
+    - { ref: R9, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "LongTermInvestor x Globe x Post and Horizon x CCNI interactions near zero and insignificant", direction: none }
+  resultType: new-finding
+
   replicationCode:
     status: available
 
@@ -112,6 +124,24 @@ paper:
         (information-asymmetry, limits-to-arbitrage), introducesData absent, and
         data scope (market/accounting/text, individual/firm, sample sizes) all
         match the PDF; no other corrections needed.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied to R6 where the reported s.e. for
+        D(sell) was 3.699 (the main-effect coefficient) instead of the correct
+        1.171 (the actual standard error of the interaction term in Table VIII
+        col 1); all other magnitudes, signs, and directions match the PDF exactly;
+        resultType new-finding is consistent with relatesTo edges (all builds-on
+        or cites, no contradicts or replicates).
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70008

@@ -74,6 +74,16 @@ paper:
     - 'Whether the rise in the ARPL-to-MRPL ratio reflects primarily higher markups, lower labor intensity, or sectoral shifts toward high-markup sectors: the paper distinguishes these three channels analytically but cannot conclusively identify which dominates empirically (pp. 3727-3728, 3764-3767).'
     - 'Whether the muted consumption effect holds if adjustment costs, financial frictions, or welfare differences between workers and firm owners are added to the model: the paper abstracts from these (pp. 3767-3768).'
     - 'The NETS data do not permit measurement of sales growth separately from employment growth at the establishment level because sales are imputed from industry-level ratios, limiting the ability to confirm the revenue-employment divergence in the broader (non-Compustat) universe (p. 3741).'
+  findings:
+    - { ref: R1, outcome: employment share of young-firm IPO cohorts, metric: coefficient, value: "log employment contribution 0.71 lower for 2010-2014 cohort vs 1985-1989; log sales contribution 0.11 lower; log market-value contribution 0.07 higher", direction: negative, vsBenchmark: "1985-1989 cohort bin baseline" }
+    - { ref: R2, outcome: market-value share of young-firm IPO cohorts, metric: return-spread, value: "normalized log ratio rises by ~0.8 log points for 2010-2014 cohort vs 1985-1989", direction: positive, vsBenchmark: "1985-1989 cohort bin (normalized to 0)" }
+    - { ref: R3, outcome: market-value share of young-firm IPO cohorts, metric: coefficient, value: "deflated exit values comparable or larger for each successive cohort at the same age (except 1995-1999 dot-com outlier)", direction: positive, vsBenchmark: "predecessor cohorts at same cohort age" }
+    - { ref: R4, outcome: employment share of young-firm IPO cohorts, metric: coefficient, value: "YoungAcquirer: -0.024** to -0.039***; YoungAcquirer x Post-2005: -0.148*** to -0.161***", direction: negative }
+    - { ref: R5, outcome: aggregate labor share of value added, metric: coefficient, value: "model labor share 0.60 to 0.54 (data: 0.60 to 0.54); young-firm employment share ~22% to ~8% (data: ~18% to ~10%); job creation and destruction each decline ~4-5 pp", direction: mixed, vsBenchmark: "data moments from 1983 calibration baseline" }
+    - { ref: R6, outcome: aggregate consumption (long-run steady state), metric: elasticity, value: "pass-through factor ~12%; 40% drop in new-firm output implies 4.8% consumption decline", direction: negative }
+    - { ref: R7, outcome: aggregate consumption (long-run steady state), metric: coefficient, value: "-8.1% long-run consumption decline (markup-driven worst-case scenario)", direction: negative, vsBenchmark: "~40-50% employment decline benchmark" }
+    - { ref: R8, outcome: aggregate consumption (long-run steady state), metric: coefficient, value: "dC^SS/C^SS = -0.081; Term 1 = -0.047; Term 2 = -0.142; Term 3 = -0.016; Term 4 = +0.124", direction: mixed }
+  resultType: overturns
   replicationCode:
     status: available
   extraction:
@@ -103,6 +113,22 @@ paper:
         was considered but reconciled out of the mechanisms axis as a
         production-technology characteristic, not an economic channel; all
         other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R4 Post-2005 interaction lower bound corrected
+        from -0.145 to -0.148 in findings[], Core-results table, and Empirical
+        specifications body (Table III col 1 = -0.148, PDF p. 3744 text confirms
+        "between 0.148 and 0.161"); all other values confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13505
       checked: 2026-06-03
@@ -152,7 +178,7 @@ point into the source PDF.
 | R1 | Employment contribution of recent IPO cohorts fell, but market-value and sales contributions did not show a similar decline | Figure 1, Panels A-D, pp. 3733-3734 | Log employment contribution of 2010-2014 cohort bin is 0.71 lower than 1985-1989 cohort bin; log sales contribution is only 0.11 lower; log market-value contribution is 0.07 higher |
 | R2 | The ratio of market-value contribution to employment contribution has more than doubled | Figure 1, Panel D, p. 3734 | Normalized log ratio (1985-1989 = 0) rises by about 0.8 log points for the 2010-2014 cohort bin relative to the earliest cohort |
 | R3 | Recent cohort deflated exit values (Pitchbook) are at least as large as those of earlier cohorts, controlling for age | Figures 3-4, pp. 3737-3738 | With the exception of the 1995-1999 cohort (dot-com era outlier), each successive cohort bin has deflated exit values similar to or larger than its predecessors at the same cohort age |
-| R4 | Young firms (post-2005) exhibit slower employment growth at acquired establishments relative to older acquirers, conditional on year, industry, state, and establishment age and size | Tables II-IV, pp. 3743-3745 | Young Acquirer coefficient: -0.024\*\* to -0.039\*\*\* in the first specification (Table II); Young Acquirer x Post-2005 interaction: -0.145\*\*\* to -0.161\*\*\* (Table III); coefficient is stable with establishment age and size controls (Table IV) |
+| R4 | Young firms (post-2005) exhibit slower employment growth at acquired establishments relative to older acquirers, conditional on year, industry, state, and establishment age and size | Tables II-IV, pp. 3743-3745 | Young Acquirer coefficient: -0.024\*\* to -0.039\*\*\* in the first specification (Table II); Young Acquirer x Post-2005 interaction: -0.148\*\*\* to -0.161\*\*\* (Table III); coefficient is stable with establishment age and size controls (Table IV) |
 | R5 | A single change in the ARPL-to-MRPL ratio (modeled as a rise in rent share, i.e., lower xi\*) simultaneously reproduces the labor share decline, stable investment share, falling young-firm employment share, declining job creation and destruction, and rising market-value-to-employment ratio | Figures 6-9, pp. 3755-3758 | Model labor share declines from 0.60 to 0.54 (data: 0.60 to 0.54); young-firm employment share falls from ~22% to ~8% (data: ~18% to ~10%); investment share remains roughly flat; job creation and destruction rates each decline by ~4-5 pp |
 | R6 | The elasticity of steady-state consumption to a decline in young-firm output is approximately 12%, so a 40% drop in new-firm output implies only a 4.8% decline in consumption | pp. 3727, 3761 | Under base-case parameters (xi = 0.93, alpha = 0.62), the pass-through factor (1 - xi) / (alpha xi) is approximately 12%; a 40% drop in new-firm output implies a 4.8% consumption decline |
 | R7 | In the worst case (rise in economic rents), the long-run consumption decline from the observed dynamics is bounded at 8.1% | pp. 3727-3728, 3764 | Markup-driven scenario (Barkai (2020) estimates): 8.1% drop in steady-state consumption between old and new steady states, which is roughly five times smaller than the 40-50% decline in young-firm employment |
@@ -362,7 +388,7 @@ adds establishment age bin dummies and log-employment in year $$t-1$$ as
 controls to address differential selection by young acquirers.
 
 Results: YoungAcquirer coefficient = -0.024`**` to -0.039`***`; Post-2005
-interaction = -0.145`***` to -0.161`***` (Tables II-III); results are stable
+interaction = -0.148`***` to -0.161`***` (Tables II-III); results are stable
 with age and size controls (Table IV).
 
 ## Datasets used

@@ -55,6 +55,17 @@ paper:
     dataType: [administrative, accounting]
     granularity: [transaction, firm]
     n: "21,924 corporate loans, 2014Q4-2019Q4, 23 BHCs"
+  findings:
+    - { ref: R1, outcome: loan interest rates, metric: coefficient, value: "PD coef 0.077*** (t=4.66), LGD coef 0.003*** (t=4.37); adj. R² rises from 0.52 to 0.55; IR coef on nonperformance drops from 0.527*** to 0.101 (insig) when PD/LGD added", direction: positive }
+    - { ref: R2, outcome: loan interest rates, metric: coefficient, value: "coef 0.013*** (t=6.32); 1-SD increase (~6 banks) ~+7 bp", direction: positive }
+    - { ref: R3, outcome: borrower probability of default, metric: coefficient, value: "coef 0.011*** (t=4.97); average PD = 134 bp, effect ~+1.1 bp per additional bank", direction: positive }
+    - { ref: R4, outcome: loan volume, metric: coefficient, value: "coef 0.140*** (t=14.66); ~+14% per additional bank", direction: positive }
+    - { ref: R5, outcome: "loan markup (risk-orthogonalized interest rate)", metric: coefficient, value: "coef 0.012*** (t=5.84)", direction: positive }
+    - { ref: R6, outcome: loan interest rates, metric: coefficient, value: "low-tangibility coef 0.013*** (t=3.77); high-tangibility coef 0.003 (insig); PD: low-tang 0.014** (t=2.47), high-tang insig", direction: mixed }
+    - { ref: R7, outcome: borrower bank-switching rate, metric: coefficient, value: "Stay Bank rate ~75% across all bank-count bins; reduction across bins small and economically insignificant", direction: none }
+    - { ref: R8, outcome: "loan markup (risk-orthogonalized interest rate)", metric: coefficient, value: "Stay Bank coef 0.090*** (t=3.64); interaction Stay Bank x N. of Prior Lenders -0.052*** (t=3.50)", direction: positive }
+    - { ref: R9, outcome: loan interest rates, metric: coefficient, value: "Reduced-form Post x N.GSIBs(2015): interest rate -0.031* (t=1.96), PD -0.069* (t=1.68); 2SLS: interest rate +0.179* (t=1.85) per additional bank", direction: negative, vsBenchmark: "pre-surcharge baseline; GSIB shock reduced rates and borrower risk in high-GSIB counties" }
+  resultType: confirms
   relatesTo:
     - { cite: 'Broecker (1990)', doi: '10.2307/2938210', relation: tests, note: 'core adverse-selection predictions: more banks raises rates, borrower risk, and volume (p. 246)' }
     - { cite: 'Marquez (2002)', doi: '10.1093/rfs/15.3.901', relation: tests, note: 'information-dispersion channel: more banks makes screening harder (p. 246)' }
@@ -125,6 +136,23 @@ paper:
         245), information-asymmetry and market-power match invoked channels (pp.
         240, 246), introducesData correctly absent, and scope dataType/granularity/n
         all match PDF pp. 247-248.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 9 findings entries confirmed correct -
+        coefficients, t-statistics (rounding only), significance levels, and
+        direction codes all match the PDF tables; resultType confirms is
+        consistent with three tests edges (Broecker 1990, Marquez 2002,
+        Dell'Ariccia and Marquez 2006) all holding.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70011
       checked: 2026-05-31

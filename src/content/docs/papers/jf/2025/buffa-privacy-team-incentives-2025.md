@@ -103,6 +103,26 @@ paper:
       date: 2026-06-03
       role: verified
       note: Classification axes (identification, contributionType, mechanisms, introducesData, data-scope) re-checked against the source PDF; all axes confirmed correct - theory paper, no identification field (correctly omitted), contributionType [new-theory] accurate, mechanisms [moral-hazard, agency, information-asymmetry] all invoked in the model, introducesData correctly absent, scope region:theoretical correct with no data fields.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged. Pure theory
+        paper with no empirical estimation: findings[] and resultType both omitted
+        per template rules (all Core-results rows are propositions, not estimated
+        coefficients or statistics).
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; omission of both fields confirmed correct - all
+        seven Core-results rows are analytical propositions (no estimated
+        coefficients or statistics), methods.role is theory, and relatesTo edges
+        are builds-on/cites only, so neither findings[] nor resultType applies
+        per template rules.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13496

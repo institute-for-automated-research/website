@@ -50,6 +50,16 @@ paper:
     dataType: [market, accounting, administrative]
     granularity: [individual, security]
     n: "308,000 investors/month on average; 535 stocks; 251 months"
+  findings:
+    - { ref: R1, outcome: cross-sectional stock returns (Norwegian equities), metric: r-squared, value: "PC1+PC2: 80% of variance; market R2=0.62 on PC1, AW R2=0.55 on PC2", direction: positive }
+    - { ref: R2, outcome: cross-sectional stock returns (Norwegian equities), metric: alpha, value: "0.32%/month (3.8%/yr), t=3.16", direction: positive, vsBenchmark: "vs. CAPM (market-only)" }
+    - { ref: R3, outcome: cross-sectional stock returns (Norwegian equities), metric: alpha, value: "0.24%/month, t=2.55", direction: positive, vsBenchmark: "survives all five FF factors" }
+    - { ref: R4, outcome: cross-sectional stock returns (Norwegian equities), metric: alpha, value: "MOM alpha reduced from 0.77% to 0.43% (t=1.04); RMW from 0.73% to 0.46% (t=1.42); CMA from 0.52% to 0.32% (t=0.99)", direction: none, vsBenchmark: "firm-factor alphas under IPF* vs. CAPM" }
+    - { ref: R5, outcome: investor portfolio tilts toward the age-wealth factor, metric: sharpe-ratio, value: "IPF* OOS SR=0.45; best firm model (FIRM-6)=0.40; market=0.31", direction: positive, vsBenchmark: "beats all firm-factor models (0.19-0.40 range) and market (0.31)" }
+    - { ref: R6, outcome: investor portfolio tilts toward the age-wealth factor, metric: coefficient, value: "tilt range [-0.3, +0.1] over life cycle; ~1.2%/yr average return difference", direction: positive }
+    - { ref: R7, outcome: investor portfolio tilts toward the age-wealth factor, metric: coefficient, value: "income beta -0.051 (t=-6.40); debt -0.047 (t=-5.55); finance occupation +0.627 (t=34.60); stock mkt experience +0.026 (t=7.58); male dummy -0.156 (t=-15.00)", direction: mixed }
+    - { ref: R8, outcome: cross-sectional stock returns (Norwegian equities), metric: return-spread, value: "long-leg CAPM beta 0.73 vs. short-leg 1.02; long-leg volatility 0.08 vs. short-leg 0.18; long-leg mkt cap 973M NOK vs. 483M NOK", direction: mixed, vsBenchmark: "long leg vs. short leg of AW portfolio" }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Merton (1973)', doi: '10.2307/1913811', relation: builds-on, note: 'ICAPM framework grounds the theoretical spanning condition; investor deviation portfolios map to hedging demands (pp. 2802-2803)' }
     - { cite: 'Balasubramaniam, Campbell, Ramadorai & Ranish (2023)', doi: '10.1111/jofi.13220', relation: builds-on, note: 'strong factor structure in individual investor portfolios motivates the PCA grouping approach (p. 2792)' }
@@ -95,6 +105,25 @@ paper:
         applied - removed demand-elasticity from mechanisms (paper invokes
         hedging/risk-sharing and sentiment/behavioral-bias channels only, not
         inelastic-demand-based asset pricing).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied - R8 direction corrected from
+        positive to mixed (Table VIII reports multiple stock characteristics that
+        go in opposite directions between long and short legs: long leg has higher
+        mkt cap, BtM, profitability but lower CAPM beta and volatility than short
+        leg); all other seven findings[] values and directions confirmed against
+        their PDF tables; resultType new-finding retained as defensible given the
+        IPF methodology is genuinely first-of-its-kind.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13474
       checked: 2026-05-31

@@ -65,6 +65,17 @@ paper:
     - 'Whether salience-driven or limited-capacity explanations can be fully disentangled; the paper shows limited-attention predictions hold but acknowledges salience channels make competing predictions and are difficult to rule out entirely (pp. 801, 803).'
     - 'Whether asymmetry between attentive buys and attentive sells is driven by short-selling constraints or by alpha decay; both explanations are consistent with the data but the paper cannot distinguish them (p. 820).'
 
+  findings:
+    - { ref: R1, outcome: fund-level returns, metric: coefficient, value: "β = 0.25** on VIX²; ≈5% of sample-SD in macro-attention share per 1-SD VIX²", direction: positive }
+    - { ref: R2, outcome: fund-level returns, metric: coefficient, value: "0.31-0.36 (sig 5-1%); ≈+0.36%/qtr per 1-SD β^VIX²", direction: positive }
+    - { ref: R3, outcome: fund-level returns, metric: coefficient, value: "0.78-1.74% lower attention-weighted salience (sig 5%); +17% advanced-degree staff", direction: mixed }
+    - { ref: R4, outcome: fund-level returns, metric: coefficient, value: "held stocks read 5-6x more than non-held (sig 1%); 1-SD holdings ≈ 1.02-SD attention", direction: positive }
+    - { ref: R5, outcome: position-level value-add, metric: coefficient, value: "1-SD attention ≈ +3.3% SD value-add; trade-based coef 0.074**", direction: positive }
+    - { ref: R6, outcome: position-level value-add, metric: coefficient, value: "biz/fin-newswire attention×holdings 0.107**/0.123***; retail and general news insignificant", direction: mixed }
+    - { ref: R7, outcome: position-level value-add, metric: coefficient, value: "residualized attention: buy ≈1.6 vs sell ≈0.6 vs hold ≈0 (buy>sell sig 1%); attentive buys add value, sells mixed/insignificant", direction: mixed }
+    - { ref: R8, outcome: cross-sectional stock returns, metric: coefficient, value: "Fama-MacBeth buying-HF coef 0.51*/0.56***; ≈+0.35%/mo per 1-SD; HF long-short 0.53%/mo EW (t=2.75); FF5 α 0.446%*** EW", direction: positive }
+  resultType: confirms
+
   replicationCode:
     status: available
 
@@ -120,6 +131,21 @@ paper:
         Classification axes (identification, contributionType, mechanisms,
         introducesData, data-scope) re-checked against the source PDF; all axes
         confirmed correct -- no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 8 findings confirmed correct against Tables
+        III-XI -- values, directions, and resultType (confirms) all match the PDF;
+        no fixes required.
 
   rightsSignalConflict: true
 ---

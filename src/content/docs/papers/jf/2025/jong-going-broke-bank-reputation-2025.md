@@ -56,6 +56,16 @@ paper:
     dataType: [market, accounting, administrative]
     granularity: [firm, security, transaction]
     n: "46 MBS, 23 merchant banks, 4,605 auction transactions (price regressions); 315 mortgages, 26 banks (mortgage quality analysis)"
+  findings:
+    - { ref: R1, outcome: mortgage quality at origination (LTV, borrower type, loan-to-fundamental ratio), metric: coefficient, value: "-0.06*** (t = -2.67)", direction: negative, vsBenchmark: "high-rep vs low-rep LTV during boom; negative = lower (better) LTV for high-rep" }
+    - { ref: R2, outcome: mortgage quality at origination (LTV, borrower type, loan-to-fundamental ratio), metric: coefficient, value: "nonelite agent boom diff -0.22** (t = -2.08); nonelite borrower boom diff -0.35*** (t = -3.58)", direction: negative, vsBenchmark: "high-rep vs low-rep nonelite agent/borrower fractions during boom; negative = fewer nonelite for high-rep" }
+    - { ref: R3, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "17.46*** (t = 5.10)", direction: positive, vsBenchmark: "high-rep MBS vs low-rep MBS price at auction" }
+    - { ref: R4, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "continuous office value 24.25*** (t = 5.14)", direction: positive, vsBenchmark: "alternative continuous reputation measure vs binary high-rep dummy" }
+    - { ref: R5, outcome: MBS secondary market price (percentage of par value), metric: pp-effect, value: "joint ACME 10.29 (p = 0.10); mediators explain 73% of 17.46 pp gap", direction: positive, vsBenchmark: "mortgage characteristics as mediators vs direct reputation effect" }
+    - { ref: R6, outcome: MBS secondary market price (percentage of par value), metric: return-spread, value: "boom approx. 6 pp; bust 1778 approx. 35 pp", direction: positive, vsBenchmark: "high-rep vs low-rep MBS price gap across boom and bust periods" }
+    - { ref: R7, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "short-run focus direct coeff -9.34*** (se = 3.09); short-run focus x office value -28.22* (se = 14.84); married-into-wealth x office value -24.80* (se = 12.38)", direction: negative, vsBenchmark: "reputation effect attenuated for bankers with short-run focus or married into wealth" }
+    - { ref: R8, outcome: merchant bank trading volume post-bust, metric: pp-effect, value: "59% lower post-1770 ABE trading volume for below-median MBS performers", direction: negative, vsBenchmark: "below-median vs above-median MBS performers in post-1770 ABE trading volume" }
+  resultType: overturns
   relatesTo:
     - { cite: 'Griffin, Lowery & Saretto (2014)', doi: '10.1093/rfs/hhu030', relation: contradicts, note: 'that paper finds high-reputation banks issued worse MBS in the 2000s; this paper argues the difference stems from limited personal downside exposure and short-termism of modern bankers' }
     - { cite: 'Piskorski, Seru & Witkin (2015)', doi: '10.1111/jofi.12271', relation: contradicts, note: 'that paper shows similar misrepresentation rates regardless of reputation in modern RMBS; this setting shows reputation can matter when bankers bear long-run reputational losses personally' }
@@ -95,6 +105,23 @@ paper:
         (no quasi-random shock; the paper uses a predetermined 1742 census
         reputation proxy in OLS with year and MBS FE, and explicitly disclaims
         an instrument - all other axes confirmed correct).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; fixed R7 value field (parenthetical figures are
+        standard errors, not t-stats; relabeled se= accordingly per Table V Panel B);
+        fixed resultType from new-finding to overturns (two explicit contradicts edges
+        to Griffin et al. 2014 and Piskorski et al. 2015 drive the headline contribution);
+        R1-R6 and R8 magnitudes and directions confirmed correct.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13503
       checked: 2026-06-03

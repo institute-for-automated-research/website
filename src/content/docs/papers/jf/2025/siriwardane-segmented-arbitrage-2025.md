@@ -53,6 +53,15 @@ paper:
     dataType: [market, accounting]
     granularity: [security, aggregate]
     n: "32 arbitrage spreads, daily 2010-2020; 496 pairwise spread combinations"
+  findings:
+    - { ref: R1, outcome: pairwise correlation of arbitrage spreads, metric: correlation, value: "mean rho = 0.22, SD = 0.30; 90% of pairs reject H0: rho > 0.67", direction: negative, vsBenchmark: "below single-factor integrated-intermediary model prediction (perfect correlation)" }
+    - { ref: R2, outcome: pairwise correlation of arbitrage spreads, metric: correlation, value: "short-tenor mean rho = 0.19; 10 PCs needed to explain 90% of variation", direction: negative, vsBenchmark: "below single-factor model prediction; persists within same-tenor trades" }
+    - { ref: R3, outcome: pairwise correlation of arbitrage spreads, metric: correlation, value: "average rho of supply shocks = 16%; 1% upper bound on quarterly supply-shock correlations = 37%", direction: negative, vsBenchmark: "below integrated-intermediary model; supply shocks weakly correlated across trades" }
+    - { ref: R4, outcome: differential sensitivity of unsecured vs. secured spreads to funding shocks, metric: coefficient, value: "unsecured beta(TED) = 0.49 (t=4.58); secured beta(TED) = 0.07 (t=1.33, insig.); approx 7x more sensitive", direction: positive, vsBenchmark: "unsecured spreads load strongly on TED; secured spreads do not" }
+    - { ref: R5, outcome: arbitrage spread levels, metric: basis-points, value: "beta = 11.77 (t=2.47); dynamic estimate at reform month (j=0) is 18.03 bps, rising to peak of 20.70 bps at j=2 (two months after reform)", direction: positive, vsBenchmark: "unsecured spreads rise following 2016 MMF reform; secured spreads unaffected" }
+    - { ref: R6, outcome: arbitrage spread levels, metric: coefficient, value: "OLS coef = -0.55 (t=-3.86); IV coef = -1.09 (t=-2.25) for equity SF", direction: negative, vsBenchmark: "Fidelity IPrime MMF outflows widen equity SF spreads; no effect on secured spreads" }
+    - { ref: R9, outcome: arbitrage spread levels, metric: coefficient, value: "secured beta = -0.66 (t=-3.04); unsecured beta = 0.00 (t=0.01)", direction: negative, vsBenchmark: "FI hedge fund losses predict higher secured spreads; no effect on unsecured spreads" }
+  resultType: overturns
   relatesTo:
     - { cite: 'He & Krishnamurthy (2013)', doi: '10.1257/aer.103.2.732', relation: contradicts, note: 'canonical single-constraint intermediary model predicts perfect spread correlation; data show mean pairwise rho = 0.22 (Table II, p. 2560)' }
     - { cite: 'Garleanu & Pedersen (2011)', doi: '10.1093/rfs/hhr027', relation: contradicts, note: 'margin-based asset pricing with integrated funding implies one- or two-factor spread structure; rejected by high-dimensional factor structure (Figure 3, p. 2562)' }
@@ -106,6 +115,24 @@ paper:
         mechanisms (limits-to-arbitrage, intermediary-constraint, liquidity/funding)
         are all invoked, introducesData correctly absent, and scope fields faithful
         to the 32-spread daily 2010-2020 sample; no edits required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R5 value corrected -- "peaks at 18.03 bps at
+        reform month" replaced with the accurate dynamic profile (18.03 at j=0,
+        peak 20.70 at j=2 per Table IV col.2 p.2573); all other entries
+        (R1-R4, R6, R9) confirmed correct; resultType=overturns consistent with
+        contradicts edges to He & Krishnamurthy (2013) and Garleanu & Pedersen
+        (2011).
   rightsSignalConflict: false
 ---
 

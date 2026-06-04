@@ -61,6 +61,19 @@ paper:
     granularity: [firm, transaction]
     n: "316,719 loan applications; 152 million transactions"
 
+  findings:
+    - { ref: R1, outcome: loan approval probability, metric: pp-effect, value: "0.017*** (SE 0.001); 2 pp increase (~8% of baseline approval rate)", direction: positive }
+    - { ref: R2, outcome: offered interest rate, metric: basis-points, value: "-0.440*** (SE 0.024); -44 bps reduction in offered rate", direction: negative }
+    - { ref: R3, outcome: offered loan amount, metric: coefficient, value: "0.134*** (SE 0.006); +13% in log offered loan amount", direction: positive }
+    - { ref: R4, outcome: loan default probability, metric: pp-effect, value: "-0.023*** (SE 0.003); -2 pp default reduction (~11% of baseline)", direction: negative }
+    - { ref: R5, outcome: loan approval probability, metric: coefficient, value: "outflow 0.022*** vs inflow 0.008*** on approval; outflow default -0.021*** vs inflow -0.009***", direction: positive, vsBenchmark: "outflow effects ~2x larger than inflow effects" }
+    - { ref: R6, outcome: loan approval probability, metric: coefficient, value: "info-intensive approval 0.050*** (vs baseline 0.017***); info-intensive default -0.017***", direction: positive, vsBenchmark: "info-intensive beats info-light records; approval effect 3x baseline" }
+    - { ref: R7, outcome: loan approval probability, metric: coefficient, value: "0.009*** (SE 0.003); within-applicant FE specification", direction: positive }
+    - { ref: R8, outcome: loan approval probability, metric: coefficient, value: "cashless x Cibil score 0.012*** (SE 0.001) on approval; 0.039*** (SE 0.005) on log amount", direction: positive }
+    - { ref: R9, outcome: loan approval probability, metric: coefficient, value: "2SLS 0.117* (SE 0.064); first-stage F-stat 26.90 (full FE)", direction: positive, vsBenchmark: "IV estimate larger than OLS 0.017***, consistent with attenuation bias" }
+    - { ref: R10, outcome: loan approval probability, metric: coefficient, value: "marketplace approval 0.061*** (SE 0.002); conditional on cashless share 0.016***; default -0.006***", direction: positive }
+  resultType: new-finding
+
   relatesTo:
     - { cite: "Parlour, Rajan & Zhu (2022)", doi: '10.1093/rfs/hhac022', relation: builds-on, note: "model of payment-lending synergy; authors extend to make cashless payment technology choice itself the selection mechanism (digital collateral)" }
     - { cite: "Berg, Fuster & Puri (2022)", doi: '10.1146/annurev-financial-101521-112042', relation: cites, note: "survey of FinTech lending landscape; motivates the research question" }
@@ -106,6 +119,23 @@ paper:
         new-theory + new-data, information-asymmetry + moral-hazard, introducesData
         true (novel Indifi proprietary dataset), administrative data at firm and
         transaction granularity, n confirmed from Table I and p.1062.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all ten findings[] values confirmed correct
+        against Tables II-VIII (R1-R10 magnitudes, SEs, significance stars, and
+        directions all match); resultType new-finding is borderline given a tests
+        edge to Berg et al. (2020) that the paper confirms, but defensible as the
+        headline contribution is a genuinely novel mechanism and dataset.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70003

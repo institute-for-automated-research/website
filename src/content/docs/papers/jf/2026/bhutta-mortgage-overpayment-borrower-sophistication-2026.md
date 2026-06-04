@@ -54,6 +54,17 @@ paper:
     dataType: [market, administrative, survey]
     granularity: [individual, transaction, firm]
     n: "3.6M rate-lock agreements (full); 67,537 matched for EGain; 2,996,149 for dispersion; 22,567 NSMO mortgages"
+  # --- the "what works" effectiveness axis ---
+  findings:
+    - { ref: R1, outcome: mortgage rate paid relative to available offers, metric: basis-points, value: "28 bp mean EGain for FHA; 17 bp conforming; 10 bp super-conforming; 4 bp jumbo", direction: positive, vsBenchmark: "FHA vs. jumbo borrowers on same-day offer distribution" }
+    - { ref: R2, outcome: mortgage rate paid relative to available offers, metric: coefficient, value: "-0.097*** (FICO>=740 vs [640,660), col 1)", direction: negative, vsBenchmark: "FICO>=740 vs. [640,660) omitted category" }
+    - { ref: R3, outcome: mortgage rate paid relative to available offers, metric: coefficient, value: "-0.051*** per 1 pp rise in 10-yr Treasury yield (col 1); -0.026** with lender-branch FEs (col 3)", direction: negative }
+    - { ref: R4, outcome: rate dispersion across borrowers and lenders, metric: basis-points, value: "90-10 gap 55 bp raw (col 3); 26 bp after full lender/branch/LO FEs (col 10); same-branch same-day gap 31 bp (col 8)", direction: positive, vsBenchmark: "residual dispersion after full observable and FE controls" }
+    - { ref: R5, outcome: rate dispersion across borrowers and lenders, metric: coefficient, value: "+0.127*** pp (size quartile 4 lender FE, col 1); +0.385*** (FHA share, col 2); $4.05*** gross income per $100 originated per 1 pp rate premium", direction: positive, vsBenchmark: "larger and high-FHA-share lenders vs. smaller/lower-FHA peers" }
+    - { ref: R6, outcome: rate dispersion across borrowers and lenders, metric: coefficient, value: "$3.50*** gross expenses and $0.45** net income (residential) per $100 per 1 pp rate", direction: positive, vsBenchmark: "expensive vs. cheaper lenders on income/expense line items" }
+    - { ref: R7, outcome: mortgage rate paid relative to available offers, metric: pp-effect, value: "-13*** pp satisfied with interest rate; -2.3*** pp satisfied with lender; -1.9** pp application process; overall satisfaction -0.035***", direction: negative, vsBenchmark: "100 bp more expensive mortgage vs. baseline" }
+    - { ref: R8, outcome: borrower overpayment by loan program and FICO, metric: coefficient, value: "-0.226*** (Sophistication Index, col 2); HHI x Sophistication interaction +0.050** (col 3)", direction: negative, vsBenchmark: "most vs. least sophisticated borrowers; low- vs. high-concentration markets" }
+  resultType: overturns
   # --- edges to prior work ---
   relatesTo:
     - { cite: 'Carlson & McAfee (1983)', doi: '10.1086/261159', relation: builds-on, note: 'EGain measure is motivated by Carlson-McAfee discrete equilibrium search model (p. 63)' }
@@ -102,6 +113,24 @@ paper:
         Classification axes (identification, contributionType, mechanisms,
         introducesData, data-scope) re-checked against the source PDF;
         removed introducesData (Optimal Blue is an existing industry platform, not a new source introduced by this paper) and dropped new-data from contributionType for the same reason; all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight findings[] entries confirmed correct
+        (R1 Table II p.66, R2 Table III p.67, R3 Table IV p.70, R4 Tables V-VI
+        pp.73-75, R5 Tables VII-VIII pp.79-81, R6 Table VIII p.81, R7 Table IX
+        p.84, R8 Table X p.86) with values, directions, and significance stars
+        matching the PDF; resultType overturns consistent with contradicts edge
+        to Alexandrov and Koulayev (2017); no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70001
       checked: 2026-05-31

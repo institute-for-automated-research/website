@@ -48,6 +48,15 @@ paper:
     dataType: [text, market]
     granularity: [security]
     n: "up to 4,964 portfolios as test assets; 532 months (Jul 1972-Dec 2016) for main pricing tests; ~7M NYT articles (Jan 1871-Oct 2019)"
+  findings:
+    - { ref: R1, outcome: cross-sectional stock returns, metric: coefficient, value: "lambda = -1.33%/mo (t = -2.87) standalone; -0.47% with all benchmark factors", direction: negative, vsBenchmark: "vs FF6, M4, DHS, Q5 multifactor benchmarks" }
+    - { ref: R2, outcome: expected return premium on WarFac betas across test-asset sets, metric: coefficient, value: "lambda ranges -0.66%/mo (t = -2.25) to -3.32%/mo (t = -3.42) across six test-asset sets", direction: negative }
+    - { ref: R3, outcome: cross-sectional stock returns, metric: r-squared, value: "single-factor R-squared = 62% for ML portfolios; adding WarFac to FF6 raises R-squared by 34%", direction: positive, vsBenchmark: "beats FF6 (41%), M4 (40%), DHS (35%), Q5 (58%) as single factor" }
+    - { ref: R4, outcome: cross-sectional stock returns, metric: coefficient, value: "WarFac lambda -1.33%/mo to -3.32%/mo, significant across all six test-asset sets with traded factors included", direction: negative, vsBenchmark: "incremental to MKT, SMB, HML, RMW, CMA, MOM, mispricing factors" }
+    - { ref: R5, outcome: cross-sectional stock returns, metric: coefficient, value: "WarFac: -1.04%/mo (HXZ long-short), -2.76%/mo (ML portfolios) with NVIX and GPR included; NVIX and GPR insignificant", direction: negative, vsBenchmark: "incremental to NVIX and GPR uncertainty indexes" }
+    - { ref: R6, outcome: cross-sectional stock returns, metric: coefficient, value: "lambda(WarFac) = -0.24%/mo (t = -1.89) alone in 30-industry portfolios; -0.32%/mo (t = -2.39) jointly with CrisisFac", direction: negative, vsBenchmark: "incremental to CrisisFac and CWarFac" }
+    - { ref: R7, outcome: expected return premium on WarFac betas across test-asset sets, metric: sharpe-ratio, value: "annualized Sharpe ratio = 1.73; monthly average return = -3.32%, monthly SD = 6.64%", direction: positive, vsBenchmark: "highest among all factors in the sample" }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Hirshleifer, Mai & Pukthuanthong (2025)', doi: '10.1093/rfs/hhae081', relation: extends, note: 'extends the War index used there for aggregate return prediction to cross-sectional pricing (p. 3590)' }
     - { cite: 'Barro (2006, 2009)', relation: tests, note: 'tests the rare-disaster risk cross-sectional prediction; war-sensitive assets earn lower premia consistent with the model (p. 3601)' }
@@ -95,6 +104,25 @@ paper:
         method); identification=descriptive, mechanisms, scope confirmed correct;
         introducesData correctly absent (War index introduced in companion RFS
         paper, not here).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all seven entries confirmed correct - R1 lambda
+        -1.33%/t=-2.87 (Table I Panel A), R2 range -0.66% to -3.32% (Table I
+        all panels), R3 R-squared 62% (Table II Panel D), R4 lambda range
+        (Table III), R5 WarFac -1.04% and -2.76% with NVIX/GPR (Table IV),
+        R6 -0.24% and -0.32% (Table V Panel A), R7 SR=1.73/mean=-3.32%/SD=6.64%
+        (p. 3627); resultType=new-finding defensible given headline contribution
+        is a genuinely new cross-sectional war risk premium; no fixes applied.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13482
       checked: 2026-05-31

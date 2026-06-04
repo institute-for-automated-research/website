@@ -59,6 +59,18 @@ paper:
     dataType: [text, market, administrative]
     granularity: [security, firm, individual]
     n: "10,436,084 fund-stock-days; 4,700 meetings"
+  findings:
+    - { ref: R1, outcome: daily fund trading response around private meetings, metric: coefficient, value: "FM_{0,5} = 3.197*** [0.660]", direction: positive }
+    - { ref: R2, outcome: daily fund trading response around private meetings, metric: coefficient, value: "GS_{0,5} = -2.272*** [0.727]", direction: negative }
+    - { ref: R3, outcome: daily fund trading response around private meetings, metric: coefficient, value: "FM Soft = 1.810***, FM Hard = 7.526***, GS Soft = -2.566***", direction: mixed }
+    - { ref: R4, outcome: daily fund trading response around private meetings, metric: coefficient, value: "FM High Rating = 9.466***, FM Low Rating = -5.485***", direction: mixed }
+    - { ref: R5, outcome: probability of buy or sell trade following a meeting, metric: coefficient, value: "FM Cons_{0,5} = 3.412***; FM No Consensus_{0,5} = 0.123 (n.s.)", direction: mixed }
+    - { ref: R6, outcome: probability of buy or sell trade following a meeting, metric: coefficient, value: "Upgrade x Consensus = 15.48***; Downgrade x Consensus = -19.15***", direction: mixed }
+    - { ref: R7, outcome: probability of buy or sell trade following a meeting, metric: coefficient, value: "All event-time coefficients indistinguishable from zero; 17 of 4,700 meetings flagged MNPI", direction: none }
+    - { ref: R8, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: alpha, value: "FM LS: 1.983**% /month; GS LS: 0.828 (n.s.); All LS: 1.802**% /month", direction: positive }
+    - { ref: R9, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: basis-points, value: "FM: 19 bps (fast) / 6 bps (slow); GS: 7 / -1 bps; All: 15 / 4 bps", direction: positive }
+    - { ref: R10, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: return-spread, value: "FM LS: 213 bps (day 20), 314 bps (day 40); GS LS: 121 / 128 bps; No-meeting LS: 30 / 52 bps", direction: positive, vsBenchmark: "FM LS vs no-meeting LS (30/52 bps)" }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Bradley, Jame & Williams (2022)', relation: builds-on, note: 'follows their methodology for constructing long-short meeting portfolios; extends it with actual meeting notes and daily trade data' }
     - { cite: 'Bushee, Gerakos & Lee (2018)', relation: tests, note: 'compares trading response magnitude; finds estimates ~7x larger than their corporate-jet-visit evidence due to daily (vs inferred) data' }
@@ -105,6 +117,22 @@ paper:
         applied - scope.granularity corrected from [firm, individual] to
         [security, firm, individual] to reflect the primary fund-stock-day
         unit of observation (N=10.4M in Table IV); all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all ten findings entries confirmed correct against
+        Tables IV, V, VIII, IX, XI and Figure 6 with no mismatches; resultType
+        new-finding confirmed consistent with relatesTo edges (builds-on, tests,
+        extends, no contradicts).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13495
       checked: 2026-06-01

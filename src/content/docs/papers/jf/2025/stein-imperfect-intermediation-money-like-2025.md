@@ -77,6 +77,17 @@ paper:
   replicationCode:
     status: available
 
+  findings:
+    - { ref: R1, outcome: RRP-bill spread (one-month T-bill rate minus expected RRP rate), metric: return-spread, value: "6 bps (non-scarce); 37 bps (scarce Apr 2022-Apr 2023); spike to ~160 bps (Mar-Apr 2023)", direction: positive }
+    - { ref: R2, outcome: money fund T-bill portfolio weight, metric: correlation, value: "order of magnitude less variable; nearly uncorrelated with actual", direction: none, vsBenchmark: "investor-flows-only counterfactual vs actual T-bill share" }
+    - { ref: R3, outcome: money fund T-bill portfolio weight, metric: coefficient, value: "5.885*** (0.98); R-sq 14%; N=4,449 fund-quarters", direction: positive, vsBenchmark: "100 bp return increase raises AUM by 5.9 pp (economically small)" }
+    - { ref: R4, outcome: corporate Treasury holdings share, metric: coefficient, value: "3.481** (1.57); R-sq 0.15; N=2,730 firm-years", direction: positive, vsBenchmark: "1-SD derivatives exposure raises Treasury share 1.8 pp vs 7.6% mean" }
+    - { ref: R5, outcome: money fund T-bill portfolio weight, metric: coefficient, value: "IV -6.19*** (2.24); first stage -2.20*** (0.59); N=90 monthly obs", direction: negative, vsBenchmark: "vs OLS -0.94; IV ~7x larger in absolute value" }
+    - { ref: R6, outcome: money fund T-bill portfolio weight, metric: coefficient, value: "median elasticity 7.4 (IQR 4.4-10.1); Treasury funds 5.4, govt 7.2, prime 8.6", direction: mixed, vsBenchmark: "fund-level IV elasticities; Treasury funds significantly less elastic than prime funds" }
+    - { ref: R7, outcome: sensitivity of T-bill rates to T-bill supply shocks, metric: coefficient, value: "interaction -4.484** (1.83); unconditional IV -0.656*** (0.21); full sample N=127", direction: negative, vsBenchmark: "7x amplification in scarce vs non-scarce regime" }
+    - { ref: R8, outcome: RRP-bill spread (one-month T-bill rate minus expected RRP rate), metric: return-spread, value: "153 bps yield gap; pre-June maturities avg ~4.4% vs RRP ~5.05%; avg spread 81 bps", direction: negative, vsBenchmark: "pre-debt-ceiling T-bills vs post-deadline T-bills at June 1 2023 cutoff" }
+  resultType: new-finding
+
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-03, role: extracted, note: "Full text read (pp. 3185-3222); eight results extracted. Not human-verified. Not reproduced. Replication code referenced in paper (Supporting Information) but not run here." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-03, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; all eight result rows verified correct against cited tables and figures; all equations (1)-(25) checked term-by-term with no errors found; frontmatter authors/year/venue/resultsCount correct; relatesTo body-mention locatability confirmed for all seven edges; no em-dashes or null values detected." }
@@ -97,6 +108,21 @@ paper:
         [new-theory, new-fact] contribution, four mechanism slugs all registry-matched
         and PDF-supported, introducesData absent (no new source), and scope fields
         faithful to Tables I-IV; no corrections required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; fixed R4 outcome field (was "RRP-bill spread",
+        corrected to "corporate Treasury holdings share" per Table III); all
+        other values/directions/metrics confirmed against PDF figures and tables.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13500

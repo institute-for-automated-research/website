@@ -49,6 +49,17 @@ paper:
     dataType: [market, accounting]
     granularity: [security]
     n: "554,253 stock-months (162 anomaly signals, Jul 2006-Dec 2020)"
+  findings:
+    - { ref: R1, outcome: cross-sectional anomaly long-short returns, metric: alpha, value: "0.14%/mo, t=2.87", direction: positive }
+    - { ref: R2, outcome: net-of-fee long-short abnormal returns across 162 anomalies, metric: alpha, value: "0.04%/mo, t=0.84", direction: none, vsBenchmark: "below unadjusted full-sample mean of 0.14%/mo" }
+    - { ref: R3, outcome: net-of-fee long-short abnormal returns across 162 anomalies, metric: alpha, value: "-0.01%/mo, t=-0.24", direction: none }
+    - { ref: R4, outcome: cross-sectional anomaly long-short returns, metric: coefficient, value: "-0.0883, t=-1.96", direction: negative }
+    - { ref: R5, outcome: cross-sectional anomaly long-short returns, metric: alpha, value: "before-fee L/S +0.36% (t=5.06); excl. high-fee +0.11% (t=1.39); net-of-fee -0.05% (t=-0.62)", direction: mixed, vsBenchmark: "net-of-fee vs. before-fee microcap L/S" }
+    - { ref: R6, outcome: net-of-fee long-short abnormal returns across 162 anomalies, metric: alpha, value: "excl. high-fee -0.04% (t=-0.21); net-of-fee 0.02% (t=0.10)", direction: none }
+    - { ref: R7, outcome: net-of-fee long-short abnormal returns across 162 anomalies, metric: alpha, value: "momentum -0.01% (t=-0.11); profitability 0.21% (t=0.59)", direction: none }
+    - { ref: R8, outcome: cross-sectional anomaly long-short returns, metric: alpha, value: "CAPM L/S 0.45% (t=0.81); tail-risk L/S 0.43% (t=0.97)", direction: none }
+    - { ref: R9, outcome: net-of-fee long-short abnormal returns across 162 anomalies, metric: alpha, value: "0.03%, t=0.47", direction: none, vsBenchmark: "vs. -0.24% (t=-2.92) in unadjusted Panel A" }
+  resultType: overturns
   relatesTo:
     - { cite: 'Chen & Zimmermann (2021)', doi: '10.1561/104.00000112', relation: builds-on, note: 'Uses their 162 anomaly signals from openassetpricing.com as the universe of tested anomalies (p. 3648)' }
     - { cite: 'Drechsler & Drechsler (2021)', relation: contradicts, note: 'That paper finds positive net-of-fee returns on eight anomalies using lender-side fees; this paper uses buy-side fees and a longer, more recent sample and finds near-zero net-of-fee returns (pp. 3643, 3646)' }
@@ -98,6 +109,20 @@ paper:
         Classification axes (identification, contributionType, mechanisms,
         introducesData, data-scope) re-checked against the source PDF; all axes
         confirmed correct - no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 9 values confirmed exact matches to Tables III,
+        IV, V, VI, IX, XI, XII - no fixes required.
   rightsSignalConflict: false
 ---
 

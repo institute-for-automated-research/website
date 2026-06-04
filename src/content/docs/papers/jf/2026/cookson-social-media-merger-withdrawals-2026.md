@@ -64,6 +64,17 @@ paper:
     - 'Whether similar social media effects operate in non-US markets with different financial development, language norms, and platform ecosystems (fn. 5, p. 96).'
     - 'Understanding how investors and firms will interact on social media as these platforms become more integrated into financial markets and information environments (p. 137).'
 
+  findings:
+    - { ref: R1, outcome: merger withdrawal probability, metric: coefficient, value: "-0.643*** to -0.711*** (1-SD decrease in AbnSent = 0.64 pp higher withdrawal probability)", direction: negative }
+    - { ref: R2, outcome: merger withdrawal probability, metric: coefficient, value: "StockTwits -0.706**; Twitter -1.075***; joint: StockTwits -0.593**, Twitter -0.998***", direction: negative }
+    - { ref: R3, outcome: merger withdrawal probability, metric: coefficient, value: "AbnSent coefficient indistinguishable across CAR < 0 and CAR >= 0 subsamples; governance-metric splits also insignificant", direction: none }
+    - { ref: R4, outcome: acquirer buy-and-hold abnormal return post-announcement, metric: coefficient, value: "Interaction AbnSent x 1(Deal Withdrawn): -0.101** to -0.153*** (10.09%-15.28% higher BHAR)", direction: negative }
+    - { ref: R5, outcome: merger withdrawal probability, metric: coefficient, value: "AbnSent x Post(Twitter, HighFollow): -0.956**; AbnSent x Post(Twitter, Verified): -1.301**; pre-Twitter AbnSent near zero", direction: negative }
+    - { ref: R6, outcome: merger withdrawal probability, metric: coefficient, value: "Fundamental AbnSent: -1.105*** (col. 1); technical AbnSent: -0.350 (insig.)", direction: negative }
+    - { ref: R7, outcome: merger withdrawal probability, metric: coefficient, value: "Long tweets: -1.214*** to -1.222***; short tweets: -0.053 to +0.014 (insig.); Company/Business: -1.202***; Deal-Terms: -1.139***; Meme: -0.280 (insig.)", direction: mixed }
+    - { ref: R8, outcome: merger withdrawal probability, metric: coefficient, value: "High N Tweets: -2.030*** vs. low: -0.516* (diff. t = 2.28, p = 0.023)", direction: negative }
+  resultType: new-finding
+
   replicationCode:
     status: available
 
@@ -109,6 +120,24 @@ paper:
         Classification axes (identification, contributionType, mechanisms,
         introducesData, data-scope) re-checked against the source PDF; all axes
         confirmed correct - no fixes required; verdict pass.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight values confirmed correct against Tables
+        II-VII (R1 col.1 -0.6434/col.6 -0.7110, R2 Panel B, R4 Table IV
+        -0.1009 to -0.1528, R5 Table V col.4 -0.9559/col.5 -1.301, R6-R7
+        Table VI, R8 Table VII -0.5157/-2.030); directions all negative or none
+        as coded; resultType new-finding defensible as US-first-of-kind result
+        despite contradicts edge to Ang et al. (2021); no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13508
       checked: 2026-05-31

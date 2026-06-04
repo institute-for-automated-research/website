@@ -63,6 +63,17 @@ paper:
     - 'The macrolevel analysis uses aggregate proxies for upstream and downstream uncertainty; extending the decomposition to other countries or asset classes is not explored (pp. 444-454).'
   replicationCode:
     status: available
+  findings:
+    - { ref: R1, outcome: firm investment rate, metric: coefficient, value: "-0.03 (t = -2.80)", direction: negative }
+    - { ref: R2, outcome: firm investment rate, metric: coefficient, value: "+0.03 (t = 3.15)", direction: positive }
+    - { ref: R3, outcome: employment and working capital growth, metric: coefficient, value: "upstream significant negative all four outcomes; downstream working capital t = 2.18-3.32", direction: mixed }
+    - { ref: R4, outcome: firm investment rate, metric: coefficient, value: "0.03-0.06 (t = 3.15-4.60)", direction: positive, vsBenchmark: "long vs. short time-to-build firms; Wald test rejects equality at 10%" }
+    - { ref: R5, outcome: firm investment rate, metric: coefficient, value: "LowReverse -0.05 (t = -3.31); HighReverse -0.03 (t = -1.42)", direction: mixed, vsBenchmark: "low-reversibility firms show larger upstream suppression than high-reversibility" }
+    - { ref: R6, outcome: firm investment rate, metric: coefficient, value: "HighReverse +0.05 (t = 3.60); LowReverse +0.02 (t = 1.32)", direction: mixed, vsBenchmark: "high-reversibility firms show significant positive downstream effect; low-reversibility insignificant" }
+    - { ref: R7, outcome: aggregate GDP, consumption, and investment growth, metric: sd-effect, value: "IP and GDP -0.15 SD; consumption and investment -0.10 SD", direction: negative }
+    - { ref: R8, outcome: aggregate GDP, consumption, and investment growth, metric: sd-effect, value: "+0.10 SD for at least 4 quarters; P/D ratio +0.10 SD for ~12 quarters", direction: positive, vsBenchmark: "upstream impacts up to 50% larger in absolute magnitude" }
+    - { ref: R9, outcome: aggregate GDP, consumption, and investment growth, metric: coefficient, value: "orthogonal downstream uncertainty spike in March 2020", direction: positive, vsBenchmark: "downstream dominance consistent with short-lived recession vs. upstream-driven recessions" }
+  resultType: new-finding
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -116,6 +127,25 @@ paper:
         granularity corrected from [aggregate, firm] to [aggregate, industry, firm]
         (BEA I-O industry upstreamness scores are the unit in the macro analysis);
         all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R1-R8 values and directions all confirmed against
+        Tables III-VI and Figures 6-7; R9 direction confirmed (positive downstream
+        spike in March 2020 per Figure 9 / p. 453) but metric "coefficient" is a
+        minor imprecision since no numerical coefficient is reported for this
+        figure-based observation; resultType "new-finding" consistent with
+        relatesTo edges (builds-on and extends only, no confirmed or overturned
+        prior finding); no corrections applied.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70010
       checked: 2026-05-31

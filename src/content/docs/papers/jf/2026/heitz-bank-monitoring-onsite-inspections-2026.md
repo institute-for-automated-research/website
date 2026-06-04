@@ -70,6 +70,17 @@ paper:
     granularity: [individual, transaction]
     n: "28,939 loans; 11,586,385 loan-day observations"
 
+  findings:
+    - { ref: R1, outcome: "on-site inspection frequency (ALLTOTERMINAL, ALLINSPECTIONS)", metric: coefficient, value: "LOG(LOANAMT) on ALLINSPECTIONS = 0.168*** (t=37.83); ORIGSPREAD on ALLINSPECTIONS = -0.0140*** (t=-5.08); ORIGFEES on ALLINSPECTIONS = 0.00190*** (t=9.86)", direction: mixed, vsBenchmark: "coefficients consistent with monitoring-for-terms trade-off across loan characteristics" }
+    - { ref: R2, outcome: "on-site inspection frequency (ALLTOTERMINAL, ALLINSPECTIONS)", metric: coefficient, value: "TERM on ALLINSPECTIONS = +0.0172*** (t=39.51); TERM on ALLTOTERMINAL = -0.0417*** (t=-4.06)", direction: mixed, vsBenchmark: "opposite signs on total vs per-100-day inspection measures for loan maturity" }
+    - { ref: R3, outcome: "on-site inspection frequency (ALLTOTERMINAL, ALLINSPECTIONS)", metric: coefficient, value: "FICO on ALLTOTERMINAL = -0.00326*** (t=-18.35); OWNERBUILDER on ALLINSPECTIONS = +0.149*** (t=29.85)", direction: positive, vsBenchmark: "riskier borrowers receive more intensive monitoring across all risk proxies" }
+    - { ref: R4, outcome: "draw denial probability (DRAWDENIED)", metric: coefficient, value: "YEARBEFOREFAILURE on DRAWDENIED = +0.0645*** (t=13.60); YEARBEFOREFAILURE on INSPECTIONDATE = +0.00291*** (t=6.96)", direction: positive, vsBenchmark: "denials and inspections both increase in the year before bank failure" }
+    - { ref: R5, outcome: "draw denial probability (DRAWDENIED)", metric: coefficient, value: "NEGATIVEWORDS on DRAWDENIED = +0.00164** (t=2.21) to +0.00372*** (t=4.54); POSITIVEWORDS on DRAWDENIED = -0.00207* (t=-1.71) to -0.00234*** (t=-2.27)", direction: mixed, vsBenchmark: "negative language raises denial probability, positive language lowers it" }
+    - { ref: R6, outcome: "loan default (EVENTUALDEFAULT, MATURITYDEFAULT, TERMDEFAULT)", metric: coefficient, value: "IV coeff = -0.0380*** (t=-23.70); OLS coeff = -0.0195*** (t=-19.46); 1 s.d. increase -> -5.85 pp default probability", direction: negative, vsBenchmark: "IV estimate approximately twice as large as OLS" }
+    - { ref: R7, outcome: "loan default (EVENTUALDEFAULT, MATURITYDEFAULT, TERMDEFAULT)", metric: coefficient, value: "IV 2nd-stage: -0.0380 (draw schedule), -0.0396 (TIMETOFIRST), -0.0261 (inspector FE); all significant at 1%; Cragg-Donald F > 29.8", direction: negative, vsBenchmark: "consistent across three independent instruments" }
+    - { ref: R8, outcome: "loan default (EVENTUALDEFAULT, MATURITYDEFAULT, TERMDEFAULT)", metric: pp-effect, value: "1 extra inspection per 100 days: -1.14 pp maturity default, -0.81 pp term default net; threat channel = 63-77% of total benefit", direction: negative, vsBenchmark: "threat channel dominant over direct early-stopping channel" }
+  resultType: confirms
+
   relatesTo:
     - { cite: "Diamond (1984)", doi: "10.2307/2297430", relation: tests,
         note: "provides empirical support for delegated monitoring theory predicting banks reduce default via monitoring" }
@@ -122,6 +133,22 @@ paper:
         [individual, transaction] because 46% of borrowers are individual
         homeowners (OWNERBUILDER program, p. 701/704) and the primary IV
         unit is the loan/borrower, not a firm; all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied to R5 POSITIVEWORDS upper bound
+        (value corrected from -0.00243 to -0.00234 and significance restored to
+        *** per Table VI col 3, p. 714; a prior verifier had mis-corrected both);
+        all other seven findings entries and resultType=confirms verified correct.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70026
@@ -167,7 +194,7 @@ Locators point into the source PDF.
 | R2 | Shorter-maturity loans are monitored more frequently per 100 days; longer-maturity loans have more inspections in total | Table III cols (1)-(2), p. 709 | TERM: ALLINSPECTIONS = +0.0172\*\*\* (t=39.51); ALLTOTERMINAL = -0.0417\*\*\* (t=-4.06) |
 | R3 | Riskier borrowers (lower FICO, higher CLTV, speculative loans, owner-builders) receive significantly more intensive monitoring | Table III, pp. 709-710 | FICO: ALLTOTERMINAL = -0.00326\*\*\* (t=-18.35); SPECULATING = 0.344\*\*\* (t not reported for col 2); OWNERBUILDER: ALLINSPECTIONS = +0.149\*\*\* (t=29.85) |
 | R4 | Draw denials increase and inspection probability increases as the bank approaches failure, inconsistent with gambling-for-resurrection | Table V, p. 713 | YEARBEFOREFAILURE: DRAWDENIED = +0.0645\*\*\* (t=13.60); INSPECTIONDATE = +0.00291\*\*\* (t=6.96) |
-| R5 | Negative language in inspection reports increases draw denial probability; positive language decreases it; results hold with inspector, loan, and day fixed effects | Table VI, p. 714 | NEGATIVEWORDS: DRAWDENIED = +0.00164\*\* (t=2.21) to +0.00372\*\*\* (t=4.54); POSITIVEWORDS: DRAWDENIED = -0.00207\* (t=-1.71) to -0.00243\*\* (t=-2.27) |
+| R5 | Negative language in inspection reports increases draw denial probability; positive language decreases it; results hold with inspector, loan, and day fixed effects | Table VI, p. 714 | NEGATIVEWORDS: DRAWDENIED = +0.00164\*\* (t=2.21) to +0.00372\*\*\* (t=4.54); POSITIVEWORDS: DRAWDENIED = -0.00207\* (t=-1.71) to -0.00234\*\*\* (t=-2.27) |
 | R6 | OLS: more frequent monitoring (ALLTOTERMINAL) associates with lower eventual default; IV estimates are approximately twice as large as OLS | Table VIII Panel A col (1) vs col (3), pp. 727-728 | IV coeff = -0.0380\*\*\* (t=-23.70); OLS coeff = -0.0195\*\*\* (t=-19.46); IV: 1 s.d. increase in ALLTOTERMINAL -> -5.85 pp default probability |
 | R7 | All three IV specifications (draw schedule, time to first inspection, inspector fixed effects) produce consistent causal estimates of monitoring on default | Table VIII Panels A-C, pp. 727-729 | IV 2nd-stage coeffs: -0.0380 (draw schedule), -0.0396 (TIMETOFIRST), -0.0261 (inspector FE); all significant at 1%, Cragg-Donald F > 29.8 across panels |
 | R8 | Decomposition shows monitoring reduces defaults primarily through the threat channel (63-77% of total benefit); the direct early-stopping effect is smaller but also present | §V.A, pp. 723-724 | 1 extra inspection per 100 days: -1.14 pp maturity default, -0.81 pp term default net (total -1.95 pp); threat share = 63-77% of total benefit |

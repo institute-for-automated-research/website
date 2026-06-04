@@ -51,6 +51,17 @@ paper:
     dataType: [accounting, text, administrative]
     granularity: [firm, transaction]
     n: "85,876 firm-years; 17,724 loan packages; 403 bankruptcies"
+  findings:
+    - { ref: R1, outcome: financial covenant violation rate, metric: pp-effect, value: "~70% decline; peak ~18% in 2001 to ~5% by 2012; new-violation rate fell from ~9% to ~2%", direction: negative }
+    - { ref: R2, outcome: financial covenant violation rate, metric: coefficient, value: "avg covenants per package fell from ~2.75 to ~1.5; tightest-covenant slack ~3x larger; ex ante strictness fell roughly half", direction: negative }
+    - { ref: R3, outcome: false-positive violation rate, metric: pp-effect, value: "true positives 2.5%; false positives 2.9%; false negatives 1.1%; true negatives 93.6%", direction: positive, vsBenchmark: "false positives (2.9%) exceed true positives (2.5%)" }
+    - { ref: R4, outcome: true-positive rate (distressed-firm violations), metric: coefficient, value: "No-Violation coefficient: -11.4*** (col.1), -10.1*** (col.2), -9.8*** (col.3), -6.7** (col.4)", direction: negative, vsBenchmark: "firms without prior covenant violation vs. firms with violation at bankruptcy" }
+    - { ref: R5, outcome: false-positive violation rate, metric: pp-effect, value: "FPR: 5.3% (Period 1) to 0.5% (Period 3); drop explains 4.6 of 7.6 pp total decline (61%)", direction: negative }
+    - { ref: R6, outcome: financial covenant violation rate, metric: pp-effect, value: "distress rate contributes -1.9 pp (25%); TPR decline contributes -1.1 pp (14%)", direction: negative }
+    - { ref: R7, outcome: financial covenant violation rate, metric: coefficient, value: "preference parameter R: 3.10 (P1) to 6.06 (P2) to 30.29 (P3); technology mu_D: 2.21 to 2.68 to 2.65", direction: positive }
+    - { ref: R8, outcome: false-positive violation rate, metric: pp-effect, value: "observable characteristics explain 5.1 of 7.6 pp total decline (~two-thirds); FPR ~52% explained; TPR ~69% explained", direction: positive, vsBenchmark: "explained vs. unexplained portion of violation-rate decline" }
+    - { ref: R9, outcome: true-positive rate (distressed-firm violations), metric: pp-effect, value: "counterfactual violation rate 4.0% vs. realized 1.4% in Period 3; R rises ~80% absent characteristic changes vs. ~880% raw", direction: mixed }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Nini, Smith & Sufi (2012)', doi: '10.1093/rfs/hhs007', relation: extends, note: 'extends their 1997-2008 violation sample through 2019 and adds the structural decomposition framework' }
     - { cite: 'Murfin (2012)', doi: '10.1111/j.1540-6261.2012.01767.x', relation: builds-on, note: 'adopts the Murfin covenant strictness measure and its Demerjian-Owens update as the ex ante tightness measure' }
@@ -97,6 +108,22 @@ paper:
         channels in the paper's own framework -- the paper's channels are agency
         and imperfect-screening information asymmetry; investor sentiment is
         cited associatively not as a tested mechanism slug).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 9 entries confirmed -- values match PDF
+        exactly (Table I, II, III, V, VI, VII; Figure 1, 2, 3), directions are
+        consistent with sign of effect, resultType new-finding is appropriate
+        given no contradicts edge and a genuinely novel structural decomposition.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70005
       checked: 2026-05-31

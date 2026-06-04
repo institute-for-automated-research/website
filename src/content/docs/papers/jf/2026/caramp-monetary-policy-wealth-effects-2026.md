@@ -65,6 +65,16 @@ paper:
     granularity: [aggregate]
     n: "12 macro variables, 1962:Q1-2007:Q3 (quarterly VAR for calibration)"
 
+  findings:
+    - { ref: R1, outcome: "aggregate consumption response to monetary shocks", metric: pp-effect, value: "output drops 1.15% on impact; TVP channel ~60%, aggregate wealth effect ~30%, ISE <10%", direction: negative }
+    - { ref: R2, outcome: "aggregate consumption response to monetary shocks", metric: coefficient, value: "heterogeneous-beliefs output drop ~1.15% vs homogeneous ~0.35%, more than 3x larger", direction: negative, vsBenchmark: "vs homogeneous-beliefs economy with same disaster risk" }
+    - { ref: R3, outcome: "term premium on long-term government bonds", metric: basis-points, value: "32 bps five-year yield rise per 100 bps shock; model matches full forward curve", direction: positive, vsBenchmark: "Hanson and Stein (2015) forward-curve estimates" }
+    - { ref: R4, outcome: "equity price response to monetary shocks", metric: pp-effect, value: "-4.0% stock price decline per 100 bps shock", direction: negative, vsBenchmark: "Bernanke and Kuttner (2005) point estimate" }
+    - { ref: R5, outcome: "corporate credit spread response to monetary shocks", metric: basis-points, value: "model: 11 bps; VAR estimate: 6.5 bps (SE 3.1)", direction: positive, vsBenchmark: "Gertler and Karadi (2015) VAR-based excess bond premium" }
+    - { ref: R6, outcome: "aggregate consumption response to monetary shocks", metric: pp-effect, value: "output drop rises from ~1.15% to ~1.6%, an additional ~48 bps, with long-term household debt", direction: negative, vsBenchmark: "D-HANK baseline without household debt" }
+    - { ref: R7, outcome: "aggregate consumption response to monetary shocks", metric: coefficient, value: "RANK sigma=1: 1.1% output drop requiring >20x empirical fiscal backing; RANK sigma=4: 0.1% drop (~11x smaller than D-HANK)", direction: negative, vsBenchmark: "D-HANK with estimated fiscal backing (~1.15%)" }
+  resultType: new-finding
+
   relatesTo:
     - { cite: "Kaplan, Moll & Violante (2018)", doi: "10.1257/aer.20160042", relation: extends,
         note: "Adds aggregate disaster risk and heterogeneous beliefs to the HANK setting; Kaplan et al. find only a minor role for the standard ISE" }
@@ -121,6 +131,26 @@ paper:
         definition) and scope.dataType corrected from [market, administrative]
         to [market, accounting] (VAR uses national-accounts aggregates, not
         individual-level administrative records); all other axes confirmed.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied - R2 direction corrected from
+        positive to negative (heterogeneous-beliefs amplifies the output drop,
+        which is a larger negative effect on consumption, not a positive one);
+        all other values (R1 1.15%/60%/30%/<10%, R3 32 bps, R4 4.0%, R5 11 bps,
+        R6 ~1.6%/~48 bps, R7 1.1%/0.1%) confirmed against the PDF; R8 is
+        qualitative (output difference = 0 by construction) so no findings entry
+        required; resultType new-finding confirmed as appropriate given the paper
+        extends prior work with a genuinely new mechanism and quantitative finding.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70021

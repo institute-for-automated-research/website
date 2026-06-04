@@ -69,6 +69,16 @@ paper:
     - 'Whether aspiring CEOs are over- or under-confident about the health costs and whether anticipated costs affect selection into CEO positions (p. 3406).'
     - 'Which specific job characteristics and decisions (e.g., layoffs, downsizings) are the most health-damaging within the CEO role (p. 3436).'
     - 'Whether heightened workplace stress adversely affects marriage, divorce, and parenting, which the paper leaves for future research (p. 3437).'
+  findings:
+    - { ref: R1, outcome: CEO apparent-age gap (apparent minus chronological age), metric: coefficient, value: "+0.806 years (SE 0.382, **)", direction: positive }
+    - { ref: R2, outcome: CEO apparent-age gap (apparent minus chronological age), metric: coefficient, value: "0.634 (insig.) in 2007-2011; 1.049** to 1.183*** from 2012 onward", direction: mixed }
+    - { ref: R3, outcome: CEO mortality hazard rate, metric: hazard-ratio, value: "exp(0.136) = 1.145; equivalent to 1.1 years older", direction: positive }
+    - { ref: R4, outcome: CEO mortality hazard rate, metric: coefficient, value: "-0.198 to -0.234 (** to ***); average -0.217", direction: negative, vsBenchmark: "no BC law protection" }
+    - { ref: R5, outcome: CEO mortality hazard rate, metric: coefficient, value: "-0.037 to -0.040 (***); average -0.039 per additional year of BC law", direction: negative, vsBenchmark: "no BC law protection" }
+    - { ref: R6, outcome: CEO life expectancy, metric: hazard-ratio, value: "BC law mortality rate shift equivalent to CEO 2 years younger; pay effect insignificant and positive", direction: mixed, vsBenchmark: "unprotected CEO of same chronological age" }
+    - { ref: R7, outcome: CEO mortality hazard rate, metric: survival-milestone, value: "67% of distressed CEOs die within 30 years of appointment; 1-year mortality 1.337% (nondistressed) vs 1.532% (distressed)", direction: negative }
+    - { ref: R8, outcome: CEO life expectancy, metric: survival-milestone, value: "25% cumulative mortality: ~25 years (no BC) vs ~28-30 years (BC) after appointment", direction: positive, vsBenchmark: "same-era no-BC cohort" }
+  resultType: new-finding
   replicationCode:
     status: none
   proposedVocab:
@@ -96,6 +106,25 @@ paper:
         types all substantiated, occupational-stress and agency mechanisms both
         invoked, introducesData true for two hand-collected datasets, and
         data-scope fields match reported sample sizes exactly.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct - R1 0.806**
+        matches Table III col.(1), R2 range 0.634/1.049-1.183 matches cols.(3)-(4),
+        R3 average coefficient 0.136 and hazard ratio 1.145 match Table IV, R4/R5
+        BC law ranges and averages match Table V cols.(1)-(8), R6/R8 KM milestones
+        and R7 mortality rates confirmed from PDF pp.3426-3433; resultType
+        new-finding correct given all relatesTo edges are builds-on/tests/cites with
+        no headline contradicts or replicates; no fixes applied.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13497
       checked: 2026-06-03

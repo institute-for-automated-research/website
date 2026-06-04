@@ -53,6 +53,17 @@ paper:
     granularity: [individual]
     n: "1,283,639 borrower-months (9,878 treated; 6,388 control borrowers)"
 
+  findings:
+    - { ref: R1, outcome: non-student debt balances and delinquency rates, metric: coefficient, value: "SL balance -$7,404.56***; credit score +6.81***", direction: negative, vsBenchmark: "vs control borrowers (no discharge): treated borrowers shed direct student loan debt" }
+    - { ref: R2, outcome: non-student debt balances and delinquency rates, metric: coefficient, value: "-$4,600.88*** (SE 387.55)", direction: negative }
+    - { ref: R3, outcome: non-student debt balances and delinquency rates, metric: coefficient, value: "utilization -0.023***; credit limit -$971.82**; new accounts -0.002***; monthly payment +$13.57**", direction: negative, vsBenchmark: "vs control borrowers: treated group actively deleverages across credit dimensions" }
+    - { ref: R4, outcome: non-student debt balances and delinquency rates, metric: pp-effect, value: "-0.03*** (3 pp); bankruptcy -0.04*** pp; foreclosure -0.03*** pp", direction: negative }
+    - { ref: R5, outcome: geographic and job mobility, metric: pp-effect, value: "mobility +0.003***; job change +0.003**; new industry +0.003*", direction: positive }
+    - { ref: R6, outcome: borrower income, metric: coefficient, value: "+$79.98*** monthly (SE 31.99); cumulative ~$3,000 over 3 years", direction: positive }
+    - { ref: R7, outcome: non-student debt balances and delinquency rates, metric: coefficient, value: "adjudicated controls: total balance -$5,099.56*** vs baseline -$4,600.88***", direction: negative, vsBenchmark: "adjudicated-control subsample vs full sample: larger effect confirms wage-garnishment channel" }
+    - { ref: R8, outcome: borrower income, metric: pp-effect, value: "variable pay share +0.031*** (all jobs); +0.042*** (no-job-change); hours +1.20** (hourly workers)", direction: positive, vsBenchmark: "treated vs control post-discharge: treated group shifts toward higher variable pay and hours" }
+  resultType: confirms
+
   relatesTo:
     - { cite: 'Dobbie & Song (2015)', doi: 10.1257/aer.20130612, relation: builds-on, note: 'benchmark for debt-relief effects on credit and labor outcomes via chapter 13 bankruptcy; this paper examines private student debt discharge outside bankruptcy' }
     - { cite: 'Dobbie & Song (2020)', doi: 10.1257/aer.20171541, relation: builds-on, note: 'targeted credit-card debt relief experiment; this paper finds faster and broader effects for student debt discharge' }
@@ -109,6 +120,22 @@ paper:
         introducesData=true confirmed by hand-collected LexisNexis dataset
         (p. 508), scope fields match Table I and Table II sample counts; no
         fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct against Tables
+        II-VIII (pp. 524-539) - values, SEs, significance stars, and directions
+        all match; resultType=confirms consistent with tests edges (Melzer 2017,
+        Herkenhoff et al. 2021) where prior mechanisms hold; no fixes required.
   rightsSignalConflict: false
 ---
 

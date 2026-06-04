@@ -69,6 +69,16 @@ paper:
     - "Whether omitted variable bias from matching of low-quality bank customers to TSPs with poor cybersecurity can be fully ruled out; a robustness test restricts nonusers to a competing TSP of similar size but causality is not fully established (p. 3317)."
     - "The extent to which the muted third-round effect would change under a more systemic TSP (one of the largest banks as customers) is not quantified; the paper notes the result is sensitive to which TSP is targeted (p. 3333)."
     - "Long-run effects on the TSP's customer base and competitive dynamics in the TSP market are not fully identified; departures after the attack may partly reflect unobservable pre-existing deterioration in the TSP's cybersecurity (p. 3353)."
+  findings:
+    - { ref: R1, outcome: "Fedwire payments sent by user banks (number and value)", metric: coefficient, value: "-0.395*** (number, day 1); -45% value day 1; -13% number mid-period; -10% number last day", direction: negative }
+    - { ref: R2, outcome: "Fedwire payments sent by user banks (number and value)", metric: pp-effect, value: "0.3% of all Fedwire payments disrupted (observed) vs. 0.6% counterfactual without BCPs", direction: positive, vsBenchmark: "counterfactual no-BCP scenario (twice the observed disruption)" }
+    - { ref: R3, outcome: "Fedwire payments sent by user banks (number and value)", metric: coefficient, value: "small users -63% value day 1; large users -26% value day 1", direction: mixed, vsBenchmark: "large users vs. small users relative to nonusers" }
+    - { ref: R4, outcome: "Fedwire payments received by exposed nonuser banks", metric: coefficient, value: "-0.689*** (SE 0.109) on day 1; -0.403*** mid-period; -0.059 last day", direction: negative }
+    - { ref: R5, outcome: "Fedwire payments received by exposed nonuser banks", metric: coefficient, value: "large receivers -0.389** (SE 0.183); small receivers -0.667*** (SE 0.112) on day 1", direction: mixed, vsBenchmark: "large receiver-banks vs. small receiver-banks" }
+    - { ref: R6, outcome: "discount window borrowing probability of exposed receiver-banks", metric: coefficient, value: "small low-reserve: 0.025*** (SE 0.006); small high-reserve: 0.014** (SE 0.005); large: -0.165** (SE 0.066)", direction: mixed, vsBenchmark: "small banks more likely, large banks less likely to borrow" }
+    - { ref: R7, outcome: "reserve levels of large exposed receiver-banks", metric: coefficient, value: "-18.095*** (SE 3.735) on log(Reserves) day 1; -6.749 mid-period (insignificant)", direction: negative }
+    - { ref: R8, outcome: "Fedwire payments received by exposed nonuser banks", metric: coefficient, value: "-0.267* (SE 0.141) day 1; 0.050 mid-period (insig.); -0.020 last day (insig.); large banks +1.692** last day", direction: mixed }
+  resultType: new-finding
   replicationCode:
     status: available
   extraction:
@@ -98,6 +108,23 @@ paper:
         market from scope.dataType (all data are administrative records, no
         market prices used); identification=natural-experiment, mechanisms and
         granularity confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct against Tables
+        II, IV, V, VII, IX, X; resultType=new-finding is defensible as the
+        headline is the first ex-post event quantification, with the tests edge
+        for Duffie-Younger (2019) being a secondary confirmation, not the headline
+        contribution.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13475
       checked: 2026-06-03

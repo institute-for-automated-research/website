@@ -78,6 +78,17 @@ paper:
     - "Whether the findings extend to emerging market currencies, where IRD measurement is noisier; Table IA.V in the Internet Appendix shows suggestive evidence but the baseline excludes them (pp. 3705, fn. 10)."
     - "Whether VIX's additional forecasting power relative to survey expectations reflects a genuine omission in long-horizon models or simply captures short-term market stress not embedded in two-year forecasts (p. 3721)."
 
+  findings:
+    - { ref: R1, outcome: realized currency excess returns (24-month horizon), metric: r-squared, value: "Survey R-squared = 15.7%; QRP = 11.6%; RER = 10.4%; VIX = 8.5%; IRD = 1.7%", direction: positive, vsBenchmark: beats all alternative univariate predictors (QRP, RER, VIX, IRD) in post-GFC sample }
+    - { ref: R2, outcome: realized currency appreciation (24-month horizon), metric: coefficient, value: "SXR coefficient = 0.726-0.837 (SE 0.212-0.251); R-squared = 16.9-19.2%", direction: positive, vsBenchmark: R-squared rises from 3.1% (IRD-only baseline) to 16.9-19.2% }
+    - { ref: R3, outcome: realized currency appreciation (24-month horizon), metric: oos-r-squared, value: "Dollar-based OOS R-squared = 19.15%; dollar-neutral = 14.99%; bootstrapped p-value = 8.81% / 3.37%", direction: positive, vsBenchmark: beats random walk (Meese and Rogoff 1983) out of sample }
+    - { ref: R4, outcome: survey-based excess return expectations, metric: r-squared, value: "R-squared = 53.6% (all variables, col 7); trivariate (QRP+RER+CA/GDP) = 52.8%", direction: positive }
+    - { ref: R5, outcome: realized currency appreciation (24-month horizon), metric: coefficient, value: "Residual SXR coefficient = 0.177 (SE 0.232)", direction: none, vsBenchmark: residual unexplained by QRP, RER, CA/GDP has no predictive power }
+    - { ref: R6, outcome: realized currency excess returns (24-month horizon), metric: coefficient, value: "SXR* coefficients: 1M = 0.088 (0.067), 3M = 0.093 (0.102), 12M = 0.237 (0.215), 24M = 0.726 (0.212); R-squared rises from 0.011 to 0.157", direction: mixed, vsBenchmark: near-zero at short horizons vs significant at 24-month horizon }
+    - { ref: R7, outcome: realized currency excess returns (24-month horizon), metric: coefficient, value: "24M forecasts predicting 1M RXR*: coefficient = 1.548 (0.857), R-squared = 0.018; 1M forecasts predicting 24M RXR*: coefficient = 0.007 (0.009), R-squared = 0.019", direction: mixed, vsBenchmark: long-horizon forecasts predict short-run realizations; short-horizon forecasts do not predict long-run realizations }
+    - { ref: R8, outcome: realized currency appreciation (24-month horizon), metric: coefficient, value: "3-to-24-month forward expectation coefficient = 0.188 (0.087); 3-month spot forecast coefficient = -0.062 (0.086)", direction: mixed, vsBenchmark: forward component of long-horizon forecast is predictive; spot short-horizon component is not }
+  resultType: overturns
+
   replicationCode:
     status: available
 
@@ -110,6 +121,22 @@ paper:
         introducesData, data-scope) re-checked against the source PDF; all axes
         confirmed correct; removed pre-existing literal-false rightsSignalConflict
         (schema violation, key must be omitted when false).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct against their
+        PDF tables (R1 Table II, R2 Table I Panel A, R3 Table III, R4 Table IV,
+        R5 Table V, R6-R7 Table VIII Panel A, R8 Table IX); resultType overturns
+        consistent with headline contradicts edge vs Meese-Rogoff; no fixes required.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13504

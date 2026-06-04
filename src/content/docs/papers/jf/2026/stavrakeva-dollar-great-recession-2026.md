@@ -74,6 +74,16 @@ paper:
     - 'Whether the information channel was a special feature of calendar-based forward guidance (Dec 2008 to Sep 2012) or could recur under analogous ZLB-adjacent forward guidance regimes in other economies (p. 1007).'
     - 'Why cross-currency heterogeneity in the exchange rate response aligns with hedging quality and carry-trade properties; the paper documents the pattern and provides a model explanation but notes that further microfounding the carry-trade mechanism is beyond its scope (p. 992).'
     - 'Whether the findings generalize to other central banks that have used calendar-based forward guidance (p. 1007).'
+  findings:
+    - { ref: R1, outcome: log exchange rate change (USD vs advanced and emerging-market currencies), metric: coefficient, value: "-37.68*** (SE 11.89) at 50-day horizon", direction: negative, vsBenchmark: "pre-GR coefficient +2.26, post-GR +8.11 at same horizon" }
+    - { ref: R2, outcome: log exchange rate change (USD vs advanced and emerging-market currencies), metric: coefficient, value: "-34.27*** (SE 10.18) at 50-day horizon", direction: negative, vsBenchmark: "pre-GR coefficient +3.12, post-GR +13.99*" }
+    - { ref: R3, outcome: log exchange rate change (USD vs advanced and emerging-market currencies), metric: coefficient, value: "FG: -0.72 (0.72 SE) at 90 days; LSAP: +1.07* (0.53 SE) at 90 days", direction: mixed, vsBenchmark: "FG factor drives appreciation; LSAP factor does not" }
+    - { ref: R4, outcome: log exchange rate change (USD vs advanced and emerging-market currencies), metric: coefficient, value: "approx 10 pp larger dollar appreciation per 1-SD worse hedge quality at 90 days", direction: positive, vsBenchmark: "currencies with better hedge quality show smaller appreciation" }
+    - { ref: R5, outcome: S&P 500 and MSCI World log equity return, metric: coefficient, value: "non-QE GR response peaks near +100 pp at 40-60 days; all-announcement GR peaks near +30 pp", direction: positive, vsBenchmark: "pre- and post-GR coefficients negative (easing leads to equity price declines)" }
+    - { ref: R6, outcome: risk aversion (VIX, Bekaert-Engstrom-Xu index), metric: coefficient, value: "log VIX response approx -50 pp at 60 days; log BEX index approx -25 pp (non-QE GR)", direction: negative }
+    - { ref: R7, outcome: components of exchange rate and equity price changes (interest rate, currency risk premium, inflation, dividend growth), metric: coefficient, value: "interest rate component small and conventional; currency risk premium and inflation residual carries the sign reversal in GR", direction: negative, vsBenchmark: "interest rate component pushes in conventional direction across all subsamples" }
+    - { ref: R8, outcome: components of exchange rate and equity price changes (interest rate, currency risk premium, inflation, dividend growth), metric: coefficient, value: "equity risk premia and dividend growth component carries large positive GR response; interest rate component small and conventional", direction: positive, vsBenchmark: "interest rate component pushes in conventional direction; equity risk premia carry the dominant reversal" }
+  resultType: overturns
   replicationCode:
     status: available
   extraction:
@@ -121,6 +131,28 @@ paper:
         and survey dataTypes confirmed, aggregate and security granularity
         confirmed, n=24 currencies x 266 dates confirmed (Table I); no fixes
         required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct - R1 value
+        -37.68***/SE 11.89 at day 50 matches Table I exactly, R2 value
+        -34.27***/SE 10.18 matches Table II exactly, R3 FG/LSAP split and
+        direction=mixed confirmed from Table III, R4 ~10 pp per 1-SD confirmed
+        from Figure 3 text (p. 985), R5 direction=positive and peak magnitudes
+        confirmed from Figure 5 and p. 987 text, R6 direction=negative (VIX
+        ~-50 pp, BEX ~-25 pp at 60 days) confirmed from Figure 7 and p. 1001
+        text, R7 and R8 channel decomposition confirmed from Figures 8-9;
+        resultType=overturns consistent with contradicts edge on Rogers et al.
+        (2018); no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70025
       checked: 2026-06-01

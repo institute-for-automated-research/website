@@ -57,6 +57,16 @@ paper:
     dataType: [market, accounting]
     granularity: [individual, security]
     n: "223 ESG active equity mutual funds; 4,063 fund-event observations (main test)"
+  findings:
+    - { ref: R1, outcome: "fund ESG factor loading (beta on ESG index)", metric: coefficient, value: "0.120*** (SE 0.044) for 10-day pre-disclosure window", direction: positive }
+    - { ref: R2, outcome: "fund ESG factor loading (beta on ESG index)", metric: pp-effect, value: "46% increase over baseline ESG exposure (0.12 / 0.26)", direction: positive }
+    - { ref: R3, outcome: "fund return gap (realized minus counterfactual disclosed-portfolio return)", metric: coefficient, value: "Pre: -0.014*** bps/day (SE 0.003); Post: +0.010*** bps/day (SE 0.004)", direction: mixed, vsBenchmark: "pre-disclosure negative vs post-disclosure positive gap relative to disclosed portfolio" }
+    - { ref: R4, outcome: "ESG stock cumulative abnormal returns around disclosure dates", metric: car, value: "+0.20% cumulative at event time 0 in [-3, +3] window, reversing to near zero by +3 days", direction: positive, vsBenchmark: "ESG stocks above market model benchmark pre-quarter-end, reverting after" }
+    - { ref: R5, outcome: "Morningstar sustainability rating (globe score)", metric: pp-effect, value: "2.1 pp (SE 0.009)** without fund FE; 1.5 pp (SE 0.006)*** with fund FE", direction: positive }
+    - { ref: R6, outcome: "three-month net fund flows", metric: coefficient, value: "0.482** pp (SE 0.201) all funds; 0.653** pp institutional (SE 0.275); 0.152 retail (SE 0.358, not significant)", direction: positive, vsBenchmark: "institutional-client funds drive the flow response; retail insignificant" }
+    - { ref: R7, outcome: "fund ESG factor loading (beta on ESG index)", metric: pp-effect, value: "High fees: +6.7 pp*** (SE 0.021); Low fees: -5.2 pp*** (SE 0.013); Star: +2.7 pp** (SE 0.011); Laggard: +7.7 pp*** (SE 0.015)", direction: mixed, vsBenchmark: "window dressing propensity varies by fund fee tier and performance rank" }
+    - { ref: R8, outcome: "fund ESG factor loading (beta on ESG index)", metric: coefficient, value: "Pre-2016 ESG beta change: not significant; ESG index funds: not significant", direction: none, vsBenchmark: "no effect before March 2016 or for passive ESG vehicles" }
+  resultType: overturns
   relatesTo:
     - { cite: "Kacperczyk, Sialm & Zheng (2008)", doi: '10.1016/j.jfineco.2008.09.001', relation: builds-on, note: "return-gap methodology used to compare realized vs. disclosed-portfolio returns (Section II.B)" }
     - { cite: "Agarwal, Gay & Ling (2014)", doi: '10.1093/rfs/hhu045', relation: builds-on, note: "traditional window dressing framework and portfolio disclosure timing design" }
@@ -100,6 +110,23 @@ paper:
         scope.granularity from [security, firm] to [individual, security] --
         primary unit is fund (individual), secondary is stock (security); all
         other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight findings[] values confirmed correct
+        against Tables II, IV, V, VI, VII and Figure 4; fixed resultType from
+        new-finding to overturns -- the page carries two contradicts edges
+        (Munoz et al. 2022 and Kempf-Osthoff 2008) and the headline contribution
+        directly overturns the prior claim that green window dressing does not occur.
   rightsSignalConflict: false
 ---
 

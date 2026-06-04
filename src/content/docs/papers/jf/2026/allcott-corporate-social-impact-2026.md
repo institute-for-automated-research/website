@@ -74,6 +74,15 @@ paper:
     - 'Static partial equilibrium ignores how a firm exit would affect worker surplus at upstream suppliers, innovation spillovers to competitors, and long-run dynamic entry (§conclusion, p. 290-291).'
     - 'Empirical implementation relies on survey-elicited price elasticities and controversial functional form assumptions for consumer surplus; contested estimates of externalities and internalities also affect results (p. 291).'
     - 'The framework covers only firms that can be represented by a single representative product; industries with complex multi-product firms or non-market outputs are not covered here (p. 295).'
+  findings:
+    - { ref: R1, outcome: "corporate social impact (welfare loss from firm exit)", metric: coefficient, value: "welfare weight on profits ≈ 0.12; worker surplus ≈ 22% of revenues", direction: positive, vsBenchmark: "consumer surplus far exceeds profits and worker surplus in weighted individual impact per dollar of revenue" }
+    - { ref: R2, outcome: "corporate social impact (welfare loss from firm exit)", metric: r-squared, value: "R² = 0.89 (log-log, unweighted individual impact vs revenue, 74 firms)", direction: positive }
+    - { ref: R3, outcome: "social impact per dollar of revenue", metric: coefficient, value: "unweighted impact/revenue 0.2 to 1.0 across firms", direction: positive }
+    - { ref: R4, outcome: "corporate social impact (welfare loss from firm exit)", metric: coefficient, value: "Walmart $150.54B/year (rank 1); Philip Morris -$16.78B/year (rank 74)", direction: mixed, vsBenchmark: "range from most beneficial to most harmful across 74 firms" }
+    - { ref: R5, outcome: "social impact per dollar of revenue", metric: coefficient, value: "oil companies weighted impact/revenue 1.50-1.51; aggregate demand elasticity ≈ -0.14", direction: positive }
+    - { ref: R6, outcome: "corporate social impact (welfare loss from firm exit)", metric: coefficient, value: "cigarette internality ≈ $2.77 per dollar of sales; Philip Morris -$16.78B/year; Reynolds -$13.72B/year", direction: negative }
+    - { ref: R8, outcome: "ESG rating correlation with welfare-grounded impact estimates", metric: correlation, value: "little to no relationship (CSRHub and Just Capital vs welfare-grounded estimates)", direction: none }
+  resultType: overturns
   replicationCode:
     url: https://allcott.stanford.edu/research
     status: available
@@ -142,6 +151,28 @@ paper:
         market-power (business-stealing under Nash-Bertrand) are both genuinely
         invoked; introducesData=true confirmed by new 3,544-person survey; scope
         dataType/granularity/n all faithful to the data used; no fixes applied.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all seven entries confirmed correct - R1 welfare
+        weight 0.12 and 22% revenues (pp. 310, 318), R2 R-squared 0.89 (p. 315),
+        R3 range 0.2 to 1.0 (Figure 6 p. 316), R4 Walmart $150.54B rank 1 and
+        Philip Morris -$16.78B rank 74 (Table VI Panel A p. 319), R5 oil
+        impact/revenue 1.50-1.51 and elasticity -0.14 (Table VI Panel B p. 319
+        and p. 309), R6 cigarette internality $2.77/dollar sales and Philip
+        Morris -$16.78B and Reynolds -$13.72B (Table IV p. 311 and Table VI
+        p. 319), R8 no ESG correlation (Figure 9 p. 322); R7 absent from
+        findings is correct as it is a qualitative comparison row; resultType
+        overturns consistent with contradicts edges; no fixes applied.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70004
       checked: 2026-05-31

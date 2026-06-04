@@ -75,6 +75,16 @@ paper:
     - 'What effect does the increase in risk-taking incentives of publicly traded banks have on privately held banks? If public banks increase credit supply, private banks may respond by taking more risk to compete, or reduce supply to stabilize (p. 3254).'
     - 'Do similar stock-market risk-taking incentives exist in other nonbank financial intermediaries such as institutional bond funds and insurance companies? (p. 3254).'
     - 'What are the regulatory implications? Should compensation schemes require managers to hold stock for longer periods to mitigate short-term risk-taking incentives, and is the risk documented here socially excessive? (pp. 3254-3255).'
+  findings:
+    - { ref: R1, outcome: composite CAMELS supervisory rating, metric: coefficient, value: "0.316*** (SE 0.114); ~0.5 within-bank SD", direction: positive }
+    - { ref: R2, outcome: likelihood of a weak CAMELS rating, metric: pp-effect, value: "0.088*** (SE 0.024)", direction: positive, vsBenchmark: equal to unconditional mean probability of weak CAMELS rating }
+    - { ref: R3, outcome: composite CAMELS supervisory rating, metric: coefficient, value: "2SLS 0.343** (SE 0.145) composite; 0.104*** (SE 0.033) weak CAMELS", direction: positive }
+    - { ref: R4, outcome: bank asset quality (A rating in CAMELS), metric: coefficient, value: "A-rating DD 0.316** (SE 0.167); STBL loan risk DD 0.403*** (SE 0.125)", direction: positive }
+    - { ref: R5, outcome: Tier 1 capital ratio, metric: coefficient, value: "C,L-ratings DD 0.254** (SE 0.115); Risk-rating DD 0.308*** (SE 0.111)", direction: positive }
+    - { ref: R6, outcome: volatile liabilities ratio, metric: coefficient, value: "RWA/A DD 0.371*** (SE 0.116); Tier 1 capital DD -0.010*** (SE 0.003); Volatile Liabilities DD 0.039*** (SE 0.008)", direction: mixed }
+    - { ref: R7, outcome: return on equity (short-run and long-run), metric: coefficient, value: "ROE t+4q = 0.007** (SE 0.003); ROE t+16q = -0.013** (SE 0.006); E-rating DD t+16 = 0.363*** (SE 0.157); LLP/Loans DD = -0.006*** (SE 0.001)", direction: mixed }
+    - { ref: R8, outcome: composite CAMELS supervisory rating, metric: coefficient, value: "Triple-DD CEO short-term disclosure 0.669** (SE 0.327); inst. investor turnover 0.071** (SE 0.029); crisis ROE interaction -0.028*** (SE 0.002)", direction: mixed }
+  resultType: confirms
   replicationCode:
     status: available
   extraction:
@@ -113,6 +123,23 @@ paper:
         applied - granularity corrected from [firm, security] to [firm,
         transaction] because STBL regressions use loan-level observations and
         no security-level unit of observation appears in any regression.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct - R1-R8
+        coefficients, SEs, and significance stars match Tables III-VIII and X
+        exactly, directions are accurate, and resultType=confirms is consistent
+        with the primary relatesTo=tests edge on Stein (1989) whose prediction
+        the paper supports; no fixes required.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13502
       checked: 2026-06-03

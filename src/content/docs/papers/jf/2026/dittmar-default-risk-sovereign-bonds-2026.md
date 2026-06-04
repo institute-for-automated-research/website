@@ -60,6 +60,16 @@ paper:
     dataType: [market]
     granularity: [aggregate]
     n: "187 monthly observations (Jun 2005-Dec 2020, regressions); 23 observable series (Nov 2004-Dec 2019, model estimation)"
+  findings:
+    - { ref: R1, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: coefficient, value: "G coef 0.013*** (level), 0.025*** (first diff); R^2 = 0.217 (level)", direction: positive }
+    - { ref: R2, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: coefficient, value: "G coef 0.004** (level), 0.018*** (FD) with full liquidity controls; R^2 = 0.808", direction: positive }
+    - { ref: R3, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: coefficient, value: "CDS coef 0.352*** (spec 2); with G and CDS, CDS coef 0.287*** and G coef 0.002*", direction: positive }
+    - { ref: R4, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: coefficient, value: "2SLS instrumented CDS coef 1.205** (SE 0.475)", direction: positive }
+    - { ref: R5, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: coefficient, value: "2y = 1.097** (SE 0.522), 3y = 1.324*** (SE 0.511), 7y = 0.868** (SE 0.341), 10y = 0.385 (SE 0.250, insig.)", direction: mixed }
+    - { ref: R6, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: r-squared, value: "ILS R^2 93-99%; nominal R^2 99%+; ILSBEI R^2 81-91% (2-7y); RMSE 7.77-10.92 bps (ILSBEI)", direction: positive }
+    - { ref: R7, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: basis-points, value: "Mean credit component: 7.57 bps (2y), 10.07 bps (3y), 14.46 bps (5y), 18.16 bps (7y), 23.05 bps (10y)", direction: positive }
+    - { ref: R8, outcome: ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate), metric: basis-points, value: "Inflation-upon-default channel contributes 1-10 bps (95% CI); default-in-SDF channel near zero", direction: positive, vsBenchmark: "inflation-upon-default dominates default-in-SDF and inflation/PD correlation channels" }
+  resultType: overturns
   relatesTo:
     - { cite: 'Fleckenstein, Longstaff & Lustig (2014)', doi: '10.1111/jofi.12032', relation: extends, note: 'builds on their TIPS-Treasury no-arbitrage puzzle (ILSBEI mispricing); adds credit risk channel to their liquidity/slow-moving-capital explanation (p. 830)' }
     - { cite: 'Pflueger & Viceira (2016)', doi: '10.1002/9781118709207.ch10', relation: contradicts, note: 'they attribute ILSBEI to a liquidity premium; this paper shows credit risk is also a nontrivial driver, especially at long maturities (pp. 830, 862)' }
@@ -129,6 +139,22 @@ paper:
         Classification axes (identification, contributionType, mechanisms,
         introducesData, data-scope) re-checked against the source PDF; all five
         axes confirmed correct - no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed exact - values, SEs,
+        significance stars, directions, and vsBenchmark all match Tables II-VI,
+        VIII-IX and Figure 10; resultType overturns consistent with contradicts
+        edge on Pflueger and Viceira (2016); no fixes required.
 ---
 
 **What this is.** The paper's core results, the model it builds on (an affine

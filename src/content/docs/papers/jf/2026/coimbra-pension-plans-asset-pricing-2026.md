@@ -61,6 +61,56 @@ paper:
     - 'Further cross-sectional heterogeneity in pension scheme enrollment among households; comparative statics on adjustment rates suggest interesting risk-sharing implications (p. 185).'
     - 'Endogenous government bond supply process; current model treats the bond supply (debt-to-GDP ratio) as exogenous (p. 186).'
     - 'Transition dynamics from DB to DC are omitted because they require at least one additional state variable for the pension fund size and assumptions about phaseout rules (p. 179).'
+  findings:
+    - ref: R1
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "equity premium 7.46% (data 7.55%), riskless rate 1.16% (data 0.86%), Sharpe ratio 0.39 (data 0.36)"
+      direction: positive
+      vsBenchmark: "matches empirical US moments (CRSP/NIPA 1929-2023)"
+    - ref: R2
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "equity premium 7.46% vs PPG 5.53%; Sharpe ratio 0.39 vs PPG 0.31; riskless rate 1.16% vs PPG 4.04%"
+      direction: positive
+      vsBenchmark: "beats PPG pure-pass-through model at same calibration"
+    - ref: R3
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "equity premium 10.60% to 5.48%; Sharpe ratio 0.55 to 0.28 as risky share moves 42% to 72%"
+      direction: negative
+      vsBenchmark: "increasing fund risky share lowers equity premium below baseline"
+    - ref: R4
+      outcome: consumption volatility by age group
+      metric: coefficient
+      value: "SD consumption growth ages 20-35: 10.7% (baseline) vs 10.0% (rPPG1); ages 36-65: 8.4% vs 7.6%; retirees 66+: 2.2% vs 2.6%"
+      direction: mixed
+      vsBenchmark: "workers above rPPG1, retirees below rPPG1"
+    - ref: R5
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "equity premium 7.46%, 7.58%, 7.39%; Sharpe ratio 0.39, 0.39, 0.38 across three portfolio rules"
+      direction: none
+      vsBenchmark: "no meaningful difference across fixed, elastic, and reaching-for-yield rules"
+    - ref: R6
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "riskless rate 3.34% vs 1.16%; equity premium 4.96% vs 7.46%; Sharpe ratio 0.27 vs 0.39"
+      direction: negative
+      vsBenchmark: "DC-only economy below DB baseline on equity premium and Sharpe ratio"
+    - ref: R7
+      outcome: consumption volatility by age group
+      metric: coefficient
+      value: "SD cons. growth ages 20-35: 10.1% vs 10.7%; ages 36-65: 7.4% vs 8.4%; retirees 66+: 2.8% vs 2.2%"
+      direction: mixed
+      vsBenchmark: "workers below DB baseline, retirees above DB baseline"
+    - ref: R8
+      outcome: equity premium and Sharpe ratio
+      metric: return-spread
+      value: "participation 79.7% vs 57.2%; equity premium 4.60%, riskless rate 3.44%"
+      direction: mixed
+      vsBenchmark: "participation rises substantially but aggregate price effects modest vs base DC scenario"
+  resultType: new-finding
   replicationCode:
     status: available
   licenceVerification:
@@ -108,6 +158,21 @@ paper:
         template rules) and removed accounting from dataType (paper uses only
         CRSP market data, Flow of Funds and NIPA administrative aggregates, and
         SCF survey data - no firm-level accounting data used).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 8 values confirmed against Tables II-V, VIII-IX
+        (pp. 164-182); corrected R1 and R5 metric from alpha to return-spread (both
+        rows report equity-premium and Sharpe-ratio moments, not regression alphas).
   rightsSignalConflict: false
 ---
 

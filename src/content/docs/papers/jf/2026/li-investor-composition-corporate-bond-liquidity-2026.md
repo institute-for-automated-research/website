@@ -59,6 +59,14 @@ paper:
     dataType: [market, accounting, administrative]
     granularity: [security, firm]
     n: "15,256 unique bonds, 3,217 unique firms"
+  findings:
+    - { ref: R1, outcome: loading of credit spreads on bid-ask spreads (liquidity component of credit spreads), metric: coefficient, value: "beta rose from 0.54 (2005) to 1.2 (2019); IG: ~10-20 to ~60 bp/100 bp BA; HY: ~60 to ~250 bp/100 bp BA", direction: positive }
+    - { ref: R2, outcome: loading of credit spreads on bid-ask spreads (liquidity component of credit spreads), metric: coefficient, value: "median liquidity component grew ~2.8x from 11.3% (first three years) to 31.4% (last three years); model predicts 6.77% in 2005 and 16.62% in 2019 (2.5x model increase)", direction: positive }
+    - { ref: R3, outcome: bond turnover and number of trades, metric: coefficient, value: "second stage: 1 s.d. increase in Inv_Comp raises log No. of Trades by 75.02*** (t=8.02, full sample) and 61.62*** (t=9.69, subsample); first stage: 1_{ttm>10} coefficient on Inv_Comp = -0.00581*** (t=-5.86)", direction: positive }
+    - { ref: R4, outcome: credit spread sensitivity to secondary-market frictions, metric: coefficient, value: "Inv_Comp x Bid_Ask: 48.65*** (t=6.61, full sample OLS) and 55.86*** (t=3.93, subsample IV); 1 s.d. increase in Inv_Comp associated with ~1.44 increase in the loading coefficient", direction: positive }
+    - { ref: R6, outcome: loading of credit spreads on bid-ask spreads (liquidity component of credit spreads), metric: coefficient, value: "investor participation cutoff theta increases from 0.688 in 2005 to 0.766 in 2019 in calibration", direction: positive }
+    - { ref: R7, outcome: credit spread sensitivity to secondary-market frictions, metric: coefficient, value: "beta_exo (direct): 0.27 (2005) to 0.35 (2019); beta_endo (indirect): 0.65 (2005) to 1.7 (2019); indirect channel accounts for more than 50% of total sensitivity by 2019", direction: positive }
+  resultType: mixed
   relatesTo:
     - { cite: "Bao, Pan & Wang (2011)", doi: "10.1111/j.1540-6261.2011.01655.x", relation: builds-on, note: "uses their finding that illiquidity explains a significant part of common credit spread variation; extends by documenting the growing loading over time" }
     - { cite: "Dick-Nielsen, Feldhutter & Lando (2012)", relation: builds-on, note: "adopts their TRACE filtering and liquidity factor construction; uses their liquidity component definition (beta x BA / CS)" }
@@ -90,6 +98,24 @@ paper:
         uses a regression discontinuity design (10-year maturity threshold, p.885)
         with Calonico-Cattaneo-Titiunik optimal bandwidth; contributionType,
         mechanisms, and scope fields are accurate.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all six findings[] values confirmed against Table I
+        (R3), Table II (R4), Table III/Figure 1 (R1), Table III/footnote 33 (R2),
+        Table IV (R6), and Table V Panel A (R7); directions correct; resultType
+        corrected from "new-finding" to "mixed" - the page carries two contradicts
+        edges (Wu 2020, Amihud and Mendelson 1986) that preclude new-finding per
+        the schema discipline.
   licenceVerification:
     - { source: "Crossref REST API works/10.1111/jofi.70024", checked: "2026-06-01", by: "paper-distiller (claude-sonnet-4-6)", found: "license[0]: content-version=vor, URL=http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days=0, start=2026-01-21; license[1]: content-version=tdm, URL=http://doi.wiley.com/10.1002/tdm_license_1.1. No CC license present." }
   rightsSignalConflict: false

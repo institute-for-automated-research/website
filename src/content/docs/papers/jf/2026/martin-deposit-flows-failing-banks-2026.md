@@ -69,6 +69,18 @@ paper:
     - 'Whether the insured deposit inflow phenomenon and its scale generalize beyond community and mid-size banks to very large (systemically important) banks, where enforcement actions are rare and the paper acknowledges insufficient sample power (pp. 681-682).'
     - 'Whether deposit rate caps of 75 bps above the national average would be more effective when short-term rates are substantially above zero, versus the zero-lower-bound environment covering the entire sample period (pp. 674-675).'
     - 'The paper is limited to one bank with complete account-level data; granular data for a large sample of failed banks would allow testing heterogeneity in the inflow mechanism across bank types and crisis periods (pp. 675-676).'
+  findings:
+    - { ref: R1, outcome: probability of deposit account liquidation, metric: coefficient, value: "0.183*** (t = 8.45)", direction: positive, vsBenchmark: "uninsured vs. insured accounts in Formal period; near-zero baseline in Placebo (0.0249*)" }
+    - { ref: R2, outcome: probability of deposit account liquidation, metric: coefficient, value: "-0.0944** (t = -2.00)", direction: negative, vsBenchmark: "TAG/DFA eligible vs. uninsured; equality p-value 0.67, not statistically different from ordinary insurance" }
+    - { ref: R3, outcome: probability of deposit account liquidation, metric: coefficient, value: "Uninsured 0.147*** (t = 2.92); Brokered/Placed 0.550*** (t = 25.76)", direction: positive, vsBenchmark: "uninsured and brokered/placed term deposits vs. insured in Formal period" }
+    - { ref: R4, outcome: probability of deposit account liquidation, metric: pp-effect, value: "20.79% in Formal vs. 4.98% in Placebo", direction: positive, vsBenchmark: "share of uninsured transaction accounts liquidating to <$1 vs. Placebo period baseline" }
+    - { ref: R5, outcome: share and log-level of new deposit inflows, metric: inflow-volume, value: "~$400M new insured term deposits; 81% of 2,600 new accounts in Formal period are institutional", direction: positive }
+    - { ref: R6, outcome: share and log-level of new deposit inflows, metric: elasticity, value: "0.61 (rate spread coefficient 5.549***, t = 2.71)", direction: positive, vsBenchmark: "in line with Egan, Hortacsu and Matvos (2017)" }
+    - { ref: R7, outcome: share and log-level of new deposit inflows, metric: coefficient, value: "5.124** (t = 2.32) on log new deposits", direction: positive, vsBenchmark: "Formal period vs. other periods after controlling for macro conditions and interest rates" }
+    - { ref: R8, outcome: bank funding composition (brokered, listing-service, term deposits by size), metric: coefficient, value: "Brokered -1.24*** (t = -22.72); Listed 0.826*** (t = 11.40); Sm. Term 0.364*** (t = 5.21); Lg. Term -0.830*** (t = -12.10)", direction: mixed }
+    - { ref: R9, outcome: bank funding composition (brokered, listing-service, term deposits by size), metric: coefficient, value: "Listed turns positive at t+2 (0.477**), reaches ~1.2 pp at t>=5 (1.21***); Brokered ~1.2 pp before enforcement (tau-4 = 1.17***), -3.85*** by t>=5", direction: mixed }
+    - { ref: R10, outcome: bank funding composition (brokered, listing-service, term deposits by size), metric: coefficient, value: "0.4121*** (t = 4.48) on 12-month CD spreads; constant 0.3547***", direction: positive, vsBenchmark: "large banks under enforcement action paying ~75 bps above FDIC national average, near the regulatory rate cap" }
+  resultType: confirms
   replicationCode:
     status: available
   extraction:
@@ -108,6 +120,24 @@ paper:
         introducesData, data-scope) re-checked against the source PDF; one fix
         applied - scope.frequency changed from daily to mixed (primary micro-data
         is daily but generalization panel in Section IV is quarterly).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; two fixes applied to R9 - "~1.2 pp by t+4"
+        corrected to "~1.2 pp at t>=5 (1.21***)" (Table XIII Listed tau+4 is
+        0.669**, not ~1.2; the ~1.2 is tau+i,i>=5) and Brokered tau-4 corrected
+        from ~1.1 pp to ~1.2 pp (1.17 rounds to 1.2); all other rows (R1-R8,
+        R10) confirmed correct against PDF tables; resultType=confirms consistent
+        with tests-EHM edge that holds.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70007
       checked: 2026-06-01
@@ -160,7 +190,7 @@ Magnitudes and significance are as reported in the paper. `***`/`**`/`*` = 1%/5%
 | R6 | Higher deposit rate spreads are associated with more new deposit inflows: estimated interest elasticity of demand of 0.61, in line with Egan, Hortacsu and Matvos (2017) | Tables X-XI, p. 670-671; text p. 673 | Rate Spread to Market coeff = 5.549\*\*\* (t = 2.71) in Table X col. (3); elasticity of demand calculated at 0.61 |
 | R7 | The Formal period is the only period where new deposit inflows are significantly elevated after controlling for macroeconomic conditions and interest rates, confirming bank-specific (not macro) drivers | Table XI, col. (4), p. 671 | Formal period dummy coeff = 5.124\*\* (t = 2.32) on log new deposits; no other period significant after controls |
 | R8 | Banks under regulatory enforcement actions in the broad U.S. panel reduce brokered deposits by 1.24 pp and increase listing-service deposits by 0.826 pp; small-term ($<$100k) deposits rise by 0.364 pp, large-term ($>$250k) fall by 0.830 pp | Table XII, p. 679 | Under Reg. Action coeff: Brokered = -1.24\*\*\* (t = -22.72); Listed = 0.826\*\*\* (t = 11.40); Sm. Term = 0.364\*\*\* (t = 5.21); Lg. Term = -0.830\*\*\* (t = -12.10) |
-| R9 | The shift toward listing-service deposits begins before the enforcement action and ramps up sharply after; brokered deposits decline sharply at enforcement, consistent with regulatory restrictions | Table XIII / Figure 5, pp. 678-680 | Dynamic coefficients on Listed deposits turn positive at t+2 (0.477**), reaching ~1.2 pp by t+4 and t≥5; Brokered coefficients: ~1.1 pp before enforcement (τ-4 = 1.17***), -3.9 pp by t≥5 |
+| R9 | The shift toward listing-service deposits begins before the enforcement action and ramps up sharply after; brokered deposits decline sharply at enforcement, consistent with regulatory restrictions | Table XIII / Figure 5, pp. 678-680 | Dynamic coefficients on Listed deposits turn positive at t+2 (0.477**), reaching ~1.2 pp at t>=5 (1.21***); Brokered coefficients: ~1.2 pp before enforcement (tau-4 = 1.17***), -3.85*** by t>=5 |
 | R10 | Large banks (assets > $5B) under enforcement action raise 12-month CD spreads by a statistically significant 41 bps, paying on average ~75 bps above the FDIC national average, near the regulatory rate cap | Table XV, p. 683 | Under Reg. Action coeff = 0.4121\*\*\* (t = 4.48); constant = 0.3547\*\*\* |
 
 **Overall (paper's conclusion).** Gross deposit inflows to a failing bank are

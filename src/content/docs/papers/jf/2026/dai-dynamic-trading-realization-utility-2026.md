@@ -96,6 +96,27 @@ paper:
         mechanisms [behavioral-bias] matches prospect-theory realization-utility
         channel, introducesData absent (no new dataset), scope dataType/granularity/n
         absent (theory paper); no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged. Both axes
+        omitted: this is a purely theoretical paper with no empirical results -
+        all quantitative outputs derive from numerical model solutions, not
+        data, so findings[] and resultType do not apply per the pure-theory
+        omit rule.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; omission of both fields confirmed correct - paper
+        is role:theory with all seven Core-results rows derived from numerical
+        model solutions under calibrated parameters (Figures 2-8, pp. 205-215),
+        not from data, so the pure-theory omit rule applies; all seven row
+        magnitudes spot-checked against the PDF and confirmed accurate.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13472
       checked: 2026-05-31

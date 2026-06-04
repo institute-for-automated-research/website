@@ -51,6 +51,16 @@ paper:
     dataType: [administrative, accounting, survey]
     granularity: [firm, individual]
     n: "312 IPO firms + 312 matched controls; 4,992 firm-years"
+  findings:
+    - { ref: R1, outcome: "number of hierarchical layers in the firm", metric: coefficient, value: "+0.388*** at IPO year (t=0) vs matched private controls; +0.119*** at t-2, +0.202*** at t-1", direction: positive }
+    - { ref: R2, outcome: "number of hierarchical layers in the firm", metric: coefficient, value: "+0.244 at t+2 with firm-growth controls", direction: positive, vsBenchmark: "growth-controlled; growth explains ~40% of raw +0.394 change" }
+    - { ref: R3, outcome: "number of hierarchical layers in the firm", metric: coefficient, value: "layer 3 employment +23.9% (p=0.002); layer 4 employment +18.9% (p=0.009); control span layer 3 -23.3% (p=0.003); control span layer 4 -17.0% (p=0.015)", direction: mixed }
+    - { ref: R4, outcome: "employment shares by organizational function", metric: pp-effect, value: "production -4.971pp*** at t+2; administration +2.708pp*** (p=0.003); management +1.986pp*** (p=0.001)", direction: mixed }
+    - { ref: R5, outcome: "employment shares by organizational function", metric: pp-effect, value: "finance/accounting +1.376pp** at t+2; legal experts +0.254pp***; public-firm experts +2.779pp** at t+2 (peak +7.570pp*** at IPO year)", direction: positive }
+    - { ref: R6, outcome: "number of hierarchical layers in the firm", metric: coefficient, value: "triple-DiD post-IPO: HC-intensive industry 0.202* (p=0.054); highly skilled labor 0.261*** (p=0.009); R&D-intensive 0.207* (p=0.062)", direction: positive }
+    - { ref: R7, outcome: "job standardization (promotion levels aligned to industry job ladders)", metric: coefficient, value: "+0.196*** to +0.423*** across t+1/t+2 (3.8-8.3% relative to mean 5.11)", direction: positive }
+    - { ref: R8, outcome: "number of hierarchical layers in the firm", metric: coefficient, value: "withdrawn IPOs: +0.183 at t-1 reversing to -0.089 at t+2 (F-stat 3.699*); PE-backed: all estimates near zero except borderline +0.254* at t+2", direction: mixed }
+  resultType: confirms
   relatesTo:
     - { cite: 'Bolton and Dewatripont (1994)', doi: '10.2307/2118349', relation: builds-on, note: 'firms as communication networks; going public raises task complexity and hierarchy depth (tested as predictions BG.1-BG.4)' }
     - { cite: 'Garicano (2000)', doi: '10.1086/317671', relation: builds-on, note: 'knowledge-based hierarchies; complexity increases the number of problem-solvers (managers) and narrows control spans (tested as BG.2)' }
@@ -100,6 +110,22 @@ paper:
         (both channels genuinely invoked), introducesData absent (no new source),
         and scope [administrative, accounting, survey] / [firm, individual] /
         312+312 firms all match PDF; no fixes required.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct -- values
+        match Tables III-IX exactly, direction codings are faithful to sign of
+        effect, and resultType confirms is consistent with the tests edge on
+        Rajan (2012) that holds; no fixes required.
   rightsSignalConflict: false
 ---
 

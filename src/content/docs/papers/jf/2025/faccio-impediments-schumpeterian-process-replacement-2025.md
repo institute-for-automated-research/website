@@ -74,6 +74,17 @@ paper:
     - "The circa 1910 sample covers book equity for 60 countries but political connections data for only 19 countries; broader political-connection data could sharpen the cross-country analysis (p. 3363)."
     - "Whether the results generalize to countries and periods outside the samples analyzed, in particular to the post-2018 era (p. 3396)."
 
+  findings:
+    - { ref: R1, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: proportion, value: "13.6% unconditional survival rate (1,115 firms, 60 countries)", direction: none }
+    - { ref: R2, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "0.0959** (p = 0.018)", direction: positive, vsBenchmark: "10% unconditional rate for connected-country firms" }
+    - { ref: R3, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "0.0825*** to 0.1059*** across specifications", direction: positive, vsBenchmark: "baseline with state ownership, industry, and size centile fixed effects" }
+    - { ref: R4, outcome: probability that a large Italian firm remains among the 20 largest following the exogenous loss of political connections, metric: coefficient, value: "-0.0927*** (p = 0.009)", direction: negative, vsBenchmark: "pre-1944 connected firms vs. unconnected firms (DiD)" }
+    - { ref: R5, outcome: probability that an Italian firm is politically connected in 1911 (selection model for firm quality among connected firms), metric: coefficient, value: "ROE coeff. = -0.0267* (p = 0.087); M/B coeff. = 0.0168 (p = 0.592)", direction: negative, vsBenchmark: "unconnected Italian firms in 1911 selection model" }
+    - { ref: R6, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "0.0257* to 0.0384** (political connections)", direction: positive, vsBenchmark: "2.2% unconditional rate in 2000-2018 sample" }
+    - { ref: R7, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "PC x Openness coeff. = -0.0667*** (p = 0.002)", direction: negative, vsBenchmark: "closed-economy baseline (trade and capital flows both restricted)" }
+    - { ref: R8, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "GDP growth on fraction remaining large coeff. = -0.4628 (p = 0.021); implied 4.24 to 7.17 pp higher GDP growth absent political connections", direction: negative, vsBenchmark: "sample median per capita GDP growth of 26.98% (2001-2021)" }
+  resultType: confirms
+
   replicationCode:
     status: none
 
@@ -104,6 +115,22 @@ paper:
         omitted when not true per template rules); identification=natural-experiment,
         contributionType=[new-fact,new-data], introducesData=true, and data-scope
         all confirmed correct against PDF.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied - R5 outcome corrected from the
+        firm-survival outcome to the actual Table III Panel B dependent variable
+        (probability of being politically connected in 1911, a selection model);
+        all seven other magnitudes and directions confirmed correct against PDF.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13481

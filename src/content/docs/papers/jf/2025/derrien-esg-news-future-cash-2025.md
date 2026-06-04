@@ -62,6 +62,18 @@ paper:
     dataType: [market, accounting, text]
     granularity: [firm, security]
     n: "744,858 firm-months; 9,737 firms in 49 countries; 81,749 ESG incidents"
+  findings:
+    - { ref: R1, outcome: analyst EPS forecast revision, metric: coefficient, value: "Q1: -0.142*** (t=-2.09); one-year: -0.130*** (t=-3.08); two-year: -0.148*** (t=-3.76); three-year: -0.157*** (t=-4.18)", direction: negative }
+    - { ref: R2, outcome: analyst EPS forecast revision, metric: coefficient, value: "PTG: -0.168*** (t=-6.20); Return: -0.177*** (t=-5.08)", direction: negative }
+    - { ref: R3, outcome: analyst EPS forecast revision, metric: coefficient, value: "1 incident: -0.001 to -0.119 across horizons; 2+ incidents: -0.113 to -0.277 across horizons", direction: negative, vsBenchmark: "2+ incidents roughly twice as large as 1 incident" }
+    - { ref: R4, outcome: analyst EPS forecast revision, metric: coefficient, value: "S incidents one-year: -0.175*** (t=-4.23); G incidents one-year: -0.150*** (t=-3.13); E incidents one-year: -0.100 (t=-1.70, n.s.)", direction: mixed }
+    - { ref: R5, outcome: analyst EPS forecast revision, metric: coefficient, value: "Three-year/one-year ratio: 1.21 for ESG vs. 0.58 for average KD events; F-test p < 0.01", direction: positive, vsBenchmark: "ESG term structure ratio 1.21 vs. 0.58 for other negative corporate events" }
+    - { ref: R6, outcome: analyst sales forecast revision, metric: coefficient, value: "Sales one-year: -0.036*** (t=-3.81); two-year: -0.055*** (t=-4.75); gross margin one-year: -0.027** (t=-2.53)", direction: negative }
+    - { ref: R7, outcome: implied discount rate change, metric: coefficient, value: "Discount rate change -0.01% (t=-0.11, n.s.); forecast-implied value change -0.41% (t=-2.16); market return -0.30% (t=-1.84)", direction: none }
+    - { ref: R8, outcome: analyst EPS forecast revision, metric: coefficient, value: "Large-firm interaction 0.670*** (t=5.39)", direction: mixed, vsBenchmark: "small-firm effect roughly 0.67 pp larger than large-firm effect" }
+    - { ref: R9, outcome: realized firm earnings and sales, metric: coefficient, value: "Earnings [t-1 to t]: -0.088*** (t=-4.79); [t-1 to t+1]: -0.118*** (t=-4.79); Sales [t-1 to t+1]: -0.026*** (t=-6.66)", direction: negative }
+    - { ref: R10, outcome: analyst EPS forecast revision, metric: coefficient, value: "One-year: -0.002** (t=-2.84); two-year: -0.003*** (t=-3.56); three-year: -0.004*** (t=-3.98)", direction: negative, vsBenchmark: "analysts who downward-adjust after ESG incidents vs. those who do not" }
+  resultType: new-finding
   relatesTo:
     - { cite: "Glosner (2021)", relation: builds-on, note: "documents that negative ESG shocks predict negative future stock returns, suggesting underreaction; motivates studying the analyst channel" }
     - { cite: "Pedersen, Fitzgibbons & Pomorski (2021)", doi: '10.1016/j.jfineco.2020.11.001', relation: builds-on, note: "models the cash flow channel through which ESG information affects expected returns" }
@@ -111,6 +123,24 @@ paper:
         two channels explicitly tested in Sections III and VI; introducesData
         correctly absent; dataType [market, accounting, text] and n confirmed
         against p. 3508.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all ten entries confirmed correct against Tables
+        III-XIV (values, t-stats, signs, directions); R3 upper bound -0.119
+        reconciled against body text p. 3511 (authors write "approximately
+        -0.119", table shows -0.110 as the maximum - body text is the stated
+        magnitude, no change made); resultType new-finding consistent with
+        primarily novel analyst-expectations facts and no overturned prior.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13498
       checked: 2026-06-03

@@ -56,6 +56,12 @@ paper:
     dataType: [market, accounting]
     granularity: [aggregate, individual]
     n: "annual, 1930-2024 (returns and cashflows)"
+  findings:
+    - { ref: R1, outcome: "housing beta (stock-market beta of housing returns over decade-long holding periods)", metric: beta, value: "roughly -0.2 to 0 in 1960s-1990s; peaks near +1 around 2020", direction: mixed, vsBenchmark: "negative pre-GFC, positive post-GFC" }
+    - { ref: R2, outcome: "comovement of stock and housing returns", metric: correlation, value: "80% pre-GFC (1930-GFC subsample); 59% full sample (1939-2024)", direction: positive }
+    - { ref: R3, outcome: "return on levered housing", metric: beta, value: "below -1 during 1980s-1990s", direction: negative, vsBenchmark: "more negative than unlevered housing beta" }
+    - { ref: R4, outcome: "housing beta (stock-market beta of housing returns over decade-long holding periods)", metric: return-spread, value: "cross-sectional annualized capital gains span -40% to +60%; avg 6.7%/yr (San Francisco) vs 40 bp (Huntsville)", direction: mixed }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Piazzesi and Schneider (2016)', doi: '10.1016/bs.hesmac.2016.06.003', relation: builds-on, note: 'survey of the housing and macroeconomics literature that motivates studying stocks and housing jointly (p. 3103)' }
     - { cite: 'Piazzesi and Schneider (2007)', relation: builds-on, note: 'search model for momentum traders in housing; the current paper extends the heterogeneous-agent framework (p. 3111)' }
@@ -94,6 +100,24 @@ paper:
         market channel via asymmetric portfolio weights, not demand-based asset
         pricing) and added individual to scope.granularity (CoreLogic
         individual-house transaction data used in Figure 6 / R4).
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; one fix applied - R4 direction corrected from
+        positive to mixed (the idiosyncratic capital gains spread spans -40% to
+        +60% per year, not a unidirectional positive effect); R1/R2/R3 values
+        and directions confirmed against Figures 2-3 and p. 3108 text; resultType
+        new-finding confirmed consistent with all relatesTo edges being
+        builds-on or cites (no contradicts or replicates edge).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70000
       checked: 2026-06-03

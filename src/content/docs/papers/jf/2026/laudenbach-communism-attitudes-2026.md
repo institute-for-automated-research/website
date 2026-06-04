@@ -62,6 +62,19 @@ paper:
     granularity: [individual]
     n: "9,695 survey respondents; 326,437 bank customers; 839,292 investor-years (broker)"
 
+  findings:
+    - { ref: R1, outcome: stock market participation (extensive and intensive margin), metric: pp-effect, value: "Survey: 27.6 pp gap (East 26.9% vs. West 35.5%); bank: 25.2 pp gap; broker: 27.7 pp gap", direction: negative, vsBenchmark: "East vs. West Germans across three independent data sets" }
+    - { ref: R2, outcome: stock market participation (extensive and intensive margin), metric: coefficient, value: "Survey: -0.026*** (SE 0.009), effect size 8.4%; bank: -0.007*** (SE 0.001), 7.7%; broker: -0.156*** (SE 0.002), 19.1%", direction: negative, vsBenchmark: "residual gap after full set of demographic and financial controls" }
+    - { ref: R3, outcome: stock market participation (extensive and intensive margin), metric: coefficient, value: "Survey movers: -0.072*** (SE 0.026) all Germans; -0.075** (SE 0.029) West Germans only", direction: negative, vsBenchmark: "East movers living in West vs. West Germans in same environment" }
+    - { ref: R4, outcome: anti-capitalist attitudes toward capital markets, metric: pp-effect, value: "Survey: -1.9 pp financial firms, -1.9 pp U.S. firms, +5.9 pp Chinese firms; broker: -4.9 pp financial firms***, -1.9 pp U.S. firms***, +0.4 pp East European firms***", direction: mixed, vsBenchmark: "capitalist vs. formerly communist firm stock holdings, East vs. West" }
+    - { ref: R5, outcome: stock market participation (extensive and intensive margin), metric: coefficient, value: "Reject stocks: -0.103*** (SE 0.004); Investing immoral: -0.070*** (SE 0.006); Abolish capitalism: -0.020*** (SE 0.005)", direction: negative, vsBenchmark: "within East Germany, anti-capitalist attitude quartiles vs. neutral" }
+    - { ref: R6, outcome: stock market participation (extensive and intensive margin), metric: coefficient, value: "Pollution: +0.058*** (SE 0.009); No West-TV: +0.090*** (SE 0.016); Renamed city: -0.169*** (SE 0.010); Olympic gold (pop-weighted): -0.044*** (SE 0.006)", direction: mixed, vsBenchmark: "negative vs. positive GDR experience proxies within East Germany" }
+    - { ref: R7, outcome: stock market participation (extensive and intensive margin), metric: coefficient, value: "High GDR life standard: -0.032*** (SE 0.008); Wishing GDR back: -0.062*** (SE 0.016); Positive GDR memories: -0.050*** (SE 0.019)", direction: negative, vsBenchmark: "positive vs. neutral GDR memories within East German survey subsample" }
+    - { ref: R8, outcome: portfolio returns and portfolio characteristics, metric: alpha, value: "CAPM alpha: -0.082** (SE 0.040); FF3 alpha: -0.070* (SE 0.040); FF4 alpha: -0.099** (SE 0.041) per month", direction: negative, vsBenchmark: "long East short West portfolio vs. zero alpha (CAPM, FF3, FF4)" }
+    - { ref: R9, outcome: portfolio returns and portfolio characteristics, metric: coefficient, value: "Passive investments: -0.017*** (SE 0.002), 44.7% lower relative to baseline; number of assets: -33.1%; fund fees: +3.78% higher", direction: negative, vsBenchmark: "East vs. West German investors, same broker controls" }
+    - { ref: R10, outcome: stock market participation (extensive and intensive margin), metric: t-stat, value: "East 66.7% vs. West 68.2%; t-statistic: 0.34, not significant", direction: none, vsBenchmark: "pre-1924 historical bank data, before Germany's division" }
+  resultType: new-finding
+
   relatesTo:
     - { cite: "Fuchs-Schundeln & Haliassos (2021)", relation: extends, note: "prior paper documents the East-West participation gap; this paper shows a significant residual ~10 pp gap with richer controls and explains it via ideology" }
     - { cite: "Malmendier & Nagel (2011)", doi: '10.1093/qje/qjq004', relation: builds-on, note: "experience-effects framework: lifetime returns shape stock market participation; this paper applies the logic to ideological rather than financial experiences" }
@@ -111,6 +124,24 @@ paper:
         III), introducesData true per fielded Bilendi survey + proprietary bank
         and broker data, and all scope fields match Table I counts and dataset
         descriptions.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all 10 findings entries confirmed correct -
+        magnitudes match Table III (R1/R2), Table IV (R3), Table V (R4),
+        Table VI (R5), Table VII (R6), Table VIII (R7), Table IX Panel A (R8)
+        and Panel B (R9), and pp. 1116-1117 text (R10); directions and
+        resultType new-finding are defensible given the ideology-mechanism
+        finding is genuinely new with no prior to confirm or overturn.
 
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70006

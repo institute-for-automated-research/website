@@ -62,6 +62,33 @@ paper:
     - 'Whether the model results extend naturally to other ESG dimensions (social, governance) beyond the environmental carbon externality, which the paper discusses but does not formally develop (p. 568).'
     - 'How emission-based capital taxes could be implemented in practice, since such taxes do not currently exist and would likely face political and legal barriers (p. 591).'
 
+  findings:
+    - ref: R5
+      outcome: firm cost of capital (sustainable discount rate)
+      metric: pp-effect
+      value: 0.19 pp (market-value-weighted average; scope-1 only)
+      direction: positive
+      vsBenchmark: above baseline normal rate r = 5%
+    - ref: R6
+      outcome: firm cost of capital (sustainable discount rate)
+      metric: pp-effect
+      value: 3.2 pp average (scope 1 baseline calibration); 8.0 pp (alternative calibration)
+      direction: positive
+      vsBenchmark: above baseline normal rate r = 5% for brown electricity sector
+    - ref: R7
+      outcome: cross-sectional implied cost of capital
+      metric: coefficient
+      value: slope = 4 $/tCO2 (emission-to-value ratio regressed on implied cost of capital)
+      direction: positive
+      vsBenchmark: far below social cost of carbon (43 $/tCO2 Nordhaus baseline)
+    - ref: R8
+      outcome: carbon offset market price
+      metric: pp-effect
+      value: effective carbon tax reduced to ~10% of intended level for low-quality offsets
+      direction: negative
+      vsBenchmark: below intended carbon tax level
+  resultType: new-finding
+
   replicationCode:
     status: available
 
@@ -104,6 +131,22 @@ paper:
         externality is the primary channel; taxes is the instrument, not the
         friction; externality proposed in proposedVocab), and scope.dataType
         extended to [market, accounting, other] to cover Trucost emissions data.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all four entries confirmed correct - R5 0.19 pp
+        (p.584), R6 3.2 pp / 8.0 pp (pp.564, 587 eq.27), R7 slope=4 (pp.564-565),
+        R8 ~10% of intended level (p.600) all match the PDF; directions and
+        resultType new-finding are defensible; no fixes required.
   rightsSignalConflict: false
 ---
 

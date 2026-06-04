@@ -55,6 +55,15 @@ paper:
     - 'Whether the overcompensation and discouragement effects are empirically distinguishable using observational data on promotion gaps across different career tracks; the paper derives the predictions but notes identifying subtle versus overt discrimination empirically is difficult (pp. 359-361).'
     - 'How the model extends to cases where the skill is general (not firm-specific) and agents can move across employers; Internet Appendix Sections II-III present partial extensions but the full treatment is left for future work (p. 339, footnote).'
     - 'Whether the quota analysis in Internet Appendix Section XI fully captures the welfare effects of affirmative action under subtle discrimination; the paper notes ambiguous Pareto effects remain (p. 355).'
+  findings:
+    - { ref: R1, outcome: skill investment level by each agent, metric: coefficient, value: "e*_b = [σ(0.5 − β) + 2βσ²(0.5 + β)] / (1 + 4β²σ²); corner solution e*_b = 1 if σ > σ̄(β)", direction: positive }
+    - { ref: R2, outcome: skill investment level by each agent, metric: coefficient, value: "e*_r ≥ e*_b if and only if σ ≤ 1 (symmetric-cost case)", direction: mixed, vsBenchmark: "investment comparison between unfavored (Red) and favored (Blue) agents; sign flips at σ = 1" }
+    - { ref: R3, outcome: promotion probability gap between favored and unfavored agents, metric: coefficient, value: "Δp first decreases then increases with σ; U-shaped in σ", direction: mixed, vsBenchmark: "vs Lazear-Rosen (1990) prediction of small promotion gaps in high-stakes jobs" }
+    - { ref: R4, outcome: firm profits under endogenous bias, metric: coefficient, value: "β*(θ) = 0.5 for low θ; β*(θ) = 0 for high θ; threshold θ' ≈ 2.62", direction: mixed, vsBenchmark: "vs zero-bias (unbiased) firm benchmark" }
+    - { ref: R5, outcome: firm profits under endogenous bias, metric: coefficient, value: "β(θ) = 0.5 if θ ∈ (0, θ'], β(θ) = 0 if θ ∈ [θ', θ̄]", direction: mixed, vsBenchmark: "optimal bias policy vs arbitrary fixed bias" }
+    - { ref: R6, outcome: skill investment level by each agent, metric: coefficient, value: "e*_r ≥ e*_b if and only if σ ≤ 1/(1 − δ); overcompensation requires excess subtle bias ε ≡ β − δ/2 > 0", direction: mixed, vsBenchmark: "overcompensation threshold under overt bias δ vs pure subtle bias baseline" }
+    - { ref: R7, outcome: skill investment level by each agent, metric: coefficient, value: "e*_r = σ(1 − δ)(1 − a(1 − β)); female analysts invest more in accuracy than male under subtle bias", direction: positive, vsBenchmark: "female (Red) analyst accuracy vs male (Blue) analyst accuracy" }
+  resultType: overturns
   extraction:
     - by: paper-distiller (claude-sonnet-4-6)
       date: 2026-05-31
@@ -92,6 +101,23 @@ paper:
         removed from mechanisms - the paper's named channels are discouragement and
         overcompensation effects, both driven by biased agency rather than an
         adverse-selection or signaling friction; agency retained as sole mechanism.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R5 direction corrected from positive to mixed
+        (Prop. 7 eq. 15 shows optimal bias flips between 0.5 and 0 across theta,
+        not a uniformly positive effect); R1-R4, R6-R7 confirmed correct; R8
+        qualitative row correctly has no finding entry; resultType overturns
+        consistent with contradicts edge to Lazear and Rosen (1990).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13506
       checked: 2026-05-31

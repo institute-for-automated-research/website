@@ -57,6 +57,16 @@ paper:
     dataType: [administrative, accounting]
     granularity: [firm, transaction]
     n: "207,505 distinct firm TINs; 4,496,353 loan facility observations"
+  findings:
+    - { ref: R1, outcome: bank term lending to small firms, metric: coefficient, value: "committed credit $2,231B; used credit $941B; ratio 2.37x; top 10% hold 71% of undrawn credit", direction: positive }
+    - { ref: R2, outcome: bank term lending to small firms, metric: coefficient, value: "96% of 2020:Q1 credit increase flowed to top 10% firms; large firms' credit line drawdowns explain 77% of total increase", direction: positive }
+    - { ref: R3, outcome: bank term lending to small firms, metric: coefficient, value: "-1.96 (SE 0.72) baseline; -2.28 (SE 0.65) extended maturity FE; -2.74 (SE 0.93) loan purpose FE; -3.63 at h=2", direction: negative }
+    - { ref: R4, outcome: bank term lending to small firms, metric: coefficient, value: "-3.05 (SE 1.05) on delta CL Usage; interaction with Cap-Buffer +1.25 (SE 0.36)", direction: negative }
+    - { ref: R5, outcome: total firm debt, metric: coefficient, value: "-2.63 (SE 0.69) all firms; -2.61 (SE 0.68) small firms; 0.97 (SE 5.72) large firms", direction: mixed, vsBenchmark: "small firms negative, large firms null" }
+    - { ref: R6, outcome: firm capital expenditures, metric: coefficient, value: "IV beta_capex 0.03 (SE 0.01) small firms; IV beta_cash 0.07 (SE 0.01) small firms; large firms not significant", direction: positive, vsBenchmark: "large firms null" }
+    - { ref: R7, outcome: aggregate investment, metric: pp-effect, value: "investment at t=1: -3.3% Credit Lines vs -1.9% Term Loans; 74% larger decline", direction: negative, vsBenchmark: "Term Loans counterfactual economy" }
+    - { ref: R8, outcome: aggregate investment, metric: pp-effect, value: "investment decline 3.2 pp more without intervention in Credit Lines economy vs 0.6 pp more in Term Loans economy", direction: positive, vsBenchmark: "Term Loans counterfactual economy without Fed SMCCF" }
+  resultType: new-finding
   relatesTo:
     - { cite: 'Khwaja and Mian (2008)', doi: '10.1257/aer.98.4.1413', relation: builds-on, note: 'firm fixed effect approach to isolate credit supply shifts, applied here to the bank-firm Y14 panel' }
     - { cite: 'Ivashina and Scharfstein (2010)', doi: '10.1016/j.jfineco.2009.12.001', relation: extends, note: 'similar drawdown pattern in the 2007-09 crisis; this paper provides actual drawdown measures and crowding-out regressions' }
@@ -103,6 +113,23 @@ paper:
         identification from 'instrument' to 'natural-experiment' (primary design
         is the Khwaja-Mian COVID-19 bank-firm FE natural experiment, pp.3150-3151;
         IV in eqs.3-5 is secondary); all other axes confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; R1-R2 confirmed (Table I p.3144, Figure 5 p.3149);
+        R3 value string corrected (col 2 extended-maturity-FE = -2.28 SE 0.65 was
+        missing; -2.74 SE 0.93 is col 3 loan-purpose FE, not "extended FE");
+        R4-R8 confirmed (Tables IV-V pp.3155-3157, Figure 7 p.3175, IA Figure IA.6
+        p.3176); resultType new-finding defensible given headline contribution.
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.13486
       checked: 2026-06-03

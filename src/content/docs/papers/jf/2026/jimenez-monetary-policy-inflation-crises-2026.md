@@ -79,6 +79,19 @@ paper:
     - "Why policymakers cut monetary rates over extended periods, potentially creating financial vulnerabilities, and how the interaction between monetary policy dynamics and other policies (banking supervision, macroprudential regulation) influences crisis risk (p. 966)."
     - "Whether the findings generalize to the most recent 2022-2023 rate-hiking cycle, where the economy was not in a red zone prior to hikes because the boom following COVID-era cuts was shorter than in typical pre-crisis episodes (implied by discussion on pp. 958, 966)."
 
+  findings:
+    - { ref: R1, outcome: systemic banking crisis probability, metric: coefficient, value: "U-shape 55% conditional vs 27% unconditional; 100% for post-WWII deep crises", direction: positive }
+    - { ref: R2, outcome: systemic banking crisis probability, metric: pp-effect, value: "18% three-year crisis frequency vs 10% unconditional; deep crisis 12% vs 1-4%", direction: positive, vsBenchmark: "above unconditional crisis base rate" }
+    - { ref: R3, outcome: systemic banking crisis probability, metric: coefficient, value: "interaction = 0.03** (s.e. 0.01); sum of coefficients approx 0.09", direction: positive }
+    - { ref: R4, outcome: systemic banking crisis probability, metric: coefficient, value: "IV interaction = 0.07** (s.e. 0.03); sum approx 0.10-0.12", direction: positive }
+    - { ref: R5, outcome: systemic banking crisis probability, metric: coefficient, value: "recession regression interaction = 0.02 (s.e. 0.01), insignificant", direction: none }
+    - { ref: R6, outcome: credit and asset price growth (financial red zone), metric: pp-effect, value: "residual U + red zone = 45% crisis frequency vs 36% any U + red zone", direction: positive, vsBenchmark: "above any-U-shape plus red zone base" }
+    - { ref: R7, outcome: credit and asset price growth (financial red zone), metric: coefficient, value: "R-zone x rate hike = 0.18*** (OLS, s.e. 0.05) to 0.38*** (IV, s.e. 0.15)", direction: positive }
+    - { ref: R8, outcome: loan-level default probability, metric: coefficient, value: "Cut = 4.80** (col. 2); Cut x Bank NPL ratio = 2.62** (col. 3)", direction: positive }
+    - { ref: R9, outcome: bank profitability and loan losses, metric: basis-points, value: "Cut = -0.20*** (col. 1); Cut x Bank NPL ratio = -0.13*** to -0.32*** (cols. 2-5)", direction: negative, vsBenchmark: "below baseline cost of debt without cuts" }
+    - { ref: R10, outcome: loan-level default probability, metric: coefficient, value: "Delta_3Rate x Cut = 0.005*** (col. 3); quadruple interaction = 0.005*** (col. 6)", direction: positive }
+  resultType: overturns
+
   replicationCode:
     status: available
 
@@ -124,6 +137,22 @@ paper:
         financing-constraint wedge); identification instrument, contributionType
         [new-fact], introducesData absent, and data-scope fields all confirmed
         correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all ten findings[] values and directions confirmed
+        correct against Tables I-XII; one fix applied: resultType changed from
+        new-finding to overturns, consistent with the contradicts edge to Grimm
+        et al. (2023) per template rule (contradicts headline -> overturns).
   licenceVerification:
     - source: Crossref REST API works/10.1111/jofi.70023
       checked: 2026-06-01

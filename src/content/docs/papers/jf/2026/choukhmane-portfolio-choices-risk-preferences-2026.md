@@ -52,6 +52,52 @@ paper:
     dataType: [administrative, survey]
     granularity: [individual]
     n: "~4 million employees, >600k 401(k) plans; quasi-experiment #1: 2,407 investors at 6 firms; quasi-experiment #2: 92,737 investors at 191 firms"
+  findings:
+    - ref: R1
+      outcome: stock market participation rate in retirement accounts
+      metric: pp-effect
+      value: "lower bound 42%, upper bound 95%; at tenure 2 years: 78%–95%"
+      direction: positive
+    - ref: R2
+      outcome: stock market participation rate in retirement accounts
+      metric: pp-effect
+      value: "94% preferred participation; 76% preferred equity share (at tenure 3)"
+      direction: positive
+    - ref: R3
+      outcome: portfolio equity share
+      metric: pp-effect
+      value: "preferred share ~80% at age 25, declining to ~60% at age 60"
+      direction: positive
+      vsBenchmark: "above observed hump-shaped equity share at all ages"
+    - ref: R4
+      outcome: portfolio equity share
+      metric: pp-effect
+      value: "SCF 27%; not-auto-enrolled 401(k) 40%; auto-enrolled TDF 80%; friction-free estimate 76%"
+      direction: negative
+      vsBenchmark: "observed share well below friction-free preference estimate of 76%"
+    - ref: R5
+      outcome: structural preference parameters (relative risk aversion, EIS, adjustment costs)
+      metric: coefficient
+      value: "gamma=2.54 (SE 0.09); beta=0.94 (SE 0.001); EIS=0.253 (SE 0.018)"
+      direction: positive
+    - ref: R6
+      outcome: structural preference parameters (relative risk aversion, EIS, adjustment costs)
+      metric: coefficient
+      value: "portfolio adjustment cost $156 (SE $6.01); contribution adjustment cost $488 (SE $16.60)"
+      direction: positive
+    - ref: R7
+      outcome: structural preference parameters (relative risk aversion, EIS, adjustment costs)
+      metric: coefficient
+      value: "frictionless model: gamma=18.94 (control data) vs gamma=2.25 (TDF data)"
+      direction: mixed
+      vsBenchmark: "frictionless model produces implausibly heterogeneous RRA vs baseline gamma=2.54"
+    - ref: R8
+      outcome: stock market participation rate in retirement accounts
+      metric: pp-effect
+      value: "treatment-control gap 19-25 pp in participation rate, 20-23 pp in equity share of retirement wealth"
+      direction: positive
+      vsBenchmark: "TDF default vs money-market default"
+  resultType: confirms
   relatesTo:
     - { cite: 'Goldin and Reck (2020)', doi: '10.1086/706860', relation: extends, note: 'extends their revealed-preference framing framework from binary savings to continuous portfolio-share decisions (pp. 7, 18)' }
     - { cite: 'Choukhmane (2025)', doi: '10.1257/aer.20210881', relation: builds-on, note: 'life-cycle model extends his consumption-saving DC model to include multiple assets and portfolio choice (p. 29)' }
@@ -113,6 +159,21 @@ paper:
         fixed adjustment costs), staged in proposedVocab; all other axes
         (identification natural-experiment, contributionType, introducesData
         absent, data-scope) confirmed correct.
+    - by: paper-distiller (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: extracted
+      note: >-
+        Added the effectiveness axis (findings[] per Core-results row,
+        resultType) built from the page's already-verified Core-results table and
+        relatesTo edges; existing results and sections unchanged.
+    - by: paper-verifier (claude-sonnet-4-6)
+      date: 2026-06-04
+      role: verified
+      note: >-
+        Effectiveness axis (findings[] values/direction, resultType) re-checked
+        against the source PDF; all eight entries confirmed correct against
+        Table III (p. 41), Figures 4/6/7 (pp. 22/26/27), and p. 16/24 text
+        with no mismatches found.
   rightsSignalConflict: false
 ---
 
