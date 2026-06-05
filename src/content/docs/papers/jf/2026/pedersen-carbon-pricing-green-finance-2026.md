@@ -32,6 +32,7 @@ paper:
   outcome:
     - firm cost of capital (sustainable discount rate)
     - cross-sectional implied cost of capital
+  outcomeClass: [firm-financing, social-welfare]
   doi: 10.1111/jofi.70022
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2026-02-08; corroborated by artifact p.561 Creative Commons Attribution License notice)'
   access: open

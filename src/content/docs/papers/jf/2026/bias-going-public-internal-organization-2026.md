@@ -36,6 +36,7 @@ paper:
     - number of hierarchical layers in the firm
     - employment shares by organizational function
     - job standardization (promotion levels aligned to industry job ladders)
+  outcomeClass: [firm-real-outcomes]
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-12-09; corroborated by artifact p.459 Creative Commons Attribution License statement and Projekt DEAL acknowledgment)'
   access: open
   machineAccess: 'blocked-paywall (Wiley site wrapper; canonical DOI resolves to paywalled landing page; the paywalled wrapper does not override the CC BY VOR licence in the publisher DOI metadata; checked 2026-05-31)'

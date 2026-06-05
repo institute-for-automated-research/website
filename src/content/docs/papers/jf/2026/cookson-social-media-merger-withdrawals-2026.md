@@ -33,6 +33,7 @@ paper:
   outcome:
     - merger withdrawal probability
     - acquirer buy-and-hold abnormal return post-announcement
+  outcomeClass: [firm-dynamics, security-returns]
   doi: 10.1111/jofi.13508
   license: 'Paywalled (confirmed via Crossref DOI metadata 2026-05-31: license[0] content-version=vor URL=http://onlinelibrary.wiley.com/termsAndConditions#vor delay-in-days=0 start=2025-11-25; license[1] content-version=tdm URL=http://doi.wiley.com/10.1002/tdm_license_1.1; no Creative Commons licence present; artifact cover: © 2025 the American Finance Association)'
   access: paywalled

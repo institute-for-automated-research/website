@@ -33,6 +33,7 @@ paper:
     - non-student debt balances and delinquency rates
     - geographic and job mobility
     - borrower income
+  outcomeClass: [household-finance]
   doi: 10.1111/jofi.70002
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-12-14; corroborated by artifact p.507 Creative Commons Attribution License)'
   access: open

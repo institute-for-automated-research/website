@@ -41,6 +41,7 @@ paper:
     - gross margin forecast revision
     - implied discount rate change
     - realized firm earnings and sales
+  outcomeClass: [expectations, firm-real-outcomes]
   license: >-
     Paywalled (Wiley VOR terms and conditions; license[] content-version=vor,
     URL=http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days=0,

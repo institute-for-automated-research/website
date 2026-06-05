@@ -38,6 +38,7 @@ paper:
     - optimal loss-realization timing under saving and leverage
     - disposition effect strength
     - stock allocation (saving vs. leverage fraction)
+  outcomeClass: [household-finance]
   methods:
     role: theory
     contributes: realization-utility-saving-leverage

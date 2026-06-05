@@ -37,6 +37,7 @@ paper:
     - MBS secondary market price (percentage of par value)
     - mortgage quality at origination (LTV, borrower type, loan-to-fundamental ratio)
     - merchant bank trading volume post-bust
+  outcomeClass: [asset-prices, credit-risk]
   license: 'CC BY-NC-ND 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by-nc-nd/4.0/, delay-in-days 0, start 2025-10-06; corroborated by artifact p.3263 CC Attribution-NonCommercial-NoDerivs notice)'
   licenseShort: CC BY-NC-ND 4.0
   access: open
@@ -66,7 +67,7 @@ paper:
     - { ref: R3, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "17.46*** (t = 5.10)", direction: positive, vsBenchmark: "high-rep MBS vs low-rep MBS price at auction" }
     - { ref: R4, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "continuous office value 24.25*** (t = 5.14)", direction: positive, vsBenchmark: "alternative continuous reputation measure vs binary high-rep dummy" }
     - { ref: R5, outcome: MBS secondary market price (percentage of par value), metric: pp-effect, value: "joint ACME 10.29 (p = 0.10); mediators explain 73% of 17.46 pp gap", direction: positive, vsBenchmark: "mortgage characteristics as mediators vs direct reputation effect" }
-    - { ref: R6, outcome: MBS secondary market price (percentage of par value), metric: return-spread, value: "boom approx. 6 pp; bust 1778 approx. 35 pp", direction: positive, vsBenchmark: "high-rep vs low-rep MBS price gap across boom and bust periods" }
+    - { ref: R6, outcome: MBS secondary market price (percentage of par value), metric: pp-effect, value: "boom approx. 6 pp; bust 1778 approx. 35 pp", direction: positive, vsBenchmark: "high-rep vs low-rep MBS price gap across boom and bust periods" }
     - { ref: R7, outcome: MBS secondary market price (percentage of par value), metric: coefficient, value: "short-run focus direct coeff -9.34*** (se = 3.09); short-run focus x office value -28.22* (se = 14.84); married-into-wealth x office value -24.80* (se = 12.38)", direction: negative, vsBenchmark: "reputation effect attenuated for bankers with short-run focus or married into wealth" }
     - { ref: R8, outcome: merchant bank trading volume post-bust, metric: pp-effect, value: "59% lower post-1770 ABE trading volume for below-median MBS performers", direction: negative, vsBenchmark: "below-median vs above-median MBS performers in post-1770 ABE trading volume" }
   resultType: overturns

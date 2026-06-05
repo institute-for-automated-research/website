@@ -11,7 +11,9 @@
 #   into this file and rewrites pages to the canonical term.
 # - Topic and method TAGS are governed separately by wiki-page/SKILL.md +
 #   TagIndex.astro. This registry governs `methods.family`,
-#   `methods.buildsFrom`, and `mechanisms` (the economic-channel axis).
+#   `methods.buildsFrom`, `mechanisms` (the economic-channel axis),
+#   `findings[].metric` (the `metrics:` section), and `paper.outcomeClass`
+#   (the `outcome-classes:` section).
 
 family: # methods.family: the method class (also enum-backed in content.config.ts)
   ml:
@@ -306,3 +308,92 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   debt-overhang:
     def: Outstanding debt distorts a borrower's or firm's effort and investment decisions because a fraction of future income or returns accrues to creditors rather than the agent.
     aliases: [debt-burden-distortion, student-debt-overhang]
+
+metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
+  # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
+  # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
+  # here as non-canonical so fragmentation stays visible.
+  coefficient:
+    def: Regression slope on the regressor of interest; sign and significance as reported. The catch-all when the headline number is a panel/cross-sectional coefficient.
+  pp-effect:
+    def: Effect expressed in percentage points of the outcome (a level change, not a coefficient on a continuous regressor).
+    aliases: [percentage-point-effect, ppt-effect]
+  basis-points:
+    def: Effect, spread, or rate difference expressed in basis points.
+    aliases: [bps, basis-point-effect]
+  alpha:
+    def: Risk-adjusted abnormal return (intercept) against a factor model.
+    aliases: [abnormal-return, jensen-alpha]
+  return-spread:
+    def: Long-short, high-minus-low, or between-group spread of a return, premium, yield, or price, from a portfolio sort or two-group comparison. Use a unit metric (basis-points, pp-effect) instead when the spread is reported purely in those units, and coefficient / sd-effect for a spread of a non-price quantity (a share, score, or characteristic).
+    aliases: [long-short-return, hml-spread]
+  car:
+    def: Cumulative abnormal return over an event window.
+    aliases: [cumulative-abnormal-return]
+  sharpe-ratio:
+    def: Ratio of mean excess return to its standard deviation.
+    aliases: [sr]
+  beta:
+    def: Factor loading / regression beta on a risk factor.
+    aliases: [factor-loading]
+  r-squared:
+    def: In-sample fraction of variance explained.
+    aliases: [r2]
+  oos-r-squared:
+    def: Out-of-sample R-squared against a benchmark forecast (Campbell-Thompson / Clark-West).
+    aliases: [oos-r2, out-of-sample-r-squared]
+  correlation:
+    def: Pairwise correlation or comovement coefficient.
+    aliases: [comovement]
+  elasticity:
+    def: Percent response of the outcome to a percent change in the driver.
+  sd-effect:
+    def: Effect expressed in standard deviations of the outcome (a standardized effect size, or effect per 1-SD change in the driver).
+    aliases: [standardized-effect]
+  t-stat:
+    def: Reported t-statistic standing in for the magnitude; use only when no point estimate is the headline number.
+    aliases: [t-statistic]
+  hazard-ratio:
+    def: Ratio of hazard rates in a survival / duration model.
+    aliases: [odds-ratio]
+  probability:
+    def: A probability, rate, proportion, or share of a binary or count outcome (a level in [0,1] or a percent), including survival / mortality rates.
+    aliases: [proportion, share, rate, survival-milestone, frequency]
+  level:
+    def: A level or volume in natural units (a currency amount, a count, a dollar volume), where the headline number is the magnitude itself rather than an effect or ratio.
+    aliases: [volume, inflow-volume, dollar-amount]
+
+outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
+  # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
+  # `topics`. `outcome[]` keeps the precise phrasing (provenance); outcomeClass is
+  # the controlled axis that makes "what is being explained" queryable across the
+  # corpus. Assign 1-3 from the abstract / Core-results table. meta.mjs flags any
+  # value not listed here.
+  security-returns:
+    def: Realized or expected returns on securities - cross-sectional or aggregate stock/bond/currency returns, alphas, Sharpe ratios, factor and anomaly premia, abnormal/event returns (CAR), and return predictability.
+  asset-prices:
+    def: Price levels, yields, spreads, valuation ratios, and exchange-rate levels (the price or spread itself, not its return) - credit spreads, arbitrage spreads, bond yields, price-dividend ratios, MBS prices.
+  firm-real-outcomes:
+    def: Real firm outcomes - investment and capital expenditure, hiring and employment, earnings and sales, organizational structure, and the firm's labor share.
+  firm-financing:
+    def: Firm capital structure and the cost or terms of finance from the issuer/borrower side - debt levels, leverage, cost of capital, payout, and the loan rates and markups a borrower pays.
+  credit-supply:
+    def: Lender-side credit provision - bank lending volumes, loan approval and amount, monitoring intensity, and aggregate credit growth.
+  credit-risk:
+    def: Realized or expected credit deterioration - default and delinquency probabilities, covenant violations, supervisory ratings, and banking-crisis probability.
+  bank-funding:
+    def: Intermediary funding and liquidity - deposit flows and composition, reserves, payment-system flows, and money-fund portfolio weights.
+  household-finance:
+    def: Household balance-sheet outcomes - stock-market participation, household portfolio shares and trading, mortgage rates paid and overpayment, and household debt, income, and mobility.
+  fund-behavior:
+    def: Institutional and fund behavior and performance - fund flows, trading, returns and value-add, ESG loadings, and institutional portfolio tilts.
+  expectations:
+    def: Beliefs, forecasts, and survey expectations - analyst forecast revisions and survey-based return or inflation expectations.
+  macro-aggregates:
+    def: Economy-wide aggregates and prices of aggregate risk - aggregate consumption, output and investment, the equity premium, the riskless rate, and the term premium.
+  firm-dynamics:
+    def: Firm survival and market structure - persistence among the largest firms, entry and exit, mergers and withdrawals, and concentration.
+  labor-careers-health:
+    def: Outcomes for executives and workers - health, aging and mortality, careers, promotions and discrimination, skill investment, and the design of compensation and incentives.
+  social-welfare:
+    def: Welfare and social-impact outcomes - corporate social impact, welfare losses, and ESG / carbon impact measures.

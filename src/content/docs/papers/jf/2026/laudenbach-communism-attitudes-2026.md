@@ -37,6 +37,7 @@ paper:
     - stock market participation (extensive and intensive margin)
     - anti-capitalist attitudes toward capital markets
     - portfolio returns and portfolio characteristics
+  outcomeClass: [household-finance]
   license: >-
     Paywalled. Crossref license[]: content-version vor,
     URL http://onlinelibrary.wiley.com/termsAndConditions#vor,

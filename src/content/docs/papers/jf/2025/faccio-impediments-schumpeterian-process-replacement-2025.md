@@ -35,6 +35,7 @@ paper:
   outcome:
     - probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018
     - probability that a large Italian firm remains among the 20 largest following the exogenous loss of political connections
+  outcomeClass: [firm-dynamics]
   license: >-
     CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0,
@@ -79,7 +80,7 @@ paper:
     - "Whether the results generalize to countries and periods outside the samples analyzed, in particular to the post-2018 era (p. 3396)."
 
   findings:
-    - { ref: R1, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: proportion, value: "13.6% unconditional survival rate (1,115 firms, 60 countries)", direction: none }
+    - { ref: R1, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: probability, value: "13.6% unconditional survival rate (1,115 firms, 60 countries)", direction: none }
     - { ref: R2, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "0.0959** (p = 0.018)", direction: positive, vsBenchmark: "10% unconditional rate for connected-country firms" }
     - { ref: R3, outcome: probability that a large firm circa 1910 (or 2000) remains among the 20 largest in its country in 2018, metric: coefficient, value: "0.0825*** to 0.1059*** across specifications", direction: positive, vsBenchmark: "baseline with state ownership, industry, and size centile fixed effects" }
     - { ref: R4, outcome: probability that a large Italian firm remains among the 20 largest following the exogenous loss of political connections, metric: coefficient, value: "-0.0927*** (p = 0.009)", direction: negative, vsBenchmark: "pre-1944 connected firms vs. unconnected firms (DiD)" }

@@ -35,6 +35,7 @@ paper:
     - daily fund trading response around private meetings
     - probability of buy or sell trade following a meeting
     - risk-adjusted portfolio return (alpha) from meeting-informed trades
+  outcomeClass: [fund-behavior, security-returns]
   license: >-
     CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0,
@@ -73,7 +74,7 @@ paper:
     - { ref: R7, outcome: probability of buy or sell trade following a meeting, metric: coefficient, value: "All event-time coefficients indistinguishable from zero; 17 of 4,700 meetings flagged MNPI", direction: none }
     - { ref: R8, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: alpha, value: "FM LS: 1.983**% /month; GS LS: 0.828 (n.s.); All LS: 1.802**% /month", direction: positive }
     - { ref: R9, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: basis-points, value: "FM: 19 bps (fast) / 6 bps (slow); GS: 7 / -1 bps; All: 15 / 4 bps", direction: positive }
-    - { ref: R10, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: return-spread, value: "FM LS: 213 bps (day 20), 314 bps (day 40); GS LS: 121 / 128 bps; No-meeting LS: 30 / 52 bps", direction: positive, vsBenchmark: "FM LS vs no-meeting LS (30/52 bps)" }
+    - { ref: R10, outcome: risk-adjusted portfolio return (alpha) from meeting-informed trades, metric: basis-points, value: "FM LS: 213 bps (day 20), 314 bps (day 40); GS LS: 121 / 128 bps; No-meeting LS: 30 / 52 bps", direction: positive, vsBenchmark: "FM LS vs no-meeting LS (30/52 bps)" }
   resultType: new-finding
   relatesTo:
     - { cite: 'Bradley, Jame & Williams (2022)', relation: builds-on, note: 'follows their methodology for constructing long-short meeting portfolios; extends it with actual meeting notes and daily trade data' }

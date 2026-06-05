@@ -33,6 +33,7 @@ paper:
     - cross-sectional stock returns
     - out-of-sample Sharpe ratio of managed portfolios
     - SDF alpha against leading factor models
+  outcomeClass: [security-returns]
   doi: 10.1111/jofi.13477
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-09-02; corroborated by artifact p.2447 Creative Commons Attribution License notice)'
   access: open

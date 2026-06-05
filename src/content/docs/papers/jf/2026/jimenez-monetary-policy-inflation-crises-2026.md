@@ -39,6 +39,7 @@ paper:
     - loan-level default probability
     - bank profitability and loan losses
     - credit and asset price growth (financial red zone)
+  outcomeClass: [credit-risk, credit-supply]
   license: >-
     CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0,

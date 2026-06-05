@@ -40,6 +40,7 @@ paper:
     - aggregate stock market excess return
     - in-pocket vs out-of-pocket return predictability
     - market-timing alpha
+  outcomeClass: [security-returns]
 
   # --- methodological identity ---
   methods:

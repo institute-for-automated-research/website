@@ -29,6 +29,7 @@ paper:
     - ILSBEI differential (inflation-linked swap rate minus breakeven inflation rate)
     - nominal Treasury yields
     - TIPS yields
+  outcomeClass: [asset-prices]
   resultsCount: 8
   citedByCount: 0
   jel:

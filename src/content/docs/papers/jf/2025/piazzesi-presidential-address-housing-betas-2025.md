@@ -34,6 +34,7 @@ paper:
     - comovement of stock and housing returns
     - price-dividend ratios for stocks and housing
     - return on levered housing
+  outcomeClass: [asset-prices, security-returns]
   license: >-
     Wiley VOR terms (http://onlinelibrary.wiley.com/termsAndConditions#vor);
     confirmed via Crossref DOI metadata content-version vor, delay-in-days 0,

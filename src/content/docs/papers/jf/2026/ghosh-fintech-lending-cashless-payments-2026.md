@@ -34,6 +34,7 @@ paper:
     - offered interest rate
     - offered loan amount
     - loan default probability
+  outcomeClass: [credit-supply, credit-risk]
   license: >-
     CC BY-NC 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by-nc/4.0/, delay-in-days 0,

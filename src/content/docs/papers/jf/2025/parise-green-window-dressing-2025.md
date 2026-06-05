@@ -35,6 +35,7 @@ paper:
     - ESG stock cumulative abnormal returns around disclosure dates
     - Morningstar sustainability rating (globe score)
     - three-month net fund flows
+  outcomeClass: [fund-behavior, security-returns]
   license: >-
     CC BY-NC 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by-nc/4.0/, delay-in-days 0,

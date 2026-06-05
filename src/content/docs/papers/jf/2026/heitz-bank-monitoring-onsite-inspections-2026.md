@@ -41,6 +41,7 @@ paper:
     - loan default (EVENTUALDEFAULT, MATURITYDEFAULT, TERMDEFAULT)
     - draw denial probability (DRAWDENIED)
     - on-site inspection frequency (ALLTOTERMINAL, ALLINSPECTIONS)
+  outcomeClass: [credit-risk, credit-supply]
   license: >-
     CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0,

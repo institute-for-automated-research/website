@@ -32,6 +32,7 @@ paper:
     - fund-level returns
     - position-level value-add
     - cross-sectional stock returns
+  outcomeClass: [fund-behavior, security-returns]
   doi: 10.1111/jofi.70009
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2026-01-16; corroborated by artifact p.791 Creative Commons Attribution License)'
   access: open

@@ -37,6 +37,7 @@ paper:
     - loan interest rates
     - borrower probability of default
     - loan markup (risk-orthogonalized interest rate)
+  outcomeClass: [firm-financing, credit-risk]
   resultsCount: 9
   citedByCount: 1
   jel:

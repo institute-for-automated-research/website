@@ -21,6 +21,28 @@ import yaml from 'js-yaml';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const papersDir = join(root, 'src', 'content', 'docs', 'papers');
+const registryPath = join(root, '.claude', 'skills', 'wiki-page', 'vocab-registry.yml');
+
+// Canonical term sets (key + aliases) for the registry-governed axes, so the
+// report can flag any page value that has drifted off-registry.
+function loadRegistry() {
+  const canon = (doc, section) => {
+    const set = new Set();
+    for (const [k, v] of Object.entries(doc[section] ?? {})) {
+      set.add(k);
+      for (const a of v?.aliases ?? []) set.add(a);
+    }
+    return set;
+  };
+  try {
+    const doc = yaml.load(readFileSync(registryPath, 'utf8')) ?? {};
+    return { metrics: canon(doc, 'metrics'), outcomeClasses: canon(doc, 'outcome-classes') };
+  } catch (e) {
+    console.warn(`[meta] registry load failed: ${e.message}`);
+    return { metrics: new Set(), outcomeClasses: new Set() };
+  }
+}
+const registry = loadRegistry();
 
 // --- load every paper page's parsed frontmatter --------------------------
 function loadPapers() {
@@ -137,6 +159,7 @@ function analyze(papers) {
     findings: has((p) => p.findings),
     resultType: has((p) => p.resultType),
     jel: has((p) => p.jel?.codes),
+    outcomeClass: has((p) => p.outcomeClass),
   };
 
   // The "what works" effectiveness axis. findings[] is per-result, so flatten
@@ -187,6 +210,13 @@ function analyze(papers) {
     findingsPages: coverage.findings,
     findingMetric: tallyF((f) => f.metric),
     findingDirection: tallyF((f) => f.direction),
+    // Registry-governed: any metric / outcomeClass value not in vocab-registry.yml
+    // (key or alias) is flagged so drift stays visible.
+    nonCanonMetric: tallyF((f) => f.metric).filter(([k]) => !registry.metrics.has(k)),
+    outcomeClass: tally(papers, (p) => p.outcomeClass, { multi: true }),
+    nonCanonClass: tally(papers, (p) => p.outcomeClass, { multi: true }).filter(
+      ([k]) => !registry.outcomeClasses.has(k)
+    ),
     benchmarkedN: benchmarked.length,
     benchmarkedDir,
     mechanisms: tally(papers, (p) => p.mechanisms, { multi: true }),
@@ -286,6 +316,11 @@ function report(a) {
   console.log('-'.repeat(70));
   printDist('mechanisms (multi)', a.mechanisms);
   printDist('methods.buildsFrom (top 20)', a.buildsFrom.slice(0, 20));
+  console.log('\n  outcomeClass is the governed coarse axis over the free-text outcome[] (the dependent-variable bucket).');
+  printDist('outcomeClass (governed, multi)', a.outcomeClass);
+  if (a.nonCanonClass.length) {
+    console.log(`  off-registry outcomeClass (not in vocab-registry.yml): ${a.nonCanonClass.map(([k, c]) => `${k} (${c})`).join(', ')}`);
+  }
   printDist('topics (top 15)', a.topics.slice(0, 15));
   if (a.topics.length > 15) {
     const singletons = a.topics.filter(([, c]) => c === 1).length;
@@ -305,6 +340,9 @@ function report(a) {
   printDist('resultType (paper verdict)', a.resultType);
   printCrossYear('resultType x issue year', a.resultTypeByYear);
   printDist('findings.metric (per finding)', a.findingMetric);
+  if (a.nonCanonMetric.length) {
+    console.log(`  off-registry metric (not in vocab-registry.yml): ${a.nonCanonMetric.map(([k, c]) => `${k} (${c})`).join(', ')}`);
+  }
   printDist('findings.direction (per finding)', a.findingDirection);
   console.log(`\nStructured findings: ${a.findingsN} across ${a.findingsPages} pages; ${a.benchmarkedN} carry a benchmark comparison.`);
   if (a.benchmarkedN) {
@@ -361,10 +399,13 @@ function reportMissing(papers) {
     resultType: (p) => p.resultType != null || isTheory(p),
     // JEL applies to every paper, theory included (it still has a subject).
     jel: (p) => Array.isArray(p.jel?.codes) && p.jel.codes.length > 0,
+    // outcomeClass applies to every paper with an outcome (theory papers state
+    // a dependent variable too), so no theory N/A exemption.
+    outcomeClass: (p) => Array.isArray(p.outcomeClass) && p.outcomeClass.length > 0,
   };
   for (const [axis, ok] of Object.entries(axes)) {
     const missing = papers.filter((x) => !ok(x.p));
-    console.log(`\n${axis}: ${papers.length - missing.length}/${papers.length} present (theory papers count as N/A where an axis does not apply; jel applies to all)`);
+    console.log(`\n${axis}: ${papers.length - missing.length}/${papers.length} present (theory papers count as N/A where an axis does not apply; jel and outcomeClass apply to all)`);
     for (const x of missing) console.log(`  - ${x.journal}/${x.dirYear}/${x.slug}`);
   }
   console.log('');

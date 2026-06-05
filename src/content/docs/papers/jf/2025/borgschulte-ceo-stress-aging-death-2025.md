@@ -37,6 +37,7 @@ paper:
     - CEO apparent-age gap (apparent minus chronological age)
     - CEO mortality hazard rate
     - CEO life expectancy
+  outcomeClass: [labor-careers-health]
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-10-07)'
   licenseShort: CC BY 4.0
   access: open
@@ -80,8 +81,8 @@ paper:
     - { ref: R4, outcome: CEO mortality hazard rate, metric: coefficient, value: "-0.198 to -0.234 (** to ***); average -0.217", direction: negative, vsBenchmark: "no BC law protection" }
     - { ref: R5, outcome: CEO mortality hazard rate, metric: coefficient, value: "-0.037 to -0.040 (***); average -0.039 per additional year of BC law", direction: negative, vsBenchmark: "no BC law protection" }
     - { ref: R6, outcome: CEO life expectancy, metric: hazard-ratio, value: "BC law mortality rate shift equivalent to CEO 2 years younger; pay effect insignificant and positive", direction: mixed, vsBenchmark: "unprotected CEO of same chronological age" }
-    - { ref: R7, outcome: CEO mortality hazard rate, metric: survival-milestone, value: "67% of distressed CEOs die within 30 years of appointment; 1-year mortality 1.337% (nondistressed) vs 1.532% (distressed)", direction: negative }
-    - { ref: R8, outcome: CEO life expectancy, metric: survival-milestone, value: "25% cumulative mortality: ~25 years (no BC) vs ~28-30 years (BC) after appointment", direction: positive, vsBenchmark: "same-era no-BC cohort" }
+    - { ref: R7, outcome: CEO mortality hazard rate, metric: probability, value: "67% of distressed CEOs die within 30 years of appointment; 1-year mortality 1.337% (nondistressed) vs 1.532% (distressed)", direction: negative }
+    - { ref: R8, outcome: CEO life expectancy, metric: probability, value: "25% cumulative mortality: ~25 years (no BC) vs ~28-30 years (BC) after appointment", direction: positive, vsBenchmark: "same-era no-BC cohort" }
   resultType: new-finding
   replicationCode:
     status: none

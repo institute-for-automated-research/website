@@ -35,6 +35,7 @@ paper:
     - RRP-bill spread (one-month T-bill rate minus expected RRP rate)
     - money fund T-bill portfolio weight
     - sensitivity of T-bill rates to T-bill supply shocks
+  outcomeClass: [bank-funding, asset-prices]
   license: >-
     Paywalled (Wiley standard terms; Crossref license[].content-version=vor,
     URL=http://onlinelibrary.wiley.com/termsAndConditions#vor,
@@ -82,7 +83,7 @@ paper:
     status: available
 
   findings:
-    - { ref: R1, outcome: RRP-bill spread (one-month T-bill rate minus expected RRP rate), metric: return-spread, value: "6 bps (non-scarce); 37 bps (scarce Apr 2022-Apr 2023); spike to ~160 bps (Mar-Apr 2023)", direction: positive }
+    - { ref: R1, outcome: RRP-bill spread (one-month T-bill rate minus expected RRP rate), metric: basis-points, value: "6 bps (non-scarce); 37 bps (scarce Apr 2022-Apr 2023); spike to ~160 bps (Mar-Apr 2023)", direction: positive }
     - { ref: R2, outcome: money fund T-bill portfolio weight, metric: correlation, value: "order of magnitude less variable; nearly uncorrelated with actual", direction: none, vsBenchmark: "investor-flows-only counterfactual vs actual T-bill share" }
     - { ref: R3, outcome: money fund T-bill portfolio weight, metric: coefficient, value: "5.885*** (0.98); R-sq 14%; N=4,449 fund-quarters", direction: positive, vsBenchmark: "100 bp return increase raises AUM by 5.9 pp (economically small)" }
     - { ref: R4, outcome: corporate Treasury holdings share, metric: coefficient, value: "3.481** (1.57); R-sq 0.15; N=2,730 firm-years", direction: positive, vsBenchmark: "1-SD derivatives exposure raises Treasury share 1.8 pp vs 7.6% mean" }

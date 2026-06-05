@@ -35,6 +35,7 @@ paper:
     - equity premium and Sharpe ratio
     - riskless rate
     - consumption volatility by age group
+  outcomeClass: [macro-aggregates]
   doi: 10.1111/jofi.13507
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-10-07; corroborated by artifact p.143 Creative Commons Attribution License notice)'
   access: open

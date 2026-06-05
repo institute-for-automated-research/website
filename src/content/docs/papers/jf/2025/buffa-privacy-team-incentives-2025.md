@@ -37,6 +37,7 @@ paper:
     - total compensation budget for a team project
     - allocation of compensation budget across team members
     - principal expected payoff under centralized vs. delegated contracting
+  outcomeClass: [labor-careers-health]
   license: >-
     Paywalled (Crossref license: content-version vor,
     URL http://onlinelibrary.wiley.com/termsAndConditions#vor,

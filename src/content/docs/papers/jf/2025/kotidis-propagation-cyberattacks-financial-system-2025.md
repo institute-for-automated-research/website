@@ -36,6 +36,7 @@ paper:
     - discount window borrowing probability of exposed receiver-banks
     - federal funds market borrowing by exposed large receiver-banks
     - reserve levels of large exposed receiver-banks
+  outcomeClass: [bank-funding]
   license: >-
     U.S. Government work; in the public domain in the USA (stated on artifact p. 3313).
     Crossref DOI metadata shows license content-version=vor, URL=http://onlinelibrary.wiley.com/termsAndConditions#vor,

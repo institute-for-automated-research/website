@@ -29,7 +29,7 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 | Verified badge, distilled byline, tags, raw-`.md` link | `src/components/PageTitle.astro` |
 | Dataset registry + access drift gate | `.claude/skills/wiki-page/dataset-registry.yml` + `scripts/check-dataset-access.mjs` (prebuild; fails on `dataAccess` under-claim or a `data:` slug missing from the registry) |
 | relatesTo body-locatability gate | `scripts/check-relatesto-locatable.mjs` (prebuild; fails the build if any `relatesTo[].cite` is not named as an author-year, first-author surname next to the year, in the page body) |
-| Method vocab registry | `.claude/skills/wiki-page/vocab-registry.yml` (reconciled by `vocab-curator`) |
+| Vocab registry (methods, mechanisms, metrics, outcome classes) | `.claude/skills/wiki-page/vocab-registry.yml` (reconciled by `vocab-curator`) |
 | Frontmatter schema | `src/content.config.ts` |
 | Section indexes | `<section>/index.md` (keep their tables in sync) |
 
@@ -129,8 +129,9 @@ hosted under `/library`, `licenceVerification[]`, and the stacking
 `extraction[]` ladder with `role`: `extracted` | `verified` | `reproduced`),
 plus the queryable axes that make the corpus answerable for gaps and evolution:
 `methods{role,contributes,family,buildsFrom}`, `scope`, `topics`, `dataAccess`,
-`outcome`, the "what works" effectiveness axis (`findings[]` per Core-results
-row + paper-level `resultType`), `relatesTo`, `openQuestions`, `replicationCode`,
+`outcome` + its governed coarse bucket `outcomeClass`, the "what works"
+effectiveness axis (`findings[]` per Core-results row + paper-level
+`resultType`), `relatesTo`, `openQuestions`, `replicationCode`,
 `jel`, `proposedVocab`. The body is findings-first: TL;DR, Core results, then the three
 formal sections (Theory / model, Method, Empirical specifications) with real
 LaTeX equations in `$$ ... $$` (KaTeX; single `$` is disabled), Datasets used,
@@ -141,9 +142,13 @@ classification, kept as a provenance trail) from the **`openalex`** skill. The
 `jel` axis is IAR-assigned from the abstract (a `jel:` object with `codes` /
 `assignedBy` / `date`), not the journal's classification: JF and most venues
 print no JEL and neither Crossref nor OpenAlex carries it, so the codes are our
-governed-taxonomy call, rendered on the page as "JEL (IAR-assigned)". The
-distiller reuses
-`methods.family` / `methods.buildsFrom` terms from `vocab-registry.yml` before
+governed-taxonomy call, rendered on the page as "JEL (IAR-assigned)".
+`outcomeClass` is the same idea one level down: a governed coarse bucket over
+the free-text `outcome[]` (registry `outcome-classes:` section), so "what is
+being explained" is queryable without 100+-way fragmentation. `findings[].metric`
+is likewise governed by the registry `metrics:` section. The distiller reuses
+`methods.family` / `methods.buildsFrom` / `mechanisms` / `metric` / `outcome-class`
+terms from `vocab-registry.yml` before
 minting (new terms stage in `proposedVocab`, reconciled by `vocab-curator`).
 Papers have their own provenance ladder via `extraction[].role`; they are
 excluded from the dataset Verification axis. Rights/attribution go at the
@@ -188,8 +193,9 @@ Artifacts (single source of truth, reuse every batch):
   Theory / model, Method, Empirical specifications + Datasets + Attribution).
   Both agents read it every run.
 - `.claude/skills/wiki-page/vocab-registry.yml` : controlled-but-growing vocab
-  for `methods.family` / `methods.buildsFrom`. Distillers reuse-before-mint and
-  stage genuinely new terms in `paper.proposedVocab` (never edit the registry).
+  for `methods.family` / `methods.buildsFrom` / `mechanisms` / `findings.metric`
+  (`metrics:`) / `outcomeClass` (`outcome-classes:`). Distillers reuse-before-mint
+  and stage genuinely new terms in `paper.proposedVocab` (never edit the registry).
 - `.claude/agents/paper-distiller.md` : reads one PDF, writes (or in Augment
   mode, extends) one `papers/<journal>/<year>/<slug>.md` (Crossref licence
   check, data:<slug> tags, the formal sections with equations, extracted-only).

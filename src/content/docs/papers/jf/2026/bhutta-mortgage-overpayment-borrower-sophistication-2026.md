@@ -35,6 +35,7 @@ paper:
     - mortgage rate paid relative to available offers
     - rate dispersion across borrowers and lenders
     - borrower overpayment by loan program and FICO
+  outcomeClass: [household-finance]
   doi: 10.1111/jofi.70001
   license: 'Paywalled (© 2025 the American Finance Association; Crossref license[] returns content-version=vor URL=http://onlinelibrary.wiley.com/termsAndConditions#vor and content-version=tdm URL=http://doi.wiley.com/10.1002/tdm_license_1.1, both delay-in-days=0, start=2025-12-09; no CC licence found)'
   access: paywalled

@@ -37,6 +37,7 @@ paper:
     - firm investment rate
     - employment and working capital growth
     - aggregate GDP, consumption, and investment growth
+  outcomeClass: [firm-real-outcomes, macro-aggregates]
   methods:
     role: both
     contributes: upstream-downstream-uncertainty

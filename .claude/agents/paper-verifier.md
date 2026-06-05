@@ -49,7 +49,10 @@ the JSON verdict below.
    `instrument`); `contributionType` (does the paper really do each
    kind listed); `mechanisms` (the channels it actually invokes); `introducesData`
    (present and `true` ONLY if it introduces a new source, omitted otherwise,
-   never `false`); and `scope.dataType` / `scope.granularity` / `scope.n`
+   never `false`); `outcomeClass` (1-3 governed buckets from the registry
+   `outcome-classes:` section that match the paper's actual dependent
+   variable(s); a value not in that section is off-registry, fix to the right
+   bucket); and `scope.dataType` / `scope.granularity` / `scope.n`
    (faithful to the data actually used). These are honest-classification checks,
    not magnitude checks: when the PDF is genuinely ambiguous, prefer omitting the
    field over guessing.
@@ -57,7 +60,8 @@ the JSON verdict below.
    entry should mirror a quantitative Core-results row: confirm its `ref` points
    at the right row, its `value` matches that row's reported magnitude (this is a
    magnitude check, against the PDF), its `metric` names the statistic actually
-   reported, its `direction` matches the PDF. `direction` is the SIGN of the
+   reported (and is a registry `metrics:` slug or alias, not an off-registry
+   coinage), its `direction` matches the PDF. `direction` is the SIGN of the
    effect (`positive` = effect positive or subject beats benchmark; `negative` =
    effect negative or subject below benchmark; `none` = no significant effect /
    null; `mixed` = flips across specs), NOT whether the result is good for the

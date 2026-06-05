@@ -35,6 +35,7 @@ paper:
     - promotion probability gap between favored and unfavored agents
     - skill investment level by each agent
     - firm profits under endogenous bias
+  outcomeClass: [labor-careers-health]
   doi: 10.1111/jofi.13506
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-10-06; corroborated by artifact p.329 Creative Commons Attribution License statement)'
   access: open

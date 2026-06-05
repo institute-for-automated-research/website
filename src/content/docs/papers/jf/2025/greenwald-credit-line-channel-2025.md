@@ -36,6 +36,7 @@ paper:
     - total firm debt
     - firm capital expenditures
     - aggregate investment
+  outcomeClass: [credit-supply, firm-real-outcomes]
   license: >-
     Paywalled; Wiley VOR licence only (not CC). Crossref license[].URL =
     http://onlinelibrary.wiley.com/termsAndConditions#vor, content-version vor,

@@ -38,6 +38,7 @@ paper:
     - sales share of young-firm IPO cohorts
     - aggregate labor share of value added
     - aggregate consumption (long-run steady state)
+  outcomeClass: [firm-real-outcomes, macro-aggregates]
   license: >-
     CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0,
@@ -80,7 +81,7 @@ paper:
     - 'The NETS data do not permit measurement of sales growth separately from employment growth at the establishment level because sales are imputed from industry-level ratios, limiting the ability to confirm the revenue-employment divergence in the broader (non-Compustat) universe (p. 3741).'
   findings:
     - { ref: R1, outcome: employment share of young-firm IPO cohorts, metric: coefficient, value: "log employment contribution 0.71 lower for 2010-2014 cohort vs 1985-1989; log sales contribution 0.11 lower; log market-value contribution 0.07 higher", direction: negative, vsBenchmark: "1985-1989 cohort bin baseline" }
-    - { ref: R2, outcome: market-value share of young-firm IPO cohorts, metric: return-spread, value: "normalized log ratio rises by ~0.8 log points for 2010-2014 cohort vs 1985-1989", direction: positive, vsBenchmark: "1985-1989 cohort bin (normalized to 0)" }
+    - { ref: R2, outcome: market-value share of young-firm IPO cohorts, metric: coefficient, value: "normalized log ratio rises by ~0.8 log points for 2010-2014 cohort vs 1985-1989", direction: positive, vsBenchmark: "1985-1989 cohort bin (normalized to 0)" }
     - { ref: R3, outcome: market-value share of young-firm IPO cohorts, metric: coefficient, value: "deflated exit values comparable or larger for each successive cohort at the same age (except 1995-1999 dot-com outlier)", direction: positive, vsBenchmark: "predecessor cohorts at same cohort age" }
     - { ref: R4, outcome: employment share of young-firm IPO cohorts, metric: coefficient, value: "YoungAcquirer: -0.024** to -0.039***; YoungAcquirer x Post-2005: -0.148*** to -0.161***", direction: negative }
     - { ref: R5, outcome: aggregate labor share of value added, metric: coefficient, value: "model labor share 0.60 to 0.54 (data: 0.60 to 0.54); young-firm employment share ~22% to ~8% (data: ~18% to ~10%); job creation and destruction each decline ~4-5 pp", direction: mixed, vsBenchmark: "data moments from 1983 calibration baseline" }

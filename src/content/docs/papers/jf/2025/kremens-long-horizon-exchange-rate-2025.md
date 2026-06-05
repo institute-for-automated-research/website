@@ -39,6 +39,7 @@ paper:
     - realized currency appreciation (24-month horizon)
     - realized currency excess returns (24-month horizon)
     - survey-based excess return expectations
+  outcomeClass: [security-returns, expectations]
   license: >-
     Paywalled (Wiley Terms and Conditions; Crossref license[].content-version=vor,
     URL=http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days=0,

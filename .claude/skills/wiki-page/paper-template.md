@@ -52,7 +52,8 @@ paper:
     date: <YYYY-MM-DD>
   topics: [<OpenAlex topics via the openalex skill>]   # raw OpenAlex subject classification, kept as the provenance trail
   dataAccess: <public | licensed-commercial | hand-collected | proprietary-confidential>  # DERIVED + gate-enforced: most-restrictive tier over the data:<slug> tags (see Optional-field rules)
-  outcome: [<dependent variable(s), short phrases>]
+  outcome: [<dependent variable(s), short phrases>]       # free-text provenance trail
+  outcomeClass: [<governed coarse bucket(s) from vocab-registry.yml outcome-classes:, 1-3>]  # e.g. security-returns | credit-risk | household-finance
   license: <descriptive string>
   licenseShort: <e.g. CC BY 4.0 | paywalled>
   access: <open | paywalled | preprint>
@@ -92,7 +93,7 @@ paper:
     - <pulled from the conclusion, never invented>
   # --- vocab the page wants to MINT, staged for the curator (never the shared registry) ---
   proposedVocab:
-    - { axis: <family|builds-from|topic|method|mechanism>, term: <slug>, def: <one line>, aliases: [<...>] }
+    - { axis: <family|builds-from|topic|method|mechanism|metric|outcome-class>, term: <slug>, def: <one line>, aliases: [<...>] }
 
   extraction:
     - { by: paper-distiller (<model id>), date: <today>, role: extracted, note: "<read PDF; not human-verified; not reproduced>" }
@@ -104,7 +105,8 @@ paper:
 
 ### The vocab discipline (controlled-but-growing, reuse before mint)
 
-`family` and `buildsFrom` (and topic/method tags) draw from a **registry**
+`family`, `buildsFrom`, `mechanisms`, `findings[].metric`, and `outcomeClass`
+(and topic/method tags) draw from a **registry**
 (`.claude/skills/wiki-page/vocab-registry.yml`). Procedure, every run:
 
 1. Read the registry.
@@ -194,21 +196,36 @@ paper:
   industry | firm | individual | security | transaction`. Omit for theory.
 - `scope.n`: sample size as the paper states it (free string, e.g.
   `"12,345 firm-months"`, `"640 funds, 1984-2019"`). Omit for theory.
+- `outcome` (array): the dependent variable(s) the paper explains, as short
+  free-text phrases. Kept granular for provenance; not governed.
+- `outcomeClass` (array, registry-governed): the coarse bucket(s) for the
+  dependent variable, from the `outcome-classes:` section of `vocab-registry.yml`
+  (`security-returns`, `asset-prices`, `firm-real-outcomes`, `firm-financing`,
+  `credit-supply`, `credit-risk`, `bank-funding`, `household-finance`,
+  `fund-behavior`, `expectations`, `macro-aggregates`, `firm-dynamics`,
+  `labor-careers-health`, `social-welfare`). This is to `outcome[]` what `jel` is
+  to `topics`: the controlled axis that makes "what is being explained" queryable
+  without free-text fragmentation. Assign 1-3 from the abstract / Core-results
+  table; theory papers get it too (they still state a dependent variable). Reuse
+  a registry bucket before proposing a new one (stage a genuinely new bucket in
+  `proposedVocab` with `axis: outcome-class`); `node scripts/meta.mjs` flags any
+  off-registry value.
 - `findings` (array, the "what works" axis): one entry per **Core-results row**
   that reports a quantitative result, in row order. Build it FROM the page's own
   Core-results table (then confirm against the PDF); skip purely qualitative rows
   rather than invent a metric. Each entry: `ref` (the row id, e.g. `R1`, so it
   stays traceable; omit only if the page has no row ids), `outcome` (the
   dependent variable, reuse the paper-level `outcome` phrasing), `metric` (a
-  kebab-case slug for the statistic reported; reuse a slug another row / page
-  already uses before coining a near-synonym, this axis is a registry-governance
-  candidate. Canonical slugs span the subfields: asset pricing / factors
-  `sharpe-ratio`, `alpha`, `information-ratio`, `beta`, `return-spread`,
-  `oos-r-squared`, `r-squared`; regressions `coefficient`, `elasticity`,
-  `pp-effect` (a percentage-point effect), `sd-effect` (effect per 1-SD change),
-  `basis-points`, `t-stat`; corporate / event studies `car` (cumulative abnormal
-  return); durations / discrete outcomes `hazard-ratio`, `odds-ratio`;
-  classification / fit `auc`, `rmse`, `correlation`), `value` (the magnitude as
+  kebab-case slug for the statistic reported, **governed by the `metrics:`
+  section of `vocab-registry.yml`**: reuse a registry slug or alias before
+  coining, and `node scripts/meta.mjs` flags any off-registry value. Canonical
+  slugs span the subfields: asset pricing / factors `sharpe-ratio`, `alpha`,
+  `beta`, `return-spread`, `oos-r-squared`, `r-squared`; regressions
+  `coefficient`, `elasticity`, `pp-effect` (a percentage-point effect),
+  `sd-effect` (effect per 1-SD change), `basis-points`, `t-stat`, `correlation`;
+  corporate / event studies `car` (cumulative abnormal return); durations /
+  discrete outcomes `hazard-ratio`, `probability` (a rate/share/proportion),
+  `level` (a volume in natural units)), `value` (the magnitude as
   reported, free string), `direction` is the sign of the effect: `positive` (the
   estimated effect is positive, or the subject beats its benchmark), `negative`
   (the effect is negative, or the subject falls below its benchmark), `none` (no

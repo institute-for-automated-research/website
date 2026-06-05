@@ -31,6 +31,7 @@ paper:
   outcome:
     - cross-sectional stock returns (Norwegian equities)
     - investor portfolio tilts toward the age-wealth factor
+  outcomeClass: [security-returns, household-finance]
   resultsCount: 8
   citedByCount: 0
   jel:
@@ -62,7 +63,7 @@ paper:
     - { ref: R5, outcome: investor portfolio tilts toward the age-wealth factor, metric: sharpe-ratio, value: "IPF* OOS SR=0.45; best firm model (FIRM-6)=0.40; market=0.31", direction: positive, vsBenchmark: "beats all firm-factor models (0.19-0.40 range) and market (0.31)" }
     - { ref: R6, outcome: investor portfolio tilts toward the age-wealth factor, metric: coefficient, value: "tilt range [-0.3, +0.1] over life cycle; ~1.2%/yr average return difference", direction: positive }
     - { ref: R7, outcome: investor portfolio tilts toward the age-wealth factor, metric: coefficient, value: "income beta -0.051 (t=-6.40); debt -0.047 (t=-5.55); finance occupation +0.627 (t=34.60); stock mkt experience +0.026 (t=7.58); male dummy -0.156 (t=-15.00)", direction: mixed }
-    - { ref: R8, outcome: cross-sectional stock returns (Norwegian equities), metric: return-spread, value: "long-leg CAPM beta 0.73 vs. short-leg 1.02; long-leg volatility 0.08 vs. short-leg 0.18; long-leg mkt cap 973M NOK vs. 483M NOK", direction: mixed, vsBenchmark: "long leg vs. short leg of AW portfolio" }
+    - { ref: R8, outcome: cross-sectional stock returns (Norwegian equities), metric: beta, value: "long-leg CAPM beta 0.73 vs. short-leg 1.02; long-leg volatility 0.08 vs. short-leg 0.18; long-leg mkt cap 973M NOK vs. 483M NOK", direction: mixed, vsBenchmark: "long leg vs. short leg of AW portfolio" }
   resultType: new-finding
   relatesTo:
     - { cite: 'Merton (1973)', doi: '10.2307/1913811', relation: builds-on, note: 'ICAPM framework grounds the theoretical spanning condition; investor deviation portfolios map to hedging demands (pp. 2802-2803)' }

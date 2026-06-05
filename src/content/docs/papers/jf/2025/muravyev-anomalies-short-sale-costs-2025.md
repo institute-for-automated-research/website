@@ -33,6 +33,7 @@ paper:
   outcome:
     - cross-sectional anomaly long-short returns
     - net-of-fee long-short abnormal returns across 162 anomalies
+  outcomeClass: [security-returns]
   doi: 10.1111/jofi.13501
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-09-30; corroborated by artifact p.3639 Creative Commons Attribution License statement)'
   access: open

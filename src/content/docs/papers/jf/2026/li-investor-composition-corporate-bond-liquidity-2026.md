@@ -37,6 +37,7 @@ paper:
     - loading of credit spreads on bid-ask spreads (liquidity component of credit spreads)
     - bond turnover and number of trades
     - credit spread sensitivity to secondary-market frictions
+  outcomeClass: [asset-prices]
   license: >-
     Wiley VOR license (confirmed via Crossref DOI metadata: content-version vor,
     URL http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days 0,

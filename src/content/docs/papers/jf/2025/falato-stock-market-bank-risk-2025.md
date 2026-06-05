@@ -41,6 +41,7 @@ paper:
     - Tier 1 capital ratio
     - volatile liabilities ratio
     - return on equity (short-run and long-run)
+  outcomeClass: [credit-risk, bank-funding, firm-real-outcomes]
   license: >-
     Wiley standard terms-of-use (paywalled; not CC); license block in Crossref
     DOI metadata: content-version vor, URL

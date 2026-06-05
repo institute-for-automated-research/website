@@ -35,6 +35,7 @@ paper:
     - stock market participation rate in retirement accounts
     - portfolio equity share
     - structural preference parameters (relative risk aversion, EIS, adjustment costs)
+  outcomeClass: [household-finance]
   doi: 10.1111/jofi.70013
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-12-17; corroborated by artifact p.5 Creative Commons Attribution License)'
   access: open

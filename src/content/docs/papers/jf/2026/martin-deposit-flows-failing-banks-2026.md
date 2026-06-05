@@ -36,6 +36,7 @@ paper:
     - probability of deposit account liquidation
     - share and log-level of new deposit inflows
     - bank funding composition (brokered, listing-service, term deposits by size)
+  outcomeClass: [bank-funding]
   license: >-
     U.S. Government work, public domain in the USA (stated on PDF p. 643:
     "This article is a U.S. Government work and is in the public domain in
@@ -78,7 +79,7 @@ paper:
     - { ref: R2, outcome: probability of deposit account liquidation, metric: coefficient, value: "-0.0944** (t = -2.00)", direction: negative, vsBenchmark: "TAG/DFA eligible vs. uninsured; equality p-value 0.67, not statistically different from ordinary insurance" }
     - { ref: R3, outcome: probability of deposit account liquidation, metric: coefficient, value: "Uninsured 0.147*** (t = 2.92); Brokered/Placed 0.550*** (t = 25.76)", direction: positive, vsBenchmark: "uninsured and brokered/placed term deposits vs. insured in Formal period" }
     - { ref: R4, outcome: probability of deposit account liquidation, metric: pp-effect, value: "20.79% in Formal vs. 4.98% in Placebo", direction: positive, vsBenchmark: "share of uninsured transaction accounts liquidating to <$1 vs. Placebo period baseline" }
-    - { ref: R5, outcome: share and log-level of new deposit inflows, metric: inflow-volume, value: "~$400M new insured term deposits; 81% of 2,600 new accounts in Formal period are institutional", direction: positive }
+    - { ref: R5, outcome: share and log-level of new deposit inflows, metric: level, value: "~$400M new insured term deposits; 81% of 2,600 new accounts in Formal period are institutional", direction: positive }
     - { ref: R6, outcome: share and log-level of new deposit inflows, metric: elasticity, value: "0.61 (rate spread coefficient 5.549***, t = 2.71)", direction: positive, vsBenchmark: "in line with Egan, Hortacsu and Matvos (2017)" }
     - { ref: R7, outcome: share and log-level of new deposit inflows, metric: coefficient, value: "5.124** (t = 2.32) on log new deposits", direction: positive, vsBenchmark: "Formal period vs. other periods after controlling for macro conditions and interest rates" }
     - { ref: R8, outcome: bank funding composition (brokered, listing-service, term deposits by size), metric: coefficient, value: "Brokered -1.24*** (t = -22.72); Listed 0.826*** (t = 11.40); Sm. Term 0.364*** (t = 5.21); Lg. Term -0.830*** (t = -12.10)", direction: mixed }

@@ -42,6 +42,7 @@ paper:
     - corporate social impact (welfare loss from firm exit)
     - social impact per dollar of revenue
     - ESG rating correlation with welfare-grounded impact estimates
+  outcomeClass: [social-welfare]
   resultsCount: 8
   citedByCount: 0
   jel:

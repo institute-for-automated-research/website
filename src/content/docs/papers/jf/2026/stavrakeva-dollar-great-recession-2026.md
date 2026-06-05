@@ -39,6 +39,7 @@ paper:
     - S&P 500 and MSCI World log equity return
     - risk aversion (VIX, Bekaert-Engstrom-Xu index)
     - components of exchange rate and equity price changes (interest rate, currency risk premium, inflation, dividend growth)
+  outcomeClass: [security-returns, asset-prices]
   license: >-
     Paywalled (Wiley VOR terms confirmed via Crossref DOI metadata:
     content-version vor, URL http://onlinelibrary.wiley.com/termsAndConditions#vor,

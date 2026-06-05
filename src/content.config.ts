@@ -108,9 +108,17 @@ export const collections = {
               ])
               .optional(),
             // The dependent variable(s) the paper explains: the central gap
-            // axis ("what has been predicted/explained, and with what"). Free
-            // for now; a candidate for registry governance once values settle.
+            // axis ("what has been predicted/explained, and with what"). Kept
+            // free-text for its precise phrasing; the governed coarse axis is
+            // outcomeClass below (outcome[] is to outcomeClass what topics[] is
+            // to jel - the granular provenance trail under a controlled bucket).
             outcome: z.array(z.string()).optional(),
+            // The governed coarse bucket(s) for the dependent variable, drawn
+            // from the `outcome-classes:` section of vocab-registry.yml. This is
+            // what makes "what is being explained" queryable across the corpus
+            // without the 100+-way fragmentation of free-text outcome[]. 1-3 per
+            // paper; meta.mjs flags any value not in the registry.
+            outcomeClass: z.array(z.string()).optional(),
             doi: z.string().optional(),
             // e.g. "CC BY 4.0 (asserted — artifact p.791, version
             // unspecified; recorded as publisher/AFA OA standard)"
@@ -354,10 +362,10 @@ export const collections = {
                   outcome: z.string(),
                   // The metric reported, as a kebab-case slug (sharpe-ratio,
                   // alpha, t-stat, r-squared, oos-r-squared, coefficient,
-                  // elasticity, hazard-ratio, auc, rmse, return-spread,
-                  // correlation, ...). Free string for now, a candidate for
-                  // registry governance once values settle (like topics /
-                  // outcome); meta.mjs tallies it so fragmentation stays visible.
+                  // elasticity, hazard-ratio, return-spread, correlation, ...).
+                  // Governed by the `metrics:` section of vocab-registry.yml:
+                  // reuse a slug (or alias) before coining; meta.mjs flags any
+                  // value not in the registry as non-canonical.
                   metric: z.string(),
                   // The magnitude as the paper reports it, a free string since
                   // values come in many forms ("0.65 monthly", "1.2pp", "t=10.11").
@@ -433,13 +441,16 @@ export const collections = {
               .array(
                 z.object({
                   // builds-from maps to methods.buildsFrom, family to
-                  // methods.family, topic/method to the tag axes.
+                  // methods.family, topic/method to the tag axes, metric to
+                  // findings[].metric, outcome-class to paper.outcomeClass.
                   axis: z.enum([
                     'family',
                     'builds-from',
                     'topic',
                     'method',
                     'mechanism',
+                    'metric',
+                    'outcome-class',
                   ]),
                   term: z.string(),
                   def: z.string(),

@@ -33,6 +33,7 @@ paper:
     - financial covenant violation rate
     - false-positive violation rate
     - true-positive rate (distressed-firm violations)
+  outcomeClass: [credit-risk]
   doi: 10.1111/jofi.70005
   license: 'Paywalled, copyright 2025 the American Finance Association. Crossref license[]: content-version vor, URL http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days 0, start 2025-12-14; content-version tdm, URL http://doi.wiley.com/10.1002/tdm_license_1.1. No CC licence found.'
   access: paywalled

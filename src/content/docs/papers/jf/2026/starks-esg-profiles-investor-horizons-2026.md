@@ -37,6 +37,7 @@ paper:
     - fund portfolio weighted-average ESG score
     - firm-level shareholder investment horizon
     - probability of fund ESG mention in shareholder reports
+  outcomeClass: [fund-behavior]
   license: >-
     CC BY-NC-ND 4.0 (confirmed via Crossref DOI metadata: content-version vor,
     URL http://creativecommons.org/licenses/by-nc-nd/4.0/, delay-in-days 0,
@@ -84,8 +85,8 @@ paper:
     - "Whether the documented ESG preference of long-term investors generalizes beyond US domestic equity mutual funds and 13f institutions to international investors or other asset classes is not examined (p. 603)."
 
   findings:
-    - { ref: R1, outcome: fund portfolio weighted-average ESG score, metric: return-spread, value: "0.91 vs. 0.42; spread = 28% of a standard deviation", direction: positive, vsBenchmark: "long-horizon quintile (turnover 20%) vs. short-horizon quintile (turnover 161%)" }
-    - { ref: R2, outcome: fund portfolio weighted-average ESG score, metric: return-spread, value: "1.55 vs. 0.44; monotonically decreasing", direction: positive, vsBenchmark: "long-horizon 13f (churn 10%) vs. short-horizon 13f (churn 92%)" }
+    - { ref: R1, outcome: fund portfolio weighted-average ESG score, metric: sd-effect, value: "0.91 vs. 0.42; spread = 28% of a standard deviation", direction: positive, vsBenchmark: "long-horizon quintile (turnover 20%) vs. short-horizon quintile (turnover 161%)" }
+    - { ref: R2, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "1.55 vs. 0.44; monotonically decreasing", direction: positive, vsBenchmark: "long-horizon 13f (churn 10%) vs. short-horizon 13f (churn 92%)" }
     - { ref: R3, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "-0.0968*** (s.e. 0.0197); 1-SD increase in turnover corresponds to -0.05-point ESG score", direction: negative }
     - { ref: R4, outcome: fund portfolio weighted-average ESG score, metric: coefficient, value: "Churn Ratio -0.216*** (s.e. 0.0402); Adjusted Churn Ratio -0.555*** (s.e. 0.0962); 13f Churn Ratio -0.321*** (s.e. 0.0310)", direction: negative }
     - { ref: R5, outcome: firm-level shareholder investment horizon, metric: coefficient, value: "MSCI ESG Score -0.222** (s.e. 0.102); 1-SD increase (2.32) corresponds to -0.51 pp in weighted-average fund turnover ratio", direction: negative }

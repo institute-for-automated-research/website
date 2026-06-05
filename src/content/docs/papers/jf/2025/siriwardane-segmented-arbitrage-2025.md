@@ -36,6 +36,7 @@ paper:
     - arbitrage spread levels
     - pairwise correlation of arbitrage spreads
     - differential sensitivity of unsecured vs. secured spreads to funding shocks
+  outcomeClass: [asset-prices]
   doi: 10.1111/jofi.13469
   license: 'Wiley VOR terms (confirmed via Crossref DOI metadata: content-version vor, URL http://onlinelibrary.wiley.com/termsAndConditions#vor, delay-in-days 0, start 2025-08-04); artifact p.2543 states © 2025 the American Finance Association; no Creative Commons licence found'
   access: paywalled

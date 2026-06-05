@@ -17,10 +17,13 @@ any new method terms they had to coin in their own page's
 is the serial reconciliation: make the vocabulary consistent across the corpus
 without losing meaning. Your final message is a JSON report for an orchestrator.
 
-The registry governs three axes: `methods.family`, `methods.buildsFrom`, and
-`mechanisms` (the economic-channel axis, registry section `mechanisms:`).
-`proposedVocab` axes map to them: `family` -> `family`, `builds-from` ->
-`builds-from`, `mechanism` -> `mechanisms`. Topic/method TAGS are out of scope
+The registry governs five axes: `methods.family`, `methods.buildsFrom`,
+`mechanisms` (the economic-channel axis, registry section `mechanisms:`),
+`findings[].metric` (registry section `metrics:`), and `paper.outcomeClass`
+(registry section `outcome-classes:`). `proposedVocab` axes map to them:
+`family` -> `family`, `builds-from` -> `builds-from`, `mechanism` ->
+`mechanisms`, `metric` -> `metrics`, `outcome-class` -> `outcome-classes`.
+Topic/method TAGS are out of scope
 (governed by SKILL.md + TagIndex.astro): a `proposedVocab` entry with
 `axis: topic` or `axis: method` is not yours to reconcile, so leave it on the
 page and report it in `unresolved` with `why: tag-axis-out-of-scope` for the
@@ -35,12 +38,13 @@ SKILL.md maintainer to handle.
 1. **Read the registry.** Build the set of canonical terms per axis and their
    aliases.
 2. **Collect.** For every page, read `paper.methods.family`,
-   `paper.methods.buildsFrom`, `paper.mechanisms`, and every
-   `paper.proposedVocab[]` entry. Also note buildsFrom/family/mechanism slugs
-   that appear on pages but are not in the registry and were not staged in
-   proposedVocab (a distiller that skipped the staging step). Reconcile a
-   `mechanism`-axis term against the registry `mechanisms:` section exactly as
-   you do a buildsFrom term against `builds-from:`.
+   `paper.methods.buildsFrom`, `paper.mechanisms`, every `findings[].metric`,
+   `paper.outcomeClass`, and every `paper.proposedVocab[]` entry. Also note
+   slugs on any of these axes that appear on pages but are not in the registry
+   and were not staged in proposedVocab (a distiller that skipped the staging
+   step). Reconcile a `mechanism` / `metric` / `outcome-class`-axis term against
+   its registry section (`mechanisms:` / `metrics:` / `outcome-classes:`)
+   exactly as you do a buildsFrom term against `builds-from:`.
 3. **Reconcile each candidate term** (proposed or unregistered-in-use):
    - **Already canonical** (equals a registry term): nothing to add.
    - **A synonym** of an existing canonical term (same technique, different
@@ -55,9 +59,9 @@ SKILL.md maintainer to handle.
      cleaner vocabulary is the goal. Do not split hairs into near-duplicate
      terms.
 4. **Rewrite pages to canonical.** For any page whose `methods.family`,
-   `methods.buildsFrom`, or `mechanisms` uses an alias (or a synonym you just
-   merged), Edit the page to the canonical term. Keep ordering stable; change
-   only the slug.
+   `methods.buildsFrom`, `mechanisms`, `findings[].metric`, or `outcomeClass`
+   uses an alias (or a synonym you just merged), Edit the page to the canonical
+   term. Keep ordering stable; change only the slug.
 5. **Clear reconciled proposals.** Remove `paper.proposedVocab[]` entries that
    you have folded into the registry (term or alias now lives there). If a page
    ends with no remaining proposals, remove the now-empty `proposedVocab:` key
@@ -82,5 +86,5 @@ SKILL.md maintainer to handle.
  "aliased":[{"axis":"builds-from","canonical":"decision-trees","alias":"regression-trees"}],
  "pagesRewritten":[{"slug":"...","changes":["buildsFrom: regression-trees -> decision-trees"]}],
  "unresolved":[{"slug":"...","term":"...","why":"..."}],
- "registryTermCount":{"family":N,"builds-from":M,"mechanisms":K}}
+ "registryTermCount":{"family":N,"builds-from":M,"mechanisms":K,"metrics":P,"outcome-classes":Q}}
 ```

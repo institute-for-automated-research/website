@@ -29,6 +29,7 @@ paper:
   outcome:
     - cross-sectional stock returns
     - expected return premium on WarFac betas across test-asset sets
+  outcomeClass: [security-returns]
   resultsCount: 8
   citedByCount: 5
   jel:

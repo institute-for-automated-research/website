@@ -37,8 +37,9 @@ with the compact JSON result described at the bottom.
    - `src/content/docs/papers/jf/2025/bryzgalova-forest-cross-sections-2025.md`
      (a worked exemplar of the shape, with real equations).
    - `.claude/skills/wiki-page/vocab-registry.yml` (the controlled-but-growing
-     vocab for `methods.family` / `methods.buildsFrom` / topic / method tags;
-     reuse an existing term or one of its aliases before minting a new one).
+     vocab for `methods.family` / `methods.buildsFrom` / `mechanisms` /
+     `findings[].metric` / `outcomeClass`, plus topic / method tags; reuse an
+     existing term or one of its aliases before minting a new one).
    - `src/content.config.ts` `paper:` block (the frontmatter schema you must
      satisfy).
 2. **Read the assigned PDF in full.** Use multiple Read calls with `pages`
@@ -119,7 +120,13 @@ with the compact JSON result described at the bottom.
     by what a replicator would actually need, not the easiest dataset.
   - `outcome[]`: the dependent variable(s) the paper explains, as short
     phrases (e.g. `cross-sectional stock returns`, `mortgage rate paid`,
-    `household stock-market participation`).
+    `household stock-market participation`). Free-text provenance trail.
+  - `outcomeClass[]`: the governed coarse bucket(s) over `outcome[]` (1-3),
+    from the registry `outcome-classes:` section (e.g. `security-returns`,
+    `credit-risk`, `household-finance`, `firm-real-outcomes`, `bank-funding`).
+    This is to `outcome[]` what `jel` is to `topics`: reuse a registry bucket
+    before minting (stage a new one in `proposedVocab` with
+    `axis: outcome-class`). Theory papers get it too.
   - `methods` (fill once you know the paper): `role`
     (`proposes-method` | `applies-method` | `both` | `theory`), `contributes`
     (the one headline method it proposes, omit if none; give a kebab-case
@@ -157,7 +164,8 @@ with the compact JSON result described at the bottom.
     quantitative **Core-results row**, in row order, built from your own
     Core-results table. Each: `ref` (row id, e.g. `R1`), `outcome` (the dependent
     variable, reuse the `outcome[]` phrasing), `metric` (a kebab slug for the
-    statistic), `value` (magnitude as reported), `direction`
+    statistic, governed by the registry `metrics:` section; reuse a slug or
+    alias before coining), `value` (magnitude as reported), `direction`
     (`positive`|`negative`|`none`|`mixed`), and `vsBenchmark` (comparison to
     baseline, omit if none). Skip purely qualitative rows; OMIT `findings`
     entirely for a pure-theory paper. The canonical metric slugs, the exact
@@ -184,11 +192,12 @@ with the compact JSON result described at the bottom.
     with page locators. Omit if none; do not editorialize or restate scope.
   - `replicationCode`: `{ url?, status: available|upon-request|none }` if the
     paper states it. Omit if unknown.
-  - `proposedVocab[]`: any `family`/`builds-from`/`mechanism`/`topic`/`method`
+  - `proposedVocab[]`: any
+    `family`/`builds-from`/`mechanism`/`metric`/`outcome-class`/`topic`/`method`
     term you had to MINT because nothing in the registry fit, each with a
     one-line `def` and `aliases`. NEVER edit the shared registry yourself; stage
     proposals here. The batch vocab-curator reconciles the
-    `family`/`builds-from`/`mechanism` axes.
+    `family`/`builds-from`/`mechanism`/`metric`/`outcome-class` axes.
   - `extraction`: exactly one entry now,
     `by: paper-distiller (claude-sonnet-4-6)`, `date: <today>`,
     `role: extracted`, `note:` stating you read the PDF, that it is not
@@ -236,7 +245,9 @@ rewriting. Read the existing page first, then:
   blocks, and the three formal body sections with real equations from the PDF.
   This also includes the queryable axes added later that older pages predate:
   `methods.identification`, top-level `contributionType` / `mechanisms` /
-  `introducesData`, `scope.dataType` / `scope.granularity` / `scope.n`, and the
+  `introducesData`, `jel` (IAR-assigned from the abstract) and `outcomeClass`
+  (governed bucket over `outcome[]`), `scope.dataType` / `scope.granularity` /
+  `scope.n`, and the
   "what works" axis `findings[]` + `resultType` (build `findings` from the
   page's Core-results table, one per quantitative row, then confirm against the
   PDF). Add any of these the page is missing, following the frontmatter rules
