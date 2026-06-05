@@ -26,6 +26,12 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WRITE = process.argv.includes('--write');
 // normalize a surname for comparison: lowercase, strip diacritics, drop dots.
 const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[.'']/g, '').trim();
+// DOIs OpenAlex lists in reference lists but that do NOT resolve on Crossref
+// (the audit in check-relatesto-dois.mjs flags them as 404). Never assign one,
+// or it gets re-added on every run and has to be stripped again. Lowercase.
+const KNOWN_BAD_DOIS = new Set([
+  '10.7916/d8v12ft1', // OpenAlex's bad DOI for Stiglitz & Weiss (1981); 404s on Crossref
+]);
 const CACHE = join(root, 'scripts/openalex/.refs-cache');
 if (!existsSync(CACHE)) mkdirSync(CACHE, { recursive: true });
 
@@ -56,8 +62,10 @@ function fetchRefs(doi) {
     if (!line.trim()) continue;
     let o; try { o = JSON.parse(line); } catch { continue; }
     if (!o.doi) continue;
+    const cleanDoi = String(o.doi).replace(/^https?:\/\/doi\.org\//, '').toLowerCase();
+    if (KNOWN_BAD_DOIS.has(cleanDoi)) continue;
     refs.push({
-      doi: String(o.doi).replace(/^https?:\/\/doi\.org\//, '').toLowerCase(),
+      doi: cleanDoi,
       year: o.year,
       title: o.title || '',
       surnames: (o.authors || []).map((a) => norm(a.trim().split(/\s+/).pop())),
@@ -114,13 +122,17 @@ function parsePage(text) {
     if (!inRel) continue;
     const cm = l.match(/cite:\s*'([^']+)'|cite:\s*"([^"]+)"/);
     if (!cm) continue;
-    edges.push({ lineNo: i, cite: cm[1] || cm[2], hasDoi: /\bdoi:/.test(l) });
+    // match a doi whether quoted ('..' / "..") or bare (doi: 10.x, up to a
+    // comma/brace/space). Missing the bare form makes ground insert a SECOND
+    // doi key into an edge that already has one -> duplicate mapping key.
+    const dm = l.match(/\bdoi:\s*'([^']+)'|\bdoi:\s*"([^"]+)"|\bdoi:\s*([^\s,}]+)/);
+    edges.push({ lineNo: i, cite: cm[1] || cm[2], hasDoi: !!dm, doi: dm ? (dm[1] || dm[2] || dm[3]) : null });
   }
   return { paperDoi, lines, edges };
 }
 
 const files = walk(join(root, 'src/content/docs/papers')).sort();
-let total = 0, matched = 0, fuzzy = 0, ambiguous = 0, noref = 0, hadDoi = 0, unparsed = 0;
+let total = 0, matched = 0, fuzzy = 0, ambiguous = 0, noref = 0, hadDoi = 0, unparsed = 0, dupskip = 0;
 
 for (const f of files) {
   let text = readFileSync(f, 'utf8');
@@ -130,13 +142,22 @@ for (const f of files) {
   try { refs = fetchRefs(paperDoi); }
   catch (e) { console.log(`! refs failed ${paperDoi}: ${e.message.split('\n')[0]}`); continue; }
   const name = f.split('/').pop();
+  // DOIs already present on this page; never assign one twice (two cites ->
+  // one DOI is a fuzzy-match collision, e.g. Tsoy 2018/2019 -> the same ref).
+  const used = new Set(edges.filter((e) => e.doi).map((e) => e.doi.toLowerCase()));
   let edited = false;
   for (const e of edges) {
     total++;
     if (e.hasDoi) { hadDoi++; continue; }
     const m = matchEdge(e.cite, refs);
     if (m.status === 'matched' || m.status === 'matched~1yr') {
+      if (used.has(m.doi.toLowerCase())) {
+        dupskip++;
+        console.log(`  == ${name}  "${e.cite}" -> ${m.doi} already used on this page; left DOI-less`);
+        continue;
+      }
       if (m.status === 'matched') matched++; else fuzzy++;
+      used.add(m.doi.toLowerCase());
       console.log(`  ${m.status === 'matched' ? 'OK ' : '~1y'} ${name}  "${e.cite}" -> ${m.doi}  [${m.title.slice(0, 50)}]`);
       if (WRITE) {
         const l = lines[e.lineNo];
@@ -158,5 +179,5 @@ for (const f of files) {
   if (WRITE && edited) writeFileSync(f, lines.join('\n'));
 }
 
-console.log(`\n${total} edges: ${hadDoi} already-doi, ${matched} matched, ${fuzzy} matched~1yr, ${ambiguous} ambiguous, ${noref} not-in-refs, ${unparsed} unparsed`);
+console.log(`\n${total} edges: ${hadDoi} already-doi, ${matched} matched, ${fuzzy} matched~1yr, ${dupskip} dup-skip, ${ambiguous} ambiguous, ${noref} not-in-refs, ${unparsed} unparsed`);
 console.log(WRITE ? 'WROTE dois into pages.' : 'report only (pass --write to edit).');
