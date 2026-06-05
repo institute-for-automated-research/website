@@ -20,7 +20,9 @@ with the compact JSON result described at the bottom.
 - `pdf`: absolute path to the paper PDF (already on disk; read it).
 - `path`: the exact file you write, e.g.
   `src/content/docs/papers/<journal>/<year>/<slug>.md`. Write ONLY this file
-  (create parent directories if needed). Do not touch any other file.
+  (create parent directories if needed). Do not touch any other file. This is
+  the only file you may write, not a file you must always write: the `failed`
+  and `skipped` early-exit paths return JSON and write nothing.
 - `slug`: the filename stem (for your return JSON).
 - `year`: the journal ISSUE year. Use this as `paper.year` and in the title,
   not the online-first / early-view year (e.g. a paper in vol 81(1) Feb 2026 is
@@ -61,7 +63,10 @@ with the compact JSON result described at the bottom.
    of an existing page (the slug may differ because it was derived from
    different title words) — STOP and return
    `{"status":"skipped","slug":"<slug>","reason":"duplicate-doi <doi> already at <path>"}`.
-   Never write a second page for a DOI that is already in the corpus.
+   Never write a second page for a DOI that is already in the corpus. If the
+   paper has no resolvable DOI (e.g. a working paper), the DOI grep cannot help,
+   so instead grep existing page `title:` fields for the same first-author
+   surname + year before writing, and skip on a clear title match.
 3b. **Pull OpenAlex enrichment** for author, classification, and citation
    metadata (the `openalex` skill is in this repo; call its script directly):
    `python3 scripts/openalex/openalex.py work doi:<doi> --json`. From
