@@ -53,11 +53,14 @@ with the compact JSON result described at the bottom.
    `licenceVerification[]` with today's date and `by: paper-distiller (claude-sonnet-4-6)`.
    Today's date is given in your prompt; if absent, read it from the
    environment, never guess.
-   **Duplicate guard:** once you have the resolved DOI, grep
-   `src/content/docs/papers` for it. If a page already carries this DOI, the
-   PDF is a re-distillation of an existing page (the slug may differ because it
-   was derived from different title words) — STOP and return
-   `{"status":"skipped","reason":"duplicate-doi <doi> already at <path>"}`.
+   **Duplicate guard:** once you have the resolved DOI, grep the corpus for it
+   as a FRONTMATTER `doi:` field only — `grep -rn "^  doi: <doi>" src/content/docs/papers`
+   — NOT a bare DOI match (a bare match also hits other papers' `relatesTo`
+   edges and would false-positive on a paper that has not been distilled). If a
+   page already carries this DOI as its own `doi:`, the PDF is a re-distillation
+   of an existing page (the slug may differ because it was derived from
+   different title words) — STOP and return
+   `{"status":"skipped","slug":"<slug>","reason":"duplicate-doi <doi> already at <path>"}`.
    Never write a second page for a DOI that is already in the corpus.
 3b. **Pull OpenAlex enrichment** for author, classification, and citation
    metadata (the `openalex` skill is in this repo; call its script directly):
@@ -186,7 +189,9 @@ with the compact JSON result described at the bottom.
     **YAML-safe scalars (this is frontmatter, not Markdown).** `findings[].value`,
     `vsBenchmark`, and `note` strings constantly contain a colon-space (`: `),
     which breaks an unquoted YAML scalar, so wrap any such string in double
-    quotes; also quote a string that starts with `*`, `-`, `[`, `{`, `"`, or `#`.
+    quotes; also quote a string that contains ` #` (space-hash, silently
+    truncated as a comment otherwise) or starts with `*`, `- `, `[`, `{`, `"`,
+    or `#`.
     Inside a YAML scalar write significance stars as plain `**`, NEVER `\*\*`:
     the `\*` markdown escape is for the body table only and is an invalid escape
     in YAML that fails the build. For a long note prefer a `>-` block scalar.
@@ -296,3 +301,4 @@ rewriting. Read the existing page first, then:
  "mode":"new|augment","notes":"..."}
 ```
 On failure: `{"status":"failed","slug":"<slug>","reason":"..."}`.
+On a DOI already in the corpus (duplicate guard, step 3): `{"status":"skipped","slug":"<slug>","reason":"duplicate-doi <doi> already at <path>"}` — the orchestrator treats this as "no page written," not an error.

@@ -61,7 +61,7 @@ paper:
     family: reduced-form-causal
     buildsFrom: [panel-regression, instrumental-variables]
     identification: instrument
-  contributionType: [new-fact, new-data, measurement]
+  contributionType: [new-fact, measurement]
   mechanisms: [intermediary-constraint, limits-to-arbitrage, liquidity]
   scope:
     region: global (US-based entities of 58 global banks)
@@ -148,7 +148,7 @@ paper:
     - by: paper-verifier (claude-sonnet-4-6)
       date: 2026-06-05
       role: verified
-      note: "Locators and reported magnitudes re-checked against the source PDF; one fix applied: LCR3 significance corrected from ** (p<0.05) to *** (p<0.01) in both findings[] value and Core results table (Table VIII, p. 2633 shows three stars); all equations and specifications verified term-by-term; all other R1-R8 magnitudes, SEs, and locators confirmed correct."
+      note: "Locators and reported magnitudes re-checked against the source PDF; one fix applied: LCR3 significance corrected from ** (p<0.05) to *** (p<0.01) in both findings[] value and Core results table (Table VIII, p. 2633 shows three stars); all equations and specifications verified term-by-term; all other R1-R8 magnitudes, SEs, and locators confirmed correct. Removed introducesData and new-data from contributionType: the paper builds its arbitrage-capital measure from existing supervisory and regulatory sources (FR 2420/2644, DTCC, N-MFP), not a new dataset or source."
 ---
 
 **What this is.** The paper's core results, the arbitrage capital framework it develops, and the Bartik IV identification strategy: enough to know what it found and how, without reading all 48 pages. To replicate or extend it, read the full source at the [original](https://doi.org/10.1111/jofi.13478).
