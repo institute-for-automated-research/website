@@ -26,6 +26,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3725-3770
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13505
+  jel:
+    codes: [E24, D24, L11]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Economic Theory and Policy', 'Firm Innovation and Growth', 'Economic Theory and Institutions']
   dataAccess: licensed-commercial
   outcome:

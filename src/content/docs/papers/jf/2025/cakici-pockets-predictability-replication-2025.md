@@ -30,6 +30,10 @@ paper:
   redistribution: 'extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)'
   resultsCount: 8
   citedByCount: 8
+  jel:
+    codes: [G12, G14, G17]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Monetary Policy and Economic Impact', 'Financial Risk and Volatility Modeling']
   dataAccess: licensed-commercial
   outcome:

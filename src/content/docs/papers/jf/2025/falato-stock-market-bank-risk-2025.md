@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3223–3261
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13502
+  jel:
+    codes: [G21, G32, G34]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Financial Markets and Investment Strategies
     - Banking stability, regulation, efficiency

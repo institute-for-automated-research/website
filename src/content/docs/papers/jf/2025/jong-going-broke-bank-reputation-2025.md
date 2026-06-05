@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3263–3312
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13503
+  jel:
+    codes: [G24, G21, N23]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Banking stability, regulation, efficiency
     - Housing Market and Economics

@@ -28,6 +28,10 @@ paper:
   redistribution: extract-only
   resultsCount: 7
   citedByCount: 0
+  jel:
+    codes: [G11, G41, D81]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Decision-Making and Behavioral Economics']
   dataAccess: public
   outcome:

@@ -23,6 +23,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 13
+  jel:
+    codes: [G12, G11, C58]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Corporate Finance and Governance']
   dataAccess: licensed-commercial
   outcome:

@@ -67,12 +67,31 @@ export const collections = {
             // Cheap (already fetched in step 3b), high value for gap +
             // evolution queries; a static snapshot, not kept live.
             citedByCount: z.number().optional(),
-            // JEL classification codes printed on the paper (page 1). A fixed
-            // external taxonomy, so inherently controlled: the standard axis
-            // for topic-trend / gap bibliometrics over time.
-            jel: z.array(z.string()).optional(),
-            // OpenAlex topics: the subject classification actually used here,
-            // since JF prints no JEL. Accurate subfield labels from OpenAlex's
+            // JEL classification codes. JF prints none, and neither Crossref
+            // nor OpenAlex carries them, so these are ASSIGNED BY IAR from the
+            // abstract (not the journal's classification): an honest, uniform
+            // provenance over the whole corpus, cross-checked at backfill
+            // against author-supplied codes on preprints where those exist.
+            // JEL is a fixed external taxonomy, so still the standard axis for
+            // topic-trend / gap bibliometrics once the corpus spans journals.
+            // `codes` are normalized 3-character codes (G11, G12), ~3 primary
+            // max; `assignedBy` is the model id; `date` the assignment date.
+            jel: z
+              .object({
+                codes: z.array(z.string()),
+                assignedBy: z.string(),
+                // YAML auto-parses an unquoted YYYY-MM-DD to a Date; accept
+                // both and normalize to a plain date string (as extraction does).
+                date: z
+                  .union([z.string(), z.date()])
+                  .transform((d) =>
+                    (d instanceof Date ? d.toISOString() : d).slice(0, 10)
+                  ),
+              })
+              .optional(),
+            // OpenAlex topics: the raw subject classification, kept as a
+            // provenance trail alongside the governed `jel` axis above (which
+            // is IAR-assigned). Accurate subfield labels from OpenAlex's
             // controlled taxonomy (its legacy "concepts" are noisy; topics are
             // not). Pulled by the distiller via the openalex skill.
             topics: z.array(z.string()).optional(),

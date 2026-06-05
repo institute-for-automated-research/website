@@ -25,6 +25,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3137-3183
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13486
+  jel:
+    codes: [G21, G32, E44]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Banking stability, regulation, efficiency']
   dataAccess: proprietary-confidential
   outcome:

@@ -26,6 +26,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 1
+  jel:
+    codes: [G32, G34, L22]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Corporate Finance and Governance']
   dataAccess: proprietary-confidential
   outcome:

@@ -25,6 +25,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 2
+  jel:
+    codes: [J71, M51, J24]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Names, Identity, and Discrimination Research', 'Gender Diversity and Inequality']
   dataAccess: public
   outcome:

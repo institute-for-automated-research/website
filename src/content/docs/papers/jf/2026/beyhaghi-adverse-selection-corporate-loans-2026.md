@@ -39,6 +39,10 @@ paper:
     - loan markup (risk-orthogonalized interest rate)
   resultsCount: 9
   citedByCount: 1
+  jel:
+    codes: [G21, D82, L13]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Banking stability, regulation, efficiency', 'Corporate Finance and Governance']
   methods:
     role: applies-method

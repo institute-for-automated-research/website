@@ -25,6 +25,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 923-970
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70023
+  jel:
+    codes: [E52, G01, G21]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Banking stability, regulation, efficiency
     - Global Financial Crisis and Policies

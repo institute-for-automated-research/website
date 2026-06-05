@@ -26,6 +26,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3499–3554
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13498
+  jel:
+    codes: [G14, G32, M14]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Corporate Finance and Governance
     - Financial Reporting and Valuation Research

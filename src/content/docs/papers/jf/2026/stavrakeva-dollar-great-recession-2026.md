@@ -25,6 +25,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 971-1010
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70025
+  jel:
+    codes: [F31, E52, G15]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Global Financial Crisis and Policies
     - Monetary Policy and Economic Impact

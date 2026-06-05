@@ -7,6 +7,12 @@ import Default from '@astrojs/starlight/components/PageTitle.astro';
 
 const v = Astro.locals.starlightRoute?.entry?.data?.verified;
 const tags: string[] = Astro.locals.starlightRoute?.entry?.data?.tags ?? [];
+// JEL classification for distilled papers. JF prints no JEL and neither
+// Crossref nor OpenAlex carries it, so these are assigned by IAR from the
+// abstract; the rendered line states that provenance so the codes are never
+// mistaken for the journal's own classification.
+const jel: { codes: string[]; assignedBy: string; date: string } | undefined =
+  Astro.locals.starlightRoute?.entry?.data?.paper?.jel;
 
 // Distilled-paper provenance: surface the model + date + role that we already
 // store in `paper.extraction[]`. The model id is the text in parens of `by`
@@ -154,6 +160,19 @@ const fmt = (d: string) =>
 }
 
 {
+  jel && jel.codes.length > 0 && (
+    <p class="iar-jel" aria-label="JEL classification (IAR-assigned)">
+      <span class="iar-mark" aria-hidden="true">{'◈'}</span>
+      <strong>JEL (IAR-assigned):</strong>{' '}
+      {jel.codes.join(', ')}
+      <span class="iar-jel-note">
+        {' · assigned from the abstract, not the journal'}
+      </span>
+    </p>
+  )
+}
+
+{
   mdHref && (
     <p class="iar-meta" aria-label="Raw Markdown and metadata">
       <span class="iar-mark" aria-hidden="true">{'◈'}</span>
@@ -234,5 +253,17 @@ const fmt = (d: string) =>
   .iar-meta .iar-mark {
     color: var(--sl-color-gray-4);
     margin-right: 0.15rem;
+  }
+  .iar-jel {
+    margin: 0.4rem 0 0;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  .iar-jel .iar-mark {
+    color: var(--sl-color-gray-4);
+    margin-right: 0.15rem;
+  }
+  .iar-jel-note {
+    color: var(--sl-color-gray-4);
   }
 </style>

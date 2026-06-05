@@ -26,6 +26,10 @@ paper:
   licenseShort: paywalled
   resultsCount: 9
   citedByCount: 4
+  jel:
+    codes: [G12, G14, G23]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Banking stability, regulation, efficiency', 'Economic theories and models']
   dataAccess: licensed-commercial
   outcome:

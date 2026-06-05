@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 603-642
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70008
+  jel:
+    codes: [G11, G23, M14]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Corporate Social Responsibility Reporting
     - Corporate Finance and Governance

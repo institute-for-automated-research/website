@@ -25,6 +25,10 @@ paper:
   licenseShort: paywalled
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G21, G51, D14]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Housing Market and Economics', 'Banking stability, regulation, efficiency', 'Housing, Finance, and Neoliberalism']
   dataAccess: proprietary-confidential
   outcome:

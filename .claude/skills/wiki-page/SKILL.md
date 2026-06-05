@@ -136,8 +136,13 @@ formal sections (Theory / model, Method, Empirical specifications) with real
 LaTeX equations in `$$ ... $$` (KaTeX; single `$` is disabled), Datasets used,
 When to read, Attribution.
 
-The distiller pulls author ORCIDs + `topics` (the subject classification we use
-since J. Finance prints no JEL) from the **`openalex`** skill, and reuses
+The distiller pulls author ORCIDs + `topics` (the raw OpenAlex subject
+classification, kept as a provenance trail) from the **`openalex`** skill. The
+`jel` axis is IAR-assigned from the abstract (a `jel:` object with `codes` /
+`assignedBy` / `date`), not the journal's classification: JF and most venues
+print no JEL and neither Crossref nor OpenAlex carries it, so the codes are our
+governed-taxonomy call, rendered on the page as "JEL (IAR-assigned)". The
+distiller reuses
 `methods.family` / `methods.buildsFrom` terms from `vocab-registry.yml` before
 minting (new terms stage in `proposedVocab`, reconciled by `vocab-curator`).
 Papers have their own provenance ladder via `extraction[].role`; they are

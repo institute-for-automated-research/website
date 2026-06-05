@@ -44,6 +44,10 @@ paper:
     - ESG rating correlation with welfare-grounded impact estimates
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [M14, D60, G34]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Community Development and Social Impact', 'Corporate Social Responsibility Reporting', 'Environmental and Social Impact Assessments']
   methods:
     role: both

@@ -25,6 +25,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 739-789
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.13495
+  jel:
+    codes: [G23, G14, G11]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Corporate Finance and Governance', 'Auditing, Earnings Management, Governance']
   dataAccess: proprietary-confidential
   outcome:

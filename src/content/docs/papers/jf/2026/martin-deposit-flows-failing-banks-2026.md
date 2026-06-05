@@ -23,6 +23,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 643-685
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70007
+  jel:
+    codes: [G21, G28]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Banking stability, regulation, efficiency
     - Banking Systems and Strategies

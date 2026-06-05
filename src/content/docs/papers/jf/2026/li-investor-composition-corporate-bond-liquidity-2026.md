@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 871-922
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70024
+  jel:
+    codes: [G12, G14, G23]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Credit Risk and Financial Regulations
     - Financial Markets and Investment Strategies

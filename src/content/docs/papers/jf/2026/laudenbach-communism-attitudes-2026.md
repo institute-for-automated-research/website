@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 1103-1145
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70006
+  jel:
+    codes: [G11, G51, D14]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Financial Markets and Investment Strategies
     - Household Finance and Stock Market Participation

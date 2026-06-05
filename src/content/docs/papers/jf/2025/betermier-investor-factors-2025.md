@@ -33,6 +33,10 @@ paper:
     - investor portfolio tilts toward the age-wealth factor
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G12, G11, G51]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Corporate Finance and Governance']
   methods:
     role: both

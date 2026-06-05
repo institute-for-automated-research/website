@@ -101,11 +101,18 @@ with the compact JSON result described at the bottom.
     and PDF first-page affiliations. Keep the `authors` display string too.
     ORCID is the only reliable cross-paper key, so record it whenever any
     source has it.
-  - `jel`: the JEL codes printed on the paper (usually page 1, near the
-    abstract), e.g. `[G12, G14]`. Omit if the paper prints none (e.g. J.
-    Finance prints none).
-  - `topics`: the OpenAlex `topics` from step 3b, the subject classification we
-    use where a venue prints no JEL. Prefer `topics` over the noisy `concepts`.
+  - `jel`: JEL codes ASSIGNED BY IAR from the abstract, not the journal's
+    classification (JF and most venues print none, and neither Crossref nor
+    OpenAlex carries them). Assign even when the paper prints none. Write a
+    `jel:` object: `codes` (normalized 3-char codes such as `[G12, G14]`, ~3
+    primary max, never parent+child like `G1` and `G12` together),
+    `assignedBy` (your model id), `date` (today). Finance clusters in the G
+    codes; pick the 2-3 that best match the dependent variable and method. If
+    a preprint (NBER/SSRN/RePEc) lists author codes, use them as a sanity
+    cross-check, then normalize, but the recorded value is your assignment.
+  - `topics`: the OpenAlex `topics` from step 3b, kept as the raw subject
+    classification and provenance trail. Prefer `topics` over the noisy
+    `concepts`.
   - `dataAccess`: the MOST restrictive access tier the headline results
     require: `public` | `licensed-commercial` | `hand-collected` |
     `proprietary-confidential`. This is the reproducibility frontier, so judge

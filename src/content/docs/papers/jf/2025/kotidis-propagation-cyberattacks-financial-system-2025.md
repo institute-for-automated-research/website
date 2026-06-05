@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3313–3358
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13475
+  jel:
+    codes: [G21, E42, G28]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ["Banking stability, regulation, efficiency", "Blockchain Technology Applications and Security", "Islamic Finance and Banking Studies"]
   dataAccess: proprietary-confidential
   outcome:

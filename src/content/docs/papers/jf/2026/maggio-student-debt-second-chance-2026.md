@@ -23,6 +23,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G51, D14, I22]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Literacy, Pension, Retirement Analysis', 'Higher Education Research Studies']
   dataAccess: proprietary-confidential
   outcome:

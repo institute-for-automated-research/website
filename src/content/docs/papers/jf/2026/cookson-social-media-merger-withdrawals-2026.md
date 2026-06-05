@@ -24,6 +24,10 @@ paper:
   licenseShort: paywalled
   resultsCount: 8
   citedByCount: 4
+  jel:
+    codes: [G34, G14, D83]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Auditing, Earnings Management, Governance', 'Media Influence and Politics', 'Digital Marketing and Social Media']
   dataAccess: proprietary-confidential
   outcome:

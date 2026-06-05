@@ -23,6 +23,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 1053-1101
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70003
+  jel:
+    codes: [G21, G23, D82]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['FinTech, Crowdfunding, Digital Finance', 'Microfinance and Financial Inclusion', 'Banking stability, regulation, efficiency']
   dataAccess: proprietary-confidential
   outcome:

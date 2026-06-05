@@ -23,6 +23,10 @@ paper:
   licenseShort: paywalled
   resultsCount: 9
   citedByCount: 1
+  jel:
+    codes: [G21, G32, G33]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Auditing, Earnings Management, Governance', 'Corporate Finance and Governance']
   dataAccess: licensed-commercial
   outcome:

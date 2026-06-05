@@ -22,6 +22,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 2
+  jel:
+    codes: [G11, G12, G23]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Auditing, Earnings Management, Governance', 'Corporate Finance and Governance']
   dataAccess: proprietary-confidential
   outcome:

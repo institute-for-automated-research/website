@@ -23,6 +23,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G12, Q54, H23]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Sustainable Finance and Green Bonds', 'Climate Change Policy and Economics', 'Corporate Social Responsibility Reporting']
   dataAccess: licensed-commercial
   outcome:

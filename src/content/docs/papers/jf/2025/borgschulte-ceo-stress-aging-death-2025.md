@@ -27,6 +27,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3401–3442
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13497
+  jel:
+    codes: [G34, M12, I12]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Employment and Welfare Studies', 'Global Health Care Issues', 'Insurance and Financial Risk Management']
   dataAccess: hand-collected
   outcome:

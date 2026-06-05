@@ -31,6 +31,10 @@ paper:
     - TIPS yields
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G12, E43, H63]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Credit Risk and Financial Regulations', 'Global Financial Crisis and Policies']
   doi: 10.1111/jofi.70014
   license: >-

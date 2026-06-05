@@ -136,6 +136,7 @@ function analyze(papers) {
     'scope.n': has((p) => p.scope?.n),
     findings: has((p) => p.findings),
     resultType: has((p) => p.resultType),
+    jel: has((p) => p.jel?.codes),
   };
 
   // The "what works" effectiveness axis. findings[] is per-result, so flatten
@@ -191,6 +192,10 @@ function analyze(papers) {
     mechanisms: tally(papers, (p) => p.mechanisms, { multi: true }),
     buildsFrom: tally(papers, (p) => p.methods?.buildsFrom, { multi: true }),
     topics: tally(papers, (p) => p.topics, { multi: true }),
+    // JEL (IAR-assigned). Per-code, plus the letter+digit subfield/group
+    // (G12 -> G1) which is the governed view that resists long-tail spread.
+    jel: tally(papers, (p) => p.jel?.codes, { multi: true }),
+    jelSubfield: tally(papers, (p) => (p.jel?.codes ?? []).map((c) => c.slice(0, 2)), { multi: true }),
     region: tally(papers, (p) => p.scope?.region),
     assetClass: tally(papers, (p) => p.scope?.assetClass),
     frequency: tally(papers, (p) => p.scope?.frequency),
@@ -286,6 +291,13 @@ function report(a) {
     const singletons = a.topics.filter(([, c]) => c === 1).length;
     console.log(`  ... ${a.topics.length} distinct topics total, ${singletons} appear once (long-tail fragmentation).`);
   }
+  console.log('\n  JEL is IAR-assigned from the abstract (JF prints none); governed external taxonomy.');
+  printDist('JEL subfield/group (G1, G2, ...)', a.jelSubfield);
+  printDist('JEL code (IAR-assigned, top 20)', a.jel.slice(0, 20));
+  if (a.jel.length > 20) {
+    const singletons = a.jel.filter(([, c]) => c === 1).length;
+    console.log(`  ... ${a.jel.length} distinct codes total, ${singletons} appear once.`);
+  }
 
   console.log('\n' + '-'.repeat(70));
   console.log('WHAT WORKS (the effectiveness axis)');
@@ -347,10 +359,12 @@ function reportMissing(papers) {
     'scope.n': (p) => p.scope?.n != null || isTheory(p),
     findings: (p) => (Array.isArray(p.findings) && p.findings.length > 0) || isTheory(p),
     resultType: (p) => p.resultType != null || isTheory(p),
+    // JEL applies to every paper, theory included (it still has a subject).
+    jel: (p) => Array.isArray(p.jel?.codes) && p.jel.codes.length > 0,
   };
   for (const [axis, ok] of Object.entries(axes)) {
     const missing = papers.filter((x) => !ok(x.p));
-    console.log(`\n${axis}: ${papers.length - missing.length}/${papers.length} present (theory papers count as N/A where the axis does not apply)`);
+    console.log(`\n${axis}: ${papers.length - missing.length}/${papers.length} present (theory papers count as N/A where an axis does not apply; jel applies to all)`);
     for (const x of missing) console.log(`  - ${x.journal}/${x.dirYear}/${x.slug}`);
   }
   console.log('');

@@ -31,6 +31,10 @@ paper:
     - expected return premium on WarFac betas across test-asset sets
   resultsCount: 8
   citedByCount: 5
+  jel:
+    codes: [G12, G14, G41]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Market Dynamics and Volatility', 'Financial Risk and Volatility Modeling']
   methods:
     role: both

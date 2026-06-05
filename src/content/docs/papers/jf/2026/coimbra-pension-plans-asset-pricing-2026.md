@@ -25,6 +25,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 8
   citedByCount: 0
+  jel:
+    codes: [G12, J32, E21]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Literacy, Pension, Retirement Analysis', 'Insurance, Mortality, Demography, Risk Management']
   dataAccess: licensed-commercial
   outcome:

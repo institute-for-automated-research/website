@@ -27,6 +27,10 @@ paper:
   redistribution: extract-only
   resultsCount: 9
   citedByCount: 1
+  jel:
+    codes: [G31, D81, E22]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Capital Investment and Risk Analysis', 'Market Dynamics and Volatility', 'Innovation and Knowledge Management']
   dataAccess: licensed-commercial
   outcome:

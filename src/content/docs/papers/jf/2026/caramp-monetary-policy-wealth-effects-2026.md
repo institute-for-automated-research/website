@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 81(2), April 2026, 1011-1052
   venueShort: J. Finance 2026
   doi: 10.1111/jofi.70021
+  jel:
+    codes: [E52, E44, G12]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ["Monetary Policy and Economic Impact", "Banking stability, regulation, efficiency"]
   dataAccess: public
   outcome:

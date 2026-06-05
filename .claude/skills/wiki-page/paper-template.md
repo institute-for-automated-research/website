@@ -46,8 +46,11 @@ paper:
   venue: <full citation string>
   venueShort: <e.g. J. Finance 2025>
   doi: <doi>
-  jel: [<G12>, <G14>]                          # JEL codes printed on the paper (omit if none, e.g. J. Finance)
-  topics: [<OpenAlex topics via the openalex skill>]   # subject classification, the JEL substitute
+  jel:                                         # IAR-assigned from the abstract (JF/most venues print none). NOT the journal's classification.
+    codes: [<G12>, <G14>]                       # normalized 3-char codes, ~3 primary max; assign even when the venue prints none
+    assignedBy: <model id, e.g. claude-opus-4-8>
+    date: <YYYY-MM-DD>
+  topics: [<OpenAlex topics via the openalex skill>]   # raw OpenAlex subject classification, kept as the provenance trail
   dataAccess: <public | licensed-commercial | hand-collected | proprietary-confidential>  # DERIVED + gate-enforced: most-restrictive tier over the data:<slug> tags (see Optional-field rules)
   outcome: [<dependent variable(s), short phrases>]
   license: <descriptive string>

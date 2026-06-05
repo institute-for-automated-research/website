@@ -24,6 +24,10 @@ paper:
   venue: The Journal of Finance 80(6), December 2025, 3443-3497
   venueShort: J. Finance 2025
   doi: 10.1111/jofi.13496
+  jel:
+    codes: [D86, M52, G21]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics:
     - Law, Economics, and Judicial Systems
     - Experimental Behavioral Economics Studies

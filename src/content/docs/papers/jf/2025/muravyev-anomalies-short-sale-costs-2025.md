@@ -24,6 +24,10 @@ paper:
   licenseShort: CC BY 4.0
   resultsCount: 9
   citedByCount: 5
+  jel:
+    codes: [G12, G14]
+    assignedBy: claude-opus-4-8
+    date: 2026-06-05
   topics: ['Financial Markets and Investment Strategies', 'Insurance and Financial Risk Management']
   dataAccess: licensed-commercial
   outcome:
