@@ -168,7 +168,7 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     aliases: [revealed-preference-analysis]
   matching:
     def: Propensity-score or covariate matching of treated units to control units on pre-treatment observables to construct a comparison group.
-    aliases: [propensity-score-matching, covariate-matching]
+    aliases: [propensity-score-matching, covariate-matching, cell-matching, covariate-cell-matching]
   affine-term-structure:
     def: No-arbitrage pricing model where log bond prices are affine functions of state variables; yields are linear in the state vector.
     aliases: [atsm, affine-pricing-model]
@@ -253,6 +253,35 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   information-channel-fg:
     def: Partial-equilibrium model of forward-guidance information effects; the central bank holds a private signal about economic fundamentals and FG announcements reveal that signal, shifting investor beliefs about growth and risk aversion and dominating the conventional interest-rate channel during high-uncertainty periods.
     aliases: [fg-information-channel, delphic-fg-model]
+
+  # ---- Bayesian and information-design methods ----
+  hierarchical-bayesian-mcmc:
+    def: Hierarchical Bayesian model estimated by Hamiltonian Monte Carlo; country-specific parameters drawn from a common hyperprior, updated via Bayes rule across a cross-section of units, yielding shrinkage toward the global mean.
+    aliases: [hierarchical-beta-bernoulli, hmc-bayesian-learning]
+
+  bayesian-persuasion:
+    def: Information-design framework in which a sender commits to a signal policy to maximize an objective over the receiver's posterior beliefs, subject to the Bayes plausibility constraint; solved via concavification of the value function over posteriors.
+    aliases: [concavification, information-design, kamenica-gentzkow]
+
+  # ---- banking and deposit models ----
+  deposit-dynamics-diffusion:
+    def: Bank deposit stock modeled as a diffusion process partially controlled by the bank via the deposit rate, capturing sticky liabilities with stochastic payment flows and a ZLB constraint on the deposit rate.
+    aliases: [deposit-stock-diffusion, stochastic-deposit-model]
+
+  # ---- sovereign bond and monetary union models ----
+  heterogeneous-monetary-union-atsm:
+    def: Affine term structure model extended to a two-country monetary union where one sovereign faces rollover-crisis default risk; yields decompose into expectations, term premium, expected default loss, and credit risk premium components.
+    aliases: [sovereign-default-atsm, multicountry-atsm]
+
+  # ---- market design and auction models ----
+  brokers-routing-vs-obo-auction-model:
+    def: Common-value auction framework with linear symmetric equilibrium comparing brokers' routing of retail orders to order-by-order auctions; shows the winner's curse reduces investor welfare in illiquid stocks when bidder counts are small.
+    aliases: [obo-auction-model, retail-order-routing-model]
+
+  # ---- private credit risk-adjustment ----
+  rap-bank-loans:
+    def: Risk-adjusted profit methodology adapted from private equity strip-by-strip valuation to price bank loan cash flows; uses loan-balance-instrumented benchmark funds spanning credit, term, prepayment, and equity risk factors.
+    aliases: [loan-rap, bank-loan-rap]
 
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
@@ -382,8 +411,7 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
     def: Reported t-statistic standing in for the magnitude; use only when no point estimate is the headline number.
     aliases: [t-statistic]
   hazard-ratio:
-    def: Ratio of hazard rates in a survival / duration model.
-    aliases: [odds-ratio]
+    def: Ratio of hazard rates in a survival / duration model. Distinct from a logistic odds ratio; do not conflate.
   probability:
     def: A probability, rate, proportion, or share of a binary or count outcome (a level in [0,1] or a percent), including survival / mortality rates.
     aliases: [proportion, share, rate, survival-milestone, frequency]
@@ -423,5 +451,8 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
     def: Firm survival and market structure - persistence among the largest firms, entry and exit, mergers and withdrawals, and concentration.
   labor-careers-health:
     def: Outcomes for executives and workers - health, aging and mortality, careers, promotions and discrimination, skill investment, and the design of compensation and incentives.
+  market-microstructure:
+    def: Prices, spreads, and welfare outcomes in trading mechanism design - bid-ask spreads, allocative efficiency, trader surplus, and market share across venues.
+    aliases: [trading-mechanism-outcomes, market-design-welfare]
   social-welfare:
     def: Welfare and social-impact outcomes - corporate social impact, welfare losses, and ESG / carbon impact measures.

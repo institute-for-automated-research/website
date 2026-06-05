@@ -146,6 +146,21 @@ datasets:
     provider: U.S. Securities and Exchange Commission
     access: public
     note: Month-end security-level MMF portfolio holdings and per-fund AUM, filed monthly and public via SEC EDGAR.
+  irs-form-990:
+    name: IRS Form 990 nonprofit information returns
+    provider: U.S. Internal Revenue Service
+    access: public
+    note: Annual filings of tax-exempt organizations (financials, officer names and compensation, board); released by the IRS and via aggregators such as Candid/GuideStar.
+  hcris:
+    name: Healthcare Cost Report Information System (HCRIS)
+    provider: U.S. Centers for Medicare and Medicaid Services
+    access: public
+    note: Medicare cost reports filed by hospitals; freely downloadable from CMS.
+  cms-quality:
+    name: CMS hospital quality and patient-outcome metrics
+    provider: U.S. Centers for Medicare and Medicaid Services
+    access: public
+    note: Hospital mortality, readmission, and patient-satisfaction measures (Hospital Compare); published by CMS.
 
   # ---- public: academic / freely distributed research databases ----
   jst-macrohistory:
@@ -182,6 +197,11 @@ datasets:
     provider: Internet Archive
     access: public
     note: Historical web-page snapshots; freely queryable. Used here to track startup website update frequency.
+  dartmouth-atlas:
+    name: Dartmouth Atlas of Health Care
+    provider: The Dartmouth Institute
+    access: public
+    note: Hospital service area and referral region geographies plus regional health-care utilization measures; freely published.
   vix:
     name: CBOE Volatility Index (VIX)
     provider: Cboe Global Markets
@@ -223,6 +243,11 @@ datasets:
     provider: Eichholtz, Korevaar & Lindenthal (academic)
     access: public
     note: Long-run Paris rent series (1500-1831) from published academic research data.
+  ecb-data-warehouse:
+    name: ECB Statistical Data Warehouse
+    provider: European Central Bank
+    access: public
+    note: Euro-area monetary, financial, and Eurosystem bond-holding statistics; freely accessible from the ECB data portal.
 
   # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
   audit-analytics:
@@ -458,6 +483,31 @@ datasets:
     provider: MSCI (formerly IPD)
     access: licensed-commercial
     note: Real estate total-return and rental-yield benchmarks.
+  global-financial-data:
+    name: Global Financial Data (GFD)
+    provider: Global Financial Data, Inc.
+    access: licensed-commercial
+    note: Long-run cross-country stock, bond, and macro series; commercial subscription.
+  venturesource:
+    name: VentureSource venture-capital data
+    provider: Dow Jones / CB Insights
+    access: licensed-commercial
+    note: VC fund characteristics, financing rounds, and startup locations.
+  datastream:
+    name: Refinitiv Datastream
+    provider: LSEG / Refinitiv
+    access: licensed-commercial
+    note: Cross-market price, yield, and macro time series.
+  cerved:
+    name: Cerved Italian company financials
+    provider: Cerved Group
+    access: licensed-commercial
+    note: Balance-sheet and income-statement data for Italian incorporated companies.
+  aha-annual-survey:
+    name: AHA Annual Survey Database
+    provider: American Hospital Association
+    access: licensed-commercial
+    note: Hospital services, operations, and system-affiliation data; licensed from the AHA.
 
   # ---- proprietary-confidential: supervisory, administrative-registry,
   #      individual-level, or single-counterparty data ----
@@ -612,3 +662,25 @@ datasets:
       Individual-level checking, credit-card, and transaction records for
       millions of customers from a single bank, plus a randomized savings
       experiment; confidential single-counterparty data.
+  bank-of-italy-credit-register:
+    name: Italian Credit Register (Centrale dei Rischi)
+    provider: Bank of Italy (confidential)
+    access: proprietary-confidential
+    note: >-
+      Firm-bank loan quantities and interest rates above a reporting
+      threshold; confidential supervisory access through the central bank.
+      The Or.So. bank-board register and supervisory balance-sheet reports
+      are restricted Bank of Italy sources accessed under the same terms.
+  lisa-sweden:
+    name: LISA longitudinal register (Statistics Sweden)
+    provider: Statistics Sweden (SCB)
+    access: proprietary-confidential
+    note: >-
+      Individual-level annual labor-market, income, transfer, education, and
+      wealth records for all Swedish residents; restricted administrative
+      microdata. The Wealth Register is accessed under the same terms.
+  fek-sweden:
+    name: Structural Business Statistics (FEK, Statistics Sweden)
+    provider: Statistics Sweden (SCB)
+    access: proprietary-confidential
+    note: Firm-level employment, payroll, productivity, and balance-sheet microdata; restricted administrative access.
