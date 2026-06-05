@@ -42,9 +42,9 @@ paper:
 
   methods:
     role: applies-method
-    family: reduced-form-causal
+    family: descriptive
     buildsFrom: [panel-regression, fama-macbeth, portfolio-sort]
-    identification: selection-on-observables
+    identification: descriptive
   contributionType: [new-data, new-fact]
   mechanisms: [learning, information-asymmetry]
   introducesData: true

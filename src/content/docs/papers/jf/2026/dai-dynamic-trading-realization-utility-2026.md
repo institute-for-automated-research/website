@@ -42,7 +42,7 @@ paper:
   methods:
     role: theory
     contributes: realization-utility-saving-leverage
-    family: structural
+    family: theory
     buildsFrom: [hjb-optimal-stopping, impulse-control, realization-utility]
   contributionType: [new-theory]
   mechanisms: [behavioral-bias]
