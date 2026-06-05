@@ -63,7 +63,6 @@ paper:
     identification: instrument
   contributionType: [new-fact, new-data, measurement]
   mechanisms: [intermediary-constraint, limits-to-arbitrage, liquidity]
-  introducesData: true
   scope:
     region: global (US-based entities of 58 global banks)
     assetClass: wholesale funding markets (federal funds, Eurodollars, CD, CP, repo)

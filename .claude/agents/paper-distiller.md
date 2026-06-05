@@ -53,6 +53,12 @@ with the compact JSON result described at the bottom.
    `licenceVerification[]` with today's date and `by: paper-distiller (claude-sonnet-4-6)`.
    Today's date is given in your prompt; if absent, read it from the
    environment, never guess.
+   **Duplicate guard:** once you have the resolved DOI, grep
+   `src/content/docs/papers` for it. If a page already carries this DOI, the
+   PDF is a re-distillation of an existing page (the slug may differ because it
+   was derived from different title words) — STOP and return
+   `{"status":"skipped","reason":"duplicate-doi <doi> already at <path>"}`.
+   Never write a second page for a DOI that is already in the corpus.
 3b. **Pull OpenAlex enrichment** for author, classification, and citation
    metadata (the `openalex` skill is in this repo; call its script directly):
    `python3 scripts/openalex/openalex.py work doi:<doi> --json`. From
@@ -81,7 +87,12 @@ with the compact JSON result described at the bottom.
   the paper uses** (crsp→`data:wrds`, Compustat→`data:wrds`, FRED→`data:fred`,
   SEC EDGAR→`data:edgar`, Ken French library→`data:ken-french`, etc.). A
   `data:<slug>` with no page yet is fine; it becomes a documentation backlog
-  item.
+  item. **Never mint a `data:hand-collected*` (or other provenance-named)
+  slug:** `hand-collected` is a paper-level `dataAccess` tier, never a dataset.
+  Capture author-collected primary data with `dataAccess: hand-collected` plus
+  `introducesData: true` and NO `data:` tag. Prefer an existing registry slug
+  over a new one, and one real dataset per slug (do not bundle two vendors as
+  `data:crunchbase-pitchbook`; tag `data:crunchbase` and `data:pitchbook`).
 - `paper:` block, fill all required fields:
   - `authors` (full names, as printed), `year` (number), `venue` (full
     citation string), `venueShort` (e.g. `J. Finance 2020`), `doi`.
@@ -172,6 +183,13 @@ with the compact JSON result described at the bottom.
     `direction` rule (sign of the effect, not "good for the paper"; do not code a
     rejection `positive`; `none` = a null; NEVER write `null`), and the omit rules
     are in paper-template.md, the Optional-field rules: follow them.
+    **YAML-safe scalars (this is frontmatter, not Markdown).** `findings[].value`,
+    `vsBenchmark`, and `note` strings constantly contain a colon-space (`: `),
+    which breaks an unquoted YAML scalar, so wrap any such string in double
+    quotes; also quote a string that starts with `*`, `-`, `[`, `{`, `"`, or `#`.
+    Inside a YAML scalar write significance stars as plain `**`, NEVER `\*\*`:
+    the `\*` markdown escape is for the body table only and is an invalid escape
+    in YAML that fails the build. For a long note prefer a `>-` block scalar.
   - `resultType`: the paper-level verdict: `confirms` | `overturns` |
     `null-result` | `mixed` | `new-finding` (spelled `null-result`, not `null`).
     Choose it from the page's `relatesTo` edges (a `contradicts` headline ->
@@ -212,7 +230,8 @@ with the compact JSON result described at the bottom.
 - **Core results table**: one row per headline result, each with a real
   Locator (Table/Figure/§ + page) and the Magnitude as reported (keep the
   paper's own coefficients, t-stats, significance; use `\*` to escape
-  asterisks in Markdown). Do not round away meaning, do not invent numbers.
+  asterisks in this Markdown body table ONLY, never in a YAML frontmatter scalar
+  where `\*` is an invalid escape). Do not round away meaning, do not invent numbers.
 - **The three formal sections** `## Theory / model`, `## Method`,
   `## Empirical specifications` are the substance. Write the paper's ACTUAL
   equations (model; estimator/objective; regression specifications), not a
