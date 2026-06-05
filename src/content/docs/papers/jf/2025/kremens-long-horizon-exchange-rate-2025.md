@@ -71,7 +71,7 @@ paper:
   relatesTo:
     - { cite: 'Kremens and Martin (2019)', doi: '10.1257/aer.20180019', relation: extends, note: 'extends their quanto-implied risk premium (QRP) as an FX predictor; this paper adds survey expectations as a complementary and stronger univariate predictor' }
     - { cite: 'Meese and Rogoff (1983)', doi: '10.1016/0022-1996(83)90017-x', relation: contradicts, note: 'survey forecasts outperform the random walk benchmark out of sample at the two-year horizon' }
-    - { cite: 'Hansen and Hodrick (1980)', doi: '10.1086/260910', relation: builds-on, note: 'foundational UIP regression framework and block-bootstrap standard error approach' }
+    - { cite: 'Hansen and Hodrick (1980)', doi: '10.1086/260910', relation: builds-on, note: 'early UIP regression framework and block-bootstrap standard error approach' }
     - { cite: 'Lustig, Roussanov and Verdelhan (2011)', doi: '10.1093/rfs/hhr068', relation: cites, note: 'Dollar and Carry factor loadings used as alternative FX predictors' }
     - { cite: 'Lustig, Roussanov and Verdelhan (2014)', doi: '10.1016/j.jfineco.2013.12.005', relation: cites, note: 'countercyclical currency risk premia and carry factor loadings as alternative predictors' }
     - { cite: 'Dahlquist and Penasse (2022)', doi: '10.1111/jofi.13190', relation: cites, note: 'real exchange rate as a missing risk premium predictor, used here as a competitor variable' }

@@ -13,7 +13,7 @@ sidebar:
 tags: [paper-summary, corporate-governance, political-economy, creative-destruction,
        firm-dynamics, panel-regression, difference-in-differences, event-study,
        open-access, cc-by, peer-reviewed, unreplicated,
-       data:worldscope, data:compustat-global, data:hand-collected]
+       data:worldscope, data:compustat-global]
 paper:
   authors: Mara Faccio, John J. McConnell
   authorList:

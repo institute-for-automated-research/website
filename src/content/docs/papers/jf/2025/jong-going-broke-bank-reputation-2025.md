@@ -13,7 +13,7 @@ sidebar:
   order: 1
 tags: [paper-summary, financial-intermediation, securitization, bank-reputation,
        mortgage-backed-securities, panel-regression, historical-finance, peer-reviewed,
-       unreplicated, data:hand-collected-historical]
+       unreplicated]
 paper:
   authors: Abe de Jong, Tim Kooijmans, Peter Koudijs
   authorList:
