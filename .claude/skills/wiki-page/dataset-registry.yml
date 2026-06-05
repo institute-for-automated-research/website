@@ -141,6 +141,11 @@ datasets:
     provider: U.S. Securities and Exchange Commission (IAPD)
     access: public
     page: datasets/form-adv
+  n-mfp:
+    name: Form N-MFP money-market-fund portfolio holdings
+    provider: U.S. Securities and Exchange Commission
+    access: public
+    note: Month-end security-level MMF portfolio holdings and per-fund AUM, filed monthly and public via SEC EDGAR.
 
   # ---- public: academic / freely distributed research databases ----
   jst-macrohistory:
@@ -162,6 +167,21 @@ datasets:
     provider: Andrew Y. Chen and Tom Zimmermann
     access: public
     page: datasets/open-source-asset-pricing
+  gyourko-mayer-sinai:
+    name: Gyourko-Mayer-Sinai Superstar Cities MSA database
+    provider: Gyourko, Mayer & Sinai (academic)
+    access: public
+    note: MSA-level long-run house price and return series from "Superstar Cities"; published academic data.
+  zillow:
+    name: Zillow housing research data
+    provider: Zillow Group (Zillow Research)
+    access: public
+    note: MSA and metro housing metrics (e.g. ZHVI, days on market, price cuts); freely published by Zillow Research.
+  wayback-machine:
+    name: Internet Archive Wayback Machine
+    provider: Internet Archive
+    access: public
+    note: Historical web-page snapshots; freely queryable. Used here to track startup website update frequency.
   vix:
     name: CBOE Volatility Index (VIX)
     provider: Cboe Global Markets
@@ -189,6 +209,20 @@ datasets:
     provider: Forbes (published surveys)
     access: public
     note: CEO pay figures compiled from the published annual Forbes surveys; historical print issues, no licence to read.
+  amsterdam-housing-transactions:
+    name: Amsterdam historical housing transaction and rent records
+    provider: Amsterdam City Archives (Stadsarchief Amsterdam)
+    access: public
+    note: >-
+      Author-compiled house price and rent series from public municipal
+      archives (aldermen registrations 1620-1811, Herengracht repeat-sales,
+      1805 rental census). Source archives are open; the compiled panel is
+      hand-collected.
+  paris-rents:
+    name: Paris historical repeat-rent index
+    provider: Eichholtz, Korevaar & Lindenthal (academic)
+    access: public
+    note: Long-run Paris rent series (1500-1831) from published academic research data.
 
   # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
   audit-analytics:
@@ -404,6 +438,26 @@ datasets:
     name: Refinitiv Worldscope fundamentals
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
+  taq:
+    name: TAQ (Trade and Quote) intraday data
+    provider: NYSE (via WRDS)
+    access: licensed-commercial
+    note: Tick-level trades and quotes with venue codes; WRDS-gated.
+  costar:
+    name: CoStar commercial real estate transactions
+    provider: CoStar Group
+    access: licensed-commercial
+    note: Commercial real estate sale transactions, assessments, and property characteristics.
+  crunchbase:
+    name: Crunchbase startup and funding data
+    provider: Crunchbase, Inc.
+    access: licensed-commercial
+    note: Startup characteristics, funding rounds, and investor data; commercial database (free tier limited).
+  msci-real-estate:
+    name: MSCI real estate index and investor yield data
+    provider: MSCI (formerly IPD)
+    access: licensed-commercial
+    note: Real estate total-return and rental-yield benchmarks.
 
   # ---- proprietary-confidential: supervisory, administrative-registry,
   #      individual-level, or single-counterparty data ----
@@ -535,3 +589,26 @@ datasets:
     provider: Confidential (bank-TSP relationships)
     access: proprietary-confidential
     note: Confidential identification of banks using the attacked third-party technology service provider.
+  dtcc:
+    name: DTCC commercial paper transaction data
+    provider: DTCC Solutions LLC (confidential)
+    access: proprietary-confidential
+    note: Transaction-level commercial paper issuance (issuer, volume, rate, maturity); restricted, not an off-the-shelf feed.
+  fr2420:
+    name: FR 2420 Report of Selected Money Market Rates
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Confidential transaction-level fed funds, Eurodollar, and CD rates collected from banks and FBOs.
+  fr2644:
+    name: FR 2644 Weekly Report of Selected Assets and Liabilities
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Confidential weekly bank balance-sheet data for domestic banks and FBO branches.
+  banorte-experiment:
+    name: Banorte bank-account panel and savings field experiment (Mexico)
+    provider: Banorte (confidential)
+    access: proprietary-confidential
+    note: >-
+      Individual-level checking, credit-card, and transaction records for
+      millions of customers from a single bank, plus a randomized savings
+      experiment; confidential single-counterparty data.

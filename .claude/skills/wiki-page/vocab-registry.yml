@@ -60,7 +60,7 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   # ---- panel / regression / causal-inference primitives ----
   panel-regression:
     def: OLS/GLS regression on a panel dataset with multi-way fixed effects and clustered standard errors.
-    aliases: [panel-ols, panel-fe, twfe, multi-way-fe, fixed-effects-regression, two-way-clustered-regression, ols-panel, within-estimator, linear-probability-model, lpm]
+    aliases: [panel-ols, panel-fe, twfe, multi-way-fe, fixed-effects-regression, two-way-clustered-regression, ols-panel, within-estimator, linear-probability-model, lpm, random-effects-panel, re-panel, random-effects-regression]
   difference-in-differences:
     def: Panel estimator comparing treated and control units before and after a quasi-natural experiment; includes stacked DiD and dynamic event-study variants.
     aliases: [diff-in-diff, DiD, did, stacked-did, differences-in-differences]
@@ -108,8 +108,8 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Semisupervised latent Dirichlet allocation seeded with domain-knowledge words so topic content is stable across rolling re-estimations; estimated on a rolling window to avoid look-ahead bias.
     aliases: [seeded-lda, semisupervised-lda]
   text-classification:
-    def: Machine-learning or rule-based assignment of text to sentiment or topic categories using classifiers such as maximum entropy, naive Bayes, or proprietary NLP tools.
-    aliases: [sentiment-classification, nlp-classification]
+    def: Machine-learning or rule-based assignment of text to sentiment or topic categories using classifiers such as maximum entropy, naive Bayes, random forests, or proprietary NLP tools.
+    aliases: [sentiment-classification, nlp-classification, rf-classifier, random-forest-classifier, rf-text-classifier]
   llm-text-classification:
     def: Using a large language model prompted with a domain-expert role to classify, score, or extract structured information from free-form text such as meeting notes or earnings calls.
     aliases: [gpt-classification, llm-parsing]
@@ -224,6 +224,31 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Instrumental variable strategy exploiting the Mundell international finance trilemma; countries with fixed exchange rates and open capital accounts track base-country monetary policy, so residualized base-country rate changes instrument the peg-country rate change.
     aliases: [mundell-trilemma-iv, trilemma-instrument]
 
+  # ---- principal-agent and compensation models ----
+  compensation-externality-ge:
+    def: General equilibrium model in which each firm's compensation package raises the equilibrium outside option for all managers, undermining termination as an incentive device and generating a pecuniary externality.
+    aliases: [competitive-compensation-externality]
+
+  # ---- factor analysis and dimension reduction ----
+  factor-analysis-pca:
+    def: Principal-components or factor analysis used to extract a low-dimensional summary score from a high-dimensional set of measures.
+    aliases: [principal-component-analysis, pca-factor]
+
+  # ---- machine-learning causal inference ----
+  causal-forest:
+    def: Machine-learning estimator that builds on generalized random forests to estimate heterogeneous treatment effects at the individual level; cross-fitted rankings used for subgroup selection to avoid overfitting bias.
+    aliases: [generalized-random-forest, grf]
+
+  # ---- repeat-sales index methods ----
+  bayesian-repeat-sales:
+    def: Repeat-sales house price index estimated using Bayesian methods to handle thin markets with few transactions.
+    aliases: [repeat-sales-bayesian, thin-market-repeat-sales]
+
+  # ---- OTC search-and-bargaining models ----
+  search-bargaining-otc:
+    def: Search-and-matching model where buyers and sellers meet at Poisson intensity and face bilateral bargaining over price and timing; generates endogenous trade delays and liquidity dispersion across asset qualities.
+    aliases: [search-frictions, search-and-matching-otc, otc-search-model]
+
   # ---- monetary policy transmission models ----
   information-channel-fg:
     def: Partial-equilibrium model of forward-guidance information effects; the central bank holds a private signal about economic fundamentals and FG announcements reveal that signal, shifting investor beliefs about growth and risk aversion and dominating the conventional interest-rate channel during high-uncertainty periods.
@@ -308,6 +333,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   debt-overhang:
     def: Outstanding debt distorts a borrower's or firm's effort and investment decisions because a fraction of future income or returns accrues to creditors rather than the agent.
     aliases: [debt-burden-distortion, student-debt-overhang]
+  self-partner-control:
+    def: Intrahousehold or dual-self mechanism in which one party hides or locks away cash from an impatient party to constrain future spending; generates coholding without requiring saving and borrowing to move in tandem.
+    aliases: [partner-control, dual-self-control, intrahousehold-control]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
