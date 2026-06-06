@@ -273,10 +273,46 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Affine term structure model extended to a two-country monetary union where one sovereign faces rollover-crisis default risk; yields decompose into expectations, term premium, expected default loss, and credit risk premium components.
     aliases: [sovereign-default-atsm, multicountry-atsm]
 
+  # ---- game-theoretic models ----
+  repeated-game:
+    def: Model in which a stage game is played repeatedly by the same players with a common discount factor; equilibria include cooperation sustained by credible punishment strategies.
+    aliases: [supergame, infinitely-repeated-game]
+  repeated-extensive-form-game:
+    def: Repeated game in which each stage is an extensive-form game with sequential moves within a period; collusive equilibria require multi-phase punishment strategies beyond simple penal codes because move order within a period matters.
+    aliases: [repeated-extensive-form, repeated-multistage-game]
+  mechanism-design:
+    def: Design of rules and incentive structures (mechanisms) to achieve a desired outcome; includes auction design, contract design, and information-design problems where the designer moves first.
+    aliases: [optimal-mechanism-design, mechanism-design-theory]
+
+  # ---- security-bid auction models ----
+  security-bid-auction:
+    def: Auction in which bidders compete by submitting bids in general securities (cash, equity, debt, call options); the winner's payment structure is endogenously determined by the security she chooses.
+    aliases: [security-auction, general-security-auction]
+
   # ---- market design and auction models ----
   brokers-routing-vs-obo-auction-model:
     def: Common-value auction framework with linear symmetric equilibrium comparing brokers' routing of retail orders to order-by-order auctions; shows the winner's curse reduces investor welfare in illiquid stocks when bidder counts are small.
     aliases: [obo-auction-model, retail-order-routing-model]
+
+  # ---- survey / randomized-information experiments ----
+  randomized-survey-experiment:
+    def: Preregistered online or field survey experiment that introduces exogenous variation in a stated variable across randomly assigned treatment arms to identify causal effects on stated or revealed choices.
+    aliases: [information-experiment, survey-rct]
+
+  # ---- panel standard-error estimators ----
+  driscoll-kraay-regression:
+    def: Panel regression with Driscoll-Kraay standard errors allowing arbitrary serial correlation and cross-sectional dependence up to K lags; used for international macro panel data with few cross-sectional clusters.
+    aliases: [dk-se-regression, driscoll-kraay-se]
+
+  # ---- discrete-choice panel estimators ----
+  conditional-logit:
+    def: Conditional fixed-effects logit for binary outcomes in matched or grouped data; within-group (fixed-effect) estimator that eliminates group-level unobservables; distinct from cross-sectional logit-regression.
+    aliases: [conditional-logit-regression, clogit, fixed-effects-logit]
+
+  # ---- nonexclusive-contracting models ----
+  nonexclusive-contracting-model:
+    def: Contracting model in which a borrower can sign with multiple creditors simultaneously and cannot be legally prevented from doing so; covenants can be violated by new secured debt that retains priority regardless.
+    aliases: [nonexclusive-debt-model, nonexclusivity-model]
 
   # ---- private credit risk-adjustment ----
   rap-bank-loans:
@@ -365,6 +401,18 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   self-partner-control:
     def: Intrahousehold or dual-self mechanism in which one party hides or locks away cash from an impatient party to constrain future spending; generates coholding without requiring saving and borrowing to move in tandem.
     aliases: [partner-control, dual-self-control, intrahousehold-control]
+  disparate-treatment:
+    def: Lenders or decision-makers treat applicants with identical observed risk characteristics differently on the basis of a protected attribute (race, ethnicity); encompasses both taste-based and statistical discrimination.
+    aliases: [racial-discrimination, differential-treatment, fair-lending-violation]
+  excess-capacity-wedge:
+    def: Anticipated future excess capacity drives a wedge between average and marginal q, reducing the marginal benefit of new capital investment; firms with high expected excess capacity invest less than average q alone predicts.
+    aliases: [capacity-utilization-wedge, marginal-average-q-wedge, excess-capacity]
+  sunk-cost-commitment:
+    def: Behavioral friction in which decision-makers weigh irrecoverable past costs in subsequent investment choices, generating over-commitment to costly projects beyond the NPV-optimal stopping rule.
+    aliases: [escalation-of-commitment, sunk-cost-fallacy, concorde-effect]
+  network-exclusion:
+    def: Mechanism in which incumbent agents refuse to work with a price deviator within the current period, cutting the deviator off from the incumbent network and making price cuts unprofitable even when many competitors exist.
+    aliases: [ostracism-mechanism, network-ostracism]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller

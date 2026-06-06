@@ -684,3 +684,39 @@ datasets:
     provider: Statistics Sweden (SCB)
     access: proprietary-confidential
     note: Firm-level employment, payroll, productivity, and balance-sheet microdata; restricted administrative access.
+
+  # ---- JF 80(3) batch ----
+  barro-ursua:
+    name: Barro-Ursua Macroeconomic Database
+    provider: Robert Barro and Jose Ursua
+    access: public
+    note: Long historical annual series of real per-capita GDP and consumption for advanced and emerging economies; freely downloadable from the authors' website.
+  dfa:
+    name: Distributional Financial Accounts (DFA)
+    provider: Federal Reserve Board
+    access: public
+    note: Quarterly distribution of U.S. household wealth across the wealth, income, age, and education distributions, reconciled to the Financial Accounts; published openly by the Fed.
+  hrs:
+    name: Health and Retirement Study (HRS)
+    provider: University of Michigan / NIA
+    access: public
+    note: >-
+      Biennial longitudinal panel of U.S. households over age 50 covering
+      health, wealth, portfolios, and survey expectations; public-use files are
+      free to registered researchers (restricted detail requires a separate
+      data-use agreement).
+  fdic:
+    name: FDIC institution data (Summary of Deposits, Quarterly Banking Profile)
+    provider: Federal Deposit Insurance Corporation
+    access: public
+    note: Bank branch locations and deposits (Summary of Deposits) and aggregate U.S. commercial-bank balance-sheet and income series (Quarterly Banking Profile); published openly by the FDIC.
+  clarity-services:
+    name: Clarity Services alternative-credit bureau
+    provider: Clarity Services (Experian)
+    access: licensed-commercial
+    note: Loan-level records on payday, installment, and other subprime/alternative credit products from a specialty credit bureau; obtained under a commercial research licence.
+  equifax:
+    name: Equifax consumer credit data
+    provider: Equifax
+    access: licensed-commercial
+    note: Individual-level traditional credit-bureau records (installment and revolving balances, limits, credit scores, balances in good standing); obtained under a commercial research licence.
