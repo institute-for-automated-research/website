@@ -832,3 +832,75 @@ datasets:
     provider: TransUnion Canada (confidential research access)
     access: proprietary-confidential
     note: Monthly population-wide individual credit-bureau records (borrower characteristics, mortgage identity, switching, inquiries); restricted research access, not an off-the-shelf purchase.
+
+  # ---- RFS hhaf (2025) batch ----
+  shiller-data:
+    name: Robert Shiller online data (U.S. stock market, CAPE, home prices)
+    provider: Robert J. Shiller (Yale)
+    access: public
+    note: Long monthly series of S&P prices, dividends, earnings, the cyclically adjusted P/E (CAPE), and the long-run home price index; freely downloadable from the author's Yale website.
+  steelbenchmarker:
+    name: SteelBenchmarker steel price index
+    provider: World Steel Dynamics / American Metal Market
+    access: licensed-commercial
+    note: Biweekly reference prices for hot-rolled band, cold-rolled coil, and other steel products; current spot reports are free but the full historical product-level series is a subscription product (the source paper calls it a proprietary price database).
+  cra-ffiec:
+    name: Community Reinvestment Act (CRA) disclosure data
+    provider: FFIEC
+    access: public
+    note: Bank small-business and small-farm lending by census tract under the CRA; aggregate and disclosure files published openly by the FFIEC.
+  fannie-freddie:
+    name: Fannie Mae / Freddie Mac single-family loan-level datasets
+    provider: Fannie Mae / Freddie Mac
+    access: public
+    note: Loan-level acquisition and performance records for single-family mortgages acquired by the GSEs; freely downloadable after a no-cost registration.
+  facebook-sci:
+    name: Facebook Social Connectedness Index (SCI)
+    provider: Meta Data for Good
+    access: public
+    note: County- and region-pair index of relative friendship-link intensity built from anonymized Facebook friendships; freely available to researchers via the Humanitarian Data Exchange.
+  csmar:
+    name: China Stock Market & Accounting Research (CSMAR) database
+    provider: GTA Information Technology
+    access: licensed-commercial
+    note: Vendor database of Chinese listed-firm prices, financials, and market microstructure; obtained under a commercial / institutional licence.
+  china-shadow-margin:
+    name: China shadow-margin (off-exchange) lending data (single provider)
+    provider: Undisclosed large shadow-margin platform (confidential)
+    access: proprietary-confidential
+    note: Daily stock-level off-exchange ("shadow") margin balances from one large lending platform (about 5% of the market), used for the 2015 bust analysis; a single private counterparty's records, not purchasable off the shelf.
+  bureau-van-dijk-zephyr:
+    name: Bureau van Dijk Zephyr (M&A and deals)
+    provider: Moody's / Bureau van Dijk
+    access: licensed-commercial
+    note: Global database of M&A, IPO, private-equity, and venture deals; obtained under a commercial vendor licence.
+  ztrax:
+    name: Zillow Transaction and Assessment Dataset (ZTRAX)
+    provider: Zillow
+    access: licensed-commercial
+    note: Property-level transactions and assessor records; was distributed free to academics under a Zillow data-use agreement (program discontinued 2023), not an open download.
+  maryland-judiciary:
+    name: Maryland Judiciary Case Search records
+    provider: Maryland Judiciary
+    access: public
+    note: Individual-level state court case records (charges, hearings, dispositions) retrieved from the free public Case Search portal.
+  pacer-bankruptcy:
+    name: PACER federal bankruptcy court records
+    provider: U.S. Administrative Office of the Courts (PACER)
+    access: public
+    note: Case-level federal bankruptcy filings and dockets; open to any registered user, billed per page (nominal fees, waivable), not a commercial vendor product.
+  insee-dads:
+    name: INSEE DADS matched employer-employee data (France)
+    provider: INSEE (via CASD)
+    access: proprietary-confidential
+    note: Administrative declarations linking French workers to establishments (earnings, occupation, hours); restricted access through the CASD secure data centre.
+  insee-lifi:
+    name: INSEE LIFI financial linkages between firms (France)
+    provider: INSEE (via CASD)
+    access: proprietary-confidential
+    note: Administrative survey of ownership and control links among French firms (group structure); restricted access through the CASD secure data centre.
+  insee-tax-files:
+    name: INSEE firm tax and accounting files (France)
+    provider: INSEE / DGFiP (via CASD)
+    access: proprietary-confidential
+    note: Administrative firm-level tax and accounting records (balance sheets, income statements); restricted access through the CASD secure data centre.

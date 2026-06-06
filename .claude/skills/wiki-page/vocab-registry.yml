@@ -29,6 +29,11 @@ family: # methods.family: the method class (also enum-backed in content.config.t
 
 builds-from: # methods.buildsFrom: technique primitives a method is built on
 
+  # ---- clustering ----
+  k-means-clustering:
+    def: K-Means unsupervised clustering algorithm grouping observations into k clusters by minimizing intracluster Euclidean distance; optimal k chosen via the Silhouette Method or elbow criterion.
+    aliases: [k-means, kmeans-clustering, kmeans]
+
   # ---- portfolio and factor construction ----
   decision-trees:
     def: Recursive binary partitioning of the feature/characteristic space.
@@ -63,10 +68,10 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     aliases: [panel-ols, panel-fe, twfe, multi-way-fe, fixed-effects-regression, two-way-clustered-regression, ols-panel, within-estimator, linear-probability-model, lpm, random-effects-panel, re-panel, random-effects-regression]
   difference-in-differences:
     def: Panel estimator comparing treated and control units before and after a quasi-natural experiment; includes stacked DiD and dynamic event-study variants.
-    aliases: [diff-in-diff, DiD, did, stacked-did, differences-in-differences]
+    aliases: [diff-in-diff, DiD, did, stacked-did, differences-in-differences, staggered-did, staggered-treatment-did, stacked-did-panel]
   instrumental-variables:
     def: Estimation using an instrument correlated with the endogenous regressor but not the error; includes 2SLS and Bartik-style designs.
-    aliases: [iv-estimation, 2sls, bartik-iv, IV, 2SLS]
+    aliases: [iv-estimation, 2sls, bartik-iv, IV, 2SLS, bartik-shift-share-iv, shift-share-bartik, hc-bartik]
   event-study:
     def: Cumulative abnormal return (CAR) estimation around a corporate event date, or a dynamic DiD specification plotting pre-trend and post-treatment coefficient paths.
     aliases: [car-estimation, abnormal-returns, dynamic-DiD, event-time-regression]
@@ -235,6 +240,26 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   d-hank-model:
     def: Analytical heterogeneous-agent New Keynesian model with Poisson aggregate disaster shocks and heterogeneous beliefs about disaster probability, yielding a tractable four-equation system via approximate block-recursivity.
     aliases: [disaster-hank, rare-disaster-hank]
+
+  # ---- leave-out instrumental variable ----
+  leave-out-mean-iv:
+    def: Leave-out mean instrument that averages a decision-maker's residualized choices over all cases except those involving the focal unit in the same period; removes mechanical own-case correlation while preserving cross-unit leniency variation.
+    aliases: [jackknife-iv, leave-one-out-iv, residualized-lom]
+
+  # ---- anticipatory price models ----
+  anticipatory-credit-pricing-model:
+    def: Dynamic competitive stock-pricing model with heterogeneous investors in which deep-pocketed unconstrained investors gradually receive signals about an upcoming credit supply shock and front-run the price impact; generates an exponential anticipatory pre-trend parameterized by a rate-of-anticipation theta and a direct effect delta.
+    aliases: [information-revelation-credit-model, credit-anticipation-model]
+
+  # ---- deterministic-slope forecasting ----
+  conservative-slope-forecast:
+    def: Equity premium forecast that sets the predictive slope to a small positive constant (1/A based on sign inference) instead of estimating it by OLS; matches the historical average estimation variance (zero) while reducing bias when the population slope is nonzero.
+    aliases: [deterministic-slope-forecast, bias-reduction-forecast]
+
+  # ---- blockchain security models ----
+  pow-vs-pos-security-model:
+    def: OLG equilibrium model comparing security and adoption across Proof-of-Work and Proof-of-Stake blockchain protocols via attacker incentive compatibility and validator investment.
+    aliases: [blockchain-security-model, consensus-protocol-model]
 
   # ---- causal inference / identification ----
   regression-discontinuity-design:
@@ -511,6 +536,12 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   labor-supply-channel:
     def: Households respond to tightened budget constraints by increasing labor supply rather than only cutting consumption, generating a positive income response to interest rate increases.
     aliases: [labor-income-channel, marginal-propensity-to-earn]
+  belief-endogeneity:
+    def: Mechanism in which agent beliefs about uncertain fundamentals are determined endogenously by hierarchical position and incentive contracts received, rather than being exogenous; creates disagreement and an uncertainty discount distinct from risk aversion.
+    aliases: [endogenous-beliefs, contractual-belief-formation]
+  cost-of-capital:
+    def: Opportunity cost of capital deployed in validation, mining, or investment determines security or participation levels; the channel through which capital efficiency differences across protocols or instruments affect equilibrium outcomes.
+    aliases: [capital-opportunity-cost, validation-cost-channel]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
