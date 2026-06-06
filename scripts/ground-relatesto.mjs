@@ -31,6 +31,7 @@ const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().rep
 // or it gets re-added on every run and has to be stripped again. Lowercase.
 const KNOWN_BAD_DOIS = new Set([
   '10.7916/d8v12ft1', // OpenAlex's bad DOI for Stiglitz & Weiss (1981); 404s on Crossref
+  '10.7916/d8765r99', // OpenAlex's bad DOI for Grossman & Stiglitz (1980); 404s on Crossref
 ]);
 const CACHE = join(root, 'scripts/openalex/.refs-cache');
 if (!existsSync(CACHE)) mkdirSync(CACHE, { recursive: true });
