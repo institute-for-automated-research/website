@@ -104,6 +104,12 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     aliases: [slp, barnichon-brownlees]
 
   # ---- text and classification ----
+  lda-topic-model:
+    def: Latent Dirichlet Allocation applied to a large text corpus to extract topic distributions over documents; each document is a mixture of topics, each topic a distribution over words.
+    aliases: [latent-dirichlet-allocation, lda]
+  slda-text-classification:
+    def: Dictionary-based paragraph-level classification of text into thematic channels, validated against latent Dirichlet allocation; used to identify economic mechanisms from textual disclosure.
+    aliases: [dictionary-text-classification, hurricane-channel-nlp]
   slda-topic-model:
     def: Semisupervised latent Dirichlet allocation seeded with domain-knowledge words so topic content is stable across rolling re-estimations; estimated on a rolling window to avoid look-ahead bias.
     aliases: [seeded-lda, semisupervised-lda]
@@ -195,6 +201,11 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Risk-neutral covariance between exchange rate and equity market returns extracted from quanto forward prices; the QRP of Kremens and Martin (2019).
     aliases: [qrp, quanto-forward-pricing]
 
+  # ---- structural credit models ----
+  bc-structural-model:
+    def: Black-Cox (1976) structural model of corporate default with a flat default boundary for coupon-bearing bonds; model-implied credit spread decomposes into default risk premium and recovery.
+    aliases: [black-cox-model, bc-model]
+
   # ---- structural firm dynamics ----
   arpl-mrpl-dynamics:
     def: Dynamic firm heterogeneity model in which firms differ in the ratio of average-revenue-product-of-labor to marginal-revenue-product-of-labor, capturing rent share and labor intensity differences across cohorts.
@@ -204,6 +215,16 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   segmented-markets-lucas-tree:
     def: Two-type OLG model with separate Lucas trees for stocks and housing, connected only through a bond or credit market; households trade only their type-specific asset plus bonds.
     aliases: [segmented-markets-housing-model]
+
+  # ---- index decomposition ----
+  index-effect-decomposition:
+    def: Decomposition of average abnormal index-event returns into a demand multiplier M and a net demand shock D, separately accounting for migrations versus direct additions/deletions, to identify whether declining returns reflect a smaller shock or a more elastic supply response.
+    aliases: [price-impact-decomposition, m-times-d-decomposition]
+
+  # ---- NLP embedding methods ----
+  doc2vec-nlp:
+    def: doc2vec word-embedding model mapping firm 10-K product descriptions to a continuous semantic vector space, enabling textual similarity scoring across industry dialects.
+    aliases: [d2v, doc2vec-embedding, doc2vec-scope]
 
   # ---- intermediary heterogeneity ----
   heterogeneous-elasticity-intermediation:
@@ -244,15 +265,53 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Repeat-sales house price index estimated using Bayesian methods to handle thin markets with few transactions.
     aliases: [repeat-sales-bayesian, thin-market-repeat-sales]
 
+  # ---- negotiated price and switching costs ----
+  dynamic-negotiated-price-game:
+    def: T-period finite game of price negotiation where a home bank makes a first-mover initial quote, borrowers choose search intensity, and competing lenders bid in a descending English procurement auction with forward-looking incumbency advantage.
+    aliases: [negotiated-price-competition, invest-harvest-game]
+
+  # ---- effort measurement ----
+  bloomberg-awl-effort-measure:
+    def: Average workday length derived from minute-by-minute Bloomberg platform online status via an EM algorithm on a Gaussian mixture model of intraday activity; estimates the span between start and end of the executive workday.
+    aliases: [awl-measure, bloomberg-effort-proxy]
+
   # ---- OTC search-and-bargaining models ----
   search-bargaining-otc:
     def: Search-and-matching model where buyers and sellers meet at Poisson intensity and face bilateral bargaining over price and timing; generates endogenous trade delays and liquidity dispersion across asset qualities.
     aliases: [search-frictions, search-and-matching-otc, otc-search-model]
 
+  # ---- leverage and funding decomposition ----
+  leverage-demand-supply-var:
+    def: Structural VAR that decomposes aggregate broker-dealer leverage innovations into demand and supply shocks, identified by sign restrictions combined with asset-pricing moment conditions that yield closed-form structural parameter estimates.
+    aliases: [leverage-shock-decomposition, structural-leverage-var]
+
+  # ---- race imputation ----
+  bifsg-race-imputation:
+    def: Bayesian Improved First Name Surname Geocoding method that infers individual race/ethnicity probabilities from first name, last name, and ZIP code using Census name lists and location-race priors.
+    aliases: [bifsg, bayesian-surname-geocoding]
+
+  # ---- supervised PCA and factor screening ----
+  spca-screening:
+    def: Supervised PCA procedure that at each step screens test assets by correlation with a target factor before applying PCA to extract one latent factor, then projects out that factor before the next iteration.
+    aliases: [supervised-pca, spca]
+
+  # ---- discrete-choice demand with latent types ----
+  latent-class-logit:
+    def: Mixture logit model with discrete latent classes capturing unobserved preference heterogeneity; class membership probabilities and class-specific parameters estimated jointly via maximum likelihood.
+    aliases: [latent-class-model, finite-mixture-logit]
+
   # ---- monetary policy transmission models ----
   information-channel-fg:
     def: Partial-equilibrium model of forward-guidance information effects; the central bank holds a private signal about economic fundamentals and FG announcements reveal that signal, shifting investor beliefs about growth and risk aversion and dominating the conventional interest-rate channel during high-uncertainty periods.
     aliases: [fg-information-channel, delphic-fg-model]
+
+  # ---- rational expectations and search models ----
+  noisy-rational-expectations:
+    def: Rational-expectations equilibrium model (Grossman-Stiglitz type) in which the equilibrium price aggregates informed traders' signals plus noise-trader demand; price informativeness is measured by the inverse of residual variance.
+    aliases: [gre-model, noisy-re-equilibrium, grossman-stiglitz]
+  sequential-search-model:
+    def: Search model in which an agent conducts multiple rounds of exploration, each costing c and yielding a draw from a quality distribution; the agent stops when the draw exceeds a threshold determined by a stopping rule.
+    aliases: [optimal-stopping-search, satisficing-search]
 
   # ---- Bayesian and information-design methods ----
   hierarchical-bayesian-mcmc:
@@ -262,6 +321,14 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   bayesian-persuasion:
     def: Information-design framework in which a sender commits to a signal policy to maximize an objective over the receiver's posterior beliefs, subject to the Bayes plausibility constraint; solved via concavification of the value function over posteriors.
     aliases: [concavification, information-design, kamenica-gentzkow]
+
+  # ---- stress-test learning and control ----
+  kalman-filter-learning:
+    def: Bayesian updating of a principal's beliefs about unobserved agent exposures via a Kalman filter applied to reported stress test results; posterior mean and variance derived in closed form from prior covariance and scenario matrix.
+    aliases: [kalman-filter-stress-test, linear-gaussian-learning]
+  linear-quadratic-regulator:
+    def: Regulator's intervention problem under linear-quadratic preferences over banking system net worth; first-order conditions yield closed-form capital requirements and targeted interventions linear in posterior mean exposures.
+    aliases: [linear-quadratic-intervention, lq-banking-regulation]
 
   # ---- banking and deposit models ----
   deposit-dynamics-diffusion:
@@ -289,10 +356,20 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Auction in which bidders compete by submitting bids in general securities (cash, equity, debt, call options); the winner's payment structure is endogenously determined by the security she chooses.
     aliases: [security-auction, general-security-auction]
 
+  # ---- AMM equilibrium models ----
+  amm-equilibrium-pool-size:
+    def: Structural equilibrium model in which liquidity-pool token supply is determined by equating fee revenue to the adverse-selection cost imposed by an informed arbitrageur who trades whenever the bonding-curve price diverges from the fundamental value.
+    aliases: [bonding-curve-equilibrium, constant-product-amm-equilibrium]
+
   # ---- market design and auction models ----
   brokers-routing-vs-obo-auction-model:
     def: Common-value auction framework with linear symmetric equilibrium comparing brokers' routing of retail orders to order-by-order auctions; shows the winner's curse reduces investor welfare in illiquid stocks when bidder counts are small.
     aliases: [obo-auction-model, retail-order-routing-model]
+
+  # ---- axiomatic preference representations ----
+  simplicity-representation:
+    def: Axiomatic preference representation in which an agent prefers lottery p over q iff the expected utility of p minus a complexity cost C(#p) exceeds the expected utility of q minus C(#q), where C is weakly increasing in the number of outcomes.
+    aliases: [complexity-aversion-representation, simplicity-preference-model]
 
   # ---- survey / randomized-information experiments ----
   randomized-survey-experiment:
@@ -413,6 +490,27 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   network-exclusion:
     def: Mechanism in which incumbent agents refuse to work with a price deviator within the current period, cutting the deviator off from the incumbent network and making price cuts unprofitable even when many competitors exist.
     aliases: [ostracism-mechanism, network-ostracism]
+  switching-costs:
+    def: One-time monetary and nonmonetary costs a borrower incurs when changing lenders, creating a lock-in advantage for the incumbent and reducing competitive pressure at renewal.
+    aliases: [lock-in, incumbent-advantage, switching-friction]
+  fire-sale-externality:
+    def: Forced asset liquidations depress the fire-sale price received by other banks, creating a negative pecuniary externality that reduces recovery values and loanable funds across the system.
+    aliases: [fire-sale, liquidation-fire-sale, asset-fire-sale]
+  greenwashing-divestiture:
+    def: Firms divest pollutive assets to improve ESG ratings without reducing actual pollution levels, exploiting information frictions and scope-3 accounting gaps.
+    aliases: [cosmetic-divestiture, boundary-redrawing-esg]
+  contagious-turnover:
+    def: Strategic complementarity in workers' departure decisions where one worker's exit raises the probability that others follow, because it reduces firm productivity and thus the value of remaining workers' output-dependent pay.
+    aliases: [worker-run, collective-turnover-friction]
+  regulatory-inconsistency:
+    def: Conflicting requirements across agencies overseeing the same regulatory topic, raising firm compliance costs beyond mere redundancy.
+    aliases: [inter-agency-inconsistency]
+  prosocial-commitment:
+    def: Personal interaction transforms an impersonal financial obligation into a commitment toward an individual, activating prosocial behavior and reducing moral hazard.
+    aliases: [promise-keeping, social-commitment, personal-touch]
+  labor-supply-channel:
+    def: Households respond to tightened budget constraints by increasing labor supply rather than only cutting consumption, generating a positive income response to interest rate increases.
+    aliases: [labor-income-channel, marginal-propensity-to-earn]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller

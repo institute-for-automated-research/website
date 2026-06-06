@@ -720,3 +720,115 @@ datasets:
     provider: Equifax
     access: licensed-commercial
     note: Individual-level traditional credit-bureau records (installment and revolving balances, limits, credit scores, balances in good standing); obtained under a commercial research licence.
+
+  # ---- JF 80(2)+80(1) batch ----
+  epa-tri:
+    name: EPA Toxics Release Inventory (TRI)
+    provider: U.S. Environmental Protection Agency
+    access: public
+    note: Facility-level annual reports of toxic chemical releases and waste management; openly downloadable from the EPA.
+  fdic-call-reports:
+    name: FDIC / FFIEC Call Reports
+    provider: FFIEC / FDIC
+    access: public
+    note: Quarterly income and balance-sheet filings for all U.S. insured depository institutions; openly downloadable. (See also call-reports.)
+  fdic-sod:
+    name: FDIC Summary of Deposits
+    provider: Federal Deposit Insurance Corporation
+    access: public
+    note: Annual branch-level deposit data for U.S. banks and thrifts; openly downloadable. (See also fdic-summary-of-deposits, fdic.)
+  federal-register:
+    name: Federal Register
+    provider: U.S. National Archives / GPO
+    access: public
+    note: Daily journal of U.S. federal agency rules, proposed rules, and notices; full text openly downloadable and via API.
+  nmls:
+    name: NMLS Consumer Access
+    provider: Nationwide Multistate Licensing System (CSBS)
+    access: public
+    note: Public registry of licensed mortgage loan officers and their employers, work addresses, and career history; openly searchable.
+  noaa-hurricane:
+    name: NOAA hurricane track and landfall data (HURDAT2 / NHC)
+    provider: NOAA National Hurricane Center
+    access: public
+    note: Historical tropical-cyclone tracks, intensities, and landfall locations; openly downloadable.
+  qwi-census:
+    name: Quarterly Workforce Indicators (QWI)
+    provider: U.S. Census Bureau (LEHD)
+    access: public
+    note: Local labor-market statistics (employment, earnings, job creation) by geography, industry, and demographics; openly downloadable.
+  sba-loans:
+    name: SBA loan-level data (7(a) and 504)
+    provider: U.S. Small Business Administration
+    access: public
+    note: Loan-level records of SBA-guaranteed small-business loans (amount, rate, lender, geography); openly published.
+  tnic:
+    name: Text-based Network Industry Classifications (TNIC)
+    provider: Hoberg-Phillips Data Library
+    access: public
+    note: Firm-pair textual product-similarity scores and industry classifications built from 10-K product descriptions; openly downloadable from the Hoberg-Phillips Data Library.
+  uniswap-blockchain:
+    name: Uniswap on-chain data (Ethereum)
+    provider: Ethereum public blockchain
+    access: public
+    note: Liquidity injections, withdrawals, and token swaps for Uniswap V1/V2 pools; readable directly from the public Ethereum blockchain.
+  kld:
+    name: KLD / MSCI ESG ratings
+    provider: MSCI (formerly KLD Research & Analytics)
+    access: licensed-commercial
+    note: Firm-level environmental, social, and governance strength/concern ratings for U.S. public firms; licensed, commonly accessed via WRDS.
+  markit:
+    name: Markit (IHS Markit) CDS and reference data
+    provider: IHS Markit (S&P Global)
+    access: licensed-commercial
+    note: Daily credit-default-swap spreads and reference data; obtained under a commercial data licence.
+  optionmetrics:
+    name: OptionMetrics IvyDB
+    provider: OptionMetrics
+    access: licensed-commercial
+    note: Daily option prices, implied volatilities, and Greeks for U.S.-listed equities; licensed, commonly accessed via WRDS.
+  refinitiv-transcripts:
+    name: Refinitiv (LSEG) earnings-call transcripts
+    provider: Refinitiv / LSEG
+    access: licensed-commercial
+    note: Transcripts of analyst-management conference calls; obtained under a commercial data licence.
+  siblis-research:
+    name: Siblis Research index-constituent and market-value data
+    provider: Siblis Research
+    access: licensed-commercial
+    note: Historical S&P 500 / MidCap 400 / SmallCap 600 addition and deletion dates and constituent market values; sold by subscription.
+  fr-2052a:
+    name: FR 2052a Complex Institution Liquidity Monitoring Report
+    provider: Federal Reserve (confidential)
+    access: proprietary-confidential
+    note: Confidential bank liquidity-flow reporting (inflows, outflows, funding by counterparty and maturity); restricted supervisory access.
+  fr2004c:
+    name: FR 2004C Weekly Government Securities Dealer positions (dealer-level)
+    provider: Federal Reserve Bank of New York (confidential)
+    access: proprietary-confidential
+    note: Confidential dealer-level positions and financing for primary government securities dealers; only aggregates are published.
+  ficc-gcf-repo:
+    name: FICC GCF Repo Service data (dealer-level)
+    provider: DTCC / FICC via FRBNY (confidential)
+    access: proprietary-confidential
+    note: Dealer-level daily interdealer general-collateral repo and reverse repo by asset class; licensed through the FRBNY under restricted terms.
+  fha:
+    name: FHA single-family loan-level data (confidential)
+    provider: U.S. Department of Housing and Urban Development (confidential)
+    access: proprietary-confidential
+    note: Loan-level FHA originations and performance matched to applicant detail; the matched confidential version used in the source paper is proprietary, not the public portfolio snapshot.
+  fdic-failed-bank:
+    name: FDIC failed-bank bidding and resolution records
+    provider: Federal Deposit Insurance Corporation (confidential)
+    access: proprietary-confidential
+    note: Proprietary bid-level records for resolved bank failures (bidder identities, bid terms, loss-share claims); restricted FDIC access.
+  osfi-canada:
+    name: OSFI federally regulated lender administrative data (Canada)
+    provider: Office of the Superintendent of Financial Institutions (Canada)
+    access: proprietary-confidential
+    note: Contract-level mortgage records (lender identity, loan size, rate, amortization, LTV, debt-service ratio) for federally regulated Canadian lenders; restricted supervisory access (via Bank of Canada).
+  transunion-canada:
+    name: TransUnion credit bureau data (Canada)
+    provider: TransUnion Canada (confidential research access)
+    access: proprietary-confidential
+    note: Monthly population-wide individual credit-bureau records (borrower characteristics, mortgage identity, switching, inquiries); restricted research access, not an off-the-shelf purchase.
