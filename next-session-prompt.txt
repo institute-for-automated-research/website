@@ -43,8 +43,34 @@ DONE SO FAR (do not redo):
   * noaa-hurricane (NOAA HURDAT2 best-track; nhc.noaa.gov/data/hurdat; page flags
     best-track vs real-time operational advisories) [Kruttli, Roth Tran & Watugala]
   zeropaper#88 filed (mirror; all 6 clean no-key recipes).
-- Coverage now: 50 dataset/licensed pages. Backlog 126 -> 120 (still all tied at 1).
-- NEXT SIDEBAR ORDERS: datasets free = 27; licensed = 23; confidential = 32.
+- 1-citation tier, BATCH 2 (commit bd93b0b, pushed, live-verified): 5 PUBLIC
+  no-API-key pages, all badged verified:fetched after a real live pull this
+  session, datasets/ free orders 27-31:
+  * nber-cycles (NBER business cycle peak/trough dates;
+    data.nber.org/data/cycles/business_cycle_dates.json; .csv variant 404s)
+    [Coimbra, Gomes, Michaelides & Shen]
+  * irs-form-990 (IRS nonprofit returns; apps.irs.gov/pub/epostcard/990/xml/
+    <year>/index_<year>.csv then per-filing XML by OBJECT_ID; AWS s3://irs-form-990/
+    bucket listed NO objects here, page says so) [Lewellen]
+  * sipp (Census Survey of Income and Program Participation;
+    www2.census.gov/programs-surveys/sipp/data/datasets/<year>/; 2014-redesign
+    panels = 2014 then 2018 onward, NOT comparable to 1984-2008) [Choukhmane & de Silva]
+  * qwi-census (Census LEHD Quarterly Workforce Indicators;
+    lehd.ces.census.gov/data/qwi/latest_release/; bulk files no-key but the
+    api.census.gov API needs a free key; kept DISTINCT from datasets/census)
+    [Johnston-Ross, Ma & Puri]
+  * n-mfp (SEC Form N-MFP MMF holdings via EDGAR; efts.sec.gov full-text +
+    primary_doc.xml; User-Agent required; cross-links licensed crane-mmf)
+    [Anderson, Du & Schlusche]
+  zeropaper#89 filed (mirror; all 5 clean no-key recipes).
+- Coverage now: 55 dataset/licensed pages. Backlog 120 -> 115 (still all tied at 1).
+- NEXT SIDEBAR ORDERS: datasets free = 32; licensed = 23; confidential = 32.
+- STILL OPEN from the suggested public no-key list (next good batch): bls + bls-cpi
+  (BLS flat files; API needs free key, flat files do NOT), bea-io (BEA; API needs
+  free key, check downloadable tables), us-epa-supply-chain (EPA), cra-ffiec,
+  nic-fed (National Information Center, public). NOTE still: fhfa-hpi hpi_master.csv
+  path 404s, find current URL before badging. eia-electricity needs a free API key
+  (document, do not tag no-api-key).
 
 NEXT: the 1-citation tier (the long tail; 120 slugs remaining, ALL at exactly 1
 citation, so there is no citation-count tiebreak left). Recompute the live
