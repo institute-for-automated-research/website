@@ -1,0 +1,115 @@
+Continue IAR website issue #13 (institute-for-automated-research/website, branch main).
+Working dir: /mnt/data_drive/Dropbox/Dropbox/Startups/instituteforautomatedresearch
+
+DONE SO FAR (do not redo):
+- Top 3-citation tier: drained (commit 4c8eaec, prior session).
+- 2-citation tier: FULLY DRAINED this session.
+  * 10 LICENSED pages (commit a4e7c9b, pushed, live-verified), Revelio/DealScan
+    model (real access recipe + gotchas, NO badge, "not exercised here"),
+    sidebar orders 13-22: trace, thomson-13f, taq (WRDS-reached), orbis-bvd,
+    markit (bond pricing), markit-cds (single-name CDS, kept distinct from
+    markit), costar, bloomberg, nets, crane-mmf. zeropaper#86 filed (mirror;
+    WRDS-reachable flagged most pipeline-relevant).
+  * 7 PUBLIC/RESTRICTED pages (commit 33464f1, pushed, live-verified):
+    - Verified (real no-key pull): dfa (Fed Distributional Financial Accounts,
+      NOT Dimensional Fund Advisors; federalreserve.gov dfa.zip),
+      fdic-summary-of-deposits (api.fdic.gov/banks/sod), sba-loans
+      (data.sba.gov CKAN FOIA CSV), census (www2.census.gov BDS bulk CSV; the
+      api.census.gov API needs a free key, the bulk files do NOT).
+    - Source reachable: nsmo (FHFA/CFPB PUF page live; file behind a terms
+      click-through, not pulled).
+    - Documented, NO badge: barro-ursua (free academic data; canonical Harvard
+      host bot-blocks automated fetch here) and fha (Frame et al.'s loan-level
+      FHA data is confidential per its own attribution; public HUD aggregates
+      documented; placed under the Confidential subsection).
+    zeropaper#87 filed (mirror; the 4 no-key recipes).
+  * Slug reconciliation: collapsed data:fdic-sod -> data:fdic-summary-of-deposits.
+    fdic (Quarterly Banking Profile, wang) and acs (allcott) remain DISTINCT
+    1-citation slugs in the backlog.
+- Coverage now: 44 dataset/licensed pages, registry 169 entries.
+- NEXT SIDEBAR ORDERS: licensed = 23; datasets free = 21; confidential = 32.
+
+NEXT: the 1-citation tier (the long tail; 126 slugs remaining, ALL at exactly 1
+citation, so there is no citation-count tiebreak left). Recompute the live
+ranking FIRST (counts shift as papers are added; some slugs may now have 2):
+  documented=$(ls src/content/docs/datasets/*.md src/content/docs/licensed/*.md \
+    | xargs -n1 basename | sed 's/\.md$//' | grep -v '^index$' | sort -u)
+  grep -rhoE "data:[a-z0-9-]+" src/content/docs/papers/ | sed 's/data://' \
+    | sort | uniq -c | sort -rn | while read n slug; do \
+      echo "$documented" | grep -qx "$slug" || printf "%3d  %s\n" "$n" "$slug"; done | head -40
+If any slug shows count >=2, do those first. Otherwise, since all are tied at 1,
+batch them sensibly (e.g. group by source/type: the Norway/Nordic set
+vps-norway, titlon-ose, statistics-norway, fek-sweden, lisa-sweden; the credit-
+registry set spain-cir, cerved, bank-of-italy-credit-register; the public-US
+set sipp, qwi-census, acs, fdic (QBP), stbl-fed; the commercial set worldscope,
+datastream, capital-iq, morningstar, nielseniq, rystad, costar-adjacent; the
+crypto/web set uniswap-blockchain, stocktwits, wayback-machine; etc.).
+
+TIER BY BADGE (decide per slug; do NOT default). For EACH slug, read the citing
+paper's Sources row + the dataset's real nature, then:
+- LICENSED/commercial (Revelio model: real access recipe + gotchas, NO badge,
+  page says "not exercised here"), licensed/<slug>.md, order continues from 23.
+  Model: licensed/revelio.md or licensed/dealscan.md (WRDS-reached vendor).
+  No verified: block. Most commercial vendors; many reached via WRDS.
+- PUBLIC -> MUST live-exercise THIS session and badge honestly:
+  datasets/<slug>.md, order continues from 21. Model: datasets/fred.md.
+  verified: { level: fetched (real no-key pull) | reachable (endpoint live,
+  pull not proven); access: free }. Add verified: ONLY after you actually ran
+  it live this session. NO-KEY ONLY counts as free/no-api-key; if a free API
+  KEY is required, document it but do not tag no-api-key (see census: bulk
+  files were the no-key path). If a "public" source is bot-blocked or behind a
+  click-through here, grade reachable or document-only (no badge) and SAY SO on
+  the page (see barro-ursua).
+- CONFIDENTIAL regulatory/administrative: datasets/<slug>.md, no badge, caution
+  callout, listed under the index "Confidential: restricted access" subsection
+  (next order 32). Model: datasets/fr-y14q.md or datasets/fha.md (the hybrid
+  case: public aggregates exist + restricted research microdata).
+
+WIRING (orchestrator does shared-file edits SERIALLY; never let parallel agents
+touch index/registry/papers -> collisions):
+- Registry: add `page: <section>/<slug>` to each entry in
+  .claude/skills/wiki-page/dataset-registry.yml (entries usually already exist).
+- Index row: datasets/index.md Free / Licensed / Confidential table.
+- Wire EVERY citing Sources row from "no page yet" (and from generic links like
+  /wiki/licensed/wrds/ or /wiki/datasets/<generic>/, and BROKEN cells like the
+  literal "[data:slug]") to the new page. grep BOTH the data: tag AND the
+  dataset name; some citing rows are UNTAGGED. Collapse slug variants onto one
+  canonical slug and retag the paper.
+- Author links MUST match the paper frontmatter `paper.authors:` EXACTLY:
+  surname order, comma + final & (2 authors = "X & Y"; single = bare surname;
+  watch compound surnames: "Di Maggio", "Johnston-Ross", "Roth Tran").
+
+STYLE: NO em-dashes (U+2014). NO promotional adjectives (comprehensive, leading,
+"the standard", widely used, backbone, rich/richer, powerful, robust, gold
+standard, best, seamless, cutting-edge, primary source).
+
+EFFICIENT PATTERN (worked well this session): for LICENSED pages, fan out
+parallel Sonnet agents (one writes ONLY its own licensed/<slug>.md, given exact
+identity + order + author-link strings + the dealscan model; NO shared-file
+edits). For PUBLIC pages, YOU run the live fetch yourself first, then either
+write the page or hand a Sonnet agent the EXACT verified: block to paste
+verbatim + the working fetch command; the badge must reflect what YOU ran.
+
+SHIP CHECKLIST each batch:
+1. rm -rf .astro node_modules/.astro && npm run build -> only acceptable
+   warning is the shrinking "datasets cited but undocumented:" backlog line +
+   the benign "open topic tags (auto-absorbed)". NO error, NO "Duplicate id",
+   NO "tags not in any axis", NO UNDER-CLAIM. Confirm the batch's slugs dropped
+   from the backlog, and (for badged pages) grep dist/wiki/.../index.html for
+   exactly one "iar-verified" element; for no-badge pages confirm zero.
+2. Mandated Sonnet review over the diff (factual errors on the dataset incl.
+   any name collision like DFA=Fed-not-Dimensional; em-dash/adjective sweep;
+   author/link correctness vs frontmatter; verified-badge honesty; table
+   well-formedness). If ANY issue, fix then run ANOTHER review round. Iterate
+   until "clean". (This session caught a real factual error: Thomson 13F
+   coverage degradation is ~2013 per Ben-David et al. 2021, not a "1998 break".)
+3. Live-check routes 200/0-hop on instituteforautomatedresearch.org, .md twins
+   present, pages in /llms.txt (after push; Vercel auto-deploys ~60-90s).
+4. Commit (reference issue #13), push, re-verify live, post "## Progress
+   (date): ..." comment on issue #13.
+5. File a zeropaper mirror issue (alejandroll10/zeropaper) for datasets whose
+   access/gotchas should mirror into pipeline empirical skills; flag
+   WRDS-reachable and clean no-key recipes as most pipeline-relevant.
+
+NEVER stage .claude/settings.json or .claude/scheduled_tasks.lock (untracked,
+NOT part of issue #13).
