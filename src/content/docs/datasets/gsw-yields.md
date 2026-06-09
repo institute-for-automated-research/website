@@ -24,7 +24,9 @@ is the distilled access recipe.
 
 - **Cost:** free, no paywall, no key.
 - **Coverage:** daily (business days), 1961-06-14 to present; longer maturities
-  populate only as the sample lengthens.
+  populate only as the sample lengthens. Short maturities start 1961-06-14, but
+  the 15-year point begins 1971-11-15 and the 30-year point only 1985-11-25, so
+  a deep-history long-maturity series is shorter than the headline 1961 start.
 - **Format:** one CSV (`feds200628.csv`), about 16 MB, latest date at the bottom.
 - **Caveat:** a staff research product, *not* an official statistical release;
   the whole history can be revised when the curve is re-estimated.
@@ -91,7 +93,7 @@ file on the date above.
 | `SVENYxx` | Zero-coupon yield (continuously compounded) | 01-30 | percent |
 | `SVENPYxx` | Par yield (coupon-equivalent) | 01-30 | percent |
 | `SVENFxx` | Instantaneous forward rate | 01-30 | percent |
-| `SVENnFmm` | `n`-year forward, `mm` years ahead | 1F01-1F09 | percent |
+| `SVENnFmm` | `n`-year forward, `mm` years ahead | `1F01`, `1F04`, `1F09` only | percent |
 | `BETA0..3`, `TAU1`, `TAU2` | Svensson curve parameters | per day | mixed |
 
 ## Standard operations
