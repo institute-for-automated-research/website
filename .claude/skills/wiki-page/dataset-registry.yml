@@ -84,6 +84,7 @@ datasets:
     name: Financial Accounts of the United States (Z.1)
     provider: Federal Reserve Board
     access: public
+    page: datasets/flow-of-funds
   fred:
     name: Federal Reserve Economic Data
     provider: Federal Reserve Bank of St. Louis
@@ -93,6 +94,7 @@ datasets:
     name: Gurkaynak-Sack-Wright Treasury yield curve
     provider: Federal Reserve Board
     access: public
+    page: datasets/gsw-yields
   hmda:
     name: Home Mortgage Disclosure Act loan data
     provider: CFPB / FFIEC
@@ -113,6 +115,7 @@ datasets:
     name: National Income and Product Accounts
     provider: U.S. Bureau of Economic Analysis
     access: public
+    page: datasets/nipa
   nsmo:
     name: National Survey of Mortgage Originations
     provider: FHFA and CFPB
@@ -126,6 +129,7 @@ datasets:
     name: Survey of Consumer Finances
     provider: Federal Reserve Board
     access: public
+    page: datasets/scf
     note: Public summary microdata; the internal version with finer detail is restricted.
   us-epa-supply-chain:
     name: Supply Chain GHG Emission Factors
@@ -169,7 +173,8 @@ datasets:
     name: Jorda-Schularick-Taylor Macrohistory Database
     provider: Jorda, Schularick & Taylor (macrohistory.net)
     access: public
-    note: Freely downloadable long-run macro-financial panel for 17 advanced economies, 1870 onward.
+    page: datasets/jst-macrohistory
+    note: Freely downloadable long-run macro-financial panel for 18 advanced economies, 1870 onward.
   ken-french:
     name: Kenneth French Data Library
     provider: Dartmouth College (Kenneth R. French)
