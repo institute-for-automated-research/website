@@ -26,10 +26,27 @@ DONE SO FAR (do not redo):
   * Slug reconciliation: collapsed data:fdic-sod -> data:fdic-summary-of-deposits.
     fdic (Quarterly Banking Profile, wang) and acs (allcott) remain DISTINCT
     1-citation slugs in the backlog.
-- Coverage now: 44 dataset/licensed pages, registry 169 entries.
-- NEXT SIDEBAR ORDERS: licensed = 23; datasets free = 21; confidential = 32.
+- 1-citation tier, BATCH 1 (commit 7c16bd8, pushed, live-verified): 6 PUBLIC
+  no-API-key pages, all badged verified:fetched after a real live pull this
+  session, datasets/ free orders 21-26:
+  * cftc-cot (CFTC Commitments of Traders; cftc.gov/files/dea/history TFF zip ->
+    FinFutYY.txt) [Siriwardane, Sunderam & Wallen]
+  * epa-tri (EPA Toxics Release Inventory; data.epa.gov bulk mv_tri_basic_download
+    CSV + Envirofacts tri_facility JSON) [Duchin, Gao & Xu]
+  * fdic (FDIC Quarterly Banking Profile + BankFind financials API
+    banks.data.fdic.gov/api/financials; kept DISTINCT from fdic-summary-of-deposits
+    and call-reports, links to both) [Wang]
+  * federal-register (federalregister.gov/api/v1/documents.json; documented the
+    50-page result cap) [Kalmenovitz, Lowry & Volkova]
+  * nber-ces (NBER-CES Manufacturing Industry DB; data.nber.org/nberces
+    nberces5818v1_n2012.csv) [Grigoris & Segal]
+  * noaa-hurricane (NOAA HURDAT2 best-track; nhc.noaa.gov/data/hurdat; page flags
+    best-track vs real-time operational advisories) [Kruttli, Roth Tran & Watugala]
+  zeropaper#88 filed (mirror; all 6 clean no-key recipes).
+- Coverage now: 50 dataset/licensed pages. Backlog 126 -> 120 (still all tied at 1).
+- NEXT SIDEBAR ORDERS: datasets free = 27; licensed = 23; confidential = 32.
 
-NEXT: the 1-citation tier (the long tail; 126 slugs remaining, ALL at exactly 1
+NEXT: the 1-citation tier (the long tail; 120 slugs remaining, ALL at exactly 1
 citation, so there is no citation-count tiebreak left). Recompute the live
 ranking FIRST (counts shift as papers are added; some slugs may now have 2):
   documented=$(ls src/content/docs/datasets/*.md src/content/docs/licensed/*.md \
@@ -38,12 +55,23 @@ ranking FIRST (counts shift as papers are added; some slugs may now have 2):
     | sort | uniq -c | sort -rn | while read n slug; do \
       echo "$documented" | grep -qx "$slug" || printf "%3d  %s\n" "$n" "$slug"; done | head -40
 If any slug shows count >=2, do those first. Otherwise, since all are tied at 1,
-batch them sensibly (e.g. group by source/type: the Norway/Nordic set
-vps-norway, titlon-ose, statistics-norway, fek-sweden, lisa-sweden; the credit-
-registry set spain-cir, cerved, bank-of-italy-credit-register; the public-US
-set sipp, qwi-census, acs, fdic (QBP), stbl-fed; the commercial set worldscope,
-datastream, capital-iq, morningstar, nielseniq, rystad, costar-adjacent; the
-crypto/web set uniswap-blockchain, stocktwits, wayback-machine; etc.).
+batch them sensibly (group by source/type). Good next PUBLIC no-key batch
+(badge-able like this session): irs-form-990 (AWS open bulk), qwi-census, sipp,
+bls + bls-cpi (BLS flat files; API needs a free key, flat files do NOT),
+bea-io (BEA; API needs free key, check for downloadable tables), nber-cycles,
+us-epa-supply-chain (EPA), cra-ffiec, n-mfp (SEC Form N-MFP via EDGAR), nic-fed
+(National Information Center, public). NOTE: fhfa-hpi the obvious hpi_master.csv
+path 404s here, find the current URL before badging. eia-electricity needs a
+free API key (document, do not tag no-api-key). Other groupings still open:
+Norway/Nordic (vps-norway, titlon-ose, statistics-norway, fek-sweden,
+lisa-sweden); credit registries (spain-cir, cerved, bank-of-italy-credit-register,
+LICENSED/confidential); commercial vendors (worldscope, datastream, capital-iq,
+morningstar, nielseniq, rystad, optionmetrics, audit-analytics, global-financial-data,
+compustat-global, compustat-segments, factset-revere, markit-quanto,
+markit-securities-finance, moodys-urd, msci-esg, msci-real-estate, kld, crunchbase,
+venturesource, dtcc; LICENSED, fan-out Sonnet); crypto/web (uniswap-blockchain,
+stocktwits, wayback-machine); confidential Fed (fr-2052a, fr2004c, fr2420, fr2644,
+fed-funds-confidential, discount-window-confidential, fedwire, ficc-gcf-repo).
 
 TIER BY BADGE (decide per slug; do NOT default). For EACH slug, read the citing
 paper's Sources row + the dataset's real nature, then:
@@ -52,7 +80,7 @@ paper's Sources row + the dataset's real nature, then:
   Model: licensed/revelio.md or licensed/dealscan.md (WRDS-reached vendor).
   No verified: block. Most commercial vendors; many reached via WRDS.
 - PUBLIC -> MUST live-exercise THIS session and badge honestly:
-  datasets/<slug>.md, order continues from 21. Model: datasets/fred.md.
+  datasets/<slug>.md, order continues from 27. Model: datasets/fred.md.
   verified: { level: fetched (real no-key pull) | reachable (endpoint live,
   pull not proven); access: free }. Add verified: ONLY after you actually ran
   it live this session. NO-KEY ONLY counts as free/no-api-key; if a free API
@@ -111,5 +139,3 @@ SHIP CHECKLIST each batch:
    access/gotchas should mirror into pipeline empirical skills; flag
    WRDS-reachable and clean no-key recipes as most pipeline-relevant.
 
-NEVER stage .claude/settings.json or .claude/scheduled_tasks.lock (untracked,
-NOT part of issue #13).
