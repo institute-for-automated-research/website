@@ -51,6 +51,11 @@ without a badge because its host blocked automated fetches from this session.)
 | **Federal Register** | US agency rules, proposed rules, notices (full text, 1994-) | [Federal Register](/wiki/datasets/federal-register/) |
 | **NBER-CES** | Annual US manufacturing industry panel (output, TFP) | [NBER-CES](/wiki/datasets/nber-ces/) |
 | **NOAA hurricanes** | Tropical-cyclone best-track positions & landfalls (HURDAT2) | [NOAA hurricanes](/wiki/datasets/noaa-hurricane/) |
+| **NBER cycles** | US business cycle peak/trough reference dates | [NBER cycles](/wiki/datasets/nber-cycles/) |
+| **IRS Form 990** | Nonprofit returns: financials, officers, compensation | [IRS Form 990](/wiki/datasets/irs-form-990/) |
+| **SIPP** | Longitudinal household income & program participation | [SIPP](/wiki/datasets/sipp/) |
+| **QWI (LEHD)** | Local labor-market employment & earnings flows | [QWI](/wiki/datasets/qwi-census/) |
+| **Form N-MFP** | Monthly money-market-fund portfolio holdings (SEC) | [Form N-MFP](/wiki/datasets/n-mfp/) |
 
 ## Licensed: academic access
 

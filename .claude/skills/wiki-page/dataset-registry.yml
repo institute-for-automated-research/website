@@ -115,6 +115,7 @@ datasets:
     name: NBER business cycle reference dates
     provider: National Bureau of Economic Research
     access: public
+    page: datasets/nber-cycles
   nipa:
     name: National Income and Product Accounts
     provider: U.S. Bureau of Economic Analysis
@@ -130,6 +131,7 @@ datasets:
     name: Survey of Income and Program Participation
     provider: U.S. Census Bureau
     access: public
+    page: datasets/sipp
   scf:
     name: Survey of Consumer Finances
     provider: Federal Reserve Board
@@ -157,11 +159,13 @@ datasets:
     provider: U.S. Securities and Exchange Commission
     access: public
     note: Month-end security-level MMF portfolio holdings and per-fund AUM, filed monthly and public via SEC EDGAR.
+    page: datasets/n-mfp
   irs-form-990:
     name: IRS Form 990 nonprofit information returns
     provider: U.S. Internal Revenue Service
     access: public
     note: Annual filings of tax-exempt organizations (financials, officer names and compensation, board); released by the IRS and via aggregators such as Candid/GuideStar.
+    page: datasets/irs-form-990
   hcris:
     name: Healthcare Cost Report Information System (HCRIS)
     provider: U.S. Centers for Medicare and Medicaid Services
@@ -788,6 +792,7 @@ datasets:
     provider: U.S. Census Bureau (LEHD)
     access: public
     note: Local labor-market statistics (employment, earnings, job creation) by geography, industry, and demographics; openly downloadable.
+    page: datasets/qwi-census
   sba-loans:
     page: datasets/sba-loans
     name: SBA loan-level data (7(a) and 504)
