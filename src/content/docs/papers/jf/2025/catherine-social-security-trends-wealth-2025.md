@@ -256,7 +256,7 @@ Each contribution is identified by sequential substitution of 2019 for 1989 para
 |---|---|---|
 | Survey of Consumer Finances (SCF), triennial 1989-2019 | Marketable wealth shares; Social Security wealth for retirees; earnings-match base for workers | [no page yet] |
 | Forbes 400 list | Supplement to extend wealth distribution to the top 0.01% following Saez and Zucman (2016) | [no page yet] |
-| Distributional Financial Accounts (DFA), Federal Reserve Board | Aggregate value of defined benefit pension obligations by wealth group | [data:dfa](/wiki/datasets/dfa/) (no page yet) |
+| Distributional Financial Accounts (DFA), Federal Reserve Board | Aggregate value of defined benefit pension obligations by wealth group | [DFA](/wiki/datasets/dfa/) |
 | Federal Reserve zero-coupon yield curve (Treasury notes, up to 30 years) | Discount rates for Social Security cash flows; forward rate extrapolation beyond 30 years | [no page yet] |
 | SSA Annual Reports and actuarial projections | Calibration of Social Security parameters (bend points, wage base, benefit formulas, cost scenarios) | [no page yet] |
 | Human Mortality Database (HMD), 1989-2017 | Survival probabilities by gender, calibrated and adjusted for income-based life expectancy differences | [no page yet] |

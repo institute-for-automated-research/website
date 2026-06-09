@@ -13,7 +13,7 @@ sidebar:
   order: 1
 tags: [paper-summary, banking, private-equity, financial-stability, bank-failures,
        natural-experiment, panel-regression, peer-reviewed, unreplicated,
-       data:fdic-failed-bank, data:call-reports, data:fdic-sod,
+       data:fdic-failed-bank, data:call-reports, data:fdic-summary-of-deposits,
        data:sba-loans, data:qwi-census, data:preqin]
 paper:
   authors: Emily Johnston-Ross, Song Ma, Manju Puri
@@ -218,14 +218,14 @@ where $$\text{Performance}$$ is the outcome (branch closure indicator, deposit g
 |---|---|---|
 | FDIC proprietary failed-bank bidding data (P&A transaction records, bid values, acquirer identities, FDIC least-cost estimates) | Core identification: close-bid quasi-random design; failed-bank selection analysis | no page yet |
 | FDIC Call Reports (Consolidated Reports of Condition and Income) | Failed-bank and neighboring-bank financial characteristics (tier 1 capital, loan composition, deposits) | [Call Reports](/wiki/datasets/call-reports/) |
-| FDIC Summary of Deposits (SOD) | Branch-level deposit balances and locations for closure and deposit growth analysis | no page yet |
+| FDIC Summary of Deposits (SOD) | Branch-level deposit balances and locations for closure and deposit growth analysis | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
 | FDIC Reports of Structure Change | Branch openings/closings; county exit analysis | no page yet |
 | FDIC proprietary loss-share data | Loss-share claims by acquirer type; Table X | no page yet |
 | Preqin (PE fund data) | PE fund size, vintage, first-time fund indicator; consortium-level PE ownership | [Preqin](/wiki/licensed/preqin/) (licensed) |
 | RateWatch | Branch-level deposit interest rates for deposit rate analysis (Panel B, Table VII) | no page yet |
 | U.S. Census Quarterly Workforce Indicators (QWI) | County-level startup employment and total employment for regional recovery analysis | no page yet |
 | IRS Statistics of Income (SOI) | County-level personal income and per capita income | no page yet |
-| Small Business Administration (SBA) 7(a) loan data | Number, amount, interest rate, and average size of small business loans by county | [data:sba-loans](/wiki/datasets/sba-loans/) (no page yet) |
+| Small Business Administration (SBA) 7(a) loan data | Number, amount, interest rate, and average size of small business loans by county | [SBA loans](/wiki/datasets/sba-loans/) |
 | S&P Global Market Intelligence | PE exit deal values and IPO data; IRR calculation | no page yet |
 
 Sample: 456 failed banks resolved via Purchase and Assumption transactions 2009-2014; 62 PE-acquired, 393 bank-acquired (27 excluded: no least-cost bid or bridge-bank status). Quasi-random sample: 48 banks from close-bid auctions (bid difference below 5% of total bank assets), of which 25 PE-acquired and 23 bank-acquired.

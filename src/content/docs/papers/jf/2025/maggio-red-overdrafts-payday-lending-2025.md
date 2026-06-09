@@ -240,7 +240,7 @@ where $$\text{Exit}_{izt}$$ is a dummy for bank $$i$$ exiting zip code $$z$$ in 
 | Clarity Services (alternative credit bureau) | Primary outcome: payday and alternative installment loans disbursed 2013-2019; random sample of 171,445 alternative borrowers | No page yet |
 | Equifax (traditional credit bureau) | Installment loan borrowing, credit card balances and limits, credit scores, total balances in good standing; representative 10% sample of 680,856 borrowers, 2005-2018 | No page yet |
 | Pew Charitable Trusts bank study (2012-2015) | HTLR practice indicator for the largest 50 US banks; four annual waves | No page yet |
-| FDIC Summary of Deposits | Bank branch locations and deposit-level data for 50 largest banks | [FDIC](/wiki/datasets/fdic/) (no page yet) |
+| FDIC Summary of Deposits | Bank branch locations and deposit-level data for 50 largest banks | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
 | FR Y-9C call report data (FFIEC 031/041) | Bank-level overdraft revenue, all-other-loans balances, and income statement items | No page yet |
 | Earnest Research expenditure data | Household consumption: credit/debit card transaction-level data for 6 million US households; durable, essential nondurable, and nonessential nondurable spending | No page yet |
 | Infogroup Historical Business Database | Payday lender and check-casher locations (SIC codes 609903 and 614113), 1997-2018 | No page yet |

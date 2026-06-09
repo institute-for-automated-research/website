@@ -218,7 +218,7 @@ All regressions exclude war periods (both world wars) because government interve
 | Banque de France nonfinancial corporate spreads (Germany, France, Italy, Spain, 1999-2022) | European corporate credit spreads relative to German Bunds | No page yet |
 | Swiss National Bank (SNB) data | Switzerland spreads from 2001 | No page yet |
 | JST Macrohistory Database (Jorda, Schularick, Taylor (2017)) | Crisis dates, credit-to-GDP, real GDP per capita for 17 advanced economies | [JST Macrohistory](/wiki/datasets/jst-macrohistory/) (no page yet) |
-| Barro-Ursua Macroeconomic Database | Real per-capita GDP; long historical series for advanced economies | [data:barro-ursua](/wiki/datasets/barro-ursua/) (no page yet) |
+| Barro-Ursua Macroeconomic Database | Real per-capita GDP; long historical series for advanced economies | [Barro-Ursua](/wiki/datasets/barro-ursua/) |
 
 Sample: 17 countries; spread data 1869-2022 (by country); 1,006 country-year observations total for spreads; 40 financial crisis episodes with spread, credit, and output data available (the "JST mod." crises). Annual frequency.
 

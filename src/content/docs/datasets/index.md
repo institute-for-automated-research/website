@@ -17,10 +17,11 @@ actually runs in production.
 
 ## Free & verified
 
-Genuinely no-cost. Every page carries a dated provenance badge: "Verified"
-when the access recipe was run live against the source, or "Source reachable"
-when the endpoint was confirmed but not fully pulled. Not just transcribed
-from docs.
+Genuinely no-cost. Almost every page carries a dated provenance badge:
+"Verified" when the access recipe was run live against the source, or "Source
+reachable" when the endpoint was confirmed but not fully pulled. Not just
+transcribed from docs. (One free academic dataset, Barro-Ursua, is documented
+without a badge because its host blocked automated fetches from this session.)
 
 | Dataset | What it is | Page |
 |---|---|---|
@@ -38,6 +39,12 @@ from docs.
 | **JST Macrohistory** | Long-run macro-financial panel, 18 economies | [JST Macrohistory](/wiki/datasets/jst-macrohistory/) |
 | **NIPA (BEA)** | National accounts: GDP & components | [NIPA](/wiki/datasets/nipa/) |
 | **SCF** | Survey of Consumer Finances household wealth | [SCF](/wiki/datasets/scf/) |
+| **SBA loans** | Loan-level SBA 7(a)/504 approvals (FOIA) | [SBA loans](/wiki/datasets/sba-loans/) |
+| **FDIC Summary of Deposits** | Annual branch-level bank deposits | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
+| **Census Bureau** | BDS, QWI, ACS, population estimates (public products) | [Census Bureau](/wiki/datasets/census/) |
+| **DFA** | Fed distribution of household wealth by group | [DFA](/wiki/datasets/dfa/) |
+| **NSMO** | FHFA/CFPB mortgage-origination borrower survey | [NSMO](/wiki/datasets/nsmo/) |
+| **Barro-Ursua** | Long-run cross-country GDP/consumption (documented, not fetched here) | [Barro-Ursua](/wiki/datasets/barro-ursua/) |
 
 ## Licensed: academic access
 
@@ -88,3 +95,4 @@ badge**: there is no access path we can run here.
 | Dataset | What it is | Page |
 |---|---|---|
 | **FR Y-14Q** | Fed stress-test bank data (loan-level corporate/CRE) | [FR Y-14Q](/wiki/datasets/fr-y14q/) |
+| **FHA** | FHA single-family loan-level (restricted; public aggregates separate) | [FHA](/wiki/datasets/fha/) |

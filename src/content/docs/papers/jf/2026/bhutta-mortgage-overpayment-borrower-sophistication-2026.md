@@ -195,7 +195,7 @@ also impedes pass-through of monetary policy easing to mortgage rates.
 |---|---|---|
 | Optimal Blue rate-lock and pricing-insight data (Jan 2015 to Dec 2019; ~3.6M locks; 20 MSAs for offer data) | Primary dataset: locked mortgage rates, lender offer distributions, loan/borrower characteristics; basis for EGain construction | No page yet |
 | Mortgage Call Reports (MCR/NMLS), 2015:Q1 to 2019:Q4; 162 unique lenders | Nonbank lender income, expenses, and profitability; merged with Optimal Blue to study lender market power | No page yet |
-| National Survey of Mortgage Originations (NSMO), waves 1-26, 2013-2019; 22,567 mortgages | Borrower sophistication, shopping behavior, knowledge, satisfaction; merged with administrative credit/servicing data | No page yet |
+| National Survey of Mortgage Originations (NSMO), waves 1-26, 2013-2019; 22,567 mortgages | Borrower sophistication, shopping behavior, knowledge, satisfaction; merged with administrative credit/servicing data | [NSMO](/wiki/datasets/nsmo/) |
 | HMDA (Home Mortgage Disclosure Act) | Lender classification (bank vs. nonbank); market concentration (HHI) | No page yet |
 
 Sample sizes: lock data 3.6M (full) / 67,537 (matched to offer data for EGain); dispersion analysis 2,996,149; MCR-Optimal Blue merge 162 lenders, 1,897 lender-quarters; NSMO 22,567 mortgages.

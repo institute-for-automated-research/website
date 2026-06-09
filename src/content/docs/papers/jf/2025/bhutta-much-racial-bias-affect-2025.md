@@ -188,7 +188,7 @@ where $$j$$ indexes applications; $$r$$ indexes race/ethnicity relative to non-H
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | HMDA (confidential, expanded 2018-2019) | Main denial analysis: ~9 million applications with credit score, LTV, DTI, AUS recommendation | [/wiki/datasets/hmda/](/wiki/datasets/hmda/) |
-| National Survey of Mortgage Originations (NSMO) | Survey component of NMDB; borrower satisfaction and service quality analysis (N=35,162) | [/wiki/datasets/nsmo/](/wiki/datasets/nsmo/) |
+| National Survey of Mortgage Originations (NSMO) | Survey component of NMDB; borrower satisfaction and service quality analysis (N=35,162) | [NSMO](/wiki/datasets/nsmo/) |
 | National Mortgage Database (NMDB) | Provides inquiry data for pre-application discouragement analysis; links HMDA to credit bureau records | no page yet |
 | Ginnie Mae securitization pool data | Loan performance (delinquency) validation for 48 matched issuers, 2018-2019 originations | no page yet |
 
