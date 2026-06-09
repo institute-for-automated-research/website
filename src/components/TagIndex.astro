@@ -24,6 +24,9 @@ const AXES: { label: string; tags: string[] }[] = [
       'fundamentals',
       'filings',
       'pensions',
+      'banks',
+      'mortgages',
+      'housing',
       'limited-attention',
       'institutional-investors',
       'return-predictability',
@@ -53,7 +56,7 @@ const AXES: { label: string; tags: string[] }[] = [
     label: 'Data shape',
     tags: ['panel-data', 'time-series', 'cross-section', 'event-data'],
   },
-  { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'academic', 'wrds'] },
+  { label: 'Source', tags: ['federal-reserve', 'sec', 'dol', 'fdic', 'cfpb', 'academic', 'wrds'] },
   // Open-ended axis: `tags` filled below from every `data:<slug>` actually used.
   { label: 'Dataset', tags: [] },
   // Derived from each paper page's path (papers/<journal>/<year>/...); filled below.
