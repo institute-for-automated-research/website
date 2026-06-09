@@ -113,6 +113,21 @@ block.
   (`datasets cited but undocumented: ...`) and rendered on the tags page with a
   "needs page" marker. That list is the to-write backlog: when a paper cites a
   dataset we have not documented, close the loop by adding `<slug>.md`.
+- **Going-forward norm: drain in-session, do not bank to the backlog.** When a
+  dataset first arises in a session (a distill batch mints new `data:<slug>`
+  registry entries, or you otherwise cite an undocumented dataset), write its
+  page **before that session closes**, badged honestly for whatever was actually
+  verified: a public source gets live-exercised (the derived rung
+  `verified-fetched` for a real pull, `verified-reachable` for an
+  endpoint-only check); a licensed or confidential one gets a documented-but-unverified
+  page (the Revelio model: real access recipe + gotchas, no badge, page says it
+  was not exercised here) rather than being skipped. Every cited dataset earns a
+  page; only the badge differs by tier. The standing backlog (issue #13) is the
+  historical debt to work down in **citation order**, not a place to defer
+  datasets you introduced this session. (Distillers themselves stay PDF-only and
+  parallel-safe; they never author dataset pages mid-batch, because a page needs
+  a live-verification pass a parallel distiller cannot run. Draining the
+  newly-arisen datasets is the orchestrator's closing step, after the batch.)
 - Adding a `data:` axis or verification rung needs no `TagIndex.astro` edit; the
   Dataset and Verification axes are derived from usage at build time.
 
@@ -238,6 +253,15 @@ Steps:
      Fed yield curves, etc.). A clean build prints `datasets cited but
      undocumented: ...`; that list should be only genuinely new datasets, not
      spelling variants of documented ones.
+   - **Dataset drain (do not bank to the backlog)**: the post-collapse `datasets
+     cited but undocumented: ...` list is the set of datasets this batch
+     introduced. Write a page for each **before closing the session**, badged
+     honestly by tier (public: live-exercise for the derived `verified-fetched`
+     or `verified-reachable` rung;
+     licensed/confidential: documented-but-unverified, the Revelio model). Use
+     the `distill-papers` sibling pattern or one page at a time; verify per the
+     Verified discipline. Issue #13 is the historical debt worked in citation
+     order, not a dumping ground for datasets you just introduced.
    - **Year vs venue**: a paper's `year` must be its issue year, not the
      online-first year (e.g. J. Finance vol 81(1) is 2026 even if the file is
      labelled 2025). Fix `year`, `title`, `sidebar.label`, and the slug.
