@@ -462,7 +462,7 @@ high-$$\sigma^2_y / \sigma^2_{mp}$$ interpretation.
 | Daily bilateral nominal exchange rates (24 currencies, 1990-2019) | Primary outcome variable (log changes against USD) | no page yet |
 | Swanson (2021) FG and LSAP factors | Alternative surprise decomposition separating forward guidance from QE | no page yet |
 | S&P 500 and MSCI World daily total return indices | Equity price outcome variable | no page yet |
-| VIX (CBOE Volatility Index), daily | Risk aversion proxy; additional testable implication | no page yet |
+| VIX (CBOE Volatility Index), daily | Risk aversion proxy; additional testable implication | [VIX](/wiki/datasets/vix/) |
 | Bekaert, Engstrom, and Xu (2022) risk aversion index, daily | Risk aversion proxy (alternative to VIX) | no page yet |
 | Blue Chip Financial Forecasts survey (GDP forecasts) | Discipline affine-term-structure VAR; measure GDP forecast dispersion | [no page yet] |
 | Jurado, Ludvigson, and Ng (2015) macro uncertainty index | Measure macroeconomic uncertainty; explain why GR was special (Table IV) | no page yet |

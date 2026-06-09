@@ -209,7 +209,8 @@ datasets:
     name: Zillow housing research data
     provider: Zillow Group (Zillow Research)
     access: public
-    note: MSA and metro housing metrics (e.g. ZHVI, days on market, price cuts); freely published by Zillow Research.
+    page: datasets/zillow
+    note: MSA and metro housing metrics (e.g. ZHVI, days on market, price cuts); freely published by Zillow Research. ZTRAX parcel microdata is a distinct (licensed) slug.
   wayback-machine:
     name: Internet Archive Wayback Machine
     provider: Internet Archive
@@ -224,6 +225,7 @@ datasets:
     name: CBOE Volatility Index (VIX)
     provider: Cboe Global Markets
     access: public
+    page: datasets/vix
     note: Historical VIX levels are published free by Cboe; intraday option-derived inputs are a distinct licensed feed.
 
   # ---- public: international official statistics + freely published research data ----
@@ -241,7 +243,8 @@ datasets:
     name: Robert Shiller long-run market and housing data
     provider: Robert J. Shiller (Yale)
     access: public
-    note: Freely published series accompanying Irrational Exuberance, incl. the long-run real S&P price index and the real home price index.
+    page: datasets/shiller-data
+    note: Collapsed onto the canonical shiller-data slug/page; same Shiller online data (ie_data.xls + Fig3-1.xls).
   forbes-executive-compensation:
     name: Forbes annual executive compensation surveys
     provider: Forbes (published surveys)
@@ -880,7 +883,8 @@ datasets:
     name: Robert Shiller online data (U.S. stock market, CAPE, home prices)
     provider: Robert J. Shiller (Yale)
     access: public
-    note: Long monthly series of S&P prices, dividends, earnings, the cyclically adjusted P/E (CAPE), and the long-run home price index; freely downloadable from the author's Yale website.
+    page: datasets/shiller-data
+    note: Long monthly series of S&P prices, dividends, earnings, the cyclically adjusted P/E (CAPE), and the long-run home price index; freely downloadable from shillerdata.com (Yale mirror). Canonical slug; shiller-irrational-exuberance collapses here.
   steelbenchmarker:
     name: SteelBenchmarker steel price index
     provider: World Steel Dynamics / American Metal Market

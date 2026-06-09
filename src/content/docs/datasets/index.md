@@ -58,6 +58,9 @@ without a badge because its host blocked automated fetches from this session.)
 | **Form N-MFP** | Monthly money-market-fund portfolio holdings (SEC) | [Form N-MFP](/wiki/datasets/n-mfp/) |
 | **BLS** | Labor force, employment, wages (QCEW), CPI/PPI | [BLS](/wiki/datasets/bls/) |
 | **HRS** | Older-household panel: health, wealth, expectations (registration-walled; not fetched here) | [HRS](/wiki/datasets/hrs/) |
+| **VIX** | Daily CBOE volatility index, full history (1990-) | [VIX](/wiki/datasets/vix/) |
+| **Shiller data** | Long-run S&P prices, CAPE, and home prices (1871/1890-) | [Shiller data](/wiki/datasets/shiller-data/) |
+| **Zillow research** | Housing metrics: ZHVI, rents, days on market, price cuts | [Zillow research](/wiki/datasets/zillow/) |
 
 ## Licensed: academic access
 

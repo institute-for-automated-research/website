@@ -13,7 +13,7 @@ sidebar:
   order: 1
 tags: [paper-summary, asset-pricing, housing, macro, real-estate, comovement,
        credit-markets, overlapping-generations, structural, peer-reviewed,
-       unreplicated, data:shiller-irrational-exuberance,
+       unreplicated, data:shiller-data,
        data:flow-of-funds, data:nipa, data:corelogic]
 paper:
   authors: Monika Piazzesi
@@ -360,10 +360,10 @@ same holding period (p. 3114).
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| S&P 500 index (Shiller website: shillerdata.com, file ie_data.xls) | Real 10-year stock returns and dividend growth (cashflows); end-of-year values 1930-2024 | no page yet |
+| S&P 500 index (Shiller website: shillerdata.com, file ie_data.xls) | Real 10-year stock returns and dividend growth (cashflows); end-of-year values 1930-2024 | [Shiller data](/wiki/datasets/shiller-data/) |
 | Financial Accounts of the United States (Fed, table B101/B104) | Value of residential real estate held by households; capital gains computed net of residential fixed investment (table F6); annual 1946-2024 | no page yet |
 | NIPA (BEA, tables 2.4.4 line 50, 2.4.5 lines 25 and 47) | Housing cashflows (dollar expenditure on housing services, including imputed rents); price index for nondurables and services; annual 1929-2024 | [NIPA / FRED](/wiki/datasets/fred/) |
-| 10-year Treasury returns (Shiller website) | Proxy for mortgage borrowing costs (multiplied by 0.8 for typical down payment); annual 1940-2024 | no page yet |
+| 10-year Treasury returns (Shiller website) | Proxy for mortgage borrowing costs (multiplied by 0.8 for typical down payment); annual 1940-2024 | [Shiller data](/wiki/datasets/shiller-data/) |
 | American Housing Survey (HUD) | Average homeowner tenure (15.1 yr in 1980, 11.5 yr in 2021), share of buyers with mortgage, share of first-time buyers, mortgage payment as share of income (Figure 4, p. 3112) | no page yet |
 | CoreLogic individual transaction data | Cross-sectional distribution of idiosyncratic capital gains on individual houses in San Francisco, CA and Huntsville, AL (Figure 6, p. 3114) | [CoreLogic](/wiki/licensed/corelogic/) (licensed) |
 
