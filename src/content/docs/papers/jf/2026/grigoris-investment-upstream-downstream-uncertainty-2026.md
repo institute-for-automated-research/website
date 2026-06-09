@@ -211,7 +211,7 @@ investment, not from the magnitude of uncertainty.
 | CRSP / Compustat (via WRDS), 1976-2019 | Investment rates, firm characteristics (size, leverage, tangibility, Tobin's q, profitability, past returns), stock return volatility | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | Compustat Segments database, 1976-2002 | Supplier-customer links for early subsample (pre-FactSet) | no page yet |
 | FactSet Revere Relationship database, 2003-2019 | Supplier-customer links (primary source for post-2003 period; more comprehensive than Segments) | no page yet |
-| NBER-CES Manufacturing Industry database | Validates link between input price uncertainty and supplier return volatility; upstream and downstream price correlation check | no page yet |
+| NBER-CES Manufacturing Industry database | Validates link between input price uncertainty and supplier return volatility; upstream and downstream price correlation check | [NBER-CES](/wiki/datasets/nber-ces/) |
 | BEA Input-Output (Make and Use) tables, 1977-2012 | Industry upstreamness scores for macrolevel analysis; published every 5 years | no page yet |
 | FRED (VIX, industrial production index) | VIX used in COVID-19 episode illustration; IP index as macro outcome variable | [FRED](/wiki/datasets/fred/) |
 

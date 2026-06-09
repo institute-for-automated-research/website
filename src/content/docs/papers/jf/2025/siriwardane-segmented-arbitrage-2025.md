@@ -193,7 +193,7 @@ as a whole.
 | Bloomberg (spot rates, FX forwards, OIS rates, futures prices, Treasury yields, inflation swaps, CDS via Markit) | Construction of all 32 arbitrage spreads; FX CIP, equity spot-futures, Treasury spot-futures, Treasury-swap, TIPS-Treasury series | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
 | van Binsbergen, Diamond & Grotteria (2019) box rates extended by authors using CBOE SPX options data | Equity options (box arbitrage) spreads at 6-, 12-, 18-month tenors | No page yet |
 | Markit (cash bond and CDS pricing) | CDS-bond basis construction for IG and HY bonds | [Markit bond pricing](/wiki/licensed/markit/) / [Markit CDS](/wiki/licensed/markit-cds/) (licensed) |
-| CFTC Commitments of Traders (Traders in Financial Futures, weekly) | Quantities data on positions by dealer, hedge fund, and asset-manager type for futures-based trades | No page yet |
+| CFTC Commitments of Traders (Traders in Financial Futures, weekly) | Quantities data on positions by dealer, hedge fund, and asset-manager type for futures-based trades | [CFTC COT](/wiki/datasets/cftc-cot/) |
 | Crane data / SEC Form N-MFP | MMF total net assets and holdings, for MMF reform analysis | [Crane Data](/wiki/licensed/crane-mmf/) (licensed) |
 | Preqin Pro Hedge Fund Database | Hedge fund returns data; fixed-income arbitrage strategy flag | [Preqin](/wiki/licensed/preqin/) (licensed) |
 | Federal Reserve yield curve models (Gurkaynak, Sack, Wright 2007/2010) | Zero-coupon constant-maturity Treasury and TIPS yields for TIPS-Treasury arbitrage | No page yet |

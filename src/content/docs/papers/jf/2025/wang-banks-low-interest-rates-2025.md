@@ -227,7 +227,7 @@ for outcomes $$y \in \{\text{retained earnings}, \text{equity}, \text{loans}, \t
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Call Reports (Federal Reserve / FFIEC) | Quarterly income and balance sheet data for all U.S. commercial banks; repricing maturity structure for replicating portfolio construction; bank-level interest expense and loan/deposit rates | no page yet |
-| FDIC Quarterly Banking Profile | Aggregate U.S. commercial bank data cross-checking the Call Report series | [FDIC](/wiki/datasets/fdic/) (no page yet) |
+| FDIC Quarterly Banking Profile | Aggregate U.S. commercial bank data cross-checking the Call Report series | [FDIC QBP / financials](/wiki/datasets/fdic/) |
 | Federal Reserve H.15 / Fed funds rate | Policy rate series for expense-beta estimation and spread decomposition | no page yet |
 
 Sample: 4,387 U.S. commercial banks; aggregate quarterly series 1997Q2-2018Q2; expense-beta pre-period 1984-2000.

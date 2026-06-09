@@ -236,7 +236,7 @@ Firm-level controls $$\vec{X}_{f,t}$$ include: log(Words, 10-K), PPE/AT, EBITDA/
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Federal Register (full text, 1994-2019) | Primary source; LDA topic model trained on 783,950 documents to measure regulatory fragmentation and quantity | [Federal Register](/wiki/datasets/federal-register/) (no page yet) |
+| Federal Register (full text, 1994-2019) | Main input; LDA topic model trained on 783,950 documents to measure regulatory fragmentation and quantity | [Federal Register](/wiki/datasets/federal-register/) |
 | SEC EDGAR (10-K filings) | Applied LDA model to firm 10-Ks to measure firm-topic exposure $$P_{f,i,t}$$; log(Words, 10-K) control | [EDGAR](/wiki/datasets/edgar/) |
 | CRSP / Compustat (via WRDS) | Firm-year outcome variables (SG&A, TFP, ROA, sales, assets, Tobin's Q), sample construction; 60,573 firm-years 1995-2019 | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | LobbyView lobbying database | Lobbying expenditures for ~14,983 firm-year observations; from Kim (2018) | No page yet |

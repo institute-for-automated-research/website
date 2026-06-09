@@ -45,6 +45,12 @@ without a badge because its host blocked automated fetches from this session.)
 | **DFA** | Fed distribution of household wealth by group | [DFA](/wiki/datasets/dfa/) |
 | **NSMO** | FHFA/CFPB mortgage-origination borrower survey | [NSMO](/wiki/datasets/nsmo/) |
 | **Barro-Ursua** | Long-run cross-country GDP/consumption (documented, not fetched here) | [Barro-Ursua](/wiki/datasets/barro-ursua/) |
+| **CFTC COT** | Weekly futures positions by trader category | [CFTC COT](/wiki/datasets/cftc-cot/) |
+| **EPA TRI** | Facility-by-chemical annual toxic releases | [EPA TRI](/wiki/datasets/epa-tri/) |
+| **FDIC QBP / financials** | Aggregate and institution-level bank condition & income | [FDIC QBP / financials](/wiki/datasets/fdic/) |
+| **Federal Register** | US agency rules, proposed rules, notices (full text, 1994-) | [Federal Register](/wiki/datasets/federal-register/) |
+| **NBER-CES** | Annual US manufacturing industry panel (output, TFP) | [NBER-CES](/wiki/datasets/nber-ces/) |
+| **NOAA hurricanes** | Tropical-cyclone best-track positions & landfalls (HURDAT2) | [NOAA hurricanes](/wiki/datasets/noaa-hurricane/) |
 
 ## Licensed: academic access
 

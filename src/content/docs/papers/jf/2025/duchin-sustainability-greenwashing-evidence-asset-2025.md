@@ -256,7 +256,7 @@ The paper's headline empirical tests are:
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| EPA Toxic Release Inventory (TRI) | Plant-chemical-level toxic emissions (total pollution, pollution intensity, abatement activities); 2000-2020; 1,056,361 plant-chemical-year obs | [no page yet] |
+| EPA Toxic Release Inventory (TRI) | Plant-chemical-level toxic emissions (total pollution, pollution intensity, abatement activities); 2000-2020; 1,056,361 plant-chemical-year obs | [EPA TRI](/wiki/datasets/epa-tri/) |
 | SDC Mergers and Acquisitions database | Divestitures and spin-offs of industrial plants; 888 pollutive deals 2000-2020 | [no page yet] |
 | KLD / MSCI ESG database | ESG ratings (CSR Score, Environmental Score); coverage of public U.S. firms | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | RepRisk ESG Business Intelligence | Environmental, social, governance risk incidents; starting 2007 | [RepRisk](/wiki/licensed/reprisk/) (licensed) |

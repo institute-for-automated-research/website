@@ -267,7 +267,7 @@ All regressions cluster standard errors by county (Petersen (2009)) based on eac
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| NOAA hurricane track data (National Hurricane Center) | Identifies 37 hurricane landfalls (1996-2019), eye location at 6-hour intervals, wind speed probability forecast advisories, seasonal outlook probabilities | no page yet |
+| NOAA hurricane track data (National Hurricane Center) | Identifies 37 hurricane landfalls (1996-2019), eye location at 6-hour intervals, wind speed probability forecast advisories, seasonal outlook probabilities | [NOAA hurricanes](/wiki/datasets/noaa-hurricane/) |
 | NETS (National Establishment Time Series) | Firm establishment locations by county, annual frequency; used to construct LandfallRegionExposure | [NETS](/wiki/licensed/nets/) (licensed) |
 | OptionMetrics (single-stock options) | Daily implied volatilities and VRP for US-listed firms; data 1996-2019 | no page yet |
 | CRSP/Compustat Merged (via WRDS) | Stock returns, market capitalization, SIC codes, share prices for sample construction and CAR estimation | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |

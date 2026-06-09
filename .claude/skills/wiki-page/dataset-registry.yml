@@ -59,6 +59,7 @@ datasets:
     name: Commitments of Traders
     provider: U.S. Commodity Futures Trading Commission
     access: public
+    page: datasets/cftc-cot
   census:
     page: datasets/census
     name: U.S. Census Bureau public data products
@@ -109,6 +110,7 @@ datasets:
     name: NBER-CES Manufacturing Industry Database
     provider: NBER and U.S. Census Bureau
     access: public
+    page: datasets/nber-ces
   nber-cycles:
     name: NBER business cycle reference dates
     provider: National Bureau of Economic Research
@@ -739,6 +741,7 @@ datasets:
     name: FDIC institution data (Summary of Deposits, Quarterly Banking Profile)
     provider: Federal Deposit Insurance Corporation
     access: public
+    page: datasets/fdic
     note: Bank branch locations and deposits (Summary of Deposits) and aggregate U.S. commercial-bank balance-sheet and income series (Quarterly Banking Profile); published openly by the FDIC.
   clarity-services:
     name: Clarity Services alternative-credit bureau
@@ -756,6 +759,7 @@ datasets:
     name: EPA Toxics Release Inventory (TRI)
     provider: U.S. Environmental Protection Agency
     access: public
+    page: datasets/epa-tri
     note: Facility-level annual reports of toxic chemical releases and waste management; openly downloadable from the EPA.
   fdic-sod:
     name: FDIC Summary of Deposits
@@ -766,6 +770,7 @@ datasets:
     name: Federal Register
     provider: U.S. National Archives / GPO
     access: public
+    page: datasets/federal-register
     note: Daily journal of U.S. federal agency rules, proposed rules, and notices; full text openly downloadable and via API.
   nmls:
     name: NMLS Consumer Access
@@ -776,6 +781,7 @@ datasets:
     name: NOAA hurricane track and landfall data (HURDAT2 / NHC)
     provider: NOAA National Hurricane Center
     access: public
+    page: datasets/noaa-hurricane
     note: Historical tropical-cyclone tracks, intensities, and landfall locations; openly downloadable.
   qwi-census:
     name: Quarterly Workforce Indicators (QWI)
