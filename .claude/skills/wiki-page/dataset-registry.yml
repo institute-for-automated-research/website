@@ -53,6 +53,7 @@ datasets:
     name: FDIC / FFIEC Call Reports (Reports of Condition and Income)
     provider: FFIEC / U.S. Federal Deposit Insurance Corporation
     access: public
+    page: datasets/call-reports
     note: Public bank-level regulatory filings; the confidential supervisory overlay is a distinct slug.
   cftc-cot:
     name: Commitments of Traders
@@ -96,6 +97,7 @@ datasets:
     name: Home Mortgage Disclosure Act loan data
     provider: CFPB / FFIEC
     access: public
+    page: datasets/hmda
     note: >-
       Public Loan/Application Register (LAR). A confidential FFIEC version with
       additional fields exists but the public release is what research uses here.
@@ -731,7 +733,7 @@ datasets:
     name: FDIC / FFIEC Call Reports
     provider: FFIEC / FDIC
     access: public
-    note: Quarterly income and balance-sheet filings for all U.S. insured depository institutions; openly downloadable. (See also call-reports.)
+    note: Quarterly income and balance-sheet filings for all U.S. insured depository institutions; openly downloadable. Legacy alias of call-reports (the going-forward slug, which carries the wiki page); will not get its own page.
   fdic-sod:
     name: FDIC Summary of Deposits
     provider: Federal Deposit Insurance Corporation
