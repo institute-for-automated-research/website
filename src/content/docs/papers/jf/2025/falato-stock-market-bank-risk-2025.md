@@ -369,7 +369,7 @@ level. The key specifications and their links to the core results are:
 | SDC New Issues / S&P Capital IQ / SNL Financial Capital Offerings | Lists of completed and withdrawn bank IPO filings; 1990-2012 | no page yet |
 | CRSP-FRB Link (New York Fed) | Stock market listing history for BHC public/private status | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
 | IBES (Institutional Brokers' Estimate System) | Equity analysts' consensus long-term EPS growth forecasts for newly public banks | [I/B/E/S](/wiki/licensed/ibes/) (licensed) |
-| Thomson-Reuters Institutional Holdings (13F) | Institutional investor portfolio turnover; 1990-2012 | no page yet |
+| Thomson-Reuters Institutional Holdings (13F) | Institutional investor portfolio turnover; 1990-2012 | [Thomson 13F (s34)](/wiki/licensed/thomson-13f/) (licensed) |
 | Riskmetrics / Capital IQ | Employee stock option grant data (B-S value, duration) | no page yet |
 
 Sample: 178,980 bank-quarter observations for 7,166 (3,251) unique banks (BHCs);

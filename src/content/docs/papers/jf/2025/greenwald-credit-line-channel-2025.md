@@ -365,7 +365,7 @@ unconstrained firms cannot access credit lines.
 |---|---|---|
 | FR Y-14Q (H.1 schedule, BHCs) | Primary loan-level data: committed and used credit by type (credit line vs. term loan), firm financials, quarterly 2012:Q3-2020:Q4; 207,505 distinct TINs | [FR Y-14Q](/wiki/datasets/fr-y14q/) (proprietary-confidential) |
 | Compustat | Financial statements for public firms; replaces BHC-collected financials for public firms | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Orbis (Bureau van Dijk) | Financial statements for private firms; supplements Y14 BHC-collected data for private firms | No page yet |
+| Orbis (Bureau van Dijk) | Financial statements for private firms; supplements Y14 BHC-collected data for private firms | [Orbis (BvD)](/wiki/licensed/orbis-bvd/) (licensed) |
 | Federal Reserve H.8 releases | Aggregate U.S. commercial bank balance sheet series; used for Figure 1 context | No page yet |
 
 Sample: 2012:Q3-2020:Q4, quarterly. Descriptive analysis: 2012:Q3-2019:Q4

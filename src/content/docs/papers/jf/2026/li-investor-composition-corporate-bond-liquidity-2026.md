@@ -427,7 +427,7 @@ $$\beta_{\text{endo}} = 0.65/1.7$$ matches the total pattern.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| TRACE (Enhanced, FINRA) | Corporate bond transaction prices and volumes for bid-ask spread calculation, number of trades, bond turnover; filtered following Dick-Nielsen (2014) | [no page yet] |
+| TRACE (Enhanced, FINRA) | Corporate bond transaction prices and volumes for bid-ask spread calculation, number of trades, bond turnover; filtered following Dick-Nielsen (2014) | [TRACE](/wiki/licensed/trace/) (licensed) |
 | WRDS Bond Return database + Mergent FISD | Bond characteristics: maturity, coupon, rating, offering amount, issuance date; credit spreads calculated from reported yields minus matched Treasury yield | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | CRSP equity returns | Equity price volatility for bond issuers | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
 | Compustat annual fundamentals | Firm characteristics: leverage, size, profitability, total asset value, fraction of long-term debt | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |

@@ -66,6 +66,16 @@ they read as unverified per the Verified discipline.
 | **Preqin** | Private-capital and hedge-fund data | [Preqin](/wiki/licensed/preqin/) |
 | **RepRisk** | ESG risk-incident feed (28 issue categories) | [RepRisk](/wiki/licensed/reprisk/) |
 | **Trucost** | Firm-level carbon and environmental data | [Trucost](/wiki/licensed/trucost/) |
+| **TRACE** | Corporate bond secondary-market transactions (Enhanced, via WRDS) | [TRACE](/wiki/licensed/trace/) |
+| **Thomson 13F (s34)** | Institutional equity holdings from 13F filings | [Thomson 13F (s34)](/wiki/licensed/thomson-13f/) |
+| **TAQ** | NYSE intraday trade and quote microstructure data | [TAQ](/wiki/licensed/taq/) |
+| **Orbis (BvD)** | Global public and private firm financials and ownership | [Orbis (BvD)](/wiki/licensed/orbis-bvd/) |
+| **Markit bond pricing** | Composite dealer quotes for individual bonds | [Markit bond pricing](/wiki/licensed/markit/) |
+| **Markit CDS** | Single-name credit default swap spreads | [Markit CDS](/wiki/licensed/markit-cds/) |
+| **CoStar** | Commercial real estate transactions and characteristics | [CoStar](/wiki/licensed/costar/) |
+| **Bloomberg** | Cross-asset terminal market data | [Bloomberg](/wiki/licensed/bloomberg/) |
+| **NETS** | Establishment-level employment and location panel | [NETS](/wiki/licensed/nets/) |
+| **Crane Data** | Money market fund holdings and assets | [Crane Data](/wiki/licensed/crane-mmf/) |
 
 ## Confidential: restricted access
 

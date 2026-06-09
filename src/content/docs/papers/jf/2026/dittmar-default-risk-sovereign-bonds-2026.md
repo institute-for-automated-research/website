@@ -444,15 +444,15 @@ intervals across sample dates.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Gurkaynak, Sack, and Wright (GSW) zero-coupon yields (nominal Treasury and TIPS) | BEI construction; nominal yield curve estimation | no page yet (Federal Reserve Board data, publicly available) |
-| Bloomberg ILS rates (zero-coupon, 2-10y maturities) | ILSBEI spread construction; model estimation target | no page yet (licensed Bloomberg terminal data) |
+| Bloomberg ILS rates (zero-coupon, 2-10y maturities) | ILSBEI spread construction; model estimation target | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
 | U.S. Treasury debt held by public (monthly, Federal Reserve/Treasury) | Default risk proxy (G); instrument for CDS | [FRED](/wiki/datasets/fred/), series available via FRED |
-| Euro-denominated 5-year U.S. Treasury CDS spreads | Alternative default risk measure; model estimation target | no page yet (Bloomberg/Markit licensed data) |
+| Euro-denominated 5-year U.S. Treasury CDS spreads | Alternative default risk measure; model estimation target | [Bloomberg](/wiki/licensed/bloomberg/) / [Markit CDS](/wiki/licensed/markit-cds/) (licensed) |
 | BLS CPI-U (monthly) | Inflation measure for model | [FRED](/wiki/datasets/fred/), series `CPIAUCSL` |
 | VIX (CBOE) | Liquidity/slow-moving capital control | [FRED](/wiki/datasets/fred/), series `VIXCLS` |
 | LIBOR-OIS spread | Liquidity control (counterparty risk) | no page yet |
 | Off-the-run / on-the-run 10y Treasury spread (OTR) | Liquidity control | no page yet (derived from GSW and Bloomberg) |
 | HPW noise measure (Hu, Pan & Wang 2013) | Slow-moving capital proxy; TIPS liquidity intensity proxy | no page yet (academic dataset, Jun Pan's website) |
-| OIS 6-month rate | Short-term riskless nominal yield for model | no page yet (Bloomberg) |
+| OIS 6-month rate | Short-term riskless nominal yield for model | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
 
 Sample: monthly, Nov 2004 to Dec 2019 (model estimation); Jun 2005 to Dec 2020 (regressions).
 

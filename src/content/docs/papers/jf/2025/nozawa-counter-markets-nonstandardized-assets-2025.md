@@ -264,11 +264,11 @@ where $$P_i$$ is the sale price, $$B_i$$ is the tax assessment, and $$X_i$$ incl
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| TRACE (corporate bonds) | Corporate bond transaction prices, volumes, and dates; Jul 2002-Dec 2020 | [no page yet] |
+| TRACE (corporate bonds) | Corporate bond transaction prices, volumes, and dates; Jul 2002-Dec 2020 | [TRACE](/wiki/licensed/trace/) (licensed) |
 | Mergent FISD | Amount outstanding and credit rating for corporate bonds | [no page yet] |
 | Gilchrist-Zakrajsek excess bond premium | Proxy for unobserved corporate bond quality (theta); computed from TRACE and public information | [no page yet] |
-| CoStar CRE | Commercial real estate sale transactions in 15 US cities; 1998Q1-2022Q3; includes price, assessment value, property characteristics | [data:costar](/wiki/datasets/costar/) (no page yet) |
-| TRACE (agency MBS) | MBS transaction prices and volumes for Fannie Mae specified-pool MBS; Jul 2013-Jul 2021 | [no page yet] |
+| CoStar CRE | Commercial real estate sale transactions in 15 US cities; 1998Q1-2022Q3; includes price, assessment value, property characteristics | [CoStar](/wiki/licensed/costar/) (licensed) |
+| TRACE (agency MBS) | MBS transaction prices and volumes for Fannie Mae specified-pool MBS; Jul 2013-Jul 2021 | [TRACE](/wiki/licensed/trace/) (licensed) |
 | Refinitive Eikon | MBS characteristics (issue amount, date) for the placebo MBS analysis | [no page yet] |
 
 Sample coverage: corporate bonds monthly, Jul 2002-Dec 2020; CRE quarterly, 1998Q1-2022Q3; MBS monthly, Jul 2013-Jul 2021.

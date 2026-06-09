@@ -305,7 +305,7 @@ the finding that PFOF ($0.001-$0.003/share) is an order of magnitude smaller tha
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Authors' own trading experiment (85,417 trades in 6 broker accounts) | Primary outcome: execution price, PI, round-trip cost per trade | No page yet |
-| TAQ (Trade and Quote Database) | Match trades to exchange/off-exchange execution; compute OIB; obtain execution venue codes | [WRDS / TAQ](/wiki/licensed/wrds/) (licensed) |
+| TAQ (Trade and Quote Database) | Match trades to exchange/off-exchange execution; compute OIB; obtain execution venue codes | [TAQ](/wiki/licensed/taq/) (licensed) |
 | CRSP (Center for Research in Security Prices) | Stock selection: universe stratification by market cap, liquidity, volatility, price | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
 | SEC Rule 606 reports (broker routing reports) | PFOF per share by broker and venue; routing shares to each wholesale venue | No page yet |
 | SEC Rule 605 reports (market center execution reports) | Venue-level execution quality benchmarks (fraction with PI, average PI amounts) | No page yet |

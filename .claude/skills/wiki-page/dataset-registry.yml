@@ -262,6 +262,7 @@ datasets:
     provider: Ideagen (Audit Analytics)
     access: licensed-commercial
   bloomberg:
+    page: licensed/bloomberg
     name: Bloomberg Terminal data
     provider: Bloomberg L.P.
     access: licensed-commercial
@@ -285,6 +286,7 @@ datasets:
     note: Commercial property, foreclosure, and house-price microdata.
     page: licensed/corelogic
   crane-mmf:
+    page: licensed/crane-mmf
     name: Crane money-market-fund data
     provider: Crane Data LLC
     access: licensed-commercial
@@ -333,6 +335,7 @@ datasets:
     provider: LexisNexis
     access: licensed-commercial
   markit-cds:
+    page: licensed/markit-cds
     name: Markit CDS pricing
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
@@ -362,6 +365,7 @@ datasets:
     provider: Optimal Blue (Constellation Software)
     access: licensed-commercial
   orbis-bvd:
+    page: licensed/orbis-bvd
     name: Orbis global company data
     provider: Moody's / Bureau van Dijk
     access: licensed-commercial
@@ -410,6 +414,7 @@ datasets:
     access: licensed-commercial
     note: Free to Nordic academic users but credential-gated, not openly public.
   trace:
+    page: licensed/trace
     name: TRACE (Enhanced) corporate-bond transactions
     provider: FINRA (Enhanced academic version, via WRDS)
     access: licensed-commercial
@@ -461,6 +466,7 @@ datasets:
     provider: Morningstar, Inc.
     access: licensed-commercial
   nets:
+    page: licensed/nets
     name: National Establishment Time-Series (NETS)
     provider: Walls & Associates (from Dun & Bradstreet microdata)
     access: licensed-commercial
@@ -471,6 +477,7 @@ datasets:
     access: licensed-commercial
     page: licensed/pitchbook
   thomson-13f:
+    page: licensed/thomson-13f
     name: Thomson Reuters institutional holdings (13F, s34)
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
@@ -479,11 +486,13 @@ datasets:
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
   taq:
+    page: licensed/taq
     name: TAQ (Trade and Quote) intraday data
     provider: NYSE (via WRDS)
     access: licensed-commercial
     note: Tick-level trades and quotes with venue codes; WRDS-gated.
   costar:
+    page: licensed/costar
     name: CoStar commercial real estate transactions
     provider: CoStar Group
     access: licensed-commercial
@@ -789,10 +798,11 @@ datasets:
     access: licensed-commercial
     note: Firm-level environmental, social, and governance strength/concern ratings for U.S. public firms; licensed, commonly accessed via WRDS.
   markit:
-    name: Markit (IHS Markit) CDS and reference data
+    page: licensed/markit
+    name: Markit (IHS Markit) bond pricing (composite quotes)
     provider: IHS Markit (S&P Global)
     access: licensed-commercial
-    note: Daily credit-default-swap spreads and reference data; obtained under a commercial data licence.
+    note: Daily composite price quotes for individual bonds and dealer-contribution counts; obtained under a commercial data licence. Single-name CDS is the separate markit-cds entry.
   optionmetrics:
     name: OptionMetrics IvyDB
     provider: OptionMetrics
