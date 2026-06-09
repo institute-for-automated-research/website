@@ -13,7 +13,7 @@ sidebar:
   order: 1
 tags: [paper-summary, banking, private-equity, financial-stability, bank-failures,
        natural-experiment, panel-regression, peer-reviewed, unreplicated,
-       data:fdic-failed-bank, data:fdic-call-reports, data:fdic-sod,
+       data:fdic-failed-bank, data:call-reports, data:fdic-sod,
        data:sba-loans, data:qwi-census, data:preqin]
 paper:
   authors: Emily Johnston-Ross, Song Ma, Manju Puri
@@ -217,7 +217,7 @@ where $$\text{Performance}$$ is the outcome (branch closure indicator, deposit g
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | FDIC proprietary failed-bank bidding data (P&A transaction records, bid values, acquirer identities, FDIC least-cost estimates) | Core identification: close-bid quasi-random design; failed-bank selection analysis | no page yet |
-| FDIC Call Reports (Consolidated Reports of Condition and Income) | Failed-bank and neighboring-bank financial characteristics (tier 1 capital, loan composition, deposits) | no page yet |
+| FDIC Call Reports (Consolidated Reports of Condition and Income) | Failed-bank and neighboring-bank financial characteristics (tier 1 capital, loan composition, deposits) | [Call Reports](/wiki/datasets/call-reports/) |
 | FDIC Summary of Deposits (SOD) | Branch-level deposit balances and locations for closure and deposit growth analysis | no page yet |
 | FDIC Reports of Structure Change | Branch openings/closings; county exit analysis | no page yet |
 | FDIC proprietary loss-share data | Loss-share claims by acquirer type; Table X | no page yet |

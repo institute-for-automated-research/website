@@ -729,11 +729,6 @@ datasets:
     provider: U.S. Environmental Protection Agency
     access: public
     note: Facility-level annual reports of toxic chemical releases and waste management; openly downloadable from the EPA.
-  fdic-call-reports:
-    name: FDIC / FFIEC Call Reports
-    provider: FFIEC / FDIC
-    access: public
-    note: Quarterly income and balance-sheet filings for all U.S. insured depository institutions; openly downloadable. Legacy alias of call-reports (the going-forward slug, which carries the wiki page); will not get its own page.
   fdic-sod:
     name: FDIC Summary of Deposits
     provider: Federal Deposit Insurance Corporation

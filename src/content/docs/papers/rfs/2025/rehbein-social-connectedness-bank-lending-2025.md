@@ -12,7 +12,7 @@ sidebar:
   order: 1
 tags: [paper-summary, banking, credit-supply, social-networks, geographic-lending,
        information-asymmetry, panel-regression, peer-reviewed, unreplicated,
-       data:cra-ffiec, data:hmda, data:fannie-freddie, data:fdic-call-reports,
+       data:cra-ffiec, data:hmda, data:fannie-freddie, data:call-reports,
        data:facebook-sci]
 paper:
   authors: Oliver Rehbein, Simon Rother
@@ -245,9 +245,9 @@ Interest rate dispersion (Section 3.3): OLS at the county-pair level, dependent 
 |---|---|---|
 | Facebook Social Connectedness Index (Bailey et al. 2018b) | Main explanatory variable; county-pair relative probability of Facebook friendship | No page yet |
 | Community Reinvestment Act (CRA) data, FFIEC | County-to-county SME loan volumes for 2017 (and 2004-2018 for time series); bank-level loan counts | No page yet |
-| Home Mortgage Disclosure Act (HMDA) data, FFIEC | County-to-county mortgage loan volumes for 2017; loan-type classification | No page yet |
+| Home Mortgage Disclosure Act (HMDA) data, FFIEC | County-to-county mortgage loan volumes for 2017; loan-type classification | [HMDA](/wiki/datasets/hmda/) |
 | Fannie Mae and Freddie Mac Single Family Loan-Level Datasets | Loan-level mortgage data (2000-2008 originations, observed through 2018): LTV, interest rate, FICO, DTI, delinquency, default | No page yet |
-| FDIC Call Reports | Bank profitability (ROA, ROE, % NPL) and bank characteristics (2009-2017); branch-location data for assigning loans to bank counties | No page yet |
+| FDIC Call Reports | Bank profitability (ROA, ROE, % NPL) and bank characteristics (2009-2017); branch-location data for assigning loans to bank counties | [Call Reports](/wiki/datasets/call-reports/) |
 | NBER county distance database | Physical distance (as-the-crow-flies, miles) between county centroids | No page yet |
 | Bureau of Economic Analysis | County-level real GDP growth and industry-share data | No page yet |
 | Bureau of Labor Statistics | County-level employment; unemployment differentials | No page yet |
