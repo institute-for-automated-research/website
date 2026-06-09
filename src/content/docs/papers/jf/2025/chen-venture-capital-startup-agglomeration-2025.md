@@ -200,9 +200,9 @@ The triple-difference specifications (Tables IX-XI) add a third interaction (ind
 |---|---|---|
 | Call Reports (FFIEC) + FR Y-9Cs (BHC filings) | Construct bank VC revenue series 2001-2013; identify banking entities investing in VC; build treatment variable Bank Expo | [no page yet] |
 | VentureSource (CB Insights / Dow Jones) | VC fund characteristics, startup financing rounds, startup HQ state over time; primary VC data 2010-2018 | [no page yet] |
-| Pitchbook | VC fund and startup data (robustness checks); LP commitment information | [no page yet] |
+| Pitchbook | VC fund and startup data (robustness checks); LP commitment information | [PitchBook](/wiki/licensed/pitchbook/) (licensed) |
 | SEC EDGAR (Form D filings) | Identify startup migration via consecutive business-address changes 2002-2018; 56,487+ startup-year observations | [EDGAR](/wiki/datasets/edgar/) |
-| Preqin | LP commitment data for robustness checks (LP home bias analysis, Table V) | [no page yet] |
+| Preqin | LP commitment data for robustness checks (LP home bias analysis, Table V) | [Preqin](/wiki/licensed/preqin/) (licensed) |
 
 Sample: state-year panel covers 35 U.S. states, 2010-2018 (315 state-year observations). VC fund sample: 1,617 funds. Startup sample: 11,048 startups (first Seed or Series A round, $100M); 1,700 identified as having ever moved to a different state.
 

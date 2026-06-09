@@ -312,7 +312,7 @@ for motivation and discussion:
 
 | Source | Role in paper | Wiki page |
 |---|---|---|
-| DealScan (Pitchbook) | Syndicated loan and VC deal statistics: "78% of loans in the DealScan universe were syndicated, 65% of VC deals" (§VI.A, p. 1845) | no page yet |
+| DealScan (Pitchbook) | Syndicated loan and VC deal statistics: "78% of loans in the DealScan universe were syndicated, 65% of VC deals" (§VI.A, p. 1845) | [DealScan](/wiki/licensed/dealscan/) / [PitchBook](/wiki/licensed/pitchbook/) (licensed) |
 | Berg (2018) (large German bank) | Loan acceptance probability ~80% for loans above EUR 1 million | no page yet |
 | Gompers et al. (2020) | VC deal acceptance statistics: 101 deals considered, 5 advanced to due diligence (implying ~5% acceptance) | no page yet |
 

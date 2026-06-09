@@ -195,7 +195,7 @@ as a whole.
 | Markit (cash bond and CDS pricing) | CDS-bond basis construction for IG and HY bonds | No page yet |
 | CFTC Commitments of Traders (Traders in Financial Futures, weekly) | Quantities data on positions by dealer, hedge fund, and asset-manager type for futures-based trades | No page yet |
 | Crane data / SEC Form N-MFP | MMF total net assets and holdings, for MMF reform analysis | No page yet |
-| Preqin Pro Hedge Fund Database | Hedge fund returns data; fixed-income arbitrage strategy flag | No page yet |
+| Preqin Pro Hedge Fund Database | Hedge fund returns data; fixed-income arbitrage strategy flag | [Preqin](/wiki/licensed/preqin/) (licensed) |
 | Federal Reserve yield curve models (Gurkaynak, Sack, Wright 2007/2010) | Zero-coupon constant-maturity Treasury and TIPS yields for TIPS-Treasury arbitrage | No page yet |
 | CRSP / Compustat (via WRDS) | Supporting equity holdings data (Y-9C bank trading book filings cited; CRSP implied for stock characteristics) | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | Coalition Greenwich / S&P (qualitative) | JPMorgan equity derivatives market share since 2015 (cited contextual fact) | No page yet |

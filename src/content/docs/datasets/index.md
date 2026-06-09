@@ -60,3 +60,21 @@ they read as unverified per the Verified discipline.
 | **Revelio Labs** | Workforce / human-capital panel | [Revelio Labs](/wiki/licensed/revelio/) |
 | **I/B/E/S** | Sell-side analyst estimates, consensus and actuals | [I/B/E/S](/wiki/licensed/ibes/) |
 | **SDC Platinum** | M&A and new-issues deal-level data | [SDC Platinum](/wiki/licensed/sdc-platinum/) |
+| **CoreLogic** | US property, deeds, repeat-sales, foreclosure | [CoreLogic](/wiki/licensed/corelogic/) |
+| **DealScan** | Syndicated and large corporate loan deals | [DealScan](/wiki/licensed/dealscan/) |
+| **PitchBook** | Venture, private-equity, and M&A deal data | [PitchBook](/wiki/licensed/pitchbook/) |
+| **Preqin** | Private-capital and hedge-fund data | [Preqin](/wiki/licensed/preqin/) |
+| **RepRisk** | ESG risk-incident feed (28 issue categories) | [RepRisk](/wiki/licensed/reprisk/) |
+| **Trucost** | Firm-level carbon and environmental data | [Trucost](/wiki/licensed/trucost/) |
+
+## Confidential: restricted access
+
+Neither free nor commercially licensed. Confidential supervisory or
+administrative microdata, reachable only through a qualifying affiliation or an
+approved restricted-data arrangement inside a secure environment. These pages
+document what the collection is and the gotchas, but carry **no provenance
+badge**: there is no access path we can run here.
+
+| Dataset | What it is | Page |
+|---|---|---|
+| **FR Y-14Q** | Fed stress-test bank data (loan-level corporate/CRE) | [FR Y-14Q](/wiki/datasets/fr-y14q/) |

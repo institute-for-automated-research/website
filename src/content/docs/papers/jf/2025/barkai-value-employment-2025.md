@@ -401,7 +401,7 @@ with age and size controls (Table IV).
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Compustat (via WRDS) | U.S. public firm employment, sales, and market value by IPO cohort bin, 1985-2014 | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| PitchBook | Exit valuations (IPO and M&A) for private and public U.S. firms by founding-year cohort, 1990-2019 | No page yet |
+| PitchBook | Exit valuations (IPO and M&A) for private and public U.S. firms by founding-year cohort, 1990-2019 | [PitchBook](/wiki/licensed/pitchbook/) (licensed) |
 | National Establishment Time Series (NETS) | Establishment-level employment and ownership changes (acquirer age), 1998-2014; 213,792 acquisitions | No page yet |
 | Census Business Dynamics Statistics (BDS) | Aggregate employment share of young firms (ages 0-5), firm-size distribution, job creation and destruction rates, 1983-2019 | [U.S. Census Bureau public data products](/wiki/datasets/census/) |
 | BEA National Accounts (GDP-by-Industry, Fixed Asset Tables) | Labor share, investment share, and value added by sector for model calibration and multisector analysis | [NIPA](/wiki/datasets/nipa/) |

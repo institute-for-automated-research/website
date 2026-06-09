@@ -283,6 +283,7 @@ datasets:
     provider: CoreLogic (Cotality)
     access: licensed-commercial
     note: Commercial property, foreclosure, and house-price microdata.
+    page: licensed/corelogic
   crane-mmf:
     name: Crane money-market-fund data
     provider: Crane Data LLC
@@ -291,6 +292,7 @@ datasets:
     name: LPC DealScan syndicated-loan data
     provider: LSEG / Refinitiv (Loan Pricing Corp.)
     access: licensed-commercial
+    page: licensed/dealscan
   emaxx:
     name: Lipper eMAXX fixed-income holdings
     provider: LSEG / Refinitiv (Lipper)
@@ -367,6 +369,7 @@ datasets:
     name: Preqin private-capital data
     provider: Preqin (BlackRock)
     access: licensed-commercial
+    page: licensed/preqin
   ratewatch:
     name: RateWatch deposit-rate surveys
     provider: S&P Global Market Intelligence (RateWatch)
@@ -382,6 +385,7 @@ datasets:
     provider: RepRisk AG
     access: licensed-commercial
     note: Firm-level environmental and social incident events sourced from media and stakeholder reports.
+    page: licensed/reprisk
   revelio:
     name: Revelio Labs workforce data
     provider: Revelio Labs
@@ -414,6 +418,7 @@ datasets:
     name: Trucost environmental data
     provider: S&P Global (Trucost)
     access: licensed-commercial
+    page: licensed/trucost
   wrds:
     name: Wharton Research Data Services (platform)
     provider: The Wharton School, University of Pennsylvania
@@ -464,6 +469,7 @@ datasets:
     name: PitchBook private-capital data
     provider: PitchBook (Morningstar)
     access: licensed-commercial
+    page: licensed/pitchbook
   thomson-13f:
     name: Thomson Reuters institutional holdings (13F, s34)
     provider: LSEG / Refinitiv (via WRDS)
@@ -564,6 +570,7 @@ datasets:
     provider: Federal Reserve Board
     access: proprietary-confidential
     note: Confidential supervisory data.
+    page: datasets/fr-y14q
   iab-establishment-panel:
     name: IAB Establishment Panel
     provider: Institute for Employment Research (IAB), Germany

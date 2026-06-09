@@ -254,7 +254,7 @@ where $$\mu_{ij}$$ and $$\sigma_{ij}$$ are directly elicited subject beliefs abo
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | 1,139 startup pitch videos (YouTube, Vimeo, hand-collected) | Primary source of visual, vocal, verbal delivery measures via ML processing | no page yet |
-| Crunchbase and PitchBook | Startup characteristics: founding year, industry, location, funding rounds and amounts, investor count | [no page yet] |
+| Crunchbase and PitchBook | Startup characteristics: founding year, industry, location, funding rounds and amounts, investor count | [PitchBook](/wiki/licensed/pitchbook/) (licensed) |
 | LinkedIn (via API) | Founder backgrounds: education, work experience, prior entrepreneurship; used for startup/team quality controls | no page yet |
 | Wayback Machine (Internet Archive) | Startup survival measure: website update frequency over three years post-application | no page yet |
 | Amazon Mechanical Turk survey | Human validation of Pitch Factor ratings (N=115 raters, 89.5% algorithmic-human consistency) | no page yet |

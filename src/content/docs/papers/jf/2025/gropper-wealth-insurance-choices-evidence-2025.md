@@ -13,7 +13,7 @@ sidebar:
   label: Gropper-Kuhnen 2025
   order: 1
 tags: [paper-summary, household-finance, insurance, life-insurance, wealth,
-       panel-regression, peer-reviewed, unreplicated]
+       panel-regression, peer-reviewed, unreplicated, data:corelogic]
 paper:
   authors: Michael J. Gropper, Camelia M. Kuhnen
   authorList:
@@ -230,7 +230,7 @@ The paper builds on `panel-regression` throughout. It does not use an instrument
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Proprietary administrative data from a U.S. financial services firm | Primary dataset: individual-level bank account balances, monthly income/spending flows, term life insurance coverage limits and premiums, demographic information; 63,141 individuals, Sep 2015-Mar 2019 | No page yet |
-| Corelogic transaction prices | Housing wealth estimates: zip-code home price percentiles by income quintile; used to assign housing wealth to homeowners | No page yet |
+| Corelogic transaction prices | Housing wealth estimates: zip-code home price percentiles by income quintile; used to assign housing wealth to homeowners | [CoreLogic](/wiki/licensed/corelogic/) (licensed) |
 | American Community Survey (5-year tables) | Income quintile boundaries by zip code, used to assign homeowners to income quintiles for housing wealth estimation | No page yet |
 | CDC National Vital Statistics System | Age-sex specific probability of death in the next year, merged at the individual level | No page yet |
 | Survey of Consumer Finances (2016 SCF) | Representativeness check: income and wealth distribution comparison (Appendix Table A.I) | No page yet |
