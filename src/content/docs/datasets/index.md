@@ -58,3 +58,5 @@ they read as unverified per the Verified discipline.
 | **RavenPack** | News and event analytics (sentiment, relevance) | [RavenPack](/wiki/licensed/ravenpack/) |
 | **FactSet LionShares** | Global institutional and fund holdings | [FactSet LionShares](/wiki/licensed/factset-lionshares/) |
 | **Revelio Labs** | Workforce / human-capital panel | [Revelio Labs](/wiki/licensed/revelio/) |
+| **I/B/E/S** | Sell-side analyst estimates, consensus and actuals | [I/B/E/S](/wiki/licensed/ibes/) |
+| **SDC Platinum** | M&A and new-issues deal-level data | [SDC Platinum](/wiki/licensed/sdc-platinum/) |

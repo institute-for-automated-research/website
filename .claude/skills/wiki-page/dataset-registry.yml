@@ -321,6 +321,7 @@ datasets:
     name: I/B/E/S analyst estimates
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
+    page: licensed/ibes
   infousa:
     name: InfoUSA / Data Axle business and consumer files
     provider: Data Axle (formerly InfoUSA)
@@ -394,6 +395,7 @@ datasets:
     name: SDC Platinum (M&A, new issues)
     provider: LSEG / Refinitiv
     access: licensed-commercial
+    page: licensed/sdc-platinum
   stocktwits:
     name: StockTwits social-media messages
     provider: StockTwits Inc.

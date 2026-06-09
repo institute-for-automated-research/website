@@ -359,7 +359,7 @@ $$
 | Sustainalytics ESG | Alternative ESG scores for robustness (2009-2017); used as instrument in 2SLS | no page yet |
 | Compustat annual fundamentals | Book-to-market, profitability, dividend yield; firm-level controls | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
 | CRSP daily/monthly stock data | Market capitalization, stock turnover, past returns, return volatility | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| I/B/E/S | Analyst earnings forecasts; second measure of earnings surprise for Table VII | no page yet |
+| I/B/E/S | Analyst earnings forecasts; second measure of earnings surprise for Table VII | [I/B/E/S](/wiki/licensed/ibes/) (licensed) |
 | RepRisk | Negative environmental and social (ES) incident data; used in ES-incident trading tests (Table VIII) | no page yet |
 | SEC EDGAR (N-CSR/N-CSRS filings) | Mutual fund shareholder reports; bag-of-words ESG mention analysis (Table III) | [EDGAR](/wiki/datasets/edgar/) |
 | Bushee institutional investor classifications | Transient/dedicated/quasi-indexer classification from Bushee (1998); supplemental horizon measure for 13f institutions | no page yet |

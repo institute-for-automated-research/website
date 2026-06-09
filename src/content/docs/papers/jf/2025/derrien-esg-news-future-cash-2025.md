@@ -380,7 +380,7 @@ realized-fundamentals tests). The headline specifications are:
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | RepRisk ESG incident data | Main independent variable: daily negative ESG incidents at firm level, 2007-2019, 28 ESG issue categories, novelty/severity/reach scores | No page yet |
-| IBES consensus analyst forecasts | Dependent variable: EPS, sales, gross margin, LTG, and price target consensus forecasts at firm-month level, quarterly and annual horizons | No page yet |
+| IBES consensus analyst forecasts | Dependent variable: EPS, sales, gross margin, LTG, and price target consensus forecasts at firm-month level, quarterly and annual horizons | [I/B/E/S](/wiki/licensed/ibes/) (licensed) |
 | CRSP / Compustat (via WRDS) | Stock returns (daily), firm fundamentals (annual), book-to-market, market cap, payout ratios | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | Capital IQ Key Developments | Comparison non-ESG corporate events (153 types); identify 33 types with significant negative EPS impact | No page yet |
 | Refinitiv (Asset4), Morningstar Sustainalytics, MSCI ESG scores | Validation that RepRisk incidents correlate with major ESG ratings (Appendix) | No page yet |

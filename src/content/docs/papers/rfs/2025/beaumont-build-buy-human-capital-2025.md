@@ -320,7 +320,7 @@ on interaction HC distance x High SG&A = 0.245\*\*, Table 12 col. 1, p. 1363).
 | French ownership links data (LIFI - Enquete sur les Liaisons financieres entre societes) | Identifies business group structure and subsidiaries; links firms to M&A targets | No page yet |
 | French tax files (BIC - Benefices Industriels et Commerciaux) | Balance sheets and income statements at subsidiary level; firm-level controls | No page yet |
 | French sales breakdown data (EAE/VAC - Enquete Annuelle des Entreprises / Ventilation des Ventes par Activite) | Identifies firm entries into new sectors (sales by sector, 3-digit SIC); sample period 2003-2014 | No page yet |
-| SDC Platinum (M&A deals) | M&A transaction data (acquirer, target, deal date, ownership stakes) for buy entries 2003-2014 | No page yet |
+| SDC Platinum (M&A deals) | M&A transaction data (acquirer, target, deal date, ownership stakes) for buy entries 2003-2014 | [SDC Platinum](/wiki/licensed/sdc-platinum/) (licensed) |
 | Bureau van Dijk Zephyr (M&A deals) | Supplementary M&A data matched with French administrative records; 7,165 M&A deals, 4,139 acquirers | No page yet |
 | Pole emploi (French unemployment agency) occupational tightness | Local labor market (LLM) tightness measure by occupation; 348 LLMs, used for Table 7 robustness | No page yet |
 
