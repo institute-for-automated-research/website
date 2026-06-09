@@ -250,7 +250,7 @@ where $$\beta_1 + \beta_5$$ captures the differential impact of a pessimistic sp
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Health and Retirement Study (HRS) | Primary observational data source: biannual panel of married-couple households over age 50; macroeconomic expectations of both spouses (inflation 1992-2000, recessions 1992-2008, stock returns 2004-2018), portfolio outcomes (stock market participation, equity share), and individual demographic and cognitive characteristics | no page yet |
+| Health and Retirement Study (HRS) | Primary observational data source: biannual panel of married-couple households over age 50; macroeconomic expectations of both spouses (inflation 1992-2000, recessions 1992-2008, stock returns 2004-2018), portfolio outcomes (stock market participation, equity share), and individual demographic and cognitive characteristics | [HRS](/wiki/datasets/hrs/) |
 | Amazon Mechanical Turk (MTurk) survey experiment | Randomized survey experiment; two waves (2021 N=3,000, 2023 N=2,000) of married U.S. residents age 25-64; exogenous variation in spousal beliefs about one-year stock market returns; hypothetical portfolio allocation task | no page yet |
 
 Sample: HRS main sample 29,549 household-year observations (stock returns domain, 2004-2018); inflation sample 18,396 observations (1992-2000); recession sample 24,167 observations (1992-2008). Experiment: 5,000 total subjects across two waves.

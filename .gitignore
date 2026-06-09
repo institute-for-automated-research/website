@@ -24,3 +24,4 @@ scripts/openalex/.crossref-cache/
 
 # Claude Code runtime lock (transient: sessionId/pid/timestamp, not for VCS)
 .claude/scheduled_tasks.lock
+.zeropaper-empirical-mirror/

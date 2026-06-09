@@ -56,6 +56,8 @@ without a badge because its host blocked automated fetches from this session.)
 | **SIPP** | Longitudinal household income & program participation | [SIPP](/wiki/datasets/sipp/) |
 | **QWI (LEHD)** | Local labor-market employment & earnings flows | [QWI](/wiki/datasets/qwi-census/) |
 | **Form N-MFP** | Monthly money-market-fund portfolio holdings (SEC) | [Form N-MFP](/wiki/datasets/n-mfp/) |
+| **BLS** | Labor force, employment, wages (QCEW), CPI/PPI | [BLS](/wiki/datasets/bls/) |
+| **HRS** | Older-household panel: health, wealth, expectations (registration-walled; not fetched here) | [HRS](/wiki/datasets/hrs/) |
 
 ## Licensed: academic access
 

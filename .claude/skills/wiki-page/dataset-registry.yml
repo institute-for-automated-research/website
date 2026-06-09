@@ -45,10 +45,12 @@ datasets:
     name: Bureau of Labor Statistics data
     provider: U.S. Bureau of Labor Statistics
     access: public
+    page: datasets/bls
   bls-cpi:
     name: Consumer Price Index
     provider: U.S. Bureau of Labor Statistics
     access: public
+    page: datasets/bls
   call-reports:
     name: FDIC / FFIEC Call Reports (Reports of Condition and Income)
     provider: FFIEC / U.S. Federal Deposit Insurance Corporation
@@ -736,6 +738,7 @@ datasets:
     name: Health and Retirement Study (HRS)
     provider: University of Michigan / NIA
     access: public
+    page: datasets/hrs
     note: >-
       Biennial longitudinal panel of U.S. households over age 50 covering
       health, wealth, portfolios, and survey expectations; public-use files are

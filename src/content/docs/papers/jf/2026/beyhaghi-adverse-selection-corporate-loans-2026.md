@@ -394,7 +394,7 @@ Produces results R9.
 |---|---|---|
 | Federal Reserve Y-14Q (Schedule H.1) | Confidential supervisory loan-level data: interest rates, PD, LGD, loan characteristics, firm financials, 2014Q4-2019Q4, 21,924 loans from 23 BHCs | [FR Y-14Q](/wiki/datasets/fr-y14q/) (confidential) |
 | FDIC Summary of Deposits | Alternative county-level bank count (branches), corroboration of main measure | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
-| Bureau of Labor Statistics (BLS) | County-level wage and financial-industry wages | [BLS](/wiki/datasets/bls/) (no page yet) |
+| Bureau of Labor Statistics (BLS) | County-level wage and financial-industry wages | [BLS](/wiki/datasets/bls/) |
 | U.S. Census Bureau | County-level population estimates | [Census](/wiki/datasets/census/) |
 | Zillow | County-level residential rent (robustness) | no page yet |
 
