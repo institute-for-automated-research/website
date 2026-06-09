@@ -2,6 +2,34 @@ Continue IAR website issue #13 (institute-for-automated-research/website, branch
 Working dir: /mnt/data_drive/Dropbox/Dropbox/Startups/instituteforautomatedresearch
 
 DONE SO FAR (do not redo):
+- INFRASTRUCTURE (this session): working API keys now live in .env (FRED, Census,
+  BLS, WRDS all verified working). WRDS connects ONLY with the bash sandbox
+  DISABLED (port 9737 is blocked in-sandbox); use dangerouslyDisableSandbox for
+  WRDS queries. ZeroPaper empirical skill bodies are mirrored locally at
+  .zeropaper-empirical-mirror/ (gitignored, read-only; assembled via
+  `python3 scripts/assemble_claude_skills.py` in ../../NewPapers/zeropaper).
+  AUTHOR/VERIFY PAGES *FROM* THESE SKILLS instead of re-deriving. 20 skills:
+  bls-census, call-reports, canonical-packages, chen-zimmerman, edgar,
+  factset-lionshares, flex-mining, form-5500, form-adv, fred, hrs-scf, ken-french,
+  mutual-funds, open-bond-pricing, ravenpack, revelio, sec-funds, trace-bonds,
+  treasury-yields, wrds. issue #14 filed: bea-io + eia-electricity need free BEA/EIA
+  keys before they can be badged (ask user to add BEA_API_KEY / EIA_API_KEY).
+- 1-citation tier, BATCH 3 (this session): PUBLIC pages from skills (commit ddb99ab):
+  * bls (datasets/bls, badged fetched/no-api-key): BLS API v2 no-key + QCEW county
+    wages (data.bls.gov/cew), from the bls-census skill [Beyhaghi et al.; Dittmar CPI]
+  * hrs (datasets/hrs, document-only NO badge): registration-walled + portal 403
+    here, barro-ursua model, from hrs-scf skill [Ke]
+  * bls-cpi COLLAPSED onto bls (dittmar CPI came via FRED; retagged data:bls).
+- DRIFT-CHECK (commit 2d12c51): 15 existing pages vs their skill bodies, 14 clean.
+  GSW fixed (SVEN1F = 1F01/1F04/1F09 only; 15y from 1971, 30y from 1985, live-checked).
+- WRDS EXERCISE (commit c2e1e06): 7 licensed pages upgraded no-badge -> amber
+  verified:access:licensed by a live keystone SELECT: trace, taq, thomson-13f, ibes,
+  dealscan, reprisk, revelio. NOT upgradable on this entitlement (denied sub-schema
+  or trial/sample only, leave unbadged): factset-lionshares (factset_own denied),
+  markit + markit-cds (markit_cds denied), sdc-platinum (full denied; samples only),
+  ravenpack (trial only), orbis-bvd (trial only). zeropaper#91 filed (entitlement map
+  + GSW fix). Amber badge model: verified: {date, with: <live schema.table query
+  through a licensed WRDS session>, access: licensed}  (NO level: key). See wrds.md.
 - Top 3-citation tier: drained (commit 4c8eaec, prior session).
 - 2-citation tier: FULLY DRAINED this session.
   * 10 LICENSED pages (commit a4e7c9b, pushed, live-verified), Revelio/DealScan
