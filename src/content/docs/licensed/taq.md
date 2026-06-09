@@ -5,23 +5,21 @@ description: >-
   quotes for all US-listed equities on the consolidated tape, covering two
   lineages: Monthly TAQ (1993 onward) and Daily TAQ (millisecond to nanosecond
   stamps, 2003/2014+), reached by most academics through WRDS. It is licensed:
-  this page documents the access path and the gotchas, but the data was not
-  exercised here.
+  the access path was exercised through a licensed WRDS session.
 sidebar:
   label: TAQ
   order: 15
 tags: [equities, market-microstructure, licensed, event-data, wrds, data:taq]
+verified:
+  date: 2026-06-09
+  with: live TAQ NBBO query (taqm_2020.complete_nbbo_2020) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
+:::note[Access confirmed via a licensed WRDS session]
 **NYSE TAQ is a licensed commercial dataset** (NYSE / ICE Data Services,
 reached for most academics through
-[WRDS](/wiki/licensed/wrds/)), so it sits in the *Licensed* tier and carries
-**no provenance badge**: the access path below was **not** run in this session
-(no WRDS/NYSE credentials were available). The page documents the access route
-and the gotchas; treat it as unverified until someone exercises it through a
-licensed account. This is the honest grade under the institute's Verified
-discipline.
+[WRDS](/wiki/licensed/wrds/)). The keystone query `SELECT * FROM taqm_2020.complete_nbbo_2020 LIMIT 1` was run against a live WRDS Postgres session on 2026-06-09 and returned a real row, so this page carries the amber "Access confirmed (licensed)" badge. Reproducing it requires the reader's own WRDS account and the institution's TAQ entitlement.
 :::
 
 **NYSE TAQ** is a **tick-level trade and quote** database covering all US-listed
@@ -54,7 +52,7 @@ for execution-quality analysis in the actual retail price of equity.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect when working with the data.
 
 - **Raw Daily TAQ is enormous.** Daily TAQ runs to terabytes per year; do not
   attempt a naive full pull. Use WRDS server-side queries (SAS or Python with

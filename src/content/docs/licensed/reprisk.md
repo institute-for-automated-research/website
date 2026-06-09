@@ -4,21 +4,20 @@ description: >-
   RepRisk is a daily firm-level feed of negative environmental, social, and
   governance incidents sourced from media and stakeholder reports, scored for
   severity, reach, and novelty across 28 issue categories. It is licensed: this
-  page documents the access path and the gotchas, but the data was not exercised
-  here.
+  page documents the access path and the gotchas; the access path was exercised
+  through a licensed WRDS session.
 sidebar:
   label: RepRisk
   order: 11
 tags: [equities, esg, news, licensed, event-data, data:reprisk]
+verified:
+  date: 2026-06-09
+  with: live RepRisk query (reprisk.pm_company_identifiers) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
-**RepRisk is a licensed commercial dataset** (RepRisk AG), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
-**not** run in this session (no RepRisk credentials were available). The page
-documents the access route and the gotchas; treat it as unverified until someone
-exercises it through a licensed account. This is the honest grade under the
-institute's Verified discipline.
+:::note[Access confirmed via a licensed WRDS session]
+The keystone query `SELECT * FROM reprisk.pm_company_identifiers LIMIT 1` was run against the live dataset through a licensed WRDS session on 2026-06-09, so this page carries the amber "Access confirmed (licensed)" badge. Reproducing it still requires the reader's own WRDS account and the institution's RepRisk entitlement (licensed, not open).
 :::
 
 **RepRisk** is an **ESG risk-incident** database. Rather than a static rating, it
@@ -44,14 +43,15 @@ for negative environmental and social incident data.
 
 - **Direct from RepRisk.** Through their data feed, API, or a cloud data share,
   keyed on the RepRisk company identifier.
-- **Possibly via WRDS or another vendor feed.** Some institutions reach RepRisk
-  through bundled products; availability is not confirmed here, so check with
-  your library before assuming a given path.
+- **Via WRDS.** RepRisk is available on WRDS; the keystone query above runs
+  against `reprisk.pm_company_identifiers` through a licensed WRDS session. Some
+  institutions also reach it through a direct RepRisk feed or bundled products.
+  Check your library's entitlement.
 - Credentials are required either way. Keep them in `.env`, never hard-coded.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect; they are documented.
 
 - **It is an incident flow, not a rating, and only negative.** RepRisk records
   negative events; there are no positive offsets. A firm with no recorded

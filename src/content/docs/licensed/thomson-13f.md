@@ -4,23 +4,25 @@ description: >-
   The Thomson Reuters / Refinitiv (now LSEG) Institutional (13F) Holdings
   database, known by its WRDS table family "s34", is a manager-by-quarter panel
   of US institutional equity holdings built from SEC Form 13F filings. It is
-  licensed: this page documents the access path and the gotchas, but the data
-  was not exercised here.
+  licensed: this page documents the access path and the gotchas; the access path
+  was exercised through a licensed WRDS session.
 sidebar:
   label: Thomson 13F (s34)
   order: 14
 tags: [equities, institutional-investors, licensed, panel-data, wrds, data:thomson-13f]
+verified:
+  date: 2026-06-09
+  with: live Thomson Reuters institutional 13F query (tfn.s34) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
-**The Thomson Reuters / Refinitiv Institutional (13F) Holdings database is a
-licensed commercial dataset** (LSEG / Refinitiv, reached for most academics
-through [WRDS](/wiki/licensed/wrds/)), so it sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
-session (no WRDS credentials were available). The page documents the access
-route and the gotchas; treat it as unverified until someone exercises it
-through a licensed account. This is the honest grade under the institute's
-Verified discipline.
+:::note[Access confirmed via a licensed WRDS session]
+The keystone query `SELECT fdate, mgrno FROM tfn.s34 LIMIT 1` was run against
+the Thomson Reuters s34 institutional holdings table through a licensed WRDS
+session on 2026-06-09 and returned a real row, so this page carries the amber
+"Access confirmed (licensed)" badge. Reproducing it still requires the reader's
+own WRDS account and the institution's Thomson/Refinitiv entitlement (licensed,
+not open).
 :::
 
 **The Thomson Reuters / Refinitiv Institutional (13F) Holdings database**
@@ -55,7 +57,7 @@ for the evolution of institutional ownership over thirty years.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect; they are documented.
 
 - **Coverage gaps and stale holdings, worse in the later sample.** A
   data-quality literature (Ben-David, Franzoni, Moussawi, and others) documents

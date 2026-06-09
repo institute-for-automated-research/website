@@ -5,22 +5,20 @@ description: >-
   secondary-market transaction reporting in US fixed-income securities,
   primarily corporate bonds. The version used by most academic researchers is the historical
   Enhanced TRACE file, reached for most researchers through WRDS. It is
-  licensed: this page documents the access path and the gotchas, but the data
-  was not exercised here.
+  licensed: this page documents the access path and the gotchas, and the
+  keystone query was exercised through a licensed WRDS session.
 sidebar:
   label: TRACE
   order: 13
 tags: [fixed-income, corporate-bonds, licensed, transaction-data, wrds, data:trace]
+verified:
+  date: 2026-06-09
+  with: live Enhanced TRACE query (trace.trace_enhanced) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
-**Enhanced TRACE is a licensed dataset** (FINRA, distributed to academics
-through [WRDS](/wiki/licensed/wrds/)), so it sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
-session (no WRDS credentials were available). The page documents the access
-route and the gotchas; treat it as unverified until someone exercises it
-through a licensed account. This is the honest grade under the institute's
-Verified discipline.
+:::note[Access confirmed via a licensed WRDS session]
+The keystone query `SELECT cusip_id, trd_exctn_dt FROM trace.trace_enhanced LIMIT 1` was run against `trace.trace_enhanced` through a licensed WRDS session on 2026-06-09, so this page carries the amber "Access confirmed (licensed)" badge. Reproducing it still requires your own WRDS account and your institution's TRACE entitlement; the data is licensed, not open.
 :::
 
 **TRACE** (Trade Reporting and Compliance Engine) is FINRA's facility into
@@ -57,7 +55,7 @@ for corporate bond liquidity and investor composition.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect when working with the data.
 
 - **Do not mix the free dissemination feed with the Enhanced file.** The
   public feed caps reported trade sizes (large trades are flagged as "5MM+" or

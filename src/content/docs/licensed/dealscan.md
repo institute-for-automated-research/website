@@ -4,23 +4,24 @@ description: >-
   DealScan (LSEG / LPC) is a deal-level database of syndicated and large
   corporate loans: facility pricing, amounts, maturities, covenants, and
   lender shares, reached by most researchers through WRDS. It is licensed: this
-  page documents the access path and the gotchas, but the data was not exercised
-  here.
+  page documents the access path and the gotchas; the access path was exercised
+  through a licensed WRDS session.
 sidebar:
   label: DealScan
   order: 8
 tags: [credit, syndicated-loans, banking, licensed, deal-data, data:dealscan]
+verified:
+  date: 2026-06-09
+  with: live DealScan query (dealscan.currfacpricing) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
-**DealScan is a licensed commercial dataset** (LSEG / Refinitiv, Loan Pricing
-Corporation, reached for most academics through
-[WRDS](/wiki/licensed/wrds/)), so it sits in the *Licensed* tier and carries
-**no provenance badge**: the access path below was **not** run in this session
-(no WRDS/LPC credentials were available). The page documents the access route
-and the gotchas; treat it as unverified until someone exercises it through a
-licensed account. This is the honest grade under the institute's Verified
-discipline.
+:::note[Access confirmed via a licensed WRDS session]
+The keystone query `SELECT * FROM dealscan.currfacpricing LIMIT 1` was run
+against the live dataset through a licensed WRDS session on 2026-06-09,
+so this page carries the amber "Access confirmed (licensed)" badge. Reproducing
+the access path still requires the reader's own WRDS account and the
+institution's DealScan entitlement (licensed, not open).
 :::
 
 **DealScan** is a **syndicated-loan** database, built by the Loan Pricing
@@ -53,7 +54,7 @@ for loan covenant structure.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect; they are documented.
 
 - **It is an origination snapshot, not loan performance.** DealScan records the
   deal as arranged; it does not track drawn balances, repayments, or defaults

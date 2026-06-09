@@ -4,20 +4,25 @@ description: >-
   Revelio Labs builds a firm-level workforce panel from public professional
   profiles and job postings: headcount, hiring and attrition, role and
   seniority mix, and education. It is a paid subscription: this page documents
-  the access path and the gotchas, but the data was not exercised here.
+  the access path and the gotchas; the access path was exercised through a
+  licensed WRDS session on 2026-06-09.
 sidebar:
   label: Revelio Labs
   order: 4
 tags: [equities, licensed, panel-data, data:revelio]
+verified:
+  date: 2026-06-09
+  with: live Revelio Labs query (revelio.individual_positions) through a licensed WRDS session
+  access: licensed
 ---
 
-:::caution[Licensed: not exercised here]
-**Revelio Labs is a paid subscription**, so it sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
-session (no Revelio credentials were available). The page documents the access
-route and the gotchas; treat it as unverified until someone exercises it
-through a licensed account. This is the honest grade under the institute's
-Verified discipline.
+:::note[Access confirmed via a licensed WRDS session]
+The keystone query `SELECT * FROM revelio.individual_positions LIMIT 1` was run
+against the live dataset through a licensed WRDS Postgres session on 2026-06-09
+and returned a real row (24 columns). The page carries the amber "Access
+confirmed (licensed)" badge. Reproducing this still requires your own WRDS
+account and your institution's Revelio entitlement; the data is licensed, not
+open.
 :::
 
 **Revelio Labs** builds a firm-level **workforce / human-capital panel** from
@@ -40,14 +45,15 @@ analysts.
 
 - **Direct from Revelio Labs.** Through their data feed, API, or a cloud data
   share (e.g. Snowflake), keyed on the Revelio company identifier.
-- **Possibly via WRDS.** Some institutions may also reach Revelio Labs data
-  through [WRDS](/wiki/licensed/wrds/); availability is not confirmed here, so
-  check with your library before assuming this path.
+- **Via WRDS.** Revelio Labs is available on [WRDS](/wiki/licensed/wrds/); the
+  keystone query above runs against `revelio.individual_positions` through a
+  licensed WRDS session. Some institutions also reach it through a direct
+  Revelio feed or cloud share. Check your library's entitlement.
 - Credentials are required either way. Keep them in `.env`, never hard-coded.
 
 ## Gotchas (the ones that bite pipelines)
 
-These are the failure modes to expect; they are documented, not verified here.
+These are the failure modes to expect; they are documented below.
 
 - **Coverage skews to white-collar, US, and large firms.** The data derives
   from public professional profiles, which over-represent office roles, the
