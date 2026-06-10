@@ -317,7 +317,7 @@ used in estimation and serve as an out-of-sample check.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | German and Italian zero-coupon sovereign bond yields (Datastream) | Main estimation targets: yields at 1m, 1Y, 5Y, 10Y, 20Y maturities, Jan 1999-Dec 2022; also two-day PEPP announcement window | [no page yet](/wiki/datasets/) |
-| ECB and Eurosystem bond holdings (ECB Data Warehouse / official ECB publications) | Calibrate net bond supply and Eurosystem purchase paths for APP and PEPP; maturity distribution of Eurosystem holdings as of July 2021 | [no page yet](/wiki/datasets/) |
+| ECB and Eurosystem bond holdings (ECB Data Portal / official ECB publications) | Calibrate net bond supply and Eurosystem purchase paths for APP and PEPP; maturity distribution of Eurosystem holdings as of July 2021 | [ECB Data Portal](/wiki/datasets/ecb-data-warehouse/) |
 | Banco de Espana fiscal projections (in-house debt sustainability model) | Long-run fiscal forecasts for Italy and Germany (primary deficits, debt, interest) extended from two-year-ahead Eurosystem projections | [no page yet](/wiki/datasets/) |
 | Eser et al. (2023) PH demand estimates | Calibrate the fraction of sovereign debt held by preferred-habitat investors (44.2% of net debt for each country) | [no page yet](/wiki/datasets/) |
 | Cruces and Trebesch (2013) haircut evidence | Fix haircut parameter $$\delta = 0.25$$ consistent with international evidence on sovereign defaults | [no page yet](/wiki/datasets/) |

@@ -85,6 +85,7 @@ datasets:
     provider: U.S. Federal Housing Finance Agency
     access: public
     note: Public house price indices at national, state, metro, and ZIP-code levels.
+    page: datasets/fhfa-hpi
   flow-of-funds:
     name: Financial Accounts of the United States (Z.1)
     provider: Federal Reserve Board
@@ -144,6 +145,7 @@ datasets:
     name: Supply Chain GHG Emission Factors
     provider: U.S. Environmental Protection Agency
     access: public
+    page: datasets/us-epa-supply-chain
 
   # ---- public: government filings / disclosure systems ----
   edgar:
@@ -173,6 +175,7 @@ datasets:
     provider: U.S. Centers for Medicare and Medicaid Services
     access: public
     note: Medicare cost reports filed by hospitals; freely downloadable from CMS.
+    page: datasets/hcris
   cms-quality:
     name: CMS hospital quality and patient-outcome metrics
     provider: U.S. Centers for Medicare and Medicaid Services
@@ -239,6 +242,7 @@ datasets:
     provider: International Monetary Fund
     access: public
     note: Cross-country macro-financial series, freely accessible via the IMF data portal.
+    page: datasets/imf-ifs
   shiller-irrational-exuberance:
     name: Robert Shiller long-run market and housing data
     provider: Robert J. Shiller (Yale)
@@ -269,6 +273,7 @@ datasets:
     provider: European Central Bank
     access: public
     note: Euro-area monetary, financial, and Eurosystem bond-holding statistics; freely accessible from the ECB data portal.
+    page: datasets/ecb-data-warehouse
 
   # ---- licensed-commercial: vendor feeds (incl. WRDS-gated) ----
   audit-analytics:

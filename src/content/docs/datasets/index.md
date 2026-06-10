@@ -61,6 +61,11 @@ without a badge because its host blocked automated fetches from this session.)
 | **VIX** | Daily CBOE volatility index, full history (1990-) | [VIX](/wiki/datasets/vix/) |
 | **Shiller data** | Long-run S&P prices, CAPE, and home prices (1871/1890-) | [Shiller data](/wiki/datasets/shiller-data/) |
 | **Zillow research** | Housing metrics: ZHVI, rents, days on market, price cuts | [Zillow research](/wiki/datasets/zillow/) |
+| **ECB Data Portal** | Euro-area monetary, rates, FX, Eurosystem holdings | [ECB Data Portal](/wiki/datasets/ecb-data-warehouse/) |
+| **IMF IFS** | Cross-country external-sector and macro series | [IMF IFS](/wiki/datasets/imf-ifs/) |
+| **FHFA HPI** | Repeat-sales US house price index by geography | [FHFA HPI](/wiki/datasets/fhfa-hpi/) |
+| **HCRIS** | Medicare hospital cost reports (CMS-2552) | [HCRIS](/wiki/datasets/hcris/) |
+| **EPA Supply Chain GHG** | NAICS-level emissions per dollar of output | [EPA Supply Chain GHG](/wiki/datasets/us-epa-supply-chain/) |
 
 ## Licensed: academic access
 
