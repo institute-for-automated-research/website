@@ -2,6 +2,34 @@ Continue IAR website issue #13 (institute-for-automated-research/website, branch
 Working dir: /mnt/data_drive/Dropbox/Dropbox/Startups/instituteforautomatedresearch
 
 DONE SO FAR (do not redo):
+- 1-citation tier, BATCH 4 (commit 0a3271c, pushed, live-verified 200/0-hop): 5
+  PUBLIC no-API-key pages, all badged verified:fetched after a real live pull
+  this session, datasets/ free orders 37-41:
+  * imf-ifs (datasets/imf-ifs): IMF DataMapper API BCA_NGDPD (current account %
+    GDP); full IFS via data.imf.org SDMX; legacy dataservices.imf.org retiring
+    [Kremens, Martin & Varela]
+  * ecb-data-warehouse (datasets/ecb-data-warehouse): ECB Data Portal data-api
+    CSV (EXR daily rate); SDW->Data Portal rebrand; APP component split
+    [Costain, Nuno & Thomas]
+  * fhfa-hpi (datasets/fhfa-hpi): FHFA HPI master CSV (hpi_master.csv, 17MB,
+    184,807 rows); ZIP-level indexes are ANNUAL developmental only (no monthly
+    FHFA ZIP series) [Heitz, Martin & Ufier]
+  * hcris (datasets/hcris): CMS Medicare hospital cost reports
+    (downloads.cms.gov/Files/hcris/HOSP10FY<year>.zip); CMS-2552-96 vs -10 form
+    split (1 May 2010); long worksheet/line/column cells [Lewellen]
+  * us-epa-supply-chain (datasets/us-epa-supply-chain): EPA Supply Chain GHG
+    Emission Factors v1.3 (pasteur.epa.gov CSV, 1,016 NAICS); with-margins
+    (purchaser price) vs without-margins (producer price) [Allcott, Montanari,
+    Ozaltun & Tan]
+  zeropaper#94 filed (mirror; all 5 clean no-key recipes). Two Sonnet review
+  rounds (caught HCRIS SAS-format->flat-file, wrong federal-reserve tag on
+  ECB/FHFA, EPA v1.2 data-year overclaim, invented FHFA 1995Q1 base).
+  Coverage now 65 dataset/licensed pages. Backlog 108 -> 103 (all tied at 1).
+  NEXT SIDEBAR ORDERS now: datasets free = 42; licensed = 23; confidential = 32.
+  Still-open public no-key candidates probed but NOT done: bis-rer (BIS REER zip
+  path 404s, find current URL), nic-fed (ffiec.gov/npw bulk 403 here),
+  cra-ffiec (ffiec.gov/Cra zip 403 here), dartmouth-atlas (data.dartmouthatlas.org
+  paths 404), cms-quality. bea-io + eia-electricity still need free keys (#14).
 - INFRASTRUCTURE (this session): working API keys now live in .env (FRED, Census,
   BLS, WRDS all verified working). WRDS connects ONLY with the bash sandbox
   DISABLED (port 9737 is blocked in-sandbox); use dangerouslyDisableSandbox for
