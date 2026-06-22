@@ -68,6 +68,11 @@ without a badge because its host blocked automated fetches from this session.)
 | **EPA Supply Chain GHG** | NAICS-level emissions per dollar of output | [EPA Supply Chain GHG](/wiki/datasets/us-epa-supply-chain/) |
 | **BEA Input-Output** | Industry Use/Make/Requirements tables; production networks | [BEA Input-Output](/wiki/datasets/bea-io/) |
 | **EIA Electricity** | Retail sales/prices, generation by fuel, emission factors | [EIA Electricity](/wiki/datasets/eia-electricity/) |
+| **BIS EER** | Trade-weighted nominal & real effective exchange rates (~60 economies) | [BIS EER](/wiki/datasets/bis-rer/) |
+| **Wayback Machine** | Historical web-page snapshots (Internet Archive, 1996-) | [Wayback Machine](/wiki/datasets/wayback-machine/) |
+| **CMS quality** | Hospital mortality, readmissions, complications, HCAHPS (Care Compare) | [CMS quality](/wiki/datasets/cms-quality/) |
+| **Dartmouth Atlas** | Hospital service-area / referral-region market geographies | [Dartmouth Atlas](/wiki/datasets/dartmouth-atlas/) |
+| **ACS** | Small-area income, occupation, housing, demographics (Census survey) | [ACS](/wiki/datasets/acs/) |
 
 ## Licensed: academic access
 

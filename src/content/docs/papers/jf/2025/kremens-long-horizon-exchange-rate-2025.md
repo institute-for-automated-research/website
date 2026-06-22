@@ -274,7 +274,7 @@ $$
 | Markit quanto forwards on S&P 500 | Construction of QRP (risk-neutral covariance between FX and equity); 24-month quotes, December 2009 onward | no page yet |
 | Reuters forward exchange rates | Forward discounts / interest rate differentials (IRD) by horizon; used interchangeably with IRD under CIP | no page yet |
 | IMF International Financial Statistics (IFS) | Current account balance and capital inflows, both scaled by GDP | [IMF IFS](/wiki/datasets/imf-ifs/) |
-| BIS real exchange rate | RER predictor variable | no page yet |
+| BIS real exchange rate | RER predictor variable | [BIS EER](/wiki/datasets/bis-rer/) |
 | FRED (VIX) | 30-day S&P implied volatility index as global risk perception proxy | [FRED](/wiki/datasets/fred/) |
 | Lane-Milesi-Ferretti (2018) | Net foreign asset positions-to-GDP for robustness | no page yet |
 

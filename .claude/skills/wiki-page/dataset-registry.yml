@@ -37,6 +37,7 @@ datasets:
     name: American Community Survey
     provider: U.S. Census Bureau
     access: public
+    page: datasets/acs
   bea-io:
     name: Input-Output Accounts
     provider: U.S. Bureau of Economic Analysis
@@ -182,6 +183,7 @@ datasets:
     name: CMS hospital quality and patient-outcome metrics
     provider: U.S. Centers for Medicare and Medicaid Services
     access: public
+    page: datasets/cms-quality
     note: Hospital mortality, readmission, and patient-satisfaction measures (Hospital Compare); published by CMS.
 
   # ---- public: academic / freely distributed research databases ----
@@ -220,11 +222,13 @@ datasets:
     name: Internet Archive Wayback Machine
     provider: Internet Archive
     access: public
+    page: datasets/wayback-machine
     note: Historical web-page snapshots; freely queryable. Used here to track startup website update frequency.
   dartmouth-atlas:
     name: Dartmouth Atlas of Health Care
     provider: The Dartmouth Institute
     access: public
+    page: datasets/dartmouth-atlas
     note: Hospital service area and referral region geographies plus regional health-care utilization measures; freely published.
   vix:
     name: CBOE Volatility Index (VIX)
@@ -238,6 +242,7 @@ datasets:
     name: BIS effective exchange rate indices
     provider: Bank for International Settlements
     access: public
+    page: datasets/bis-rer
     note: Nominal and real effective exchange rate indices, freely downloadable from the BIS statistics portal.
   imf-ifs:
     name: IMF International Financial Statistics
