@@ -821,6 +821,7 @@ datasets:
     name: Text-based Network Industry Classifications (TNIC)
     provider: Hoberg-Phillips Data Library
     access: public
+    page: datasets/tnic
     note: Firm-pair textual product-similarity scores and industry classifications built from 10-K product descriptions; openly downloadable from the Hoberg-Phillips Data Library.
   uniswap-blockchain:
     name: Uniswap on-chain data (Ethereum)
@@ -916,6 +917,7 @@ datasets:
     name: Facebook Social Connectedness Index (SCI)
     provider: Meta Data for Good
     access: public
+    page: datasets/facebook-sci
     note: County- and region-pair index of relative friendship-link intensity built from anonymized Facebook friendships; freely available to researchers via the Humanitarian Data Exchange.
   csmar:
     name: China Stock Market & Accounting Research (CSMAR) database

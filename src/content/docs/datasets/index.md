@@ -73,6 +73,8 @@ without a badge because its host blocked automated fetches from this session.)
 | **CMS quality** | Hospital mortality, readmissions, complications, HCAHPS (Care Compare) | [CMS quality](/wiki/datasets/cms-quality/) |
 | **Dartmouth Atlas** | Hospital service-area / referral-region market geographies | [Dartmouth Atlas](/wiki/datasets/dartmouth-atlas/) |
 | **ACS** | Small-area income, occupation, housing, demographics (Census survey) | [ACS](/wiki/datasets/acs/) |
+| **TNIC (Hoberg-Phillips)** | Text-based firm-pair product similarity and industries | [TNIC](/wiki/datasets/tnic/) |
+| **Facebook SCI** | Location-pair social connectedness from Facebook friendships | [Facebook SCI](/wiki/datasets/facebook-sci/) |
 
 ## Licensed: academic access
 

@@ -243,7 +243,7 @@ Interest rate dispersion (Section 3.3): OLS at the county-pair level, dependent 
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Facebook Social Connectedness Index (Bailey et al. 2018b) | Main explanatory variable; county-pair relative probability of Facebook friendship | No page yet |
+| Facebook Social Connectedness Index (Bailey et al. 2018b) | Main explanatory variable; county-pair relative probability of Facebook friendship | [Facebook SCI](/wiki/datasets/facebook-sci/) |
 | Community Reinvestment Act (CRA) data, FFIEC | County-to-county SME loan volumes for 2017 (and 2004-2018 for time series); bank-level loan counts | No page yet |
 | Home Mortgage Disclosure Act (HMDA) data, FFIEC | County-to-county mortgage loan volumes for 2017; loan-type classification | [HMDA](/wiki/datasets/hmda/) |
 | Fannie Mae and Freddie Mac Single Family Loan-Level Datasets | Loan-level mortgage data (2000-2008 originations, observed through 2018): LTV, interest rate, FICO, DTI, delinquency, default | No page yet |

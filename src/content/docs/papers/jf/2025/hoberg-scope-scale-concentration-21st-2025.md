@@ -261,7 +261,7 @@ where $$\omega_{i,k,t}$$ is the textual exposure weight for D2V (or the fraction
 |---|---|---|
 | Compustat annual fundamentals (WRDS) | Assets, R&D, CAPX, profitability, segments, financing; main panel 1989-2017 | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | SEC EDGAR 10-K filings (Item 1) | Source text for D2V-Scope and NAICS-Scope construction; all Compustat firm-years with 10-K | [EDGAR](/wiki/datasets/edgar/) |
-| TNIC / Hoberg-Phillips (2016) | Industry classification for peer identification; pairwise similarity used for instruments and scope validation | [no page yet] |
+| TNIC / Hoberg-Phillips (2016) | Industry classification for peer identification; pairwise similarity used for instruments and scope validation | [TNIC](/wiki/datasets/tnic/) |
 | SDC Platinum | Acquisition and divestiture events (acquirer dummy, target dummy) | [no page yet] |
 | BEA capital flows tables (1997) | 180-asset utilization vectors for 123 BEA industries, used to compute local asset redeployability instrument | [no page yet] |
 | Venture Expert (VentureXpert) | VC funding similarity measure: startup business descriptions for computing VC funding similarity | [no page yet] |
