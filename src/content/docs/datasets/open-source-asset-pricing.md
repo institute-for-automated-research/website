@@ -35,7 +35,7 @@ distilled recipe.
 from openassetpricing import OpenAP
 ap = OpenAP()
 
-# Firm-level signals — predictor arg MUST be a list (see gotchas)
+# Firm-level signals: predictor arg MUST be a list (see gotchas)
 sig = ap.dl_signal("pandas", ["BM", "Mom12m", "AssetGrowth"])
 #   → permno, yyyymm, BM, Mom12m, AssetGrowth
 
