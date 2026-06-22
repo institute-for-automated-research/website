@@ -377,7 +377,7 @@ residual. Standard errors via delta method.
 | CRSP (WRDS) | Stock price and shares outstanding for sample filters and controls | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | Moody's Ultimate Recovery Database (URD) | Creditor recovery rates for 403 corporate defaults, 1997-2020 | no page yet |
 | Audit Analytics | Bankruptcy filings cross-check for false-negative identification | no page yet |
-| UCLA-LoPucki Bankruptcy Research Database | Bankruptcy filing dates for false-negative classification | no page yet |
+| UCLA-LoPucki Bankruptcy Research Database | Bankruptcy filing dates for false-negative classification | [LoPucki BRD](/wiki/datasets/lopucki-brd/) |
 
 Sample: 85,876 firm-year observations (Compustat-EDGAR); 17,724 loan packages
 (Dealscan); 403 bankruptcies with recovery data (Moody's URD).

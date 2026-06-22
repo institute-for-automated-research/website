@@ -17,11 +17,16 @@ actually runs in production.
 
 ## Free & verified
 
-Genuinely no-cost. Almost every page carries a dated provenance badge:
-"Verified" when the access recipe was run live against the source, or "Source
-reachable" when the endpoint was confirmed but not fully pulled. Not just
-transcribed from docs. (One free academic dataset, Barro-Ursua, is documented
-without a badge because its host blocked automated fetches from this session.)
+Open by default, mostly no-cost. Almost every page carries a dated provenance
+badge: "Verified" when the access recipe was run live against the source, or
+"Source reachable" when the endpoint was confirmed but not fully pulled. Not
+just transcribed from docs. Some entries are documented without a badge because
+they could not be exercised here: a host that blocks automated fetches
+(Barro-Ursua, CRA), a free but registration-gated portal (Fannie/Freddie), a
+free view that prohibits automated access (NMLS, Maryland Judiciary), an
+open-but-metered service with per-page fees (PACER), or a historical compilation
+with no standing digital source (Forbes executive compensation). Each such page
+says so plainly.
 
 | Dataset | What it is | Page |
 |---|---|---|
@@ -75,6 +80,17 @@ without a badge because its host blocked automated fetches from this session.)
 | **ACS** | Small-area income, occupation, housing, demographics (Census survey) | [ACS](/wiki/datasets/acs/) |
 | **TNIC (Hoberg-Phillips)** | Text-based firm-pair product similarity and industries | [TNIC](/wiki/datasets/tnic/) |
 | **Facebook SCI** | Location-pair social connectedness from Facebook friendships | [Facebook SCI](/wiki/datasets/facebook-sci/) |
+| **LoPucki BRD** | Large public-company bankruptcies, 1980-2022 (frozen) | [LoPucki BRD](/wiki/datasets/lopucki-brd/) |
+| **Uniswap on-chain** | Swaps, mints, burns for Uniswap pools (no-key Ethereum RPC) | [Uniswap on-chain](/wiki/datasets/uniswap-blockchain/) |
+| **Amsterdam housing** | Long-run Amsterdam house prices and rents (1620-) | [Amsterdam housing](/wiki/datasets/amsterdam-housing-transactions/) |
+| **Paris rents** | Long-run Paris rents (1809-1943 public; 1500-1831 working-paper-only) | [Paris rents](/wiki/datasets/paris-rents/) |
+| **Superstar Cities (GMS)** | Long-run MSA house prices (openICPSR free sign-in) | [Superstar Cities (GMS)](/wiki/datasets/gyourko-mayer-sinai/) |
+| **CRA (FFIEC)** | Bank small-business / small-farm lending by tract (host bot-blocks automation; not fetched here) | [CRA (FFIEC)](/wiki/datasets/cra-ffiec/) |
+| **Fannie / Freddie loan-level** | GSE single-family loan performance (free, registration-gated; not fetched here) | [Fannie / Freddie loan-level](/wiki/datasets/fannie-freddie/) |
+| **NMLS** | Licensed mortgage loan officer registry (free lookup, automation prohibited; not fetched here) | [NMLS](/wiki/datasets/nmls/) |
+| **Maryland Judiciary** | State court case records (free view, automation prohibited; not fetched here) | [Maryland Judiciary](/wiki/datasets/maryland-judiciary/) |
+| **PACER** | Federal court records, incl. bankruptcy (open to all, per-page fees; not bulk-free) | [PACER](/wiki/datasets/pacer-bankruptcy/) |
+| **Forbes exec comp** | Historical CEO pay surveys (hand-collected from print; no standing source) | [Forbes exec comp](/wiki/datasets/forbes-executive-compensation/) |
 
 ## Licensed: academic access
 

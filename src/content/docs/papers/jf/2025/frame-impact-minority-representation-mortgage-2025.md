@@ -230,7 +230,7 @@ where $$Y_i$$ is in turn: application completion, approval (conditional on compl
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| NMLS Consumer Access (2012-2019) | Nationwide loan officer panel: name, employer, work address, career history; source for BIFSG race imputation | [no page yet] |
+| NMLS Consumer Access (2012-2019) | Nationwide loan officer panel: name, employer, work address, career history; source for BIFSG race imputation | [NMLS](/wiki/datasets/nmls/) |
 | Confidential HMDA (2018-2019, Federal Reserve) | Mortgage applications matched to loan officers via NMLS ID; includes FICO, LTV, DTI, AUS code (added to confidential version from 2018) | [no page yet] |
 | FHA insured mortgage data (2000-2018, FHA/Federal Reserve) | Population of FHA single-family originations; used for default analysis (90+ days delinquent through 2019-Q3) | [FHA](/wiki/datasets/fha/) |
 | Black Knight McDash (matched to HMDA 2018-2019) | Monthly performance data; 60-day default within 24 months of origination; 36% match of HMDA approved mortgages | [no page yet] |

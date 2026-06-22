@@ -302,14 +302,14 @@ mature cohorts raise prices in high-HO (owner-occupied) areas.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Amsterdam housing transaction data (mandatory aldermen registrations, 1620-1811; 19th-century repeat-sales on Herengracht) | Main house price index via Bayesian repeat-sales (Francke 2010); segmentation analysis | No page yet |
-| Paris repeat-rent indices (Eichholtz, Korevaar, and Lindenthal 2020) | Rent price series for Paris 1500-1831 (new rental contracts only) | No page yet |
-| Amsterdam repeat-rent index (Eichholtz, Korevaar, and Lindenthal 2020) | Rent price series for Amsterdam 1550-1884 | No page yet |
+| Amsterdam housing transaction data (mandatory aldermen registrations, 1620-1811; 19th-century repeat-sales on Herengracht) | Main house price index via Bayesian repeat-sales (Francke 2010); segmentation analysis | [Amsterdam housing](/wiki/datasets/amsterdam-housing-transactions/) |
+| Paris repeat-rent indices (Eichholtz, Korevaar, and Lindenthal 2020) | Rent price series for Paris 1500-1831 (new rental contracts only) | [Paris rents](/wiki/datasets/paris-rents/) |
+| Amsterdam repeat-rent index (Eichholtz, Korevaar, and Lindenthal 2020) | Rent price series for Amsterdam 1550-1884 | [Amsterdam housing](/wiki/datasets/amsterdam-housing-transactions/) |
 | Amsterdam archival civil registers (Amsterdam City Archives, from 1554) | Annual births, deaths, marriages for demographic rates | No page yet |
 | Paris demographic data (historians + official Paris statistics) | Annual births, deaths, marriages for demographic rates 1500-1831 | No page yet |
 | Dutch government bond yields (provincial debt pre-1810, national debt post-1810) | Test of general asset-demand mechanism | No page yet |
 | Dutch East India Company (VOC) dividend yields (Golez and Koudijs 2018) | Test of general asset-demand mechanism, 1629-1782 | No page yet |
-| 1805 Amsterdam rental census (Amsterdam City Archives) | Street-level homeownership rates for segmentation analysis | No page yet |
+| 1805 Amsterdam rental census (Amsterdam City Archives) | Street-level homeownership rates for segmentation analysis | [Amsterdam housing](/wiki/datasets/amsterdam-housing-transactions/) |
 | OECD panel on house prices, rents, demographics (1970-2020) | Modern-context robustness check (Internet Appendix Section VI) | No page yet |
 
 Sample: Amsterdam rent-price ratio 1550-1884 (N=256 five-year observations);

@@ -231,7 +231,7 @@ All regressions are panel (pool-day or pool observations) with standard errors c
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Uniswap V1 and V2 blockchain data (Ethereum) | Primary data: 95.8 million interactions across 105,098 pools; liquidity injections, withdrawals, token swaps Nov 2018-Dec 2022 | No page yet |
+| Uniswap V1 and V2 blockchain data (Ethereum) | Primary data: 95.8 million interactions across 105,098 pools; liquidity injections, withdrawals, token swaps Nov 2018-Dec 2022 | [Uniswap on-chain](/wiki/datasets/uniswap-blockchain/) |
 | Binance minute-by-minute price data | Price benchmark for USD volume conversion and price impact comparison; 43 cross-listed token pairs | No page yet |
 | Ethereum blockchain gas-price data | Gas cost estimation for AMM withdrawal transactions | No page yet |
 

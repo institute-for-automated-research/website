@@ -223,7 +223,7 @@ where $$\Delta p_{l,i,t}$$ is the log capital gain on sale of property $$i$$ in 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Authors' new city-level housing return database (27 cities, 15 OECD countries, 1870-2018) | Main international analysis: house price indices, rent indices, total returns | No page yet (hand-collected from yearbooks, tax records, notaries, newspapers, MSCI) |
-| Gyourko, Mayer & Sinai (2013) MSA database extended to 2018 via ACS | U.S. cross-section analysis: 316 MSAs, decadal returns 1950-2018 | [no page yet](/wiki/datasets/) |
+| Gyourko, Mayer & Sinai (2013) MSA database extended to 2018 via ACS | U.S. cross-section analysis: 316 MSAs, decadal returns 1950-2018 | [Superstar Cities (GMS)](/wiki/datasets/gyourko-mayer-sinai/) |
 | German IVD / RDM market reports (42 cities, 1975-2018; 127 cities, 1992-2018) | German city cross-section: annual housing returns | No page yet |
 | Jorda, Schularick & Taylor (2019) macro-history database | National housing return benchmarks for 15 OECD countries | No page yet |
 | MSCI real estate investor yield data | 2018 rental yield benchmark for main data set | [no page yet](/wiki/datasets/) |

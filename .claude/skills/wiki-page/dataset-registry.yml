@@ -200,8 +200,10 @@ datasets:
     page: datasets/ken-french
   lopucki-brd:
     name: Florida-UCLA-LoPucki Bankruptcy Research Database
-    provider: Lynn M. LoPucki (academic, registration-gated but free)
+    provider: Lynn M. LoPucki (academic, free with click-through research-use agreement)
     access: public
+    page: datasets/lopucki-brd
+    note: Large public-company bankruptcies (assets over $100M in 1980 dollars), 1980 to the final Dec 2022 update; free Cases-table download behind a click-through non-disclosure agreement; hosted at University of Florida; frozen, no longer updated.
   open-source-asset-pricing:
     name: Open Source Asset Pricing (Chen-Zimmermann predictors)
     provider: Andrew Y. Chen and Tom Zimmermann
@@ -211,7 +213,8 @@ datasets:
     name: Gyourko-Mayer-Sinai Superstar Cities MSA database
     provider: Gyourko, Mayer & Sinai (academic)
     access: public
-    note: MSA-level long-run house price and return series from "Superstar Cities"; published academic data.
+    page: datasets/gyourko-mayer-sinai
+    note: MSA-level long-run house price and return series from "Superstar Cities"; replication package on openICPSR (project 114839) behind a free sign-in.
   zillow:
     name: Zillow housing research data
     provider: Zillow Group (Zillow Research)
@@ -260,11 +263,13 @@ datasets:
     name: Forbes annual executive compensation surveys
     provider: Forbes (published surveys)
     access: public
-    note: CEO pay figures compiled from the published annual Forbes surveys; historical print issues, no licence to read.
+    page: datasets/forbes-executive-compensation
+    note: CEO pay (roughly 1970-1992) hand-keyed from print Forbes annual surveys; the print issues are public but there is no standing machine-readable source, so the page carries no badge (the modern successor is Compustat ExecuComp, licensed).
   amsterdam-housing-transactions:
     name: Amsterdam historical housing transaction and rent records
     provider: Amsterdam City Archives (Stadsarchief Amsterdam)
     access: public
+    page: datasets/amsterdam-housing-transactions
     note: >-
       Author-compiled house price and rent series from public municipal
       archives (aldermen registrations 1620-1811, Herengracht repeat-sales,
@@ -274,7 +279,8 @@ datasets:
     name: Paris historical repeat-rent index
     provider: Eichholtz, Korevaar & Lindenthal (academic)
     access: public
-    note: Long-run Paris rent series (1500-1831) from published academic research data.
+    page: datasets/paris-rents
+    note: Long-run Paris rent series; the published 1809-1943 slice is downloadable (shared RFS 2021 workbook), the deeper 1500-1831 repeat-rent index is working-paper-only.
   ecb-data-warehouse:
     name: ECB Statistical Data Warehouse
     provider: European Central Bank
@@ -787,7 +793,8 @@ datasets:
     name: FDIC Summary of Deposits
     provider: Federal Deposit Insurance Corporation
     access: public
-    note: Annual branch-level deposit data for U.S. banks and thrifts; openly downloadable. (See also fdic-summary-of-deposits, fdic.)
+    page: datasets/fdic-summary-of-deposits
+    note: Stray alias of fdic-summary-of-deposits (same FDIC Summary of Deposits data); points at that page rather than getting its own. (See also fdic.)
   federal-register:
     name: Federal Register
     provider: U.S. National Archives / GPO
@@ -798,7 +805,8 @@ datasets:
     name: NMLS Consumer Access
     provider: Nationwide Multistate Licensing System (CSBS)
     access: public
-    note: Public registry of licensed mortgage loan officers and their employers, work addresses, and career history; openly searchable.
+    page: datasets/nmls
+    note: Public registry of licensed mortgage loan officers (name, employer, work address, career history); free single-record lookup only, the Terms of Use prohibit bulk/automated access (paid B2B for programmatic use).
   noaa-hurricane:
     name: NOAA hurricane track and landfall data (HURDAT2 / NHC)
     provider: NOAA National Hurricane Center
@@ -827,7 +835,8 @@ datasets:
     name: Uniswap on-chain data (Ethereum)
     provider: Ethereum public blockchain
     access: public
-    note: Liquidity injections, withdrawals, and token swaps for Uniswap V1/V2 pools; readable directly from the public Ethereum blockchain.
+    page: datasets/uniswap-blockchain
+    note: Liquidity injections, withdrawals, and token swaps for Uniswap V2/V3 pools; readable directly from the public Ethereum blockchain via no-key eth_getLogs.
   kld:
     name: KLD / MSCI ESG ratings
     provider: MSCI (formerly KLD Research & Analytics)
@@ -907,11 +916,13 @@ datasets:
     name: Community Reinvestment Act (CRA) disclosure data
     provider: FFIEC
     access: public
+    page: datasets/cra-ffiec
     note: Bank small-business and small-farm lending by census tract under the CRA; aggregate and disclosure files published openly by the FFIEC.
   fannie-freddie:
     name: Fannie Mae / Freddie Mac single-family loan-level datasets
     provider: Fannie Mae / Freddie Mac
     access: public
+    page: datasets/fannie-freddie
     note: Loan-level acquisition and performance records for single-family mortgages acquired by the GSEs; freely downloadable after a no-cost registration.
   facebook-sci:
     name: Facebook Social Connectedness Index (SCI)
@@ -943,12 +954,14 @@ datasets:
     name: Maryland Judiciary Case Search records
     provider: Maryland Judiciary
     access: public
-    note: Individual-level state court case records (charges, hearings, dispositions) retrieved from the free public Case Search portal.
+    page: datasets/maryland-judiciary
+    note: Individual-level state court case records (charges, hearings, dispositions); free to view one case at a time, but a CAPTCHA and the terms prohibit automated/bulk access (bulk only via a Public Information Act request).
   pacer-bankruptcy:
     name: PACER federal bankruptcy court records
     provider: U.S. Administrative Office of the Courts (PACER)
     access: public
-    note: Case-level federal bankruptcy filings and dockets; open to any registered user, billed per page (nominal fees, waivable), not a commercial vendor product.
+    page: datasets/pacer-bankruptcy
+    note: Open public court records (any user may register), but retrieval is metered at $0.10/page ($3.00/document cap, fees waived under $30/quarter), so it is not a free bulk download. The records are public (hence the public tier); the metering is documented on the page. Not a commercial vendor product.
   insee-dads:
     name: INSEE DADS matched employer-employee data (France)
     provider: INSEE (via CASD)
