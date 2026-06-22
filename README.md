@@ -65,8 +65,9 @@ confirmed (licensed)" badge (`verified.access: licensed`).
 2. Copy an existing landing page (e.g. `site/papers/iar-a/iar-a-001.html`) and
    update title, authors, date, abstract, `citation_*` meta tags, citation
    block. Copy from the **same series** so the ISSN carries over, or fix
-   both the `citation_issn` tag and the visible ISSN line: 3143-3626 for
-   IAR-A, 3143-3634 for IAR-M.
+   every ISSN on the page (the `citation_issn` tag, the visible Details
+   line, the "How to cite" text, and the `issn` field in both the on-page
+   BibTeX and the `.bib`): 3143-3626 for IAR-A, 3143-3634 for IAR-M.
 3. Add a row to `site/papers/iar-<a|m>/index.html`.
 4. Add the new URLs to `site/sitemap.xml`.
 5. Push. Then request re-indexing in
