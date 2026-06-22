@@ -41,6 +41,34 @@ console.log('[postbuild] copied site/ → dist/ (homepage + papers at root)');
 await cp(join(site, 'favicon.svg'), join(dist, 'wiki', 'favicon.svg'));
 console.log('[postbuild] mirrored favicon.svg → dist/wiki/ (Starlight base)');
 
+// 1c. Vercel Web Analytics. The hand-authored site/ pages are plain HTML with
+//     their own <head>, so inject the analytics script into each (the wiki
+//     pages get it from src/components/Head.astro). Vercel serves
+//     /_vercel/insights/script.js once Web Analytics is enabled for the
+//     project; until then it 404s harmlessly. Idempotent.
+const ANALYTICS_TAG = '<script defer src="/_vercel/insights/script.js"></script>';
+async function injectAnalytics(srcDir) {
+  let n = 0;
+  for (const e of await readdir(srcDir, { withFileTypes: true })) {
+    const p = join(srcDir, e.name);
+    if (e.isDirectory()) {
+      n += await injectAnalytics(p);
+      continue;
+    }
+    if (!e.name.endsWith('.html')) continue;
+    const target = join(dist, relative(site, p));
+    const html = await readFile(target, 'utf8');
+    if (html.includes('/_vercel/insights/script.js') || !/<\/head>/i.test(html)) {
+      continue;
+    }
+    await writeFile(target, html.replace(/<\/head>/i, `    ${ANALYTICS_TAG}\n  </head>`), 'utf8');
+    n++;
+  }
+  return n;
+}
+const injected = await injectAnalytics(site);
+console.log(`[postbuild] injected Vercel Analytics into ${injected} static page(s)`);
+
 // Walk src/content/docs for *.md.
 async function walk(dir) {
   const out = [];
