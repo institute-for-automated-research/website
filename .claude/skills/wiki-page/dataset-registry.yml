@@ -41,6 +41,7 @@ datasets:
     name: Input-Output Accounts
     provider: U.S. Bureau of Economic Analysis
     access: public
+    page: datasets/bea-io
   bls:
     name: Bureau of Labor Statistics data
     provider: U.S. Bureau of Labor Statistics
@@ -75,6 +76,7 @@ datasets:
     name: Electricity data
     provider: U.S. Energy Information Administration
     access: public
+    page: datasets/eia-electricity
   fdic-summary-of-deposits:
     page: datasets/fdic-summary-of-deposits
     name: Summary of Deposits

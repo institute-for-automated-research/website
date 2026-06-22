@@ -66,6 +66,8 @@ without a badge because its host blocked automated fetches from this session.)
 | **FHFA HPI** | Repeat-sales US house price index by geography | [FHFA HPI](/wiki/datasets/fhfa-hpi/) |
 | **HCRIS** | Medicare hospital cost reports (CMS-2552) | [HCRIS](/wiki/datasets/hcris/) |
 | **EPA Supply Chain GHG** | NAICS-level emissions per dollar of output | [EPA Supply Chain GHG](/wiki/datasets/us-epa-supply-chain/) |
+| **BEA Input-Output** | Industry Use/Make/Requirements tables; production networks | [BEA Input-Output](/wiki/datasets/bea-io/) |
+| **EIA Electricity** | Retail sales/prices, generation by fuel, emission factors | [EIA Electricity](/wiki/datasets/eia-electricity/) |
 
 ## Licensed: academic access
 
