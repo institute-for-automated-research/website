@@ -95,12 +95,16 @@ python3 scripts/zenodo_mint.py site/papers/iar-a/iar-a-001            # producti
 
 Skips papers that already have a DOI unless `--force`. Push after minting.
 
-### ISSN (in progress)
+### ISSN
 
-Two free online ISSNs requested at [issn.org](https://www.issn.org/) — one per
-series (IAR Autonomous Papers, IAR Methodology Papers). Once granted, add
-`<meta name="citation_issn" content="XXXX-XXXX">` to every landing page in the
-matching series.
+Each series has a free online ISSN from the U.S. ISSN Center (Library of
+Congress):
+
+- **IAR Autonomous Papers** — ISSN 3143-3626 (online)
+- **IAR Methodology Papers** — ISSN 3143-3634 (online)
+
+Each landing page in a series carries `<meta name="citation_issn">` with the
+matching ISSN, and the series shows it in human-readable form.
 
 ## Secrets
 
