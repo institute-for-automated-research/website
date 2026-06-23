@@ -140,6 +140,12 @@ they read as unverified per the Verified discipline.
 | **Morningstar** | Fund, ETF, and fund-sustainability data | [Morningstar](/wiki/licensed/morningstar/) |
 | **KLD / MSCI ESG** | Firm-level ESG strength/concern and ratings | [KLD / MSCI ESG](/wiki/licensed/kld/) |
 | **Cboe options** | Index/equity option quotes, trades, and VIX | [Cboe options](/wiki/licensed/cboe-options/) |
+| **FactSet Revere** | Inter-firm supplier/customer/competitor links | [FactSet Revere](/wiki/licensed/factset-revere/) |
+| **Global Financial Data** | Long-run cross-country stock, bond, and macro series | [Global Financial Data](/wiki/licensed/global-financial-data/) |
+| **Crunchbase** | Startup characteristics, funding rounds, investors | [Crunchbase](/wiki/licensed/crunchbase/) |
+| **CSMAR** | Chinese listed-firm prices, financials, ownership | [CSMAR](/wiki/licensed/csmar/) |
+| **MSCI Real Estate** | Property total-return indices and rental yields (IPD) | [MSCI Real Estate](/wiki/licensed/msci-real-estate/) |
+| **Refinitiv transcripts** | Earnings-call transcripts for textual analysis | [Refinitiv transcripts](/wiki/licensed/refinitiv-transcripts/) |
 
 ## Confidential: restricted access
 

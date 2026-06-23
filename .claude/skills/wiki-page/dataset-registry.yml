@@ -349,6 +349,7 @@ datasets:
     name: FactSet Revere supply-chain relationships
     provider: FactSet Research Systems
     access: licensed-commercial
+    page: licensed/factset-revere
   ftse-all-share:
     name: FTSE All-Share Index constituents and returns
     provider: FTSE Russell
@@ -542,16 +543,19 @@ datasets:
     name: Crunchbase startup and funding data
     provider: Crunchbase, Inc.
     access: licensed-commercial
+    page: licensed/crunchbase
     note: Startup characteristics, funding rounds, and investor data; commercial database (free tier limited).
   msci-real-estate:
     name: MSCI real estate index and investor yield data
     provider: MSCI (formerly IPD)
     access: licensed-commercial
+    page: licensed/msci-real-estate
     note: Real estate total-return and rental-yield benchmarks.
   global-financial-data:
     name: Global Financial Data (GFD)
     provider: Global Financial Data, Inc.
     access: licensed-commercial
+    page: licensed/global-financial-data
     note: Long-run cross-country stock, bond, and macro series; commercial subscription.
   venturesource:
     name: VentureSource venture-capital data
@@ -869,6 +873,7 @@ datasets:
     name: Refinitiv (LSEG) earnings-call transcripts
     provider: Refinitiv / LSEG
     access: licensed-commercial
+    page: licensed/refinitiv-transcripts
     note: Transcripts of analyst-management conference calls; obtained under a commercial data licence.
   siblis-research:
     name: Siblis Research index-constituent and market-value data
@@ -946,6 +951,7 @@ datasets:
     name: China Stock Market & Accounting Research (CSMAR) database
     provider: GTA Information Technology
     access: licensed-commercial
+    page: licensed/csmar
     note: Vendor database of Chinese listed-firm prices, financials, and market microstructure; obtained under a commercial / institutional licence.
   china-shadow-margin:
     name: China shadow-margin (off-exchange) lending data (single provider)
