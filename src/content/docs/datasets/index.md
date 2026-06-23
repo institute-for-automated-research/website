@@ -169,3 +169,12 @@ badge**: there is no access path we can run here.
 | **NIC (Fed)** | CAMELS ratings (confidential) + BHC structure (public) | [NIC](/wiki/datasets/nic-fed/) |
 | **STBL (Fed)** | Loan-level C&I terms and internal risk ratings (risk rating 1997 on; survey ended 2017) | [STBL](/wiki/datasets/stbl-fed/) |
 | **MCR (NMLS)** | Company-level nonbank mortgage lender reports | [MCR](/wiki/datasets/mcr-nmls/) |
+| **INSEE DADS** | French matched employer-employee data (via CASD) | [INSEE DADS](/wiki/datasets/insee-dads/) |
+| **INSEE LIFI** | French inter-firm ownership / business-group links (via CASD) | [INSEE LIFI](/wiki/datasets/insee-lifi/) |
+| **INSEE tax files** | French firm balance sheets and income statements (via CASD) | [INSEE tax files](/wiki/datasets/insee-tax-files/) |
+| **LISA (Sweden)** | Swedish individual-level population register (via SCB) | [LISA](/wiki/datasets/lisa-sweden/) |
+| **FEK (Sweden)** | Swedish firm structural business statistics (via SCB) | [FEK](/wiki/datasets/fek-sweden/) |
+| **Statistics Norway** | Norwegian income/wealth registers (aggregates public; microdata restricted) | [Statistics Norway](/wiki/datasets/statistics-norway/) |
+| **VPS (Norway)** | Complete individual securities holdings (Norwegian CSD) | [VPS](/wiki/datasets/vps-norway/) |
+| **IEB (Germany)** | German administrative employment biographies (via IAB FDZ) | [IEB](/wiki/datasets/ieb-germany/) |
+| **IAB Establishment Panel** | German establishment survey (via IAB FDZ) | [IAB Establishment Panel](/wiki/datasets/iab-establishment-panel/) |

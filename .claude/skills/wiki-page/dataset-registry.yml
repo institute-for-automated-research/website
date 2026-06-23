@@ -630,11 +630,13 @@ datasets:
     name: IAB Establishment Panel
     provider: Institute for Employment Research (IAB), Germany
     access: proprietary-confidential
+    page: datasets/iab-establishment-panel
     note: Confidential, accessed on-site or via remote execution at the FDZ.
   ieb-germany:
     name: Integrated Employment Biographies (IEB)
     provider: Institute for Employment Research (IAB), Germany
     access: proprietary-confidential
+    page: datasets/ieb-germany
     note: Confidential German administrative labor records (FDZ access).
   indifi-loan-applications:
     name: Indifi FinTech loan application records (India)
@@ -676,11 +678,13 @@ datasets:
     name: Statistics Norway (SSB) administrative registers
     provider: Statistics Norway (SSB)
     access: proprietary-confidential
+    page: datasets/statistics-norway
     note: Aggregate tables are public; the linked registry microdata is restricted.
   vps-norway:
     name: Norwegian Central Securities Depository holdings (VPS)
     provider: Euronext Securities Oslo (VPS)
     access: proprietary-confidential
+    page: datasets/vps-norway
     note: Individual-level securities holdings; restricted research access.
   discount-window-confidential:
     name: Federal Reserve discount window lending records
@@ -754,6 +758,7 @@ datasets:
     name: LISA longitudinal register (Statistics Sweden)
     provider: Statistics Sweden (SCB)
     access: proprietary-confidential
+    page: datasets/lisa-sweden
     note: >-
       Individual-level annual labor-market, income, transfer, education, and
       wealth records for all Swedish residents; restricted administrative
@@ -762,6 +767,7 @@ datasets:
     name: Structural Business Statistics (FEK, Statistics Sweden)
     provider: Statistics Sweden (SCB)
     access: proprietary-confidential
+    page: datasets/fek-sweden
     note: Firm-level employment, payroll, productivity, and balance-sheet microdata; restricted administrative access.
 
   # ---- JF 80(3) batch ----
@@ -994,14 +1000,17 @@ datasets:
     name: INSEE DADS matched employer-employee data (France)
     provider: INSEE (via CASD)
     access: proprietary-confidential
+    page: datasets/insee-dads
     note: Administrative declarations linking French workers to establishments (earnings, occupation, hours); restricted access through the CASD secure data centre.
   insee-lifi:
     name: INSEE LIFI financial linkages between firms (France)
     provider: INSEE (via CASD)
     access: proprietary-confidential
+    page: datasets/insee-lifi
     note: Administrative survey of ownership and control links among French firms (group structure); restricted access through the CASD secure data centre.
   insee-tax-files:
     name: INSEE firm tax and accounting files (France)
     provider: INSEE / DGFiP (via CASD)
     access: proprietary-confidential
+    page: datasets/insee-tax-files
     note: Administrative firm-level tax and accounting records (balance sheets, income statements); restricted access through the CASD secure data centre.
