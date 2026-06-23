@@ -136,6 +136,10 @@ they read as unverified per the Verified discipline.
 | **Worldscope** | Global company fundamentals | [Worldscope](/wiki/licensed/worldscope/) |
 | **Capital IQ** | Company, capital-structure, and transactions data | [Capital IQ](/wiki/licensed/capital-iq/) |
 | **Audit Analytics** | Auditor, disclosure, and restatement data | [Audit Analytics](/wiki/licensed/audit-analytics/) |
+| **NielsenIQ** | Retail scanner and Homescan consumer-panel data (via Kilts) | [NielsenIQ](/wiki/licensed/nielseniq/) |
+| **Morningstar** | Fund, ETF, and fund-sustainability data | [Morningstar](/wiki/licensed/morningstar/) |
+| **KLD / MSCI ESG** | Firm-level ESG strength/concern and ratings | [KLD / MSCI ESG](/wiki/licensed/kld/) |
+| **Cboe options** | Index/equity option quotes, trades, and VIX | [Cboe options](/wiki/licensed/cboe-options/) |
 
 ## Confidential: restricted access
 

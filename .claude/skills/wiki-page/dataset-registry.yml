@@ -308,6 +308,7 @@ datasets:
     name: CBOE options data
     provider: Cboe Global Markets
     access: licensed-commercial
+    page: licensed/cboe-options
   compustat-segments:
     name: Compustat Segment data
     provider: S&P Global Market Intelligence (via WRDS)
@@ -386,10 +387,12 @@ datasets:
     provider: MSCI ESG Research (formerly KLD)
     access: licensed-commercial
     note: Annual firm-level environmental, social, and governance indicators.
+    page: licensed/kld  # same dataset lineage as `kld`; one page covers both slugs
   nielseniq:
     name: NielsenIQ retail scanner and consumer panel
     provider: NielsenIQ (via Kilts Center, Chicago Booth)
     access: licensed-commercial
+    page: licensed/nielseniq
   nyt-news:
     name: New York Times article archive
     provider: The New York Times
@@ -501,6 +504,7 @@ datasets:
     name: Morningstar fund and sustainability data
     provider: Morningstar, Inc.
     access: licensed-commercial
+    page: licensed/morningstar
   nets:
     page: licensed/nets
     name: National Establishment Time-Series (NETS)
@@ -848,6 +852,7 @@ datasets:
     provider: MSCI (formerly KLD Research & Analytics)
     access: licensed-commercial
     note: Firm-level environmental, social, and governance strength/concern ratings for U.S. public firms; licensed, commonly accessed via WRDS.
+    page: licensed/kld
   markit:
     page: licensed/markit
     name: Markit (IHS Markit) bond pricing (composite quotes)
