@@ -129,6 +129,13 @@ they read as unverified per the Verified discipline.
 | **Bloomberg** | Cross-asset terminal market data | [Bloomberg](/wiki/licensed/bloomberg/) |
 | **NETS** | Establishment-level employment and location panel | [NETS](/wiki/licensed/nets/) |
 | **Crane Data** | Money market fund holdings and assets | [Crane Data](/wiki/licensed/crane-mmf/) |
+| **OptionMetrics IvyDB** | Daily option prices, implied vols, and Greeks | [OptionMetrics](/wiki/licensed/optionmetrics/) |
+| **Compustat Global** | Non-US company fundamentals | [Compustat Global](/wiki/licensed/compustat-global/) |
+| **Compustat Segments** | Business- and geographic-segment financials | [Compustat Segments](/wiki/licensed/compustat-segments/) |
+| **Datastream** | Global multi-asset and macro time series | [Datastream](/wiki/licensed/datastream/) |
+| **Worldscope** | Global company fundamentals | [Worldscope](/wiki/licensed/worldscope/) |
+| **Capital IQ** | Company, capital-structure, and transactions data | [Capital IQ](/wiki/licensed/capital-iq/) |
+| **Audit Analytics** | Auditor, disclosure, and restatement data | [Audit Analytics](/wiki/licensed/audit-analytics/) |
 
 ## Confidential: restricted access
 

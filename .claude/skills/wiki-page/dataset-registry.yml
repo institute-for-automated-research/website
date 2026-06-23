@@ -293,6 +293,7 @@ datasets:
     name: Audit Analytics
     provider: Ideagen (Audit Analytics)
     access: licensed-commercial
+    page: licensed/audit-analytics
   bloomberg:
     page: licensed/bloomberg
     name: Bloomberg Terminal data
@@ -311,6 +312,7 @@ datasets:
     name: Compustat Segment data
     provider: S&P Global Market Intelligence (via WRDS)
     access: licensed-commercial
+    page: licensed/compustat-segments
   corelogic:
     name: CoreLogic property and foreclosure data
     provider: CoreLogic (Cotality)
@@ -474,10 +476,12 @@ datasets:
     name: S&P Capital IQ
     provider: S&P Global Market Intelligence
     access: licensed-commercial
+    page: licensed/capital-iq
   compustat-global:
     name: Compustat Global
     provider: S&P Global Market Intelligence (via WRDS)
     access: licensed-commercial
+    page: licensed/compustat-global
   consensus-economics:
     name: Consensus Economics forecast surveys
     provider: Consensus Economics Inc.
@@ -517,6 +521,7 @@ datasets:
     name: Refinitiv Worldscope fundamentals
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
+    page: licensed/worldscope
   taq:
     page: licensed/taq
     name: TAQ (Trade and Quote) intraday data
@@ -554,6 +559,7 @@ datasets:
     provider: LSEG / Refinitiv
     access: licensed-commercial
     note: Cross-market price, yield, and macro time series.
+    page: licensed/datastream
   cerved:
     name: Cerved Italian company financials
     provider: Cerved Group
@@ -853,6 +859,7 @@ datasets:
     provider: OptionMetrics
     access: licensed-commercial
     note: Daily option prices, implied volatilities, and Greeks for U.S.-listed equities; licensed, commonly accessed via WRDS.
+    page: licensed/optionmetrics
   refinitiv-transcripts:
     name: Refinitiv (LSEG) earnings-call transcripts
     provider: Refinitiv / LSEG
