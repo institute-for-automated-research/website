@@ -606,6 +606,7 @@ datasets:
     name: Equifax consumer-credit records
     provider: Equifax
     access: proprietary-confidential
+    page: datasets/equifax-credit
     note: >-
       Individual-level credit microdata (e.g. via the FRBNY Consumer Credit
       Panel); restricted PII, not an off-the-shelf purchase for research.
@@ -734,6 +735,7 @@ datasets:
     name: DTCC commercial paper transaction data
     provider: DTCC Solutions LLC (confidential)
     access: proprietary-confidential
+    page: datasets/dtcc
     note: Transaction-level commercial paper issuance (issuer, volume, rate, maturity); restricted, not an off-the-shelf feed.
   fr2420:
     name: FR 2420 Report of Selected Money Market Rates
@@ -922,6 +924,7 @@ datasets:
     name: FICC GCF Repo Service data (dealer-level)
     provider: DTCC / FICC via FRBNY (confidential)
     access: proprietary-confidential
+    page: datasets/ficc-gcf-repo
     note: Dealer-level daily interdealer general-collateral repo and reverse repo by asset class; licensed through the FRBNY under restricted terms.
   fha:
     page: datasets/fha
@@ -945,6 +948,7 @@ datasets:
     name: TransUnion credit bureau data (Canada)
     provider: TransUnion Canada (confidential research access)
     access: proprietary-confidential
+    page: datasets/transunion-canada
     note: Monthly population-wide individual credit-bureau records (borrower characteristics, mortgage identity, switching, inquiries); restricted research access, not an off-the-shelf purchase.
 
   # ---- RFS hhaf (2025) batch ----

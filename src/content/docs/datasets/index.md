@@ -194,3 +194,7 @@ badge**: there is no access path we can run here.
 | **SLI private meetings** | One asset manager's meeting notes, ratings, trades | [SLI private meetings](/wiki/datasets/sli-private-meetings/) |
 | **TSP user list** | Which banks used the attacked tech service provider | [TSP user list](/wiki/datasets/tsp-user-list/) |
 | **401(k) administrative** | One recordkeeper's participant allocations and defaults | [401(k) administrative](/wiki/datasets/401k-admin/) |
+| **DTCC commercial paper** | Transaction-level CP issuance (issuer, rate, maturity) | [DTCC](/wiki/datasets/dtcc/) |
+| **FICC GCF repo** | Dealer-level interdealer general-collateral repo | [FICC GCF repo](/wiki/datasets/ficc-gcf-repo/) |
+| **Equifax credit** | US consumer credit microdata + payroll income verification | [Equifax credit](/wiki/datasets/equifax-credit/) |
+| **TransUnion (Canada)** | Population-wide Canadian credit-bureau records | [TransUnion](/wiki/datasets/transunion-canada/) |
