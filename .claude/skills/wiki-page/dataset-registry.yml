@@ -610,6 +610,7 @@ datasets:
     name: FDIC construction-loan servicing records (single failed bank)
     provider: U.S. Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
+    page: datasets/fdic-construction-loans
     note: >-
       Loan-level servicing data (terms, draw requests, inspection reports,
       borrower identifiers, outcomes) for one failed bank held by the FDIC.
@@ -617,6 +618,7 @@ datasets:
     name: FDIC confidential supervisory and account-level deposit data
     provider: U.S. Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
+    page: datasets/fdic-supervisory
     note: >-
       Account-level deposit microdata, enforcement actions, and brokered-deposit
       waivers; restricted supervisory access.
@@ -671,6 +673,7 @@ datasets:
     name: Spain Central de Informacion de Riesgos (CIR) credit register
     provider: Banco de Espana (confidential)
     access: proprietary-confidential
+    page: datasets/spain-cir
     note: >-
       Loan-level credit register of all corporate loans by Spanish banks;
       confidential supervisory access through the central bank.
@@ -749,6 +752,7 @@ datasets:
     name: Italian Credit Register (Centrale dei Rischi)
     provider: Bank of Italy (confidential)
     access: proprietary-confidential
+    page: datasets/bank-of-italy-credit-register
     note: >-
       Firm-bank loan quantities and interest rates above a reporting
       threshold; confidential supervisory access through the central bank.
@@ -921,11 +925,13 @@ datasets:
     name: FDIC failed-bank bidding and resolution records
     provider: Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
+    page: datasets/fdic-failed-bank
     note: Proprietary bid-level records for resolved bank failures (bidder identities, bid terms, loss-share claims); restricted FDIC access.
   osfi-canada:
     name: OSFI federally regulated lender administrative data (Canada)
     provider: Office of the Superintendent of Financial Institutions (Canada)
     access: proprietary-confidential
+    page: datasets/osfi-canada
     note: Contract-level mortgage records (lender identity, loan size, rate, amortization, LTV, debt-service ratio) for federally regulated Canadian lenders; restricted supervisory access (via Bank of Canada).
   transunion-canada:
     name: TransUnion credit bureau data (Canada)

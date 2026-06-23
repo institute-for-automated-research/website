@@ -178,3 +178,9 @@ badge**: there is no access path we can run here.
 | **VPS (Norway)** | Complete individual securities holdings (Norwegian CSD) | [VPS](/wiki/datasets/vps-norway/) |
 | **IEB (Germany)** | German administrative employment biographies (via IAB FDZ) | [IEB](/wiki/datasets/ieb-germany/) |
 | **IAB Establishment Panel** | German establishment survey (via IAB FDZ) | [IAB Establishment Panel](/wiki/datasets/iab-establishment-panel/) |
+| **Italy Credit Register** | Italian firm-bank loans + bank boards (Bank of Italy) | [Italy Credit Register](/wiki/datasets/bank-of-italy-credit-register/) |
+| **Spain CIR** | Spanish loan-level corporate credit register (Banco de Espana) | [Spain CIR](/wiki/datasets/spain-cir/) |
+| **FDIC construction loans** | Loan-level construction-loan servicing (single failed bank) | [FDIC construction loans](/wiki/datasets/fdic-construction-loans/) |
+| **FDIC failed-bank bids** | Bid-level bank-failure resolution records | [FDIC failed-bank bids](/wiki/datasets/fdic-failed-bank/) |
+| **FDIC supervisory** | Account-level deposits + enforcement actions | [FDIC supervisory](/wiki/datasets/fdic-supervisory/) |
+| **OSFI (Canada)** | Contract-level mortgages from federally regulated lenders | [OSFI](/wiki/datasets/osfi-canada/) |
