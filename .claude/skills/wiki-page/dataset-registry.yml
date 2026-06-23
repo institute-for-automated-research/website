@@ -647,6 +647,7 @@ datasets:
     name: NMLS Mortgage Call Report
     provider: Conference of State Bank Supervisors (NMLS)
     access: proprietary-confidential
+    page: datasets/mcr-nmls
     note: >-
       Aggregate statistics are published, but the company-level Mortgage Call
       Report used in research is obtained under restricted regulatory terms.
@@ -685,25 +686,30 @@ datasets:
     name: Federal Reserve discount window lending records
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/discount-window-confidential
     note: Loan-level primary-credit borrowing; supervisory, released only with a long lag.
   fed-funds-confidential:
     name: Confidential federal funds transaction data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/fed-funds-confidential
   fedwire:
     name: Fedwire Funds Service transaction data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/fedwire
     note: Bank-to-bank payment-level records; restricted supervisory access.
   nic-fed:
     name: National Information Center (NIC) supervisory data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/nic-fed
     note: Confidential CAMELS composite and component ratings plus BHC ownership and listing history.
   stbl-fed:
     name: Survey of Terms of Business Lending (STBL)
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/stbl-fed
     note: Confidential loan-level C&I risk ratings (1 to 5 scale), 1997 to 2012.
   tsp-user-list:
     name: Technology service provider user list
@@ -719,11 +725,13 @@ datasets:
     name: FR 2420 Report of Selected Money Market Rates
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/fr2420
     note: Confidential transaction-level fed funds, Eurodollar, and CD rates collected from banks and FBOs.
   fr2644:
     name: FR 2644 Weekly Report of Selected Assets and Liabilities
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/fr2644
     note: Confidential weekly bank balance-sheet data for domestic banks and FBO branches.
   banorte-experiment:
     name: Banorte bank-account panel and savings field experiment (Mexico)
@@ -884,11 +892,13 @@ datasets:
     name: FR 2052a Complex Institution Liquidity Monitoring Report
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
+    page: datasets/fr-2052a
     note: Confidential bank liquidity-flow reporting (inflows, outflows, funding by counterparty and maturity); restricted supervisory access.
   fr2004c:
     name: FR 2004C Weekly Government Securities Dealer positions (dealer-level)
     provider: Federal Reserve Bank of New York (confidential)
     access: proprietary-confidential
+    page: datasets/fr2004c
     note: Confidential dealer-level positions and financing for primary government securities dealers; only aggregates are published.
   ficc-gcf-repo:
     name: FICC GCF Repo Service data (dealer-level)

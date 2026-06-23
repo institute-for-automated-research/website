@@ -159,3 +159,13 @@ badge**: there is no access path we can run here.
 |---|---|---|
 | **FR Y-14Q** | Fed stress-test bank data (loan-level corporate/CRE) | [FR Y-14Q](/wiki/datasets/fr-y14q/) |
 | **FHA** | FHA single-family loan-level (restricted; public aggregates separate) | [FHA](/wiki/datasets/fha/) |
+| **FR 2052a** | Bank liquidity flows by counterparty, product, maturity | [FR 2052a](/wiki/datasets/fr-2052a/) |
+| **FR 2004C** | Weekly primary-dealer positions and financing (dealer-level) | [FR 2004C](/wiki/datasets/fr2004c/) |
+| **FR 2420** | Transaction-level money-market rates (FF, ED, CD) | [FR 2420](/wiki/datasets/fr2420/) |
+| **FR 2644** | Weekly bank balance sheet (bank-level; H.8 basis) | [FR 2644](/wiki/datasets/fr2644/) |
+| **Fed funds (confidential)** | Transaction-level federal funds borrowing/lending | [Fed funds](/wiki/datasets/fed-funds-confidential/) |
+| **Discount window (confidential)** | Loan-level Fed discount window borrowing | [Discount window](/wiki/datasets/discount-window-confidential/) |
+| **Fedwire** | Payment-level interbank transfers (RTGS) | [Fedwire](/wiki/datasets/fedwire/) |
+| **NIC (Fed)** | CAMELS ratings (confidential) + BHC structure (public) | [NIC](/wiki/datasets/nic-fed/) |
+| **STBL (Fed)** | Loan-level C&I terms and internal risk ratings (risk rating 1997 on; survey ended 2017) | [STBL](/wiki/datasets/stbl-fed/) |
+| **MCR (NMLS)** | Company-level nonbank mortgage lender reports | [MCR](/wiki/datasets/mcr-nmls/) |
