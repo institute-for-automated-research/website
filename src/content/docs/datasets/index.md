@@ -55,6 +55,7 @@ says so plainly.
 | **FDIC QBP / financials** | Aggregate and institution-level bank condition & income | [FDIC QBP / financials](/wiki/datasets/fdic/) |
 | **Federal Register** | US agency rules, proposed rules, notices (full text, 1994-) | [Federal Register](/wiki/datasets/federal-register/) |
 | **NBER-CES** | Annual US manufacturing industry panel (output, TFP) | [NBER-CES](/wiki/datasets/nber-ces/) |
+| **NBER working papers** | Pre-publication economics & finance papers (metadata + full-text PDFs) | [NBER working papers](/wiki/datasets/nber-working-papers/) |
 | **NOAA hurricanes** | Tropical-cyclone best-track positions & landfalls (HURDAT2) | [NOAA hurricanes](/wiki/datasets/noaa-hurricane/) |
 | **NBER cycles** | US business cycle peak/trough reference dates | [NBER cycles](/wiki/datasets/nber-cycles/) |
 | **IRS Form 990** | Nonprofit returns: financials, officers, compensation | [IRS Form 990](/wiki/datasets/irs-form-990/) |
@@ -184,3 +185,12 @@ badge**: there is no access path we can run here.
 | **FDIC failed-bank bids** | Bid-level bank-failure resolution records | [FDIC failed-bank bids](/wiki/datasets/fdic-failed-bank/) |
 | **FDIC supervisory** | Account-level deposits + enforcement actions | [FDIC supervisory](/wiki/datasets/fdic-supervisory/) |
 | **OSFI (Canada)** | Contract-level mortgages from federally regulated lenders | [OSFI](/wiki/datasets/osfi-canada/) |
+| **Banorte (Mexico)** | One bank's account panel + a savings field experiment | [Banorte](/wiki/datasets/banorte-experiment/) |
+| **Online broker (Germany)** | One broker's retail-investor holdings and trades | [Online broker](/wiki/datasets/online-broker/) |
+| **Bank proprietary (Germany)** | One bank's customer wealth/income/holdings | [Bank proprietary](/wiki/datasets/bank-proprietary/) |
+| **Bilendi survey (Germany)** | Author-commissioned representative online survey | [Bilendi survey](/wiki/datasets/bilendi-survey/) |
+| **Indifi (India)** | One FinTech lender's loan applications + payment history | [Indifi](/wiki/datasets/indifi-loan-applications/) |
+| **China shadow margin** | One platform's off-exchange margin balances (2015) | [China shadow margin](/wiki/datasets/china-shadow-margin/) |
+| **SLI private meetings** | One asset manager's meeting notes, ratings, trades | [SLI private meetings](/wiki/datasets/sli-private-meetings/) |
+| **TSP user list** | Which banks used the attacked tech service provider | [TSP user list](/wiki/datasets/tsp-user-list/) |
+| **401(k) administrative** | One recordkeeper's participant allocations and defaults | [401(k) administrative](/wiki/datasets/401k-admin/) |

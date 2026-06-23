@@ -585,10 +585,12 @@ datasets:
     name: 401(k) plan administrative records
     provider: Private plan recordkeeper (confidential)
     access: proprietary-confidential
+    page: datasets/401k-admin
   bank-proprietary:
     name: Proprietary retail bank customer data (Germany)
     provider: Anonymous German bank (confidential)
     access: proprietary-confidential
+    page: datasets/bank-proprietary
     note: >-
       Individual-level customer records (product holdings, wealth, income,
       equity participation) from a single bank under a confidential agreement.
@@ -596,6 +598,7 @@ datasets:
     name: Bilendi commissioned online survey (Germany)
     provider: Bilendi (panel provider), commissioned by the authors
     access: proprietary-confidential
+    page: datasets/bilendi-survey
     note: >-
       Author-commissioned representative survey with individual-level
       responses; not an off-the-shelf product.
@@ -644,6 +647,7 @@ datasets:
     name: Indifi FinTech loan application records (India)
     provider: Indifi Technologies (confidential)
     access: proprietary-confidential
+    page: datasets/indifi-loan-applications
     note: >-
       Loan-level applications with payment-transaction history, applicant
       characteristics, credit-bureau data, and outcomes from a single lender.
@@ -659,6 +663,7 @@ datasets:
     name: Retail online broker account data (Germany)
     provider: Anonymous German online broker (confidential)
     access: proprietary-confidential
+    page: datasets/online-broker
     note: >-
       Individual-level retail investor holdings, trades, and returns from a
       single broker under a confidential agreement.
@@ -666,6 +671,7 @@ datasets:
     name: SLI private meeting notes and fund records (abrdn / Standard Life)
     provider: Standard Life Investments / abrdn (confidential)
     access: proprietary-confidential
+    page: datasets/sli-private-meetings
     note: >-
       Single-counterparty internal records: meeting notes, analyst ratings,
       fund holdings, and daily trades, shared under a confidential agreement.
@@ -722,6 +728,7 @@ datasets:
     name: Technology service provider user list
     provider: Confidential (bank-TSP relationships)
     access: proprietary-confidential
+    page: datasets/tsp-user-list
     note: Confidential identification of banks using the attacked third-party technology service provider.
   dtcc:
     name: DTCC commercial paper transaction data
@@ -744,6 +751,7 @@ datasets:
     name: Banorte bank-account panel and savings field experiment (Mexico)
     provider: Banorte (confidential)
     access: proprietary-confidential
+    page: datasets/banorte-experiment
     note: >-
       Individual-level checking, credit-card, and transaction records for
       millions of customers from a single bank, plus a randomized savings
@@ -979,6 +987,7 @@ datasets:
     name: China shadow-margin (off-exchange) lending data (single provider)
     provider: Undisclosed large shadow-margin platform (confidential)
     access: proprietary-confidential
+    page: datasets/china-shadow-margin
     note: Daily stock-level off-exchange ("shadow") margin balances from one large lending platform (about 5% of the market), used for the 2015 bust analysis; a single private counterparty's records, not purchasable off the shelf.
   bureau-van-dijk-zephyr:
     name: Bureau van Dijk Zephyr (M&A and deals)
