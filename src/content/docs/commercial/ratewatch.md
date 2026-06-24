@@ -11,8 +11,7 @@ tags: [deposit-rates, banking, branch-level, deposit-competition, licensed, data
 ---
 
 :::caution[Licensed: not exercised here]
-**RateWatch is a paid licensed product** (S&P Global Market Intelligence), so it
-sits in the *Licensed* tier and carries **no provenance badge**: the access path
+**RateWatch is a paid licensed product** (S&P Global Market Intelligence), so it carries **no provenance badge**: the access path
 below was **not** run in this session. Treat it as unverified until someone
 exercises it through a licensed S&P Global / RateWatch subscription. This is the
 honest grade under the institute's Verified discipline.

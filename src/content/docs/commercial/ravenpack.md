@@ -12,8 +12,7 @@ tags: [equities, licensed, event-data, data:ravenpack]
 ---
 
 :::caution[Licensed: not exercised here]
-**RavenPack is a paid subscription**, so it sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
+**RavenPack is a paid subscription**, so it carries **no provenance badge**: the access path below was **not** run in this
 session (no RavenPack credentials were available). The page documents the
 access route and the gotchas; treat it as unverified until someone exercises
 it through a licensed account. This is the honest grade under the institute's

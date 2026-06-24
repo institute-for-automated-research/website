@@ -11,8 +11,7 @@ tags: [consumer-credit, household-finance, credit-bureau, licensed, data:equifax
 ---
 
 :::caution[Licensed: not exercised here]
-**Equifax credit-bureau data is a paid licensed product** (Equifax), so it sits
-in the *Licensed* tier and carries **no provenance badge**: the access path below
+**Equifax credit-bureau data is a paid licensed product** (Equifax), so it carries **no provenance badge**: the access path below
 was **not** run in this session (no Equifax research licence was available), and
 the records are individual-level. The page documents the access route and the
 gotchas; treat it as unverified until someone exercises it through a licensed

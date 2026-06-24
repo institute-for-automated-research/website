@@ -12,7 +12,7 @@ tags: [establishments, employment, marketing-data, licensed, data:infousa]
 
 :::caution[Licensed: not exercised here]
 **InfoUSA / Data Axle files are a paid licensed product** (Data Axle, formerly
-InfoUSA), so they sit in the *Licensed* tier and carry **no provenance badge**:
+InfoUSA), so they carry **no provenance badge**:
 the access path below was **not** run in this session (no Data Axle credentials
 were available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

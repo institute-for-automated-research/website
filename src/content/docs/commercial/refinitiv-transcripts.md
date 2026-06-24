@@ -11,8 +11,7 @@ tags: [text, disclosure, earnings-calls, nlp, licensed, data:refinitiv-transcrip
 ---
 
 :::caution[Licensed: not exercised here]
-**Refinitiv (LSEG) transcripts are a paid licensed product**, so they sit in the
-*Licensed* tier and carry **no provenance badge**: the access path below was
+**Refinitiv (LSEG) transcripts are a paid licensed product**, so they carry **no provenance badge**: the access path below was
 **not** run in this session (no Refinitiv / LSEG credentials were available). The
 page documents the access route and the gotchas; treat it as unverified until
 someone exercises it through a licensed account. This is the honest grade under

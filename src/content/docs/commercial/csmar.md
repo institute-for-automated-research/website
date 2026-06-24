@@ -11,8 +11,7 @@ tags: [china, equities, accounting, ownership, licensed, data:csmar]
 ---
 
 :::caution[Licensed: not exercised here]
-**CSMAR is a paid licensed product** (GTA Information Technology), so it sits in
-the *Licensed* tier and carries **no provenance badge**: the access path below
+**CSMAR is a paid licensed product** (GTA Information Technology), so it carries **no provenance badge**: the access path below
 was **not** run in this session (no CSMAR / GTA institutional credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

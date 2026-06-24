@@ -14,7 +14,7 @@ tags: [firms, establishments, employment, licensed, panel-data, data:nets]
 
 :::caution[Licensed: not exercised here]
 **NETS is a licensed commercial dataset** (Walls & Associates, built from Dun
-& Bradstreet source data), so it sits in the *Licensed* tier and carries **no
+& Bradstreet source data), so it carries **no
 provenance badge**: the access path below was **not** run in this session (no
 Walls & Associates credentials were available). The page documents the access
 route and the gotchas; treat it as unverified until someone exercises it

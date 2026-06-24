@@ -12,8 +12,7 @@ tags: [equities, asset-pricing, nordic, market-data, academic, licensed, data:ti
 ---
 
 :::caution[Credential-gated: not exercised here]
-**Titlon is free to Nordic academic users but credential-gated**, so it sits in
-the *Licensed* tier (not openly public) and carries **no provenance badge**: the
+**Titlon is free to Nordic academic users but credential-gated**, so it carries **no provenance badge**: the
 access path below was **not** run in this session, and access requires an
 eligible Nordic academic affiliation. Treat it as unverified until someone
 exercises it through a Titlon account. This is the honest grade under the

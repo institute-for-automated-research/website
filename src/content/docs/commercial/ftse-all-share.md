@@ -11,8 +11,7 @@ tags: [equity-indices, uk-equities, index-constituents, licensed, data:ftse-all-
 ---
 
 :::caution[Licensed: not exercised here]
-**FTSE All-Share index data is a paid licensed product** (FTSE Russell), so it
-sits in the *Licensed* tier and carries **no provenance badge**: the access path
+**FTSE All-Share index data is a paid licensed product** (FTSE Russell), so it carries **no provenance badge**: the access path
 below was **not** run in this session. Treat it as unverified until someone
 exercises it through a licensed FTSE Russell feed or a redistributor. This is the
 honest grade under the institute's Verified discipline.

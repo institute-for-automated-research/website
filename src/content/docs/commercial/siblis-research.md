@@ -11,8 +11,7 @@ tags: [equity-indices, index-constituents, index-reconstitution, licensed, data:
 ---
 
 :::caution[Licensed: not exercised here]
-**Siblis Research data is a paid subscription product**, so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+**Siblis Research data is a paid subscription product**, so it carries **no provenance badge**: the access path below was
 **not** run in this session. Treat it as unverified until someone exercises it
 through a Siblis subscription. This is the honest grade under the institute's
 Verified discipline.

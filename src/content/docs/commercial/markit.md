@@ -14,8 +14,7 @@ tags: [fixed-income, corporate-bonds, bond-pricing, licensed, data:markit]
 
 :::caution[Licensed: not exercised here]
 **The Markit Bond Pricing Database is a licensed commercial dataset** (IHS
-Markit, now part of S&P Global Market Intelligence), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+Markit, now part of S&P Global Market Intelligence), so it carries **no provenance badge**: the access path below was
 **not** run in this session (no IHS Markit / S&P Global credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

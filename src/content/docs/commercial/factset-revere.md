@@ -12,8 +12,7 @@ tags: [supply-chains, production-networks, relationships, licensed, data:factset
 
 :::caution[Licensed: not exercised here]
 **FactSet Revere is a paid licensed product** (FactSet Research Systems),
-sometimes reached through [WRDS](/wiki/commercial/wrds/), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+sometimes reached through [WRDS](/wiki/commercial/wrds/), so it carries **no provenance badge**: the access path below was
 **not** run in this session (no FactSet / WRDS credentials were available). The
 page documents the access route and the gotchas; treat it as unverified until
 someone exercises it through a licensed account. This is the honest grade under

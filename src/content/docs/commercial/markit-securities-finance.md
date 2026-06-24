@@ -12,7 +12,7 @@ tags: [short-selling, securities-lending, borrow-fees, licensed, data:markit-sec
 
 :::caution[Licensed: not exercised here]
 **Markit Securities Finance is a paid licensed product** (S&P Global / IHS
-Markit), so it sits in the *Licensed* tier and carries **no provenance badge**:
+Markit), so it carries **no provenance badge**:
 the access path below was **not** run in this session (no Markit credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

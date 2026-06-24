@@ -12,7 +12,7 @@ tags: [consumption, retail, micro, licensed, data:nielseniq]
 
 :::caution[Licensed: not exercised here]
 **NielsenIQ data is a paid licensed product**, distributed to researchers under
-a Kilts Center data agreement, so it sits in the *Licensed* tier and carries
+a Kilts Center data agreement, so it carries
 **no provenance badge**: the access path below was **not** run in this session
 (no Kilts / NielsenIQ subscription was available). The page documents the access
 route and the gotchas; treat it as unverified until someone exercises it through

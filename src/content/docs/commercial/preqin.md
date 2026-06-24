@@ -13,8 +13,7 @@ tags: [private-equity, venture-capital, hedge-funds, licensed, panel-data, data:
 ---
 
 :::caution[Licensed: not exercised here]
-**Preqin is a licensed commercial dataset** (Preqin, now part of BlackRock), so
-it sits in the *Licensed* tier and carries **no provenance badge**: the access
+**Preqin is a licensed commercial dataset** (Preqin, now part of BlackRock), so it carries **no provenance badge**: the access
 path below was **not** run in this session (no Preqin credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

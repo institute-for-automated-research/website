@@ -11,8 +11,7 @@ tags: [mortality, individual-records, executives, hand-collected, licensed, data
 ---
 
 :::caution[Licensed: not exercised here]
-**Ancestry.com is a paid subscription product**, so it sits in the *Licensed* tier
-and carries **no provenance badge**: the access path below was **not** run in this
+**Ancestry.com is a paid subscription product**, so it carries **no provenance badge**: the access path below was **not** run in this
 session. Treat it as unverified until someone exercises it through a licensed
 Ancestry subscription. This is the honest grade under the institute's Verified
 discipline.

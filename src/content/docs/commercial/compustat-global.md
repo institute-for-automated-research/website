@@ -12,8 +12,7 @@ tags: [accounting, international, fundamentals, licensed, data:compustat-global]
 ---
 
 :::caution[Licensed: not exercised here]
-**Compustat Global is a paid S&P product** (S&P Global Market Intelligence), so it
-sits in the *Licensed* tier and carries **no provenance badge**: the access path
+**Compustat Global is a paid S&P product** (S&P Global Market Intelligence), so it carries **no provenance badge**: the access path
 below was **not** run in this session (no WRDS or S&P credentials were available).
 The page documents the access route and the gotchas; treat it as unverified until
 someone exercises it through a licensed account. This is the honest grade under

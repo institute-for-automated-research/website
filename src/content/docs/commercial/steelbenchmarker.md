@@ -13,7 +13,7 @@ tags: [commodities, steel, prices, reference-price, market-data, licensed, data:
 
 :::caution[Licensed: not exercised here]
 **SteelBenchmarker's full historical series is a paid product** (World Steel
-Dynamics / American Metal Market), so it sits in the *Licensed* tier and carries
+Dynamics / American Metal Market), so it carries
 **no provenance badge**: the access path below was **not** run in this session.
 The latest spot prices are posted free, but the product-level history used for
 research is a subscription. Treat it as unverified until someone exercises the

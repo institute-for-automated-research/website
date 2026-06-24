@@ -12,7 +12,7 @@ tags: [text-as-data, news, media-archive, narrative, licensed, data:nyt-news]
 
 :::caution[Licensed: not exercised here]
 **The New York Times full-text archive is a licensed source** (The New York
-Times), so it sits in the *Licensed* tier and carries **no provenance badge**: the
+Times), so it carries **no provenance badge**: the
 access path below was **not** run in this session. The free NYT API exposes
 article metadata and abstracts, but the full body text used for corpus-scale
 text analysis is licensed. Treat it as unverified until someone exercises the

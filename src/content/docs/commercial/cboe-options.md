@@ -13,7 +13,7 @@ tags: [options, volatility, derivatives, licensed, data:cboe-options]
 :::caution[Licensed: not exercised here]
 **Cboe market data is a paid licensed product** (historical files are sold
 through Cboe DataShop; some headline index levels are free but the research data
-is not), so it sits in the *Licensed* tier and carries **no provenance badge**:
+is not), so it carries **no provenance badge**:
 the access path below was **not** run in this session. The page documents the
 access route and the gotchas; treat it as unverified until someone exercises it
 through a licensed account. This is the honest grade under the institute's

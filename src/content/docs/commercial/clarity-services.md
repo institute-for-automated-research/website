@@ -12,7 +12,7 @@ tags: [consumer-credit, subprime, payday-lending, credit-bureau, licensed, data:
 
 :::caution[Licensed: not exercised here]
 **Clarity Services data is a paid licensed product** (Clarity Services, an
-Experian company), so it sits in the *Licensed* tier and carries **no provenance
+Experian company), so it carries **no provenance
 badge**: the access path below was **not** run in this session (no Clarity
 credentials were available), and the records are individual-level. The page
 documents the access route and the gotchas; treat it as unverified until someone

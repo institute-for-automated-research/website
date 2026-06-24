@@ -12,8 +12,8 @@ tags: [real-estate, housing, property-records, transactions, administrative, lic
 
 :::caution[Licensed and discontinued: not exercised here]
 **ZTRAX was distributed under a Zillow data-use agreement, not an open
-download, and the academic program was discontinued in 2023.** It sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+download, and the academic program was discontinued in 2023.** It carries
+**no provenance badge**: the access path below was
 **not** run in this session, and Zillow no longer issues new ZTRAX agreements.
 Treat it as unverified and effectively closed to new users. This is the honest
 grade under the institute's Verified discipline.

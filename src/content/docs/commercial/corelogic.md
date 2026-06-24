@@ -12,8 +12,7 @@ tags: [real-estate, housing, microdata, licensed, panel-data, data:corelogic]
 ---
 
 :::caution[Licensed: not exercised here]
-**CoreLogic is a licensed commercial dataset** (CoreLogic, rebranded Cotality),
-so it sits in the *Licensed* tier and carries **no provenance badge**: the
+**CoreLogic is a licensed commercial dataset** (CoreLogic, rebranded Cotality), so it carries **no provenance badge**: the
 access path below was **not** run in this session (no CoreLogic credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

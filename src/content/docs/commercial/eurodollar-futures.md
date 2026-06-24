@@ -13,8 +13,7 @@ tags: [monetary-policy, interest-rate-futures, high-frequency, identification, l
 
 :::caution[Licensed: not exercised here]
 **Intraday Eurodollar futures prices are a paid licensed product** (CME Group via
-commercial intraday / tick feeds), so this page sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
+commercial intraday / tick feeds), so this page carries **no provenance badge**: the access path below was **not** run in this
 session. Daily settlement prices are public, but the high-frequency windows that
 make this dataset useful for policy-surprise identification are licensed. Treat
 it as unverified until someone exercises the intraday feed. This is the honest

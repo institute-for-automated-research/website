@@ -11,8 +11,7 @@ tags: [images, executives, machine-learning, apparent-age, licensed, data:gettyi
 ---
 
 :::caution[Licensed: not exercised here]
-**Getty Images is a paid licensed product**, so it sits in the *Licensed* tier and
-carries **no provenance badge**: the access path below was **not** run in this
+**Getty Images is a paid licensed product**, so it carries **no provenance badge**: the access path below was **not** run in this
 session. Treat it as unverified until someone exercises it through a Getty Images
 licence. This is the honest grade under the institute's Verified discipline.
 :::

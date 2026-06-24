@@ -11,8 +11,7 @@ tags: [credit-markets, default, recovery, bankruptcy, corporate-debt, licensed, 
 ---
 
 :::caution[Licensed: not exercised here]
-**Moody's URD is a paid licensed product** (Moody's Analytics), so it sits in
-the *Licensed* tier and carries **no provenance badge**: the access path below
+**Moody's URD is a paid licensed product** (Moody's Analytics), so it carries **no provenance badge**: the access path below
 was **not** run in this session. Treat it as unverified until someone exercises
 it through a Moody's Analytics licence. This is the honest grade under the
 institute's Verified discipline.

@@ -12,8 +12,7 @@ tags: [equities, international, macro, time-series, licensed, data:datastream]
 ---
 
 :::caution[Licensed: not exercised here]
-**Datastream is a paid licensed product** (Refinitiv / LSEG), so it sits in the
-*Licensed* tier and carries **no provenance badge**: it is not on
+**Datastream is a paid licensed product** (Refinitiv / LSEG), so it carries **no provenance badge**: it is not on
 [WRDS](/wiki/commercial/wrds/) for most institutions, and the access path below was
 **not** run in this session (no Refinitiv / LSEG credentials were available). The
 page documents the access route and the gotchas; treat it as unverified until

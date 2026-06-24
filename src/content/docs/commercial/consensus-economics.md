@@ -12,7 +12,7 @@ tags: [forecasts, exchange-rates, macro, survey-expectations, licensed, data:con
 
 :::caution[Licensed: not exercised here]
 **Consensus Economics surveys are a paid licensed product** (Consensus Economics
-Inc.), so they sit in the *Licensed* tier and carry **no provenance badge**: the
+Inc.), so they carry **no provenance badge**: the
 access path below was **not** run in this session (no subscription was
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed subscription. This is

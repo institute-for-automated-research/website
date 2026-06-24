@@ -13,8 +13,7 @@ tags: [real-estate, commercial-real-estate, licensed, transaction-data, data:cos
 ---
 
 :::caution[Licensed: not exercised here]
-**CoStar is a licensed commercial dataset** (CoStar Group), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+**CoStar is a licensed commercial dataset** (CoStar Group), so it carries **no provenance badge**: the access path below was
 **not** run in this session (no CoStar credentials were available). The page
 documents the access route and the gotchas; treat it as unverified until someone
 exercises it through a licensed account. This is the honest grade under the

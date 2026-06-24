@@ -12,7 +12,7 @@ tags: [social-media, sentiment, text-as-data, retail-investors, fintech, license
 
 :::caution[Licensed: not exercised here]
 **StockTwits message data is a paid licensed product** (StockTwits Inc., often
-via Social Market Analytics), so it sits in the *Licensed* tier and carries **no
+via Social Market Analytics), so it carries **no
 provenance badge**: the access path below was **not** run in this session. Treat
 it as unverified until someone exercises it through a StockTwits or SMA data
 licence. This is the honest grade under the institute's Verified discipline.

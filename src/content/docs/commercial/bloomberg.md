@@ -13,8 +13,7 @@ tags: [markets, fixed-income, licensed, data:bloomberg]
 ---
 
 :::caution[Licensed: not exercised here]
-**Bloomberg is a licensed commercial dataset** (Bloomberg L.P.), so it sits in
-the *Licensed* tier and carries **no provenance badge**: the access path below
+**Bloomberg is a licensed commercial dataset** (Bloomberg L.P.), so it carries **no provenance badge**: the access path below
 was **not** run in this session (no Bloomberg terminal credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

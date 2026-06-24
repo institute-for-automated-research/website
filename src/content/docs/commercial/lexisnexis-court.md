@@ -11,8 +11,7 @@ tags: [court-records, litigation, debt-collection, household-finance, licensed, 
 ---
 
 :::caution[Licensed: not exercised here]
-**LexisNexis is a paid licensed product** (LexisNexis / RELX), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+**LexisNexis is a paid licensed product** (LexisNexis / RELX), so it carries **no provenance badge**: the access path below was
 **not** run in this session. Treat it as unverified until someone exercises it
 through a licensed LexisNexis account. This is the honest grade under the
 institute's Verified discipline.

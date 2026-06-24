@@ -12,7 +12,7 @@ tags: [mergers-acquisitions, deals, firm-ownership, licensed, data:bureau-van-di
 
 :::caution[Licensed: not exercised here]
 **Bureau van Dijk Zephyr is a paid licensed product** (Moody's / Bureau van
-Dijk), so it sits in the *Licensed* tier and carries **no provenance badge**: the
+Dijk), so it carries **no provenance badge**: the
 access path below was **not** run in this session. Treat it as unverified until
 someone exercises it through a licensed BvD account. This is the honest grade
 under the institute's Verified discipline.

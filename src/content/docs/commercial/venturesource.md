@@ -10,8 +10,7 @@ tags: [venture-capital, startups, private-markets, financing-rounds, licensed, d
 ---
 
 :::caution[Licensed: not exercised here]
-**VentureSource is a paid licensed product** (Dow Jones / CB Insights), so it sits
-in the *Licensed* tier and carries **no provenance badge**: the access path below
+**VentureSource is a paid licensed product** (Dow Jones / CB Insights), so it carries **no provenance badge**: the access path below
 was **not** run in this session. Treat it as unverified until someone exercises it
 through a licensed account. This is the honest grade under the institute's
 Verified discipline.

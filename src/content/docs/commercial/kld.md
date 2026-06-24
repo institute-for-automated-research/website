@@ -12,7 +12,7 @@ tags: [esg, ratings, firm-level, licensed, data:kld, data:msci-esg]
 
 :::caution[Licensed: not exercised here]
 **KLD / MSCI ESG data is a paid licensed product**, often reached through
-[WRDS](/wiki/commercial/wrds/), so it sits in the *Licensed* tier and carries
+[WRDS](/wiki/commercial/wrds/), so it carries
 **no provenance badge**: the access path below was **not** run in this session
 (no MSCI / WRDS credentials were available). The page documents the access route
 and the gotchas; treat it as unverified until someone exercises it through a

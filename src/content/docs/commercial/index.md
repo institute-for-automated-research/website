@@ -10,11 +10,10 @@ sidebar:
   order: 0
 ---
 
-Not free, kept deliberately separate from the
-[openly available set](/wiki/datasets/). Commercial data is obtainable by
-anyone who pays a vendor or holds a licence (including WRDS-gated feeds), which
-is what distinguishes it from the [confidential tier](/wiki/confidential/),
-which cannot be purchased at all.
+Not free. Commercial data is obtainable by anyone who pays a vendor or holds a
+licence (including WRDS-gated feeds), which is what separates it from the
+[openly available set](/wiki/datasets/) and from the
+[confidential tier](/wiki/confidential/), which cannot be purchased at all.
 
 **WRDS / CRSP / Compustat / IBES / OptionMetrics** are subscription-gated, but
 most universities license WRDS for affiliated researchers. See

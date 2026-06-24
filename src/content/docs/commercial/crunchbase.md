@@ -12,8 +12,7 @@ tags: [startups, venture-capital, private-firms, funding, licensed, data:crunchb
 
 :::caution[Licensed: not exercised here]
 **Crunchbase research access is a paid licensed product** (Crunchbase, Inc.):
-the public site exposes a limited free view, but bulk/API access for research
-sits in the *Licensed* tier, so this page carries **no provenance badge**. The
+the public site exposes a limited free view, but bulk/API access for research is licensed, so this page carries **no provenance badge**. The
 access path below was **not** run in this session (no Crunchbase API key or Pro
 licence was available). The page documents the access route and the gotchas;
 treat it as unverified until someone exercises it through a licensed account.

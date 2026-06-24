@@ -12,7 +12,7 @@ tags: [hospitals, healthcare, organizations, survey, administrative, licensed, d
 
 :::caution[Licensed: not exercised here]
 **The AHA Annual Survey is a paid licensed product** (American Hospital
-Association), so it sits in the *Licensed* tier and carries **no provenance
+Association), so it carries **no provenance
 badge**: the access path below was **not** run in this session. Treat it as
 unverified until someone exercises it through an AHA data licence. This is the
 honest grade under the institute's Verified discipline.

@@ -11,8 +11,7 @@ tags: [forecasts, interest-rates, survey-expectations, licensed, data:blue-chip-
 ---
 
 :::caution[Licensed: not exercised here]
-**Blue Chip Financial Forecasts is a paid licensed product** (Wolters Kluwer),
-so it sits in the *Licensed* tier and carries **no provenance badge**: the access
+**Blue Chip Financial Forecasts is a paid licensed product** (Wolters Kluwer), so it carries **no provenance badge**: the access
 path below was **not** run in this session (no subscription was available). The
 page documents the access route and the gotchas; treat it as unverified until
 someone exercises it through a licensed subscription. This is the honest grade

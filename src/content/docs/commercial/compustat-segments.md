@@ -11,8 +11,7 @@ tags: [accounting, fundamentals, segments, licensed, data:compustat-segments]
 ---
 
 :::caution[Licensed: not exercised here]
-**Compustat Segment data is a paid S&P product**, so it sits in the *Licensed*
-tier and carries **no provenance badge**: the access path below was **not** run
+**Compustat Segment data is a paid S&P product**, so it carries **no provenance badge**: the access path below was **not** run
 in this session (no WRDS / Compustat credentials were available). It is
 commonly reached through WRDS. The page documents the access route and the
 gotchas; treat it as unverified until someone exercises it through a licensed

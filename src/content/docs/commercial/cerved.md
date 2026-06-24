@@ -11,8 +11,7 @@ tags: [accounting, firm-financials, private-firms, italy, licensed, data:cerved]
 ---
 
 :::caution[Licensed: not exercised here]
-**Cerved is a paid licensed product** (Cerved Group), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+**Cerved is a paid licensed product** (Cerved Group), so it carries **no provenance badge**: the access path below was
 **not** run in this session (no Cerved credentials were available). The page
 documents the access route and the gotchas; treat it as unverified until someone
 exercises it through a licensed account. This is the honest grade under the

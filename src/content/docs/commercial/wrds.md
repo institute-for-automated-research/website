@@ -15,8 +15,7 @@ verified:
 ---
 
 :::caution[Licensed, not free]
-**WRDS is subscription-gated**, so it lives in the *Licensed* tier, not with
-the free datasets. The badge above reads **"Access confirmed (licensed)"**,
+**WRDS is subscription-gated.** The badge above reads **"Access confirmed (licensed)"**,
 deliberately *not* the green "Verified" used on free pages: the access path
 was exercised in-session against a real institutional WRDS account (live
 `crsp.msf` and `comp.funda` rows returned), but the data itself is **not

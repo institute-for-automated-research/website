@@ -11,8 +11,7 @@ tags: [energy, oil-gas, commodities, production, firm-level, licensed, data:ryst
 ---
 
 :::caution[Licensed: not exercised here]
-**The Rystad Energy database is a paid licensed product** (Rystad Energy), so it
-sits in the *Licensed* tier and carries **no provenance badge**: the access path
+**The Rystad Energy database is a paid licensed product** (Rystad Energy), so it carries **no provenance badge**: the access path
 below was **not** run in this session. Treat it as unverified until someone
 exercises it through a Rystad subscription. This is the honest grade under the
 institute's Verified discipline.

@@ -14,7 +14,7 @@ tags: [firms, financial-statements, licensed, panel-data, data:orbis-bvd]
 
 :::caution[Licensed: not exercised here]
 **Orbis is a licensed commercial dataset** (Bureau van Dijk, a Moody's
-Analytics company), so it sits in the *Licensed* tier and carries **no
+Analytics company), so it carries **no
 provenance badge**: the access path below was **not** run in this session
 (no BvD credentials were available). The page documents the access route
 and the gotchas; treat it as unverified until someone exercises it through

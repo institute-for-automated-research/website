@@ -12,7 +12,7 @@ tags: [macro, international, historical, returns, licensed, data:global-financia
 
 :::caution[Licensed: not exercised here]
 **Global Financial Data is a paid licensed product** (Global Financial Data,
-Inc.), so it sits in the *Licensed* tier and carries **no provenance badge**:
+Inc.), so it carries **no provenance badge**:
 the access path below was **not** run in this session (no GFD credentials were
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the

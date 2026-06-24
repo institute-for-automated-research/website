@@ -12,8 +12,7 @@ tags: [private-equity, venture-capital, licensed, deal-data, data:pitchbook]
 ---
 
 :::caution[Licensed: not exercised here]
-**PitchBook is a licensed commercial dataset** (Morningstar), so it sits in the
-*Licensed* tier and carries **no provenance badge**: the access path below was
+**PitchBook is a licensed commercial dataset** (Morningstar), so it carries **no provenance badge**: the access path below was
 **not** run in this session (no PitchBook credentials were available). The page
 documents the access route and the gotchas; treat it as unverified until someone
 exercises it through a licensed account. This is the honest grade under the

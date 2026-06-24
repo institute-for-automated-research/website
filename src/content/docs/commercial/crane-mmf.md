@@ -13,8 +13,7 @@ tags: [money-market-funds, licensed, fund-data, data:crane-mmf]
 ---
 
 :::caution[Licensed: not exercised here]
-**Crane Data is a licensed commercial dataset** (Crane Data LLC), so it sits
-in the *Licensed* tier and carries **no provenance badge**: the access path
+**Crane Data is a licensed commercial dataset** (Crane Data LLC), so it carries **no provenance badge**: the access path
 below was **not** run in this session (no Crane Data subscription was
 available). The page documents the access route and the gotchas; treat it as
 unverified until someone exercises it through a licensed account. This is the
