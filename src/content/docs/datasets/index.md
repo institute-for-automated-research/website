@@ -122,6 +122,7 @@ they read as unverified per the Verified discipline.
 | **Trucost** | Firm-level carbon and environmental data | [Trucost](/wiki/licensed/trucost/) |
 | **TRACE** | Corporate bond secondary-market transactions (Enhanced, via WRDS) | [TRACE](/wiki/licensed/trace/) |
 | **Thomson 13F (s34)** | Institutional equity holdings from 13F filings | [Thomson 13F (s34)](/wiki/licensed/thomson-13f/) |
+| **CRSP Mutual Funds** | Survivor-bias-free fund returns, fees, flows, holdings (+ Thomson s12, MFLINKS) | [CRSP Mutual Funds](/wiki/licensed/crsp-mutual-funds/) |
 | **TAQ** | NYSE intraday trade and quote microstructure data | [TAQ](/wiki/licensed/taq/) |
 | **Orbis (BvD)** | Global public and private firm financials and ownership | [Orbis (BvD)](/wiki/licensed/orbis-bvd/) |
 | **Markit bond pricing** | Composite dealer quotes for individual bonds | [Markit bond pricing](/wiki/licensed/markit/) |

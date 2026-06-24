@@ -59,6 +59,19 @@ df = wrds_query("SELECT permno, date, ret FROM crsp.msf "
 Direct `wrds.Connection()` works too, but Duo fires on **every** connection;
 open one per script and reuse it.
 
+## Gotchas (the ones that bite pipelines)
+
+- **Don't eager-load large local parquets.** After you cache a large WRDS pull
+  to local parquet (CRSP daily ~100M rows, TAQ, 13F/`s34` institutional
+  holdings), never reload it with a whole-file `pd.read_parquet(<file>)` -- it
+  will OOM-kill the process. Stream it instead:
+  `polars.scan_parquet(path).select([...]).filter(...).collect()`
+  (column projection + predicate pushdown) so you filter before materializing
+  and never hold the full table in RAM. Requires `polars` + `pyarrow`. The same
+  filter-first discipline applies at query time (never `SELECT *` on the big
+  tables). For the mutual-fund holdings tables, see
+  [CRSP Mutual Funds](/wiki/licensed/crsp-mutual-funds/).
+
 ## What the free sources here substitute for
 
 | Need | Paid (WRDS) | Free substitute on this wiki |
