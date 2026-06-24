@@ -336,11 +336,13 @@ datasets:
     provider: LSEG / Refinitiv (Lipper)
     access: licensed-commercial
     note: Quarterly CUSIP-level corporate-bond holdings for insurers, mutual funds, ETFs, and annuities.
+    page: licensed/emaxx
   eurodollar-futures:
     name: Eurodollar futures intraday prices
     provider: CME Group (via commercial intraday feeds)
     access: licensed-commercial
     note: Daily settlement prices are public; the high-frequency intraday windows used for policy-surprise identification are licensed.
+    page: licensed/eurodollar-futures
   factset-lionshares:
     name: FactSet LionShares institutional ownership
     provider: FactSet Research Systems
@@ -358,6 +360,7 @@ datasets:
     note: >-
       Index membership, market capitalisation, and daily returns; licensed
       from FTSE Russell or via vendor feeds (Datastream, WRDS).
+    page: licensed/ftse-all-share
   ibes:
     name: I/B/E/S analyst estimates
     provider: LSEG / Refinitiv (via WRDS)
@@ -405,6 +408,7 @@ datasets:
     name: Optimal Blue mortgage rate-lock data
     provider: Optimal Blue (Constellation Software)
     access: licensed-commercial
+    page: licensed/optimal-blue
   orbis-bvd:
     page: licensed/orbis-bvd
     name: Orbis global company data
@@ -420,6 +424,7 @@ datasets:
     provider: S&P Global Market Intelligence (RateWatch)
     access: licensed-commercial
     note: Branch-level weekly deposit and CD rate survey data.
+    page: licensed/ratewatch
   ravenpack:
     name: RavenPack news analytics
     provider: RavenPack
@@ -916,6 +921,7 @@ datasets:
     provider: Siblis Research
     access: licensed-commercial
     note: Historical S&P 500 / MidCap 400 / SmallCap 600 addition and deletion dates and constituent market values; sold by subscription.
+    page: licensed/siblis-research
   fr-2052a:
     name: FR 2052a Complex Institution Liquidity Monitoring Report
     provider: Federal Reserve (confidential)

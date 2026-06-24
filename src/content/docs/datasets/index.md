@@ -155,6 +155,12 @@ they read as unverified per the Verified discipline.
 | **Clarity Services** | Subprime/alternative-credit bureau (payday, installment) | [Clarity Services](/wiki/licensed/clarity-services/) |
 | **Equifax** | Traditional consumer credit-bureau records | [Equifax](/wiki/licensed/equifax/) |
 | **InfoUSA / Data Axle** | Establishment listings: location, industry, employment | [InfoUSA / Data Axle](/wiki/licensed/infousa/) |
+| **Lipper eMAXX** | CUSIP-level bond holdings by insurer/fund/ETF | [Lipper eMAXX](/wiki/licensed/emaxx/) |
+| **Eurodollar futures** | Intraday CME prices for policy-surprise windows | [Eurodollar futures](/wiki/licensed/eurodollar-futures/) |
+| **FTSE All-Share** | UK equity index membership, market cap, returns | [FTSE All-Share](/wiki/licensed/ftse-all-share/) |
+| **Siblis Research** | S&P/Nasdaq index addition-deletion dates and values | [Siblis Research](/wiki/licensed/siblis-research/) |
+| **Optimal Blue** | Mortgage rate-locks and real-time lender offers | [Optimal Blue](/wiki/licensed/optimal-blue/) |
+| **RateWatch** | Branch-level posted deposit and CD rates (weekly) | [RateWatch](/wiki/licensed/ratewatch/) |
 
 ## Confidential: restricted access
 
