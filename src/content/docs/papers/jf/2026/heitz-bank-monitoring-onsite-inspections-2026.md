@@ -363,7 +363,7 @@ exceeds 29 in all panels (Panel A: 13,839; Panel B: 1,558; Panel C: 29.8).
 |---|---|---|
 | FDIC proprietary construction loan servicing data (single failed bank) | Primary: loan terms, draw requests, inspection reports, inspection dates, borrower identifiers, default outcomes; ~11.6 M loan-day obs, 28,939 loans, ~10 years | No page yet |
 | FHFA Housing Price Index (five-digit zip, monthly) | Time-varying collateral value proxy for moral hazard analysis (Tables IV, V) | [FHFA HPI](/wiki/datasets/fhfa-hpi/) |
-| CoreLogic foreclosure rate data (five-digit zip, monthly) | Foreclosure rate as measure of local economic stress (Tables IV, V) | [CoreLogic](/wiki/licensed/corelogic/) (licensed) |
+| CoreLogic foreclosure rate data (five-digit zip, monthly) | Foreclosure rate as measure of local economic stress (Tables IV, V) | [CoreLogic](/wiki/commercial/corelogic/) (licensed) |
 
 Sample: approximately 10 years of transaction-level data from a single large
 bank (over $1 billion in assets) that failed during the financial crisis.

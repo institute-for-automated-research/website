@@ -331,12 +331,12 @@ a Wald t-statistic.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| StockTwits (260M posts, Jan 2010–Dec 2021, proprietary via Social Market Analytics / direct) | Primary social media sentiment measure (AbnSent); 6,438 M&A deals matched | [StockTwits](/wiki/licensed/stocktwits/) (licensed) |
-| SDC Platinum (Thomson Reuters) | M&A deal universe (announcement dates, deal values, completion/withdrawal status, deal characteristics) | [SDC Platinum](/wiki/licensed/sdc-platinum/) (licensed) |
-| CRSP | Stock returns for acquirer and target CARs; Fama-French three-factor model inputs | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat North America | Acquirer firm controls (market cap, leverage, cash holdings, M/B ratio) | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
-| RavenPack News Analytics (v. RPA 1.0) | Traditional news media sentiment (Event Sentiment Score) for M&A-related articles | [RavenPack](/wiki/licensed/ravenpack/) (licensed) |
-| IBES (via Refinitiv) | Analyst recommendation changes as external signal control | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed via WRDS) |
+| StockTwits (260M posts, Jan 2010–Dec 2021, proprietary via Social Market Analytics / direct) | Primary social media sentiment measure (AbnSent); 6,438 M&A deals matched | [StockTwits](/wiki/commercial/stocktwits/) (licensed) |
+| SDC Platinum (Thomson Reuters) | M&A deal universe (announcement dates, deal values, completion/withdrawal status, deal characteristics) | [SDC Platinum](/wiki/commercial/sdc-platinum/) (licensed) |
+| CRSP | Stock returns for acquirer and target CARs; Fama-French three-factor model inputs | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat North America | Acquirer firm controls (market cap, leverage, cash holdings, M/B ratio) | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
+| RavenPack News Analytics (v. RPA 1.0) | Traditional news media sentiment (Event Sentiment Score) for M&A-related articles | [RavenPack](/wiki/commercial/ravenpack/) (licensed) |
+| IBES (via Refinitiv) | Analyst recommendation changes as external signal control | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed via WRDS) |
 | Ken French Data Library | Fama-French three-factor returns for CAR estimation | [Ken French Library](/wiki/datasets/ken-french/) |
 | Social Market Analytics (SMA) Twitter data (2012–2021) | Robustness alternative sentiment measure from Twitter | No page yet |
 | Refinitiv Streetevents (M&A conference call transcripts) | Conference call textual analysis (% constrained/negative words in presentation vs. Q&A) | No page yet |

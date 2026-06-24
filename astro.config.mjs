@@ -105,13 +105,21 @@ export default defineConfig({
           label: 'Distilled literature',
           items: [{ label: 'Overview', link: '/papers/' }, ...journalGroups],
         },
+        // Three dataset groups, one per registry access tier (the axis a user
+        // actually cares about: how hard is this to get?). Directory == tier is
+        // enforced by scripts/check-dataset-access.mjs so the sidebar cannot
+        // drift from the registry. See issue #34.
         {
-          label: 'Free & verified datasets',
+          label: 'Openly available',
           autogenerate: { directory: 'datasets' },
         },
         {
-          label: 'Licensed academic access',
-          autogenerate: { directory: 'licensed' },
+          label: 'Commercial',
+          autogenerate: { directory: 'commercial' },
+        },
+        {
+          label: 'Confidential',
+          autogenerate: { directory: 'confidential' },
         },
       ],
     }),

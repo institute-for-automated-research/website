@@ -259,7 +259,7 @@ $$
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP value-weighted index return | Annual market return post-1926 | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP value-weighted index return | Annual market return post-1926 | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | S&P 500 Index returns (Shiller website) | Annual market return pre-1926 | [Shiller data](/wiki/datasets/shiller-data/) |
 | Goyal and Welch (2008) predictor data (Amit Goyal's website) | 19 predictor series for equity premium forecasting, extended to 2017 | No page yet |
 | Robert Shiller data (http://www.econ.yale.edu/~shiller/data.htm) | 4 additional predictors: cape Shiller, infl Shiller, lty Shiller, Trcape Shiller | [Shiller data](/wiki/datasets/shiller-data/) |

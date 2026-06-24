@@ -221,7 +221,7 @@ where $$\text{Performance}$$ is the outcome (branch closure indicator, deposit g
 | FDIC Summary of Deposits (SOD) | Branch-level deposit balances and locations for closure and deposit growth analysis | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
 | FDIC Reports of Structure Change | Branch openings/closings; county exit analysis | no page yet |
 | FDIC proprietary loss-share data | Loss-share claims by acquirer type; Table X | no page yet |
-| Preqin (PE fund data) | PE fund size, vintage, first-time fund indicator; consortium-level PE ownership | [Preqin](/wiki/licensed/preqin/) (licensed) |
+| Preqin (PE fund data) | PE fund size, vintage, first-time fund indicator; consortium-level PE ownership | [Preqin](/wiki/commercial/preqin/) (licensed) |
 | RateWatch | Branch-level deposit interest rates for deposit rate analysis (Panel B, Table VII) | no page yet |
 | U.S. Census Quarterly Workforce Indicators (QWI) | County-level startup employment and total employment for regional recovery analysis | [QWI](/wiki/datasets/qwi-census/) |
 | IRS Statistics of Income (SOI) | County-level personal income and per capita income | no page yet |

@@ -277,7 +277,7 @@ with $$\bar{X}_{Post}$$ the 2019-2021 average and $$\bar{X}_{Pre}$$ the 1974-197
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Compustat (WRDS) annual fundamentals | Primary dataset: PP&E, sales, R&D, SG&A, market value, long-term debt, working capital; intangible capital (KINT) via Peters and Taylor (2017) algorithm; firm sample 1974-2021 | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| Compustat (WRDS) annual fundamentals | Primary dataset: PP&E, sales, R&D, SG&A, market value, long-term debt, working capital; intangible capital (KINT) via Peters and Taylor (2017) algorithm; firm sample 1974-2021 | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Federal Reserve capacity utilization (FRED) | Survey-based capacity utilization at industry level (manufacturing, mining, electric/gas utilities); used to validate asset utilization as a proxy for capacity utilization (Figures 6, 9, 13) | [FRED](/wiki/datasets/fred/) |
 | Worldscope | International accounting data for G7 countries (Canada, France, Germany, Italy, Japan, UK, US), 1981-2021; used for Section VII international robustness | No page yet |
 | USPTO patent data | Patents granted 1974-2021; used as supplementary evidence for rising intangible capital (Figure 1, Panel B) | No page yet |

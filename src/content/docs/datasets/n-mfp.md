@@ -35,7 +35,7 @@ funding-shift measures.
 - **Home:** <https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=N-MFP>
 
 For a commercial alternative with pre-parsed, time-series data, see the
-[Crane Data Money Fund Intelligence](/wiki/licensed/crane-mmf/) page; N-MFP is
+[Crane Data Money Fund Intelligence](/wiki/commercial/crane-mmf/) page; N-MFP is
 the underlying public SEC source for those same filings.
 
 ## Access

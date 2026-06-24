@@ -257,7 +257,8 @@ with the compact JSON result described at the bottom.
   If the paper has no formal model, say so plainly in Theory / model and put
   the tested hypotheses + identification strategy there.
 - **Datasets used** table: name, role in paper, and a wiki link if the dataset
-  has a page (`/wiki/datasets/<slug>/` or `/wiki/licensed/<slug>/`); otherwise
+  has a page (`/wiki/datasets/<slug>/`, `/wiki/commercial/<slug>/`, or
+  `/wiki/confidential/<slug>/`, per the dataset's access tier); otherwise
   say "no page yet". This must agree with your `data:` tags.
 - **Attribution**: for CC-licensed papers reproduce the CC attribution block
   verbatim; for paywalled papers give a normal citation and state extract-only.

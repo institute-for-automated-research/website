@@ -131,7 +131,8 @@ DONE SO FAR (do not redo):
 NEXT: the 1-citation tier (the long tail; 120 slugs remaining, ALL at exactly 1
 citation, so there is no citation-count tiebreak left). Recompute the live
 ranking FIRST (counts shift as papers are added; some slugs may now have 2):
-  documented=$(ls src/content/docs/datasets/*.md src/content/docs/licensed/*.md \
+  documented=$(ls src/content/docs/datasets/*.md src/content/docs/commercial/*.md \
+    src/content/docs/confidential/*.md \
     | xargs -n1 basename | sed 's/\.md$//' | grep -v '^index$' | sort -u)
   grep -rhoE "data:[a-z0-9-]+" src/content/docs/papers/ | sed 's/data://' \
     | sort | uniq -c | sort -rn | while read n slug; do \
@@ -158,8 +159,8 @@ fed-funds-confidential, discount-window-confidential, fedwire, ficc-gcf-repo).
 TIER BY BADGE (decide per slug; do NOT default). For EACH slug, read the citing
 paper's Sources row + the dataset's real nature, then:
 - LICENSED/commercial (Revelio model: real access recipe + gotchas, NO badge,
-  page says "not exercised here"), licensed/<slug>.md, order continues from 23.
-  Model: licensed/revelio.md or licensed/dealscan.md (WRDS-reached vendor).
+  page says "not exercised here"), commercial/<slug>.md, order continues from 23.
+  Model: commercial/revelio.md or commercial/dealscan.md (WRDS-reached vendor).
   No verified: block. Most commercial vendors; many reached via WRDS.
 - PUBLIC -> MUST live-exercise THIS session and badge honestly:
   datasets/<slug>.md, order continues from 27. Model: datasets/fred.md.
@@ -179,9 +180,10 @@ WIRING (orchestrator does shared-file edits SERIALLY; never let parallel agents
 touch index/registry/papers -> collisions):
 - Registry: add `page: <section>/<slug>` to each entry in
   .claude/skills/wiki-page/dataset-registry.yml (entries usually already exist).
-- Index row: datasets/index.md Free / Licensed / Confidential table.
+- Index row: add to the tier landing table for the page's access tier
+  (datasets/index.md = open, commercial/index.md, or confidential/index.md).
 - Wire EVERY citing Sources row from "no page yet" (and from generic links like
-  /wiki/licensed/wrds/ or /wiki/datasets/<generic>/, and BROKEN cells like the
+  /wiki/commercial/wrds/ or /wiki/datasets/<generic>/, and BROKEN cells like the
   literal "[data:slug]") to the new page. grep BOTH the data: tag AND the
   dataset name; some citing rows are UNTAGGED. Collapse slug variants onto one
   canonical slug and retag the paper.
@@ -194,7 +196,7 @@ STYLE: NO em-dashes (U+2014). NO promotional adjectives (comprehensive, leading,
 standard, best, seamless, cutting-edge, primary source).
 
 EFFICIENT PATTERN (worked well this session): for LICENSED pages, fan out
-parallel Sonnet agents (one writes ONLY its own licensed/<slug>.md, given exact
+parallel Sonnet agents (one writes ONLY its own commercial/<slug>.md, given exact
 identity + order + author-link strings + the dealscan model; NO shared-file
 edits). For PUBLIC pages, YOU run the live fetch yourself first, then either
 write the page or hand a Sonnet agent the EXACT verified: block to paste

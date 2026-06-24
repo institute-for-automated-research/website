@@ -463,7 +463,7 @@ macro moments from Table IX (p. 182) are compared to the baseline.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP (Center for Research in Security Prices) | Asset pricing moments: equity return mean and SD, riskless rate (via Croce et al. 2012 for real rate) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP (Center for Research in Security Prices) | Asset pricing moments: equity return mean and SD, riskless rate (via Croce et al. 2012 for real rate) | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | NIPA tables (BEA / Federal Reserve Bank of St. Louis) | Real consumption growth mean and SD; capital-output ratio (tables 1.1.3 and 1.1.5, 1929-2023) | [FRED](/wiki/datasets/fred/), free |
 | Flow of Funds (Federal Reserve) | DB pension fund total financial assets and endowment-to-GDP ratio (1970-2023) | [FRED](/wiki/datasets/fred/), free |
 | Survey of Consumer Finances (SCF, Federal Reserve) | Historical stock market participation rate (used as calibration target) | no page yet |

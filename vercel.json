@@ -21,12 +21,422 @@
     },
     {
       "source": "/wiki/datasets/wrds",
-      "destination": "/wiki/licensed/wrds",
+      "destination": "/wiki/commercial/wrds",
       "permanent": true
     },
     {
       "source": "/wiki/datasets/wrds.md",
-      "destination": "/wiki/licensed/wrds.md",
+      "destination": "/wiki/commercial/wrds.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/licensed",
+      "destination": "/wiki/commercial",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/licensed/:path*",
+      "destination": "/wiki/commercial/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/401k-admin",
+      "destination": "/wiki/confidential/401k-admin",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/401k-admin.md",
+      "destination": "/wiki/confidential/401k-admin.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bank-of-italy-credit-register",
+      "destination": "/wiki/confidential/bank-of-italy-credit-register",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bank-of-italy-credit-register.md",
+      "destination": "/wiki/confidential/bank-of-italy-credit-register.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bank-proprietary",
+      "destination": "/wiki/confidential/bank-proprietary",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bank-proprietary.md",
+      "destination": "/wiki/confidential/bank-proprietary.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/banorte-experiment",
+      "destination": "/wiki/confidential/banorte-experiment",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/banorte-experiment.md",
+      "destination": "/wiki/confidential/banorte-experiment.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bilendi-survey",
+      "destination": "/wiki/confidential/bilendi-survey",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/bilendi-survey.md",
+      "destination": "/wiki/confidential/bilendi-survey.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/china-shadow-margin",
+      "destination": "/wiki/confidential/china-shadow-margin",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/china-shadow-margin.md",
+      "destination": "/wiki/confidential/china-shadow-margin.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/discount-window-confidential",
+      "destination": "/wiki/confidential/discount-window-confidential",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/discount-window-confidential.md",
+      "destination": "/wiki/confidential/discount-window-confidential.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/dtcc",
+      "destination": "/wiki/confidential/dtcc",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/dtcc.md",
+      "destination": "/wiki/confidential/dtcc.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/equifax-credit",
+      "destination": "/wiki/confidential/equifax-credit",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/equifax-credit.md",
+      "destination": "/wiki/confidential/equifax-credit.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-construction-loans",
+      "destination": "/wiki/confidential/fdic-construction-loans",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-construction-loans.md",
+      "destination": "/wiki/confidential/fdic-construction-loans.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-failed-bank",
+      "destination": "/wiki/confidential/fdic-failed-bank",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-failed-bank.md",
+      "destination": "/wiki/confidential/fdic-failed-bank.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-supervisory",
+      "destination": "/wiki/confidential/fdic-supervisory",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fdic-supervisory.md",
+      "destination": "/wiki/confidential/fdic-supervisory.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fed-funds-confidential",
+      "destination": "/wiki/confidential/fed-funds-confidential",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fed-funds-confidential.md",
+      "destination": "/wiki/confidential/fed-funds-confidential.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fedwire",
+      "destination": "/wiki/confidential/fedwire",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fedwire.md",
+      "destination": "/wiki/confidential/fedwire.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fek-sweden",
+      "destination": "/wiki/confidential/fek-sweden",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fek-sweden.md",
+      "destination": "/wiki/confidential/fek-sweden.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fha",
+      "destination": "/wiki/confidential/fha",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fha.md",
+      "destination": "/wiki/confidential/fha.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/ficc-gcf-repo",
+      "destination": "/wiki/confidential/ficc-gcf-repo",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/ficc-gcf-repo.md",
+      "destination": "/wiki/confidential/ficc-gcf-repo.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr-2052a",
+      "destination": "/wiki/confidential/fr-2052a",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr-2052a.md",
+      "destination": "/wiki/confidential/fr-2052a.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr-y14q",
+      "destination": "/wiki/confidential/fr-y14q",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr-y14q.md",
+      "destination": "/wiki/confidential/fr-y14q.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2004c",
+      "destination": "/wiki/confidential/fr2004c",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2004c.md",
+      "destination": "/wiki/confidential/fr2004c.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2420",
+      "destination": "/wiki/confidential/fr2420",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2420.md",
+      "destination": "/wiki/confidential/fr2420.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2644",
+      "destination": "/wiki/confidential/fr2644",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/fr2644.md",
+      "destination": "/wiki/confidential/fr2644.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/iab-establishment-panel",
+      "destination": "/wiki/confidential/iab-establishment-panel",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/iab-establishment-panel.md",
+      "destination": "/wiki/confidential/iab-establishment-panel.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/ieb-germany",
+      "destination": "/wiki/confidential/ieb-germany",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/ieb-germany.md",
+      "destination": "/wiki/confidential/ieb-germany.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/indifi-loan-applications",
+      "destination": "/wiki/confidential/indifi-loan-applications",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/indifi-loan-applications.md",
+      "destination": "/wiki/confidential/indifi-loan-applications.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-dads",
+      "destination": "/wiki/confidential/insee-dads",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-dads.md",
+      "destination": "/wiki/confidential/insee-dads.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-lifi",
+      "destination": "/wiki/confidential/insee-lifi",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-lifi.md",
+      "destination": "/wiki/confidential/insee-lifi.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-tax-files",
+      "destination": "/wiki/confidential/insee-tax-files",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/insee-tax-files.md",
+      "destination": "/wiki/confidential/insee-tax-files.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/lisa-sweden",
+      "destination": "/wiki/confidential/lisa-sweden",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/lisa-sweden.md",
+      "destination": "/wiki/confidential/lisa-sweden.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/mcr-nmls",
+      "destination": "/wiki/confidential/mcr-nmls",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/mcr-nmls.md",
+      "destination": "/wiki/confidential/mcr-nmls.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/nic-fed",
+      "destination": "/wiki/confidential/nic-fed",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/nic-fed.md",
+      "destination": "/wiki/confidential/nic-fed.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/online-broker",
+      "destination": "/wiki/confidential/online-broker",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/online-broker.md",
+      "destination": "/wiki/confidential/online-broker.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/osfi-canada",
+      "destination": "/wiki/confidential/osfi-canada",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/osfi-canada.md",
+      "destination": "/wiki/confidential/osfi-canada.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/sli-private-meetings",
+      "destination": "/wiki/confidential/sli-private-meetings",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/sli-private-meetings.md",
+      "destination": "/wiki/confidential/sli-private-meetings.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/spain-cir",
+      "destination": "/wiki/confidential/spain-cir",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/spain-cir.md",
+      "destination": "/wiki/confidential/spain-cir.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/statistics-norway",
+      "destination": "/wiki/confidential/statistics-norway",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/statistics-norway.md",
+      "destination": "/wiki/confidential/statistics-norway.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/stbl-fed",
+      "destination": "/wiki/confidential/stbl-fed",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/stbl-fed.md",
+      "destination": "/wiki/confidential/stbl-fed.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/transunion-canada",
+      "destination": "/wiki/confidential/transunion-canada",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/transunion-canada.md",
+      "destination": "/wiki/confidential/transunion-canada.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/tsp-user-list",
+      "destination": "/wiki/confidential/tsp-user-list",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/tsp-user-list.md",
+      "destination": "/wiki/confidential/tsp-user-list.md",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/vps-norway",
+      "destination": "/wiki/confidential/vps-norway",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/datasets/vps-norway.md",
+      "destination": "/wiki/confidential/vps-norway.md",
       "permanent": true
     }
   ]

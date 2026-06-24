@@ -251,13 +251,13 @@ with standard errors clustered by bond issue (Table IX Panels A2 and B2, p. 152-
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | ICE BofAML Global Corporate Index and High Yield Index (via Mercury/Bank of America ML) | Monthly bond prices, credit ratings, maturity for IG and HY bonds in 8 countries | No page yet |
-| Compustat Global / Compustat NA | Firm balance sheet data (book debt, market equity, book-to-market); merged by issuer name to bond data | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| CRSP (U.S.) | Stock prices and returns for U.S. firms | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Bloomberg (BGN bid-ask prices, bond characteristics, shareholder data) | Identification of callability, seniority, security; screening of state-owned firms; proportional bid-ask spreads for HM estimation | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
-| Markit Bond Pricing Database | Daily trader quotes for individual bonds; number of dealers quoting each bond | [Markit bond pricing](/wiki/licensed/markit/) (licensed) |
-| Markit single-name CDS spreads | Five-year CDS spreads for CDG GMM estimation; CDS-implied LGD proxies | [Markit CDS](/wiki/licensed/markit-cds/) (licensed) |
+| Compustat Global / Compustat NA | Firm balance sheet data (book debt, market equity, book-to-market); merged by issuer name to bond data | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| CRSP (U.S.) | Stock prices and returns for U.S. firms | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Bloomberg (BGN bid-ask prices, bond characteristics, shareholder data) | Identification of callability, seniority, security; screening of state-owned firms; proportional bid-ask spreads for HM estimation | [Bloomberg](/wiki/commercial/bloomberg/) (licensed) |
+| Markit Bond Pricing Database | Daily trader quotes for individual bonds; number of dealers quoting each bond | [Markit bond pricing](/wiki/commercial/markit/) (licensed) |
+| Markit single-name CDS spreads | Five-year CDS spreads for CDG GMM estimation; CDS-implied LGD proxies | [Markit CDS](/wiki/commercial/markit-cds/) (licensed) |
 | Moody's Default and Recovery Database (DRD) | Historical issuer-weighted default and recovery rates by rating category and region (1970-2017) | No page yet |
-| IHS Markit Bond Pricing Database | Number of distinct quotes and contributing dealers (for lambda proxy) | [Markit bond pricing](/wiki/licensed/markit/) (licensed) |
+| IHS Markit Bond Pricing Database | Number of distinct quotes and contributing dealers (for lambda proxy) | [Markit bond pricing](/wiki/commercial/markit/) (licensed) |
 | Global Financial Data (stock market indexes by country) | TOPIX (JPN), FTSE100 (GBR), DAX (DEU), CAC40 (FRA), FTSE MIB (ITA), TSX Composite (CAN), S&P/ASX200 (AUS) for SR estimation | No page yet |
 | OECD macroeconomic data | Macroeconomic covariates for pricing error regressions | [data:fred](/wiki/datasets/fred/) (partial; OECD is a separate source) |
 | FRED (Federal Reserve Economic Data) | Additional macroeconomic variables | [FRED](/wiki/datasets/fred/) |

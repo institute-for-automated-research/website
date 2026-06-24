@@ -342,13 +342,13 @@ $$
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Integrated Employment Biographies (IEB), German Institute for Employment Research (IAB) | Administrative employee-level data: occupational codes, wages, layering, functions, tenure; main source for all hierarchy measures | No page yet |
-| Orbis (Bureau van Dijk) | Firm identifier linking IPO list to employment data; firm characteristics | [Orbis (BvD)](/wiki/licensed/orbis-bvd/) (licensed) |
+| Orbis (Bureau van Dijk) | Firm identifier linking IPO list to employment data; firm characteristics | [Orbis (BvD)](/wiki/commercial/orbis-bvd/) (licensed) |
 | Thomson Reuters Securities Data Corporation (SDC) | German IPO list (888 IPOs, 1984–2016) | No page yet |
-| Bloomberg database | IPO list compilation (supplementary to SDC) | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
+| Bloomberg database | IPO list compilation (supplementary to SDC) | [Bloomberg](/wiki/commercial/bloomberg/) (licensed) |
 | Deutsche Boerse AG website | IPO list compilation | No page yet |
 | Manually collected data (Christoph Kaserer, TU Munich) | German IPO identifiers | No page yet |
 | IAB Establishment Panel | Representative survey of German establishments; used to test whether hierarchical changes correlate with formalization of internal processes | No page yet |
-| Bureau van Dijk Orbis / VentureSource | PE growth investment sample (71 firms) | [Orbis (BvD)](/wiki/licensed/orbis-bvd/) (licensed) |
+| Bureau van Dijk Orbis / VentureSource | PE growth investment sample (71 firms) | [Orbis (BvD)](/wiki/commercial/orbis-bvd/) (licensed) |
 
 Sample: 312 IPO firms and 312 matched private-firm controls; 4,992 firm-years in the main panel (eight-year window, $$t{-}5$$ to $$t{+}2$$). IPOs span 1986–2015; primarily Manufacturing (34.9%), Information and Communication (21.8%), Wholesale and Retail Trade (15.3%), and Professional, Scientific, and Technical Activities (14.4%).
 

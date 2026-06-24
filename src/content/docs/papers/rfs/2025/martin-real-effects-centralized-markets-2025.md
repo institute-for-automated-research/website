@@ -251,10 +251,10 @@ The builds on `difference-in-differences`, `panel-regression`, and `event-study`
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| SteelBenchmarker (proprietary price database) | Product-level bi-weekly reported transaction prices for 6 steel products; primary source for price dispersion and price-level tests (R1, R2, R5) | [SteelBenchmarker](/wiki/licensed/steelbenchmarker/) (licensed) |
-| Compustat North America Fundamentals Quarterly | Firm accounting data (assets, sales, profitability), identification of treated firms by product description, construction of profit variable (R6) | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| SteelBenchmarker (proprietary price database) | Product-level bi-weekly reported transaction prices for 6 steel products; primary source for price dispersion and price-level tests (R1, R2, R5) | [SteelBenchmarker](/wiki/commercial/steelbenchmarker/) (licensed) |
+| Compustat North America Fundamentals Quarterly | Firm accounting data (assets, sales, profitability), identification of treated firms by product description, construction of profit variable (R6) | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR (annual report text) | Firm product descriptions and commodity derivative mentions for hedging analysis (R3); treatment status classification | [SEC EDGAR](/wiki/datasets/edgar/) |
-| CRSP daily stock returns | Stock prices for CAR computation (R7) and treatment status confirmation | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP daily stock returns | Stock prices for CAR computation (R7) and treatment status confirmation | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | U.S. Geological Survey (USGS) | Steel production quantities by product for production quantity tests and trade controls | No page yet |
 | Bureau of Economic Analysis (BEA) | Quarterly GDP growth and key steel-consuming sector output for demand controls | No page yet |
 | PPI for Iron Ore and Steel Scrap (BLS) | Iron ore-to-scrap price ratio for market-share cost-sensitivity test (R4) | No page yet |

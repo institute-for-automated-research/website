@@ -309,9 +309,9 @@ Estimated for 10 illiquidity-decile portfolios (Row I) and 10 volatility-decile 
 | TED spread (EuroDollar LIBOR minus T-bill) | Component of FUND instrument; funding-conditions proxy | No page yet |
 | Hu, Pan & Wang (2013) noise measure | Component of FUND instrument; bond yield noise as funding proxy | No page yet |
 | Fontaine & Garcia (2012) liquidity factor | Component of FUND instrument; term-structure-based funding measure | No page yet |
-| CRSP (via WRDS) | Stock returns and market data for equity test portfolios; Amihud illiquidity construction | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Compustat (via WRDS) | Book-to-market, size for FF25 equity portfolio sorts | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| CRSP bond files | Treasury bond returns for 12-bond test-asset panel (2- to 10-year maturities); security-level data | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| CRSP (via WRDS) | Stock returns and market data for equity test portfolios; Amihud illiquidity construction | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Compustat (via WRDS) | Book-to-market, size for FF25 equity portfolio sorts | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| CRSP bond files | Treasury bond returns for 12-bond test-asset panel (2- to 10-year maturities); security-level data | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Constantinides, Jackwerth & Savov (2013) option portfolios | S&P 500 unlevered call and put portfolios (27 each), 1986Q2-2021Q4 | No page yet |
 | Corporate bond data | Corporate bond test portfolios sorted on illiquidity, volatility, and funding betas | No page yet |
 

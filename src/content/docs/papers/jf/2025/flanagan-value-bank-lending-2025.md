@@ -284,9 +284,9 @@ All regressions use quarterly loan cash flows normalized to a $1 investment. The
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Dealscan (Refinitiv Loan Connector) | Loan originations, amortization schedules, interest rate spreads, covenants, lead lender retention; primary source for loan cash flow construction | [DealScan](/wiki/licensed/dealscan/) (licensed) |
-| Compustat (via Chava-Roberts 2008 linking file) | Borrower financial characteristics (firm size, age, fixed costs, financial constraints); performance-pricing covenant ratios | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| CRSP | Stock return factors for benchmark fund construction; value-weighted market return; size quintile portfolio | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| Dealscan (Refinitiv Loan Connector) | Loan originations, amortization schedules, interest rate spreads, covenants, lead lender retention; primary source for loan cash flow construction | [DealScan](/wiki/commercial/dealscan/) (licensed) |
+| Compustat (via Chava-Roberts 2008 linking file) | Borrower financial characteristics (firm size, age, fixed costs, financial constraints); performance-pricing covenant ratios | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| CRSP | Stock return factors for benchmark fund construction; value-weighted market return; size quintile portfolio | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR (10-K, 10-Q, 8-K filings, web-scraped) | Loan prepayment and refinancing dates not in Dealscan; identifies 94% of prepayment dates accurately | [SEC EDGAR](/wiki/datasets/edgar/) |
 | FRY-9C bank holding company data | Bank-level expense decomposition (noninterest expense, compensation, other); bank financial constraint measures | no page yet |
 | Corporate bankruptcy databases (UCLA, 8-K) | Default identification and recovery rate estimation (industry-by-year LGD from Moody's Annual Default Report) | no page yet |

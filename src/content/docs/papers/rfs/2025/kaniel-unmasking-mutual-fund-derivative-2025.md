@@ -249,7 +249,7 @@ Two-way clustered standard errors at fund and time levels. Long index coefficien
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | SEC Form N-PORT (monthly, quarterly) | Primary data: derivative holdings, notional amounts, monthly realized and unrealized PnL by instrument; fund total net assets; portfolio weights | No page yet |
-| CRSP Mutual Fund Database (2010-2022) | Extended sample for performance and flow analysis; fund characteristics and returns; derivative identification via holdings | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP Mutual Fund Database (2010-2022) | Extended sample for performance and flow analysis; fund characteristics and returns; derivative identification via holdings | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | Morningstar Direct | Fund reported benchmarks (Lipper investment styles) | No page yet |
 | SEC EDGAR Form N-1A (prospectus) | Principal Investment Strategy section; textual analysis of derivative-related discussions and keywords | [SEC EDGAR](/wiki/datasets/edgar/) |
 | Yahoo Finance and Bloomberg (hand-collected) | Daily security-level returns for individual derivative positions; matched to N-PORT security names manually | No page yet |

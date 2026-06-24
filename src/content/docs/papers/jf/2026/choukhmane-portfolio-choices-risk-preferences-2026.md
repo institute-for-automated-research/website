@@ -227,7 +227,7 @@ one-time adjustment costs are accounted for.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | 401(k) administrative records (large U.S. record-keeper, anonymized), Dec 2006–Dec 2017, ~4 million employees, >600k plans | Main data: portfolio allocations, participation, contribution rates, plan defaults | No page yet (proprietary; no public access) |
-| CRSP Value-Weighted Index (1925–2006) | Equity premium and return volatility calibration (6.4% premium, 20% vol) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP Value-Weighted Index (1925–2006) | Equity premium and return volatility calibration (6.4% premium, 20% vol) | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | Survey of Income and Program Participation (SIPP) | Labor income process estimation, employment transition probabilities | [SIPP](/wiki/datasets/sipp/) |
 | Survey of Consumer Finances (SCF), 2007 and 2016 waves | External validation of financial wealth, stock market participation benchmarks | No page yet |
 

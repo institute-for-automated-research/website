@@ -227,7 +227,7 @@ where $$\Delta p_{l,i,t}$$ is the log capital gain on sale of property $$i$$ in 
 | German IVD / RDM market reports (42 cities, 1975-2018; 127 cities, 1992-2018) | German city cross-section: annual housing returns | No page yet |
 | Jorda, Schularick & Taylor (2019) macro-history database | National housing return benchmarks for 15 OECD countries | No page yet |
 | MSCI real estate investor yield data | 2018 rental yield benchmark for main data set | [no page yet](/wiki/datasets/) |
-| Corelogic deeds / repeat-sales transaction data (248 MSAs, 1990-2020) | Idiosyncratic housing price risk estimation | [CoreLogic](/wiki/licensed/corelogic/) (licensed) |
+| Corelogic deeds / repeat-sales transaction data (248 MSAs, 1990-2020) | Idiosyncratic housing price risk estimation | [CoreLogic](/wiki/commercial/corelogic/) (licensed) |
 | FHFA county house price indices + Zillow.com MSA data (277 MSAs, 2012-2020) | Liquidity proxies (time on market, asking price discount) and county price controls | [Zillow research](/wiki/datasets/zillow/) |
 | Agorastos, Gray, Lyons & Shertzer (2024) hedonic series (21 U.S. cities, 1920-2006) | Long-run robustness for U.S. sub-sample | No page yet |
 

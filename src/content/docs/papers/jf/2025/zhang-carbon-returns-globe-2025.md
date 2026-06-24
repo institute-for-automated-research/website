@@ -251,10 +251,10 @@ where abnormal carbon returns $$r_{it}^s = \alpha_i + \varepsilon_{it}$$ are fro
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Trucost (S&P) | Firm-level annual carbon emissions (scope 1 and 2, tCO2e), with actual data release dates; primary emissions source | [Trucost](/wiki/licensed/trucost/) (licensed) |
-| CRSP | Monthly stock returns, market capitalization, share prices; U.S. equities sample | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat (U.S.) | Firm accounting fundamentals: book-to-market, ROA, asset growth, leverage, PPE, EPS growth, sales growth | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat Global | Firm accounting fundamentals for international sample; primary security on primary exchange | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| Trucost (S&P) | Firm-level annual carbon emissions (scope 1 and 2, tCO2e), with actual data release dates; primary emissions source | [Trucost](/wiki/commercial/trucost/) (licensed) |
+| CRSP | Monthly stock returns, market capitalization, share prices; U.S. equities sample | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat (U.S.) | Firm accounting fundamentals: book-to-market, ROA, asset growth, leverage, PPE, EPS growth, sales growth | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat Global | Firm accounting fundamentals for international sample; primary security on primary exchange | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Ken French Data Library | FF6 factor returns (market, SMB, HML, RMW, CMA, MOM) for factor adjustment; regional factors | [Ken French library](/wiki/datasets/ken-french/) |
 | FRED (St. Louis Fed) | Natural gas price, Brent oil price, and commodity index used to estimate commodity exposures | [FRED](/wiki/datasets/fred/) |
 | World Bank | Country-level GDP per capita and socioeconomic controls | No page yet |

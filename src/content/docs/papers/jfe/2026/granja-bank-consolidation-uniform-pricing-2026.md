@@ -267,7 +267,7 @@ Robustness includes: large vs. small acquirer partitions (Table 4 Panel B), mark
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| RateWatch (S&P Global Market Intelligence) | Branch-level weekly posted rates for CDs, savings, HELOC, personal loans (4 products); primary source for all interest-rate analysis | [RateWatch](/wiki/licensed/ratewatch/) |
+| RateWatch (S&P Global Market Intelligence) | Branch-level weekly posted rates for CDs, savings, HELOC, personal loans (4 products); primary source for all interest-rate analysis | [RateWatch](/wiki/commercial/ratewatch/) |
 | FDIC Summary of Deposits (SOD) | Annual branch-level deposit balances; used to compute market shares, deposit volumes, and bank market shares for the structural model | [FDIC Summary of Deposits](/wiki/datasets/fdic-summary-of-deposits/) |
 | FFIEC Call Reports | Quarterly bank balance-sheet data (total assets, deposits, ROA, NPL, Tier 1 capital); used as bank-level characteristics in demand estimation | [Call Reports](/wiki/datasets/call-reports/) |
 | Federal Reserve NIC (public structure data) | Panel of all bank M&A events with dates and FDIC branch identifiers; used to identify ownership transfers and the sample of mergers; only the public BHC ownership and merger-history layer was used, not confidential CAMELS ratings | No page yet (public NIC structure data) |

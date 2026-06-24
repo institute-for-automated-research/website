@@ -327,7 +327,7 @@ trade decline.
 | FICC GCF Repo Service data (dealer-level daily, licensed via FRBNY) | Interdealer GC segment repo and reverse repo by asset class at dealer level | No page yet |
 | FICC DVP Service data (aggregate-level daily) | Interdealer MIX segment repo; aggregate only | No page yet |
 | DtC TPR (tri-party repo) data (confidential, from FRBNY) | Dealer-to-client GC segment repo by dealer and asset class | No page yet |
-| Markit Group CDS spreads (five-year modified restructuring, USD) | Proxy for dealer counterparty credit risk; matched to 13 of 18 dealers | [Markit CDS](/wiki/licensed/markit-cds/) (licensed) |
+| Markit Group CDS spreads (five-year modified restructuring, USD) | Proxy for dealer counterparty credit risk; matched to 13 of 18 dealers | [Markit CDS](/wiki/commercial/markit-cds/) (licensed) |
 | DTCC commercial paper interest rates (confidential) | Dealer-level weekly CP interest rates; proxy for dealer counterparty risk | No page yet |
 | FR 2004SI (special-purpose survey) | On-the-run Treasury repo activity by primary dealer; direct proxy for securities-driven trades | No page yet |
 

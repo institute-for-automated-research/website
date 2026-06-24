@@ -279,9 +279,9 @@ where $$D_j^E = 1$$ for extrapolative teams ($$\hat{\beta}_j^{CF} > 0$$) and $$C
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Lab experiment data (Labvanced / Prolific, 2024) | Primary data for Sections 2-2.5: 1,512 participants, four treatments, 20 prediction rounds each; chat transcripts analyzed by LLM | No page yet (original data; replication package on Mendeley Data) |
-| CRSP monthly stock returns (via WRDS) | Quarterly stock-level returns for the fund trading regression (Eq. 8); past four-quarter return predictor | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Thomson Reuters Mutual Fund Holdings (via WRDS) | Quarterly holdings of US stocks per fund; used to construct the split-adjusted trade measure (Eq. 9) | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Morningstar | Fund investment objectives, fund family, expense ratios, fund age; used as controls in the field analysis | [Morningstar](/wiki/licensed/morningstar/) (licensed) |
+| CRSP monthly stock returns (via WRDS) | Quarterly stock-level returns for the fund trading regression (Eq. 8); past four-quarter return predictor | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Thomson Reuters Mutual Fund Holdings (via WRDS) | Quarterly holdings of US stocks per fund; used to construct the split-adjusted trade measure (Eq. 9) | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Morningstar | Fund investment objectives, fund family, expense ratios, fund age; used as controls in the field analysis | [Morningstar](/wiki/commercial/morningstar/) (licensed) |
 | SEC mandatory fund filings | Fund managerial structure (team vs individual management identification); fund-level panel 1980-2018 | [EDGAR](/wiki/datasets/edgar/) |
 
 Sample (field): 467 unique managers, 847 unique funds, 308 unique team observations, quarterly 1980-2018. Sample (lab): 1,512 participants across four treatments, run June-November 2024.

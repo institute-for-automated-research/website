@@ -220,7 +220,7 @@ on the pockets offer no reliable abnormal returns.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP U.S. stock market excess return (daily and monthly, 1926-2016) | Dependent variable: aggregate market excess return (CRSP return minus short T-bill) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP U.S. stock market excess return (daily and monthly, 1926-2016) | Dependent variable: aggregate market excess return (CRSP return minus short T-bill) | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | Dividend-price ratio (dp), 1926-2016 | Predictor variable (sourced from FST replication package) | no page yet |
 | 3-month T-bill rate (tbl), 1954-2016 | Predictor variable (sourced from FST replication package) | no page yet |
 | Term spread (tsp), 1962-2016 | Predictor variable (sourced from FST replication package) | no page yet |

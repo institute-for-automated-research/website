@@ -22,12 +22,11 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 
 | What | Path |
 |---|---|
-| Dataset / recipe pages | `src/content/docs/datasets/<slug>.md` |
-| Licensed-source pages | `src/content/docs/licensed/<slug>.md` |
+| Dataset / recipe pages, by access tier | `src/content/docs/{datasets,commercial,confidential}/<slug>.md` (openly available / commercial / confidential; the directory MUST match the registry `access` tier, enforced by `check-dataset-access.mjs`) |
 | Distilled paper summaries | `src/content/docs/papers/<journal>/<year>/<slug>.md` |
 | Tag browse page + axes | `src/content/docs/tags.mdx` + `src/components/TagIndex.astro` |
 | Verified badge, distilled byline, tags, raw-`.md` link | `src/components/PageTitle.astro` |
-| Dataset registry + access drift gate | `.claude/skills/wiki-page/dataset-registry.yml` + `scripts/check-dataset-access.mjs` (prebuild; fails on `dataAccess` under-claim or a `data:` slug missing from the registry) |
+| Dataset registry + access drift gate | `.claude/skills/wiki-page/dataset-registry.yml` + `scripts/check-dataset-access.mjs` (prebuild; fails on `dataAccess` under-claim, a `data:` slug missing from the registry, or a page whose directory does not match its registry `access` tier) |
 | relatesTo body-locatability gate | `scripts/check-relatesto-locatable.mjs` (prebuild; fails the build if any `relatesTo[].cite` is not named as an author-year, first-author surname next to the year, in the page body) |
 | Vocab registry (methods, mechanisms, metrics, outcome classes) | `.claude/skills/wiki-page/vocab-registry.yml` (reconciled by `vocab-curator`) |
 | Frontmatter schema | `src/content.config.ts` |
@@ -131,7 +130,7 @@ block.
 - **Backfill the paper-side link when the page lands.** A distiller writes
   `no page yet` in the citing paper's *Datasets used* table for an undocumented
   source. When you add that dataset page, replace that cell with a link to it
-  (`[Name](/wiki/<datasets|licensed>/<slug>/)`), so the page→paper link (already
+  (`[Name](/wiki/<datasets|commercial|confidential>/<slug>/)`), so the page→paper link (already
   on the new dataset page and in the `data:<slug>` tag graph) is matched by a
   paper→page link instead of a dangling `no page yet`. One page can document
   several slugs of one lineage (e.g. `kld.md` covers `data:kld` and

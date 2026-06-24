@@ -24,7 +24,9 @@ Two kinds of content here derive from it:
    style (unnumbered author-year — deliberate, Scholar-indexed fine), the
    human-operator byline + in-body provenance disclosure, and the citation
    format. The companion paper's citation lives in that repo's `README.md`.
-2. **Wiki dataset pages** (`src/content/docs/datasets/*`, `licensed/wrds.md`)
+2. **Wiki dataset pages** (`src/content/docs/{datasets,commercial,confidential}/*`,
+   split by access tier — open / commercial / confidential — with the registry
+   tier as source of truth and `check-dataset-access.mjs` asserting dir==tier)
    and the pipeline's empirical *skills*
    (`extensions/empirical/skills/<dataset>/SKILL.md`: fred, edgar,
    ken-french, flex-mining, chen-zimmerman→open-source-asset-pricing,

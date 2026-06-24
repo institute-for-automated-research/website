@@ -230,13 +230,13 @@ All specifications are event-study regressions with market-adjusted returns. Key
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP daily stock returns and shares outstanding | Cumulative abnormal returns; split-adjustment factors; market-cap computation | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Thompson S12 mutual fund holdings (quarterly) | Identifying S&P 500 and MidCap 400 tracking funds; measuring net buying/selling around index changes | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Thompson 13F institutional holdings (quarterly) | Changes in total institutional ownership around index changes (Table VII) | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| CRSP daily stock returns and shares outstanding | Cumulative abnormal returns; split-adjustment factors; market-cap computation | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Thompson S12 mutual fund holdings (quarterly) | Identifying S&P 500 and MidCap 400 tracking funds; measuring net buying/selling around index changes | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Thompson 13F institutional holdings (quarterly) | Changes in total institutional ownership around index changes (Table VII) | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Siblis Research S&P 500 addition/deletion history | Announcement and effective dates for S&P 500 changes, 1980-2020; also MidCap 400 and SmallCap changes | No page yet |
 | Barberis, Shleifer, and Wurgler (2005) | Pre-1990 S&P 500 addition announcement dates not in Siblis | No page yet |
-| IBES analyst coverage | Analyst coverage count for each firm at earnings announcement before the index change (control variable Cover) | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| WRDS Intraday Indicators (TAQ-based) | Value-weighted average effective bid-ask spread (percent effective spread) from TAQ data 1993-2022, using Holden-Jacobsen (2014) method | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| IBES analyst coverage | Analyst coverage count for each firm at earnings announcement before the index change (control variable Cover) | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| WRDS Intraday Indicators (TAQ-based) | Value-weighted average effective bid-ask spread (percent effective spread) from TAQ data 1993-2022, using Holden-Jacobsen (2014) method | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Virtu Financial implementation shortfall | Implementation shortfall for midcap stocks 2009-2021 | No page yet |
 | FTSE Russell index membership | Russell 1000 and Russell 2000 additions/deletions, 1990-2020 | No page yet |
 

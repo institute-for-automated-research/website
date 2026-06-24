@@ -427,10 +427,10 @@ $$\beta_{\text{endo}} = 0.65/1.7$$ matches the total pattern.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| TRACE (Enhanced, FINRA) | Corporate bond transaction prices and volumes for bid-ask spread calculation, number of trades, bond turnover; filtered following Dick-Nielsen (2014) | [TRACE](/wiki/licensed/trace/) (licensed) |
-| WRDS Bond Return database + Mergent FISD | Bond characteristics: maturity, coupon, rating, offering amount, issuance date; credit spreads calculated from reported yields minus matched Treasury yield | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| CRSP equity returns | Equity price volatility for bond issuers | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat annual fundamentals | Firm characteristics: leverage, size, profitability, total asset value, fraction of long-term debt | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| TRACE (Enhanced, FINRA) | Corporate bond transaction prices and volumes for bid-ask spread calculation, number of trades, bond turnover; filtered following Dick-Nielsen (2014) | [TRACE](/wiki/commercial/trace/) (licensed) |
+| WRDS Bond Return database + Mergent FISD | Bond characteristics: maturity, coupon, rating, offering amount, issuance date; credit spreads calculated from reported yields minus matched Treasury yield | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| CRSP equity returns | Equity price volatility for bond issuers | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat annual fundamentals | Firm characteristics: leverage, size, profitability, total asset value, fraction of long-term debt | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Lipper eMaxx (Thomson Reuters) | Quarterly investor holdings of corporate bonds at the CUSIP level for insurance companies, mutual funds, ETFs, and annuities; covers 40-50% of total bonds outstanding | [no page yet] |
 | Flow of Funds (Federal Reserve) | Aggregate corporate and foreign bond holdings by investor type for benchmarking eMaxx coverage | [no page yet] |
 | Gurkaynak, Sack & Wright (2007) Treasury yield curve | Used to calculate credit spreads by subtracting matched Treasury yields | [no page yet] |

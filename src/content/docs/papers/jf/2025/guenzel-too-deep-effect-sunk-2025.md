@@ -225,12 +225,12 @@ where $$i$$ denotes an acquisition, $$t$$ is years elapsed since acquisition, $$
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| SDC Platinum M&A database | Starting universe of domestic acquisitions by US public acquirers 1980-2016; deal characteristics and divestiture flags | [SDC Platinum](/wiki/licensed/sdc-platinum/) (licensed) |
+| SDC Platinum M&A database | Starting universe of domestic acquisitions by US public acquirers 1980-2016; deal characteristics and divestiture flags | [SDC Platinum](/wiki/commercial/sdc-platinum/) (licensed) |
 | Nexis (LexisNexis) news search | Divestiture identification: systematic search for newspaper articles and news wires for acquisitions not flagged by SDC | No page yet |
 | SEC EDGAR filings (10-K, 10-Q, 8-K, S-4, Exhibit 21) | Hand-collected merger agreement terms (exchange ratio type, deal terms); divestiture verification | [SEC EDGAR](/wiki/datasets/edgar/) |
-| CRSP monthly and daily returns | Acquirer stock returns during transaction period; acquirer market capitalization; beta estimation; control variables | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat | Acquirer financial characteristics; industry market-to-book; leverage; financial constraint construction | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Execucomp | CEO tenure and compensation data for ~50% of acquirers; CEO change dates | [WRDS / Execucomp](/wiki/licensed/wrds/) (licensed) |
+| CRSP monthly and daily returns | Acquirer stock returns during transaction period; acquirer market capitalization; beta estimation; control variables | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat | Acquirer financial characteristics; industry market-to-book; leverage; financial constraint construction | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Execucomp | CEO tenure and compensation data for ~50% of acquirers; CEO change dates | [WRDS / Execucomp](/wiki/commercial/wrds/) (licensed) |
 | SEC filings, BoardEx, Bloomberg, Capital IQ, Who's Who | Hand-collected CEO education and biographical data for CEO sophistication tests | No page yet |
 
 Sample: US public acquirers, acquisitions 1980-2016, divestitures tracked through December 2018. Main sample: 558 Fixed Shares acquisitions (279 divested), 4,461 firm-year observations.

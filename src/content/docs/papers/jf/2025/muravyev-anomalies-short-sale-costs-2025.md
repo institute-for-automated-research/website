@@ -355,8 +355,8 @@ factor-based long-short portfolios (Table XI p. 3688).
 |---|---|---|
 | Chen and Zimmermann (2021) anomaly signals (openassetpricing.com), Jan 2000 to Dec 2020; 202 anomalies, 162 retained | Anomaly signal construction; decile portfolio assignment | [Open Source Asset Pricing](/wiki/datasets/open-source-asset-pricing/) |
 | Markit Securities Finance Buy Side Analytics Data Feed, daily from Jun 28 2006 | Stock borrow fees (indicative fee = buy-side expected borrow cost); utilization | no page yet |
-| CRSP (via WRDS) common stocks, returns, delisting returns | Stock returns, market cap filters, sample construction | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat (via WRDS) short interest + 13F institutional holdings | Proxy for borrow fee (SI/IO ratio) for researchers without Markit access | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP (via WRDS) common stocks, returns, delisting returns | Stock returns, market cap filters, sample construction | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat (via WRDS) short interest + 13F institutional holdings | Proxy for borrow fee (SI/IO ratio) for researchers without Markit access | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
 
 Sample: 554,253 stock-months (162 anomaly signals, Jul 2006 to Dec 2020),
 after dropping stocks below $1 price or $50 mn market cap and requiring at

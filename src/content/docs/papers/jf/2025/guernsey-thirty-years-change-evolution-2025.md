@@ -223,11 +223,11 @@ where $$\text{Time}_{jt-1}$$ is the excluded base year, $$\gamma_{ij}$$ are firm
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP monthly stock returns | Market value of equity (MVE), stock return data, event study benchmark index | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat annual fundamentals | Book value of assets, Tobin's Q construction, firm characteristics | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP monthly stock returns | Market value of equity (MVE), stock return data, event study benchmark index | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat annual fundamentals | Book value of assets, Tobin's Q construction, firm characteristics | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR DEF 14A filings | Text input to the RF Classifier; classified board status for all public firms | [SEC EDGAR](/wiki/datasets/edgar/) |
 | ISS (RiskMetrics / IRRC) governance database | Training labels for the RF Classifier; classified board status for S&P 1500 firms | No page yet |
-| Thomson Reuters 13-F institutional holdings | Institutional ownership (IO), Big Three IO, quasi-indexer IO | [Thomson 13F (s34)](/wiki/licensed/thomson-13f/) (licensed) |
+| Thomson Reuters 13-F institutional holdings | Institutional ownership (IO), Big Three IO, quasi-indexer IO | [Thomson 13F (s34)](/wiki/commercial/thomson-13f/) (licensed) |
 | Voting Analytics (ISS / Diligent) | Shareholder proposals to declassify boards, 2003-2020 | No page yet |
 | Hedge fund activism data (Brav, Jiang & Kim) | Hedge fund targeting by firm-year, 1994-2018 | No page yet |
 | Wall Street Journal articles | Media attention to corporate governance; keyword search, 1998-2020 | No page yet |

@@ -352,8 +352,8 @@ as the auction mechanism.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP (Center for Research in Security Prices) | Stock prices, dollar trading volume (thousands USD), market capitalization; used to construct the matched sample and identify NYSE vs. NASDAQ stocks | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| NYSE TAQ (Trade and Quotes) via WRDS Intraday Indicators | Proportional quoted spreads (PQSPR), proportional effective spreads (PESPR), and Hasbrouck pricing errors; the main market quality measures for both identification strategies | [TAQ](/wiki/licensed/taq/) (licensed) |
+| CRSP (Center for Research in Security Prices) | Stock prices, dollar trading volume (thousands USD), market capitalization; used to construct the matched sample and identify NYSE vs. NASDAQ stocks | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| NYSE TAQ (Trade and Quotes) via WRDS Intraday Indicators | Proportional quoted spreads (PQSPR), proportional effective spreads (PESPR), and Hasbrouck pricing errors; the main market quality measures for both identification strategies | [TAQ](/wiki/commercial/taq/) (licensed) |
 | OneMarket Data (OneTick software) | Intraday TAQ data for within-exchange comparisons (PESPR computed separately by exchange for each 30-minute interval); NYSE data provided directly | no page yet |
 
 Sample: main closure window March 16-27, 2020 (10 trading days); reopening windows May 18-June 1 and June 10-23, 2020 (10 trading days each). The sample starts with 3,447 US common stocks (CRSP share code 10 or 11) listed on NYSE (1,256) or NASDAQ (2,191) in December 2019, excluding stocks with more than one share class (431) or market cap below $500 million (1,412), yielding approximately 1,600 equities (Table I, p. 386).

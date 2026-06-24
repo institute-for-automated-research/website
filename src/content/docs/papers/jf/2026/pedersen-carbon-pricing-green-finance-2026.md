@@ -447,8 +447,8 @@ data.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Trucost (scope 1 and scope 2 emissions, fiscal year 2021) | Firm-level carbon emission data for calibrating sustainable discount rates; scope 1 emissions in tCO2 per fiscal year; scope 2 electricity-based emissions | [Trucost](/wiki/licensed/trucost/) (licensed) |
-| CRSP and Compustat (2021) | Market value of equity and book value of debt for constructing firm value $$v_{it}$$ used in calibration; also used to identify GICS industry sectors | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| Trucost (scope 1 and scope 2 emissions, fiscal year 2021) | Firm-level carbon emission data for calibrating sustainable discount rates; scope 1 emissions in tCO2 per fiscal year; scope 2 electricity-based emissions | [Trucost](/wiki/commercial/trucost/) (licensed) |
+| CRSP and Compustat (2021) | Market value of equity and book value of debt for constructing firm value $$v_{it}$$ used in calibration; also used to identify GICS industry sectors | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Eskildsen et al. (2024) working paper data | Cross-sectional regression of firms' implied cost of capital on emission-to-asset ratio; slope estimate of 4 used as empirical calibration of effective implicit carbon tax | No page yet |
 | U.S. Energy Information Administration (electricity price data, 2021) | Average electricity price 0.11 $/kWh used in alternative calibration (§VI.C) | No page yet |
 

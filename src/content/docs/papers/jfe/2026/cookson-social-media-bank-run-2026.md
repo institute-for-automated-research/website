@@ -355,11 +355,11 @@ level.
 |---|---|---|
 | Twitter API (original collection, Jan 2020-Mar 2023; data on Mendeley Data) | Twitter pre-exposure variable, in-run attention and sentiment, tweet content classification | No page yet (author-introduced dataset) |
 | FDIC / FFIEC Call Reports (Q4-2022) | % Uninsured deposits, Q1-2023 deposit outflows, asset holdings for MTM loss | [FFIEC Call Reports](/wiki/datasets/call-reports/) |
-| CRSP US Treasury and Inflation Indexes | Treasury bond price changes by maturity for % Loss MTM construction | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Compustat bank fundamentals (via WRDS) | Market capitalization, market-to-book, liquid assets, CRE loan share | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| I/B/E/S analyst coverage (via WRDS) | Number of analysts as information-environment control | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| CRSP US Treasury and Inflation Indexes | Treasury bond price changes by maturity for % Loss MTM construction | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Compustat bank fundamentals (via WRDS) | Market capitalization, market-to-book, liquid assets, CRE loan share | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| I/B/E/S analyst coverage (via WRDS) | Number of analysts as information-environment control | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | FirstRate Data (intraday) | Minute-level and 5-minute bank stock prices for hourly return construction (March 2023) | No page yet |
-| RavenPack news analytics | Traditional news article count and ESS sentiment as controls in high-frequency tests | [RavenPack](/wiki/licensed/ravenpack/) (licensed) |
+| RavenPack news analytics | Traditional news article count and ESS sentiment as controls in high-frequency tests | [RavenPack](/wiki/commercial/ravenpack/) (licensed) |
 | Google Trends SVI | Retail investor attention to bank stocks as a market-control variable | No page yet |
 
 Sample: 277 publicly traded bank holding companies; Twitter pre-exposure from

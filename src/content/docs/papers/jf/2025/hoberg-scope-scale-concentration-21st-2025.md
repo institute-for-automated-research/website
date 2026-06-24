@@ -259,7 +259,7 @@ where $$\omega_{i,k,t}$$ is the textual exposure weight for D2V (or the fraction
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Compustat annual fundamentals (WRDS) | Assets, R&D, CAPX, profitability, segments, financing; main panel 1989-2017 | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| Compustat annual fundamentals (WRDS) | Assets, R&D, CAPX, profitability, segments, financing; main panel 1989-2017 | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR 10-K filings (Item 1) | Source text for D2V-Scope and NAICS-Scope construction; all Compustat firm-years with 10-K | [EDGAR](/wiki/datasets/edgar/) |
 | TNIC / Hoberg-Phillips (2016) | Industry classification for peer identification; pairwise similarity used for instruments and scope validation | [TNIC](/wiki/datasets/tnic/) |
 | SDC Platinum | Acquisition and divestiture events (acquirer dummy, target dummy) | [no page yet] |

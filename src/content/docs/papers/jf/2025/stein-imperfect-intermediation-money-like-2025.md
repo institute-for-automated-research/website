@@ -300,12 +300,12 @@ where $$w_{UST,i,t}$$ is firm $$i$$'s Treasury holdings share and $$\text{Deriv}
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Crane Data LLC (monthly money fund holdings and AUM) | T-bill and RRP portfolio weights, fund-level elasticity estimation, AUM decomposition | [Crane Data](/wiki/licensed/crane-mmf/) (licensed) |
+| Crane Data LLC (monthly money fund holdings and AUM) | T-bill and RRP portfolio weights, fund-level elasticity estimation, AUM decomposition | [Crane Data](/wiki/commercial/crane-mmf/) (licensed) |
 | Federal Reserve (NY) - RRP program data | RRP counterparty identities, RRP take-up amounts, administered RRP rate | No page yet |
-| Bloomberg (secondary market yields) | One-month T-bill yields, OIS rates for maturity adjustment | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
+| Bloomberg (secondary market yields) | One-month T-bill yields, OIS rates for maturity adjustment | [Bloomberg](/wiki/commercial/bloomberg/) (licensed) |
 | Federal Reserve (effective Fed Funds rate) | Maturity adjustment for expected one-month RRP return; monetary policy benchmarks | No page yet |
 | U.S. Treasury / Federal Reserve (Treasury supply) | Privately-held outstanding Treasuries (instrument for T-bill supply shocks) | No page yet |
-| Compustat (annual) via WRDS | Derivatives P&L, firm size, corporate bond and Treasury holdings for large non-financial firms, 2001-2021 | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| Compustat (annual) via WRDS | Derivatives P&L, firm size, corporate bond and Treasury holdings for large non-financial firms, 2001-2021 | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Darmouni and Mota (2024) - corporate securities holdings | Cash and securities holdings for 200 largest U.S. public non-financial firms, 2001-2021 | No page yet |
 
 Sample for the main money-market analysis: monthly, September 30, 2013 to June 30, 2024 (130 months). Sample for corporate collateral analysis: annual firm-year panel, 2004-2021.

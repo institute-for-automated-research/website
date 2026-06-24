@@ -229,9 +229,9 @@ where $$\text{AmtHeld}_{i,j,t}$$ is dollars held in fund $$j$$ by investor $$i$$
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP Survivor-Bias-Free US Mutual Fund Database | Primary sample: monthly fund returns, TNA, expenses, share classes, new subscriptions, and redemptions | [CRSP Mutual Funds](/wiki/licensed/crsp-mutual-funds/) |
-| Thomson Reuters Mutual Fund Holdings (via MFLINKS) | Holdings-based TK measure in Section 5.2; linked to CRSP via MFLINKS | [CRSP Mutual Funds](/wiki/licensed/crsp-mutual-funds/) |
-| Morningstar fund ratings (5-year star rating) | Control variable; Morningstar Risk Adjusted Return (MRAR) used in Table 12 | [Morningstar](/wiki/licensed/morningstar/) |
+| CRSP Survivor-Bias-Free US Mutual Fund Database | Primary sample: monthly fund returns, TNA, expenses, share classes, new subscriptions, and redemptions | [CRSP Mutual Funds](/wiki/commercial/crsp-mutual-funds/) |
+| Thomson Reuters Mutual Fund Holdings (via MFLINKS) | Holdings-based TK measure in Section 5.2; linked to CRSP via MFLINKS | [CRSP Mutual Funds](/wiki/commercial/crsp-mutual-funds/) |
+| Morningstar fund ratings (5-year star rating) | Control variable; Morningstar Risk Adjusted Return (MRAR) used in Table 12 | [Morningstar](/wiki/commercial/morningstar/) |
 | Kenneth French Data Library | Four-factor returns (market, SMB, HML, MOM) for computing alphas and factor loadings; value-weighted market return | [Ken French library](/wiki/datasets/ken-french/) |
 | Barber and Odean (2000) retail brokerage account data | Account-level holdings and transaction data for Section 4.2 account-level evidence | No page yet |
 

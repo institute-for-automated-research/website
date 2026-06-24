@@ -184,7 +184,7 @@ sentiment jointly drive investor tilts toward the pricing factor.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Titlon (Oslo Stock Exchange database) | Stock prices, returns, shares outstanding for 535 OSE stocks, 1997-2017 | [Titlon (OSE)](/wiki/licensed/titlon-ose/) (licensed) |
+| Titlon (Oslo Stock Exchange database) | Stock prices, returns, shares outstanding for 535 OSE stocks, 1997-2017 | [Titlon (OSE)](/wiki/commercial/titlon-ose/) (licensed) |
 | VPS (Norwegian Central Securities Depository) | Complete individual investor stockholdings at monthly frequency, 300,000+ investors | no page yet |
 | Statistics Norway (Statistisk sentralbyra) | Investor demographics, balance sheets, income, wealth from tax records; annual 1997-2017 | no page yet |
 | OSE market index (Norwegian market portfolio) | Benchmark factor; market-cap-weighted portfolio of OSE stocks | no page yet |

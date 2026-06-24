@@ -293,9 +293,9 @@ datasets:
     name: Audit Analytics
     provider: Ideagen (Audit Analytics)
     access: licensed-commercial
-    page: licensed/audit-analytics
+    page: commercial/audit-analytics
   bloomberg:
-    page: licensed/bloomberg
+    page: commercial/bloomberg
     name: Bloomberg Terminal data
     provider: Bloomberg L.P.
     access: licensed-commercial
@@ -303,26 +303,26 @@ datasets:
     name: Blue Chip Financial Forecasts survey
     provider: Wolters Kluwer
     access: licensed-commercial
-    page: licensed/blue-chip-forecasts
+    page: commercial/blue-chip-forecasts
     note: Commercial subscription survey of professional forecasters' interest-rate and GDP projections.
   cboe-options:
     name: CBOE options data
     provider: Cboe Global Markets
     access: licensed-commercial
-    page: licensed/cboe-options
+    page: commercial/cboe-options
   compustat-segments:
     name: Compustat Segment data
     provider: S&P Global Market Intelligence (via WRDS)
     access: licensed-commercial
-    page: licensed/compustat-segments
+    page: commercial/compustat-segments
   corelogic:
     name: CoreLogic property and foreclosure data
     provider: CoreLogic (Cotality)
     access: licensed-commercial
     note: Commercial property, foreclosure, and house-price microdata.
-    page: licensed/corelogic
+    page: commercial/corelogic
   crane-mmf:
-    page: licensed/crane-mmf
+    page: commercial/crane-mmf
     name: Crane money-market-fund data
     provider: Crane Data LLC
     access: licensed-commercial
@@ -330,29 +330,29 @@ datasets:
     name: LPC DealScan syndicated-loan data
     provider: LSEG / Refinitiv (Loan Pricing Corp.)
     access: licensed-commercial
-    page: licensed/dealscan
+    page: commercial/dealscan
   emaxx:
     name: Lipper eMAXX fixed-income holdings
     provider: LSEG / Refinitiv (Lipper)
     access: licensed-commercial
     note: Quarterly CUSIP-level corporate-bond holdings for insurers, mutual funds, ETFs, and annuities.
-    page: licensed/emaxx
+    page: commercial/emaxx
   eurodollar-futures:
     name: Eurodollar futures intraday prices
     provider: CME Group (via commercial intraday feeds)
     access: licensed-commercial
     note: Daily settlement prices are public; the high-frequency intraday windows used for policy-surprise identification are licensed.
-    page: licensed/eurodollar-futures
+    page: commercial/eurodollar-futures
   factset-lionshares:
     name: FactSet LionShares institutional ownership
     provider: FactSet Research Systems
     access: licensed-commercial
-    page: licensed/factset-lionshares
+    page: commercial/factset-lionshares
   factset-revere:
     name: FactSet Revere supply-chain relationships
     provider: FactSet Research Systems
     access: licensed-commercial
-    page: licensed/factset-revere
+    page: commercial/factset-revere
   ftse-all-share:
     name: FTSE All-Share Index constituents and returns
     provider: FTSE Russell
@@ -360,24 +360,24 @@ datasets:
     note: >-
       Index membership, market capitalisation, and daily returns; licensed
       from FTSE Russell or via vendor feeds (Datastream, WRDS).
-    page: licensed/ftse-all-share
+    page: commercial/ftse-all-share
   ibes:
     name: I/B/E/S analyst estimates
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
-    page: licensed/ibes
+    page: commercial/ibes
   infousa:
     name: InfoUSA / Data Axle business and consumer files
     provider: Data Axle (formerly InfoUSA)
     access: licensed-commercial
-    page: licensed/infousa
+    page: commercial/infousa
   lexisnexis-court:
     name: LexisNexis court records
     provider: LexisNexis
     access: licensed-commercial
-    page: licensed/lexisnexis-court
+    page: commercial/lexisnexis-court
   markit-cds:
-    page: licensed/markit-cds
+    page: commercial/markit-cds
     name: Markit CDS pricing
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
@@ -385,35 +385,35 @@ datasets:
     name: Markit Securities Finance (securities lending)
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
-    page: licensed/markit-securities-finance
+    page: commercial/markit-securities-finance
   moodys-urd:
     name: Moody's Ultimate Recovery Database
     provider: Moody's Analytics
     access: licensed-commercial
-    page: licensed/moodys-urd
+    page: commercial/moodys-urd
   msci-esg:
     name: MSCI ESG ratings (KLD STATS / IVA)
     provider: MSCI ESG Research (formerly KLD)
     access: licensed-commercial
     note: Annual firm-level environmental, social, and governance indicators.
-    page: licensed/kld  # same dataset lineage as `kld`; one page covers both slugs
+    page: commercial/kld  # same dataset lineage as `kld`; one page covers both slugs
   nielseniq:
     name: NielsenIQ retail scanner and consumer panel
     provider: NielsenIQ (via Kilts Center, Chicago Booth)
     access: licensed-commercial
-    page: licensed/nielseniq
+    page: commercial/nielseniq
   nyt-news:
     name: New York Times article archive
     provider: The New York Times
     access: licensed-commercial
-    page: licensed/nyt-news
+    page: commercial/nyt-news
   optimal-blue:
     name: Optimal Blue mortgage rate-lock data
     provider: Optimal Blue (Constellation Software)
     access: licensed-commercial
-    page: licensed/optimal-blue
+    page: commercial/optimal-blue
   orbis-bvd:
-    page: licensed/orbis-bvd
+    page: commercial/orbis-bvd
     name: Orbis global company data
     provider: Moody's / Bureau van Dijk
     access: licensed-commercial
@@ -421,52 +421,52 @@ datasets:
     name: Preqin private-capital data
     provider: Preqin (BlackRock)
     access: licensed-commercial
-    page: licensed/preqin
+    page: commercial/preqin
   ratewatch:
     name: RateWatch deposit-rate surveys
     provider: S&P Global Market Intelligence (RateWatch)
     access: licensed-commercial
     note: Branch-level weekly deposit and CD rate survey data.
-    page: licensed/ratewatch
+    page: commercial/ratewatch
   ravenpack:
     name: RavenPack news analytics
     provider: RavenPack
     access: licensed-commercial
-    page: licensed/ravenpack
+    page: commercial/ravenpack
   reprisk:
     name: RepRisk ESG incident data
     provider: RepRisk AG
     access: licensed-commercial
     note: Firm-level environmental and social incident events sourced from media and stakeholder reports.
-    page: licensed/reprisk
+    page: commercial/reprisk
   revelio:
     name: Revelio Labs workforce data
     provider: Revelio Labs
     access: licensed-commercial
-    page: licensed/revelio
+    page: commercial/revelio
   rystad:
     name: Rystad Energy database
     provider: Rystad Energy
     access: licensed-commercial
-    page: licensed/rystad
+    page: commercial/rystad
   sdc-platinum:
     name: SDC Platinum (M&A, new issues)
     provider: LSEG / Refinitiv
     access: licensed-commercial
-    page: licensed/sdc-platinum
+    page: commercial/sdc-platinum
   stocktwits:
     name: StockTwits social-media messages
     provider: StockTwits Inc.
     access: licensed-commercial
-    page: licensed/stocktwits
+    page: commercial/stocktwits
   titlon-ose:
     name: Titlon Oslo Stock Exchange financial data
     provider: UiT The Arctic University of Norway (Titlon)
     access: licensed-commercial
-    page: licensed/titlon-ose
+    page: commercial/titlon-ose
     note: Free to Nordic academic users but credential-gated, not openly public.
   trace:
-    page: licensed/trace
+    page: commercial/trace
     name: TRACE (Enhanced) corporate-bond transactions
     provider: FINRA (Enhanced academic version, via WRDS)
     access: licensed-commercial
@@ -475,12 +475,12 @@ datasets:
     name: Trucost environmental data
     provider: S&P Global (Trucost)
     access: licensed-commercial
-    page: licensed/trucost
+    page: commercial/trucost
   wrds:
     name: Wharton Research Data Services (platform)
     provider: The Wharton School, University of Pennsylvania
     access: licensed-commercial
-    page: licensed/wrds
+    page: commercial/wrds
     note: >-
       A subscription platform, not a single dataset. When a paper cites the
       specific feed (Compustat, CRSP, IBES) prefer that slug; data:wrds marks
@@ -490,42 +490,42 @@ datasets:
     provider: Ancestry.com
     access: licensed-commercial
     note: Individual-level death records via paid subscription; used to date executive mortality.
-    page: licensed/ancestry-death-records
+    page: commercial/ancestry-death-records
   capital-iq:
     name: S&P Capital IQ
     provider: S&P Global Market Intelligence
     access: licensed-commercial
-    page: licensed/capital-iq
+    page: commercial/capital-iq
   compustat-global:
     name: Compustat Global
     provider: S&P Global Market Intelligence (via WRDS)
     access: licensed-commercial
-    page: licensed/compustat-global
+    page: commercial/compustat-global
   consensus-economics:
     name: Consensus Economics forecast surveys
     provider: Consensus Economics Inc.
     access: licensed-commercial
-    page: licensed/consensus-economics
+    page: commercial/consensus-economics
     note: Subscription panel of professional macro and exchange-rate forecasts.
   gettyimages-ceo-photos:
     name: Getty Images executive photographs
     provider: Getty Images
     access: licensed-commercial
     note: Licensed press photographs of CEOs; used to construct apparent-age measures.
-    page: licensed/gettyimages-ceo-photos
+    page: commercial/gettyimages-ceo-photos
   markit-quanto:
     name: Markit quanto and cross-currency quotes
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
-    page: licensed/markit-quanto
+    page: commercial/markit-quanto
     note: Quanto quotes used to extract the quanto-implied risk premium.
   morningstar:
     name: Morningstar fund and sustainability data
     provider: Morningstar, Inc.
     access: licensed-commercial
-    page: licensed/morningstar
+    page: commercial/morningstar
   nets:
-    page: licensed/nets
+    page: commercial/nets
     name: National Establishment Time-Series (NETS)
     provider: Walls & Associates (from Dun & Bradstreet microdata)
     access: licensed-commercial
@@ -534,9 +534,9 @@ datasets:
     name: PitchBook private-capital data
     provider: PitchBook (Morningstar)
     access: licensed-commercial
-    page: licensed/pitchbook
+    page: commercial/pitchbook
   thomson-13f:
-    page: licensed/thomson-13f
+    page: commercial/thomson-13f
     name: Thomson Reuters institutional holdings (13F, s34)
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
@@ -544,15 +544,15 @@ datasets:
     name: Refinitiv Worldscope fundamentals
     provider: LSEG / Refinitiv (via WRDS)
     access: licensed-commercial
-    page: licensed/worldscope
+    page: commercial/worldscope
   taq:
-    page: licensed/taq
+    page: commercial/taq
     name: TAQ (Trade and Quote) intraday data
     provider: NYSE (via WRDS)
     access: licensed-commercial
     note: Tick-level trades and quotes with venue codes; WRDS-gated.
   costar:
-    page: licensed/costar
+    page: commercial/costar
     name: CoStar commercial real estate transactions
     provider: CoStar Group
     access: licensed-commercial
@@ -561,43 +561,43 @@ datasets:
     name: Crunchbase startup and funding data
     provider: Crunchbase, Inc.
     access: licensed-commercial
-    page: licensed/crunchbase
+    page: commercial/crunchbase
     note: Startup characteristics, funding rounds, and investor data; commercial database (free tier limited).
   msci-real-estate:
     name: MSCI real estate index and investor yield data
     provider: MSCI (formerly IPD)
     access: licensed-commercial
-    page: licensed/msci-real-estate
+    page: commercial/msci-real-estate
     note: Real estate total-return and rental-yield benchmarks.
   global-financial-data:
     name: Global Financial Data (GFD)
     provider: Global Financial Data, Inc.
     access: licensed-commercial
-    page: licensed/global-financial-data
+    page: commercial/global-financial-data
     note: Long-run cross-country stock, bond, and macro series; commercial subscription.
   venturesource:
     name: VentureSource venture-capital data
     provider: Dow Jones / CB Insights
     access: licensed-commercial
     note: VC fund characteristics, financing rounds, and startup locations.
-    page: licensed/venturesource
+    page: commercial/venturesource
   datastream:
     name: Refinitiv Datastream
     provider: LSEG / Refinitiv
     access: licensed-commercial
     note: Cross-market price, yield, and macro time series.
-    page: licensed/datastream
+    page: commercial/datastream
   cerved:
     name: Cerved Italian company financials
     provider: Cerved Group
     access: licensed-commercial
-    page: licensed/cerved
+    page: commercial/cerved
     note: Balance-sheet and income-statement data for Italian incorporated companies.
   aha-annual-survey:
     name: AHA Annual Survey Database
     provider: American Hospital Association
     access: licensed-commercial
-    page: licensed/aha-annual-survey
+    page: commercial/aha-annual-survey
     note: Hospital services, operations, and system-affiliation data; licensed from the AHA.
 
   # ---- proprietary-confidential: supervisory, administrative-registry,
@@ -606,12 +606,12 @@ datasets:
     name: 401(k) plan administrative records
     provider: Private plan recordkeeper (confidential)
     access: proprietary-confidential
-    page: datasets/401k-admin
+    page: confidential/401k-admin
   bank-proprietary:
     name: Proprietary retail bank customer data (Germany)
     provider: Anonymous German bank (confidential)
     access: proprietary-confidential
-    page: datasets/bank-proprietary
+    page: confidential/bank-proprietary
     note: >-
       Individual-level customer records (product holdings, wealth, income,
       equity participation) from a single bank under a confidential agreement.
@@ -619,7 +619,7 @@ datasets:
     name: Bilendi commissioned online survey (Germany)
     provider: Bilendi (panel provider), commissioned by the authors
     access: proprietary-confidential
-    page: datasets/bilendi-survey
+    page: confidential/bilendi-survey
     note: >-
       Author-commissioned representative survey with individual-level
       responses; not an off-the-shelf product.
@@ -627,7 +627,7 @@ datasets:
     name: Equifax consumer-credit records
     provider: Equifax
     access: proprietary-confidential
-    page: datasets/equifax-credit
+    page: confidential/equifax-credit
     note: >-
       Individual-level credit microdata (e.g. via the FRBNY Consumer Credit
       Panel); restricted PII, not an off-the-shelf purchase for research.
@@ -635,7 +635,7 @@ datasets:
     name: FDIC construction-loan servicing records (single failed bank)
     provider: U.S. Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
-    page: datasets/fdic-construction-loans
+    page: confidential/fdic-construction-loans
     note: >-
       Loan-level servicing data (terms, draw requests, inspection reports,
       borrower identifiers, outcomes) for one failed bank held by the FDIC.
@@ -643,7 +643,7 @@ datasets:
     name: FDIC confidential supervisory and account-level deposit data
     provider: U.S. Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
-    page: datasets/fdic-supervisory
+    page: confidential/fdic-supervisory
     note: >-
       Account-level deposit microdata, enforcement actions, and brokered-deposit
       waivers; restricted supervisory access.
@@ -652,24 +652,24 @@ datasets:
     provider: Federal Reserve Board
     access: proprietary-confidential
     note: Confidential supervisory data.
-    page: datasets/fr-y14q
+    page: confidential/fr-y14q
   iab-establishment-panel:
     name: IAB Establishment Panel
     provider: Institute for Employment Research (IAB), Germany
     access: proprietary-confidential
-    page: datasets/iab-establishment-panel
+    page: confidential/iab-establishment-panel
     note: Confidential, accessed on-site or via remote execution at the FDZ.
   ieb-germany:
     name: Integrated Employment Biographies (IEB)
     provider: Institute for Employment Research (IAB), Germany
     access: proprietary-confidential
-    page: datasets/ieb-germany
+    page: confidential/ieb-germany
     note: Confidential German administrative labor records (FDZ access).
   indifi-loan-applications:
     name: Indifi FinTech loan application records (India)
     provider: Indifi Technologies (confidential)
     access: proprietary-confidential
-    page: datasets/indifi-loan-applications
+    page: confidential/indifi-loan-applications
     note: >-
       Loan-level applications with payment-transaction history, applicant
       characteristics, credit-bureau data, and outcomes from a single lender.
@@ -677,7 +677,7 @@ datasets:
     name: NMLS Mortgage Call Report
     provider: Conference of State Bank Supervisors (NMLS)
     access: proprietary-confidential
-    page: datasets/mcr-nmls
+    page: confidential/mcr-nmls
     note: >-
       Aggregate statistics are published, but the company-level Mortgage Call
       Report used in research is obtained under restricted regulatory terms.
@@ -685,7 +685,7 @@ datasets:
     name: Retail online broker account data (Germany)
     provider: Anonymous German online broker (confidential)
     access: proprietary-confidential
-    page: datasets/online-broker
+    page: confidential/online-broker
     note: >-
       Individual-level retail investor holdings, trades, and returns from a
       single broker under a confidential agreement.
@@ -693,7 +693,7 @@ datasets:
     name: SLI private meeting notes and fund records (abrdn / Standard Life)
     provider: Standard Life Investments / abrdn (confidential)
     access: proprietary-confidential
-    page: datasets/sli-private-meetings
+    page: confidential/sli-private-meetings
     note: >-
       Single-counterparty internal records: meeting notes, analyst ratings,
       fund holdings, and daily trades, shared under a confidential agreement.
@@ -701,7 +701,7 @@ datasets:
     name: Spain Central de Informacion de Riesgos (CIR) credit register
     provider: Banco de Espana (confidential)
     access: proprietary-confidential
-    page: datasets/spain-cir
+    page: confidential/spain-cir
     note: >-
       Loan-level credit register of all corporate loans by Spanish banks;
       confidential supervisory access through the central bank.
@@ -709,72 +709,72 @@ datasets:
     name: Statistics Norway (SSB) administrative registers
     provider: Statistics Norway (SSB)
     access: proprietary-confidential
-    page: datasets/statistics-norway
+    page: confidential/statistics-norway
     note: Aggregate tables are public; the linked registry microdata is restricted.
   vps-norway:
     name: Norwegian Central Securities Depository holdings (VPS)
     provider: Euronext Securities Oslo (VPS)
     access: proprietary-confidential
-    page: datasets/vps-norway
+    page: confidential/vps-norway
     note: Individual-level securities holdings; restricted research access.
   discount-window-confidential:
     name: Federal Reserve discount window lending records
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/discount-window-confidential
+    page: confidential/discount-window-confidential
     note: Loan-level primary-credit borrowing; supervisory, released only with a long lag.
   fed-funds-confidential:
     name: Confidential federal funds transaction data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/fed-funds-confidential
+    page: confidential/fed-funds-confidential
   fedwire:
     name: Fedwire Funds Service transaction data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/fedwire
+    page: confidential/fedwire
     note: Bank-to-bank payment-level records; restricted supervisory access.
   nic-fed:
     name: National Information Center (NIC) supervisory data
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/nic-fed
+    page: confidential/nic-fed
     note: Confidential CAMELS composite and component ratings plus BHC ownership and listing history.
   stbl-fed:
     name: Survey of Terms of Business Lending (STBL)
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/stbl-fed
+    page: confidential/stbl-fed
     note: Confidential loan-level C&I risk ratings (1 to 5 scale), 1997 to 2012.
   tsp-user-list:
     name: Technology service provider user list
     provider: Confidential (bank-TSP relationships)
     access: proprietary-confidential
-    page: datasets/tsp-user-list
+    page: confidential/tsp-user-list
     note: Confidential identification of banks using the attacked third-party technology service provider.
   dtcc:
     name: DTCC commercial paper transaction data
     provider: DTCC Solutions LLC (confidential)
     access: proprietary-confidential
-    page: datasets/dtcc
+    page: confidential/dtcc
     note: Transaction-level commercial paper issuance (issuer, volume, rate, maturity); restricted, not an off-the-shelf feed.
   fr2420:
     name: FR 2420 Report of Selected Money Market Rates
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/fr2420
+    page: confidential/fr2420
     note: Confidential transaction-level fed funds, Eurodollar, and CD rates collected from banks and FBOs.
   fr2644:
     name: FR 2644 Weekly Report of Selected Assets and Liabilities
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/fr2644
+    page: confidential/fr2644
     note: Confidential weekly bank balance-sheet data for domestic banks and FBO branches.
   banorte-experiment:
     name: Banorte bank-account panel and savings field experiment (Mexico)
     provider: Banorte (confidential)
     access: proprietary-confidential
-    page: datasets/banorte-experiment
+    page: confidential/banorte-experiment
     note: >-
       Individual-level checking, credit-card, and transaction records for
       millions of customers from a single bank, plus a randomized savings
@@ -783,7 +783,7 @@ datasets:
     name: Italian Credit Register (Centrale dei Rischi)
     provider: Bank of Italy (confidential)
     access: proprietary-confidential
-    page: datasets/bank-of-italy-credit-register
+    page: confidential/bank-of-italy-credit-register
     note: >-
       Firm-bank loan quantities and interest rates above a reporting
       threshold; confidential supervisory access through the central bank.
@@ -793,7 +793,7 @@ datasets:
     name: LISA longitudinal register (Statistics Sweden)
     provider: Statistics Sweden (SCB)
     access: proprietary-confidential
-    page: datasets/lisa-sweden
+    page: confidential/lisa-sweden
     note: >-
       Individual-level annual labor-market, income, transfer, education, and
       wealth records for all Swedish residents; restricted administrative
@@ -802,7 +802,7 @@ datasets:
     name: Structural Business Statistics (FEK, Statistics Sweden)
     provider: Statistics Sweden (SCB)
     access: proprietary-confidential
-    page: datasets/fek-sweden
+    page: confidential/fek-sweden
     note: Firm-level employment, payroll, productivity, and balance-sheet microdata; restricted administrative access.
 
   # ---- JF 80(3) batch ----
@@ -838,13 +838,13 @@ datasets:
     name: Clarity Services alternative-credit bureau
     provider: Clarity Services (Experian)
     access: licensed-commercial
-    page: licensed/clarity-services
+    page: commercial/clarity-services
     note: Loan-level records on payday, installment, and other subprime/alternative credit products from a specialty credit bureau; obtained under a commercial research licence.
   equifax:
     name: Equifax consumer credit data
     provider: Equifax
     access: licensed-commercial
-    page: licensed/equifax
+    page: commercial/equifax
     note: Individual-level traditional credit-bureau records (installment and revolving balances, limits, credit scores, balances in good standing); obtained under a commercial research licence.
 
   # ---- JF 80(2)+80(1) batch ----
@@ -907,9 +907,9 @@ datasets:
     provider: MSCI (formerly KLD Research & Analytics)
     access: licensed-commercial
     note: Firm-level environmental, social, and governance strength/concern ratings for U.S. public firms; licensed, commonly accessed via WRDS.
-    page: licensed/kld
+    page: commercial/kld
   markit:
-    page: licensed/markit
+    page: commercial/markit
     name: Markit (IHS Markit) bond pricing (composite quotes)
     provider: IHS Markit (S&P Global)
     access: licensed-commercial
@@ -919,39 +919,39 @@ datasets:
     provider: OptionMetrics
     access: licensed-commercial
     note: Daily option prices, implied volatilities, and Greeks for U.S.-listed equities; licensed, commonly accessed via WRDS.
-    page: licensed/optionmetrics
+    page: commercial/optionmetrics
   refinitiv-transcripts:
     name: Refinitiv (LSEG) earnings-call transcripts
     provider: Refinitiv / LSEG
     access: licensed-commercial
-    page: licensed/refinitiv-transcripts
+    page: commercial/refinitiv-transcripts
     note: Transcripts of analyst-management conference calls; obtained under a commercial data licence.
   siblis-research:
     name: Siblis Research index-constituent and market-value data
     provider: Siblis Research
     access: licensed-commercial
     note: Historical S&P 500 / MidCap 400 / SmallCap 600 addition and deletion dates and constituent market values; sold by subscription.
-    page: licensed/siblis-research
+    page: commercial/siblis-research
   fr-2052a:
     name: FR 2052a Complex Institution Liquidity Monitoring Report
     provider: Federal Reserve (confidential)
     access: proprietary-confidential
-    page: datasets/fr-2052a
+    page: confidential/fr-2052a
     note: Confidential bank liquidity-flow reporting (inflows, outflows, funding by counterparty and maturity); restricted supervisory access.
   fr2004c:
     name: FR 2004C Weekly Government Securities Dealer positions (dealer-level)
     provider: Federal Reserve Bank of New York (confidential)
     access: proprietary-confidential
-    page: datasets/fr2004c
+    page: confidential/fr2004c
     note: Confidential dealer-level positions and financing for primary government securities dealers; only aggregates are published.
   ficc-gcf-repo:
     name: FICC GCF Repo Service data (dealer-level)
     provider: DTCC / FICC via FRBNY (confidential)
     access: proprietary-confidential
-    page: datasets/ficc-gcf-repo
+    page: confidential/ficc-gcf-repo
     note: Dealer-level daily interdealer general-collateral repo and reverse repo by asset class; licensed through the FRBNY under restricted terms.
   fha:
-    page: datasets/fha
+    page: confidential/fha
     name: FHA single-family loan-level data (confidential)
     provider: U.S. Department of Housing and Urban Development (confidential)
     access: proprietary-confidential
@@ -960,19 +960,19 @@ datasets:
     name: FDIC failed-bank bidding and resolution records
     provider: Federal Deposit Insurance Corporation (confidential)
     access: proprietary-confidential
-    page: datasets/fdic-failed-bank
+    page: confidential/fdic-failed-bank
     note: Proprietary bid-level records for resolved bank failures (bidder identities, bid terms, loss-share claims); restricted FDIC access.
   osfi-canada:
     name: OSFI federally regulated lender administrative data (Canada)
     provider: Office of the Superintendent of Financial Institutions (Canada)
     access: proprietary-confidential
-    page: datasets/osfi-canada
+    page: confidential/osfi-canada
     note: Contract-level mortgage records (lender identity, loan size, rate, amortization, LTV, debt-service ratio) for federally regulated Canadian lenders; restricted supervisory access (via Bank of Canada).
   transunion-canada:
     name: TransUnion credit bureau data (Canada)
     provider: TransUnion Canada (confidential research access)
     access: proprietary-confidential
-    page: datasets/transunion-canada
+    page: confidential/transunion-canada
     note: Monthly population-wide individual credit-bureau records (borrower characteristics, mortgage identity, switching, inquiries); restricted research access, not an off-the-shelf purchase.
 
   # ---- RFS hhaf (2025) batch ----
@@ -986,7 +986,7 @@ datasets:
     name: SteelBenchmarker steel price index
     provider: World Steel Dynamics / American Metal Market
     access: licensed-commercial
-    page: licensed/steelbenchmarker
+    page: commercial/steelbenchmarker
     note: Biweekly reference prices for hot-rolled band, cold-rolled coil, and other steel products; current spot reports are free but the full historical product-level series is a subscription product (the source paper calls it a proprietary price database).
   cra-ffiec:
     name: Community Reinvestment Act (CRA) disclosure data
@@ -1010,25 +1010,25 @@ datasets:
     name: China Stock Market & Accounting Research (CSMAR) database
     provider: GTA Information Technology
     access: licensed-commercial
-    page: licensed/csmar
+    page: commercial/csmar
     note: Vendor database of Chinese listed-firm prices, financials, and market microstructure; obtained under a commercial / institutional licence.
   china-shadow-margin:
     name: China shadow-margin (off-exchange) lending data (single provider)
     provider: Undisclosed large shadow-margin platform (confidential)
     access: proprietary-confidential
-    page: datasets/china-shadow-margin
+    page: confidential/china-shadow-margin
     note: Daily stock-level off-exchange ("shadow") margin balances from one large lending platform (about 5% of the market), used for the 2015 bust analysis; a single private counterparty's records, not purchasable off the shelf.
   bureau-van-dijk-zephyr:
     name: Bureau van Dijk Zephyr (M&A and deals)
     provider: Moody's / Bureau van Dijk
     access: licensed-commercial
     note: Global database of M&A, IPO, private-equity, and venture deals; obtained under a commercial vendor licence.
-    page: licensed/bureau-van-dijk-zephyr
+    page: commercial/bureau-van-dijk-zephyr
   ztrax:
     name: Zillow Transaction and Assessment Dataset (ZTRAX)
     provider: Zillow
     access: licensed-commercial
-    page: licensed/ztrax
+    page: commercial/ztrax
     note: Property-level transactions and assessor records; was distributed free to academics under a Zillow data-use agreement (program discontinued 2023), not an open download.
   maryland-judiciary:
     name: Maryland Judiciary Case Search records
@@ -1046,19 +1046,19 @@ datasets:
     name: INSEE DADS matched employer-employee data (France)
     provider: INSEE (via CASD)
     access: proprietary-confidential
-    page: datasets/insee-dads
+    page: confidential/insee-dads
     note: Administrative declarations linking French workers to establishments (earnings, occupation, hours); restricted access through the CASD secure data centre.
   insee-lifi:
     name: INSEE LIFI financial linkages between firms (France)
     provider: INSEE (via CASD)
     access: proprietary-confidential
-    page: datasets/insee-lifi
+    page: confidential/insee-lifi
     note: Administrative survey of ownership and control links among French firms (group structure); restricted access through the CASD secure data centre.
   insee-tax-files:
     name: INSEE firm tax and accounting files (France)
     provider: INSEE / DGFiP (via CASD)
     access: proprietary-confidential
-    page: datasets/insee-tax-files
+    page: confidential/insee-tax-files
     note: Administrative firm-level tax and accounting records (balance sheets, income statements); restricted access through the CASD secure data centre.
 
   # ---- JFE 2026 batch ----
@@ -1066,7 +1066,7 @@ datasets:
     name: CRSP Survivor-Bias-Free US Mutual Fund Database
     provider: CRSP (University of Chicago)
     access: licensed-commercial
-    page: licensed/crsp-mutual-funds
+    page: commercial/crsp-mutual-funds
     note: Monthly returns, holdings, fees, and characteristics for US mutual funds; obtained through a CRSP / WRDS subscription.
   factset:
     name: FactSet financial data

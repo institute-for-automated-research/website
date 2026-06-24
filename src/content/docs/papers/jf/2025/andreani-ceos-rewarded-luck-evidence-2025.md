@@ -241,10 +241,10 @@ where:
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| ExecuComp, S&P Capital IQ People Intelligence, ISS Incentive Lab | CEO and CFO total compensation, fixed salary, discretionary pay; CEO age and tenure | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat North America (annual) | Deferred tax assets (txndba), deferred tax liabilities (txndbl), total assets (at), book equity, ROA, CAPX, dividends, share repurchases, leverage, sales | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| CRSP monthly and daily | Market value of equity, stock returns, trading volume, daily returns for illiquidity and nonzero return days | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| I/B/E/S (Institutional Brokers' Estimate System) | Analyst coverage (number of equity research analysts with EPS forecasts) | [WRDS / I/B/E/S](/wiki/licensed/wrds/) (licensed) |
+| ExecuComp, S&P Capital IQ People Intelligence, ISS Incentive Lab | CEO and CFO total compensation, fixed salary, discretionary pay; CEO age and tenure | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat North America (annual) | Deferred tax assets (txndba), deferred tax liabilities (txndbl), total assets (at), book equity, ROA, CAPX, dividends, share repurchases, leverage, sales | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| CRSP monthly and daily | Market value of equity, stock returns, trading volume, daily returns for illiquidity and nonzero return days | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| I/B/E/S (Institutional Brokers' Estimate System) | Analyst coverage (number of equity research analysts with EPS forecasts) | [WRDS / I/B/E/S](/wiki/commercial/wrds/) (licensed) |
 | Federal Election Commission (FEC) campaign finance database | CEO personal political donations (Republican vs. Democratic leanings) | No page yet |
 | Boardex | Board structure (independence of directors, CEO-Chairman separation) | No page yet |
 | FactSet | Share ownership data (institutional shareholders, blockholder presence) | No page yet |

@@ -338,7 +338,7 @@ approximately 0.445-0.447\*\*\*) consistent with the main results.
 | Datastream (Refinitiv) | 1-month fed-funds futures; 3-month HIBOR futures; LIBOR historical series (USD) | [no page yet](/wiki/datasets/) |
 | Bloomberg | Historical USD-denominated LIBOR series used for placebo test (Figure 3, bottom-left panel) | [no page yet](/wiki/datasets/) |
 | SHIBOR (Shanghai Interbank Offered Rate) | Mainland China interbank rate; placebo test confirming capital controls prevent Fed passthrough | [no page yet](/wiki/datasets/) |
-| I/B/E/S via WRDS | EPS forecasts for dual-listed firms from Hong Kong and Mainland China brokers; used in robustness (Appendix B) | [WRDS](/wiki/licensed/wrds/) |
+| I/B/E/S via WRDS | EPS forecasts for dual-listed firms from Hong Kong and Mainland China brokers; used in robustness (Appendix B) | [WRDS](/wiki/commercial/wrds/) |
 | FactSet GeoRev | Firm-level US export revenue share; used to rule out the cash-flow channel in robustness (Appendix A) | [no page yet](/wiki/datasets/) |
 | China Foreign Exchange Trade System (CFETS) | HKD-CNY and USD-CNY 6-month forward exchange rates; used to rule out exchange-rate channel (Appendix C) | [no page yet](/wiki/datasets/) |
 

@@ -351,16 +351,16 @@ $$
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP Mutual Fund Database | Fund characteristics (TNA, turnover ratio, returns, flows, expense ratios); mutual fund sample construction (98,252 fund-years) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Thomson Reuters s12 (mutual fund holdings) | Quarterly equity holdings for mutual funds; portfolio ESG construction | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Thomson Reuters s34 (13f institutions) | Quarterly equity holdings for 13f institutions; 166,185 institution-year observations | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| MSCI ESG STATs (formerly KLD) | Annual positive/negative ESG indicators for firm-years; primary ESG scoring; 26,217 firm-years | [KLD / MSCI ESG](/wiki/licensed/kld/) (licensed) |
+| CRSP Mutual Fund Database | Fund characteristics (TNA, turnover ratio, returns, flows, expense ratios); mutual fund sample construction (98,252 fund-years) | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Thomson Reuters s12 (mutual fund holdings) | Quarterly equity holdings for mutual funds; portfolio ESG construction | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Thomson Reuters s34 (13f institutions) | Quarterly equity holdings for 13f institutions; 166,185 institution-year observations | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| MSCI ESG STATs (formerly KLD) | Annual positive/negative ESG indicators for firm-years; primary ESG scoring; 26,217 firm-years | [KLD / MSCI ESG](/wiki/commercial/kld/) (licensed) |
 | Refinitiv ESG (formerly ASSET4) | Alternative ESG scores for robustness (2009-2017 subsample); used as instrument in 2SLS | no page yet |
 | Sustainalytics ESG | Alternative ESG scores for robustness (2009-2017); used as instrument in 2SLS | no page yet |
-| Compustat annual fundamentals | Book-to-market, profitability, dividend yield; firm-level controls | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| CRSP daily/monthly stock data | Market capitalization, stock turnover, past returns, return volatility | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| I/B/E/S | Analyst earnings forecasts; second measure of earnings surprise for Table VII | [I/B/E/S](/wiki/licensed/ibes/) (licensed) |
-| RepRisk | Negative environmental and social (ES) incident data; used in ES-incident trading tests (Table VIII) | [RepRisk](/wiki/licensed/reprisk/) (licensed) |
+| Compustat annual fundamentals | Book-to-market, profitability, dividend yield; firm-level controls | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| CRSP daily/monthly stock data | Market capitalization, stock turnover, past returns, return volatility | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| I/B/E/S | Analyst earnings forecasts; second measure of earnings surprise for Table VII | [I/B/E/S](/wiki/commercial/ibes/) (licensed) |
+| RepRisk | Negative environmental and social (ES) incident data; used in ES-incident trading tests (Table VIII) | [RepRisk](/wiki/commercial/reprisk/) (licensed) |
 | SEC EDGAR (N-CSR/N-CSRS filings) | Mutual fund shareholder reports; bag-of-words ESG mention analysis (Table III) | [EDGAR](/wiki/datasets/edgar/) |
 | Bushee institutional investor classifications | Transient/dedicated/quasi-indexer classification from Bushee (1998); supplemental horizon measure for 13f institutions | no page yet |
 | Climate Change News Index (CCNI) | Engle et al. (2020) index of WSJ climate reporting intensity; clientele-catering test (Table XII) | no page yet |

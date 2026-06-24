@@ -238,7 +238,7 @@ The key empirical exercise is computing the posterior distribution of crash beli
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Global Financial Data (GFD) | Annual stock total return indices (price level + monthly reinvested dividends) for 55 countries, 1920-2020; the main source for all return data | [no page yet](/wiki/datasets/) |
-| CRSP (U.S.) | U.S. total return series (replaces GFD U.S. series with CRSP proxy for S&P 500 universe) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP (U.S.) | U.S. total return series (replaces GFD U.S. series with CRSP proxy for S&P 500 universe) | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | Robert Shiller historical data | Used to calibrate the informative hyperprior: one crash in U.S. data 1870-1920 | no page yet |
 
 Sample: 55 countries, unbalanced annual panel from 1920 to March 2020. Crashes defined as annual return below -30%. Several markets experience total loss episodes (nationalization, wartime closure) treated as -100% returns following Bialkowski and Ronn (2016).

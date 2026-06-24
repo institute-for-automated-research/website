@@ -22,11 +22,15 @@ served as both human pages and raw `.md`, and explicitly open to LLM crawlers.
   provenance; read the full paper to replicate or extend it.
   Openly-licensed sources are also mirrored, machine-accessible, in the
   [Open Library](/library).
-- **[Free datasets](/wiki/datasets/)**: public data sources for finance and
-  economics research, with working access recipes and gotchas, distilled from
-  what the ZeroPaper pipeline actually runs.
-- **[Licensed academic access](/wiki/licensed/)**: the paywalled core
-  (WRDS/CRSP/Compustat) and what the free sources can and cannot substitute.
+- **[Openly available datasets](/wiki/datasets/)**: free, downloadable data
+  sources for finance and economics research, with working access recipes and
+  gotchas, distilled from what the ZeroPaper pipeline actually runs.
+- **[Commercial datasets](/wiki/commercial/)**: the paywalled core
+  (WRDS/CRSP/Compustat) and the vendor feeds you can buy, plus what the open
+  sources can and cannot substitute.
+- **[Confidential datasets](/wiki/confidential/)**: supervisory and
+  administrative microdata that is not purchasable at all, documented with its
+  access conditions and gotchas.
 - **[Browse by tag](/wiki/tags/)**: every page cross-indexed by topic,
   method, access, data shape, source, and status.
 

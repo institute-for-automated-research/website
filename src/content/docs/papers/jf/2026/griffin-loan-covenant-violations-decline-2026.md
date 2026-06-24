@@ -371,11 +371,11 @@ residual. Standard errors via delta method.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Compustat (WRDS) | Firm financials, firm-year sample construction (85,876 firm-years, 9,618 firms, 1997-2019) | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| Compustat (WRDS) | Firm financials, firm-year sample construction (85,876 firm-years, 9,618 firms, 1997-2019) | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR (10-K and 10-Q filings) | Hand-collected covenant violation disclosures; loan amendment exhibits | [EDGAR](/wiki/datasets/edgar/) |
-| Dealscan (WRDS) | Loan package and covenant data; covenant strictness measure; lender characteristics (17,724 packages, 5,258 firms) | [DealScan](/wiki/licensed/dealscan/) (licensed) |
-| CRSP (WRDS) | Stock price and shares outstanding for sample filters and controls | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Moody's Ultimate Recovery Database (URD) | Creditor recovery rates for 403 corporate defaults, 1997-2020 | [Moody's URD](/wiki/licensed/moodys-urd/) (licensed) |
+| Dealscan (WRDS) | Loan package and covenant data; covenant strictness measure; lender characteristics (17,724 packages, 5,258 firms) | [DealScan](/wiki/commercial/dealscan/) (licensed) |
+| CRSP (WRDS) | Stock price and shares outstanding for sample filters and controls | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Moody's Ultimate Recovery Database (URD) | Creditor recovery rates for 403 corporate defaults, 1997-2020 | [Moody's URD](/wiki/commercial/moodys-urd/) (licensed) |
 | Audit Analytics | Bankruptcy filings cross-check for false-negative identification | no page yet |
 | UCLA-LoPucki Bankruptcy Research Database | Bankruptcy filing dates for false-negative classification | [LoPucki BRD](/wiki/datasets/lopucki-brd/) |
 

@@ -234,8 +234,8 @@ The two testable empirical implications offered for future work are: (a) bank ca
 |---|---|---|
 | IMF International Financial Statistics | Country-year corporate debt/GDP for Japan (1990-2005) and US (2020-2023) | No page yet |
 | FRED (Federal Reserve Bank of St. Louis) | Country-quarter bank lending and bond market shares; quarterly GDP growth rates | [FRED](/wiki/datasets/fred/) |
-| Compustat North America | Firm-year EBIT and Revenue for large US firms (2020-2023) | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat Global | Firm-year EBIT and Revenue for large Japanese firms (1990-2005) | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| Compustat North America | Firm-year EBIT and Revenue for large US firms (2020-2023) | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat Global | Firm-year EBIT and Revenue for large Japanese firms (1990-2005) | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 
 Sample: Japan crisis defined as 1990-2005 (Caballero, Hoshi, and Kashyap (2008)); US COVID crisis defined as March 2020 to May 2023.
 

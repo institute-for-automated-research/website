@@ -258,14 +258,14 @@ The paper's headline empirical tests are:
 |---|---|---|
 | EPA Toxic Release Inventory (TRI) | Plant-chemical-level toxic emissions (total pollution, pollution intensity, abatement activities); 2000-2020; 1,056,361 plant-chemical-year obs | [EPA TRI](/wiki/datasets/epa-tri/) |
 | SDC Mergers and Acquisitions database | Divestitures and spin-offs of industrial plants; 888 pollutive deals 2000-2020 | [no page yet] |
-| KLD / MSCI ESG database | ESG ratings (CSR Score, Environmental Score); coverage of public U.S. firms | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| RepRisk ESG Business Intelligence | Environmental, social, governance risk incidents; starting 2007 | [RepRisk](/wiki/licensed/reprisk/) (licensed) |
+| KLD / MSCI ESG database | ESG ratings (CSR Score, Environmental Score); coverage of public U.S. firms | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| RepRisk ESG Business Intelligence | Environmental, social, governance risk incidents; starting 2007 | [RepRisk](/wiki/commercial/reprisk/) (licensed) |
 | MIT Election Data and Science Lab | County-level presidential vote share for Democratic HQ classification | [no page yet] |
 | Thomson Reuters Street Events (SE) | Conference call transcripts; management presentations; starting 2001 | [no page yet] |
 | EPA Enforcement and Compliance History Online (ECHO) | EPA enforcement actions and compliance costs | [no page yet] |
-| Compustat (WRDS) | Firm financials (Q, Leverage, Cash Holdings, Tangibility); segment data; ownership structure | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| CRSP (WRDS) | Equity returns for announcement CARs and market capitalization | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Factset / Compustat Segment | Supply chain relationships | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| Compustat (WRDS) | Firm financials (Q, Leverage, Cash Holdings, Tangibility); segment data; ownership structure | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| CRSP (WRDS) | Equity returns for announcement CARs and market capitalization | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Factset / Compustat Segment | Supply chain relationships | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Orbis | Subsidiary and organizational layer data | [no page yet] |
 | 13-F filings (SEC) | Institutional investor holdings (pension funds, blockholders) | [EDGAR](/wiki/datasets/edgar/) |
 

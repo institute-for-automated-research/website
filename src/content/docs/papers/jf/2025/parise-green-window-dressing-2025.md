@@ -338,10 +338,10 @@ clientele (50% retail asset cutoff). 3,795 observations (Table VII, p. 3580).
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP mutual fund data (returns, portfolio holdings, TNA, turnover) | Fund returns, portfolio holdings, quarterly disclosure events, fund characteristics | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
+| CRSP mutual fund data (returns, portfolio holdings, TNA, turnover) | Fund returns, portfolio holdings, quarterly disclosure events, fund characteristics | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
 | Morningstar sustainability ratings and fund identifiers | ESG fund classification, five-globe sustainability rating outcome variable, fund category | No page yet |
 | Morningstar U.S. Sustainability Total Return Index (MSEGUSTU) | ESG factor ($$ESG_t$$) in two-factor fund-return regressions | No page yet |
-| Trucost CO2 emissions | Pollution factor (robustness: pollution exposure before disclosure, Table IA.X) | [Trucost](/wiki/licensed/trucost/) (licensed) |
+| Trucost CO2 emissions | Pollution factor (robustness: pollution exposure before disclosure, Table IA.X) | [Trucost](/wiki/commercial/trucost/) (licensed) |
 | Kenneth French data library | Daily market factor ($$MKT_t$$), Fama-French factors in robustness tests | [Ken French library](/wiki/datasets/ken-french/) |
 | SEC EDGAR N-PORT filings | Mandated quarterly portfolio disclosure dates | [SEC EDGAR](/wiki/datasets/edgar/) |
 

@@ -66,6 +66,13 @@ const AXES: { label: string; tags: string[] }[] = [
 ];
 
 const docs = await getCollection('docs');
+
+// Dataset pages live in one directory per access tier (issue #34): openly
+// available (datasets/), commercial/, confidential/. Both the verification axis
+// and the documented-slug set treat all three as dataset pages.
+const DATASET_DIRS = ['datasets/', 'commercial/', 'confidential/'];
+const isDatasetPage = (id: string) => DATASET_DIRS.some((p) => id.startsWith(p));
+
 const byTag = new Map<string, { title: string; description: string; href: string }[]>();
 for (const d of docs) {
   for (const t of d.data.tags ?? []) {
@@ -84,7 +91,7 @@ for (const d of docs) {
 // can never claim more than the block asserts. Papers are excluded; they carry
 // their own provenance ladder via extraction[].role.
 for (const d of docs) {
-  if (!(d.id.startsWith('datasets/') || d.id.startsWith('licensed/'))) continue;
+  if (!isDatasetPage(d.id)) continue;
   if (d.id.endsWith('/index')) continue;
   const v = d.data.verified;
   const vt = !v
@@ -148,7 +155,7 @@ for (const a of AXES) {
 // data:msci-esg), so a deliberate shared page never reads as a permanent gap.
 const datasetPageSlugs = new Set(
   docs
-    .filter((d) => d.id.startsWith('datasets/') || d.id.startsWith('licensed/'))
+    .filter((d) => isDatasetPage(d.id))
     .flatMap((d) => [
       d.id.replace(/\/?index$/, '').split('/').pop(),
       ...(d.data.tags ?? [])

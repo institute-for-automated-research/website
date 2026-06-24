@@ -253,9 +253,9 @@ N = 574 observations from 89 executives at 57 firms (those with active five-year
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Bloomberg Professional (hand-collected platform activity) | Primary effort measure: minute-by-minute online status for 2,734 executives (2017-2020), matched to 252 named executives at public firms | No page yet |
-| CRSP monthly stock returns and market data | Stock returns for CAR computation; market capitalization for value-weighting | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat quarterly fundamentals | Firm characteristics (size, leverage, Tobin's Q, productivity, EPS) | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
-| I/B/E/S (IBES) earnings estimates | EPS actuals and forecasts for SUE construction | [WRDS / IBES](/wiki/licensed/wrds/) (licensed) |
+| CRSP monthly stock returns and market data | Stock returns for CAR computation; market capitalization for value-weighting | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat quarterly fundamentals | Firm characteristics (size, leverage, Tobin's Q, productivity, EPS) | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
+| I/B/E/S (IBES) earnings estimates | EPS actuals and forecasts for SUE construction | [WRDS / IBES](/wiki/commercial/wrds/) (licensed) |
 | SEC EDGAR (insider trading filings) | Executive open-market purchases and sales (Form 4) for insider trading controls | [SEC EDGAR](/wiki/datasets/edgar/) |
 | DataStream (CDS spreads) | Five-year CDS spread data for 57 firms | No page yet |
 | ISS Incentive Lab | Compensation contract data (proxy statements) for 252 executives at 174 firms | No page yet |

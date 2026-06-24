@@ -190,14 +190,14 @@ as a whole.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| Bloomberg (spot rates, FX forwards, OIS rates, futures prices, Treasury yields, inflation swaps, CDS via Markit) | Construction of all 32 arbitrage spreads; FX CIP, equity spot-futures, Treasury spot-futures, Treasury-swap, TIPS-Treasury series | [Bloomberg](/wiki/licensed/bloomberg/) (licensed) |
+| Bloomberg (spot rates, FX forwards, OIS rates, futures prices, Treasury yields, inflation swaps, CDS via Markit) | Construction of all 32 arbitrage spreads; FX CIP, equity spot-futures, Treasury spot-futures, Treasury-swap, TIPS-Treasury series | [Bloomberg](/wiki/commercial/bloomberg/) (licensed) |
 | van Binsbergen, Diamond & Grotteria (2019) box rates extended by authors using CBOE SPX options data | Equity options (box arbitrage) spreads at 6-, 12-, 18-month tenors | No page yet |
-| Markit (cash bond and CDS pricing) | CDS-bond basis construction for IG and HY bonds | [Markit bond pricing](/wiki/licensed/markit/) / [Markit CDS](/wiki/licensed/markit-cds/) (licensed) |
+| Markit (cash bond and CDS pricing) | CDS-bond basis construction for IG and HY bonds | [Markit bond pricing](/wiki/commercial/markit/) / [Markit CDS](/wiki/commercial/markit-cds/) (licensed) |
 | CFTC Commitments of Traders (Traders in Financial Futures, weekly) | Quantities data on positions by dealer, hedge fund, and asset-manager type for futures-based trades | [CFTC COT](/wiki/datasets/cftc-cot/) |
-| Crane data / SEC Form N-MFP | MMF total net assets and holdings, for MMF reform analysis | [Crane Data](/wiki/licensed/crane-mmf/) (licensed) |
-| Preqin Pro Hedge Fund Database | Hedge fund returns data; fixed-income arbitrage strategy flag | [Preqin](/wiki/licensed/preqin/) (licensed) |
+| Crane data / SEC Form N-MFP | MMF total net assets and holdings, for MMF reform analysis | [Crane Data](/wiki/commercial/crane-mmf/) (licensed) |
+| Preqin Pro Hedge Fund Database | Hedge fund returns data; fixed-income arbitrage strategy flag | [Preqin](/wiki/commercial/preqin/) (licensed) |
 | Federal Reserve yield curve models (Gurkaynak, Sack, Wright 2007/2010) | Zero-coupon constant-maturity Treasury and TIPS yields for TIPS-Treasury arbitrage | No page yet |
-| CRSP / Compustat (via WRDS) | Supporting equity holdings data (Y-9C bank trading book filings cited; CRSP implied for stock characteristics) | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP / Compustat (via WRDS) | Supporting equity holdings data (Y-9C bank trading book filings cited; CRSP implied for stock characteristics) | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Coalition Greenwich / S&P (qualitative) | JPMorgan equity derivatives market share since 2015 (cited contextual fact) | No page yet |
 
 The CIP spread construction and FX arbitrage measurement follow the

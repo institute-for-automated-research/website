@@ -200,12 +200,12 @@ attention by *buying hedge funds*.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | Proprietary Internet news-reading data ("Data Partner", anonymized analytics firm), Nov 2017–Jun 2022 | The attention measure itself | Proprietary; not public or redistributable; no page |
-| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | [RavenPack](/wiki/licensed/ravenpack/) (licensed) |
-| FactSet LionShares | Institutional holdings (13-F), institution classification | [FactSet LionShares](/wiki/licensed/factset-lionshares/) (licensed) |
-| CRSP & Compustat | Returns, fundamentals, stock characteristics | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| RavenPack 1.0 | News topic / subject / sentiment; stock-ticker mapping | [RavenPack](/wiki/commercial/ravenpack/) (licensed) |
+| FactSet LionShares | Institutional holdings (13-F), institution classification | [FactSet LionShares](/wiki/commercial/factset-lionshares/) (licensed) |
+| CRSP & Compustat | Returns, fundamentals, stock characteristics | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
 | VIX (CBOE) | Aggregate-volatility measure (VIX²) | [FRED](/wiki/datasets/fred/), free, series `VIXCLS` |
 | SEC Form ADV, Form N-1A | Fund descriptions for classification | [Form ADV](/wiki/datasets/form-adv/) (via SEC IAPD, *not* EDGAR); [N-1A](/wiki/datasets/edgar/#form-n-1a-open-end-fund-registration) via SEC EDGAR |
-| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | [Revelio Labs](/wiki/licensed/revelio/) (licensed) |
+| LinkedIn / Revelio Labs | Fund human capital (advanced-degree share) for R3 | [Revelio Labs](/wiki/commercial/revelio/) (licensed) |
 
 Sample: 481,820,400 fund-firm-quarters; 4,075 distinct funds.
 

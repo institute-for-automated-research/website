@@ -306,14 +306,14 @@ and Yuan (2019).
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| FactSet Revere supply-chain linkages | Global firm-to-firm customer-supplier relations 2007-2023; identifies U.S. suppliers of BIS-targeted Chinese firms | [FactSet Revere](/wiki/licensed/factset-revere/) |
+| FactSet Revere supply-chain linkages | Global firm-to-firm customer-supplier relations 2007-2023; identifies U.S. suppliers of BIS-targeted Chinese firms | [FactSet Revere](/wiki/commercial/factset-revere/) |
 | BIS Entity List, MEU List, UVL (hand-collected) | Export control targets; hand-collected additions and removals of Chinese entities from federalregister.gov and ecfr.gov with dates and aliases | no page yet |
-| CRSP daily stock file | U.S. equity prices and returns for event-study CAR estimation | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| Compustat North America fundamentals (annual) | Firm-level balance sheet characteristics (assets, revenues, employment, CapEx) | [WRDS](/wiki/licensed/wrds/) (licensed) |
+| CRSP daily stock file | U.S. equity prices and returns for event-study CAR estimation | [WRDS](/wiki/commercial/wrds/) (licensed) |
+| Compustat North America fundamentals (annual) | Firm-level balance sheet characteristics (assets, revenues, employment, CapEx) | [WRDS](/wiki/commercial/wrds/) (licensed) |
 | Ken French Data Library | Fama-French 3- and 5-factor daily returns for beta estimation | [Ken French library](/wiki/datasets/ken-french/) |
-| Federal Reserve Y-14Q (CCAR) | Confidential quarterly loan-level data for 331 U.S. firms borrowing from 38 large banks, 2012:Q3-2023:Q3 | [FR Y-14Q](/wiki/datasets/fr-y14q/) |
+| Federal Reserve Y-14Q (CCAR) | Confidential quarterly loan-level data for 331 U.S. firms borrowing from 38 large banks, 2012:Q3-2023:Q3 | [FR Y-14Q](/wiki/confidential/fr-y14q/) |
 | Refinitiv (Chinese stock prices) | Daily stock price data for publicly listed Chinese firms targeted by export controls | no page yet |
-| S&P Capital IQ | International firm balance sheet data (EBIT, revenues) for 6,068 suppliers of targeted Chinese firms | [Capital IQ](/wiki/licensed/capital-iq/) |
+| S&P Capital IQ | International firm balance sheet data (EBIT, revenues) for 6,068 suppliers of targeted Chinese firms | [Capital IQ](/wiki/commercial/capital-iq/) |
 | Mingshi | Chinese stock market 3-factor and 4-factor model returns for Chinese-side CAR estimation | no page yet |
 
 Sample: U.S. supply-chain panel 2007-2023 (up to Q3); bank-lending sample 2012:Q3-2023:Q3; stock event study 250 events, 156 unique affected U.S. suppliers.

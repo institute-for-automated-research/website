@@ -280,7 +280,7 @@ All regressions include time fixed effects. Standard errors are clustered at the
 | FR 2644 Weekly Report (Selected Assets and Liabilities) | Weekly bank balance sheet data for U.S.-based entities (domestic banks and FBO branches); key asset and liability categories | No page yet |
 | Federal Reserve Board reserve balance data | Daily excess reserve balances by bank; used to construct IOER arbitrage position proxy | No page yet |
 | N-MFP (SEC Monthly Schedule of Portfolio Holdings) | Month-end MMF portfolio holdings at security level; AUM per fund; used to construct Bartik shares and shifts | [Form N-MFP](/wiki/datasets/n-mfp/) |
-| Dealscan (Refinitiv) | Dollar-denominated syndicated loan origination by sample banks (lead arranger credit); used to test loan supply response | [DealScan](/wiki/licensed/dealscan/) (licensed) |
+| Dealscan (Refinitiv) | Dollar-denominated syndicated loan origination by sample banks (lead arranger credit); used to test loan supply response | [DealScan](/wiki/commercial/dealscan/) (licensed) |
 | SNL Financial | Bank holding company total assets in 2014 for normalization; also credit ratings and CET1 ratios | No page yet |
 | Bloomberg (JPY OIS rates) | Dollar-yen OIS rates at granular maturities to construct swapped yen rate and CIP arbitrage profit | No page yet |
 

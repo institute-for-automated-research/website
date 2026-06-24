@@ -352,8 +352,8 @@ SDF weights (Figure C.6, p. 2502).
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| CRSP monthly stock returns and market data | Portfolio returns, market cap, momentum, short-term reversal, idiosyncratic volatility | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
-| Compustat annual fundamentals | Book-to-market, investment, operating profitability, accruals, turnover, long-term reversal | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP monthly stock returns and market data | Portfolio returns, market cap, momentum, short-term reversal, idiosyncratic volatility | [WRDS / CRSP](/wiki/commercial/wrds/) (licensed) |
+| Compustat annual fundamentals | Book-to-market, investment, operating profitability, accruals, turnover, long-term reversal | [WRDS / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Kenneth French Data Library | 10 firm-specific characteristic definitions (Table A.I); Fama-French factor returns for benchmarking (FF3, FF5) | [Ken French library](/wiki/datasets/ken-french/) |
 | One-month Treasury bill rate | Proxy for the risk-free rate | No page yet |
 

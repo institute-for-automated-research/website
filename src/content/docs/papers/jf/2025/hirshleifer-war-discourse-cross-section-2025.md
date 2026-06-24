@@ -185,8 +185,8 @@ news rather than opinion articles.
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | *New York Times* full text, Jan 1871–Oct 2019 (~7M articles) | Source corpus for sLDA topic modelling; constructs the *War* index | no page yet; proprietary/licensed archive |
-| CRSP monthly stock returns and characteristics | Returns for all six test-asset sets; underlying portfolio construction data | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
-| Compustat | Firm fundamentals for anomaly characteristic construction | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
+| CRSP monthly stock returns and characteristics | Returns for all six test-asset sets; underlying portfolio construction data | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
+| Compustat | Firm fundamentals for anomaly characteristic construction | [WRDS / CRSP / Compustat](/wiki/commercial/wrds/) (licensed) |
 | Hou, Xue & Zhang (2020) HXZ anomaly portfolios (138 long-short, 1,372 single-sorted) | Primary test-asset sets; Jul 1972–Dec 2016 | no page yet; available from HXZ replication files |
 | Chen & Zimmermann (2022) single-sorted portfolios (904) | Third test-asset set; available from open-source-asset-pricing project | [Open Source Asset Pricing](/wiki/datasets/open-source-asset-pricing/) |
 | Bryzgalova, Huang & Julliard (2023) ML-based nonlinear portfolios (360) | Fourth test-asset set; tree-based nonlinear portfolios | no page yet |
