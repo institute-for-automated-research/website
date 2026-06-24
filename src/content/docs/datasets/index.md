@@ -161,6 +161,12 @@ they read as unverified per the Verified discipline.
 | **Siblis Research** | S&P/Nasdaq index addition-deletion dates and values | [Siblis Research](/wiki/licensed/siblis-research/) |
 | **Optimal Blue** | Mortgage rate-locks and real-time lender offers | [Optimal Blue](/wiki/licensed/optimal-blue/) |
 | **RateWatch** | Branch-level posted deposit and CD rates (weekly) | [RateWatch](/wiki/licensed/ratewatch/) |
+| **BvD Zephyr** | Global M&A, IPO, and PE/VC deals, linked to Orbis | [BvD Zephyr](/wiki/licensed/bureau-van-dijk-zephyr/) |
+| **VentureSource** | VC funds, financing rounds, startup locations | [VentureSource](/wiki/licensed/venturesource/) |
+| **NYT archive** | Full-text New York Times corpus (text-as-data) | [NYT archive](/wiki/licensed/nyt-news/) |
+| **LexisNexis court** | U.S. court filings and public records | [LexisNexis court](/wiki/licensed/lexisnexis-court/) |
+| **Ancestry records** | Death indexes and genealogical records | [Ancestry records](/wiki/licensed/ancestry-death-records/) |
+| **Getty CEO photos** | Dated executive press photos for facial measures | [Getty CEO photos](/wiki/licensed/gettyimages-ceo-photos/) |
 
 ## Confidential: restricted access
 

@@ -375,6 +375,7 @@ datasets:
     name: LexisNexis court records
     provider: LexisNexis
     access: licensed-commercial
+    page: licensed/lexisnexis-court
   markit-cds:
     page: licensed/markit-cds
     name: Markit CDS pricing
@@ -404,6 +405,7 @@ datasets:
     name: New York Times article archive
     provider: The New York Times
     access: licensed-commercial
+    page: licensed/nyt-news
   optimal-blue:
     name: Optimal Blue mortgage rate-lock data
     provider: Optimal Blue (Constellation Software)
@@ -484,6 +486,7 @@ datasets:
     provider: Ancestry.com
     access: licensed-commercial
     note: Individual-level death records via paid subscription; used to date executive mortality.
+    page: licensed/ancestry-death-records
   capital-iq:
     name: S&P Capital IQ
     provider: S&P Global Market Intelligence
@@ -505,6 +508,7 @@ datasets:
     provider: Getty Images
     access: licensed-commercial
     note: Licensed press photographs of CEOs; used to construct apparent-age measures.
+    page: licensed/gettyimages-ceo-photos
   markit-quanto:
     name: Markit quanto and cross-currency quotes
     provider: S&P Global (IHS Markit)
@@ -572,6 +576,7 @@ datasets:
     provider: Dow Jones / CB Insights
     access: licensed-commercial
     note: VC fund characteristics, financing rounds, and startup locations.
+    page: licensed/venturesource
   datastream:
     name: Refinitiv Datastream
     provider: LSEG / Refinitiv
@@ -1012,6 +1017,7 @@ datasets:
     provider: Moody's / Bureau van Dijk
     access: licensed-commercial
     note: Global database of M&A, IPO, private-equity, and venture deals; obtained under a commercial vendor licence.
+    page: licensed/bureau-van-dijk-zephyr
   ztrax:
     name: Zillow Transaction and Assessment Dataset (ZTRAX)
     provider: Zillow
