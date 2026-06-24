@@ -147,6 +147,14 @@ they read as unverified per the Verified discipline.
 | **CSMAR** | Chinese listed-firm prices, financials, ownership | [CSMAR](/wiki/licensed/csmar/) |
 | **MSCI Real Estate** | Property total-return indices and rental yields (IPD) | [MSCI Real Estate](/wiki/licensed/msci-real-estate/) |
 | **Refinitiv transcripts** | Earnings-call transcripts for textual analysis | [Refinitiv transcripts](/wiki/licensed/refinitiv-transcripts/) |
+| **Markit Securities Finance** | Stock borrow fees, utilization, lendable supply | [Markit Securities Finance](/wiki/licensed/markit-securities-finance/) |
+| **Markit quanto** | Cross-currency quanto quotes (FX-equity covariance) | [Markit quanto](/wiki/licensed/markit-quanto/) |
+| **Blue Chip Forecasts** | Professional forecaster rate/GDP survey | [Blue Chip Forecasts](/wiki/licensed/blue-chip-forecasts/) |
+| **Consensus Economics** | Cross-country macro & FX forecast surveys | [Consensus Economics](/wiki/licensed/consensus-economics/) |
+| **Cerved** | Italian company financials (incl. private firms) | [Cerved](/wiki/licensed/cerved/) |
+| **Clarity Services** | Subprime/alternative-credit bureau (payday, installment) | [Clarity Services](/wiki/licensed/clarity-services/) |
+| **Equifax** | Traditional consumer credit-bureau records | [Equifax](/wiki/licensed/equifax/) |
+| **InfoUSA / Data Axle** | Establishment listings: location, industry, employment | [InfoUSA / Data Axle](/wiki/licensed/infousa/) |
 
 ## Confidential: restricted access
 

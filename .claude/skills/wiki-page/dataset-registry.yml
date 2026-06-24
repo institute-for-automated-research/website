@@ -303,6 +303,7 @@ datasets:
     name: Blue Chip Financial Forecasts survey
     provider: Wolters Kluwer
     access: licensed-commercial
+    page: licensed/blue-chip-forecasts
     note: Commercial subscription survey of professional forecasters' interest-rate and GDP projections.
   cboe-options:
     name: CBOE options data
@@ -366,6 +367,7 @@ datasets:
     name: InfoUSA / Data Axle business and consumer files
     provider: Data Axle (formerly InfoUSA)
     access: licensed-commercial
+    page: licensed/infousa
   lexisnexis-court:
     name: LexisNexis court records
     provider: LexisNexis
@@ -379,6 +381,7 @@ datasets:
     name: Markit Securities Finance (securities lending)
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
+    page: licensed/markit-securities-finance
   moodys-urd:
     name: Moody's Ultimate Recovery Database
     provider: Moody's Analytics
@@ -490,6 +493,7 @@ datasets:
     name: Consensus Economics forecast surveys
     provider: Consensus Economics Inc.
     access: licensed-commercial
+    page: licensed/consensus-economics
     note: Subscription panel of professional macro and exchange-rate forecasts.
   gettyimages-ceo-photos:
     name: Getty Images executive photographs
@@ -500,6 +504,7 @@ datasets:
     name: Markit quanto and cross-currency quotes
     provider: S&P Global (IHS Markit)
     access: licensed-commercial
+    page: licensed/markit-quanto
     note: Quanto quotes used to extract the quanto-implied risk premium.
   morningstar:
     name: Morningstar fund and sustainability data
@@ -572,6 +577,7 @@ datasets:
     name: Cerved Italian company financials
     provider: Cerved Group
     access: licensed-commercial
+    page: licensed/cerved
     note: Balance-sheet and income-statement data for Italian incorporated companies.
   aha-annual-survey:
     name: AHA Annual Survey Database
@@ -817,11 +823,13 @@ datasets:
     name: Clarity Services alternative-credit bureau
     provider: Clarity Services (Experian)
     access: licensed-commercial
+    page: licensed/clarity-services
     note: Loan-level records on payday, installment, and other subprime/alternative credit products from a specialty credit bureau; obtained under a commercial research licence.
   equifax:
     name: Equifax consumer credit data
     provider: Equifax
     access: licensed-commercial
+    page: licensed/equifax
     note: Individual-level traditional credit-bureau records (installment and revolving balances, limits, credit scores, balances in good standing); obtained under a commercial research licence.
 
   # ---- JF 80(2)+80(1) batch ----
