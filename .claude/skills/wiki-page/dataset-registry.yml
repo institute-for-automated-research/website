@@ -1060,3 +1060,106 @@ datasets:
     access: proprietary-confidential
     page: datasets/insee-tax-files
     note: Administrative firm-level tax and accounting records (balance sheets, income statements); restricted access through the CASD secure data centre.
+
+  # ---- JFE 2026 batch ----
+  crsp-mutual-funds:
+    name: CRSP Survivor-Bias-Free US Mutual Fund Database
+    provider: CRSP (University of Chicago)
+    access: licensed-commercial
+    page: licensed/crsp-mutual-funds
+    note: Monthly returns, holdings, fees, and characteristics for US mutual funds; obtained through a CRSP / WRDS subscription.
+  factset:
+    name: FactSet financial data
+    provider: FactSet Research Systems
+    access: licensed-commercial
+    note: Commercial market, fundamentals, ownership, and reference-data platform; obtained under a vendor licence. (Distinct from the factset-revere supply-chain and factset-lionshares ownership products.)
+  refinitiv:
+    name: Refinitiv (LSEG) financial data
+    provider: LSEG / Refinitiv
+    access: licensed-commercial
+    note: Commercial market, security, and reference-data feed (formerly Thomson Reuters); obtained under a vendor licence.
+  cnrds:
+    name: Chinese Research Data Services Platform (CNRDS)
+    provider: CNRDS
+    access: licensed-commercial
+    note: Vendor database of Chinese listed-firm financial, governance, and market data; obtained under an institutional licence.
+  wind:
+    name: Wind financial database (China)
+    provider: Wind Information
+    access: licensed-commercial
+    note: Commercial Chinese financial-data terminal and database (prices, fundamentals, macro); obtained under a vendor licence.
+  firstrate:
+    name: FirstRate Data intraday market prices
+    provider: FirstRate Data
+    access: licensed-commercial
+    note: Minute- and 5-minute-level historical equity prices sold as a commercial historical-data product.
+  mingshi:
+    name: Mingshi Chinese equity factor returns
+    provider: Mingshi Investment
+    access: proprietary-confidential
+    note: Three- and four-factor model returns for the Chinese stock market from a single quantitative asset manager; obtained directly from the firm, not a purchasable off-the-shelf product.
+  faircent:
+    name: Faircent peer-to-peer lending platform data (India)
+    provider: Faircent (confidential platform data)
+    access: proprietary-confidential
+    note: Lender-borrower-loan triads with loan terms, delinquency, robo-advice adoption, and individual demographics (name, state, date of birth, occupation) from one Indian P2P platform; a single private platform's individual-level records, not purchasable off the shelf.
+  barber-odean-brokerage:
+    name: Large discount brokerage trading records (Barber-Odean)
+    provider: Undisclosed large US discount broker (confidential)
+    access: proprietary-confidential
+    note: Account-level trades and positions for tens of thousands of retail investor accounts, 1991-1996, obtained from a single brokerage under non-disclosure; a private counterparty's records, not purchasable off the shelf.
+  spf:
+    name: Survey of Professional Forecasters (SPF)
+    provider: Federal Reserve Bank of Philadelphia
+    access: public
+    note: Quarterly survey of macroeconomic forecasts from professional forecasters; freely downloadable from the Philadelphia Fed.
+  livingston:
+    name: Livingston Survey
+    provider: Federal Reserve Bank of Philadelphia
+    access: public
+    note: Semiannual survey of professional economists' forecasts; freely downloadable from the Philadelphia Fed.
+  sce:
+    name: Survey of Consumer Expectations (SCE)
+    provider: Federal Reserve Bank of New York
+    access: public
+    note: Monthly survey of household expectations (inflation, income, spending, housing); freely published by the New York Fed.
+  research-affiliates:
+    name: Research Affiliates Asset Allocation expected returns / CAPE
+    provider: Research Affiliates
+    access: public
+    note: Long-horizon expected returns and CAPE-based valuation measures for global asset classes; published openly via Research Affiliates' Asset Allocation Interactive tool.
+  bis-entity-list:
+    name: BIS Entity List (US export controls)
+    provider: U.S. Bureau of Industry and Security (Commerce)
+    access: public
+    note: Published list of foreign parties subject to US export-licence requirements; openly available in the Federal Register and on the BIS website.
+  google-trends:
+    name: Google Trends search-interest index
+    provider: Google
+    access: public
+    note: Normalized search-interest index by term, geography, and time; freely available from the Google Trends website.
+  hkma:
+    name: Hong Kong Monetary Authority statistics
+    provider: Hong Kong Monetary Authority
+    access: public
+    note: Official monetary, banking, and interest-rate statistics published openly by the HKMA.
+  shibor:
+    name: Shanghai Interbank Offered Rate (SHIBOR)
+    provider: National Interbank Funding Center (China)
+    access: public
+    note: Daily benchmark interbank lending rates for China; published openly at shibor.org.
+  cboe-vix:
+    name: CBOE Volatility Index (VIX / VXO)
+    provider: Chicago Board Options Exchange (Cboe)
+    access: public
+    note: Daily implied-volatility index for the S&P 500; freely downloadable from Cboe (and mirrored on FRED).
+  newsbank-newspaper-archive:
+    name: Historical newspaper archives (ProQuest / NewsBank)
+    provider: ProQuest / NewsBank
+    access: licensed-commercial
+    note: Full-text historical archives of major US newspapers; subscription databases used to count articles (e.g., for the Equity Market Volatility tracker). The derived EMV tracker is itself freely published at policyuncertainty.com, but rebuilding it from the underlying text requires these licensed archives.
+  cma-weather:
+    name: China Meteorological Administration daily weather data
+    provider: China Meteorological Administration (CMA)
+    access: public
+    note: Daily city-level weather (wind speed, rain volume) published by the CMA; used to instrument air-quality readings.

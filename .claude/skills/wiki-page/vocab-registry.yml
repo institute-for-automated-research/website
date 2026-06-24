@@ -186,6 +186,9 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   extended-kalman-filter:
     def: Nonlinear state-space estimation method that approximates the Kalman filter via first-order Taylor expansion of nonlinear measurement equations; used for maximum-likelihood estimation of structural models.
     aliases: [ekf]
+  unscented-kalman-filter:
+    def: Nonlinear state-space estimator that propagates the state distribution through observation and transition equations via deterministic sigma points, avoiding the linearization error of the extended Kalman filter.
+    aliases: [ukf, sigma-point-kalman-filter]
   gamma-zero-processes:
     def: Discrete-time non-negative jump processes built as sums of exponentially distributed jumps with a Poisson count; provide closed-form affine pricing formulas for credit and liquidity events.
     aliases: [varg, gamma-zero]
@@ -542,6 +545,24 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   cost-of-capital:
     def: Opportunity cost of capital deployed in validation, mining, or investment determines security or participation levels; the channel through which capital efficiency differences across protocols or instruments affect equilibrium outcomes.
     aliases: [capital-opportunity-cost, validation-cost-channel]
+  option-to-wait-deterrence:
+    def: Uncertainty raises the option value of waiting for irreversible investments; when policy or subsidy payoffs become more uncertain, the waiting premium rises and investment falls.
+    aliases: [irreversibility-channel, wait-and-see, investment-under-uncertainty]
+  demand-disagreement:
+    def: Disagreement about the future mix of investor types drives speculative savings demand, generating time-varying bond risk premia and yield volatility independent of macroeconomic fundamentals.
+    aliases: [demand-uncertainty, savings-demand-disagreement]
+  supply-chain-rigidity:
+    def: Rigidity in customer or supplier relations prevents affected firms from quickly substituting alternative partners, amplifying the collateral costs of trade policy shocks.
+    aliases: [supply-chain-friction, customer-substitution-rigidity]
+  social-coordination:
+    def: Social media publicly aggregates and broadcasts concerns, enabling rapid coordination on withdrawal decisions and amplifying run risks by lowering the threshold for a coordinated run.
+    aliases: [depositor-coordination, social-media-coordination]
+  team-self-selection:
+    def: The less-biased team member disproportionately takes decision authority in group choices, attenuating the transmission of individual behavioral biases into collective outcomes.
+    aliases: [belief-aggregation-self-selection, team-leadership-selection]
+  uniform-pricing-conduct:
+    def: Multi-branch firms set a single network-wide price rather than optimizing locally, decoupling local market concentration from pricing outcomes and creating network-wide spillovers from any ownership change.
+    aliases: [network-wide-pricing, uniform-price-setting]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
