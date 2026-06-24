@@ -139,14 +139,22 @@ for (const a of AXES) {
     a.tags = [...byTag.keys()].filter((t) => t.startsWith('year:')).sort().reverse();
 }
 
-// Discovery backlog: a `data:<slug>` with no dataset page of that slug means a
+// Discovery backlog: a `data:<slug>` with no dataset page documenting it means a
 // paper cites a dataset we have not documented yet. Flag those so finding one
 // in a paper turns straight into a "page to write", both at build time and on
-// the page itself.
+// the page itself. A slug counts as documented if a dataset/licensed page is
+// named that slug OR self-tags `data:<slug>` — the latter lets one page cover
+// several slugs of the same lineage (e.g. kld.md documents both data:kld and
+// data:msci-esg), so a deliberate shared page never reads as a permanent gap.
 const datasetPageSlugs = new Set(
   docs
     .filter((d) => d.id.startsWith('datasets/') || d.id.startsWith('licensed/'))
-    .map((d) => d.id.replace(/\/?index$/, '').split('/').pop())
+    .flatMap((d) => [
+      d.id.replace(/\/?index$/, '').split('/').pop(),
+      ...(d.data.tags ?? [])
+        .filter((t) => t.startsWith('data:'))
+        .map((t) => t.slice(5)),
+    ])
 );
 const wanted = new Set(dataTags.filter((t) => !datasetPageSlugs.has(t.slice(5))));
 if (wanted.size)
