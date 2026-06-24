@@ -167,6 +167,13 @@ they read as unverified per the Verified discipline.
 | **LexisNexis court** | U.S. court filings and public records | [LexisNexis court](/wiki/licensed/lexisnexis-court/) |
 | **Ancestry records** | Death indexes and genealogical records | [Ancestry records](/wiki/licensed/ancestry-death-records/) |
 | **Getty CEO photos** | Dated executive press photos for facial measures | [Getty CEO photos](/wiki/licensed/gettyimages-ceo-photos/) |
+| **AHA Annual Survey** | U.S. hospital services, beds, operations, system affiliation | [AHA Annual Survey](/wiki/licensed/aha-annual-survey/) |
+| **Moody's URD** | Creditor recovery rates at resolution of corporate defaults | [Moody's URD](/wiki/licensed/moodys-urd/) |
+| **Rystad Energy** | Asset-level global oil and gas production, costs, reserves | [Rystad Energy](/wiki/licensed/rystad/) |
+| **SteelBenchmarker** | Biweekly reference prices for steel products | [SteelBenchmarker](/wiki/licensed/steelbenchmarker/) |
+| **StockTwits** | Ticker-tagged retail social-media messages and sentiment | [StockTwits](/wiki/licensed/stocktwits/) |
+| **Titlon (OSE)** | Oslo Stock Exchange prices, returns, accounting (Nordic academic) | [Titlon (OSE)](/wiki/licensed/titlon-ose/) |
+| **ZTRAX** | Zillow property deeds and assessor records (discontinued 2023) | [ZTRAX](/wiki/licensed/ztrax/) |
 
 ## Confidential: restricted access
 

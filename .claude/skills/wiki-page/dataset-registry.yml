@@ -390,6 +390,7 @@ datasets:
     name: Moody's Ultimate Recovery Database
     provider: Moody's Analytics
     access: licensed-commercial
+    page: licensed/moodys-urd
   msci-esg:
     name: MSCI ESG ratings (KLD STATS / IVA)
     provider: MSCI ESG Research (formerly KLD)
@@ -447,6 +448,7 @@ datasets:
     name: Rystad Energy database
     provider: Rystad Energy
     access: licensed-commercial
+    page: licensed/rystad
   sdc-platinum:
     name: SDC Platinum (M&A, new issues)
     provider: LSEG / Refinitiv
@@ -456,10 +458,12 @@ datasets:
     name: StockTwits social-media messages
     provider: StockTwits Inc.
     access: licensed-commercial
+    page: licensed/stocktwits
   titlon-ose:
     name: Titlon Oslo Stock Exchange financial data
     provider: UiT The Arctic University of Norway (Titlon)
     access: licensed-commercial
+    page: licensed/titlon-ose
     note: Free to Nordic academic users but credential-gated, not openly public.
   trace:
     page: licensed/trace
@@ -593,6 +597,7 @@ datasets:
     name: AHA Annual Survey Database
     provider: American Hospital Association
     access: licensed-commercial
+    page: licensed/aha-annual-survey
     note: Hospital services, operations, and system-affiliation data; licensed from the AHA.
 
   # ---- proprietary-confidential: supervisory, administrative-registry,
@@ -981,6 +986,7 @@ datasets:
     name: SteelBenchmarker steel price index
     provider: World Steel Dynamics / American Metal Market
     access: licensed-commercial
+    page: licensed/steelbenchmarker
     note: Biweekly reference prices for hot-rolled band, cold-rolled coil, and other steel products; current spot reports are free but the full historical product-level series is a subscription product (the source paper calls it a proprietary price database).
   cra-ffiec:
     name: Community Reinvestment Act (CRA) disclosure data
@@ -1022,6 +1028,7 @@ datasets:
     name: Zillow Transaction and Assessment Dataset (ZTRAX)
     provider: Zillow
     access: licensed-commercial
+    page: licensed/ztrax
     note: Property-level transactions and assessor records; was distributed free to academics under a Zillow data-use agreement (program discontinued 2023), not an open download.
   maryland-judiciary:
     name: Maryland Judiciary Case Search records
