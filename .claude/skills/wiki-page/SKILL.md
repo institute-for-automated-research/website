@@ -128,6 +128,16 @@ block.
   parallel-safe; they never author dataset pages mid-batch, because a page needs
   a live-verification pass a parallel distiller cannot run. Draining the
   newly-arisen datasets is the orchestrator's closing step, after the batch.)
+- **Backfill the paper-side link when the page lands.** A distiller writes
+  `no page yet` in the citing paper's *Datasets used* table for an undocumented
+  source. When you add that dataset page, replace that cell with a link to it
+  (`[Name](/wiki/<datasets|licensed>/<slug>/)`), so the page→paper link (already
+  on the new dataset page and in the `data:<slug>` tag graph) is matched by a
+  paper→page link instead of a dangling `no page yet`. One page can document
+  several slugs of one lineage (e.g. `kld.md` covers `data:kld` and
+  `data:msci-esg`); point every citing row at it. The undocumented-dataset build
+  warning keys on `data:<slug>` self-tags, not filenames, so a deliberate shared
+  page never reads as a permanent gap.
 - Adding a `data:` axis or verification rung needs no `TagIndex.astro` edit; the
   Dataset and Verification axes are derived from usage at build time.
 

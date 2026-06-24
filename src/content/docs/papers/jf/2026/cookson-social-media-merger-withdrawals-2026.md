@@ -331,7 +331,7 @@ a Wald t-statistic.
 
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
-| StockTwits (260M posts, Jan 2010–Dec 2021, proprietary via Social Market Analytics / direct) | Primary social media sentiment measure (AbnSent); 6,438 M&A deals matched | No page yet |
+| StockTwits (260M posts, Jan 2010–Dec 2021, proprietary via Social Market Analytics / direct) | Primary social media sentiment measure (AbnSent); 6,438 M&A deals matched | [StockTwits](/wiki/licensed/stocktwits/) (licensed) |
 | SDC Platinum (Thomson Reuters) | M&A deal universe (announcement dates, deal values, completion/withdrawal status, deal characteristics) | [SDC Platinum](/wiki/licensed/sdc-platinum/) (licensed) |
 | CRSP | Stock returns for acquirer and target CARs; Fama-French three-factor model inputs | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |
 | Compustat North America | Acquirer firm controls (market cap, leverage, cash holdings, M/B ratio) | [WRDS / CRSP / Compustat](/wiki/licensed/wrds/) (licensed) |

@@ -254,7 +254,7 @@ estimates.
 | Compustat | Revenues and employment for publicly traded firms | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |
 | InfoUSA | Firm-level county employment counts | no page yet |
 | American Community Survey (ACS), 2010-2019 | Occupation and county employment distributions for worker surplus estimation | [ACS](/wiki/datasets/acs/) |
-| Rystad Energy | Oil production and operating expenses for the seven oil supermajors across all oil fields worldwide (2018) | no page yet |
+| Rystad Energy | Oil production and operating expenses for the seven oil supermajors across all oil fields worldwide (2018) | [Rystad Energy](/wiki/licensed/rystad/) (licensed) |
 | U.S. EPA supply-chain CO2 emission factors (Ingwersen and Li 2020) | Production externalities from CO2 emissions | [EPA Supply Chain GHG](/wiki/datasets/us-epa-supply-chain/) |
 | Piketty, Saez and Zucman (2018) distributional national accounts | After-tax income distribution for social marginal welfare weights | no page yet |
 | C-corporation ownership data (Piketty et al. 2018) | Profit distribution across income percentiles | no page yet |

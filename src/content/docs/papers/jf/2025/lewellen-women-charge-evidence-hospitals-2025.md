@@ -334,7 +334,7 @@ Table VIII).
 | Dataset | Role in paper | Wiki page |
 |---|---|---|
 | IRS Form 990 filings (via Candid/Guidestar 1999-2014; IRS website 2015-2018) | Primary source for hospital financials, CEO/officer names, titles, salaries, board composition; 2000-2018 | [IRS Form 990](/wiki/datasets/irs-form-990/) |
-| AHA Annual Survey Database (Dartmouth Institute, 2000-2018) | Hospital services, operations, system affiliation | no page yet |
+| AHA Annual Survey Database (Dartmouth Institute, 2000-2018) | Hospital services, operations, system affiliation | [AHA Annual Survey](/wiki/licensed/aha-annual-survey/) (licensed) |
 | Healthcare Cost Report Information System (HCRIS / CMS, 2011-2018) | Charity Care and Uninsured Discounts spending | [HCRIS](/wiki/datasets/hcris/) |
 | Dartmouth Atlas of Health Care | Hospital Service Area (HSA) geographic market definitions; demographic characteristics from 2010 U.S. Census | [Dartmouth Atlas](/wiki/datasets/dartmouth-atlas/) |
 | CMS patient outcome metrics (mortality, readmissions, patient satisfaction) | Nonfinancial hospital performance proxies used in supplementary tests; available from 2008-2009 | [CMS quality](/wiki/datasets/cms-quality/) |

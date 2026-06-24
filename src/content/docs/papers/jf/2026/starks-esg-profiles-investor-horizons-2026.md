@@ -354,7 +354,7 @@ $$
 | CRSP Mutual Fund Database | Fund characteristics (TNA, turnover ratio, returns, flows, expense ratios); mutual fund sample construction (98,252 fund-years) | [WRDS / CRSP](/wiki/licensed/wrds/) (licensed) |
 | Thomson Reuters s12 (mutual fund holdings) | Quarterly equity holdings for mutual funds; portfolio ESG construction | [WRDS](/wiki/licensed/wrds/) (licensed) |
 | Thomson Reuters s34 (13f institutions) | Quarterly equity holdings for 13f institutions; 166,185 institution-year observations | [WRDS](/wiki/licensed/wrds/) (licensed) |
-| MSCI ESG STATs (formerly KLD) | Annual positive/negative ESG indicators for firm-years; primary ESG scoring; 26,217 firm-years | no page yet |
+| MSCI ESG STATs (formerly KLD) | Annual positive/negative ESG indicators for firm-years; primary ESG scoring; 26,217 firm-years | [KLD / MSCI ESG](/wiki/licensed/kld/) (licensed) |
 | Refinitiv ESG (formerly ASSET4) | Alternative ESG scores for robustness (2009-2017 subsample); used as instrument in 2SLS | no page yet |
 | Sustainalytics ESG | Alternative ESG scores for robustness (2009-2017); used as instrument in 2SLS | no page yet |
 | Compustat annual fundamentals | Book-to-market, profitability, dividend yield; firm-level controls | [WRDS / Compustat](/wiki/licensed/wrds/) (licensed) |

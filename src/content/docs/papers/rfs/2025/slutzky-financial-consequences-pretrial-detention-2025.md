@@ -232,7 +232,7 @@ First-stage F-stat: 10,004. N = 306,722.
 |---|---|---|
 | Maryland Judiciary public access database | Criminal case records: 1.08 million cases 2000-2016; commissioner ID, release decisions, bail types, charge categories | [Maryland Judiciary](/wiki/datasets/maryland-judiciary/) |
 | PACER (Public Access to Court Electronic Records) | Consumer bankruptcy filings 2000-2011: 318,000 filings in Maryland; chapter 7 and chapter 13 type, filing date, address | [PACER](/wiki/datasets/pacer-bankruptcy/) |
-| ZTRAX (Zillow Transaction and Assessment Database) | Real estate transactions 1993-2020: 9 million Maryland transactions; foreclosure events post-2007, property-level matching | No page yet |
+| ZTRAX (Zillow Transaction and Assessment Database) | Real estate transactions 1993-2020: 9 million Maryland transactions; foreclosure events post-2007, property-level matching | [ZTRAX](/wiki/licensed/ztrax/) (licensed) |
 | Maryland Judiciary civil court records | Judgment lien filings 2000-2020: 386,938 lien filings; plaintiff/defendant address, filing date | [Maryland Judiciary](/wiki/datasets/maryland-judiciary/) |
 | Federal Housing Finance Agency HPI | ZIP-code-level annual house price index; used to split sample into negative/positive HPI growth subsamples | No page yet |
 
