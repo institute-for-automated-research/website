@@ -6,7 +6,10 @@
 // where `cite` is a human author-year string and most edges have no `doi`. This
 // script resolves each cite to a REAL DOI by matching author surnames + year
 // against the paper's actual OpenAlex reference list (openalex.py refs <doi>),
-// then (with --write) inserts `doi: '<doi>'` right after the cite field.
+// then (with --write) inserts `doi: '<doi>'` into the edge: inline after the
+// cite field for flow-style edges (`- { cite: ... }`), or as a sibling `doi:`
+// line for block-style edges (`- cite: ...` on its own line) so the result
+// stays valid YAML either way.
 //
 // Discipline: a wrong DOI silently corrupts the citation graph, so a DOI is
 // assigned ONLY on an unambiguous match (year aligns AND the first-author
@@ -146,7 +149,7 @@ for (const f of files) {
   // DOIs already present on this page; never assign one twice (two cites ->
   // one DOI is a fuzzy-match collision, e.g. Tsoy 2018/2019 -> the same ref).
   const used = new Set(edges.filter((e) => e.doi).map((e) => e.doi.toLowerCase()));
-  let edited = false;
+  const inserts = {}; // lineNo -> doi; the write is deferred to one rebuild pass below
   for (const e of edges) {
     total++;
     if (e.hasDoi) { hadDoi++; continue; }
@@ -160,12 +163,7 @@ for (const f of files) {
       if (m.status === 'matched') matched++; else fuzzy++;
       used.add(m.doi.toLowerCase());
       console.log(`  ${m.status === 'matched' ? 'OK ' : '~1y'} ${name}  "${e.cite}" -> ${m.doi}  [${m.title.slice(0, 50)}]`);
-      if (WRITE) {
-        const l = lines[e.lineNo];
-        // insert doi right after the cite field
-        lines[e.lineNo] = l.replace(/(cite:\s*(?:'[^']+'|"[^"]+"))/, `$1, doi: '${m.doi}'`);
-        edited = true;
-      }
+      if (WRITE) inserts[e.lineNo] = m.doi;
     } else if (m.status === 'ambiguous') {
       ambiguous++;
       console.log(`  ?? ${name}  "${e.cite}" ambiguous (${m.n}): ${m.sample.join(', ')}`);
@@ -177,7 +175,30 @@ for (const f of files) {
       console.log(`  .. ${name}  "${e.cite}" not in reference list`);
     }
   }
-  if (WRITE && edited) writeFileSync(f, lines.join('\n'));
+  if (WRITE && Object.keys(inserts).length) {
+    // One rebuild pass, so a block-style edge (whose doi goes on a NEW line)
+    // never shifts the lineNos recorded for the other edges. Flow-style edges
+    // (`- { cite: ... }`, a `{` before `cite:` on the line) take the doi inline
+    // after the cite field; block-style edges (`- cite: ...` on its own line,
+    // no leading brace) get a sibling `doi:` line aligned with relation/note.
+    // The latter avoids producing `- cite: "X", doi: '...'`, which is invalid
+    // YAML and was breaking the build on block-style relatesTo blocks.
+    const out = [];
+    for (let i = 0; i < lines.length; i++) {
+      const doi = inserts[i];
+      if (doi == null) { out.push(lines[i]); continue; }
+      const l = lines[i];
+      const brace = l.indexOf('{'), cite = l.indexOf('cite:');
+      if (brace !== -1 && brace < cite) {
+        out.push(l.replace(/(cite:\s*(?:'[^']+'|"[^"]+"))/, `$1, doi: '${doi}'`));
+      } else {
+        out.push(l);
+        const dash = (l.match(/^(\s*)-\s/) || [, ''])[1].length;
+        out.push(`${' '.repeat(dash + 2)}doi: '${doi}'`);
+      }
+    }
+    writeFileSync(f, out.join('\n'));
+  }
 }
 
 console.log(`\n${total} edges: ${hadDoi} already-doi, ${matched} matched, ${fuzzy} matched~1yr, ${dupskip} dup-skip, ${ambiguous} ambiguous, ${noref} not-in-refs, ${unparsed} unparsed`);
