@@ -1394,3 +1394,80 @@ datasets:
     provider: Cynthia Wu and Fan Dora Xia (academic series)
     access: public
     note: Shadow short-rate estimate spanning the zero lower bound period from a shadow-rate term-structure model; freely posted and updated by the authors.
+
+  # ---- AER 2023 batch 4 ----
+  awcs:
+    name: American Working Conditions Survey (AWCS)
+    provider: RAND Corporation
+    access: public
+    note: Stated-preference survey of US workers fielded on the RAND American Life Panel; job-attribute incidence and willingness-to-pay experiments. Data freely available from RAND (TL269).
+  cex-us:
+    name: Consumer Expenditure Survey (CEX)
+    provider: U.S. Bureau of Labor Statistics
+    access: public
+    note: Household income and consumption-expenditure microdata; public-use files freely downloadable from the BLS.
+  chicago-police-dept:
+    name: Chicago Police Department arrest records
+    provider: Chicago Police Department
+    access: proprietary-confidential
+    note: Individual-level arrest records linked to study participants under a research data-sharing agreement; not openly downloadable.
+  comtrade:
+    name: UN Comtrade
+    provider: United Nations Statistics Division
+    access: public
+    note: Bilateral merchandise trade flows by product and partner (SITC/HS); freely accessible from the UN Comtrade database.
+  cps-admin:
+    name: Chicago Public Schools student administrative records
+    provider: Chicago Public Schools
+    access: proprietary-confidential
+    note: Individual-level student records (test scores, GPA, attendance, discipline, enrollment) obtained under a research agreement; restricted, not openly downloadable. (Distinct from the Current Population Survey, slug cps.)
+  datamyne:
+    name: Datamyne customs trade transactions
+    provider: Datamyne (Descartes Systems Group)
+    access: licensed-commercial
+    note: Firm-level customs import/export transaction records (e.g. Colombian customs); obtained under a commercial vendor subscription.
+  eff-spain:
+    name: Encuesta Financiera de las Familias (EFF)
+    provider: Banco de Espana
+    access: public
+    note: Spanish Survey of Household Finances; anonymized public-use microdata on household assets, debt, income, and consumption freely distributed by the Bank of Spain.
+  enaho-peru:
+    name: Encuesta Nacional de Hogares (ENAHO)
+    provider: INEI Peru
+    access: public
+    note: Peruvian National Household Survey; public-use income and consumption microdata freely downloadable from INEI.
+  enigh-mexico:
+    name: Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH)
+    provider: INEGI Mexico
+    access: public
+    note: Mexican National Household Income and Expenditure Survey; public-use microdata freely downloadable from INEGI.
+  epf-spain:
+    name: Encuesta de Presupuestos Familiares (EPF)
+    provider: INE Spain
+    access: public
+    note: Spanish Household Budget Survey; public-use income and consumption microdata freely downloadable from the INE.
+  italian-procurement:
+    name: Italian government procurement auction data
+    provider: Decarolis (replication data, via ICPSR)
+    access: public
+    note: Cost, delay, and overrun distributions for Italian public procurement auctions, estimated structurally by Decarolis; calibration inputs and replication data publicly available at ICPSR (E182801V1).
+  rand-alp:
+    name: RAND American Life Panel (ALP)
+    provider: RAND Corporation
+    access: public
+    note: Probability-based internet panel of US adults used as a survey sampling frame and platform; microdata available to registered researchers via the RAND ALP data portal.
+  shiw-italy:
+    name: Survey on Household Income and Wealth (SHIW)
+    provider: Banca d'Italia
+    access: public
+    note: Italian household survey of income, consumption, and wealth; public-use microdata freely downloadable from the Bank of Italy.
+  wiod:
+    name: World Input-Output Database (WIOD)
+    provider: WIOD consortium (European Commission)
+    access: public
+    note: Harmonized world input-output tables with bilateral trade, industry production and expenditure shares, and tariff data; freely downloadable.
+  xmrc:
+    name: XMRC.com job-board records
+    provider: XMRC.com (Chinese online recruitment platform)
+    access: proprietary-confidential
+    note: Internal applications, callbacks, job-ad gender labels, match scores, and resume data from a single Chinese job board; proprietary records provided by the platform.

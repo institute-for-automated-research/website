@@ -494,6 +494,36 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Deep neural network trained on labeled speech emotion datasets that maps audio feature vectors (mel spectrogram, MFCCs, chroma coefficients) to discrete emotion categories.
     aliases: [audio-emotion-classification, speech-emotion-nn]
 
+  # ---- incomplete-markets heterogeneous-agent models ----
+  heterogeneous-agent-bewley-model:
+    def: Infinite-horizon incomplete-markets model with a continuum of households facing idiosyncratic income risk and a borrowing constraint; households optimize consumption-saving plans in a small-open-economy or partial-equilibrium setting.
+    aliases: [bewley-model, aiyagari-model, bewley-hugget-aiyagari, incomplete-markets-ha-model]
+
+  # ---- mean-variance optimization under CARA ----
+  cara-mean-variance-optimization:
+    def: Reduction of CARA expected-utility maximization under normally distributed payoffs to an equivalent mean-variance program, yielding closed-form portfolio demands and tractable general equilibrium characterization.
+    aliases: [cara-mv, cara-normal-mv]
+
+  # ---- norm identification ----
+  legal-threshold-norm-identification:
+    def: Identification strategy that exploits laws with threshold-based rules as RDD-analog cutoffs; continuity of the norm function absent the law allows discontinuities at the threshold to be attributed causally to the law.
+    aliases: [threshold-norm-identification, legal-threshold-rdd]
+
+  # ---- trade policy structural methods ----
+  optimal-trade-dual:
+    def: Dual approach to characterizing unilaterally optimal trade and industrial policies in multi-industry multi-country GE models; derives analytical sufficient statistics formulas via envelope conditions, tax neutrality, and homogeneity of Marshallian demand, without numerical optimization.
+    aliases: [sufficient-statistics-trade-policy, trade-policy-dual-approach]
+
+  # ---- matrix decomposition ----
+  nonneg-matrix-factorization:
+    def: Non-negative matrix factorization algorithm that decomposes a non-negative matrix into two non-negative factor matrices; adapted here with a Poisson deviance criterion to jointly estimate latent technology weights and expenditure shares in structural trade models.
+    aliases: [nmf, nonnegative-matrix-factorization, nmf-ppml]
+
+  # ---- political economy frameworks ----
+  grossman-helpman-political-economy:
+    def: Grossman-Helpman (1994) protection-for-sale framework in which lobby groups represent specific-factor owners and government maximizes a weighted sum of welfare and producer surplus with extra weight on sector-specific producer surplus from lobbying.
+    aliases: [protection-for-sale, gh-political-economy, gh-pe]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -663,6 +693,21 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   dollar-pricing-wedge:
     def: Dollar currency pricing prevents monetary policy from closing the external export wedge; each economy's exports are a zero-measure share of global demand, making the external wedge constrained efficient and domestic inflation targeting the only achievable goal for non-US central banks.
     aliases: [dcp-external-wedge, invoice-currency-wedge]
+  personalization-of-instruction:
+    def: Mechanism in which small-group or individualized instruction allows the instructor to target teaching to each student's achievement level, generating larger learning gains than whole-class instruction where the teacher must address the median student.
+    aliases: [individualized-instruction, differentiated-instruction]
+  contracting-pecuniary-externality:
+    def: Incentive contracts for delegated managers raise aggregate demand for benchmark assets, inflate equilibrium prices, and reduce the marginal benefit of benchmarking contracts for other investors; the externality is transmitted through the equilibrium asset price.
+    aliases: [contracting-externality, contract-price-externality]
+  love-for-variety-externality:
+    def: Scale economies that arise from consumer love for variety create a positive externality from firm entry not internalized by individual firms; equilibrium scale in high-scale-elasticity industries is inefficiently low, generating cross-industry misallocation correctable by Pigouvian subsidies.
+    aliases: [scale-economy-externality, variety-externality]
+  comparative-advantage-correlation:
+    def: Dissimilarity in productivity across trading partners (low correlation) strengthens comparative advantage and raises gains from trade; higher cross-country productivity correlation weakens comparative advantage and reduces trade gains.
+    aliases: [ricardian-correlation-channel, technology-dissimilarity-mechanism]
+  lobbying-coordination:
+    def: International regulatory negotiations alter the effective influence of domestic producer lobbies; when producer interests align across countries (product standards), negotiations amplify lobby influence via co-lobbying; when interests conflict (process standards), negotiations attenuate it via counter-lobbying.
+    aliases: [co-lobbying, counter-lobbying, lobby-amplification, lobby-dilution]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -719,6 +764,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   fiscal-multiplier:
     def: PDV ratio of aggregate output response to a fiscal policy shock; reported as dollars of output per dollar of outlay.
     aliases: [pdv-multiplier, impact-multiplier, spending-multiplier]
+  covariance:
+    def: Sample covariance between two variables across cross-sectional units; measures the direction and scale of their joint variation, not normalized to the [-1, 1] interval.
+    aliases: [sample-covariance, cross-sectional-covariance]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -779,3 +827,9 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   behavioral-aggregate-outcomes:
     def: Quality of collective decision-making and the degree to which social institutions filter or amplify individual cognitive biases, measured as aggregate performance relative to raw individual bias rates.
     aliases: [collective-cognition-outcomes, institutional-filtering-outcomes]
+  educational-achievement:
+    def: Academic skill, knowledge, and attainment outcomes from educational interventions - standardized test scores, subject grades, course completions, high school graduation rates, and human capital formation.
+    aliases: [academic-outcomes, academic-performance]
+  social-norms:
+    def: Perceived social appropriateness of behaviors and norm functions; outcomes that measure how laws and institutions shape what is collectively approved or disapproved in a society.
+    aliases: [norm-function-outcomes, social-appropriateness-outcomes]
