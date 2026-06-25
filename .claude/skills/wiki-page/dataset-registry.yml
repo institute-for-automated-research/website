@@ -1230,3 +1230,105 @@ datasets:
     provider: BPS-Statistics Indonesia
     access: public
     note: National household survey of consumption, welfare, and demographics; microdata distributed to researchers through BPS and the World Bank microdata library.
+
+  # ---- AER 2023 batch 2 ----
+  baci:
+    name: BACI international trade database
+    provider: CEPII (derived from UN Comtrade)
+    access: public
+    note: Bilateral trade flows by product (HS codes) reconciled across reporters; freely downloadable from CEPII after registration.
+  banco-de-portugal-credit-register:
+    name: Banco de Portugal Central Credit Register (CRC)
+    provider: Banco de Portugal
+    access: proprietary-confidential
+    note: Loan-level supervisory credit register covering bank exposures to firms; restricted access for researchers through the central bank.
+  bea-fixed-assets:
+    name: BEA Fixed Assets Accounts
+    provider: U.S. Bureau of Economic Analysis
+    access: public
+    note: Detailed capital stock and investment by asset type and industry; freely downloadable from the BEA.
+  burning-glass:
+    name: Burning Glass / Lightcast job postings
+    provider: Lightcast (formerly Burning Glass Technologies)
+    access: licensed-commercial
+    note: Near-universe of online US job vacancies with skill and occupation tags scraped from employer postings; obtained under a vendor research licence.
+  census-of-governments:
+    name: Census of Governments
+    provider: U.S. Census Bureau
+    access: public
+    note: Finances, employment, and organization of state and local governments; freely downloadable from the Census Bureau.
+  clearspending:
+    name: ClearSpending procurement data
+    provider: ClearSpending.ru (civil-society project)
+    access: public
+    note: Openly published anomalies and records derived from the Russian federal procurement register; freely accessible.
+  cms-medicare:
+    name: CMS Medicare claims and Part D records
+    provider: U.S. Centers for Medicare and Medicaid Services
+    access: proprietary-confidential
+    note: Individual-level Medicare enrollment, claims, and Part D prescription-drug event records; research-identifiable files require a data use agreement through ResDAC.
+  cps:
+    name: Current Population Survey (CPS)
+    provider: U.S. Census Bureau / Bureau of Labor Statistics
+    access: public
+    note: Monthly household labor-force survey; public-use microdata freely downloadable (and via IPUMS-CPS).
+  cps-dws:
+    name: CPS Displaced Worker Supplement (DWS)
+    provider: U.S. Census Bureau / Bureau of Labor Statistics
+    access: public
+    note: Biennial CPS supplement on job displacement and post-displacement outcomes; public-use microdata freely downloadable.
+  cps-org:
+    name: CPS Outgoing Rotation Group (ORG)
+    provider: U.S. Census Bureau / Bureau of Labor Statistics
+    access: public
+    note: CPS earnings and hours files for outgoing rotation households; public-use microdata freely downloadable.
+  dhs:
+    name: Demographic and Health Surveys (DHS)
+    provider: USAID DHS Program
+    access: public
+    note: Standardized household and individual surveys on health, fertility, and demographics across developing countries; microdata free to researchers after registration.
+  dot:
+    name: Dictionary of Occupational Titles (DOT)
+    provider: U.S. Department of Labor
+    access: public
+    note: Occupational task and requirement descriptors for US jobs; freely available historical reference data.
+  faads:
+    name: Federal Assistance Award Data System (FAADS)
+    provider: U.S. Census Bureau / USAspending
+    access: public
+    note: Federal domestic assistance awards by program, recipient, and geography; freely downloadable (predecessor of USAspending.gov).
+  informacao-empresarial-simplificada:
+    name: Informacao Empresarial Simplificada (IES)
+    provider: Portugal (filed with the Ministry of Justice; accessed via Banco de Portugal)
+    access: proprietary-confidential
+    note: Mandatory annual firm accounting and balance-sheet filings for Portuguese firms; restricted research access through the central bank.
+  klarner-partisan-data:
+    name: Klarner state partisan-balance data
+    provider: Carl Klarner (academic compilation)
+    access: public
+    note: Partisan composition of US state legislatures and governorships over time; freely available academic dataset.
+  onet:
+    name: O*NET occupational database
+    provider: U.S. Department of Labor
+    access: public
+    note: Standardized occupational descriptors (skills, abilities, tasks, work context); freely downloadable.
+  rosstat:
+    name: Rosstat firm and statistical databases
+    provider: Russian Federal State Statistics Service (Rosstat)
+    access: public
+    note: Official Russian firm registers and statistical series used to match procurement and financial records; published by Rosstat.
+  ruslana:
+    name: Ruslana Russian firm financials
+    provider: Bureau van Dijk (Moody's)
+    access: licensed-commercial
+    note: Financial statements and ownership for Russian companies; obtained under a Bureau van Dijk subscription.
+  trains-unctad:
+    name: UNCTAD TRAINS tariff data
+    provider: UNCTAD (via World Bank WITS)
+    access: public
+    note: Bilateral applied and bound tariffs and non-tariff measures by product; freely accessible through WITS.
+  zakupki:
+    name: Russian federal procurement register (zakupki)
+    provider: Russian Federal Treasury (EIS, zakupki.gov.ru)
+    access: public
+    note: Public register of Russian federal and municipal government procurement contracts; openly published on the official portal.

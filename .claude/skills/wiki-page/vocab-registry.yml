@@ -444,6 +444,36 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: City-level vehicular speed index constructed from simulated routing-engine trips, decomposable into uncongested speed and congestion factor via fixed-effects regression on log trip speed and no-traffic duration.
     aliases: [gm-speed-index, routing-engine-speed-index]
 
+  # ---- AKM variance decomposition ----
+  akm-variance-decomposition:
+    def: Two-way fixed-effects decomposition attributing outcome variance to individual and organizational components, as in Abowd-Kramarz-Margolis (1999); bias-corrected via split-sample and covariance-shrinkage estimators to address limited-mobility bias in sparse networks.
+    aliases: [akm-method, two-way-fe-decomposition, worker-firm-variance-decomposition]
+
+  # ---- bunching and excess-mass ----
+  loan-loss-underreporting-detector:
+    def: Markovian excess-mass algorithm that measures strategic delay in loss reporting by computing deviations from the expected progression of overdue loan balances across regulatory deduction-rate buckets at the monthly firm-bank level.
+    aliases: [excess-mass-underreporting, bunching-underreporting-measure]
+
+  # ---- local projections ----
+  local-projections:
+    def: Sequence of direct horizon-specific regressions (Jorda 2005) that project an outcome h periods ahead on a contemporaneous shock, tracing the full impulse-response function without imposing a dynamic-model parameterization.
+    aliases: [jorda-local-projections, lp-regression, lp-irfs]
+
+  # ---- dynamic contracting ----
+  abiding-contracts:
+    def: Simple and direct dynamic contracts that guarantee nonnegative buyer continuation payoff and seller continuation payoff exceeding the low buyer valuation; the key device for breaking the Coase conjecture under limited commitment.
+    aliases: [delta-abiding-contracts]
+
+  # ---- signaling equilibrium ----
+  signaling-game-pbe:
+    def: Perfect Bayesian Equilibrium signaling game with privately-informed sender types; equilibria refined by the Cho-Kreps intuitive criterion to eliminate implausible off-equilibrium beliefs.
+    aliases: [pbe-signaling, separating-pooling-equilibrium, cho-kreps-signaling]
+
+  # ---- occupational choice models ----
+  roy-occupational-sorting:
+    def: Occupational sorting model where heterogeneous workers draw occupation-specific efficiency units from a Frechet distribution and choose the highest-paying occupation; yields closed-form market-clearing conditions for occupational labor supply as a function of wages per efficiency unit.
+    aliases: [frechet-occupational-choice, roy-sorting-frechet]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -601,6 +631,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   fed-response-to-news:
     def: The Fed and private forecasters respond to the same public economic news, with the Fed reacting more strongly than markets anticipated, creating spurious procyclical correlation between FOMC surprises and forecast revisions.
     aliases: [fed-news-response, central-bank-news-response]
+  skill-obsolescence:
+    def: Technological change raises occupation-specific skill requirements, making incumbent workers' human capital obsolete and forcing occupation switches to lower-paying roles where prior skills remain employable.
+    aliases: [skill-mismatch-tech, human-capital-obsolescence, technology-skill-frontier]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -654,6 +687,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   level:
     def: A level or volume in natural units (a currency amount, a count, a dollar volume), where the headline number is the magnitude itself rather than an effect or ratio.
     aliases: [volume, inflow-volume, dollar-amount]
+  fiscal-multiplier:
+    def: PDV ratio of aggregate output response to a fiscal policy shock; reported as dollars of output per dollar of outlay.
+    aliases: [pdv-multiplier, impact-multiplier, spending-multiplier]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -702,3 +738,9 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   political-development:
     def: State formation, governance capacity, and institutional development outcomes, including emergence of states, public good provision by governments, tribute collection, and measures of administrative capacity.
     aliases: [state-formation, governance-outcomes, institutional-development]
+  trade-flows:
+    def: Bilateral trade values or quantities and their sensitivity to trade costs or tariffs; includes trade elasticity measurement and gains-from-trade quantification.
+    aliases: [bilateral-trade, trade-volumes, trade-elasticity-outcome]
+  social-preferences:
+    def: Revealed distributional preferences and fairness norms, including type classification (false negative averse, false positive averse, symmetric) and related policy attitude formation.
+    aliases: [distributional-preferences, fairness-type-classification]
