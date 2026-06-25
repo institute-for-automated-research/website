@@ -424,6 +424,26 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Risk-adjusted profit methodology adapted from private equity strip-by-strip valuation to price bank loan cash flows; uses loan-balance-instrumented benchmark funds spanning credit, term, prepayment, and equity risk factors.
     aliases: [loan-rap, bank-loan-rap]
 
+  # ---- New Keynesian banking models ----
+  new-keynesian-banking-model:
+    def: New Keynesian general equilibrium model with imperfectly competitive banks, net-worth-constrained lending, and long-term bond holdings creating maturity mismatch.
+    aliases: [nk-banking-model, klein-monti-nk]
+
+  # ---- analytical HANK frameworks ----
+  cara-normal-hank:
+    def: Analytical HANK model with CARA preferences and normally distributed idiosyncratic income shocks, enabling linear aggregation of household decisions independent of the wealth distribution.
+    aliases: [analytical-hank, cara-hank]
+
+  # ---- ranked-choice estimation ----
+  rank-ordered-logit:
+    def: Discrete-choice model for ranked preference lists; each successive choice modeled as a logit over the remaining alternatives (exploded logit); estimated by maximum likelihood on full or partial rankings.
+    aliases: [exploded-logit, rank-ordered-choice-model]
+
+  # ---- routing-engine speed index measurement ----
+  city-speed-index:
+    def: City-level vehicular speed index constructed from simulated routing-engine trips, decomposable into uncongested speed and congestion factor via fixed-effects regression on log trip speed and no-traffic duration.
+    aliases: [gm-speed-index, routing-engine-speed-index]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -563,6 +583,24 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   uniform-pricing-conduct:
     def: Multi-branch firms set a single network-wide price rather than optimizing locally, decoupling local market concentration from pricing outcomes and creating network-wide spillovers from any ownership change.
     aliases: [network-wide-pricing, uniform-price-setting]
+  multidimensional-preferences:
+    def: Households trade off a target quality dimension against other product attributes, leaving the target quality underweighted even under full information.
+    aliases: [preference-multidimensionality, non-academic-preference-constraint]
+  rent-seeking-price-externality:
+    def: Pecuniary externality where shareholders collectively distort investment to exploit price biases, reducing aggregate dividends and feeding back to amplify underinvestment and dampen overinvestment.
+    aliases: [share-price-ge-externality, aggregate-dividend-externality]
+  coordination-failure:
+    def: Inability of independent agents to commit to joint provision of public goods requiring multi-party cooperation, generating demand for a coordinating institution.
+    aliases: [public-goods-coordination, collective-action-failure]
+  social-norm-erosion:
+    def: Public revelation of latent agreement with stigmatized views unravels social norms constraining discriminatory behavior, facilitating coordination among like-minded individuals.
+    aliases: [social-norm-unraveling, norm-erosion, norm-unraveling]
+  coordination-commitment:
+    def: Incremental public commitment in a pre-play revision phase makes prepared actions partially binding, enabling backward-induction selection of the Pareto-dominant equilibrium in coordination games.
+    aliases: [revision-commitment, pre-play-incremental-commitment]
+  fed-response-to-news:
+    def: The Fed and private forecasters respond to the same public economic news, with the Fed reacting more strongly than markets anticipated, creating spurious procyclical correlation between FOMC surprises and forecast revisions.
+    aliases: [fed-news-response, central-bank-news-response]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -653,4 +691,14 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
     def: Prices, spreads, and welfare outcomes in trading mechanism design - bid-ask spreads, allocative efficiency, trader surplus, and market share across venues.
     aliases: [trading-mechanism-outcomes, market-design-welfare]
   social-welfare:
-    def: Welfare and social-impact outcomes - corporate social impact, welfare losses, and ESG / carbon impact measures.
+    def: Welfare and social-impact outcomes - corporate social impact, welfare losses, ESG / carbon impact measures, and outcomes of social protection programs such as poverty rates and benefit receipt.
+    aliases: [social-protection-outcomes, welfare-program-outcomes, safety-net-outcomes]
+  educational-choices:
+    def: School enrollment, track selection, and educational attainment outcomes from household school-choice decisions; includes value added and academic performance of the chosen program.
+    aliases: [school-choice-outcomes, education-attainment]
+  urban-mobility:
+    def: City-level travel speed, congestion, and transportation accessibility outcomes - speed indices, congestion factors, trip-time reliability, and welfare cost of slow travel.
+    aliases: [city-mobility, urban-transport-outcomes]
+  political-development:
+    def: State formation, governance capacity, and institutional development outcomes, including emergence of states, public good provision by governments, tribute collection, and measures of administrative capacity.
+    aliases: [state-formation, governance-outcomes, institutional-development]

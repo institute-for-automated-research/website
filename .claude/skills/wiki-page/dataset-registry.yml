@@ -1163,3 +1163,70 @@ datasets:
     provider: China Meteorological Administration (CMA)
     access: public
     note: Daily city-level weather (wind speed, rain volume) published by the CMA; used to instrument air-quality readings.
+
+  # ---- AER 2023 batch ----
+  cdli:
+    name: Cuneiform Digital Library Initiative (CDLI)
+    provider: CDLI consortium (UCLA, Oxford, MPIWG)
+    access: public
+    note: Open catalogue and transliterations of cuneiform tablets, including the administrative records of early Mesopotamian states; freely searchable and downloadable.
+  fbi-ucr:
+    name: FBI Uniform Crime Reporting (UCR) Program
+    provider: U.S. Federal Bureau of Investigation
+    access: public
+    note: Police-reported crime counts by agency and offense; freely downloadable from the FBI Crime Data Explorer.
+  fed-greenbook:
+    name: Federal Reserve Greenbook / Tealbook forecasts
+    provider: Federal Reserve Board (archived by the Philadelphia Fed)
+    access: public
+    note: Staff macroeconomic forecasts prepared before each FOMC meeting; released to the public with a five-year lag and archived by the Philadelphia Fed.
+  ghsl:
+    name: Global Human Settlement Layer (GHSL)
+    provider: European Commission Joint Research Centre
+    access: public
+    note: Gridded built-up-area and population layers derived from satellite imagery; freely downloadable.
+  google-maps:
+    name: Google Maps Directions / Distance Matrix data
+    provider: Google
+    access: licensed-commercial
+    note: Route durations with and without live traffic, queried through the Google Maps Platform API; bulk programmatic access requires a paid API key under Google's terms of service.
+  india-census:
+    name: Census of India
+    provider: Office of the Registrar General and Census Commissioner, India
+    access: public
+    note: Decennial population census tables at town and district level; freely downloadable from censusindia.gov.in.
+  insee-esane:
+    name: INSEE-DGFiP ESANE enterprise accounts (France)
+    provider: INSEE / DGFiP (via CASD)
+    access: proprietary-confidential
+    note: Annual firm accounting and results (Elaboration des Statistiques Annuelles d'Entreprises, 2008 onward), built from tax filings; restricted access through the CASD secure data centre.
+  insee-suse:
+    name: INSEE-DGFiP SUSE unified firm accounts (France)
+    provider: INSEE / DGFiP (via CASD)
+    access: proprietary-confidential
+    note: Firm-level investment and capital from the Systeme Unifie de Statistiques d'Entreprises, the pre-2008 predecessor of ESANE, built from tax filings; restricted access through the CASD secure data centre.
+  openstreetmap:
+    name: OpenStreetMap
+    provider: OpenStreetMap Foundation
+    access: public
+    note: Crowd-sourced global road network and geographic features; freely downloadable under the Open Database License.
+  podes:
+    name: Village Potential Statistics (PODES)
+    provider: BPS-Statistics Indonesia
+    access: public
+    note: Census of village-level infrastructure and characteristics covering all Indonesian villages; aggregate data distributed by BPS and mirrored in research data libraries.
+  project-hal:
+    name: Project HAL (Historical American Lynching data)
+    provider: Project HAL academic compilation
+    access: public
+    note: Compiled county-level records of lynching victims in the United States (c. 1882-1930); freely available to researchers.
+  romania-moe-admissions:
+    name: Romania Ministry of Education admissions and exam records
+    provider: Romanian Ministry of Education
+    access: proprietary-confidential
+    note: Individual-level transition-exam scores, school rankings, and centralized high-school track assignments obtained from the Ministry; administrative micro-records, not openly downloadable.
+  susenas:
+    name: National Socioeconomic Survey (SUSENAS)
+    provider: BPS-Statistics Indonesia
+    access: public
+    note: National household survey of consumption, welfare, and demographics; microdata distributed to researchers through BPS and the World Bank microdata library.
