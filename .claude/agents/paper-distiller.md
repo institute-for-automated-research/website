@@ -81,6 +81,14 @@ with the compact JSON result described at the bottom.
    exactly. Findings first; rights/attribution last.
 
 ## Frontmatter rules
+- **List-of-object fields are single-line flow style, never block style.** Every
+  item of `relatesTo`, `extraction`, `licenceVerification`, `findings`,
+  `authorList` (any list whose elements are mappings) is written as one
+  `- { key: value, ... }` line, exactly as the template shows. Do NOT write
+  `- cite:` (or `- by:`, `- ref:`) with the remaining keys on indented
+  following lines: a stray block entry is fragile (a mis-indent breaks the
+  build, and `ground-relatesto.mjs` inserting a `doi:` into a block `cite:`
+  line yields invalid YAML). One mapping, one line.
 - `title`: `"<Short Name>: <Authors short> (<Year>)"` (e.g.
   `"Replicating Anomalies: Hou, Xue & Zhang (2020)"`). The auto-generated index
   splits on the first `": "`, so the part before it is the displayed paper name.

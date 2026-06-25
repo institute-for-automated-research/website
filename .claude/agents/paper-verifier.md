@@ -110,14 +110,14 @@ the JSON verdict below.
    is unsupported and you cannot determine the correct value, downgrade the row
    to what the PDF supports rather than delete it, and note it.
 6. **Append a verification attestation** to the page's `extraction:` list (do
-   not overwrite the existing `extracted` entry; the list stacks). Add, with
-   the same indentation as the existing entry:
+   not overwrite the existing `extracted` entry; the list stacks). Add it in the
+   SAME single-line flow style and indentation as the existing `extracted` entry
+   (one `- { ... }` mapping per list item, never a multi-line block `- by:` with
+   the keys on following lines: a block entry appended after a flow entry, or
+   mis-indented, is invalid YAML and breaks the build):
 
    ```yaml
-       - by: paper-verifier (claude-sonnet-4-6)
-         date: <today, from your prompt>
-         role: verified
-         note: Locators and reported magnitudes re-checked against the source PDF; <one line: verdict and any fix>.
+       - { by: paper-verifier (claude-sonnet-4-6), date: <today, from your prompt>, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; <one line: verdict and any fix>." }
    ```
 
    This records which model verified the page and when. Use `claude-sonnet-4-6`
