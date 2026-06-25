@@ -524,6 +524,11 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Grossman-Helpman (1994) protection-for-sale framework in which lobby groups represent specific-factor owners and government maximizes a weighted sum of welfare and producer surplus with extra weight on sector-specific producer surplus from lobbying.
     aliases: [protection-for-sale, gh-political-economy, gh-pe]
 
+  # ---- semiparametric time-varying models ----
+  semiparametric-profile-estimation:
+    def: Two-step semiparametric profile method for a partially time-varying factor model; Step 1 uses local-linear kernel regression to obtain a time-varying intercept holding slopes fixed; Step 2 estimates constant slopes by OLS, with bandwidth selected by leave-one-out cross-validation.
+    aliases: [profile-kernel-estimation, semiparametric-profile-method, fan-huang-profile]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -708,6 +713,15 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   lobbying-coordination:
     def: International regulatory negotiations alter the effective influence of domestic producer lobbies; when producer interests align across countries (product standards), negotiations amplify lobby influence via co-lobbying; when interests conflict (process standards), negotiations attenuate it via counter-lobbying.
     aliases: [co-lobbying, counter-lobbying, lobby-amplification, lobby-dilution]
+  political-uncertainty:
+    def: Heightened uncertainty about future government policy and fiscal plans during election cycles raises risk premia and financial market volatility, transmitting into bank systemic risk.
+    aliases: [election-uncertainty, electoral-uncertainty, policy-uncertainty-channel]
+  policy-backstop-substitution:
+    def: Investors' expectation of central bank downside support reduces demand for put option insurance; the implicit guarantee partially substitutes for put protection, generating lower put implied volatility during accommodative policy periods.
+    aliases: [fed-put-mechanism, greenspan-put-channel, central-bank-put-backstop]
+  enforcement-risk-compensation:
+    def: Stricter enforcement screens out low-return illegal trades; surviving trades earn higher returns to compensate for elevated detection and prosecution risk, yielding a positive return-risk gradient among observed cases.
+    aliases: [risk-compensation-enforcement, deterrence-selection-channel]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller

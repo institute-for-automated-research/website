@@ -1471,3 +1471,70 @@ datasets:
     provider: XMRC.com (Chinese online recruitment platform)
     access: proprietary-confidential
     note: Internal applications, callbacks, job-ad gender labels, match scores, and resume data from a single Chinese job board; proprietary records provided by the platform.
+
+  # ---- JBF 2026 batch 1 (issue #35, field tier) ----
+  bis:
+    name: Bank for International Settlements statistics
+    provider: Bank for International Settlements
+    access: public
+    note: Cross-country credit, house-price, and banking-statistics series; freely downloadable from the BIS data portal.
+  oecd:
+    name: OECD statistics
+    provider: Organisation for Economic Co-operation and Development
+    access: public
+    note: Cross-country macroeconomic, financial, and policy indicators; freely downloadable from OECD.Stat / OECD Data Explorer.
+  imapp:
+    name: Integrated Macroprudential Policy (iMaPP) database
+    provider: International Monetary Fund (Alam et al.)
+    access: public
+    note: Monthly country-level dataset of macroprudential policy actions across instruments; freely downloadable from the IMF.
+  global-q:
+    name: q-factor and augmented q-factor data
+    provider: Hou, Xue, and Zhang (global-q.org)
+    access: public
+    note: Monthly and annual q-factor (ROE, investment, size) and q5 return series; freely downloadable from global-q.org.
+  wustl-pm25:
+    name: Satellite-derived surface PM2.5 estimates
+    provider: Washington University in St. Louis (van Donkelaar et al.)
+    access: public
+    note: Gridded global annual fine-particulate (PM2.5) concentration estimates from satellite, model, and monitor fusion; freely downloadable.
+  china-real-estate-yearbook:
+    name: China Real Estate Statistical Yearbook
+    provider: National Bureau of Statistics of China
+    access: public
+    note: Published statistical yearbook of city-level real-estate investment, land supply, and housing transactions.
+  china-marketization-index:
+    name: NERI Marketization Index of China's provinces
+    provider: Wang, Fan, and Hu (NERI)
+    access: licensed-commercial
+    note: Provincial marketization scores published as a periodic report/book; obtained through purchase of the published index volumes.
+  fannie-mae:
+    name: Fannie Mae Single-Family Loan Performance Data
+    provider: Fannie Mae
+    access: licensed-commercial
+    note: Loan-level origination and performance records; free of charge but gated behind registration and acceptance of a data license agreement.
+  freddie-mac:
+    name: Freddie Mac Single-Family Loan-Level Dataset
+    provider: Freddie Mac
+    access: licensed-commercial
+    note: Loan-level origination and performance records; free of charge but gated behind registration and acceptance of a data license agreement.
+  asif:
+    name: Annual Survey of Industrial Firms (China)
+    provider: National Bureau of Statistics of China
+    access: proprietary-confidential
+    note: Firm-level administrative survey of above-scale Chinese industrial enterprises; restricted microdata, not openly distributed.
+  ntsd:
+    name: National Tax Survey Database (China)
+    provider: State Taxation Administration and Ministry of Finance of China
+    access: proprietary-confidential
+    note: Firm-level administrative tax-survey microdata; restricted access, not openly distributed.
+  china-land-transaction:
+    name: China Land Transaction Monitoring System
+    provider: Ministry of Natural Resources of China
+    access: proprietary-confidential
+    note: Parcel-level land-sale records (price, area, use, buyer); administrative registry, not openly downloadable in bulk.
+  esr-china:
+    name: Chinese Environmental Statistics Report database
+    provider: Ministry of Ecology and Environment of China
+    access: proprietary-confidential
+    note: Firm-level pollution-emissions and abatement records; restricted administrative environmental-statistics microdata.
