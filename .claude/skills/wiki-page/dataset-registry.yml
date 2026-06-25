@@ -1332,3 +1332,65 @@ datasets:
     provider: Russian Federal Treasury (EIS, zakupki.gov.ru)
     access: public
     note: Public register of Russian federal and municipal government procurement contracts; openly published on the official portal.
+
+  # ---- AER 2023 batch 3 ----
+  aids-public-info:
+    name: AIDS Public Information Dataset (APIDS)
+    provider: U.S. Centers for Disease Control and Prevention
+    access: public
+    note: Annual and cumulative AIDS case counts aggregated to metro area and demographic strata; public-use file freely distributed by the CDC.
+  cces:
+    name: Cooperative Election Study (CCES/CES)
+    provider: Harvard (CES consortium, via Dataverse)
+    access: public
+    note: Large annual US survey of political attitudes and voting, tens of thousands of respondents per wave; public-use microdata freely downloadable from the Harvard Dataverse.
+  cdc-hiv-surveillance:
+    name: CDC HIV surveillance data (special request)
+    provider: U.S. Centers for Disease Control and Prevention
+    access: proprietary-confidential
+    note: City-level HIV diagnoses and prevalence obtained by special request from the CDC; sub-national detail is restricted and not openly downloadable.
+  eia:
+    name: U.S. Energy Information Administration data
+    provider: U.S. Energy Information Administration
+    access: public
+    note: Energy prices and production series (e.g. Henry Hub gas, WTI oil) and shale formation geology; freely downloadable from the EIA. (Electricity-specific series have a separate page, eia-electricity.)
+  eurostat-esa:
+    name: Eurostat European System of Accounts (ESA)
+    provider: Eurostat
+    access: public
+    note: Harmonized national accounts for EU member states (output, prices, consumption, investment, labor); freely downloadable from Eurostat.
+  factiva:
+    name: Factiva
+    provider: Dow Jones
+    access: licensed-commercial
+    note: Full-text archive of newswires and newspapers (incl. AP dispatches); searchable under a Dow Jones institutional subscription.
+  nexis-uni:
+    name: Nexis Uni news database
+    provider: LexisNexis (RELX)
+    access: licensed-commercial
+    note: Full-text news article archive (formerly LexisNexis Academic); accessed under an institutional library subscription.
+  seer:
+    name: SEER population data
+    provider: U.S. National Cancer Institute (SEER program)
+    access: public
+    note: County and metro population denominators by age, sex, race used to convert counts to rates; population files freely downloadable from SEER.
+  swanson-fomc-shocks:
+    name: Swanson (2021) FOMC monetary policy shocks
+    provider: Eric Swanson (academic replication data)
+    access: public
+    note: Decomposed federal funds rate, forward guidance, and asset purchase shocks identified from FOMC announcement windows; freely posted as replication data.
+  texas-glo:
+    name: Texas General Land Office oil and gas lease records
+    provider: Texas General Land Office
+    access: public
+    note: Bonus payments, terms, royalty rates, and royalty production for state oil and gas leases, plus auction bid notices; public records released by the Texas GLO.
+  vital-statistics:
+    name: National Vital Statistics mortality files
+    provider: U.S. National Center for Health Statistics (NCHS/CDC)
+    access: public
+    note: Cause-of-death mortality counts and rates; public-use files freely downloadable (and via CDC WONDER). Geographically detailed restricted-use Multiple Cause of Death files require an NCHS Research Data Center agreement.
+  wu-xia-shadow-rate:
+    name: Wu and Xia (2016) shadow policy rate
+    provider: Cynthia Wu and Fan Dora Xia (academic series)
+    access: public
+    note: Shadow short-rate estimate spanning the zero lower bound period from a shadow-rate term-structure model; freely posted and updated by the authors.

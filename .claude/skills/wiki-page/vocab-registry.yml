@@ -474,6 +474,26 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Occupational sorting model where heterogeneous workers draw occupation-specific efficiency units from a Frechet distribution and choose the highest-paying occupation; yields closed-form market-clearing conditions for occupational labor supply as a function of wages per efficiency unit.
     aliases: [frechet-occupational-choice, roy-sorting-frechet]
 
+  # ---- Bayesian DSGE estimation ----
+  bayesian-dsge-estimation:
+    def: Bayesian estimation of a linearized DSGE model; exogenous driving-process time series are fed directly as observables without measurement error; measurement errors apply only to outcome variables; follows the Smets-Wouters (2007) approach.
+    aliases: [bayesian-dsge, dsge-bayesian-estimation, smets-wouters-estimation]
+
+  # ---- demand profile supply contracting ----
+  demand-profile-supply-contracting:
+    def: Goldman-Leland-Sibley/Wilson demand profile approach adapted to supply contracting; reformulates the principal's problem by treatment quantity so that a multidimensional type distribution projects onto a one-dimensional quantity distribution and each marginal payment is set independently.
+    aliases: [demand-profile-approach, wilson-demand-profile, goldman-leland-sibley]
+
+  # ---- Yaari dual utility ----
+  yaari-dual-utility:
+    def: Preference model in which certainty equivalents are computed by distorting probabilities via an increasing function g with g(p) <= p rather than taking expectations; nests loss aversion and rank-dependent utility.
+    aliases: [dual-utility, rank-dependent-utility-insurance, probability-weighting-utility]
+
+  # ---- speech emotion recognition ----
+  speech-emotion-recognition:
+    def: Deep neural network trained on labeled speech emotion datasets that maps audio feature vectors (mel spectrogram, MFCCs, chroma coefficients) to discrete emotion categories.
+    aliases: [audio-emotion-classification, speech-emotion-nn]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -634,6 +654,15 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   skill-obsolescence:
     def: Technological change raises occupation-specific skill requirements, making incumbent workers' human capital obsolete and forcing occupation switches to lower-paying roles where prior skills remain employable.
     aliases: [skill-mismatch-tech, human-capital-obsolescence, technology-skill-frontier]
+  workplace-social-capital:
+    def: Face-to-face social interactions between employees and managers build relational capital that translates into promotion advantages via preference and information channels.
+    aliases: [manager-employee-socialization, schmoozing, relational-capital]
+  media-framing:
+    def: Language choices by media outlets shift readers' policy attitudes by emphasizing or omitting issue attributes (emphasis framing) or by substituting differently coded labels for the same referent (equivalence framing).
+    aliases: [emphasis-framing, equivalence-framing, media-persuasion, framing-effect]
+  dollar-pricing-wedge:
+    def: Dollar currency pricing prevents monetary policy from closing the external export wedge; each economy's exports are a zero-measure share of global demand, making the external wedge constrained efficient and domestic inflation targeting the only achievable goal for non-US central banks.
+    aliases: [dcp-external-wedge, invoice-currency-wedge]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -744,3 +773,9 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   social-preferences:
     def: Revealed distributional preferences and fairness norms, including type classification (false negative averse, false positive averse, symmetric) and related policy attitude formation.
     aliases: [distributional-preferences, fairness-type-classification]
+  optimal-contract-design:
+    def: Structure of profit-maximizing or welfare-maximizing contracts and price schedules, including nonlinear pricing, multi-part tariffs, insurance menus, and screening contract forms.
+    aliases: [optimal-pricing, tariff-structure, screening-contract, insurance-contract-design, optimal-insurance-mechanism, contract-form-optimality]
+  behavioral-aggregate-outcomes:
+    def: Quality of collective decision-making and the degree to which social institutions filter or amplify individual cognitive biases, measured as aggregate performance relative to raw individual bias rates.
+    aliases: [collective-cognition-outcomes, institutional-filtering-outcomes]
