@@ -1538,3 +1538,55 @@ datasets:
     provider: Ministry of Ecology and Environment of China
     access: proprietary-confidential
     note: Firm-level pollution-emissions and abatement records; restricted administrative environmental-statistics microdata.
+
+  # ---- JEF + JFM 2026 batch 2 (issue #35, lower tier) ----
+  welch-goyal:
+    name: Welch-Goyal equity premium predictor data
+    provider: Amit Goyal (updated annually)
+    access: public
+    note: Monthly and annual market-return predictor variables from Welch and Goyal (2008); freely downloadable from the author's website.
+  wid:
+    name: World Inequality Database
+    provider: WID.world (Paris School of Economics)
+    access: public
+    note: Cross-country series on the distribution of income and wealth; freely downloadable from WID.world.
+  mergent-fisd:
+    name: Mergent Fixed Income Securities Database (FISD)
+    provider: Mergent / ICE (via WRDS)
+    access: licensed-commercial
+    note: Bond-level characteristics (issuer, maturity, coupon, offering amount, ratings) for US corporate bonds; obtained through a WRDS / FISD subscription.
+  bhps:
+    name: British Household Panel Survey
+    provider: UK Data Service (ISER, University of Essex)
+    access: licensed-commercial
+    note: Individual- and household-level longitudinal survey microdata; free of charge but gated behind UK Data Service registration and an End User Licence for non-commercial research.
+  dol:
+    name: DOL Form 5500 Private Pension Plan Research Files
+    provider: U.S. Department of Labor (EBSA)
+    access: public
+    note: Plan-level filings on private pension plans (employer contributions, participants); freely downloadable from the Department of Labor.
+  russell-index:
+    name: Russell 1000/2000 index constituents and reconstitution rankings
+    provider: FTSE Russell
+    access: licensed-commercial
+    note: Annual index-membership lists and end-of-May reconstitution market-cap rankings; proprietary index data, licensed from FTSE Russell or vendors.
+  midas:
+    name: SEC Market Information Data Analytics System (MIDAS)
+    provider: U.S. Securities and Exchange Commission
+    access: public
+    note: Security-level market-structure metrics (order events, cancel-to-trade, depth) built from consolidated equity feeds; metrics published by the SEC at sec.gov/marketstructure.
+  resset:
+    name: RESSET Financial Research Database
+    provider: Beijing Gildata RESSET Data Technology
+    access: licensed-commercial
+    note: Chinese capital-market data including fund holdings and returns; commercial subscription database.
+  bse-intraday:
+    name: Bombay Stock Exchange trader-level intraday transactions
+    provider: Bombay Stock Exchange (BSE)
+    access: proprietary-confidential
+    note: Trader-identified intraday transaction records from the BSE; restricted data provided to researchers, not purchasable off the shelf.
+  cmie-prowess:
+    name: CMIE Prowess
+    provider: Centre for Monitoring Indian Economy
+    access: licensed-commercial
+    note: Firm-level financial statements and market data for Indian companies; commercial subscription database.

@@ -529,6 +529,41 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Two-step semiparametric profile method for a partially time-varying factor model; Step 1 uses local-linear kernel regression to obtain a time-varying intercept holding slopes fixed; Step 2 estimates constant slopes by OLS, with bandwidth selected by leave-one-out cross-validation.
     aliases: [profile-kernel-estimation, semiparametric-profile-method, fan-huang-profile]
 
+  # ---- Bayesian model-selection for factor models ----
+  bs-czz-model-selection:
+    def: Bayesian model scan over candidate factor sets that ranks each by posterior model probability proportional to the sample squared tangency Sharpe ratio of the factor set (Barillas-Shanken 2018; Chib-Zeng-Zhao 2020).
+    aliases: [bs-czz, bayesian-sharpe-model-scan, barillas-shanken-chib-model-scan]
+
+  # ---- recurrent neural networks ----
+  lstm-recurrent-network:
+    def: Long short-term memory recurrent neural network with gated memory cells (forget, input, output gates) that capture long-range temporal dependencies in sequential data while mitigating vanishing gradients.
+    aliases: [lstm, long-short-term-memory, rnn-lstm]
+
+  # ---- bootstrap resampling ----
+  wild-bootstrap:
+    def: Bootstrap that multiplies OLS residuals by mean-zero unit-variance random weights (e.g., Rademacher) at each time period, preserving cross-sectional dependence without resampling observations.
+    aliases: [rademacher-wild-bootstrap, wu-liu-wild-bootstrap, csdwb]
+
+  # ---- cointegration estimation ----
+  dynamic-least-squares:
+    def: Augmented OLS cointegrating regression that adds leads and lags of first differences of regressors to remove endogeneity and achieve consistent cointegrating parameter estimates (Stock and Watson 1993).
+    aliases: [dls, stock-watson-dls, dols]
+
+  # ---- common-value auction theory ----
+  first-price-common-value-auction:
+    def: First-price sealed-bid auction in which all bidders share a common underlying value but hold private signals; equilibrium bids shade for the winner's curse, as characterized by Milgrom and Weber (1982).
+    aliases: [common-value-auction, sealed-bid-common-value-auction, milgrom-weber-auction]
+
+  # ---- varying-coefficient panel estimators ----
+  mo-ols:
+    def: Mean-Observation OLS estimator (Keane and Neal 2020) that extends varying-coefficient regressions to both time and unit dimensions by iteratively pooling pooled, time-specific, and unit-specific coefficient estimates.
+    aliases: [mean-observation-ols, varying-coefficient-ols, keane-neal-mo-ols]
+
+  # ---- fund-level attribution decomposition ----
+  fund-pi-decomposition:
+    def: Three-component decomposition of a fund's contribution to firm-level price informativeness into a common time fixed effect, a fund-manager-specific effect, and a fund-stock matching residual; adapts the Abdulkadiroglu-Pathak-Schellenberg school-effectiveness framework.
+    aliases: [fpe-decomposition, three-way-pi-decomposition]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -722,6 +757,12 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   enforcement-risk-compensation:
     def: Stricter enforcement screens out low-return illegal trades; surviving trades earn higher returns to compensate for elevated detection and prosecution risk, yielding a positive return-risk gradient among observed cases.
     aliases: [risk-compensation-enforcement, deterrence-selection-channel]
+  social-transmission:
+    def: Word-of-mouth and face-to-face transmission of beliefs and expectations through social networks, generating peer effects in underlying beliefs distinct from observational learning about outcomes.
+    aliases: [word-of-mouth-beliefs, belief-transmission, social-belief-updating, social-learning]
+  undercutting-channel:
+    def: Mechanism in which a larger minimum price increment reduces front-running of resting limit orders via trivially better quotes, discouraging liquidity provision for narrow-spread stocks while reducing adverse-selection costs for wide-spread stocks.
+    aliases: [tick-undercutting, undercutting-friction]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -781,6 +822,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   covariance:
     def: Sample covariance between two variables across cross-sectional units; measures the direction and scale of their joint variation, not normalized to the [-1, 1] interval.
     aliases: [sample-covariance, cross-sectional-covariance]
+  cer:
+    def: Annualized certainty-equivalent return: the fixed return yielding the same expected utility as the investor's dynamic portfolio strategy; computed by simulation over the predictive return distribution.
+    aliases: [certainty-equivalent-return, certainty-equivalent-yield]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
