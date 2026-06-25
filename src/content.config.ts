@@ -61,6 +61,13 @@ export const collections = {
             // resultsCount is the number of rows in the page's results table.
             venueShort: z.string().optional(),
             licenseShort: z.string().optional(),
+            // Journal-quality tier, a noisy quality proxy used by the zeropaper
+            // scorer leniency guard (zeropaper#135): the scorer's score
+            // distribution should descend with tier (top-3 dominates field
+            // dominates lower) on Importance / Novelty / Surprise, NOT Rigor.
+            // `top-3` = JF/RFS/JFE; `field` = JFQA/JBF/JFI/RoF/FM/JCF; `lower`
+            // = regional / lower-impact below field. Omit on non-finance pages.
+            tier: z.enum(['top-3', 'field', 'lower']).optional(),
             resultsCount: z.number().optional(),
             // OpenAlex forward-citation count at distillation time: influence
             // ranking and "which results have the most attention/evidence".
