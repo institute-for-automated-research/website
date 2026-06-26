@@ -1590,3 +1590,58 @@ datasets:
     provider: Centre for Monitoring Indian Economy
     access: licensed-commercial
     note: Firm-level financial statements and market data for Indian companies; commercial subscription database.
+  uspto:
+    name: USPTO patent grants (PatentsView / bulk-data)
+    provider: U.S. Patent and Trademark Office
+    access: public
+    note: Granted-patent records with filing/grant dates, CPC classes, and backward/forward citations; published openly via PatentsView and USPTO bulk data.
+  patentsview:
+    name: PatentsView
+    provider: U.S. Patent and Trademark Office
+    access: public
+    note: Disambiguated USPTO patent, inventor, and assignee data with cross-firm inventor links; openly downloadable at patentsview.org.
+  kpss:
+    name: KPSS patent value database (Kogan, Papanikolaou, Seru & Stoffman 2017)
+    provider: Authors' replication repository (GitHub / Noah Stoffman)
+    access: public
+    note: Stock-market-based economic value of patents and patent-to-firm matches; openly posted academic dataset.
+  kpst:
+    name: KPST patent technology database (Kelly, Papanikolaou, Seru & Taddy 2021)
+    provider: Authors' replication repository (dimitris-papanikolaou.github.io)
+    access: public
+    note: Text-based patent technology classification and breakthrough-patent measures; openly posted academic dataset.
+  marx-fuegi:
+    name: Marx & Fuegi science-based patent data (2020, 2022)
+    provider: Authors' replication repository
+    access: public
+    note: Patent-to-non-patent-literature citation links used to identify science-based patents; openly posted academic dataset.
+  census-bds:
+    name: Business Dynamics Statistics (BDS)
+    provider: U.S. Census Bureau
+    access: public
+    note: Annual establishment- and firm-level entry, exit, job creation, and firm-count tabulations by industry; published openly by the Census Bureau.
+  fdic-sdi:
+    name: FDIC Statistics on Depository Institutions (SDI)
+    provider: Federal Deposit Insurance Corporation
+    access: public
+    note: Quarterly call-report-derived balance-sheet, income, and condition data for FDIC-insured institutions; openly queryable at fdic.gov.
+  boardex:
+    name: BoardEx board and executive profiles
+    provider: BoardEx (Altrata)
+    access: licensed-commercial
+    note: Director and executive biographies, board memberships, networks, and roles; commercial subscription, commonly accessed via WRDS.
+  iss:
+    name: ISS governance and incentives data
+    provider: Institutional Shareholder Services (formerly RiskMetrics / IRRC)
+    access: licensed-commercial
+    note: Board independence, governance provisions, and director attributes; commercial subscription, commonly accessed via WRDS.
+  euroclear-finland:
+    name: Euroclear Finland securities registry
+    provider: Euroclear Finland
+    access: proprietary-confidential
+    note: Individual-level daily holdings and trades for all Finnish-registered securities; restricted registry data provided to researchers, not purchasable off the shelf.
+  alexander-incentives:
+    name: Alexander Incentives stock-option plan data
+    provider: Alexander Incentives (Finland)
+    access: proprietary-confidential
+    note: Individual-level employee and executive stock-option plan records for Finnish firms, identifying employment relationships for tens of thousands of individuals; restricted research access.

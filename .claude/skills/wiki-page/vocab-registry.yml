@@ -564,6 +564,11 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Three-component decomposition of a fund's contribution to firm-level price informativeness into a common time fixed effect, a fund-manager-specific effect, and a fund-stock matching residual; adapts the Abdulkadiroglu-Pathak-Schellenberg school-effectiveness framework.
     aliases: [fpe-decomposition, three-way-pi-decomposition]
 
+  # ---- multinomial discrete choice ----
+  multinomial-logit:
+    def: Multi-class extension of logistic regression for unordered categorical outcomes with three or more categories; estimated by maximum likelihood using a softmax link function.
+    aliases: [mlogit, discrete-choice-mlogit]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -763,6 +768,21 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   undercutting-channel:
     def: Mechanism in which a larger minimum price increment reduces front-running of resting limit orders via trivially better quotes, discouraging liquidity provision for narrow-spread stocks while reducing adverse-selection costs for wide-spread stocks.
     aliases: [tick-undercutting, undercutting-friction]
+  pay-disparity-social-comparison:
+    def: Executive-to-worker pay gaps reduce employee commitment and labor-investment efficiency through perceived inequity and social comparison.
+    aliases: [social-comparison-channel, executive-worker-pay-gap]
+  regulatory-discipline:
+    def: Regulator's expanded exposure to a covered institution creates incentives to enforce conservative financial reporting to limit insurer payouts.
+    aliases: [regulatory-scrutiny-channel, supervisory-accounting-pressure]
+  credit-risk-channel:
+    def: A firm-level risk factor lowers distance-to-default and is transmitted into higher loan spreads as a credit risk premium.
+    aliases: [cybersecurity-credit-channel, default-risk-transmission]
+  ceo-firm-complementarity:
+    def: CEO generalist ability and firm managerial challenge are complements; investor surplus from the match is positive only when firm challenge exceeds the market average, making the value of CEO experience heterogeneous across firms.
+    aliases: [ceo-skill-challenge-complementarity, ceo-firm-match-quality]
+  operating-leverage-channel:
+    def: Quasi-fixed compliance costs raise a firm's degree of operating leverage, increasing earnings sensitivity to aggregate demand fluctuations and thereby raising systematic risk.
+    aliases: [dol-channel, fixed-cost-risk-channel]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -891,3 +911,6 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   social-norms:
     def: Perceived social appropriateness of behaviors and norm functions; outcomes that measure how laws and institutions shape what is collectively approved or disapproved in a society.
     aliases: [norm-function-outcomes, social-appropriateness-outcomes]
+  bank-accounting-conservatism:
+    def: Bank financial reporting discretion outcomes - direction and magnitude of discretionary loan loss provision, loss recognition timeliness, and balance between income-reducing and income-increasing accruals.
+    aliases: [bank-provisioning-conservatism, llp-conservatism-outcome]
