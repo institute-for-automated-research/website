@@ -569,6 +569,68 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Multi-class extension of logistic regression for unordered categorical outcomes with three or more categories; estimated by maximum likelihood using a softmax link function.
     aliases: [mlogit, discrete-choice-mlogit]
 
+  # ---- bandit algorithms ----
+  exp3-bandit-algorithm:
+    def: Exp3 algorithm (Auer, Cesa-Bianchi, Freund, and Schapire 2002) for the nonstochastic multiarmed bandit; assigns exploration probabilities proportional to exponentiated cumulative payoffs with a uniform mixing weight.
+    aliases: [exp3, nonstochastic-bandit-exp3, tempered-exp3]
+
+  dyadic-search:
+    def: Online search algorithm that maintains an active interval containing the optimal policy and shrinks it each epoch by testing objective differences at dyadic grid points via confidence intervals.
+    aliases: [dyadic-search-algorithm, active-interval-search]
+
+  # ---- MCMC estimation ----
+  gibbs-mcmc-estimation:
+    def: Gibbs sampler MCMC estimation of a structural model with latent variables; draws sequentially from conditional posteriors to approximate the joint posterior, interpreted via the Bernstein-von Mises theorem as equivalent to maximum likelihood.
+    aliases: [gibbs-sampler, gibbs-sampling-mcmc]
+
+  # ---- lattice theory / comparative statics ----
+  lattice-comparative-statics:
+    def: Topkis-Milgrom-Shannon lattice-theoretic framework for monotone comparative statics; quasi-supermodularity and single-crossing differences of the objective on a sublattice yield that optimal actions increase with the parameter.
+    aliases: [monotone-comparative-statics, topkis-milgrom-shannon, lattice-programming]
+
+  # ---- contest / capture models ----
+  contest-capture-game:
+    def: Competition model in which two opposed interested parties simultaneously expend costly effort to probabilistically capture control over an information source or news item; the capture outcome follows an exogenous contest function.
+    aliases: [probabilistic-capture-contest, ip-capture-game]
+
+  # ---- nonparametric Bayesian regression ----
+  gaussian-process-regression:
+    def: Nonparametric Bayesian regression with a Gaussian process prior and squared exponential covariance kernel; posterior mean used as a pilot conditional mean estimator in causal inference procedures.
+    aliases: [gp-regression, gp-prior-regression]
+
+  # ---- doubly robust estimation ----
+  doubly-robust-estimation:
+    def: Semiparametric estimator combining outcome regression and Riesz representer weighting such that consistency holds if either the conditional mean or propensity score model is correctly specified; based on the efficient influence function.
+    aliases: [dr-estimator, dml-estimator, doubly-robust-ate]
+
+  # ---- structural estimation via control functions ----
+  olley-pakes-control-function:
+    def: Control function approach adapted from Olley and Pakes (1996); inverts the policy function of unconstrained agents to express an unobserved scalar characteristic as a function of observed states and actions, exploiting one-to-one mapping between the unobservable and observable policy choices in unconstrained periods.
+    aliases: [op-control-function, control-function-production]
+
+  # ---- partial identification ----
+  partial-identification-bounds:
+    def: Manski-style sharp bounds on a distribution function derived from revealed-preference and behavioral assumptions on an incomplete model; sharpness is proved by constructing a DGP satisfying the assumptions under which the true distribution exactly equals the bound.
+    aliases: [manski-bounds, sharp-partial-id-bounds, incomplete-model-bounds]
+
+  bargaining-bounds:
+    def: Nonparametric partial identification method for bilateral bargaining that bounds buyer and seller private value distributions and the first-best trade probability from sequential-offer data using a hierarchy of rationality, monotonicity, and independence assumptions without specifying a complete equilibrium model.
+    aliases: [robust-bargaining-bounds, incomplete-bargaining-bounds]
+
+  # ---- martingale methods in dynamic contracting ----
+  marginal-cost-martingale:
+    def: Martingale formed by the directional derivative of the principal's value function in the direction 1=(1,...,1); the key tool for proving immiseration in dynamic contracting by showing this process converges to zero.
+    aliases: [principal-marginal-cost-process]
+
+  promised-utility-recursion:
+    def: Recursive formulation of dynamic principal-agent problems where the state is the vector of type-contingent interim promised utilities; generalizes the Thomas-Worrall ex ante promised utility to Markovian settings.
+    aliases: [interim-promised-utility-recursion]
+
+  # ---- dynamic discrete-choice estimation ----
+  eccp-estimator:
+    def: Two-step estimator for dynamic discrete-choice models based on Euler Equations in Conditional Choice Probabilities; exploits renewal actions to cancel continuation values, identifying flow utility parameters from a regression of path likelihood ratios on flow payoff differences without solving the value function.
+    aliases: [euler-equation-ccp, eccp, renewal-action-estimator]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -783,6 +845,12 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   operating-leverage-channel:
     def: Quasi-fixed compliance costs raise a firm's degree of operating leverage, increasing earnings sensitivity to aggregate demand fluctuations and thereby raising systematic risk.
     aliases: [dol-channel, fixed-cost-risk-channel]
+  residential-amenity-externality:
+    def: Mechanism in which households' location choices alter neighborhood demographic composition, endogenously changing the supply of consumption amenities that cater to resident preferences; creates a feedback loop between residential sorting and neighborhood quality.
+    aliases: [composition-amenity-externality, preference-externality-amenities]
+  political-allocation-distortion:
+    def: Politicians direct public subsidies toward constituencies or firm types that do not maximize cost-efficiency per job created; arises from misalignment between political-equity objectives and productivity-efficiency objectives in public fund allocation.
+    aliases: [political-discretion-distortion, rules-discretion-wedge]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -845,6 +913,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   cer:
     def: Annualized certainty-equivalent return: the fixed return yielding the same expected utility as the investor's dynamic portfolio strategy; computed by simulation over the predictive return distribution.
     aliases: [certainty-equivalent-return, certainty-equivalent-yield]
+  regret-rate:
+    def: Asymptotic rate of growth of cumulative regret as a function of time horizon T; characterizes the efficiency of an adaptive learning algorithm relative to the best fixed policy.
+    aliases: [cumulative-regret-rate, bandit-regret-rate, regret-bound]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -914,3 +985,9 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   bank-accounting-conservatism:
     def: Bank financial reporting discretion outcomes - direction and magnitude of discretionary loan loss provision, loss recognition timeliness, and balance between income-reducing and income-increasing accruals.
     aliases: [bank-provisioning-conservatism, llp-conservatism-outcome]
+  information-quality:
+    def: Quality and informativeness of public information; information transmission efficiency, accuracy of citizen beliefs about states of the world, and equilibrium social learning outcomes.
+    aliases: [social-learning-quality, information-transmission-quality]
+  electoral-outcomes:
+    def: Electoral competition outcomes; vote shares, candidate valence and quality measures, winning probabilities, and decompositions of incumbency effects in political elections.
+    aliases: [political-competition-outcomes, election-outcomes]

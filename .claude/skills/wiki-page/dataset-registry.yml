@@ -1645,3 +1645,63 @@ datasets:
     provider: Alexander Incentives (Finland)
     access: proprietary-confidential
     note: Individual-level employee and executive stock-option plan records for Finnish firms, identifying employment relationships for tens of thousands of individuals; restricted research access.
+  optn:
+    name: OPTN/UNOS transplant data (Standard Analysis Files)
+    provider: Organ Procurement and Transplantation Network / United Network for Organ Sharing
+    access: proprietary-confidential
+    note: Patient-level waitlist, offer, and transplant records for deceased-donor organ allocation; released to researchers under a data use agreement, not purchasable off the shelf.
+  lalonde-dehejia-wahba:
+    name: NSW job-training experimental data (LaLonde; Dehejia-Wahba subsamples)
+    provider: Authors' replication files (Rajeev Dehejia website)
+    access: public
+    note: Experimental and observational samples from the National Supported Work demonstration used as the standard benchmark for evaluating treatment-effect estimators; openly posted.
+  fec:
+    name: FEC campaign finance data
+    provider: U.S. Federal Election Commission
+    access: public
+    note: Itemized contributions, disbursements, and committee filings for federal candidates and PACs; openly downloadable and queryable at fec.gov.
+  cq-press:
+    name: CQ Press voting and elections data
+    provider: CQ Press (SAGE)
+    access: licensed-commercial
+    note: Congressional and electoral records including roll-call votes and district-level returns; commercial subscription product.
+  bonica-dime:
+    name: DIME (Database on Ideology, Money in Politics, and Elections)
+    provider: Adam Bonica (Stanford)
+    access: public
+    note: Candidate and contributor campaign-finance records with estimated ideological (CFscore) measures across U.S. federal and state elections; openly posted academic dataset.
+  polidata:
+    name: Polidata election and demographic data
+    provider: Polidata (Political Data, Inc.)
+    access: licensed-commercial
+    note: District-level election returns and demographic tabulations; commercial data product.
+  ebay-best-offer:
+    name: eBay Best Offer bargaining data
+    provider: eBay (research extract)
+    access: proprietary-confidential
+    note: Listing-level sequential offer and counteroffer threads from eBay's Best Offer platform; firm-provided research extract, not publicly available.
+  inps-italy:
+    name: INPS administrative employer-employee data
+    provider: Istituto Nazionale della Previdenza Sociale (Italy)
+    access: proprietary-confidential
+    note: Italian social-security matched employer-employee records with earnings and employment spells; restricted administrative microdata accessed under agreement.
+  l488-italy:
+    name: Law 488/1992 subsidy program records
+    provider: Italian Ministry of Economic Development
+    access: proprietary-confidential
+    note: Firm-level applications, scores, and awards from Italy's Law 488/1992 capital-subsidy program; administrative records accessed under agreement.
+  cbs-netherlands:
+    name: CBS Netherlands microdata
+    provider: Statistics Netherlands (Centraal Bureau voor de Statistiek)
+    access: proprietary-confidential
+    note: Individual- and household-level administrative registers (residence, income, demographics); accessed by authorized researchers through CBS remote-access under contract.
+  inside-airbnb:
+    name: Inside Airbnb
+    provider: Inside Airbnb (independent project)
+    access: public
+    note: Scraped city-level Airbnb listing, location, price, and availability snapshots; openly downloadable at insideairbnb.com.
+  amsterdam-city-data:
+    name: City of Amsterdam open data
+    provider: Gemeente Amsterdam
+    access: public
+    note: Municipal open datasets including neighborhood amenities, registrations, and geographic boundaries; openly published by the City of Amsterdam.
