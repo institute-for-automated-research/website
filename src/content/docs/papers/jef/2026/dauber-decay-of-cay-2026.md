@@ -62,10 +62,10 @@ paper:
     - { ref: R6, outcome: "stock market excess returns (quarterly predictability)", metric: t-stat, value: "full sample 1Q t-statistics: cay PCE10 t=2.417, cday t=1.693, cay-g t=1.732, cay-unfi t=1.299", direction: positive, vsBenchmark: "cay PCE10 most stable and significant among alternative constructions (Table 6)" }
   resultType: overturns
   relatesTo:
-    - { cite: 'Lettau and Ludvigson (2001)', relation: contradicts, note: 'original cay paper showed strong IS and OOS predictability; this paper documents both have collapsed over the last two decades' }
-    - { cite: 'Welch and Goyal (2008)', relation: tests, note: 'confirms their documented OOS failure of cay and adds in-sample evidence and a structural cointegration explanation' }
-    - { cite: 'Lettau et al. (2019)', relation: extends, note: 'adopts their argument that the top-10% richest households better approximate the marginal investor; constructs cay PCE10 from that subsample' }
-    - { cite: 'Brennan and Xia (2005)', relation: cites, note: 'raised the look-ahead bias concern in cay estimation; the paper discusses this critique and shows the decay is robust to it' }
+    - { cite: 'Lettau and Ludvigson (2001)', doi: '10.1111/0022-1082.00347', relation: contradicts, note: 'original cay paper showed strong IS and OOS predictability; this paper documents both have collapsed over the last two decades' }
+    - { cite: 'Welch and Goyal (2008)', doi: '10.1093/rfs/hhm014', relation: tests, note: 'confirms their documented OOS failure of cay and adds in-sample evidence and a structural cointegration explanation' }
+    - { cite: 'Lettau et al. (2019)', doi: '10.1111/jofi.12772', relation: extends, note: 'adopts their argument that the top-10% richest households better approximate the marginal investor; constructs cay PCE10 from that subsample' }
+    - { cite: 'Brennan and Xia (2005)', doi: '10.1016/j.frl.2004.10.001', relation: cites, note: 'raised the look-ahead bias concern in cay estimation; the paper discusses this critique and shows the decay is robust to it' }
   openQuestions:
     - "Whether the structural shift in the cointegrating relationship reflects a long-lasting deviation from a previously reached equilibrium or convergence toward a new equilibrium remains open for future research (p. 18)."
     - "Developing a full-fledged theoretical derivation of the top-10% cay as a predictor is beyond the scope of the current paper (p. 5)."

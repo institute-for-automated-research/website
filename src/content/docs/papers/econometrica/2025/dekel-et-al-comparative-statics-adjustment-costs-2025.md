@@ -47,10 +47,10 @@ paper:
   scope:
     region: theoretical
   relatesTo:
-    - { cite: 'Milgrom and Shannon (1994)', relation: extends, note: 'Theorem 1 generalizes their Theorem 4 monotone comparative statics to the costly-adjustment case; their result is the special case C = 0' }
+    - { cite: 'Milgrom and Shannon (1994)', doi: '10.2307/2951479', relation: extends, note: 'Theorem 1 generalizes their Theorem 4 monotone comparative statics to the costly-adjustment case; their result is the special case C = 0' }
     - { cite: 'Milgrom and Roberts (1996)', relation: extends, note: 'Theorem 2 strictly generalizes their Le Chatelier principle; their setting (some dimensions have infinite short-run cost, others zero) is a special case of a monotone C' }
-    - { cite: 'Samuelson (1947)', relation: builds-on, note: 'the Le Chatelier principle originated with Samuelson; this paper establishes it holds under minimal ordinal conditions on the objective and cost' }
-    - { cite: 'Caplin and Leahy (2019)', relation: extends, note: 'Proposition 2 recovers their wishful-thinking saving result without requiring their Kullback-Leibler functional-form assumption on C' }
+    - { cite: 'Samuelson (1947)', doi: '10.2307/3438190', relation: builds-on, note: 'the Le Chatelier principle originated with Samuelson; this paper establishes it holds under minimal ordinal conditions on the objective and cost' }
+    - { cite: 'Caplin and Leahy (2019)', doi: '10.3386/w25707', relation: extends, note: 'Proposition 2 recovers their wishful-thinking saving result without requiring their Kullback-Leibler functional-form assumption on C' }
   openQuestions:
     - 'The converse of Theorem 4 (whether monotonicity is necessary as well as sufficient for the strong dynamic Le Chatelier principle) is left open; the authors conjecture it holds under weaker assumptions but note a different proof strategy is needed (p. 682).'
     - 'Remark 5 (p. 675) identifies the more general model in which the prevailing norm evolves sluggishly as a potentially interesting avenue for future work not pursued in the paper.'

@@ -52,9 +52,9 @@ paper:
   relatesTo:
     - { cite: 'Duffie, Garleanu & Pedersen (2005)', relation: builds-on, note: 'the seminal OTC search-and-bargaining model; this paper provides a complementary auction-based price-competition mechanism' }
     - { cite: 'Farboodi, Jarosch & Shimer (2022)', relation: builds-on, note: 'endogenous core-periphery structures via search frictions; the auction mechanism here is an alternative microfoundation' }
-    - { cite: 'Persico (2000)', relation: builds-on, note: 'continuous-choice information-acquisition in auctions, used here to model dealers endogenously choosing signal accuracy' }
+    - { cite: 'Persico (2000)', doi: '10.1111/1468-0262.00096', relation: builds-on, note: 'continuous-choice information-acquisition in auctions, used here to model dealers endogenously choosing signal accuracy' }
     - { cite: 'Milgrom and Weber (1982b)', relation: builds-on, note: 'value-of-information in first-price common-value auctions; provides the bidding foundation for the equilibrium pricing model' }
-    - { cite: 'Li and Schürhoff (2019)', relation: tests, note: 'US municipal bond markets: model predicts centrality premia (higher margins for core dealers) and tighter spreads, consistent with their empirical findings' }
+    - { cite: 'Li and Schürhoff (2019)', doi: '10.1111/jofi.12864', relation: tests, note: 'US municipal bond markets: model predicts centrality premia (higher margins for core dealers) and tighter spreads, consistent with their empirical findings' }
   openQuestions:
     - 'Whether combining the simultaneous price-competition mechanism developed here with the search-and-bargaining model of Duffie, Garleanu, and Pedersen (2005) yields sharper predictions on the origin of core-periphery structures in OTC markets (conclusion, p. 15).'
     - 'How results change when investors strategically choose which dealers to contact and how many, rather than contacting all dealers simultaneously (§6.1, p. 13); the paper shows that qualitative results are robust for the three-dealer case with uncertain competitor sets.'

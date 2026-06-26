@@ -67,11 +67,11 @@ paper:
     - { ref: R7, outcome: physical investment rate, metric: coefficient, value: "Interaction Above x peer physical 0.914*** (SE 0.298); base peer effect 0.497*** (SE 0.147)", direction: positive, vsBenchmark: "signal-precision moderation (equity vol); Table 12 Panel A col 1 p. 20" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Dougal et al. (2015)", relation: extends, note: "builds on their OLS framework for local peer investment to add causal IV identification" }
+    - { cite: "Dougal et al. (2015)", doi: '10.1111/jofi.12215', relation: extends, note: "builds on their OLS framework for local peer investment to add causal IV identification" }
     - { cite: "Bustamante and Fresard (2021)", relation: extends, note: "complements their non-local industry peer-effects approach with local peer effects identified causally" }
-    - { cite: "Heider and Ljungqvist (2015)", relation: builds-on, note: "adopts their state corporate income tax change data and first-difference identification strategy for firm investment" }
-    - { cite: "Peters and Taylor (2017)", relation: builds-on, note: "adopts their total investment measure encompassing physical and intangible capital" }
-    - { cite: "Mukherjee et al. (2017)", relation: cites, note: "prior evidence on state tax effects on innovative investment used for first-stage motivation" }
+    - { cite: "Heider and Ljungqvist (2015)", doi: '10.1016/j.jfineco.2015.01.004', relation: builds-on, note: "adopts their state corporate income tax change data and first-difference identification strategy for firm investment" }
+    - { cite: "Peters and Taylor (2017)", doi: '10.1016/j.jfineco.2016.03.011', relation: builds-on, note: "adopts their total investment measure encompassing physical and intangible capital" }
+    - { cite: "Mukherjee et al. (2017)", doi: '10.1016/j.jfineco.2017.01.004', relation: cites, note: "prior evidence on state tax effects on innovative investment used for first-stage motivation" }
   openQuestions:
     - "Whether peer effects improve the efficiency of firms' investment decisions; the paper examines only how peer investment affects investment choices, not optimality (footnote 5, p. 2)."
     - "Whether cross-capital-type peer effects (physical peers on intangible investment and vice versa) operate at finer industry levels or over longer horizons, outside the scope of this paper (pp. 17-18)."

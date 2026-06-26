@@ -71,11 +71,11 @@ paper:
     - { ref: R7, outcome: "aggregate industrial total factor productivity", metric: pp-effect, value: "2.04% gain from aggregation formula (Eq. 5); 3.1% from reduced-form (6% treated-city TFP gain x 51% national capital share)", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: "Chakraborty, Goldstein & MacKinlay (2018)", relation: extends, note: "extends their US crowding-out channel to China, adding the LGFV government-loan mechanism absent in the US context" }
-    - { cite: "Hsieh & Klenow (2009)", relation: builds-on, note: "adopts their MRPK-based measure to quantify within-city capital misallocation across manufacturing firms" }
-    - { cite: "Sraer & Thesmar (2023)", relation: builds-on, note: "uses their aggregation formula to map firm-level MRPK dispersion changes to aggregate TFP gains" }
+    - { cite: "Chakraborty, Goldstein & MacKinlay (2018)", doi: '10.1093/rfs/hhy033', relation: extends, note: "extends their US crowding-out channel to China, adding the LGFV government-loan mechanism absent in the US context" }
+    - { cite: "Hsieh & Klenow (2009)", doi: '10.1162/qjec.2009.124.4.1403', relation: builds-on, note: "adopts their MRPK-based measure to quantify within-city capital misallocation across manufacturing firms" }
+    - { cite: "Sraer & Thesmar (2023)", doi: '10.1257/aer.20190609', relation: builds-on, note: "uses their aggregation formula to map firm-level MRPK dispersion changes to aggregate TFP gains" }
     - { cite: "Basco, Lopez-Rodriguez, Moral-Benito & Moreno (2024)", relation: cites, note: "comparison paper on Spain; their collateral-channel TFP reduction (0.8-1.2%) vs. this paper's crowding-out channel TFP gain of 2%" }
-    - { cite: "Martín, Moral-Benito & Schmitz (2021)", relation: extends, note: "extends this Spain-based financial transmission evidence on housing booms to Chinese manufacturing" }
+    - { cite: "Martín, Moral-Benito & Schmitz (2021)", doi: '10.1257/aer.20191410', relation: extends, note: "extends this Spain-based financial transmission evidence on housing booms to Chinese manufacturing" }
   openQuestions:
     - "How China can reduce local governments' reliance on land-sales revenue, and whether fiscal reform can mitigate the crowding-out of industrial credit: stated as a key policy challenge for future research (p. 14)."
     - "Whether the TFP effect magnitude generalizes to other developing countries where financial markets are less developed or land-based government debt financing is less prevalent (footnote 35, p. 13)."

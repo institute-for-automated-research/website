@@ -66,11 +66,11 @@ paper:
     - { ref: R7, outcome: daily retail option buy count around employee own-company trades, metric: coefficient, value: "10.88** (t=2.26), stock + day FE; 10.01** (t=2.16), option + day FE (Retail buy count)", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: "Green, Huang, Wen & Zhou (2019)", relation: builds-on, note: "builds on their evidence that employees hold price-relevant private information about employers; extends the finding to direct option market exploitation" }
-    - { cite: "Augustin, Brenner & Subrahmanyam (2019)", relation: extends, note: "extends their evidence of informed options trading before takeover announcements to recurring earnings-driven information for rank-and-file employees" }
-    - { cite: "Pan and Poteshman (2006)", relation: builds-on, note: "applies their option-demand informativeness framework to identify price-relevant employee trades from signed option volume" }
-    - { cite: "Black (1975)", relation: builds-on, note: "motivated by their argument that informed investors prefer options for embedded leverage; employees trade own-company options at 5-8x the rate of own-company stocks" }
-    - { cite: "Deuskar, Khatri & Subrahmanyam (2025)", relation: cites, note: "cites their evidence of supply-chain insider trading by primary insiders as motivation for examining the Nokia cluster" }
+    - { cite: "Green, Huang, Wen & Zhou (2019)", doi: '10.1016/j.jfineco.2019.03.012', relation: builds-on, note: "builds on their evidence that employees hold price-relevant private information about employers; extends the finding to direct option market exploitation" }
+    - { cite: "Augustin, Brenner & Subrahmanyam (2019)", doi: '10.1287/mnsc.2018.3122', relation: extends, note: "extends their evidence of informed options trading before takeover announcements to recurring earnings-driven information for rank-and-file employees" }
+    - { cite: "Pan and Poteshman (2006)", doi: '10.1093/rfs/hhj024', relation: builds-on, note: "applies their option-demand informativeness framework to identify price-relevant employee trades from signed option volume" }
+    - { cite: "Black (1975)", doi: '10.2469/faj.v31.n4.36', relation: builds-on, note: "motivated by their argument that informed investors prefer options for embedded leverage; employees trade own-company options at 5-8x the rate of own-company stocks" }
+    - { cite: "Deuskar, Khatri & Subrahmanyam (2025)", doi: '10.1287/mnsc.2022.02907', relation: cites, note: "cites their evidence of supply-chain insider trading by primary insiders as motivation for examining the Nokia cluster" }
   openQuestions:
     - "Whether the patterns extend to jurisdictions with different disclosure rules and enforcement levels; Finland's strong enforcement may make the sample unusual (p. 3; conclusion p. 19)."
     - "The employment-identification procedure captures only short, clearly observable employment stints; estimates are a lower bound on the true prevalence and magnitude of informed employee option trading (p. 4, Section 1.2)."

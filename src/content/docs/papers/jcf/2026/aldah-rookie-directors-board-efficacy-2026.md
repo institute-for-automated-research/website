@@ -73,10 +73,10 @@ paper:
     - { ref: R8, outcome: post-acquisition buy-and-hold abnormal returns, metric: coefficient, value: "Seasoned BRI: 0.009*** (t=2.946, Table 8 col 3, 504-day) / 0.010** (t=2.539, Table 8 col 6, 756-day); 1-SD increase -> +5.2% SD (504-day) and +4.3% SD (756-day) BHAR", direction: positive, vsBenchmark: "no significant effect for rookie presence or rookie BRI on post-acquisition performance" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Chen and Keefe (2020)", relation: extends, note: "distinguishes rookie refreshment from mere rookie presence; shows refreshment rather than bare rookie share drives monitoring improvements" }
-    - { cite: "Dah et al. (2024)", relation: builds-on, note: "adopts the Board Refreshment Index (BRI) methodology and seven director characteristics" }
+    - { cite: "Chen and Keefe (2020)", doi: '10.1016/j.jcorpfin.2019.101511', relation: extends, note: "distinguishes rookie refreshment from mere rookie presence; shows refreshment rather than bare rookie share drives monitoring improvements" }
+    - { cite: "Dah et al. (2024)", doi: '10.1111/1467-8551.12718', relation: builds-on, note: "adopts the Board Refreshment Index (BRI) methodology and seven director characteristics" }
     - { cite: "Kang et al. (2016)", relation: tests, note: "expands limited U.S. evidence on rookie directors to a broader set of governance outcomes" }
-    - { cite: "Fama and Jensen (1983)", relation: builds-on, note: "draws on the reputational career-concern rationale for rookie diligence as independent monitors" }
+    - { cite: "Fama and Jensen (1983)", doi: '10.1086/467037', relation: builds-on, note: "draws on the reputational career-concern rationale for rookie diligence as independent monitors" }
   openQuestions:
     - "Internal mechanisms through which refreshment affects monitoring and advising (meeting frequency, information flows, committee activity, dissent levels) are not examined (p. 21)."
     - "Whether rookie refreshment leads to more frequent audit or compensation committee meetings, and whether such changes translate into better reporting quality or CEO incentive alignment, remains unexplored (p. 21)."

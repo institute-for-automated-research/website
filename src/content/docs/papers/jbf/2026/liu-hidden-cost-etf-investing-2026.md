@@ -63,11 +63,11 @@ paper:
     - { ref: R7, outcome: overnight-intraday return differential for ETFs, metric: coefficient, value: "market open retail order imbalance coefficient = 0.082*** (SE 0.006) on NDiff; market close imbalance coefficient is insignificant", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: 'Lou, Polk and Skouras (2019)', relation: builds-on, note: 'overnight/intraday return definitions and tug-of-war concept adapted to the ETF setting' }
-    - { cite: 'Lachance (2021)', relation: extends, note: 'complements her study of ETFs high overnight returns by identifying retail demand and arbitrage constraints as the mechanism' }
-    - { cite: 'Bogousslavsky (2021)', relation: builds-on, note: 'the cross-section of intraday and overnight stock returns; this paper shows similar patterns hold in the ETF market' }
-    - { cite: 'Berkman et al. (2012)', relation: builds-on, note: 'retail attention and bid-ask bounce inflate open prices; this paper extends to ETFs using mid-quote returns to strip out bid-ask effects' }
-    - { cite: 'Boehmer et al. (2021)', relation: builds-on, note: 'algorithm to identify retail investor orders from TAQ sub-penny price improvements, applied to infer retail order imbalances near the open and close' }
+    - { cite: 'Lou, Polk and Skouras (2019)', doi: '10.1016/j.jfineco.2019.03.011', relation: builds-on, note: 'overnight/intraday return definitions and tug-of-war concept adapted to the ETF setting' }
+    - { cite: 'Lachance (2021)', doi: '10.1016/j.finmar.2020.100563', relation: extends, note: 'complements her study of ETFs high overnight returns by identifying retail demand and arbitrage constraints as the mechanism' }
+    - { cite: 'Bogousslavsky (2021)', doi: '10.1016/j.jfineco.2020.07.020', relation: builds-on, note: 'the cross-section of intraday and overnight stock returns; this paper shows similar patterns hold in the ETF market' }
+    - { cite: 'Berkman et al. (2012)', doi: '10.1017/s0022109012000270', relation: builds-on, note: 'retail attention and bid-ask bounce inflate open prices; this paper extends to ETFs using mid-quote returns to strip out bid-ask effects' }
+    - { cite: 'Boehmer et al. (2021)', doi: '10.1111/jofi.13033', relation: builds-on, note: 'algorithm to identify retail investor orders from TAQ sub-penny price improvements, applied to infer retail order imbalances near the open and close' }
   openQuestions:
     - "Whether the intraday pricing inefficiency is fully eliminated by the AP creation/redemption mechanism at the close, and whether market-maker competition or regulatory changes could reduce the retail demand markup earlier in the trading day (p. 13, conclusion)."
   replicationCode:

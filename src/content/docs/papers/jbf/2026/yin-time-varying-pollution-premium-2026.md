@@ -68,9 +68,9 @@ paper:
     - { ref: R7, outcome: "time-varying alpha explained by multivariate predictors (horse-race)", metric: r-squared, value: "Adj. R-sq = 0.770 (CAPM) to 0.819 (FF5F), partially time-varying model", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: "Hsu et al. (2023)", relation: extends, note: "extends their static pollution premium finding by documenting the full time-series evolution of the premium and identifying demand/supply drivers of the time variation" }
-    - { cite: "Ang and Kristensen (2012)", relation: builds-on, note: "the partially time-varying conditional factor model framework follows their methodology" }
-    - { cite: "Chen and Hong (2012)", relation: builds-on, note: "semiparametric profile estimation and wild bootstrap confidence bands follow their approach" }
+    - { cite: "Hsu et al. (2023)", doi: '10.1111/jofi.13217', relation: extends, note: "extends their static pollution premium finding by documenting the full time-series evolution of the premium and identifying demand/supply drivers of the time variation" }
+    - { cite: "Ang and Kristensen (2012)", doi: '10.1016/j.jfineco.2012.04.008', relation: builds-on, note: "the partially time-varying conditional factor model framework follows their methodology" }
+    - { cite: "Chen and Hong (2012)", doi: '10.3982/ecta7990', relation: builds-on, note: "semiparametric profile estimation and wild bootstrap confidence bands follow their approach" }
     - { cite: "Bansal et al. (2016)", relation: cites, note: "climate risk pricing baseline establishing a positive premium for global-warming exposure" }
     - { cite: "Bekaert et al. (2022)", relation: cites, note: "source of the time-varying risk aversion and macroeconomic uncertainty indices used as demand-side predictors" }
   replicationCode: { status: upon-request }

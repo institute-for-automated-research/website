@@ -67,13 +67,13 @@ paper:
     - { ref: R7, outcome: "inefficient impasse lower bound", metric: pp-effect, value: "-0.119 (S.E. 0.0610) for new vs. used products; t = 1.95", direction: negative, vsBenchmark: "11.9 pp lower impasse for new products, nearly significant at 5% (Table VI Panel C, p. 189)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Myerson and Satterthwaite (1983)", relation: builds-on, note: "MS impossibility theorem motivates measuring how far real-world bargaining falls from the first-best trade probability" }
+    - { cite: "Myerson and Satterthwaite (1983)", doi: '10.1016/0022-0531(83)90048-0', relation: builds-on, note: "MS impossibility theorem motivates measuring how far real-world bargaining falls from the first-best trade probability" }
     - { cite: "Haile and Tamer (2003)", relation: extends, note: "extends their incomplete-model bounds approach from English auctions to two-sided incomplete-information sequential bargaining" }
-    - { cite: "Manski (1989)", relation: builds-on, note: "builds on Manski partial identification and monotone instrumental variables framework for bounding distributions from weak assumptions" }
-    - { cite: "Perry (1986)", relation: tests, note: "Perry equilibrium satisfies stochastic monotonicity and positive correlation but not seller monotonicity when unobserved game-level heterogeneity is present" }
+    - { cite: "Manski (1989)", doi: '10.2307/145818', relation: builds-on, note: "builds on Manski partial identification and monotone instrumental variables framework for bounding distributions from weak assumptions" }
+    - { cite: "Perry (1986)", doi: '10.2307/1913153', relation: tests, note: "Perry equilibrium satisfies stochastic monotonicity and positive correlation but not seller monotonicity when unobserved game-level heterogeneity is present" }
     - { cite: "Cramton (1992)", relation: tests, note: "Cramton equilibrium satisfies all assumptions in the pure model but seller monotonicity is violated when unobserved heterogeneity is added" }
     - { cite: "Keniston (2017)", relation: extends, note: "extends beyond Keniston structural approach by using an incomplete model that does not require optimal behavior or full knowledge of the game structure" }
-    - { cite: "Larsen (2021)", relation: cites, note: "Larsen used-car study is the most closely related structural empirical bargaining paper; distinct in requiring stronger behavioral assumptions" }
+    - { cite: "Larsen (2021)", doi: '10.2139/ssrn.3990290', relation: cites, note: "Larsen used-car study is the most closely related structural empirical bargaining paper; distinct in requiring stronger behavioral assumptions" }
   openQuestions:
     - "Whether the preferred assumptions (stochastic monotonicity and positive correlation) remain valid beyond consumer eBay bargaining, in settings with more experienced professional negotiators (p. 191-192)."
     - "Future theoretical models of incomplete-information bargaining that capture inefficient impasse and unobserved game-level heterogeneity, as motivated by these empirical findings (p. 191)."

@@ -61,11 +61,11 @@ paper:
     - { ref: R6, outcome: "average treatment effect on employment", metric: pp-effect, value: "ATE=0.184, 95% CI [0.064, 0.294] at trimming t=0.05", direction: positive, vsBenchmark: "NSW experimental ATE=0.111 [0.026, 0.196] (Table II, p. 554)" }
   resultType: new-finding
   relatesTo:
-    - { cite: 'Ray and van der Vaart (2020)', relation: extends, note: 'generalizes their semiparametric BvM theorem for propensity-score-adjusted priors to the double-robust case with explicit posterior correction via the efficient influence function' }
-    - { cite: 'Hahn (1998)', relation: builds-on, note: 'efficient influence function for ATE and the least favorable direction that motivates both the prior adjustment and posterior correction (eqs. 2.4, 3.4, p. 542, 545)' }
+    - { cite: 'Ray and van der Vaart (2020)', doi: '10.1214/19-aos1919', relation: extends, note: 'generalizes their semiparametric BvM theorem for propensity-score-adjusted priors to the double-robust case with explicit posterior correction via the efficient influence function' }
+    - { cite: 'Hahn (1998)', doi: '10.2307/2998560', relation: builds-on, note: 'efficient influence function for ATE and the least favorable direction that motivates both the prior adjustment and posterior correction (eqs. 2.4, 3.4, p. 542, 545)' }
     - { cite: 'Chernozhukov et al. (2017)', relation: tests, note: 'DR Bayes achieves higher simulation coverage (0.95-0.98) than DML (0.87-0.93) and substantially shorter credible intervals at all trimming thresholds (Table I, p. 553)' }
-    - { cite: 'Abadie and Imbens (2011)', relation: tests, note: 'DR Bayes matches or beats bias-corrected matching coverage while delivering shorter credible intervals in the NSW simulation (Table I, p. 553)' }
-    - { cite: 'Dehejia and Wahba (1999)', relation: cites, note: 'empirical illustration uses the Lalonde-Dehejia-Wahba NSW+PSID observational dataset' }
+    - { cite: 'Abadie and Imbens (2011)', doi: '10.1198/jbes.2009.07333', relation: tests, note: 'DR Bayes matches or beats bias-corrected matching coverage while delivering shorter credible intervals in the NSW simulation (Table I, p. 553)' }
+    - { cite: 'Dehejia and Wahba (1999)', doi: '10.1080/01621459.1999.10473858', relation: cites, note: 'empirical illustration uses the Lalonde-Dehejia-Wahba NSW+PSID observational dataset' }
     - { cite: 'LaLonde (1986)', relation: cites, note: 'NSW experimental data and benchmark ATE estimate used in the empirical illustration' }
   openQuestions:
     - "Extensions to continuous and multinomial outcomes (Sections 6.1-6.2, pp. 554-556) derive the least favorable direction but delegate full BvM primitive conditions to Supplemental Appendices D and F."

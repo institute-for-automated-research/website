@@ -62,10 +62,10 @@ paper:
     - { ref: R7, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "daily-talker subsample: 1.01 (t=2.10); less-frequent interactors: insig", direction: mixed, vsBenchmark: "positive only for most socially connected individuals; consistent across four sociability proxies" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Manski (1993)", relation: builds-on, note: "reflection problem framework motivating the IV identification strategy" }
-    - { cite: "Brown et al. (2008)", relation: extends, note: "extends their nonlocal-family IV from stock-market participation to underlying financial beliefs" }
-    - { cite: "Hong et al. (2004)", relation: cites, note: "establishes peer effects in stock-market participation; motivates studying beliefs separately from behavior" }
-    - { cite: "Burnside et al. (2016)", relation: tests, note: "paper provides empirical evidence consistent with their social-transmission model of housing-market beliefs" }
+    - { cite: "Manski (1993)", doi: '10.2307/2298123', relation: builds-on, note: "reflection problem framework motivating the IV identification strategy" }
+    - { cite: "Brown et al. (2008)", doi: '10.1111/j.1540-6261.2008.01364.x', relation: extends, note: "extends their nonlocal-family IV from stock-market participation to underlying financial beliefs" }
+    - { cite: "Hong et al. (2004)", doi: '10.1111/j.1540-6261.2004.00629.x', relation: cites, note: "establishes peer effects in stock-market participation; motivates studying beliefs separately from behavior" }
+    - { cite: "Burnside et al. (2016)", doi: '10.1086/686732', relation: tests, note: "paper provides empirical evidence consistent with their social-transmission model of housing-market beliefs" }
     - { cite: "Han et al. (2020)", relation: tests, note: "paper provides evidence consistent with their social transmission bias model for investor behavior" }
   openQuestions:
     - "Cannot extend the analysis beyond 2008 because the Understanding Society Survey (USS) lacks the interview-area variable needed to define neighborhoods; peer effects in the social-media era remain unstudied (p. 20)."

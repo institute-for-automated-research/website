@@ -55,12 +55,12 @@ paper:
     - { ref: R5, outcome: "insurance and intertemporal wedges under persistence", metric: level, value: "insurance wedge turns negative (over-insurance) after consecutive low shocks; intertemporal wedge orders of magnitude larger than i.i.d. case (Figure 5, p. 845)", direction: mixed }
   resultType: overturns
   relatesTo:
-    - { cite: "Thomas and Worrall (1990)", relation: extends, note: "generalizes their i.i.d. immiseration result to ergodic finite-state Markov type processes via the marginal cost martingale approach" }
-    - { cite: "Green (1987)", relation: builds-on, note: "foundational open-economy insurance framework; the principal-agent problem here is dual to their planning problem" }
+    - { cite: "Thomas and Worrall (1990)", doi: '10.1016/0022-0531(90)90023-d', relation: extends, note: "generalizes their i.i.d. immiseration result to ergodic finite-state Markov type processes via the marginal cost martingale approach" }
+    - { cite: "Green (1987)", doi: '10.2307/2297639', relation: builds-on, note: "foundational open-economy insurance framework; the principal-agent problem here is dual to their planning problem" }
     - { cite: "Williams (2011)", relation: contradicts, note: "Williams shows long-run bliss under a Gaussian random walk (permanent shocks); this paper shows immiseration is restored whenever types are ergodic" }
     - { cite: "Zhang (2009)", relation: extends, note: "their d=2 symmetric-transitions immiseration result is a special case of Theorem 1" }
-    - { cite: "Atkeson and Lucas (1992)", relation: builds-on, note: "closed-economy inequality analysis; the open-economy problem here is dual to their planning problem" }
-    - { cite: "Fernandes and Phelan (2000)", relation: builds-on, note: "recursive formulation for contracting with persistence; this paper adapts and generalizes their approach using interim promised utilities as state variable" }
+    - { cite: "Atkeson and Lucas (1992)", doi: '10.2307/2297858', relation: builds-on, note: "closed-economy inequality analysis; the open-economy problem here is dual to their planning problem" }
+    - { cite: "Fernandes and Phelan (2000)", doi: '10.1006/jeth.1999.2619', relation: builds-on, note: "recursive formulation for contracting with persistence; this paper adapts and generalizes their approach using interim promised utilities as state variable" }
   openQuestions:
     - "Whether Theorems 1 and 2 hold almost surely for general ergodic Markov processes beyond the i.i.d. and binary-type cases (pp. 834, 836)"
     - "Whether immiseration holds for unbounded, continuous-state, or non-Markovian type processes; extending to such settings is identified as an important and challenging task (p. 848)"

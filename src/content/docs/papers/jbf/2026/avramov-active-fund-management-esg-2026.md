@@ -69,9 +69,9 @@ paper:
   relatesTo:
     - { cite: "Grossman and Stiglitz (1980)", relation: builds-on, note: "equilibrium information acquisition framework; model extends to multi-asset setting with heterogeneous ESG preferences" }
     - { cite: "Kacperczyk, Van Nieuwerburgh & Veldkamp (2016)", relation: builds-on, note: "rational attention allocation model for mutual funds; paper extends by incorporating ESG motives as a new force shaping attention allocation" }
-    - { cite: "Breugem and Buss (2019)", relation: extends, note: "institutional-investor information acquisition model; extended to accommodate heterogeneous ESG preferences and their asset pricing implications" }
+    - { cite: "Breugem and Buss (2019)", doi: '10.1093/rfs/hhy103', relation: extends, note: "institutional-investor information acquisition model; extended to accommodate heterogeneous ESG preferences and their asset pricing implications" }
     - { cite: "Pastor, Stambaugh & Taylor (2021)", relation: tests, note: "equilibrium ESG-return model; paper documents concave (not merely linear) ESG-ICC relation and information channel as a novel amplifying force" }
-    - { cite: "Hartzmark and Sussman (2019)", relation: cites, note: "documents fund flows to high-sustainability Morningstar funds; motivates the modeling of ESG-perceptive active fund managers" }
+    - { cite: "Hartzmark and Sussman (2019)", doi: '10.1111/jofi.12841', relation: cites, note: "documents fund flows to high-sustainability Morningstar funds; motivates the modeling of ESG-perceptive active fund managers" }
   openQuestions:
     - "How to account explicitly for the additional information about assets' ESG profiles when ESG ratings disagree substantially across vendors (conclusion, p.15)."
     - "Incorporating delegation, where uninformed households entrust investments to informed intermediaries, which could yield testable equilibrium restrictions on fund flows and ESG-driven motives (conclusion, p.15)."

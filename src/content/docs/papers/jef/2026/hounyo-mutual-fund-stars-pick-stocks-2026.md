@@ -65,10 +65,10 @@ paper:
     - { ref: R6, outcome: "mutual fund alpha (abnormal return vs Carhart four-factor model)", metric: alpha, value: "Time-varying (nonparametric) alpha at 99.5th percentile fund remains stable pre-2005 near upper 90% bootstrap confidence bound; post-2005 volatility rises and alpha approaches lower bound (§4.3, Fig. 12, p. 17)", direction: mixed, vsBenchmark: "vs zero-alpha null; CSDWB_I 10-90% bootstrap confidence interval" }
   resultType: overturns
   relatesTo:
-    - { cite: "Fama and French (2010)", relation: contradicts, note: "FF bootstrap is severely undersized due to duplicate observations; their finding of no outperformers is overturned by CSDWB" }
-    - { cite: "Kosowski et al. (2006)", relation: extends, note: "CSDWB extends KTWW bootstrap to cross-sectionally dependent, unbalanced panels; confirms their evidence that skilled funds exist" }
-    - { cite: "Harvey and Liu (2022)", relation: extends, note: "HL attribute FF undersizing to undersampling; paper shows the dominant cause is duplicate observations rather than undersampling" }
-    - { cite: "Huang et al. (2023)", relation: extends, note: "improves on their bootstrap analysis of mutual fund performance by eliminating the duplicate observations problem" }
+    - { cite: "Fama and French (2010)", doi: '10.1111/j.1540-6261.2010.01598.x', relation: contradicts, note: "FF bootstrap is severely undersized due to duplicate observations; their finding of no outperformers is overturned by CSDWB" }
+    - { cite: "Kosowski et al. (2006)", doi: '10.1016/j.jfineco.2005.12.009', relation: extends, note: "CSDWB extends KTWW bootstrap to cross-sectionally dependent, unbalanced panels; confirms their evidence that skilled funds exist" }
+    - { cite: "Harvey and Liu (2022)", doi: '10.1111/jofi.13123', relation: extends, note: "HL attribute FF undersizing to undersampling; paper shows the dominant cause is duplicate observations rather than undersampling" }
+    - { cite: "Huang et al. (2023)", doi: '10.1016/j.jeconom.2022.03.011', relation: extends, note: "improves on their bootstrap analysis of mutual fund performance by eliminating the duplicate observations problem" }
     - { cite: "Hansen et al. (2011)", relation: builds-on, note: "fund-selection Algorithm 1 builds on the Model Confidence Set method" }
   openQuestions:
     - "Whether CSDWB methods extend naturally to hedge fund performance evaluation and other alternative asset classes (§5, p. 17)"

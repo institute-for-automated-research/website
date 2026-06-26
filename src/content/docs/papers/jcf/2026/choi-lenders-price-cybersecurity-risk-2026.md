@@ -69,11 +69,11 @@ paper:
     - { ref: R8, outcome: borrower distance-to-default, metric: coefficient, value: "-0.209* (loan-level sample), -0.181* (firm-year sample) per 1 SD cybersecurity risk; ~3% decrease in distance-to-default", direction: negative }
   resultType: new-finding
   relatesTo:
-    - { cite: "Florackis et al. (2023)", relation: builds-on, note: "cybersecurity risk measure from textual similarity of 10-K disclosures to pre-breach firms; main risk measure used throughout" }
+    - { cite: "Florackis et al. (2023)", doi: '10.1093/rfs/hhac024', relation: builds-on, note: "cybersecurity risk measure from textual similarity of 10-K disclosures to pre-breach firms; main risk measure used throughout" }
     - { cite: "Jamilov et al. (2021)", relation: builds-on, note: "conference call cybersecurity and insurance keyword data for lender awareness and borrower insurance coverage variables" }
-    - { cite: "Huang and Wang (2021)", relation: extends, note: "shift from their ex-post data-breach pricing to ex-ante cybersecurity risk pricing in loan spreads" }
+    - { cite: "Huang and Wang (2021)", doi: '10.2308/tar-2018-0643', relation: extends, note: "shift from their ex-post data-breach pricing to ex-ante cybersecurity risk pricing in loan spreads" }
     - { cite: "Sheneman (2017)", relation: extends, note: "ex-post data breach impact on loan spreads; this paper documents ex-ante pricing before any breach occurs" }
-    - { cite: "Kamiya et al. (2021)", relation: cites, note: "cyberattack impact on firm risk appetite and shareholder wealth, motivating the credit risk channel" }
+    - { cite: "Kamiya et al. (2021)", doi: '10.1016/j.jfineco.2019.05.019', relation: cites, note: "cyberattack impact on firm risk appetite and shareholder wealth, motivating the credit risk channel" }
     - { cite: "Aldasoro et al. (2022)", relation: cites, note: "non-bank lenders' higher risk appetite versus commercial banks, motivating lender-type heterogeneity tests" }
   openQuestions:
     - "Whether ex-ante cybersecurity risk pricing generalizes beyond U.S. syndicated loans to other credit markets and jurisdictions, as the sample covers only U.S. non-financial firms 2012-2018 (conclusion, pp. 14-15)."

@@ -67,10 +67,10 @@ paper:
     - { ref: R8, outcome: "bank systemic risk (ΔCoVaR, 2SLS)", metric: coefficient, value: "0.045*** (SE 0.011)", direction: positive, vsBenchmark: "close to OLS; first-stage ELECTIONS on TERM LIMITS: 0.685*** (SE 0.007)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Adrian and Brunnermeier (2016)", relation: builds-on, note: "ΔCoVaR methodology and three-step quantile-regression estimation procedure adopted directly" }
-    - { cite: "Brownlees and Engle (2017)", relation: builds-on, note: "SRISK used as alternative systemic risk measure in robustness tests" }
-    - { cite: "Jens (2017)", relation: extends, note: "term limits instrument for election timing adopted and extended to the systemic risk context" }
-    - { cite: "Matousek et al. (2020)", relation: extends, note: "prior evidence on policy uncertainty and bank capital shortfalls; this paper focuses specifically on election cycles using a global OECD sample" }
+    - { cite: "Adrian and Brunnermeier (2016)", doi: '10.1257/aer.20120555', relation: builds-on, note: "ΔCoVaR methodology and three-step quantile-regression estimation procedure adopted directly" }
+    - { cite: "Brownlees and Engle (2017)", doi: '10.1093/rfs/hhw060', relation: builds-on, note: "SRISK used as alternative systemic risk measure in robustness tests" }
+    - { cite: "Jens (2017)", doi: '10.1016/j.jfineco.2016.01.034', relation: extends, note: "term limits instrument for election timing adopted and extended to the systemic risk context" }
+    - { cite: "Matousek et al. (2020)", doi: '10.1016/j.jcorpfin.2020.101558', relation: extends, note: "prior evidence on policy uncertainty and bank capital shortfalls; this paper focuses specifically on election cycles using a global OECD sample" }
     - { cite: "Bialkowski et al. (2008)", relation: cites, note: "prior work documenting that country-specific stock market volatility roughly doubles in the week around an election" }
   openQuestions:
     - "Sample restricted to 22 OECD economies with listed financial institutions large enough to appear in the DS Financials index; whether findings extend to non-OECD or emerging-market banking systems is unaddressed (p. 7, footnote 11)."

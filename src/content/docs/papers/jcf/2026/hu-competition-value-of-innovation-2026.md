@@ -68,11 +68,11 @@ paper:
   resultType: new-finding
   relatesTo:
     - { cite: "Aghion et al. (2005)", relation: tests, note: "tests the inverted-U competition-innovation hypothesis at the patent level; finds a monotone negative relationship, not an inverted-U" }
-    - { cite: "Kogan et al. (2017)", relation: builds-on, note: "uses the KPSS stock-market-based patent value measure (3-day CAR around patent grant date, adjusted for noise and scaled by market cap)" }
-    - { cite: "Nickell (1996)", relation: builds-on, note: "adopts the markup-based competition index as the primary proxy for product-market competition intensity" }
+    - { cite: "Kogan et al. (2017)", doi: '10.1093/qje/qjw040', relation: builds-on, note: "uses the KPSS stock-market-based patent value measure (3-day CAR around patent grant date, adjusted for noise and scaled by market cap)" }
+    - { cite: "Nickell (1996)", doi: '10.1086/262040', relation: builds-on, note: "adopts the markup-based competition index as the primary proxy for product-market competition intensity" }
     - { cite: "Kepler et al. (2021)", relation: builds-on, note: "uses the stealth merger design (deal values just below HSR antitrust thresholds) to identify likely-anti-competitive M&A events" }
-    - { cite: "Fathollahi et al. (2022)", relation: builds-on, note: "adopts the IPS text-based industry product similarity measure and concentrated-industry classification for heterogeneity analysis" }
-    - { cite: "Hoberg and Phillips (2016)", relation: builds-on, note: "uses TNIC text-based network industry classification as an alternative industry definition for the competition measure and horizontal merger identification" }
+    - { cite: "Fathollahi et al. (2022)", doi: '10.1016/j.jfineco.2021.06.017', relation: builds-on, note: "adopts the IPS text-based industry product similarity measure and concentrated-industry classification for heterogeneity analysis" }
+    - { cite: "Hoberg and Phillips (2016)", doi: '10.1086/688176', relation: builds-on, note: "uses TNIC text-based network industry classification as an alternative industry definition for the competition measure and horizontal merger identification" }
   openQuestions:
     - "Results may not extend to other forms of innovation, such as trade secrets, which the patent-value framework cannot capture (footnote 4, p.4)."
     - "The small stealth merger sample precludes cluster-robust or wild-bootstrap standard errors, leaving open whether inference is fully robust in that sub-analysis (p.12)."

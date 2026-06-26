@@ -68,8 +68,8 @@ paper:
   resultType: new-finding
   relatesTo:
     - { cite: "Olley and Pakes (1996)", relation: builds-on, note: "adapts the production function control function approach to identify unobservable candidate valence from election and campaign data" }
-    - { cite: "Lee (2008)", relation: extends, note: "uses Lee's RD design for incumbency advantage and decomposes it into valence, spending, and policy components" }
-    - { cite: "Maestas and Rugeley (2008)", relation: tests, note: "validates estimated valence against their observable seriousness dummies; Spearman rank correlations positive and significant (Table VI, p. 491)" }
+    - { cite: "Lee (2008)", doi: '10.1016/j.jeconom.2007.05.004', relation: extends, note: "uses Lee's RD design for incumbency advantage and decomposes it into valence, spending, and policy components" }
+    - { cite: "Maestas and Rugeley (2008)", doi: '10.1111/j.1540-5907.2008.00327.x', relation: tests, note: "validates estimated valence against their observable seriousness dummies; Spearman rank correlations positive and significant (Table VI, p. 491)" }
   openQuestions:
     - "Relaxing the scalar unobservable assumption (valence as a single additive term, analogous to Hicks neutrality in production function estimation) to allow multidimensional candidate quality (p. 498, Conclusion)."
     - "Relaxing parametric functional form restrictions on the vote share equation (p. 498, Conclusion)."

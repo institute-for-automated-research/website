@@ -73,10 +73,10 @@ paper:
   resultType: new-finding
   relatesTo:
     - { cite: "Bolton and Kacperczyk (2021)", relation: extends, note: "extends evidence on pollution premiums from equity returns to bank loan markets" }
-    - { cite: "Hsu et al. (2023)", relation: extends, note: "extends environmental transition risk evidence to bank loans using firm-level ESR data" }
+    - { cite: "Hsu et al. (2023)", doi: '10.1111/jofi.13217', relation: extends, note: "extends environmental transition risk evidence to bank loans using firm-level ESR data" }
     - { cite: "Graham et al. (2008)", relation: builds-on, note: "builds on the determinants-of-bank-loan-pricing framework (firm characteristics, loan attributes)" }
-    - { cite: "Barwick et al. (2024)", relation: tests, note: "PSM-DID result partially supports their finding that environmental regulation can ease bank creditors' concerns" }
-    - { cite: "Houston et al. (2014)", relation: builds-on, note: "builds on political connections and loan pricing to motivate the political connection cross-section test" }
+    - { cite: "Barwick et al. (2024)", doi: '10.1257/aer.20200956', relation: tests, note: "PSM-DID result partially supports their finding that environmental regulation can ease bank creditors' concerns" }
+    - { cite: "Houston et al. (2014)", doi: '10.1111/1475-679x.12038', relation: builds-on, note: "builds on political connections and loan pricing to motivate the political connection cross-section test" }
   replicationCode:
     status: none
   extraction:

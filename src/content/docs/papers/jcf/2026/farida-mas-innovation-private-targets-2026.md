@@ -72,11 +72,11 @@ paper:
     - { ref: R7, outcome: acquirer 5-day cumulative abnormal return around M&A announcement, metric: car, value: "0.012*** (s.e. 0.004; 1.2 pp higher CAR for private-target acquirers; Private x DeltaInn Q2 and Q3 interactions add 2.1-4.0 pp)", direction: positive, vsBenchmark: "vs public-target acquirers (Table 10, Col. 1 baseline and Cols. 2-8 interactions)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Bena and Li (2014)", relation: builds-on, note: "matched private vs public target design and KPSS patent-based innovation measures adapted from their approach" }
+    - { cite: "Bena and Li (2014)", doi: '10.1111/jofi.12059', relation: builds-on, note: "matched private vs public target design and KPSS patent-based innovation measures adapted from their approach" }
     - { cite: "Sevilir and Tian (2012)", relation: builds-on, note: "establishes M&A is positively associated with innovation; this paper adds the private vs public target distinction" }
-    - { cite: "Faccio et al. (2006)", relation: tests, note: "tests whether post-acquisition innovation improvements explain the acquirer announcement return premium documented for private targets" }
-    - { cite: "Phillips and Zhdanov (2013)", relation: extends, note: "they examine M&A and innovation incentives by firm size; this paper extends to private vs public target status with post-acquisition patent outcomes" }
-    - { cite: "Kogan et al. (2017)", relation: builds-on, note: "uses their KPSS patent database for patent count, forward citations, and patent economic value measures" }
+    - { cite: "Faccio et al. (2006)", doi: '10.1017/s0022109000002477', relation: tests, note: "tests whether post-acquisition innovation improvements explain the acquirer announcement return premium documented for private targets" }
+    - { cite: "Phillips and Zhdanov (2013)", doi: '10.1093/rfs/hhs109', relation: extends, note: "they examine M&A and innovation incentives by firm size; this paper extends to private vs public target status with post-acquisition patent outcomes" }
+    - { cite: "Kogan et al. (2017)", doi: '10.1093/qje/qjw040', relation: builds-on, note: "uses their KPSS patent database for patent count, forward citations, and patent economic value measures" }
     - { cite: "Kelly et al. (2021)", relation: builds-on, note: "uses their KPST patent data for technology classification and breakthrough-sector identification" }
   openQuestions:
     - "Withdrawn private-target deals show weaker innovation effects (Table 6, Panel B) than successful ones for most outcomes; whether any residual selection on acquirer innovation momentum remains is unresolved."

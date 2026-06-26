@@ -66,11 +66,11 @@ paper:
     - { ref: R7, outcome: implied volatility of S&P 500 put options, metric: coefficient, value: "MP1 proxy OLS beta_1 = -9.427 (t=-51.566); MP1 IV-GMM beta_1 = -80.292 (t=-1.813, 10% significant)", direction: negative }
   resultType: new-finding
   relatesTo:
-    - { cite: "Miller, Weller & Zhang (2002)", relation: builds-on, note: "theoretical framework for the Fed Put via meta moral hazard; basis for testable implications about put option pricing" }
+    - { cite: "Miller, Weller & Zhang (2002)", doi: '10.1111/1468-0297.00029', relation: builds-on, note: "theoretical framework for the Fed Put via meta moral hazard; basis for testable implications about put option pricing" }
     - { cite: "Wu and Xia (2016)", relation: builds-on, note: "shadow Fed Funds rate methodology used to measure monetary policy stance during ZLB periods" }
-    - { cite: "Taylor (1993)", relation: builds-on, note: "Taylor Rule benchmark used to classify periods of Fed market support vs non-support" }
-    - { cite: "Bekaert, Engstrom & Xu (2021)", relation: builds-on, note: "relative risk aversion index used as time-varying risk aversion control and as endogenous regressor" }
-    - { cite: "Adrian et al. (2020)", relation: cites, note: "shows accommodative interest rate policy shifts macroprudential risk rather than eliminating it" }
+    - { cite: "Taylor (1993)", doi: '10.1016/0167-2231(93)90009-l', relation: builds-on, note: "Taylor Rule benchmark used to classify periods of Fed market support vs non-support" }
+    - { cite: "Bekaert, Engstrom & Xu (2021)", doi: '10.1287/mnsc.2021.4068', relation: builds-on, note: "relative risk aversion index used as time-varying risk aversion control and as endogenous regressor" }
+    - { cite: "Adrian et al. (2020)", doi: '10.2139/ssrn.3758069', relation: cites, note: "shows accommodative interest rate policy shifts macroprudential risk rather than eliminating it" }
     - { cite: "Drechsler, Savov & Schnabl (2018)", relation: cites, note: "related theoretical work on distortive effects of central bank intervention on risk premia" }
   openQuestions:
     - "Whether the post-2008 disappearance of the Fed Put reflects the mechanical effect of the zero lower bound environment on option prices or a permanent shift in market expectations of Fed intervention (p. 12, Conclusions)."

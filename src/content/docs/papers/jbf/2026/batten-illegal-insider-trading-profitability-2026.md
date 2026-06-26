@@ -66,9 +66,9 @@ paper:
     - { ref: R6, outcome: "illegal insider trading BHAR", metric: coefficient, value: "LAW^Institution coeff 0.011*** (SE 0.003) after Heckman selection correction (Table 7, Panel A, col 1)", direction: positive, vsBenchmark: "same sign and significance as OLS baseline; selection bias does not explain the effect" }
   resultType: new-finding
   relatesTo:
-    - { cite: "La Porta et al. (1998)", relation: builds-on, note: "law and finance framework connecting legal institutions to investor protection and financial development" }
-    - { cite: "Kacperczyk and Pagnotta (2024)", relation: extends, note: "extends their analysis of legal risk pricing in insider trading to Chinese provincial variation" }
-    - { cite: "Kim and Skinner (2012)", relation: builds-on, note: "methodology for constructing firm-level ex ante litigation risk via probit model of regulatory sanctions" }
+    - { cite: "La Porta et al. (1998)", doi: '10.1086/250042', relation: builds-on, note: "law and finance framework connecting legal institutions to investor protection and financial development" }
+    - { cite: "Kacperczyk and Pagnotta (2024)", doi: '10.1111/jofi.13299', relation: extends, note: "extends their analysis of legal risk pricing in insider trading to Chinese provincial variation" }
+    - { cite: "Kim and Skinner (2012)", doi: '10.1016/j.jacceco.2011.09.005', relation: builds-on, note: "methodology for constructing firm-level ex ante litigation risk via probit model of regulatory sanctions" }
     - { cite: "Becker (1968)", relation: builds-on, note: "rational-crime framework: trade occurs when expected gain exceeds expected penalty; the paper tests this trade-off empirically" }
     - { cite: "Ahern (2020)", relation: cites, note: "evidence on information networks and the determinants of illegal insider trading profitability" }
     - { cite: "Sha et al. (2020)", relation: extends, note: "extends the 'puzzle of low returns of illegal insider trading' in China to show that legal risk explains cross-sectional variation" }

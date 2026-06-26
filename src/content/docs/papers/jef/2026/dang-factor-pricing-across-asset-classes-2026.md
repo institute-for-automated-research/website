@@ -67,12 +67,12 @@ paper:
     - { ref: R6, outcome: "mutual fund alpha under multi-asset benchmark", metric: alpha, value: "average absolute alpha 0.16%/month; 111 of 15,968 funds significantly positive (Table 10)", direction: negative, vsBenchmark: "vs FF5_inteq: avg 0.23%/month, 2,903 sig. positive; vs winner_useq: 0.23%/month, 235 sig. positive" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Pukthuanthong, Roll & Subrahmanyam (2019)", relation: builds-on, note: "factor identification protocol (PRS) used to screen viable risk factors via canonical correlations with PC-spanned return space" }
-    - { cite: "Barillas & Shanken (2018)", relation: builds-on, note: "Bayesian model comparison via Sharpe ratio maximization underpins the BS-CZZ model selection step" }
-    - { cite: "Chib, Zeng & Zhao (2020)", relation: builds-on, note: "BS-CZZ Bayesian model scan algorithm for posterior model probability ranking across factor subsets" }
+    - { cite: "Pukthuanthong, Roll & Subrahmanyam (2019)", doi: '10.1093/rfs/hhy093', relation: builds-on, note: "factor identification protocol (PRS) used to screen viable risk factors via canonical correlations with PC-spanned return space" }
+    - { cite: "Barillas & Shanken (2018)", doi: '10.1111/jofi.12607', relation: builds-on, note: "Bayesian model comparison via Sharpe ratio maximization underpins the BS-CZZ model selection step" }
+    - { cite: "Chib, Zeng & Zhao (2020)", doi: '10.1111/jofi.12854', relation: builds-on, note: "BS-CZZ Bayesian model scan algorithm for posterior model probability ranking across factor subsets" }
     - { cite: "Asness, Frazzini & Pedersen (2013)", relation: tests, note: "48 VME portfolios used as main cross-asset test assets; AMP global three-factor model serves as integrated model benchmark" }
     - { cite: "Cooper, Mitrache & Priestley (2022)", relation: tests, note: "five-macro AMP model benchmarked; integrated model dominates on full-sample and OOS Sharpe ratios" }
-    - { cite: "Fama & French (1993)", relation: tests, note: "equity factors benchmarked across asset classes; winner_useq SR=0.418 vs integrated SR=1.053" }
+    - { cite: "Fama & French (1993)", doi: '10.1016/0304-405x(93)90023-5', relation: tests, note: "equity factors benchmarked across asset classes; winner_useq SR=0.418 vs integrated SR=1.053" }
     - { cite: "Cochrane (2009)", relation: builds-on, note: "theoretical motivation: single SDF should price all assets under law of one price" }
   openQuestions:
     - "After-cost performance of the integrated model factors has not been examined; transaction costs may erode part of the Sharpe ratio advantage (p. 18)."

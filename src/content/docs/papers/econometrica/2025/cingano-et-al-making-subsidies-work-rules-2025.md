@@ -75,10 +75,10 @@ paper:
     - { ref: R8, outcome: "firm employment growth (log-change, cumulative)", metric: coefficient, value: "range 0.10-0.19 log-change across SR-SD quintile cells (6-year horizon)", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: "Angrist and Rokkanen (2015)", relation: builds-on, note: "provides the CIA-based framework for extrapolating RDD estimates beyond the cutoff to inframarginal firms" }
-    - { cite: "Cerqua and Pellegrini (2014)", relation: extends, note: "prior RDD evaluation of L488/92 limited to six Southern regions; extended here to all 26 calls with full heterogeneity analysis" }
-    - { cite: "Bronzini and de Blasio (2006)", relation: contradicts, note: "DiD evaluation of L488/92 found no net investment increase; this paper finds significant positive investment and employment effects" }
-    - { cite: "Bartik (2020)", relation: cites, note: "place-based jobs policy review; used as cost-per-job benchmark for cross-study comparison" }
+    - { cite: "Angrist and Rokkanen (2015)", doi: '10.1080/01621459.2015.1012259', relation: builds-on, note: "provides the CIA-based framework for extrapolating RDD estimates beyond the cutoff to inframarginal firms" }
+    - { cite: "Cerqua and Pellegrini (2014)", doi: '10.1016/j.jpubeco.2013.11.005', relation: extends, note: "prior RDD evaluation of L488/92 limited to six Southern regions; extended here to all 26 calls with full heterogeneity analysis" }
+    - { cite: "Bronzini and de Blasio (2006)", doi: '10.1016/j.jue.2006.03.005', relation: contradicts, note: "DiD evaluation of L488/92 found no net investment increase; this paper finds significant positive investment and employment effects" }
+    - { cite: "Bartik (2020)", doi: '10.1257/jep.34.3.99', relation: cites, note: "place-based jobs policy review; used as cost-per-job benchmark for cross-study comparison" }
   openQuestions:
     - "Full welfare assessment including changes in housing values and rents (as in the Empowerment Zones analysis) requires data not available here; left for future research (p. 775)."
     - "External validity of the rules-versus-discretion trade-off to other industrial policy programs and countries beyond Italy's L488/92 (pp. 749, 775)."

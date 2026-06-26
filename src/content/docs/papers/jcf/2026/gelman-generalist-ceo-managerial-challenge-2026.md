@@ -69,13 +69,13 @@ paper:
     - { ref: R9, outcome: long-term industry-adjusted ROA, metric: coefficient, value: "GAI_SURP x Complexity index = 0.00592** (se = 0.00252)", direction: positive }
   resultType: new-finding
   relatesTo:
-    - { cite: "Custodio, Ferreira and Matos (2013)", relation: extends, note: "uses their GAI measure; extends their null CAR finding by showing it is conditional on firm-level challenge" }
+    - { cite: "Custodio, Ferreira and Matos (2013)", doi: '10.1016/j.jfineco.2013.01.001', relation: extends, note: "uses their GAI measure; extends their null CAR finding by showing it is conditional on firm-level challenge" }
     - { cite: "Betzer, van den Bongard and Limbach (2020)", relation: contradicts, note: "their broad null investor reaction to CEO experience explained by pooling challenge and non-challenge firms" }
-    - { cite: "Gabaix and Landier (2008)", relation: builds-on, note: "competitive assignment framework; CEO compensation tied to market-average firm outside option, not hiring-firm challenge" }
+    - { cite: "Gabaix and Landier (2008)", doi: '10.1162/qjec.2008.123.1.49', relation: builds-on, note: "competitive assignment framework; CEO compensation tied to market-average firm outside option, not hiring-firm challenge" }
     - { cite: "Pan (2017)", relation: builds-on, note: "CEO assignment and value creation with CEO labor-market frictions" }
-    - { cite: "Tervio (2008)", relation: builds-on, note: "CEO-firm assignment and total surplus framework motivating complementarity assumptions" }
+    - { cite: "Tervio (2008)", doi: '10.1257/aer.98.3.642', relation: builds-on, note: "CEO-firm assignment and total surplus framework motivating complementarity assumptions" }
     - { cite: "Demerjian, Lev and McVay (2012)", relation: builds-on, note: "residual firm efficiency measure used as performance component of the moderating index" }
-    - { cite: "Hambrick et al. (2005)", relation: cites, note: "managerial challenge concept as motivation for why complexity and poor performance demand skilled managers" }
+    - { cite: "Hambrick et al. (2005)", doi: '10.5465/amr.2005.17293355', relation: cites, note: "managerial challenge concept as motivation for why complexity and poor performance demand skilled managers" }
   openQuestions:
     - "Why complex firms do not attract more experienced generalist CEOs and do not offer higher compensation for experience relative to non-complex firms, despite creating more investor surplus from the match: noted as an open pattern and an avenue for future research (p. 20)."
   extraction:

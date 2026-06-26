@@ -70,9 +70,9 @@ paper:
   resultType: confirms
   relatesTo:
     - { cite: "Albuquerque, Koskinen and Zhang (2019)", relation: tests, note: "confirms their prediction that widespread CSR adoption erodes differentiation benefits and raises systematic risk; extends it to a mandatory regulatory setting" }
-    - { cite: "Manchiraju and Rajgopal (2017)", relation: builds-on, note: "uses their treatment/control group identification under India's 2013 Companies Act Section 135" }
-    - { cite: "Rajgopal and Tantri (2023)", relation: builds-on, note: "consistent with their finding that the mandate eroded voluntary CSR signaling value and reduced firm performance" }
-    - { cite: "Harjoto (2017)", relation: builds-on, note: "adopts the operating leverage mechanism linking CSR quasi-fixed costs to earnings sensitivity and systematic risk" }
+    - { cite: "Manchiraju and Rajgopal (2017)", doi: '10.1111/1475-679x.12174', relation: builds-on, note: "uses their treatment/control group identification under India's 2013 Companies Act Section 135" }
+    - { cite: "Rajgopal and Tantri (2023)", doi: '10.1111/1475-679x.12461', relation: builds-on, note: "consistent with their finding that the mandate eroded voluntary CSR signaling value and reduced firm performance" }
+    - { cite: "Harjoto (2017)", doi: '10.1007/s11156-016-0598-5', relation: builds-on, note: "adopts the operating leverage mechanism linking CSR quasi-fixed costs to earnings sensitivity and systematic risk" }
   openQuestions:
     - "Whether the saturation mechanism generalizes beyond India to other mandatory CSR regimes (e.g. EU CSRD): the equilibrium argument depends on the share of firms engaged in CSR, which varies by institutional setting (p. 20)."
     - "Heterogeneity by CSR activity type: the Companies Act mandates diverse activities (poverty alleviation, environmental protection, education) whose risk implications may differ; the aggregate analysis cannot identify which forms drive the result (p. 20)."

@@ -58,13 +58,13 @@ paper:
     - { ref: R6, outcome: "relative difficulty of welfare maximization vs. monopoly pricing", metric: regret-rate, value: "T^{2/3} vs T^{1/2} for finite policy sets (Table I, p. 1080); bilateral trade finite rate is T^{2/3}, continuous rate is T", direction: positive, vsBenchmark: "welfare maximization strictly harder than monopoly pricing due to integral counterfactual demand structure" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Auer, Cesa-Bianchi, Freund & Schapire (2002)", relation: builds-on, note: "Tempered Exp3 modifies their Exp3 algorithm for the nonstochastic bandit to handle indirect welfare estimation via inverse-probability-weighted demand" }
+    - { cite: "Auer, Cesa-Bianchi, Freund & Schapire (2002)", doi: '10.1137/s0097539701398375', relation: builds-on, note: "Tempered Exp3 modifies their Exp3 algorithm for the nonstochastic bandit to handle indirect welfare estimation via inverse-probability-weighted demand" }
     - { cite: "Kleinberg and Leighton (2003)", relation: builds-on, note: "establishes T^{1/2} rate for monopoly pricing with bandit feedback; paper shows welfare maximization requires T^{2/3}" }
-    - { cite: "Mirrlees (1971)", relation: cites, note: "optimal income tax theory; Section 5 generalizes to nonlinear income taxation with heterogeneous wages and welfare weights" }
-    - { cite: "Saez (2001)", relation: cites, note: "elasticity-based optimal income tax rates; paper replaces static structural estimation with adaptive policy learning" }
-    - { cite: "Ramsey (1927)", relation: cites, note: "commodity taxation model; Section 6 sketches an extension to multi-good commodity taxation" }
-    - { cite: "Chetty (2009)", relation: cites, note: "sufficient statistics for welfare analysis; the envelope-theorem welfare representation underpins the algorithmic welfare estimator" }
-    - { cite: "Lattimore and Szepesvari (2020)", relation: builds-on, note: "bandit algorithms textbook providing the T^{1/2} multiarmed bandit baseline that the paper shows welfare maximization exceeds" }
+    - { cite: "Mirrlees (1971)", doi: '10.2307/2296779', relation: cites, note: "optimal income tax theory; Section 5 generalizes to nonlinear income taxation with heterogeneous wages and welfare weights" }
+    - { cite: "Saez (2001)", doi: '10.1111/1467-937x.00166', relation: cites, note: "elasticity-based optimal income tax rates; paper replaces static structural estimation with adaptive policy learning" }
+    - { cite: "Ramsey (1927)", doi: '10.2307/2222721', relation: cites, note: "commodity taxation model; Section 6 sketches an extension to multi-good commodity taxation" }
+    - { cite: "Chetty (2009)", doi: '10.1146/annurev.economics.050708.142910', relation: cites, note: "sufficient statistics for welfare analysis; the envelope-theorem welfare representation underpins the algorithmic welfare estimator" }
+    - { cite: "Lattimore and Szepesvari (2020)", doi: '10.1017/9781108571401', relation: builds-on, note: "bandit algorithms textbook providing the T^{1/2} multiarmed bandit baseline that the paper shows welfare maximization exceeds" }
   openQuestions:
     - "Whether the log(T)^{1/3} gap between the T^{2/3} lower bound and the algorithm's log(T)^{1/3}*T^{2/3} upper bound can be closed; authors conjecture a Tsallis-INF variant may achieve this at the cost of computational complexity (p. 1085)."
     - "Formal regret analysis and lower bounds for the commodity taxation extension (Algorithm 4, Section 6); characterization left for future research (p. 1093)."

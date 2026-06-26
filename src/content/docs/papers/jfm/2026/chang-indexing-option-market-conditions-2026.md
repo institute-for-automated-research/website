@@ -67,11 +67,11 @@ paper:
     - { ref: R6, outcome: "options ILLIQ (Optilliq)", metric: coefficient, value: "Dum2000 = -0.050 (t = -5.32)", direction: negative, vsBenchmark: "similar-sized stocks at bottom of Russell 1000 Index; bandwidth 50" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Chang et al. (2015)", relation: builds-on, note: "the Russell 1000/2000 regression discontinuity identification strategy and local linear regression approach adopted here" }
-    - { cite: "Rösch et al. (2017)", relation: builds-on, note: "the Absoptivspread measure of put-call parity deviation used as the main option market conditions proxy" }
-    - { cite: "Lin et al. (2019)", relation: builds-on, note: "local linear nonparametric regression methodology around discontinuity thresholds to avoid boundary bias" }
-    - { cite: "Boone and White (2015)", relation: cites, note: "firms at top of Russell 2000 have higher stock liquidity and lower information asymmetry; provides the stock-side premise for the mechanism" }
-    - { cite: "Kamara and Miller (1995)", relation: cites, note: "higher options liquidity reduces put-call parity violations; this paper's findings are consistent with that prior result" }
+    - { cite: "Chang et al. (2015)", doi: '10.1093/rfs/hhu041', relation: builds-on, note: "the Russell 1000/2000 regression discontinuity identification strategy and local linear regression approach adopted here" }
+    - { cite: "Rösch et al. (2017)", doi: '10.1093/rfs/hhw085', relation: builds-on, note: "the Absoptivspread measure of put-call parity deviation used as the main option market conditions proxy" }
+    - { cite: "Lin et al. (2019)", doi: '10.1257/aer.20151310', relation: builds-on, note: "local linear nonparametric regression methodology around discontinuity thresholds to avoid boundary bias" }
+    - { cite: "Boone and White (2015)", doi: '10.1016/j.jfineco.2015.05.008', relation: cites, note: "firms at top of Russell 2000 have higher stock liquidity and lower information asymmetry; provides the stock-side premise for the mechanism" }
+    - { cite: "Kamara and Miller (1995)", doi: '10.2307/2331275', relation: cites, note: "higher options liquidity reduces put-call parity violations; this paper's findings are consistent with that prior result" }
   openQuestions:
     - "The sample ends in 2006 due to the Russell banding policy implemented in 2007, under which stocks switch indexes only if market capitalizations move beyond a 5% range of the threshold, reducing local continuity of firm assignment around the cutoff; whether similar liquidity spillover effects hold under the post-2007 banding rule or other index reconstitution frameworks is untested (pp. 4-5)."
   replicationCode:

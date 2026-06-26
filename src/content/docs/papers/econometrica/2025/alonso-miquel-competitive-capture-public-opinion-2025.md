@@ -49,10 +49,10 @@ paper:
     region: theoretical
   relatesTo:
     - { cite: 'Besley and Prat (2006)', relation: extends, note: 'extends to two opposing IPs and a continuous message space; Besley-Prat has a single IP and a binary disclosure game' }
-    - { cite: 'Gentzkow and Kamenica (2017)', relation: extends, note: 'extends to competing IPs without commitment; Gentzkow-Kamenica assumes a single committed sender' }
-    - { cite: 'Prat (2018)', relation: builds-on, note: 'builds on upper bounds on IP influence on citizen beliefs in a multiple-media setting' }
-    - { cite: 'Suen (2004)', relation: contradicts, note: 'Suen (2004) shows aligned media filtering creates value; here disinformation destroys value for rational citizens regardless of source alignment' }
-    - { cite: 'Shapiro (2016)', relation: extends, note: 'extends to multiple competing IPs across multiple sources; Shapiro (2016) has multiple IPs on a single outlet' }
+    - { cite: 'Gentzkow and Kamenica (2017)', doi: '10.1257/jep.31.2.211', relation: extends, note: 'extends to competing IPs without commitment; Gentzkow-Kamenica assumes a single committed sender' }
+    - { cite: 'Prat (2018)', doi: '10.1086/698107', relation: builds-on, note: 'builds on upper bounds on IP influence on citizen beliefs in a multiple-media setting' }
+    - { cite: 'Suen (2004)', doi: '10.1111/j.1468-0297.2004.00213.x', relation: contradicts, note: 'Suen (2004) shows aligned media filtering creates value; here disinformation destroys value for rational citizens regardless of source alignment' }
+    - { cite: 'Shapiro (2016)', doi: '10.1016/j.jpubeco.2016.10.004', relation: extends, note: 'extends to multiple competing IPs across multiple sources; Shapiro (2016) has multiple IPs on a single outlet' }
   openQuestions:
     - "Sources are modeled as passive receivers of IP pressure; the trade-off between profit/viewership maximization and yielding to capture is left for future research (conclusion, AAM p. 32)."
     - "Applications to social media audience targeting and the effectiveness of public health campaigns as a function of the existing media landscape remain open (conclusion, AAM p. 32)."

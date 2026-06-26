@@ -67,11 +67,11 @@ paper:
     - { ref: R7, outcome: "LYFT variance decomposition into patient, donor, and match components", metric: sd-effect, value: "patient-specific SD = 3.26 years; donor-specific = 0.99 years; match-specific = 0.41 years", direction: positive, vsBenchmark: "patient heterogeneity dominates; rematching alone captures only 13.4% of maximum possible LYFT gain" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Wolfe et al. (2008)", relation: extends, note: "prior observational LYFT estimates using hazard ratios; this paper improves with quasi-experimental variation and finds ~1 year upward revision in average LYFT" }
-    - { cite: "Heckman and Navarro (2007)", relation: builds-on, note: "framework for jointly identifying outcome distributions conditional on selection unobservables using a continuous instrument to trace out selectivity" }
+    - { cite: "Wolfe et al. (2008)", doi: '10.1111/j.1600-6143.2008.02177.x', relation: extends, note: "prior observational LYFT estimates using hazard ratios; this paper improves with quasi-experimental variation and finds ~1 year upward revision in average LYFT" }
+    - { cite: "Heckman and Navarro (2007)", doi: '10.1016/j.jeconom.2005.11.002', relation: builds-on, note: "framework for jointly identifying outcome distributions conditional on selection unobservables using a continuous instrument to trace out selectivity" }
     - { cite: "Imbens and Angrist (1994)", relation: builds-on, note: "LATE identification arguments extended in Lemma 1 to the sequential organ-offer setting" }
-    - { cite: "Roth and Sotomayor (1992)", relation: builds-on, note: "foundational preference-based mechanism design welfare standard that this paper departs from in favor of outcome-based evaluation" }
-    - { cite: "Abdulkadiroglu and Sonmez (2003)", relation: builds-on, note: "school choice mechanism design; cited as the canonical preference-welfare approach this paper moves beyond by focusing on realized survival outcomes" }
+    - { cite: "Roth and Sotomayor (1992)", doi: '10.2307/2554894', relation: builds-on, note: "foundational preference-based mechanism design welfare standard that this paper departs from in favor of outcome-based evaluation" }
+    - { cite: "Abdulkadiroglu and Sonmez (2003)", doi: '10.1257/000282803322157061', relation: builds-on, note: "school choice mechanism design; cited as the canonical preference-welfare approach this paper moves beyond by focusing on realized survival outcomes" }
   openQuestions:
     - "Microfounding the choice model for evaluating equilibria of alternative mechanisms rather than fixed-assignment benchmarks -- left to future work (p. 429)."
     - "Formalizing distributional and non-utilitarian ethical considerations (prioritarianism for the sickest, inequality in remaining life-years) into a formal planner's objective (p. 429)."

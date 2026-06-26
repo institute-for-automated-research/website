@@ -68,9 +68,9 @@ paper:
     - { ref: R7, outcome: "acquirer three-day cumulative abnormal return around M&A announcement (CAR3)", metric: coefficient, value: "High growth + M&A restriction: 0.092*** (SE 0.029); high growth + no restriction: 0.032*** (SE 0.009); low growth + restriction: 0.031 (n.s.); low growth + no restriction: 0.010 (n.s.)", direction: positive, vsBenchmark: "lender screening amplifies REMV effect in high-growth + high-restriction quadrant" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Chaney, Sraer & Thesmar (2012)", relation: builds-on, note: "REMV construction methodology; extended here to include post-1993 firm entry and real estate transactions via recursive HPI-inflation of book values" }
+    - { cite: "Chaney, Sraer & Thesmar (2012)", doi: '10.1257/aer.102.6.2381', relation: builds-on, note: "REMV construction methodology; extended here to include post-1993 firm entry and real estate transactions via recursive HPI-inflation of book values" }
     - { cite: "Hossain et al. (2023)", relation: contradicts, note: "find insignificant effect of REMV on CAR3 using CST-style REMV and a 2004-2015 sample; this paper finds a positive significant effect using a broader sample and extended REMV measure" }
-    - { cite: "Rajan & Winton (1995)", relation: builds-on, note: "theoretical prediction that riskier collateral induces more intensive lender ex-ante monitoring and screening" }
+    - { cite: "Rajan & Winton (1995)", doi: '10.1111/j.1540-6261.1995.tb04052.x', relation: builds-on, note: "theoretical prediction that riskier collateral induces more intensive lender ex-ante monitoring and screening" }
     - { cite: "Campello et al. (2022)", relation: cites, note: "real estate collateral is riskier than other types due to low liquidity and redeployability, motivating lender monitoring incentives" }
   openQuestions:
     - "How different forms of collateralizable assets affect capital allocation efficiency and long-term firm value creation in the M&A context (p. 22, Conclusion)."

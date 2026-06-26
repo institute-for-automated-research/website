@@ -74,12 +74,12 @@ paper:
   resultType: new-finding
 
   relatesTo:
-    - { cite: "Kacperczyk, Sundaresan & Wang (2021)", relation: extends, note: "extends their finding that domestic ownership has no significant positive effect on price informativeness by showing incentives change that result" }
-    - { cite: "Bai, Philippon & Savoy (2016)", relation: builds-on, note: "adopts their framework measuring price informativeness as stock price efficiency in forecasting future earnings" }
-    - { cite: "Carpenter, Lu & Whitelaw (2021)", relation: builds-on, note: "follows their approach measuring the predictive power of stock prices for future earnings in the Chinese market" }
-    - { cite: "Abdulkadiroglu, Pathak & Schellenberg (2020)", relation: builds-on, note: "adapts their decomposition method to attribute fund-level price informativeness contributions to year FE, fund manager, and matching components" }
-    - { cite: "Keane & Neal (2020)", relation: builds-on, note: "uses their MO-OLS (mean-observation OLS) varying-coefficient framework to construct the firm-level FPE measure" }
-    - { cite: "Fang, Kempf & Trapp (2014)", relation: extends, note: "extends their finding that fund managers play a predominant role in funds' price discovery to the Chinese incentive context" }
+    - { cite: "Kacperczyk, Sundaresan & Wang (2021)", doi: '10.1093/rfs/hhaa076', relation: extends, note: "extends their finding that domestic ownership has no significant positive effect on price informativeness by showing incentives change that result" }
+    - { cite: "Bai, Philippon & Savoy (2016)", doi: '10.1016/j.jfineco.2016.08.005', relation: builds-on, note: "adopts their framework measuring price informativeness as stock price efficiency in forecasting future earnings" }
+    - { cite: "Carpenter, Lu & Whitelaw (2021)", doi: '10.1016/j.jfineco.2020.08.012', relation: builds-on, note: "follows their approach measuring the predictive power of stock prices for future earnings in the Chinese market" }
+    - { cite: "Abdulkadiroglu, Pathak & Schellenberg (2020)", doi: '10.1257/aer.20172040', relation: builds-on, note: "adapts their decomposition method to attribute fund-level price informativeness contributions to year FE, fund manager, and matching components" }
+    - { cite: "Keane & Neal (2020)", doi: '10.3982/qe1319', relation: builds-on, note: "uses their MO-OLS (mean-observation OLS) varying-coefficient framework to construct the firm-level FPE measure" }
+    - { cite: "Fang, Kempf & Trapp (2014)", doi: '10.1016/j.jfineco.2013.11.003', relation: extends, note: "extends their finding that fund managers play a predominant role in funds' price discovery to the Chinese incentive context" }
 
   openQuestions:
     - "Site visit data from the Shenzhen Stock Exchange (SZSE) is available only for 2011-2019; the information provision channel analysis covers a shorter subsample than the baseline (p. 11, fn. 8)."

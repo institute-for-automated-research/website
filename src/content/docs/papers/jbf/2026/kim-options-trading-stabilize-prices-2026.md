@@ -65,9 +65,9 @@ paper:
   resultType: new-finding
   relatesTo:
     - { cite: "Cao et al. (2024)", relation: extends, note: "uses same Penny Pilot Program instrument; this paper extends from price informativeness to the volatility-reduction effect" }
-    - { cite: "Grossman (1988)", relation: builds-on, note: "theoretical basis for options market providing a liquidity buffer for the underlying stock" }
-    - { cite: "Stambaugh, Yu, and Yuan (2015)", relation: builds-on, note: "mispricing score SYY_SCORE used to measure the mispricing correction channel" }
-    - { cite: "Hao and Li (2022)", relation: cites, note: "also uses the Penny Pilot Program as an instrument for options trading volume" }
+    - { cite: "Grossman (1988)", doi: '10.1086/296433', relation: builds-on, note: "theoretical basis for options market providing a liquidity buffer for the underlying stock" }
+    - { cite: "Stambaugh, Yu, and Yuan (2015)", doi: '10.1111/jofi.12286', relation: builds-on, note: "mispricing score SYY_SCORE used to measure the mispricing correction channel" }
+    - { cite: "Hao and Li (2022)", doi: '10.1016/j.jcorpfin.2022.102290', relation: cites, note: "also uses the Penny Pilot Program as an instrument for options trading volume" }
     - { cite: "Bogousslavsky and Muravyev (2024)", relation: builds-on, note: "informed trading intensity (ITI) measures used to trace the mispricing correction channel" }
   openQuestions:
     - "The identification strategy relies on the Penny Pilot Program, which ended in June 2020; the effects of options trading under the current market regime with surging retail participation and zero-day-to-expiration options cannot be assessed with this natural experiment (p. 20)."

@@ -69,12 +69,12 @@ paper:
     - { ref: R7, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "all five LTA Diff portfolios significant at 1%; IVOL Diff = -0.48% (t=-9.10); TVOL Diff = -0.43% (t=-9.10); ILLIQ Diff = -0.37% (t=-4.62)", direction: negative, vsBenchmark: "salience premium monotonically larger with all five limits-to-arbitrage proxies" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Bordalo, Gennaioli & Shleifer (2012)", relation: builds-on, note: "foundational BGS salience function and distorted-probability framework" }
+    - { cite: "Bordalo, Gennaioli & Shleifer (2012)", doi: '10.1093/qje/qjs018', relation: builds-on, note: "foundational BGS salience function and distorted-probability framework" }
     - { cite: "Bordalo, Gennaioli & Shleifer (2013)", relation: builds-on, note: "BGS asset pricing implication: E(R) = -cov(omega, R) = -ST" }
-    - { cite: "Cosemans & Frehen (2021)", relation: extends, note: "extends their stock-market ST estimation method to corporate bonds; finds an asymmetric pattern absent in equity markets" }
-    - { cite: "Fama & French (1993)", relation: cites, note: "FF5 factor model used as a risk benchmark for alpha tests" }
-    - { cite: "Lin et al. (2011)", relation: builds-on, note: "corporate bond liquidity factor (LIQ) that forms the sixth factor in the FFL6 benchmark" }
-    - { cite: "Bali, Cakici & Whitelaw (2011)", relation: cites, note: "MAX (maximum daily return) used as a lottery-preference control; the MAX effect on bonds differs from stocks" }
+    - { cite: "Cosemans & Frehen (2021)", doi: '10.1016/j.jfineco.2020.12.012', relation: extends, note: "extends their stock-market ST estimation method to corporate bonds; finds an asymmetric pattern absent in equity markets" }
+    - { cite: "Fama & French (1993)", doi: '10.1016/0304-405x(93)90023-5', relation: cites, note: "FF5 factor model used as a risk benchmark for alpha tests" }
+    - { cite: "Lin et al. (2011)", doi: '10.1016/j.jfineco.2010.10.004', relation: builds-on, note: "corporate bond liquidity factor (LIQ) that forms the sixth factor in the FFL6 benchmark" }
+    - { cite: "Bali, Cakici & Whitelaw (2011)", doi: '10.1016/j.jfineco.2010.08.014', relation: cites, note: "MAX (maximum daily return) used as a lottery-preference control; the MAX effect on bonds differs from stocks" }
   openQuestions:
     - "Whether other psychological biases beyond salience can help explain the remaining anomalies in the corporate bond market (yield puzzle, high-yield momentum) that rational models cannot reconcile (conclusion, p.23; footnote 40)."
     - "How the salience premium interacts with different institutional investor mandates across bond market segments, and whether improving market transparency reduces the bias among institutional investors (conclusion, p.23)."

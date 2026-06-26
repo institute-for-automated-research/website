@@ -70,10 +70,10 @@ paper:
     - { ref: R5, outcome: welfare inequality across household types, metric: pp-effect, value: "CE gains from STR entry (endogenous amenities): Older Families -4% of income; Singles +1-2%; Younger Families +1-2%; under exogenous amenities all groups lose 1-2%", direction: mixed, vsBenchmark: "Amenity channel reverses distributional incidence for the highest-income (Older Families) group (Figure 10)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Guerrieri, Hartley, and Hurst (2013)", relation: builds-on, note: "endogenous gentrification and housing price dynamics: foundational reference for amenity-driven sorting" }
-    - { cite: "Diamond (2016)", relation: builds-on, note: "location sorting and endogenous amenities across cities: closest structural antecedent" }
-    - { cite: "Barron, Kung, and Proserpio (2021)", relation: extends, note: "STR effect on rents and housing markets: paper provides structural decomposition beyond their reduced-form IV" }
-    - { cite: "Kalouptsidi, Scott, and Souza-Rodrigues (2021b)", relation: builds-on, note: "linear IV regression estimators for structural dynamic discrete choice: the ECCP backbone used for housing demand estimation" }
+    - { cite: "Guerrieri, Hartley, and Hurst (2013)", doi: '10.1016/j.jpubeco.2013.02.001', relation: builds-on, note: "endogenous gentrification and housing price dynamics: foundational reference for amenity-driven sorting" }
+    - { cite: "Diamond (2016)", doi: '10.1257/aer.20131706', relation: builds-on, note: "location sorting and endogenous amenities across cities: closest structural antecedent" }
+    - { cite: "Barron, Kung, and Proserpio (2021)", doi: '10.1287/mksc.2020.1227', relation: extends, note: "STR effect on rents and housing markets: paper provides structural decomposition beyond their reduced-form IV" }
+    - { cite: "Kalouptsidi, Scott, and Souza-Rodrigues (2021b)", doi: '10.3982/qe1253', relation: builds-on, note: "linear IV regression estimators for structural dynamic discrete choice: the ECCP backbone used for housing demand estimation" }
   openQuestions:
     - "Within-sector amenity quality differences are not modeled due to absence of firm-level quality data; all differentiation is horizontal (p.1068)."
     - "Transitional dynamics are not characterized; counterfactuals compare stationary equilibria only (p.1069)."

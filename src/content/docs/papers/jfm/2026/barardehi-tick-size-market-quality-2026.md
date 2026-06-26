@@ -71,11 +71,11 @@ paper:
   resultType: new-finding
   relatesTo:
     - { cite: "Hu et al. (2018)", relation: extends, note: "confirms TSP harmed tick-constrained stocks; extends by identifying that wide-spread stocks (spreads >15c) were helped" }
-    - { cite: "Griffith and Roseman (2019)", relation: extends, note: "prior TSP study with mixed results for non-tick-constrained; this paper resolves inference via four-bin spread segmentation" }
+    - { cite: "Griffith and Roseman (2019)", doi: '10.1016/j.jbankfin.2019.01.017', relation: extends, note: "prior TSP study with mixed results for non-tick-constrained; this paper resolves inference via four-bin spread segmentation" }
     - { cite: "Rindi and Werner (2019)", relation: extends, note: "prior TSP study; reconciles their non-tick-constrained findings as aggregation artifacts from pooling opposing effects" }
-    - { cite: "Chung et al. (2020)", relation: extends, note: "prior TSP study combining tick-constrained and non-tick-constrained; this paper shows finer spread bins required for clean inference" }
+    - { cite: "Chung et al. (2020)", doi: '10.1016/j.jfineco.2019.11.004', relation: extends, note: "prior TSP study combining tick-constrained and non-tick-constrained; this paper shows finer spread bins required for clean inference" }
     - { cite: "Werner et al. (2023)", relation: tests, note: "tests their tick size tradeoff framework (pricing fidelity vs undercutting) by identifying empirical spread-level thresholds" }
-    - { cite: "Barardehi et al. (2025)", relation: builds-on, note: "uses their QID undercutting measure to document the undercutting mechanism under the TSP" }
+    - { cite: "Barardehi et al. (2025)", doi: '10.2139/ssrn.4689334', relation: builds-on, note: "uses their QID undercutting measure to document the undercutting mechanism under the TSP" }
   openQuestions:
     - "The analysis compares only two tick size regimes (1 cent and 5 cents) and cannot establish the theoretically optimal number of ticks intra-spread in absolute terms; stocks with 2 or fewer ticks intra-spread may benefit from narrowing, while those with 15+ may benefit from widening (p. 14)."
     - "Future researchers studying the 2024 SEC tick size change could apply the threshold methodology and spread-bin framework identified here to further refine empirical understanding of optimal tick size (p. 16)."

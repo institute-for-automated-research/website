@@ -66,11 +66,11 @@ paper:
     - { ref: R6, outcome: crash risk of crowded equity positions (NCSKEW, DUVOL), metric: car, value: "Crowded anomaly portfolios declined significantly more than uncrowded during 2007-2009 financial crisis (t=1.97) and COVID-19 crisis (t=2.03)", direction: negative, vsBenchmark: "crowded minus uncrowded long-anomaly CAR over crisis window" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Brown, Howard & Lundblad (2021)", relation: extends, note: "extends their positive crowding-return result for hedge funds to all 13F institutional investors across 11 anomalies" }
-    - { cite: "Stambaugh, Yu & Yuan (2012)", relation: builds-on, note: "uses their 11 stock market anomalies as the empirical test set and follows their portfolio construction method" }
-    - { cite: "Mclean & Pontiff (2016)", relation: builds-on, note: "applies their in-sample / post-publication split to test whether crowded-stock alpha persists after anomaly discovery" }
-    - { cite: "Zhong, Ding & Tay (2017)", relation: contradicts, note: "their negative crowding-return finding for mutual funds does not generalize to all 13F institutions; this paper finds a consistently positive relationship" }
-    - { cite: "Fama & French (1993)", relation: cites, note: "FF3 model used as primary risk-adjustment benchmark throughout" }
+    - { cite: "Brown, Howard & Lundblad (2021)", doi: '10.1093/rfs/hhab107', relation: extends, note: "extends their positive crowding-return result for hedge funds to all 13F institutional investors across 11 anomalies" }
+    - { cite: "Stambaugh, Yu & Yuan (2012)", doi: '10.1016/j.jfineco.2011.12.001', relation: builds-on, note: "uses their 11 stock market anomalies as the empirical test set and follows their portfolio construction method" }
+    - { cite: "Mclean & Pontiff (2016)", doi: '10.1111/jofi.12365', relation: builds-on, note: "applies their in-sample / post-publication split to test whether crowded-stock alpha persists after anomaly discovery" }
+    - { cite: "Zhong, Ding & Tay (2017)", doi: '10.3905/jpm.2017.43.4.087', relation: contradicts, note: "their negative crowding-return finding for mutual funds does not generalize to all 13F institutions; this paper finds a consistently positive relationship" }
+    - { cite: "Fama & French (1993)", doi: '10.1016/0304-405x(93)90023-5', relation: cites, note: "FF3 model used as primary risk-adjustment benchmark throughout" }
     - { cite: "Hong et al. (2016)", relation: tests, note: "examines whether their Days-to-Cover (DTC) measure explains the short-leg alpha; finds partial but not complete explanation" }
   openQuestions:
     - "Whether the positive price impact of crowded institutional positions is permanent due to demand-system momentum (Koijen and Yogo 2019); left to future research (Section 3.4.3, p. 15)."

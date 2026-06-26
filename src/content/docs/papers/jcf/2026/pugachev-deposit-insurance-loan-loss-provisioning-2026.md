@@ -69,13 +69,13 @@ paper:
     - { ref: R7, outcome: "discretionary loan loss provision (LLP conservatism)", metric: coefficient, value: "TREATPOSTDLLP<0 = 0.440*** (t = 2.728) for opportunistic pre-EESA banks; POSTHPRE_DLLP = -0.545** (t = -2.413) for most-conservative pre-EESA banks (Table 6, Cols. 1 and 4, p. 12)", direction: positive, vsBenchmark: "only opportunistic pre-EESA banks shift toward conservatism; already-conservative banks do not" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Diamond and Dybvig (1983)", relation: builds-on, note: "foundational DI theory: deposit insurance prevents bank runs by converting deposits to a risk-free asset, shifting monitoring from depositors to the insurer" }
-    - { cite: "Calomiris and Jaremski (2019)", relation: extends, note: "DI incentivizes bank risk-taking and removes market discipline; this paper adds accounting conservatism as a behavioral response not previously documented" }
-    - { cite: "Nicoletti (2018)", relation: builds-on, note: "LLP prediction model adapted with bank fixed effects to construct the DLLP discretion measure (Eq. 1, p. 4)" }
-    - { cite: "Beatty and Liao (2014)", relation: builds-on, note: "LLP discretion framework and regression specification underlying the DLLP construction" }
+    - { cite: "Diamond and Dybvig (1983)", doi: '10.1086/261155', relation: builds-on, note: "foundational DI theory: deposit insurance prevents bank runs by converting deposits to a risk-free asset, shifting monitoring from depositors to the insurer" }
+    - { cite: "Calomiris and Jaremski (2019)", doi: '10.1111/jofi.12753', relation: extends, note: "DI incentivizes bank risk-taking and removes market discipline; this paper adds accounting conservatism as a behavioral response not previously documented" }
+    - { cite: "Nicoletti (2018)", doi: '10.1016/j.jacceco.2018.05.003', relation: builds-on, note: "LLP prediction model adapted with bank fixed effects to construct the DLLP discretion measure (Eq. 1, p. 4)" }
+    - { cite: "Beatty and Liao (2014)", doi: '10.1016/j.jacceco.2014.08.009', relation: builds-on, note: "LLP discretion framework and regression specification underlying the DLLP construction" }
     - { cite: "Lambert et al. (2017)", relation: builds-on, note: "method for estimating newly insured deposits from the EESA ceiling increase; used to construct the NIDEP intensive-margin exposure variable" }
-    - { cite: "Huang (2021)", relation: tests, note: "deregulation led public banks to accept less conservative accounting from borrowers; this paper finds the converse (re-regulation via DI increases conservatism)" }
-    - { cite: "Huizinga and Laeven (2012)", relation: tests, note: "LLP discretion rises during the financial crisis; the paper uses matched control banks to disentangle DI effects from the crisis" }
+    - { cite: "Huang (2021)", doi: '10.1016/j.jaccpubpol.2021.106876', relation: tests, note: "deregulation led public banks to accept less conservative accounting from borrowers; this paper finds the converse (re-regulation via DI increases conservatism)" }
+    - { cite: "Huizinga and Laeven (2012)", doi: '10.1016/j.jfineco.2012.06.008', relation: tests, note: "LLP discretion rises during the financial crisis; the paper uses matched control banks to disentangle DI effects from the crisis" }
   openQuestions:
     - "Whether DI effects on LLP conservatism generalize to international DI regimes and non-FDIC settings (p. 20, conclusion)"
     - "Whether DI affects other dimensions of bank accounting discretion beyond LLP provisioning, such as asset impairments, fair-value elections, or disclosure timeliness (p. 20)"

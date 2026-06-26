@@ -71,10 +71,10 @@ paper:
     - { ref: R9, outcome: "M&A investment intensity (post-pilot reversal)", metric: coefficient, value: "+0.012*** (t = 3.62)", direction: positive, vsBenchmark: "~28% of M&A intensity SD; partial recovery only; TG1 insignificant (0.011, t = 1.51)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Albuquerque et al. (2020)", relation: builds-on, note: "Evidence that the 2016 tick size increase lowers stock prices for small-spread stocks via higher information asymmetry and required returns" }
-    - { cite: "Huang et al. (2024)", relation: tests, note: "Trading cost-based hypothesis that liquid acquirer stock attracts lower target prices; this paper finds the IA&V channel extends to non-stock-financed deals, so trading cost alone cannot explain the results" }
-    - { cite: "Massa and Xu (2013)", relation: extends, note: "Value of acquirer stock liquidity for M&A; extended here from cross-sectional acquirer returns to M&A intensity, deal structure, and deal quality" }
-    - { cite: "Edmans et al. (2012)", relation: builds-on, note: "Framework for real effects of financial markets on corporate investment decisions, motivating study of M&A through the lens of stock liquidity" }
+    - { cite: "Albuquerque et al. (2020)", doi: '10.1016/j.jfineco.2020.07.002', relation: builds-on, note: "Evidence that the 2016 tick size increase lowers stock prices for small-spread stocks via higher information asymmetry and required returns" }
+    - { cite: "Huang et al. (2024)", doi: '10.1016/j.jcorpfin.2024.102562', relation: tests, note: "Trading cost-based hypothesis that liquid acquirer stock attracts lower target prices; this paper finds the IA&V channel extends to non-stock-financed deals, so trading cost alone cannot explain the results" }
+    - { cite: "Massa and Xu (2013)", doi: '10.1017/s0022109013000604', relation: extends, note: "Value of acquirer stock liquidity for M&A; extended here from cross-sectional acquirer returns to M&A intensity, deal structure, and deal quality" }
+    - { cite: "Edmans et al. (2012)", doi: '10.1146/annurev-financial-110311-101826', relation: builds-on, note: "Framework for real effects of financial markets on corporate investment decisions, motivating study of M&A through the lens of stock liquidity" }
     - { cite: "Ye et al. (2023)", relation: cites, note: "Related SEC tick size pilot study on managerial learning from stock prices; this paper focuses on M&A investment rather than internal capital expenditure" }
   openQuestions:
     - "The post-pilot sample is truncated at 2019Q4 to avoid COVID-19 effects, so whether M&A activity fully recovers to pre-pilot levels in the long run is not established (Table 8 note, p. 16)."

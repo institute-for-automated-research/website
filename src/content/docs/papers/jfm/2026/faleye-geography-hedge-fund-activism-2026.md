@@ -68,11 +68,11 @@ paper:
     - { ref: R8, outcome: cumulative abnormal return around activism announcement, metric: pp-effect, value: "13G passive investments: Local investee (<=100 km) coefficient = -0.0334*** (SE 0.012; Table 14 col 3); announcement CAR lower by 3.3 pp for local firms", direction: negative, vsBenchmark: "non-local 13G investees" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Brav et al. (2008)", relation: builds-on, note: "paper documenting hedge fund activism returns and target-selection determinants; this paper adds geography as a new dimension" }
-    - { cite: "Boyson and Pichler (2019)", relation: builds-on, note: "provides the base sample of 2,206 activism campaigns used throughout the empirical analysis" }
-    - { cite: "Teo (2009)", relation: extends, note: "studies hedge fund geography at the portfolio level; this paper extends to activist targeting at the individual firm level" }
-    - { cite: "Huberman (2001)", relation: builds-on, note: "familiarity bias framework (mere exposure effect) that motivates the behavioral hypothesis tested here" }
-    - { cite: "Agrawal and Lim (2022)", relation: cites, note: "employee wealth transfer evidence tested and ruled out as the driver of lower activism returns for closer targets" }
+    - { cite: "Brav et al. (2008)", doi: '10.1111/j.1540-6261.2008.01373.x', relation: builds-on, note: "paper documenting hedge fund activism returns and target-selection determinants; this paper adds geography as a new dimension" }
+    - { cite: "Boyson and Pichler (2019)", doi: '10.1093/rfs/hhy058', relation: builds-on, note: "provides the base sample of 2,206 activism campaigns used throughout the empirical analysis" }
+    - { cite: "Teo (2009)", doi: '10.1093/rfs/hhp007', relation: extends, note: "studies hedge fund geography at the portfolio level; this paper extends to activist targeting at the individual firm level" }
+    - { cite: "Huberman (2001)", doi: '10.1093/rfs/14.3.659', relation: builds-on, note: "familiarity bias framework (mere exposure effect) that motivates the behavioral hypothesis tested here" }
+    - { cite: "Agrawal and Lim (2022)", doi: '10.1017/s002210902100082x', relation: cites, note: "employee wealth transfer evidence tested and ruled out as the driver of lower activism returns for closer targets" }
   openQuestions:
     - "Whether familiarity bias in activism targeting persists across subsequent campaigns for the same fund: the evidence on this is weaker for second- and third-event positions, and the sample sizes for these regressions are small (p. 19-20, Section 5.5)."
   extraction:

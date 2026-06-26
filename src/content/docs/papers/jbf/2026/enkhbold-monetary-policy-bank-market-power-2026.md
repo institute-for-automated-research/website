@@ -63,10 +63,10 @@ paper:
     - { ref: R6, outcome: "mortgage rate pass-through to borrowers (Lerner index robustness)", metric: basis-points, value: "Lerner x monetary shock = -9.40*** bps (Table 9, col 4); branch share x log(WFR) x shock (triple interaction) = +60.79*** bps (col 3)", direction: negative, vsBenchmark: "HHI-based dampening confirmed across all four alternative market power measures (Tables 8-9)" }
   resultType: new-finding
   relatesTo:
-    - { cite: "Drechsler et al. (2017)", relation: builds-on, note: "deposit channel mechanism: market-power banks hold deposit spreads wide, limiting outflows and pass-through when the policy rate rises" }
+    - { cite: "Drechsler et al. (2017)", doi: '10.1093/qje/qjx019', relation: builds-on, note: "deposit channel mechanism: market-power banks hold deposit spreads wide, limiting outflows and pass-through when the policy rate rises" }
     - { cite: "Choi and Choi (2021)", relation: builds-on, note: "wholesale funding as a substitute for deposit funding in response to monetary tightening; banks in concentrated markets borrow more wholesale" }
-    - { cite: "Wang et al. (2022)", relation: extends, note: "extends structural evidence on bank market power and monetary transmission to document the interacting role of wholesale funding reliance" }
-    - { cite: "Bauer and Swanson (2023)", relation: cites, note: "high-frequency monetary policy surprises used as the exogenous policy variable, orthogonalized to Fed information effects" }
+    - { cite: "Wang et al. (2022)", doi: '10.1111/jofi.13159', relation: extends, note: "extends structural evidence on bank market power and monetary transmission to document the interacting role of wholesale funding reliance" }
+    - { cite: "Bauer and Swanson (2023)", doi: '10.1086/723574', relation: cites, note: "high-frequency monetary policy surprises used as the exogenous policy variable, orthogonalized to Fed information effects" }
     - { cite: "Enkhbold (2024)", relation: extends, note: "complements the companion paper on shadow banks vs traditional banks in MP transmission; this paper focuses on traditional banks and the concentration x WFR interaction" }
     - { cite: "Jarocinski and Karadi (2020)", relation: cites, note: "sign-based monetary surprise decomposition used in robustness checks (Table 8)" }
   openQuestions:

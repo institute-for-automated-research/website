@@ -47,11 +47,11 @@ paper:
   scope:
     region: theoretical
   relatesTo:
-    - { cite: 'Myerson (1981)', relation: builds-on, note: 'optimal auction design framework the paper generalizes to allow separation of control and cash-flow rights' }
-    - { cite: 'Bergemann and Morris (2008)', relation: extends, note: 'ex post incentive compatibility adopted and proved for both the two-stage auction and the general separation mechanisms' }
-    - { cite: 'Ekmekci, Kos, and Vohra (2016)', relation: cites, note: 'single-bidder cash flow split with the seller; this paper instead splits cash flows among multiple bidders' }
-    - { cite: 'Mezzetti (2003)', relation: cites, note: 'two-stage mechanisms with interdependent valuations focused on efficiency; this paper focuses on revenue dominance' }
-    - { cite: 'Cremer and McLean (1988)', relation: cites, note: 'full surplus extraction with correlated signals requires large side bets; separation yields revenue gains without exploiting correlation' }
+    - { cite: 'Myerson (1981)', doi: '10.1287/moor.6.1.58', relation: builds-on, note: 'optimal auction design framework the paper generalizes to allow separation of control and cash-flow rights' }
+    - { cite: 'Bergemann and Morris (2008)', doi: '10.1257/aer.97.2.125', relation: extends, note: 'ex post incentive compatibility adopted and proved for both the two-stage auction and the general separation mechanisms' }
+    - { cite: 'Ekmekci, Kos, and Vohra (2016)', doi: '10.1257/mic.20140143', relation: cites, note: 'single-bidder cash flow split with the seller; this paper instead splits cash flows among multiple bidders' }
+    - { cite: 'Mezzetti (2003)', doi: '10.2139/ssrn.389541', relation: cites, note: 'two-stage mechanisms with interdependent valuations focused on efficiency; this paper focuses on revenue dominance' }
+    - { cite: 'Cremer and McLean (1988)', doi: '10.2307/1913096', relation: cites, note: 'full surplus extraction with correlated signals requires large side bets; separation yields revenue gains without exploiting correlation' }
   openQuestions:
     - 'A companion working paper characterizes when Mechanism A or Mechanism B is optimal among all incentive-compatible separation mechanisms, focusing on linear valuations with i.i.d. signals satisfying the monotone hazard condition (Section 3.5, p. 880).'
     - 'Extension to multidimensional signals where cash flows have a bidder-specific and a common component is outlined and shown to preserve the qualitative revenue-dominance findings (Section 3.5, p. 880).'

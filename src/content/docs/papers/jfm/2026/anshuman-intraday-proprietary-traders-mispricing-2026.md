@@ -66,8 +66,8 @@ paper:
     - { ref: R6, outcome: contrarian net total buying by intraday proprietary traders beyond recommendation day, metric: coefficient, value: "intraday NTB remains significantly contrarian in first half hour on Days 1-5; first-half-hour returns continue reversing; overnight NTB insignificant throughout (Fig. 9, p. 25)", direction: mixed }
   resultType: new-finding
   relatesTo:
-    - { cite: "Engelberg, Sasseville & Williams (2012)", relation: extends, note: "extends their US TV-recommendation mispricing finding to India with trader-level data distinguishing intraday from overnight proprietary traders" }
-    - { cite: "Kaniel et al. (2012)", relation: builds-on, note: "applies their return decomposition into liquidity provision and informed trading components to classify intraday vs overnight prop trader returns" }
+    - { cite: "Engelberg, Sasseville & Williams (2012)", doi: '10.1287/mnsc.1100.1290', relation: extends, note: "extends their US TV-recommendation mispricing finding to India with trader-level data distinguishing intraday from overnight proprietary traders" }
+    - { cite: "Kaniel et al. (2012)", doi: '10.1111/j.1540-6261.2012.01727.x', relation: builds-on, note: "applies their return decomposition into liquidity provision and informed trading components to classify intraday vs overnight prop trader returns" }
     - { cite: "Biais et al. (2016)", relation: tests, note: "tests who supplies liquidity among proprietary traders; finds intraday traders are arbitrageurs while overnight traders are liquidity providers, extending their evidence" }
   replicationCode:
     status: none

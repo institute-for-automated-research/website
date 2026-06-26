@@ -45,8 +45,8 @@ paper:
   mechanisms: [agency, moral-hazard, information-asymmetry]
   relatesTo:
     - { cite: "Jensen (1986)", relation: builds-on, note: "agency costs of free cash as the foundational channel; insiders waste free cash absent disbursement" }
-    - { cite: "Babenko et al. (2020)", relation: cites, note: "alternative model for overpriced repurchases via current-shareholder-wealth maximization; contrasted against the waste-prevention channel" }
-    - { cite: "Oded (2005)", relation: builds-on, note: "prior model by same author on why firms announce repurchase programs; this paper extends it to the overvaluation case" }
+    - { cite: "Babenko et al. (2020)", doi: '10.1287/mnsc.2019.3359', relation: cites, note: "alternative model for overpriced repurchases via current-shareholder-wealth maximization; contrasted against the waste-prevention channel" }
+    - { cite: "Oded (2005)", doi: '10.1093/rfs/hhh004', relation: builds-on, note: "prior model by same author on why firms announce repurchase programs; this paper extends it to the overvaluation case" }
     - { cite: "Guthrie (2020)", relation: cites, note: "empirical evidence that governance quality determines whether buybacks harm or benefit shareholders" }
   openQuestions:
     - "Whether the predicted positive relation between governance quality (GIM index, E-index, Tobins Q) and repurchase program completion rates holds empirically across governance regimes (Section 4, p. 9)."

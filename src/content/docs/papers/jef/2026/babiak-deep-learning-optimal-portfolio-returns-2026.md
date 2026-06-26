@@ -63,8 +63,8 @@ paper:
     - { ref: R6, outcome: certainty-equivalent return of two-asset optimal portfolio, metric: cer, value: "LSTM with borrowing and short-selling constraints: 7.775% (p=0.000, SR=0.150)", direction: positive, vsBenchmark: "vs EH 4.737%; NNs maintain >60% CER advantage under full weight constraints" }
   resultType: new-finding
   relatesTo:
-    - { cite: 'Welch and Goyal (2008)', relation: builds-on, note: 'uses their 12 monthly S&P 500 predictor variables and tests whether deep NNs can exploit them where OLS fails' }
-    - { cite: 'Johannes et al. (2014)', relation: builds-on, note: 'adopts their dynamic portfolio choice framework with power utility, quarterly and annual rebalancing, and the AR(1) predictor process' }
+    - { cite: 'Welch and Goyal (2008)', doi: '10.1093/rfs/hhm014', relation: builds-on, note: 'uses their 12 monthly S&P 500 predictor variables and tests whether deep NNs can exploit them where OLS fails' }
+    - { cite: 'Johannes et al. (2014)', doi: '10.1111/jofi.12121', relation: builds-on, note: 'adopts their dynamic portfolio choice framework with power utility, quarterly and annual rebalancing, and the AR(1) predictor process' }
     - { cite: 'Rossi (2018)', relation: tests, note: 'benchmarks against tree-based ML portfolios; NNs achieve comparable or higher Sharpe ratios without explicitly modeling conditional volatility' }
     - { cite: 'Feng et al. (2018)', relation: cites, note: 'related deep NN paper on statistical stock return prediction; this paper adds the portfolio performance dimension' }
     - { cite: 'Gu et al. (2020)', relation: cites, note: 'related ML paper on cross-sectional return prediction; this paper focuses on aggregate market time-series rather than the cross-section' }

@@ -49,12 +49,12 @@ paper:
   scope:
     region: theoretical
   relatesTo:
-    - { cite: 'Sannikov (2008)', relation: builds-on, note: 'canonical continuous-time principal-agent framework that this paper extends to include joint feedback design' }
-    - { cite: 'Kamenica and Gentzkow (2011)', relation: builds-on, note: 'Bayesian persuasion framework; this paper applies information design jointly with monetary incentives under moral hazard' }
-    - { cite: 'Rayo and Segal (2010)', relation: builds-on, note: 'static optimal information disclosure; extended here to dynamic moral hazard with joint reward design' }
-    - { cite: 'Ely and Szydlowski (2020)', relation: cites, note: 'related model with irreversible quitting and exogenous rewards where a delay mechanism can be optimal; contrasts with two-phase bang-bang here' }
-    - { cite: 'Halac, Kartik, and Liu (2016)', relation: cites, note: 'dynamic experimentation with a privately informed agent; does not allow principal to strategically withhold feedback' }
-    - { cite: 'Mason and Välimäki (2015)', relation: cites, note: 'Poisson breakthrough dynamic incentives for project completion; no feedback design component' }
+    - { cite: 'Sannikov (2008)', doi: '10.1111/j.1467-937x.2008.00486.x', relation: builds-on, note: 'canonical continuous-time principal-agent framework that this paper extends to include joint feedback design' }
+    - { cite: 'Kamenica and Gentzkow (2011)', doi: '10.1257/aer.101.6.2590', relation: builds-on, note: 'Bayesian persuasion framework; this paper applies information design jointly with monetary incentives under moral hazard' }
+    - { cite: 'Rayo and Segal (2010)', doi: '10.1086/657922', relation: builds-on, note: 'static optimal information disclosure; extended here to dynamic moral hazard with joint reward design' }
+    - { cite: 'Ely and Szydlowski (2020)', doi: '10.1086/704387', relation: cites, note: 'related model with irreversible quitting and exogenous rewards where a delay mechanism can be optimal; contrasts with two-phase bang-bang here' }
+    - { cite: 'Halac, Kartik, and Liu (2016)', doi: '10.1093/restud/rdw013', relation: cites, note: 'dynamic experimentation with a privately informed agent; does not allow principal to strategically withhold feedback' }
+    - { cite: 'Mason and Välimäki (2015)', doi: '10.1111/jeea.12126', relation: cites, note: 'Poisson breakthrough dynamic incentives for project completion; no feedback design component' }
   openQuestions:
     - 'Applying the present methods to multi-agent (contest) settings and to settings with more general monitoring technologies beyond a single binary success signal (Conclusion, p. 613).'
   replicationCode:
