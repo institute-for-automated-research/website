@@ -631,6 +631,40 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: Two-step estimator for dynamic discrete-choice models based on Euler Equations in Conditional Choice Probabilities; exploits renewal actions to cancel continuation values, identifying flow utility parameters from a regression of path likelihood ratios on flow payoff differences without solving the value function.
     aliases: [euler-equation-ccp, eccp, renewal-action-estimator]
 
+  # ---- solution concepts for dynamic games ----
+  markov-perfect-equilibrium:
+    def: Solution concept for a finite-period dynamic game in which each player's strategy depends only on payoff-relevant state variables.
+    aliases: [mpe, mpe-game]
+
+  # ---- dynamic trade counterfactual methods ----
+  dynamic-hat-algebra:
+    def: Extension of Dekle-Eaton-Kortum hat algebra to dynamic settings; expresses the equilibrium system in ratio form to compute counterfactuals using only initial-period observables and parameters, without requiring data on wage or TFP levels.
+    aliases: [dynamic-exact-hat-algebra, cdp-hat-algebra, dekle-hat-algebra]
+
+  # ---- welfare measurement methods ----
+  asset-price-welfare-statistic:
+    def: Sufficient statistic for the money-metric welfare gain of an asset-price deviation, derived by applying the envelope theorem to the individual budget constraint; the NPV of net asset sales multiplied by the percentage price-dividend deviation from baseline.
+    aliases: [welfare-sufficient-statistic, net-sales-welfare-formula]
+
+  # ---- bootstrap and cross-validation methods ----
+  gaussian-multiplier-bootstrap:
+    def: Gaussian multiplier bootstrap estimating the quantile of a high-dimensional supremum by multiplying each score by an independent standard normal draw; justified by the Chernozhukov-Chetverikov-Kato (2013, 2017) Gaussian approximation for maxima of sums of random vectors.
+    aliases: [multiplier-bootstrap, gaussian-multiplier-CLT]
+
+  k-fold-cross-validation:
+    def: K-fold cross-validation that partitions observations into K folds, estimates parameters on the K-1-fold complement, and evaluates out-of-fold prediction loss to select a tuning parameter.
+    aliases: [k-fold-cv, cross-validation-tuning, cv-penalty-selection]
+
+  # ---- production function markup identification ----
+  de-loecker-warzynski-markup:
+    def: Production-function markup identification that recovers price-cost markups as the ratio of a variable input's output elasticity to its revenue share, without requiring conduct assumptions; from De Loecker and Warzynski (2012).
+    aliases: [dlw-markup, production-function-markup-identification]
+
+  # ---- queuing models ----
+  mm1-queuing-model:
+    def: M/M/1 queuing model of data service; average delivered download speed equals channel capacity minus the Poisson data demand arrival rate, generating economies of pooling because combining customers and bandwidth in one queue reduces idle-capacity waste.
+    aliases: [mm1-queue, poisson-telecom-queue]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -852,6 +886,38 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Politicians direct public subsidies toward constituencies or firm types that do not maximize cost-efficiency per job created; arises from misalignment between political-equity objectives and productivity-efficiency objectives in public fund allocation.
     aliases: [political-discretion-distortion, rules-discretion-wedge]
 
+  land-fragmentation-fertility:
+    def: Indivisibility constraints on agricultural land create an incentive to limit fertility under partible inheritance; dividing plots among many heirs pushes per-plot production below the subsistence threshold, while impartible inheritance keeps land productive, sustaining high fertility.
+    aliases: [land-indivisibility-fertility, partible-inheritance-fragmentation]
+
+  extrinsic-crowding-out:
+    def: Extrinsic conditional rewards stochastically reduce an agent's intrinsic motivation or patience, generating a long-run cost of incentive use that principals must weigh against short-run effort gains.
+    aliases: [intrinsic-motivation-crowding-out, deci-ryan-crowding-out]
+
+  social-image-concern:
+    def: Agents care about observers' posterior beliefs about their intrinsic type based on observed actions, generating endogenous honor from participation and stigma from abstention that act as a social multiplier on material incentives.
+    aliases: [image-concern, reputational-norm, social-esteem-concern]
+
+  downward-nominal-wage-rigidity:
+    def: Constraint preventing nominal wages from falling more than a fixed fraction per period; generates cyclical unemployment when a shock requires a larger nominal wage cut than the constraint permits.
+    aliases: [dnwr, nominal-wage-floor, downward-wage-rigidity]
+
+  employer-collusion:
+    def: Employers coordinate employment or wage decisions through cartels or associations to suppress wages below the noncooperative oligopsony level, amplifying labor market power beyond what firm-level market shares alone imply.
+    aliases: [wage-cartel, employer-wage-fixing, labor-cartel]
+
+  limited-liability-deterrence-failure:
+    def: Fraudulent firms with limited assets can spend ill-gotten gains before prosecution and cannot be fully fined; financial penalties are bounded by assets, making pay-and-chase enforcement ineffective when recovery rates are low.
+    aliases: [limited-liability-fraud, pay-and-chase-failure]
+
+  low-detection-probability:
+    def: Low ex ante probability that a given fraudulent actor will be identified and successfully prosecuted makes realized enforcement insufficient to deter fraud even when nominal penalties are severe.
+    aliases: [enforcement-detection-failure, low-prosecution-probability]
+
+  network-scale-economies:
+    def: Two sources of efficiency from consolidating mobile networks: economies of density (fewer operators per area means denser users per cell, reducing path loss) and economies of pooling (merged bandwidth and customer base reduce queuing waste, raising delivered speeds).
+    aliases: [economies-of-density, economies-of-pooling, telecom-scale-efficiency]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -916,6 +982,10 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   regret-rate:
     def: Asymptotic rate of growth of cumulative regret as a function of time horizon T; characterizes the efficiency of an adaptive learning algorithm relative to the best fixed policy.
     aliases: [cumulative-regret-rate, bandit-regret-rate, regret-bound]
+
+  convergence-rate:
+    def: Asymptotic order of an estimation error norm as a function of n, p, and sparsity; characterizes how fast an estimator approaches the truth.
+    aliases: [estimation-rate, rate-of-convergence]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -991,3 +1061,15 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   electoral-outcomes:
     def: Electoral competition outcomes; vote shares, candidate valence and quality measures, winning probabilities, and decompositions of incumbency effects in political elections.
     aliases: [political-competition-outcomes, election-outcomes]
+
+  demographic-outcomes:
+    def: Household and population-level demographic outcomes including completed fertility, childlessness rates, age at first marriage, birth spacing, and marital patterns.
+    aliases: [fertility-outcomes, demographic-transition-outcomes]
+
+  statistical-method-performance:
+    def: Performance of statistical estimators and inference procedures, measured by estimation error norms, coverage rates, size control, and power in high-dimensional or large-sample settings.
+    aliases: [estimator-performance, inference-quality]
+
+  fiscal-policy-design:
+    def: Normative characterizations of optimal fiscal instrument settings such as capital and labor tax rates and public debt levels, including their dynamic paths under Ramsey or Mirrlees optimal policy.
+    aliases: [optimal-tax-design, ramsey-policy-outcomes, optimal-fiscal-instruments]

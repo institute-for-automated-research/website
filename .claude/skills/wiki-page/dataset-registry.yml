@@ -1705,3 +1705,65 @@ datasets:
     provider: Gemeente Amsterdam
     access: public
     note: Municipal open datasets including neighborhood amenities, registrations, and geographic boundaries; openly published by the City of Amsterdam.
+
+  # ---- JPE 2024-2026 batch 1 (issue #31) ----
+  sbir:
+    name: SBA SBIR/STTR award database
+    provider: U.S. Small Business Administration
+    access: public
+    note: Federal Small Business Innovation Research and STTR award records (firm, agency, amount, date) across all funding agencies; openly downloadable at sbir.gov.
+  fpds:
+    name: Federal Procurement Data System (FPDS)
+    provider: U.S. General Services Administration
+    access: public
+    note: Contract-level federal procurement records (agency, vendor, value, dates, product/service codes); openly downloadable via FPDS-NG and USAspending.gov.
+  ppcs:
+    name: Police-Public Contact Survey (PPCS)
+    provider: U.S. Bureau of Justice Statistics
+    access: public
+    note: Nationally representative supplement to the National Crime Victimization Survey on resident contacts with police; openly distributed via ICPSR.
+  usrds:
+    name: United States Renal Data System (USRDS)
+    provider: National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)
+    access: proprietary-confidential
+    note: Patient-level registry of end-stage renal disease and dialysis claims linked to Medicare; researcher Standard Analysis Files released under a data use agreement, not purchasable off the shelf.
+  henry-enquete:
+    name: Enquête Louis Henry (TRA historical fertility database)
+    provider: Institut national d'études démographiques (INED)
+    access: public
+    note: Reconstituted family histories for women born 1700-1803 across rural French municipalities, the classic source for historical-fertility studies; archived and distributed for research.
+  geni:
+    name: Geni.com crowdsourced genealogies
+    provider: Geni.com (MyHeritage)
+    access: public
+    note: Crowdsourced public family-tree profiles (births, deaths, locations) used to assemble large historical genealogical samples; openly browsable via the Geni World Family Tree.
+  orange-mobile:
+    name: Orange mobile subscriber and network data
+    provider: Orange (France)
+    access: proprietary-confidential
+    note: Operator-internal subscriber, plan-share, and data-consumption records by French commune from Orange; confidential firm data provided for research, not publicly available.
+  osiris:
+    name: OSIRIS Orange network traffic data
+    provider: Orange (France)
+    access: proprietary-confidential
+    note: Operator-internal total data traffic per network cell from Orange's OSIRIS system, used to calibrate demand arrival rates; confidential firm data provided for research, not publicly available.
+  ookla-speedtest:
+    name: Ookla Speedtest measurements (research extract)
+    provider: Ookla
+    access: proprietary-confidential
+    note: Device-level geolocated mobile download/upload speed measurements for France; research extract provided by Ookla, not an off-the-shelf purchase.
+  gsma-intelligence:
+    name: GSMA Intelligence mobile-operator data
+    provider: GSMA Intelligence
+    access: licensed-commercial
+    note: National mobile-network-operator market shares, subscriber counts, and technology indicators; commercial subscription database.
+  anfr:
+    name: ANFR base-station registry (Cartoradio)
+    provider: Agence nationale des fréquences (France)
+    access: public
+    note: Geocoded registry of authorized radio base stations and antennas in France (operator, technology, location); openly published via ANFR open data / Cartoradio.
+  insee-census:
+    name: INSEE population census and local statistics
+    provider: Institut national de la statistique et des études économiques (France)
+    access: public
+    note: French population census and commune-level socioeconomic tabulations (population, income deciles); openly published by INSEE.
