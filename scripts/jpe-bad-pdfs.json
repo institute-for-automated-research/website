@@ -1,132 +1,132 @@
 {
-  "_note": "JPE dump files whose CONTENT is the wrong paper (RA collection saved a different, usually same-topic, article under this DOI filename). Found by a one-off first-page-title screen of the whole dump (pdftotext page 1 vs metadata_jpe.xlsx title). build-jpe-items.mjs skips these so they do not clog newest-first batches. Each needs an RA re-pull of the correct DOI; flip status to ok and remove once the on-disk PDF content matches expectedTitle. Renaming does NOT fix these: the correct JPE paper is absent, the file is a foreign-journal article.",
+  "_note": "Missing-paper list: JPE DOIs we do NOT have. The file on disk under each DOI filename is a different paper (an RA saved a same-topic article from another journal under this JPE DOI). Found by a one-off first-page-title screen of the whole dump (pdftotext page 1 vs metadata_jpe.xlsx title). build-jpe-items.mjs skips these so they do not clog newest-first batches. status 'needs-download' = the real JPE paper (expectedTitle) is absent and must be downloaded from scratch; there is no re-pull tool in this repo, the dump is static. Renaming the on-disk file does NOT supply the missing JPE paper, but the misfiled bytes ARE a real (different) paper and can be salvaged separately under their own DOI. Flip status to ok and remove once expectedTitle is actually on disk under this DOI.",
   "count": 21,
   "items": [
     {
       "doi": "10.1086/736207",
       "expectedTitle": "Disability Insurance: Error Rates and Gender Differences",
       "pdfContains": "Risk attitudes and private disability insurance holdings",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/725793",
       "expectedTitle": "Nobel Lecture: Financial Intermediaries and Financial Crises",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/725792",
       "expectedTitle": "Nobel Lecture: Multiple Equilibria",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/725173",
       "expectedTitle": "Supply Chain Resilience: Should Policy Promote International Diversification or Reshoring?",
       "pdfContains": "Perspectives on Supply Chain Resilience: a Qualitative Study on Risks,",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/713101",
       "expectedTitle": "East-Side Story: Historical Pollution and Persistent Neighborhood Sorting",
       "pdfContains": "Designed by BIG and Mathews Nielsen",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/700760",
       "expectedTitle": "Culture and Taxes",
       "pdfContains": "Review of Quantitative Finance and Accounting (2025) 64:861–898",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/699186",
       "expectedTitle": "Income and Consumption: A Micro Semistructural Analysis with Pervasive Heterogeneity",
       "pdfContains": "American Economic Journal: Microeconomics 2025, 17(1): 130–170",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/678456",
       "expectedTitle": "Nobel Lecture: Uncertainty Outside and Inside Economic Models",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/666747",
       "expectedTitle": "Capital Taxation: Quantitative Explorations of the Inverse Euler Equation",
       "pdfContains": "American Economic Journal: Macroeconomics 2024, 16(2): 182–216",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/665415",
       "expectedTitle": "Nobel Lecture: United States Then, Europe Now",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/424737",
       "expectedTitle": "Beyond the Median: Voter Preferences, District Heterogeneity, and Political Representation",
       "pdfContains": "Received: 18 September 2023",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/324386",
       "expectedTitle": "Putting Out the Fires: Will Higher Taxes Reduce the Onset of Youth Smoking?",
       "pdfContains": "ORGANIZATION SCIENCE",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/262037",
       "expectedTitle": "Nobel Lecture: Monetary Neutrality",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/262031",
       "expectedTitle": "Real Exchange Rate Behavior: The Recent Float from the Perspective of the Past Two Centuries",
       "pdfContains": "REVIEW OF POLITICAL ECONOMY, 2017",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261921",
       "expectedTitle": "Sticking it Out: Entrepreneurial Survival and Liquidity Constraints",
       "pdfContains": "Sticking it out: Instability, regime",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261880",
       "expectedTitle": "Nobel Lecture: The Economic Way of Looking at Behavior",
       "pdfContains": "American Economic Review 2025, 115(6): 1787–1817",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261818",
       "expectedTitle": "Sacrifice and Stigma: Reducing Free-riding in Cults, Communes, and Other Collectives",
       "pdfContains": "SCIENTIFIC STUDY of RELIGION",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261814",
       "expectedTitle": "Road Congestion: The Diagrammatic Analysis",
       "pdfContains": "Econometrica, Vol. 92, No. 4 (July, 2024), 1233–1268",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261782",
       "expectedTitle": "Rational Choice: The Contrast between Economics and Psychology",
       "pdfContains": "Public Choice (2024) 200:497–529",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/261668",
       "expectedTitle": "Occupational Matching: A Test of Sorts",
       "pdfContains": "American Economic Journal: Macroeconomics 2022, 14(3): 82–132",
-      "status": "needs-repull"
+      "status": "needs-download"
     },
     {
       "doi": "10.1086/250036",
       "expectedTitle": "Managerial incentives: on the Near Linearity of Optimal Compensation",
       "pdfContains": "Managerial Incentives and Firm Risk Taking: The Mediating",
-      "status": "needs-repull"
+      "status": "needs-download"
     }
   ]
 }

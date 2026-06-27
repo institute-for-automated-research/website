@@ -42,9 +42,10 @@ const doiToFile = (doi) => doi.toLowerCase().replace(/[./]/g, '_') + '.pdf';
 // content is a DIFFERENT paper (RA collection saved a same-topic article from
 // another journal under this DOI filename). These can never be distilled from
 // this dump, so without a skip they would re-occupy the top of newest-first
-// batches. The list lives in jpe-bad-pdfs.json (a re-pull worklist, found by a
-// first-page-title screen of the dump); drop an entry once its on-disk PDF is
-// re-collected with the correct content. (issue #31)
+// batches. The list lives in jpe-bad-pdfs.json (a missing-paper list: these JPE
+// DOIs are absent and need downloading from scratch -- there is no re-pull tool,
+// the dump is static; found by a first-page-title screen of the dump); drop an
+// entry once expectedTitle is actually on disk under its DOI. (issue #31)
 const BAD_PDF = new Set(
   JSON.parse(readFileSync(
     fileURLToPath(new URL('./jpe-bad-pdfs.json', import.meta.url)), 'utf8'))
