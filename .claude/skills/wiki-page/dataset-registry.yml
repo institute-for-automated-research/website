@@ -1767,3 +1767,195 @@ datasets:
     provider: Institut national de la statistique et des études économiques (France)
     access: public
     note: French population census and commune-level socioeconomic tabulations (population, income deciles); openly published by INSEE.
+
+  # ---- QJE 2026 batch (no wiki pages yet; documentation backlog) ----
+  # public
+  arcos:
+    name: DEA ARCOS opioid distribution data
+    provider: U.S. Drug Enforcement Administration
+    access: public
+    note: Opioid shipment and distribution records; ARCOS retail summary reports are published by the DEA and the transaction-level file was released publicly, here used for commuting-zone prescription doses per capita.
+  ats-records:
+    name: Army Transport Service passenger lists
+    provider: U.S. Army (National Archives)
+    access: public
+    note: Historical individual-level troop-transport passenger lists (NARA archival records), used to identify WWI veterans and unit assignment.
+  bsz:
+    name: Baron-Schularick-Zimmermann bank database
+    provider: Baron, Schularick and Zimmermann (2024)
+    access: public
+    note: Identities and annual balance sheets of the top-20 banks across 17 economies since 1870; academic dataset used to identify bank failures.
+  bvx:
+    name: Baron-Verner-Xiong banking-crisis equity returns
+    provider: Baron, Verner and Xiong (2021)
+    access: public
+    note: Country-level bank and nonfinancial equity total returns for 46 economies, annual 1870-2016 and monthly; academic dataset.
+  fdic-failures:
+    name: FDIC failure and resolution transaction database
+    provider: U.S. Federal Deposit Insurance Corporation
+    access: public
+    note: Bank failure dates, deposits, and assets at resolution; openly published by the FDIC. (Distinct from fdic-failed-bank, the confidential bid-level resolution records.)
+  ffiec-call-reports:
+    name: FFIEC Call Reports (via the Federal Reserve)
+    provider: FFIEC / Federal Reserve
+    access: public
+    note: Quarterly bank Reports of Condition and Income (FFIEC 031/041/051 and historical predecessors); public bank-level filings. (See also call-reports.)
+  fjc:
+    name: Federal Judicial Center judge biographical database
+    provider: U.S. Federal Judicial Center
+    access: public
+    note: Appointing party, birth cohort, education, and career history of federal judges; openly published.
+  giuliano-nunn-ancestral:
+    name: Giuliano-Nunn Ancestral Characteristics database
+    provider: Giuliano and Nunn (2018)
+    access: public
+    note: District-level ancestral and ethnographic characteristics built from Murdock's Ethnographic Atlas and Ethnologue language maps; academic replication data.
+  hathitrust:
+    name: HathiTrust Digital Library Extracted Features
+    provider: HathiTrust Digital Library
+    access: public
+    note: Page- and volume-level bag-of-words features for digitized books; openly downloadable for text analysis.
+  ipeds:
+    name: Integrated Postsecondary Education Data System (IPEDS)
+    provider: U.S. Department of Education (NCES)
+    access: public
+    note: Institution-level enrollment, finance, tuition, and completion data; openly downloadable from NCES.
+  nvss:
+    name: CDC/NCHS National Vital Statistics System mortality data
+    provider: U.S. National Center for Health Statistics (CDC)
+    access: public
+    note: Cause-of-death mortality counts and rates (e.g. drug and opioid mortality); public-use files via CDC WONDER. The geographically detailed restricted Multiple Cause of Death files require an NCHS RDC agreement (a distinct restricted source; see also vital-statistics).
+  occ-call-reports:
+    name: OCC Annual Reports to Congress (historical national-bank data)
+    provider: U.S. Office of the Comptroller of the Currency
+    access: public
+    note: Historical (1863-1941) national-bank balance sheets, failure events, and receiver postmortems; public historical records.
+  seguin-rigby-lynching:
+    name: Seguin-Rigby U.S. lynching database
+    provider: Seguin and Rigby (2019)
+    access: public
+    note: County-level lynching-victim records; academic dataset (supplements Project HAL).
+  shiller-housing-data:
+    name: Robert Shiller national home price index
+    provider: Robert J. Shiller (Yale)
+    access: public
+    note: Long-run U.S. real home price index; freely downloadable. Same Shiller home-price series as shiller-data, retained as a distinct cited slug.
+  snap:
+    name: USDA SNAP participation data
+    provider: U.S. Department of Agriculture (Food and Nutrition Service)
+    access: public
+    note: County- and state-level Supplemental Nutrition Assistance Program participation counts; openly published by USDA FNS.
+  songer-auburn:
+    name: Songer U.S. Courts of Appeals Database
+    provider: Donald Songer / Auburn University
+    access: public
+    note: Hand-coded sample of circuit-court decisions with ideological-direction vote coding; academic database.
+  ssa-disability:
+    name: SSA disability program statistics (SSDI/SSI)
+    provider: U.S. Social Security Administration
+    access: public
+    note: County and state SSDI and SSI application and receipt counts, published as aggregate program statistics by the SSA. (Individual-level SSA disability microdata is restricted and is a distinct source.)
+  trac:
+    name: TRAC federal court and sentencing records
+    provider: Transactional Records Access Clearinghouse (Syracuse University)
+    access: public
+    note: District-court criminal sentencing records (case, sentence length, crime type, judge) compiled from federal agency data via FOIA and published by TRAC; some detailed extracts are subscription-gated.
+  un-comtrade:
+    name: UN Comtrade international trade statistics
+    provider: United Nations Statistics Division
+    access: public
+    note: Bilateral merchandise trade flows by product (SITC/HS); freely accessible. Distinct cited slug from comtrade.
+  us-elections:
+    name: U.S. election returns (Leip Atlas / ICPSR historical returns)
+    provider: Dave Leip's Atlas of U.S. Elections / ICPSR
+    access: public
+    note: County- and district-level two-party vote shares and turnout; the ICPSR U.S. Historical Election Returns are public (Leip's Atlas sells some detailed compilations).
+  vami:
+    name: Veterans Administration Master Index (VAMI), 1917-1940
+    provider: U.S. Veterans Administration (National Archives)
+    access: public
+    note: Historical individual-level index of WWI-era veterans who claimed VA benefits (NARA archival records), used to confirm veteran status.
+  wharton-rluri:
+    name: Wharton Residential Land Use Regulatory Index (WRLURI)
+    provider: Gyourko, Saiz and Summers
+    access: public
+    note: Jurisdiction-level housing-supply regulatory-stringency index; academic dataset.
+  ww1-draft-cards:
+    name: WWI Draft Registration Cards (First Registration, 1917)
+    provider: U.S. National Archives and Records Administration
+    access: public
+    note: Individual-level WWI draft registration records; public NARA archival records.
+
+  # licensed-commercial
+  bloomberg-law:
+    name: Bloomberg Law
+    provider: Bloomberg Industry Group
+    access: licensed-commercial
+    note: Legal-research database of court opinions, dockets, and citators; institutional subscription.
+  capex-cmie:
+    name: CMIE CapEx database
+    provider: Centre for Monitoring Indian Economy
+    access: licensed-commercial
+    note: Project-level Indian capital-investment records (timing, location, status); commercial subscription database.
+  ihds-india:
+    name: India Human Development Survey (IHDS)
+    provider: NCAER and University of Maryland
+    access: licensed-commercial
+    note: Nationally representative household panel; public-use microdata is distributed via ICPSR with free registration, classed at the more conservative licensed-commercial tier here.
+  naacp-papers-proquest:
+    name: NAACP Papers (ProQuest History Vault)
+    provider: ProQuest (Clarivate)
+    access: licensed-commercial
+    note: Digitized NAACP branch membership rosters and organizational records; institutional subscription archive.
+  national-student-clearinghouse:
+    name: National Student Clearinghouse StudentTracker
+    provider: National Student Clearinghouse
+    access: licensed-commercial
+    note: National college-enrollment and degree-verification records; fee-based research service.
+  newspapers-com:
+    name: Newspapers.com full-text archive
+    provider: Newspapers.com (Ancestry)
+    access: licensed-commercial
+    note: Subscription full-text historical newspaper archive.
+  nss-india:
+    name: National Sample Survey (NSS) unit-level data
+    provider: National Sample Survey Office, MOSPI (India)
+    access: licensed-commercial
+    note: Nationally representative household and individual survey microdata (e.g. migration module); unit-level files distributed by MOSPI.
+  reds-india:
+    name: Rural Economic and Demographic Survey (REDS)
+    provider: NCAER
+    access: licensed-commercial
+    note: Longitudinal rural-India household survey; distributed by NCAER under access terms.
+  rsmeans:
+    name: RSMeans construction cost data
+    provider: RSMeans (Gordian)
+    access: licensed-commercial
+    note: City-level construction-cost indices and unit-cost series; commercial subscription product.
+
+  # proprietary-confidential
+  act-scores:
+    name: ACT individual test-score records
+    provider: ACT, Inc.
+    access: proprietary-confidential
+    note: Student-level ACT scores linked to administrative records; restricted individual test data, not openly downloadable.
+  college-board-sat:
+    name: College Board SAT individual score records
+    provider: The College Board
+    access: proprietary-confidential
+    note: Student-level SAT scores linked to administrative records; restricted individual test data.
+  irs-tax-records:
+    name: IRS administrative tax records
+    provider: U.S. Internal Revenue Service
+    access: proprietary-confidential
+    note: Linked individual and business tax-return microdata (W-2 wages, business returns); restricted administrative access, not purchasable off the shelf.
+  nslds:
+    name: National Student Loan Data System (1098-T college-attendance records)
+    provider: U.S. Department of Education
+    access: proprietary-confidential
+    note: Individual-level federal student-aid and college-attendance records; restricted administrative microdata.
+  utd-erc:
+    name: Texas administrative education records (UT-Dallas Education Research Center)
+    provider: University of Texas at Dallas Education Research Center
+    access: proprietary-confidential
+    note: Linked student-level K-12, postsecondary, and earnings records for Texas; restricted access through a state education research center.

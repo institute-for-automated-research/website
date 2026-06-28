@@ -665,6 +665,26 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
     def: M/M/1 queuing model of data service; average delivered download speed equals channel capacity minus the Poisson data demand arrival rate, generating economies of pooling because combining customers and bandwidth in one queue reduces idle-capacity waste.
     aliases: [mm1-queue, poisson-telecom-queue]
 
+  # ---- collective household model ----
+  collective-household-two-stage:
+    def: Two-stage collective household model (Chiappori 1988) where family members' Pareto-weighted log utilities are maximized jointly; stage 1 allocates marriage resources and migration status, stage 2 determines income sharing and consumption given realized earnings and migration friction.
+    aliases: [chiappori-collective-household, two-stage-collective-model]
+
+  # ---- admissions quasi-experiment validation ----
+  multiple-rater-admissions-test:
+    def: Validation test for quasi-experimental IV designs in decentralized admissions settings; tests whether idiosyncratic residual variation in one college's admissions decision is uncorrelated with admissions decisions at comparable colleges conditional on observables.
+    aliases: [correlated-admissions-criteria-test, multiple-rater-iv-test]
+
+  # ---- rolling-window hedonic index ----
+  rolling-window-hedonic-index:
+    def: Hedonic price index built by estimating a log-price regression separately on each short rolling window of consecutive years and chain-linking the window-specific price-change coefficients into a long-run index; time-varying quality coefficients avoid imposing fixed hedonic weights across the full sample.
+    aliases: [rw-hedonic-index, silver-rolling-window, rolling-window-hedonic]
+
+  # ---- small-open-economy DSGE ----
+  nk-soe-dsge:
+    def: New Keynesian DSGE model for a small open economy with Calvo price and wage rigidities, nested CES demand with intra-sector international competition across varieties, and imported intermediate inputs.
+    aliases: [new-keynesian-small-open-economy, nk-soe, dsge-soe]
+
 mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechanisms)
   information-asymmetry:
     def: One party holds payoff-relevant private information the other lacks; includes adverse selection, signaling, and private-information trading.
@@ -918,6 +938,34 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Two sources of efficiency from consolidating mobile networks: economies of density (fewer operators per area means denser users per cell, reducing path loss) and economies of pooling (merged bandwidth and customer base reduce queuing waste, raising delivered speeds).
     aliases: [economies-of-density, economies-of-pooling, telecom-scale-efficiency]
 
+  discrimination-radicalization:
+    def: Systematic institutional discrimination radicalizes the affected group into organized political activism by catalyzing perceptions of injustice and betrayal by the state.
+    aliases: [injustice-radicalization, institutional-betrayal-activism, discrimination-induced-mobilization]
+
+  economic-hardship-partisan-sorting:
+    def: Communities experiencing acute economic and health decline align with parties whose messaging validates their distress, generating durable partisan realignment.
+    aliases: [health-crisis-partisan-realignment, economic-distress-voting]
+
+  ideological-persuasion:
+    def: Exposure to a rigorous intellectual framework shifts decision-makers' beliefs and interpretive schemas, producing systematic changes in downstream decisions beyond party-line effects.
+    aliases: [ideas-persuasion, intellectual-capture]
+
+  asset-quality-deterioration:
+    def: Deterioration in bank asset quality from rising nonperforming loans and slow write-down recognition drives permanent bank capital losses, distinct from temporary liquidity-driven fire sales or discount rate shocks.
+    aliases: [npl-deterioration, credit-quality-deterioration, asset-impairment-channel]
+
+  intergenerational-transfer-friction:
+    def: Migration raises the per-unit cost of transfers from migrant sons to parents over distance, creating a wedge between the first-best intergenerational consumption allocation and the constrained equilibrium, and deterring otherwise efficient migration.
+    aliases: [migration-transfer-cost, old-age-support-friction, migration-income-sharing-friction]
+
+  export-supply-channel:
+    def: Currency depreciation lowers domestic production costs expressed in the invoice currency; competitive exporters expand supply substantially, with the binding constraint being upward-sloping marginal cost (supply capacity), not aggregate demand.
+    aliases: [supply-side-export-channel, competitive-export-expansion]
+
+  power-threat-backlash:
+    def: Political mechanism in which a dominant group responds to credible signals of minority political-power gains by increasing violence or intimidation to suppress minority participation, as in Blalock (1967).
+    aliases: [minority-threat-response, blalock-power-threat, ethnic-backlash]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -968,8 +1016,8 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
     def: A probability, rate, proportion, or share of a binary or count outcome (a level in [0,1] or a percent), including survival / mortality rates.
     aliases: [proportion, share, rate, survival-milestone, frequency]
   level:
-    def: A level or volume in natural units (a currency amount, a count, a dollar volume), where the headline number is the magnitude itself rather than an effect or ratio.
-    aliases: [volume, inflow-volume, dollar-amount]
+    def: A level or volume in natural units (a currency amount, a count, a dollar volume, a ratio expressed as a percent), where the headline number is the magnitude itself rather than an effect or ratio.
+    aliases: [volume, inflow-volume, dollar-amount, ratio-level, return-mean]
   fiscal-multiplier:
     def: PDV ratio of aggregate output response to a fiscal policy shock; reported as dollars of output per dollar of outlay.
     aliases: [pdv-multiplier, impact-multiplier, spending-multiplier]
@@ -986,6 +1034,18 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   convergence-rate:
     def: Asymptotic order of an estimation error norm as a function of n, p, and sparsity; characterizes how fast an estimator approaches the truth.
     aliases: [estimation-rate, rate-of-convergence]
+
+  auc-roc:
+    def: Area under the receiver operating characteristic curve for a binary classifier; value in [0.5, 1.0] where 0.5 is uninformative and 1.0 is perfect; standard in bank failure prediction and financial crisis early warning.
+    aliases: [auc, area-under-roc, roc-auc]
+
+  irr:
+    def: Internal rate of return to an educational or financial investment; the discount rate at which the present discounted value of lifetime benefits equals the present discounted value of costs.
+    aliases: [internal-rate-of-return]
+
+  index-growth:
+    def: Cumulative percentage growth in a price or quantity index over a stated horizon, expressed relative to the base-period level; used when the headline result is a long-run index change rather than a per-unit regression effect.
+    aliases: [cumulative-price-growth, long-run-index-growth, index-level-change]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -1073,3 +1133,19 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   fiscal-policy-design:
     def: Normative characterizations of optimal fiscal instrument settings such as capital and labor tax rates and public debt levels, including their dynamic paths under Ramsey or Mirrlees optimal policy.
     aliases: [optimal-tax-design, ramsey-policy-outcomes, optimal-fiscal-instruments]
+
+  cultural-change:
+    def: Evolution of cultural values, beliefs, and attitudes as embedded in language or other cultural artifacts; includes textual measures of progress orientation and the diffusion of ideas across published corpora.
+    aliases: [cultural-evolution, belief-change, cultural-attitudes]
+
+  civic-participation:
+    def: Participation in civic organizations, social movements, and political activities including membership in civil rights or advocacy organizations, voter turnout, and community leadership.
+    aliases: [civil-rights-participation, civic-activism, organizational-membership]
+
+  judicial-behavior:
+    def: Direct outcomes of judicial and public official decision-making: vote direction, sentence severity, and language in official opinions.
+    aliases: [public-official-behavior, judicial-ruling-outcomes]
+
+  ethnic-collective-violence:
+    def: Collective violence targeting a racial, ethnic, or religious minority group, including lynching, pogroms, and organized mob violence motivated by inter-group political or social competition.
+    aliases: [racial-violence-outcome, collective-violence-minority]
