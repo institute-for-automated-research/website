@@ -6,7 +6,7 @@ description: >-
   Chinese firms cause broad-based decoupling from Chinese customers; affected U.S. suppliers
   suffer large stock market losses, declining revenues and employment, and tighter bank credit,
   while failing to form new customer relations domestically or in politically aligned countries.
-  Journal of Financial Economics 2026, paywalled. Nine core results with source locators,
+  Journal of Financial Economics 2026, paywalled. Twenty-two core results with source locators,
   datasets used, and the empirical design (stacked DiD and event study). LLM-distilled.
 sidebar:
   label: Crosignani et al. 2026
@@ -28,8 +28,8 @@ paper:
   doi: 10.1016/j.jfineco.2025.104192
   jel:
     codes: [G12, F51, F38]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-24
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics:
     - Global trade, sustainability, and social impact
     - Global trade and economics
@@ -39,6 +39,7 @@ paper:
     - cumulative abnormal return of U.S. suppliers affected by export controls
     - revenues, cash flow, and employment of affected U.S. suppliers
     - bank lending to affected U.S. suppliers
+    - revenues and EBIT of non-U.S. suppliers linked to targeted Chinese firms
     - supply-chain customer terminations and new-relation formation
   outcomeClass: [firm-real-outcomes, security-returns, credit-supply]
   license: >-
@@ -51,7 +52,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier ScienceDirect; checked 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 9
+  resultsCount: 22
   citedByCount: 6
   methods:
     role: applies-method
@@ -70,55 +71,28 @@ paper:
     granularity: [firm, security, transaction]
     n: "351 U.S. suppliers with supply-chain links to 90 Chinese BIS-list targets; 250 stock-price events; 331 firms in bank-lending sample (71 treated); 2007-2023"
   findings:
-    - ref: R1
-      outcome: termination of Chinese customer supply-chain relations
-      metric: coefficient
-      value: "0.572*** (SE 0.209) full sample; 0.414* to 0.560** excluding directly targeted Chinese customers (Table 4, cols 1-3, 5-6); equivalent to 51-75% increase in terminations excluding targeted"
-      direction: positive
-    - ref: R2
-      outcome: total customer relations after export controls
-      metric: coefficient
-      value: "-0.145** (SE 0.064) total customers; domestic and Asia-Pacific new relations not significantly higher (Table 5, col 1; Table 6)"
-      direction: negative
-      vsBenchmark: no reshoring or friendshoring in 3 years post-control
-    - ref: R3
-      outcome: cumulative abnormal return of affected U.S. suppliers
-      metric: car
-      value: "-3.6% over [-10, 20] day window (3-factor FF model, Fig. 3, p. 11); $1 billion per firm average; $158 billion total market cap loss"
-      direction: negative
-    - ref: R4
-      outcome: operating cash flow of affected U.S. suppliers
-      metric: coefficient
-      value: "-0.018** (SE 0.007); decline equal to 21% of average value for treated firms (Table 7, col 1, Panel A, p. 12)"
-      direction: negative
-    - ref: R5
-      outcome: revenues of affected U.S. suppliers
-      metric: coefficient
-      value: "-0.093** (SE 0.032); revenues decline 8.9% post export controls (Table 7, col 2, Panel A, p. 12)"
-      direction: negative
-    - ref: R6
-      outcome: employment at affected U.S. suppliers
-      metric: coefficient
-      value: "-0.076** (SE 0.031); 7.3% decline in employees; CapEx: 0.004 (SE 0.003, not significant) (Table 7, cols 5 and 4, Panel A, p. 12)"
-      direction: negative
-    - ref: R7
-      outcome: bank lending to affected U.S. suppliers
-      metric: coefficient
-      value: "Committed term loans: -0.630** (SE 0.251); spread: +0.179** bps (SE 0.088); maturity: -4.874*** months (SE 1.538) (Table 8, cols 2, 5, 6, p. 13)"
-      direction: negative
-      vsBenchmark: pattern consistent with a negative credit-supply shift
-    - ref: R8
-      outcome: new Chinese domestic supplier relations formed by targeted Chinese firms
-      metric: coefficient
-      value: "0.469*** (SE 0.181) to 0.517*** (SE 0.172) (Table 9, cols 3-4, p. 13); targeted Chinese firms terminate U.S. supplier relations and replace them with domestic Chinese suppliers"
-      direction: positive
-      vsBenchmark: "Chinese firms reshore faster and more effectively than U.S. firms friendshore"
-    - ref: R9
-      outcome: cumulative abnormal return of targeted Chinese firms
-      metric: car
-      value: "-8.2% to -9.0% over [-10, 20] day window (3- and 4-factor China model, Fig. 5, p. 14-15); Chinese total $18-19 billion; U.S. full-sample $158 billion; U.S. subsample linked to listed Chinese targets $77 billion"
-      direction: negative
-      vsBenchmark: "conservative subsample U.S. losses ($77B) approximately 4x Chinese losses ($18-19B); full-sample U.S. losses ($158B) approximately 8-9x (p. 15)"
+    - { ref: R1, outcome: "termination of Chinese customer supply-chain relations", metric: coefficient, value: "0.572*** (SE 0.209) full sample; 0.414* to 0.560** excluding directly targeted Chinese customers (Table 4, cols 1-3, 5-6); equivalent to 51-75% increase in terminations excluding targeted", direction: positive }
+    - { ref: R2, outcome: "total and new Chinese customer relations after export controls", metric: coefficient, value: "Total customers: -0.145** (SE 0.064); new Chinese relations: -0.483*** (SE 0.139), -0.523*** (SE 0.153), -0.473** (SE 0.187); domestic customer counts do not significantly change, and Asia, Asia-ally, and EU customer shares do not significantly rise", direction: negative, vsBenchmark: "no reshoring or friendshoring in 3 years post-control" }
+    - { ref: R3, outcome: "cumulative abnormal return of U.S. suppliers affected by export controls", metric: car, value: "-3.6% over [-10, 20] day window (3-factor FF model, Fig. 3, p. 11); $1 billion per firm average; $158 billion total market cap loss", direction: negative }
+    - { ref: R4, outcome: "revenues, cash flow, and employment of affected U.S. suppliers", metric: coefficient, value: "-0.018** (SE 0.007); decline equal to 21% of average value for treated firms (Table 7, col 1, Panel A, p. 12)", direction: negative }
+    - { ref: R5, outcome: "revenues, cash flow, and employment of affected U.S. suppliers", metric: coefficient, value: "-0.093** (SE 0.032); revenues decline 8.9% post export controls (Table 7, col 2, Panel A, p. 12)", direction: negative }
+    - { ref: R6, outcome: "revenues, cash flow, and employment of affected U.S. suppliers", metric: coefficient, value: "-0.076** (SE 0.031) employees, a 7.3% decline; CapEx 0.004 (SE 0.003), not significant (Table 7, cols 5 and 4, Panel A, p. 12)", direction: negative }
+    - { ref: R7, outcome: "bank lending to affected U.S. suppliers", metric: coefficient, value: "Committed term loans: -0.630** (SE 0.251); spread: +0.179** (SE 0.088); maturity: -4.874*** months (SE 1.538) (Table 8, cols 2, 5, 6, p. 13)", direction: negative, vsBenchmark: "pattern consistent with a negative credit-supply shift" }
+    - { ref: R8, outcome: "new Chinese domestic supplier relations formed by targeted Chinese firms", metric: coefficient, value: "0.469*** (SE 0.181) to 0.517*** (SE 0.172) (Table 9, cols 3-4, p. 13); targeted Chinese firms terminate U.S. supplier relations and form new domestic Chinese supplier relations", direction: positive, vsBenchmark: "Chinese firms show more proactive supply-chain reconfiguration than U.S. firms, which do not increase domestic customer counts" }
+    - { ref: R9, outcome: "cumulative abnormal return of targeted Chinese firms", metric: car, value: "-8.2% to -9.0% over [-10, 20] day window (3- and 4-factor China model, Fig. 5, p. 14-15); Chinese total $18-19 billion; U.S. full-sample $158 billion; U.S. subsample linked to listed Chinese targets $77 billion", direction: negative, vsBenchmark: "conservative subsample U.S. losses ($77B) approximately 4x Chinese losses ($18-19B); full-sample U.S. losses ($158B) approximately 8-9x (p. 15)" }
+    - { ref: R10, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Domestic customer count: -0.117 (SE 0.075) and -0.097 (SE 0.084), neither significant (Table 5, cols 3-4, PDF p. 10; printed p. 9)", direction: none }
+    - { ref: R11, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Domestic customer share: 0.084*** (SE 0.029), 0.092*** (SE 0.032); China share: -0.336*** (SE 0.075), -0.390*** (SE 0.120) (Table 6, Panel A, p. 10)", direction: mixed }
+    - { ref: R12, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Asia share: -0.026 (SE 0.044), -0.003 (SE 0.040); Asia Friend share: -0.042 (SE 0.048), 0.003 (SE 0.046); EU share: -0.080 (SE 0.058), -0.002 (SE 0.048), all insignificant (Table 6, Panel B, p. 10)", direction: none }
+    - { ref: R13, outcome: "revenues, cash flow, and employment of affected U.S. suppliers", metric: coefficient, value: "EBIT: -0.018* (SE 0.008), a decline equal to 28% of treated firms' average value (Table 7, col 3, Panel A, p. 12)", direction: negative }
+    - { ref: R14, outcome: "bank lending to affected U.S. suppliers", metric: coefficient, value: "Committed total credit: -0.136* (SE 0.073); committed credit lines: -0.081 (SE 0.068); utilized credit lines: -0.197 (SE 0.171), with latter two insignificant (Table 8, cols 1, 3-4, p. 13)", direction: mixed }
+    - { ref: R15, outcome: "termination of Chinese customer supply-chain relations", metric: coefficient, value: "Pre-event dynamic coefficients show no pre-trends; stacked estimates are qualitatively similar to TWFE estimates (Fig. 2, p. 9)", direction: none }
+    - { ref: R16, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Chinese targets' U.S.-supplier terminations: 0.535* (SE 0.291), 0.498* (SE 0.283); new U.S. supplier relations: -0.179 (SE 0.174), -0.142 (SE 0.172), latter estimates insignificant (Table 9, cols 1-2, 5-6, p. 13)", direction: mixed }
+    - { ref: R17, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Chinese supplier share: 0.322*** (SE 0.120), 0.318*** (SE 0.119); U.S. supplier share: -0.373*** (SE 0.134), -0.328** (SE 0.135) (Table 10, cols 3-6, PDF p. 14; printed p. 13)", direction: mixed }
+    - { ref: R18, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Total supplier count: 0.066 (SE 0.124), 0.115 (SE 0.111), neither significant (Table 10, cols 1-2, PDF p. 14; printed p. 13)", direction: none }
+    - { ref: R19, outcome: "revenues and EBIT of non-U.S. suppliers linked to targeted Chinese firms", metric: coefficient, value: "Non-U.S. supplier revenue: 0.157*** (SE 0.049), 0.127** (SE 0.048) for allied regions; 0.043* (SE 0.023), 0.024 (SE 0.024) across all regions (Table 11, Revenue cols 1-2, Panel A and Panel B, PDF p. 15; printed p. 14)", direction: positive }
+    - { ref: R20, outcome: "revenues and EBIT of non-U.S. suppliers linked to targeted Chinese firms", metric: coefficient, value: "Non-U.S. supplier EBIT: 0.156 (SE 0.126), 0.168 (SE 0.153) in allied regions; 0.036 (SE 0.027), 0.039 (SE 0.030) across all regions, all insignificant (Table 11, EBIT cols 3-4, Panel A and Panel B, PDF p. 15; printed p. 14)", direction: none }
+    - { ref: R21, outcome: "supply-chain customer terminations and new-relation formation", metric: coefficient, value: "Dynamic pre-event coefficients are not statistically distinguishable from zero; post-event estimates increase terminations with U.S. suppliers and new Chinese supplier relations (Fig. 4, p. 13)", direction: positive }
+    - { ref: R22, outcome: "cumulative abnormal return of U.S. suppliers affected by export controls", metric: car, value: "No abnormal returns in the 10 days before BIS announcements; average CAR -3.6% over [-10, 20] days (Fig. 3, p. 11-12)", direction: negative }
   resultType: new-finding
   relatesTo:
     - { cite: "Baker, Larcker & Wang (2022)", doi: '10.1016/j.jfineco.2022.01.004', relation: builds-on, note: "stacked DiD methodology used to address staggered-treatment bias in the main identification" }
@@ -138,6 +112,8 @@ paper:
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: (1) R2 locator corrected to add Table 4 cols 7-9 for new Chinese relations figures, and range corrected from -0.483/-0.473 to the full -0.473**/-0.523*** span; (2) R9 and TL;DR corrected to clarify that the 4x comparison uses the $77 billion conservative subsample estimate (U.S. suppliers linked to listed Chinese targets), not the full $158 billion figure which is ~8-9x the Chinese losses; all other nine result rows confirmed against tables and figures in PDF."
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added missing main-text findings, result mappings, and empirical specification details including the bank-loan equation; additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 22 Core results, equations, specifications, classification axes, findings, prose, and frontmatter checked against the PDF; corrected five table PDF-page locators, the domestic-count/share distinction, Chinese reconfiguration overstatement, Table 11 allied-region attribution, unsupported spread unit, and specification details. Required locator and relatesTo checks pass." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jfineco.2025.104192", checked: 2026-06-24, by: "paper-distiller (claude-sonnet-4-6)", found: "license[] contains TDM licences only (Elsevier TDM 1.0 and TDMREP policy DOIs, content-version tdm, start 2026-01-01, delay-in-days 0); no CC or open-access licence present. Artifact p. 1: 0304-405X/c 2025 Elsevier B.V. All rights reserved." }
   rightsSignalConflict: false
@@ -175,14 +151,27 @@ Locators point into the source PDF.
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | Export controls lead to broad-based decoupling: affected U.S. suppliers terminate relations with targeted AND non-targeted Chinese customers | Table 4, cols 1-3 and 5-6, p. 8 | Full: coefficient 0.572\*\*\* (SE 0.209); excluding targeted Chinese customers: 0.414\* to 0.560\*\*, equivalent to +51% to +75% more terminations |
-| R2 | No reshoring or friendshoring: affected U.S. suppliers form fewer new Chinese customer relations and cannot offset the loss with domestic or Asia-Pacific alternatives | Table 4, cols 7-9, p. 8; Table 5, col 1, p. 9-10; Table 6, p. 10 | Total customers: -0.145\*\* (SE 0.064); new Chinese relations: -0.473\*\* to -0.523\*\*\* (Table 4, cols 7-9); domestic, Asia, Asia-ally, and EU shares: all coefficients insignificant |
+| R2 | No reshoring or friendshoring: affected U.S. suppliers form fewer new Chinese customer relations and cannot offset the loss with domestic or Asia-Pacific alternatives | Table 4, cols 7-9, p. 8; Table 5, col 1, PDF p. 10 (printed p. 9); Table 6, PDF p. 10 (printed p. 9) | Total customers: -0.145\*\* (SE 0.064); new Chinese relations: -0.483\*\*\*, -0.523\*\*\*, -0.473\*\* (Table 4, cols 7-9); domestic customer counts do not significantly change and Asia, Asia-ally, and EU customer shares do not significantly rise; domestic customer share does rise (R11) |
 | R3 | Stock market reaction: affected U.S. suppliers lose -3.6% in cumulative abnormal return in the 30-day window around BIS list announcements | Fig. 3, p. 11-12 | -3.6% CAR over [-10, 20] (3-factor FF model); $1 billion market cap loss per firm; $158 billion total across 156 affected suppliers |
 | R4 | Cash flow declines significantly: export controls reduce operating cash flow by an amount equal to 21% of average treated-firm value | Table 7, col 1 (Panel A), p. 12 | Coefficient -0.018\*\* (SE 0.007) in stacked panel regression |
 | R5 | Revenue declines: export controls reduce revenues by 8.9% | Table 7, col 2 (Panel A), p. 12 | Coefficient -0.093\*\* (SE 0.032) |
 | R6 | Employment falls 7.3%; capital expenditure not significantly affected | Table 7, cols 5 and 4 (Panel A), p. 12 | Employees: -0.076\*\* (SE 0.031); CapEx: 0.004 (SE 0.003, insignificant) |
-| R7 | Banks tighten lending to affected U.S. suppliers: term loans fall, spreads rise, maturities shorten | Table 8, cols 2, 5, 6, p. 13 | Term loans: -0.630\*\* (SE 0.251); spread: +0.179\*\* bps (SE 0.088); maturity: -4.874\*\*\* months (SE 1.538) |
-| R8 | Chinese firms targeted by export controls successfully reshore by forming new domestic supplier relations, replacing U.S. suppliers faster than U.S. firms can friendshore | Table 9, cols 3-4, p. 13 | New relations with Chinese suppliers: +0.469\*\*\* (SE 0.181) to +0.517\*\*\* (SE 0.172); U.S. supplier share of targeted Chinese firms falls significantly (Table 10, cols 5-6) |
+| R7 | Banks tighten lending to affected U.S. suppliers: term loans fall, spreads rise, maturities shorten | Table 8, cols 2, 5, 6, p. 13 | Term loans: -0.630\*\* (SE 0.251); spread: +0.179\*\* (SE 0.088); maturity: -4.874\*\*\* months (SE 1.538) |
+| R8 | Chinese firms targeted by export controls form new domestic supplier relations as U.S. supplier shares fall | Table 9, cols 3-4, PDF p. 13 (printed p. 12); Table 10, cols 5-6, PDF p. 14 (printed p. 13) | New relations with Chinese suppliers: +0.469\*\*\* (SE 0.181) to +0.517\*\*\* (SE 0.172); U.S. supplier share of targeted Chinese firms falls significantly (Table 10, cols 5-6) |
 | R9 | Targeted Chinese firms also lose market capitalization, but U.S. supplier losses are considerably larger (approximately 4x by the conservative subsample estimate) | Fig. 5, p. 14-15 | CAR [-10, 20]: -8.2% (3-factor) to -9.0% (4-factor China model); Chinese total $18-19 billion; U.S. full-sample $158 billion; U.S. subsample linked to listed Chinese targets $77 billion (approximately 4x the Chinese losses, p. 15) |
+| R10 | Affected U.S. suppliers do not significantly increase their domestic customer count | Table 5, cols 3-4, PDF p. 10 (printed p. 9) | Coefficients -0.117 (SE 0.075) and -0.097 (SE 0.084), both insignificant |
+| R11 | Customer composition shifts away from China and toward domestic customers, mainly because Chinese customer counts fall | Table 6, Panel A, p. 10 | Domestic customer share: 0.084*** (SE 0.029) and 0.092*** (SE 0.032); China customer share: -0.336*** (SE 0.075) and -0.390*** (SE 0.120) |
+| R12 | U.S. suppliers do not friendshore toward Asia, allied Asia, or EU customers | Table 6, Panel B, p. 10 | Asia share: -0.026 (SE 0.044), -0.003 (SE 0.040); Asia Friend: -0.042 (SE 0.048), 0.003 (SE 0.046); EU: -0.080 (SE 0.058), -0.002 (SE 0.048); all insignificant |
+| R13 | EBIT falls at affected U.S. suppliers | Table 7, col 3, Panel A, p. 12 | Coefficient -0.018* (SE 0.008), a 28% decline relative to the treated-firm average |
+| R14 | Total credit commitments fall slightly, while credit-line commitments and utilization show no significant change | Table 8, cols 1, 3-4, p. 13 | Total credit: -0.136* (SE 0.073); committed credit lines: -0.081 (SE 0.068); utilized credit lines: -0.197 (SE 0.171), latter two insignificant |
+| R15 | Dynamic estimates support the identifying design: no pre-trends, with stacked and TWFE results qualitatively similar | Fig. 2, p. 9 | Pre-event coefficients are not statistically distinguishable from zero; post-event patterns agree qualitatively across stacked and TWFE estimates |
+| R16 | Targeted Chinese firms terminate U.S. supplier relations, but do not significantly add new U.S. suppliers | Table 9, cols 1-2 and 5-6, p. 13 | U.S. supplier terminations: 0.535* (SE 0.291), 0.498* (SE 0.283); new U.S. suppliers: -0.179 (SE 0.174), -0.142 (SE 0.172), insignificant |
+| R17 | Targeted Chinese firms replace U.S. suppliers with Chinese suppliers, shifting supplier shares | Table 10, cols 3-6, PDF p. 14 (printed p. 13) | Chinese supplier share: 0.322*** (SE 0.120), 0.318*** (SE 0.119); U.S. supplier share: -0.373*** (SE 0.134), -0.328** (SE 0.135) |
+| R18 | The total number of suppliers to targeted Chinese firms does not significantly change | Table 10, cols 1-2, PDF p. 14 (printed p. 13) | Coefficients 0.066 (SE 0.124) and 0.115 (SE 0.111), both insignificant |
+| R19 | Non-U.S. suppliers to targeted Chinese firms gain revenues, especially suppliers in allied regions | Table 11, Revenues cols 1-2, Panel A and Panel B, PDF p. 15 (printed p. 14) | Allied-region suppliers: 0.157*** (SE 0.049), 0.127** (SE 0.048); all non-U.S. regions: 0.043* (SE 0.023), 0.024 (SE 0.024) |
+| R20 | Non-U.S. suppliers' EBIT does not significantly increase after export controls | Table 11, EBIT cols 3-4, Panel A and Panel B, PDF p. 15 (printed p. 14) | Allied-region suppliers: 0.156 (SE 0.126), 0.168 (SE 0.153); all non-U.S. regions: 0.036 (SE 0.027), 0.039 (SE 0.030); all insignificant |
+| R21 | The Chinese supply-chain estimates are not preceded by detectable changes in U.S. supplier terminations or Chinese supplier additions | Fig. 4, p. 13 | Dynamic pre-event coefficients are not statistically distinguishable from zero; plotted post-event effects show increased terminations with U.S. suppliers and new Chinese supplier relations |
+| R22 | U.S. suppliers show no abnormal returns before BIS announcements, followed by losses after the announcements | Fig. 3, p. 11-12 | No abnormal returns in the 10 days preceding events; average CAR is -3.6% over [-10, 20] days |
 
 **Overall (paper's conclusion).** Export controls prompt immediate and broad-based decoupling of
 U.S. suppliers from their Chinese customers, but U.S. firms struggle to find new customers in
@@ -237,14 +226,14 @@ exporting to China that are never treated or not yet treated at event time. A [-
 centers each cohort. The estimating equation (p. 7, Eq. 1) is:
 
 $$
-y_{ict} = \beta \, \text{Affected}_{ic} \times \text{Post}_{ict} + \mu_{ic} + \mu_{ckt} + \varepsilon_{ict} \tag{1}
+y_{ict} = \beta \, \text{Affected}_{ic} \times \text{Post}_{tc} + \mu_{ic} + \mu_{ckt} + \varepsilon_{ict} \tag{1}
 $$
 
 where $$i$$ indexes a firm, $$c$$ a cohort (round of export controls), and $$t$$ a year.
 $$\text{Affected}_{ic}$$ is an indicator equal to one if export control $$c$$ is imposed on a
-Chinese customer of U.S. firm $$i$$. $$\text{Post}_{ict}$$ equals one after the imposition.
-$$\mu_{ic}$$ are cohort-firm fixed effects; $$\mu_{ckt}$$ are cohort-industry-size-year fixed
-effects (absorbing demand shocks that hit similar firms in the same year). Standard errors are
+Chinese customer of U.S. firm $$i$$. $$\text{Post}_{tc}$$ equals one after the imposition of event
+$$c$$. $$\mu_{ic}$$ are cohort-firm fixed effects; $$\mu_{ckt}$$ are cohort-industry-size-quartile-year
+fixed effects (absorbing demand shocks that hit similar firms in the same year). Standard errors are
 double-clustered at the firm and year level.
 
 For count-like outcomes (number of terminated or new relations), the paper estimates Poisson
@@ -262,43 +251,47 @@ at different times).
 
 ## Empirical specifications
 
-**Supply-chain reconfiguration (R1, R2, Table 4-6, p. 8-10).** The outcome variables are:
+**Supply-chain reconfiguration (R1-R2, R10-R12, Table 4-6, p. 8-10).** The outcome variables are:
 (a) the total number of terminated relations with Chinese customers (including/excluding directly
 targeted firms); (b) the number of new Chinese customer relations; (c) total customer count;
 (d) regional customer shares (domestic, China, Asia, Asia-ally, EU). Estimated by PPML with
 cohort-firm and cohort-SIC-size-year fixed effects, double-clustered SEs. Treatment requires
 all control firms to export to China in the pre-treatment period; within each cohort, controls
-are matched on industry (2-digit SIC) and firm-size quartile. A "Restrictive Sample" narrows
-to only Entity List and MEU List events, excluding the less restrictive UVL.
+are matched on industry (2-digit SIC) and firm-size quartile. Table 4 has 11,301-25,301 observations,
+Table 5 has 31,646-32,301, and Table 6 has 27,275-31,450 across columns. A "Restrictive Sample"
+narrows to only Entity List and MEU List events, excluding the less restrictive UVL.
 
-**Balance sheet and real outcomes (R4-R6, Table 7, p. 12).** Outcome variables are:
+**Balance sheet and real outcomes (R4-R6, R13, Table 7, p. 12).** Outcome variables are:
 cash flow (operating income before depreciation minus interest and taxes divided by lagged assets),
 revenues (log total revenues), EBIT (earnings before interest and taxes divided by lagged assets),
 CapEx (capital expenditures divided by lagged assets), and employees (log total employees).
 Specification: OLS stacked panel regression (Eq. 1) with cohort-firm and cohort-SIC-size-year
-fixed effects. Results are robust to NAICS fixed effects (Table C.1 online appendix).
+fixed effects, double-clustered standard errors at firm and year, and 31,459-31,615 observations
+in Panel A (26,608-26,784 in restrictive Panel B). Results are robust to NAICS fixed effects
+(Table C.1 online appendix).
 
-**Bank lending (R7, Table 8, p. 13).** Outcome variables: committed total credit, committed term
+**Bank lending (R7, R14, Table 8, p. 13).** Outcome variables: committed total credit, committed term
 loans, committed credit lines, utilized credit lines, the interest rate spread, and loan maturity.
 Sample: 331 firms exporting to China that borrow from a total of 38 banks over 2012:Q3-2023:Q3;
-71 are affected by export controls. Specification: stacked OLS panel with firm fixed effects
+71 are affected by export controls. Specification: stacked panel regressions with firm fixed effects
 (absorbing time-invariant firm characteristics), industry-size-quarter fixed effects (absorbing
 common demand conditions for similar firms), and bank-quarter fixed effects (capturing
-bank-specific credit-supply shocks):
+bank-specific credit-supply shocks). Table 8 reports cohort-firm, cohort-SIC-size-quarter, and
+cohort-bank-quarter fixed effects, with standard errors double-clustered by firm and quarter.
+This is a loan-level adaptation of Eq. (1). Columns 1-4 use PPML for credit amounts, and columns
+5-6 use OLS for spread and maturity (Table 8, PDF p. 13; printed p. 12). The coefficient is
+identified from within-bank-quarter comparisons of affected and control firms in the same
+industry-size cohort.
 
-$$
-y_{ibqt} = \beta \, \text{Affected}_{i} \times \text{Post}_{iqt} + \mu_{i} + \mu_{kqt} + \mu_{bqt} + \varepsilon_{ibqt}
-$$
+For Chinese target firms (Tables 9-10, p. 13), the same stacked design replaces `Affected` with `Targeted`; the paper reports firm-cohort and cohort-year or cohort-customer-quartile-year fixed effects and double-clustered firm-year standard errors. Table 9 has 156,004-183,178 observations and Table 10 has 172,888-239,597; both require control firms to import from U.S. suppliers before treatment. The dynamic treatment estimates show no pre-trends (Fig. 4, p. 13). For non-U.S. suppliers in Table 11 (p. 14), the treatment remains `Affected`, with cohort-firm and cohort-SIC-year or cohort-SIC-size-year fixed effects, double-clustered firm-year standard errors, and 95,711-96,181 observations for the allied-region panel and 328,588-329,418 for the all-region panel. The underlying estimating structure is Eq. (1); those sections do not print additional numbered equations.
 
-The coefficient $$\beta$$ is identified from within-bank-quarter comparisons of affected vs
-control firms in the same industry-size cohort.
-
-**Chinese supply-chain reconfiguration (R8, R9, Table 9-11, Fig. 5, p. 13-15).** Chinese
+**Chinese and third-country supply-chain reconfiguration (R8-R9, R16-R21, Tables 9-11, Figs. 4-5, p. 13-15).** Chinese
 targeted firms' supply-chain adjustments are estimated symmetrically to the U.S. side, with
 Targeted replacing Affected and the control group being Chinese firms importing from U.S. suppliers
 not in the BIS lists. This documents whether Chinese firms actively reshore (R8) and how
-non-U.S. third-country firms benefit (Table 11: revenues of non-U.S., non-allied suppliers to
-targeted Chinese firms increase by 15.7%\*\*\* after controls). Stock market reactions for
+non-U.S. third-country suppliers benefit (Table 11: allied-region revenue coefficients are
+0.157\*\*\* and 0.127\*\*; across all non-U.S. regions, they are 0.043\* and 0.024, with only
+the first estimate significant). Stock market reactions for
 Chinese targets (R9) use the China-specific 3-factor and 4-factor models of Liu, Stambaugh,
 and Yuan (2019).
 
@@ -330,7 +323,7 @@ above point to the exact tables and figures in the source PDF.
 ## Attribution and rights
 
 Source: peer-reviewed, *Journal of Financial Economics* 175 (2026) 104192. This
-distillation was extracted by an LLM on 2026-06-24 and is **not human-verified or
+page was initially extracted by an LLM on 2026-06-24 and updated on 2026-10-04; it is **not human-verified or
 independently reproduced**. The paper is paywalled; reproduction is extract-only.
 
 > Crosignani, Matteo, Lina Han, Marco Macchiavelli, and André F. Silva.

@@ -5,7 +5,7 @@ description: >-
   the discount factor channel of monetary policy, the paper finds that US FOMC surprises
   cause significant revisions in investors' risk-adjusted discount factors: a 100 bp
   surprise shifts the A/H share-price ratio by about 30 bp within five trading days,
-  driven exclusively by cycle-amplifying surprises. J. Fin. Econ. 2026, paywalled. Six
+  driven exclusively by cycle-amplifying surprises. J. Fin. Econ. 2026, paywalled. Sixteen
   core results with source locators, datasets used, the conceptual model, and the
   estimating equations.
 sidebar:
@@ -37,7 +37,10 @@ paper:
   outcome:
     - A/H share-price ratio of dual-listed stocks
     - investors' risk-adjusted discount factors
-  outcomeClass: [asset-prices]
+    - 3-month SHIBOR
+    - EPS forecast ratio of Mainland China brokers over Hong Kong brokers
+    - HKD-CNY, USD-CNY, and six-month forward exchange-rate levels
+  outcomeClass: [asset-prices, expectations]
   license: >-
     Paywalled; copyright 2025 Elsevier B.V. Crossref license block contains
     only tdm (URL: https://www.elsevier.com/tdm/userlicense/1.0/) and stm-asf
@@ -46,7 +49,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier/ScienceDirect, 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 16
   citedByCount: 0
   methods:
     role: applies-method
@@ -54,7 +57,7 @@ paper:
     buildsFrom: [difference-in-differences, event-study, panel-regression]
     identification: natural-experiment
   contributionType: [new-fact, new-method]
-  mechanisms: [learning, information-asymmetry]
+  mechanisms: [learning, discount-factor-revision]
   scope:
     region: "US and China"
     assetClass: dual-listed equities (A-shares and H-shares)
@@ -64,40 +67,23 @@ paper:
     granularity: [security]
     n: "143 dual-listed stocks, 129 FOMC announcements, 93,414 company-announcement observations"
   findings:
-    - ref: R1
-      outcome: A/H share-price ratio of dual-listed stocks
-      metric: coefficient
-      value: "0.293 (SE 0.0297) with company FE and post-announcement indicator (Table 3 col 3); range 0.276 to 0.306 across all five specifications"
-      direction: positive
-    - ref: R2
-      outcome: A/H share-price ratio of dual-listed stocks
-      metric: coefficient
-      value: "amplifying-hike 0.390*** (0.112); amplifying-cut 0.355*** (0.0400); contradictory-hike -0.0964 (0.107) and contradictory-cut 0.0467 (0.179), both insignificant"
-      direction: mixed
-    - ref: R3
-      outcome: 3-month HIBOR
-      metric: coefficient
-      value: "approximately 1 pp per 1 pp Fed funds surprise; SHIBOR coefficient near zero and insignificant"
-      direction: positive
-    - ref: R4
-      outcome: A/H share-price ratio of dual-listed stocks
-      metric: coefficient
-      value: "below-median PE: 0.346*** (0.0651); above-median PE: 0.162*** (0.0485)"
-      direction: positive
-      vsBenchmark: low-PE firms roughly 2x more reactive than high-PE firms
-    - ref: R5
-      outcome: A/H share-price ratio of dual-listed stocks
-      metric: coefficient
-      value: "below-median market cap: 0.367*** (0.0575); above-median market cap: 0.237*** (0.0346)"
-      direction: positive
-      vsBenchmark: small firms roughly 1.5x more reactive than large firms
-    - ref: R6
-      outcome: A/H share-price ratio of dual-listed stocks
-      metric: coefficient
-      value: "below-median CAPM beta: 0.220*** (0.0638); above-median CAPM beta: 0.381*** (0.0730)"
-      direction: positive
-      vsBenchmark: high-beta firms roughly 1.7x more reactive than low-beta firms
-  resultType: new-finding
+    - { ref: R1, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "0.293 (SE 0.0297) with company FE and post-announcement indicator (Table 3 col 3); range 0.276 to 0.306 across all five specifications", direction: positive }
+    - { ref: R2, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "amplifying-hike 0.390*** (0.112); amplifying-cut 0.355*** (0.0400); contradictory-cut -0.0964 (0.107) and contradictory-hike 0.0467 (0.179), both insignificant", direction: mixed }
+    - { ref: R3, outcome: 3-month HIBOR, metric: coefficient, value: "approximately 1 pp per 1 pp Fed funds surprise; SHIBOR coefficient near zero and insignificant", direction: positive }
+    - { ref: R4, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "below-median PE: 0.346*** (0.0651); above-median PE: 0.162*** (0.0485)", direction: positive, vsBenchmark: low-PE firms roughly 2x more reactive than high-PE firms }
+    - { ref: R5, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "below-median market cap: 0.367*** (0.0575); above-median market cap: 0.237*** (0.0346)", direction: positive, vsBenchmark: small firms roughly 1.5x more reactive than large firms }
+    - { ref: R6, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "below-median CAPM beta: 0.220*** (0.0638); above-median CAPM beta: 0.381*** (0.0730)", direction: positive, vsBenchmark: high-beta firms roughly 1.7x more reactive than low-beta firms }
+    - { ref: R7, outcome: 3-month SHIBOR, metric: coefficient, value: "near-zero and statistically insignificant response to US monetary policy surprises", direction: none }
+    - { ref: R8, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "flat-rate-cycle Surprise x Post: surprise increases -0.351 (SE 0.228), decreases -0.521 (SE 0.528), near zero -0.630 (SE 0.702); all insignificant", direction: none }
+    - { ref: R9, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "equal-weighted standardized 0.185** (SE 0.0772), equal-weighted demeaned 0.377** (SE 0.157), value-weighted standardized 0.231*** (SE 0.0534), value-weighted demeaned 0.349*** (SE 0.0806); adjusted R-squared 0.0256 and 0.0324", direction: positive }
+    - { ref: R10, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "below-median lagged A/H ratio: 0.211*** (SE 0.0327); above-median: 0.396*** (SE 0.0622); triple interaction: 0.0338*** (SE 0.00650)", direction: positive, vsBenchmark: more reactive for above-median lagged A/H ratio }
+    - { ref: R11, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "Surprise x Post x US Export Share is -0.00155 to -0.0000369 and insignificant in cols 1-5; zero-share and positive-share coefficients are 0.194*** (SE 0.0411) and 0.208*** (SE 0.0396), statistically indistinguishable", direction: none }
+    - { ref: R12, outcome: EPS forecast ratio of Mainland China brokers over Hong Kong brokers, metric: coefficient, value: "Surprise x Post ranges from -0.00109 (SE 0.00584) to 0.00488 (SE 0.00539), insignificant in all five specifications", direction: none }
+    - { ref: R13, outcome: HKD-CNY, USD-CNY, and six-month forward exchange-rate levels, metric: coefficient, value: "spot and forward event-study estimates are statistically insignificant; figure does not tabulate point estimates", direction: none }
+    - { ref: R14, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "Table 7 cols 1-4: 0.130*** (SE 0.0254), 0.291*** (SE 0.0288), 0.286*** (SE 0.0279), 0.295*** (SE 0.0300)", direction: positive }
+    - { ref: R15, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "stacked estimates: 0.446*** (SE 0.0405), 0.445*** (SE 0.0404), 0.447*** (SE 0.0408), 0.445*** (SE 0.0409)", direction: positive, vsBenchmark: slightly above the baseline estimate }
+    - { ref: R16, outcome: A/H share-price ratio of dual-listed stocks, metric: coefficient, value: "event-time path has no pre-trend, persists through day 5, peaks around day 3; day-one coefficient around 0.15 (text p. 10); event-time confidence intervals overlap under serial-correlation bootstrap", direction: positive }
+  resultType: confirms
   relatesTo:
     - { cite: "Kuttner (2001)", doi: '10.1016/s0304-3932(01)00055-1', relation: builds-on, note: "uses the Kuttner (2001) fed-funds-futures surprise measure as the main monetary policy shock" }
     - { cite: "Bernanke and Kuttner (2005)", doi: '10.1111/j.1540-6261.2005.00760.x', relation: extends, note: "extends their stock-index reaction to a 100 bp shock by isolating the discount factor component via the A/H ratio design" }
@@ -138,6 +124,8 @@ paper:
         corrected to "post-announcement indicator (col 3)" since 0.293 (SE 0.0297) comes
         from Table 3 col 3 (Company FE + post dummy), not the full event-time FE col 4
         (0.292, SE 0.0298); range 0.276-0.306 and all other magnitudes are correct.
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full 18-page PDF. Added ten Core results rows covering cycle-flat nulls, time-series regressions, lagged A/H heterogeneity, export-share and EPS forecast checks, exchange-rate nulls, robustness, stacked DiD, and dynamics; added discount-factor mechanism vocabulary and equations (7)-(9). Additions are not human-verified and not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 16 Core results rows, equations (1)-(9), classifications, findings, frontmatter, and narrative against the PDF; corrected contradictory-surprise labels, Table 7 description, Figure 4 page, and overstrong information-channel and exchange-rate claims; corrected R11 direction and resultType. No unresolved row errors." }
 ---
 
 **What this is.** The paper's core results, the conceptual model that motivates the A/H
@@ -169,18 +157,28 @@ Locators refer to the source PDF.
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | **A 100 bp Fed surprise shifts the A/H ratio by ~30 bp within five trading days**, isolating the discount factor channel | Table 3, cols 1-5, p. 8 | Surprise x Post = 0.293\*\*\* (SE 0.0297) with company FE and post-announcement indicator (col 3); stable across specifications: range 0.276 to 0.306, all significant at 1% |
-| R2 | **The effect is asymmetric: only cycle-amplifying surprises matter**. Surprise rate cuts during easing cycles and surprise rate hikes during tightening cycles move the A/H ratio significantly; contradictory surprises do not | Table 4, Panels A-B, p. 8 | Amplifying-hike: 0.390\*\*\* (0.112); amplifying-cut: 0.355\*\*\* (0.0400); contradictory-hike: -0.0964 (0.107); contradictory-cut: 0.0467 (0.179) |
+| R2 | **The effect is asymmetric: only cycle-amplifying surprises matter**. Surprise rate cuts during easing cycles and surprise rate hikes during tightening cycles move the A/H ratio significantly; contradictory surprises do not | Table 4, Panels A-B, p. 8 | Amplifying-hike: 0.390\*\*\* (0.112); amplifying-cut: 0.355\*\*\* (0.0400); contradictory-cut: -0.0964 (0.107); contradictory-hike: 0.0467 (0.179) |
 | R3 | **US monetary policy passes through ~1-for-1 to Hong Kong interbank rates (HIBOR) but leaves Mainland China interbank rates (SHIBOR) unaffected**, validating the market segmentation assumption | Figure 3, p. 6 | 1 pp Fed funds surprise generates ~1 pp increase in 3-month HIBOR by day 1; LIBOR (USD) also rises; SHIBOR coefficient near zero and statistically insignificant |
 | R4 | **Value firms (low PE ratio) show roughly twice the discount-factor sensitivity of growth firms** | Table 6, Panel A, p. 11 | Below-median PE: Surprise x Post = 0.346\*\*\* (0.0651); above-median PE: 0.162\*\*\* (0.0485); triple interaction Surprise x Post x Charact = -0.161\* (0.0908) |
 | R5 | **Small firms (low market capitalization) are more sensitive to discount-factor revisions than large firms** | Table 6, Panel B, p. 11 | Below-median MC: Surprise x Post = 0.367\*\*\* (0.0575); above-median MC: 0.237\*\*\* (0.0346); triple interaction = -0.0889\*\*\* (0.0210) |
 | R6 | **High-CAPM-beta stocks react more strongly than low-beta stocks**, consistent with discount rate revisions hitting riskier cash flows disproportionately | Table 6, Panel C, p. 11 | Below-median beta: Surprise x Post = 0.220\*\*\* (0.0638); above-median beta: 0.381\*\*\* (0.0730); triple interaction = 0.362\*\* (0.146) |
 
+| R7 | **US policy surprises do not pass through to Mainland interbank rates**, consistent with monetary independence and capital controls | Figure 3, p. 6 | SHIBOR event-study response is near zero and statistically insignificant; point estimates are plotted, not tabulated |
+| R8 | **Flat-cycle surprises do not move the A/H ratio significantly**, unlike surprises that amplify a hike or cut cycle | Table 4, Panel C, p. 8 | Surprise increases: -0.351 (SE 0.228); decreases: -0.521 (SE 0.528); near-zero: -0.630 (SE 0.702); all insignificant |
+| R9 | **The main effect is also present in time-series changes in average A/H ratios**, rather than only in cross-sectional variation | Table 5, p. 10 | Equal-weight standardized: 0.185\*\* (0.0772); equal-weight demeaned: 0.377\*\* (0.157); value-weight standardized: 0.231\*\*\* (0.0534); value-weight demeaned: 0.349\*\*\* (0.0806); adjusted R² 0.0256 and 0.0324 |
+| R10 | **Stocks with higher lagged A/H ratios are more sensitive to policy surprises** | Table 6, Panel D, p. 11 | Below-median lagged ratio: 0.211\*\*\* (0.0327); above-median: 0.396\*\*\* (0.0622); triple interaction: 0.0338\*\*\* (0.00650) |
+| R11 | **The A/H response does not vary with firms' US export exposure**, weighing against differential cash-flow news as the explanation | Table A.1, p. 13 | Surprise × Post × US Export Share is -0.00155 to -0.0000369 and insignificant across cols 1-5; zero-share: 0.194\*\*\* (0.0411), positive-share: 0.208\*\*\* (0.0396), statistically indistinguishable |
+| R12 | **Analyst EPS forecasts do not diverge significantly across the two markets after surprises**, consistent with the cash-flow-news exclusion | Table B.1, p. 17 | Mainland/Hong Kong forecast-ratio Surprise × Post coefficients: -0.00109 (0.00584), 0.00148 (0.00589), 0.00179 (0.00589), 0.00223 (0.00592), 0.00488 (0.00539); all insignificant |
+| R13 | **Spot and forward exchange rates provide little evidence that currency movements explain the A/H result** | Figures C.2-C.3, p. 16 | HKD-CNY and USD-CNY spot and six-month forward event-study responses are insignificant; plotted point estimates are not tabulated |
+| R14 | **Baseline estimates remain positive and significant under alternative announcement and event-time samples** | Table 7, p. 11 | Include ZLB announcements: 0.130\*\*\* (0.0254); exclude near-zero: 0.291\*\*\* (0.0288); exclude holiday announcements: 0.286\*\*\* (0.0279); exclude holiday event times: 0.295\*\*\* (0.0300) |
+| R15 | **A stacked estimator robust to dynamic and heterogeneous treatment effects gives larger but similar estimates** | Table D.1, p. 17 | Surprise × Post: 0.446\*\*\* (0.0405), 0.445\*\*\* (0.0404), 0.447\*\*\* (0.0408), 0.445\*\*\* (0.0409) |
+| R16 | **The A/H response develops over several days**, with no pre-trend and an event-time peak around day three | Figure 4, p. 9; text p. 10 | Persists through day 5; day-one coefficient around 0.15; peaks around day 3 and then mean-reverts; bootstrap confidence intervals across event times overlap |
+
 **Overall (paper's conclusion).** Monetary policy announcements cause investors to revise
 their discount factors and impact stock prices. The discount factor channel is substantial
 and survives controls for cash-flow news: professional analysts' EPS forecasts for the
-same firms do not diverge across the two regions following FOMC announcements (ruling out
-the information channel of Nakamura and Steinsson (2018)), and non-exporting firms (with
-no US revenue channel) react identically to exporters. The
+same firms do not diverge across the two regions following FOMC announcements (providing evidence against a differential information channel as in Nakamura and Steinsson (2018)), and non-exporting firms (with
+no US revenue channel) react similarly to exporters. The
 asymmetry toward cycle-amplifying surprises suggests that higher-frequency event-study
 strategies that do not control for business-cycle context may understate the effects of
 monetary policy on asset prices.
@@ -268,6 +266,12 @@ $$
 \text{HIBOR}_{st} = \eta_s + \lambda_t + \sum_{\tau=-4}^{5} \beta_\tau^{HB}\,\text{Surprise}_s \times \mathbf{1}(\text{Time Since Announcement}_{st} = \tau) + \epsilon_{st}. \tag{4}
 $$
 
+The rate event studies use announcement and event-time effects. Figure 3 clusters standard
+errors by announcement; it includes all 129 announcements for HIBOR and HIBOR futures,
+announcements through June 14, 2023 for LIBOR, and announcements after October 25, 2006
+for SHIBOR (launched in October 2006). The event window is four trading days before through
+five after the announcement.
+
 **Dynamic A/H event study (Eq. 5, p. 5).** For graphical assessment of pre-trends and
 post-announcement dynamics, the main specification is extended to a full coefficient path:
 
@@ -275,8 +279,10 @@ $$
 (P_A/P_H)_{ist} = \alpha_i + \eta_s + \sum_{\tau=-4}^{5} \beta_\tau\,\text{Surprise}_s \times \mathbf{1}(\text{Time Since Announcement}_{st} = \tau) + \epsilon_{ist}. \tag{5}
 $$
 
-Figure 4 (p. 8) shows no pre-trend ($$\beta_\tau \approx 0$$ for $$\tau < 0$$), with the effect
-peaking around day 3 and showing some mean-reversion by day 5.
+Figure 4 (p. 9) shows no pre-trend ($$\beta_\tau \approx 0$$ for $$\tau < 0$$), with the effect
+peaking around day 3 and showing some mean-reversion by day 5. The A/H event-study uses
+company and announcement fixed effects, company-clustered standard errors, the 129 baseline
+announcements, and event days -4 through 5.
 
 ## Empirical specifications
 
@@ -321,10 +327,59 @@ log market capitalization (MC); CAPM beta from 5-year rolling monthly regression
 Shanghai Composite Index; and the lagged A/H ratio. Table 6 (p. 11) reports results for
 splits below and above the cross-sectional median of each characteristic.
 
+**Cash-flow exposure triple difference (Eq. 7, Appendix A, p. 14).** The authors interact
+the baseline treatment with the firm's US export revenue share to test whether cash-flow
+exposure explains the price-ratio response:
+
+$$
+\begin{aligned}
+(P_A/P_H)_{ist} &= \alpha_i + \eta_s + \lambda_t
+ + \beta_1 \text{Surprise}_s \times \text{Post}_t
+ + \beta_2 \text{USExportShare}_{ist} \\
+&\quad + \beta_3 \text{Surprise}_s \times \text{USExportShare}_{ist}
+ + \beta_4 \text{Post}_t \times \text{USExportShare}_{ist} \\
+&\quad + \beta_5 \text{Surprise}_s \times \text{Post}_t
+ \times \text{USExportShare}_{ist} + \epsilon_{ist}.
+\end{aligned} \tag{7}
+$$
+
+Table A.1 uses announcement FE in every column, variations in company FE and event-time
+controls, and company-clustered standard errors. It covers 110 announcements and 53,988
+observations in columns (1)-(5), ending in 2022 because of FactSet coverage. The
+zero-export and positive-export split specifications use 29,135 and 24,853 observations,
+respectively; the latter has 92 announcements.
+
+**Stacked difference-in-differences and event study (Eqs. 8-9, Appendix D, p. 17).** To
+address dynamic and heterogeneous treatment effects, the paper stacks each announcement
+event and compares a stock's treated window with its own lagged control window. In Eq. 8,
+$$T=1$$ denotes the current treated window and $$T=0$$ the same stock lagged by ten trading
+days; $$\alpha_{i(T),s}$$ are stock-by-treatment-group-by-announcement fixed effects and
+$$\eta_{s,t}$$ are announcement-by-event-time fixed effects:
+
+$$
+(P_A/P_H)_{i(T),st} = \alpha_{i(T),s} + \eta_{s,t}
+ + \beta \text{Surprise}_{i(T),s} \times \text{Post}_t
+ + \epsilon_{i(T),st}. \tag{8}
+$$
+
+$$
+(P_A/P_H)_{i(T),st} = \alpha_{i(T),s} + \eta_{s,t}
+ + \sum_{\tau=-4}^{5} \beta_\tau \text{Surprise}_{i(T),s}
+ \times \mathbf{1}(\text{TimeSinceAnnouncement}_{st}=\tau)
+ + \epsilon_{i(T),st}. \tag{9}
+$$
+
+Both stacked specifications use the 129 baseline announcements and a five-trading-day
+pre/post window, with company-clustered standard errors. Eq. 8 includes announcement by
+treatment-group and announcement by event-time fixed effects; columns vary company FE and
+company-specific trends. Table D.1 reports 186,232 observations in each specification.
+Eq. 9 uses the same fixed effects and sample construction; Figure D.1 plots its event-time
+path.
+
 **Robustness (Table 7, p. 11).** Results are stable when including ZLB announcements
 (Column 1, coefficient 0.130\*\*\*), excluding near-zero surprises (Column 2, 0.291\*\*\*),
-excluding holiday event times (Column 3, 0.286\*\*\*), and combining both holiday and
-near-zero exclusions (Column 4, 0.295\*\*\*). Appendix D applies the stacked DiD approach
+excluding holiday announcements (Column 3, 0.286\*\*\*), and excluding holiday event
+times (Column 4, 0.295\*\*\*). Appendix D applies the stacked DiD approach
 of Baker et al. (2022), finding larger point estimates (Table D.1, all specifications
 approximately 0.445-0.447\*\*\*) consistent with the main results.
 

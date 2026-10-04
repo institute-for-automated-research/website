@@ -4,7 +4,7 @@ description: >-
   Distilled: Exogenous weather-driven variability in Chinese environmental subsidy
   allocations reduces firms' green R&D investment and green R&D employment, with
   stronger effects on green-tech and subsidy-reliant firms. Journal of Financial
-  Economics 2026, paywalled. Six core results with source locators, datasets used,
+  Economics 2026, paywalled. Sixteen core results with source locators, datasets used,
   a mean-variance model of investment under subsidy uncertainty, and a two-stage IV
   specification using weather volatility as an instrument for policy uncertainty.
 sidebar:
@@ -34,6 +34,11 @@ paper:
     - city-level green R&D investment
     - green R&D employment
     - firm-level green R&D investment
+    - city-level green subsidy
+    - city-level waste gas treatment expenditure
+    - city-season AQI
+    - city-level policy uncertainty
+    - non-green R&D and capital expenditure (placebo tests)
   outcomeClass: [firm-real-outcomes, labor-careers-health]
   license: >-
     All rights reserved (Elsevier B.V. 2025). Artifact footer: "0304-405X/©
@@ -43,14 +48,15 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (ScienceDirect/Elsevier, 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 16
   citedByCount: 12
   methods:
-    role: applies-method
+    role: both
     family: reduced-form-causal
     buildsFrom: [instrumental-variables, panel-regression, fama-macbeth]
     identification: instrument
-  contributionType: [new-fact, new-theory]
+  introducesData: true
+  contributionType: [new-fact, new-theory, new-data]
   mechanisms: [financial-constraint, behavioral-bias, option-to-wait-deterrence]
   scope:
     region: China
@@ -61,40 +67,23 @@ paper:
     granularity: [firm, aggregate]
     n: "3,168 listed firms, 352 cities, 2009-2019 (1,340 city-year obs in main regressions)"
   findings:
-    - ref: R1
-      outcome: city-level green R&D investment
-      metric: coefficient
-      value: "-2.23 (t=-2.64), Table 4 Model 5; one-SD weather variability reduces green R&D by 0.132 SD"
-      direction: negative
-      vsBenchmark: "OLS coefficient -0.29 (t=-2.02, Table 4 Model 1); 2SLS estimate roughly 8x larger, consistent with attenuation bias from measurement error in OLS"
-    - ref: R2
-      outcome: city-level green R&D investment
-      metric: coefficient
-      value: "Avg Green Subsidy = 0.34 (t=2.76), Table 4 Model 5; one-SD subsidy increase raises green R&D by 0.158 SD"
-      direction: positive
-    - ref: R3
-      outcome: green R&D employment
-      metric: coefficient
-      value: "-1.07 (t=-3.41), Table 8 Model 1; one-SD weather variability reduces employment by 0.153 SD"
-      direction: negative
-    - ref: R4
-      outcome: firm-level green R&D investment (green-tech firms)
-      metric: coefficient
-      value: "PU x Green Tech = -0.58 (t=-7.47), Table 6 Model 2"
-      direction: negative
-      vsBenchmark: "average-firm PU effect = -0.40 (t=-2.72, Table 6 Model 1); green-tech interaction adds -0.58"
-    - ref: R5
-      outcome: firm-level green R&D investment (subsidy-reliant firms)
-      metric: coefficient
-      value: "PU x Subsidy Reliant = -0.62 (t=-7.77), Table 6 Model 5"
-      direction: negative
-    - ref: R6
-      outcome: non-green R&D and capital expenditure (placebo tests)
-      metric: coefficient
-      value: "non-green R&D: PU = 0.83 (t=1.48); capex: PU = -0.00 (t=-0.44); real estate capex: PU = 0.03 (t=0.32), Table 5 Models 6-8"
-      direction: none
-      vsBenchmark: "none of the three placebo outcomes show a significant effect; supports exclusion restriction"
-  resultType: new-finding
+    - { ref: R1, outcome: city-level green R&D investment, metric: coefficient, value: "-2.23 (t=-2.64), Table 4 Model 5; one-SD weather variability reduces green R&D by 0.132 SD", direction: negative, vsBenchmark: "OLS coefficient -0.29 (t=-2.02, Table 4 Model 1); 2SLS estimate roughly 8x larger, consistent with attenuation bias from measurement error in OLS" }
+    - { ref: R2, outcome: city-level green R&D investment, metric: coefficient, value: "Avg Green Subsidy = 0.34 (t=2.76), Table 4 Model 5; one-SD subsidy increase raises green R&D by 0.158 SD", direction: positive }
+    - { ref: R3, outcome: green R&D employment, metric: coefficient, value: "-1.07 (t=-3.41), Table 8 Model 1; one-SD weather variability reduces employment by 0.153 SD", direction: negative }
+    - { ref: R4, outcome: firm-level green R&D investment, metric: coefficient, value: "PU x Green Tech = -0.58 (t=-7.47), Table 6 Model 2", direction: negative, vsBenchmark: "average-firm PU effect = -0.40 (t=-2.72, Table 6 Model 1); green-tech interaction adds -0.58" }
+    - { ref: R5, outcome: firm-level green R&D investment, metric: coefficient, value: "PU x Subsidy Reliant = -0.62 (t=-7.77), Table 6 Model 5", direction: negative }
+    - { ref: R6, outcome: non-green R&D and capital expenditure (placebo tests), metric: coefficient, value: "non-green R&D: PU = 0.83 (t=1.48); capex: PU = -0.00 (t=-0.44); real estate capex: PU = 0.03 (t=0.32), Table 5 Models 6-8", direction: none, vsBenchmark: "none of the three placebo outcomes shows a significant effect; supports exclusion restriction" }
+    - { ref: R7, outcome: city-level green subsidy, metric: coefficient, value: "AQI coefficient = 0.05 (t=4.88), Table 2 Model 2; one-SD higher AQI predicts 0.17 SD higher next-year subsidy", direction: positive }
+    - { ref: R8, outcome: city-level waste gas treatment expenditure, metric: coefficient, value: "AQI coefficient = 0.04 (t=5.08), Table 2 Model 5; one-SD higher AQI predicts 0.13 SD higher expenditure", direction: positive }
+    - { ref: R9, outcome: city-season AQI, metric: coefficient, value: "Wind: -3.15 (t=-3.52), -2.63 (t=-3.48), -5.13 (t=-3.09), -2.34 (t=-1.78); rain: -2.62 (t=-4.82), -1.73 (t=-4.62), -1.60 (t=-0.49), -3.33 (t=-2.41), Table 3 Models 1-4", direction: negative }
+    - { ref: R10, outcome: city-level policy uncertainty, metric: coefficient, value: "SD Windy Days = 0.01 (t=3.27); SD Rainy Days = 0.16 (t=3.71); first-stage F = 14.5; one-SD weather variability raises PU by 0.228 SD, Table 4 Model 2", direction: positive }
+    - { ref: R11, outcome: city-level green R&D investment, metric: coefficient, value: "PU = -2.98 (t=-2.43), -2.23 (t=-2.59), -2.22 (t=-2.63), -2.25 (t=-2.69), -5.14 (t=-3.17), Table 5 Models 1-5", direction: negative, vsBenchmark: "Negative and significant across nonzero-R&D sample, two-year AQI, weather-adjusted AQI, expanded controls, and 2013-2019 subsample" }
+    - { ref: R12, outcome: firm-level green R&D investment, metric: coefficient, value: "PU interactions: manufacturing = -0.78 (t=-10.13), chemical = -0.76 (t=-5.07), metal = -0.92 (t=-4.44), public facility = -0.91 (t=-2.52), Table 6 Models 8-11", direction: negative }
+    - { ref: R13, outcome: firm-level green R&D investment, metric: coefficient, value: "PU interactions: metropolitan = -0.07 (t=-0.73), large = 0.11 (t=0.71), SOE = -0.04 (t=-0.46), different cities = -0.01 (t=-0.10), Table 6 Models 3-7", direction: none }
+    - { ref: R14, outcome: firm-level green R&D investment, metric: coefficient, value: "PU x Green Tech x Over-indebtedness = -0.55 (t=-2.09); x Interest Coverage A = 0.30 (t=1.81); x Interest Coverage B = 0.33 (t=1.91), Table 7 Models 2-4", direction: mixed, vsBenchmark: "Table 7 Model 2 PU x Green Tech = -0.60 (t=-7.11); higher indebtedness increases negative sensitivity, while higher interest coverage attenuates it" }
+    - { ref: R15, outcome: green R&D employment, metric: coefficient, value: "Avg Green Subsidy = 0.16 (t=3.61), Table 8 Model 2; 0.15 (t=3.42), Model 3", direction: positive }
+    - { ref: R16, outcome: city-level green subsidy, metric: index-growth, value: "Green subsidies to Beijing-headquartered firms rose 78% in the year after the November 2010 pollution spike, text p. 8", direction: positive }
+  resultType: confirms
   relatesTo:
     - { cite: "Gulen and Ion (2016)", relation: extends, note: "extends their finding that policy uncertainty reduces corporate investment to the green R&D context using a weather-based instrument" }
     - { cite: "Baker, Bloom and Davis (2016)", doi: '10.1093/qje/qjw024', relation: builds-on, note: "policy uncertainty measurement framework; this paper proposes a behavioral channel distinct from political/fiscal shocks" }
@@ -113,6 +102,8 @@ paper:
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; all six Core results rows confirmed against Tables 4, 5, 6, and 8; all equations (1)-(9) verified term-by-term; frontmatter facts, sample sizes, and first-stage F-statistic confirmed; no errors found."
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full 14-page PDF; added ten Core results rows, findings metadata, estimating-specification details, and the Table 7 financial-constraint specification. Not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Rechecked all 16 Core results rows, equations (1)-(9), specifications, classification axes, findings, prose, frontmatter, and DOI edges against the PDF. Confirmed the R1/R2/R10 Table 4 locators on cited printed p. 8 despite locator-script flags; corrected the firm-level SE description and Table 7 sample/specification prose, set role to both and resultType to confirms, classified hand-collected footnote data as new-data, and mapped R16 to registry metric index-growth. No unsupported headline results remain; all other row magnitudes and locators confirmed." }
   licenceVerification:
     - source: "Crossref REST API works/10.1016/j.jfineco.2025.104189"
       checked: 2026-06-24
@@ -139,6 +130,16 @@ Magnitudes and significance are as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. L
 | R4 | Green-tech firms are more sensitive to policy uncertainty | Table 6 Model 2, pp. 10-11 | PU × Green Tech = -0.58\*\*\* (t = -7.47), adding to average-firm effect of -0.40\*\*\* (Table 6 Model 1, t = -2.72) |
 | R5 | Subsidy-reliant firms are more sensitive to policy uncertainty | Table 6 Model 5, p. 11 | PU × Subsidy Reliant = -0.62\*\*\* (t = -7.77) |
 | R6 | Policy uncertainty does not affect non-green R&D or capital expenditure (placebo) | Table 5 Models 6-8, p. 10 | Non-green R&D: PU = 0.83 (t = 1.48, n.s.); capex: PU = -0.00 (t = -0.44, n.s.); real estate capex: PU = 0.03 (t = 0.32, n.s.) |
+| R7 | Higher AQI predicts higher environmental subsidies | Table 2 Model 2, p. 6 | AQI = 0.05\*\*\* (t = 4.88); one-SD higher AQI predicts 0.17 SD higher next-year subsidy |
+| R8 | Higher AQI predicts higher waste gas treatment spending | Table 2 Model 5, p. 6 | AQI = 0.04\*\*\* (t = 5.08); one-SD higher AQI predicts 0.13 SD higher expenditure |
+| R9 | Wind and rain reduce seasonal AQI | Table 3 Models 1-4, p. 7 | Wind: -3.15\*\*\* (t = -3.52), -2.63\*\*\* (t = -3.48), -5.13\*\*\* (t = -3.09), -2.34\* (t = -1.78); rain: -2.62\*\*\* (t = -4.82), -1.73\*\*\* (t = -4.62), -1.60 (t = -0.49), -3.33\*\* (t = -2.41), for heating/non-heating seasons in all/northern cities |
+| R10 | Weather variability predicts policy uncertainty in the first stage | Table 4 Model 2, p. 8 | SD Windy Days = 0.01\*\*\* (t = 3.27); SD Rainy Days = 0.16\*\*\* (t = 3.71); first-stage F = 14.5; one-SD variability raises PU by 0.228 SD |
+| R11 | Green R&D effects persist across robustness specifications | Table 5 Models 1-5, p. 10 | PU = -2.98\*\* (t = -2.43), -2.23\*\*\* (t = -2.59), -2.22\*\*\* (t = -2.63), -2.25\*\*\* (t = -2.69), -5.14\*\*\* (t = -3.17), across nonzero-R&D, two-year AQI, weather-adjusted AQI, expanded controls, and 2013-2019 sample |
+| R12 | Policy uncertainty has stronger effects in pollution-related industries | Table 6 Models 8-11, p. 11 | PU interactions: manufacturing = -0.78\*\*\* (t = -10.13), chemical = -0.76\*\*\* (t = -5.07), metal = -0.92\*\*\* (t = -4.44), public facility = -0.91\*\* (t = -2.52) |
+| R13 | Several other firm types show no significant differential effect | Table 6 Models 3-7, p. 11 | PU interactions: metropolitan = -0.07 (t = -0.73), large = 0.11 (t = 0.71), SOE = -0.04 (t = -0.46), different cities = -0.01 (t = -0.10), all n.s. |
+| R14 | Financial pressure increases green-tech firms' sensitivity to uncertainty | Table 7 Models 2-4, p. 12 | PU × Green Tech × Over-indebtedness = -0.55\*\* (t = -2.09); × Interest Coverage A = 0.30\* (t = 1.81); × Interest Coverage B = 0.33\* (t = 1.91); base PU × Green Tech = -0.60\*\*\* (t = -7.11) |
+| R15 | Higher subsidies predict higher green R&D employment | Table 8 Models 2-3, p. 12 | Avg Green Subsidy = 0.16\*\*\* (t = 3.61), Model 2; 0.15\*\*\* (t = 3.42), Model 3 |
+| R16 | Green subsidies rose after Beijing's severe pollution episode | text p. 8 | Environmental subsidies to Beijing-headquartered firms increased by 78% in the following year after the November 19, 2010 AQI spike |
 
 **Overall (paper's conclusion).** Policy uncertainty about environmental subsidies has real effects on green innovation: it reduces both the R&D investment and the technical employment that subsidies are intended to promote. Effects concentrate on the firms theory predicts should be most sensitive (green-tech, subsidy-reliant, financially pressured), and placebos confirm the result is not a general investment or uncertainty shock but is specific to the green component tied to the subsidized activities.
 
@@ -179,7 +180,7 @@ $$
 \text{Green Subsidy}_{jt} = a_0 + a_1 \times AQI_{j,t-1} + A \times X_{j,t-1} + \varepsilon_{jt} \tag{4}
 $$
 
-where $$\text{Green Subsidy}_{jt}$$ is the log RMB of total environmental subsidies in city $$j$$ in year $$t$$, $$AQI_{j,t-1}$$ is the lagged average AQI, and $$X_{j,t-1}$$ contains city and firm-level controls. Coefficients are averaged across cross-sections with standard errors robust to cross-sectional correlation. A one-SD higher AQI is associated with a 0.17 SD higher subsidy the following year (Table 2 Model 2, coefficient = 0.05\*\*\*, t = 4.88, p. 6).
+where $$\text{Green Subsidy}_{jt}$$ is the log RMB of total environmental subsidies in city $$j$$ in year $$t$$, $$AQI_{j,t-1}$$ is the lagged average AQI, and $$X_{j,t-1}$$ contains city characteristics and asset-weighted firm controls where included. Coefficients are averaged across cross-sections with standard errors robust to cross-sectional correlation; the Table 2 sample covers 2003-2019 and up to 352 cities. Models 5-6 substitute city waste-gas-treatment expenditure as the outcome, providing an independent policy response check. A one-SD higher AQI is associated with a 0.17 SD higher subsidy the following year (Table 2 Model 2, coefficient = 0.05\*\*\*, t = 4.88, p. 6).
 
 **Step 2: AQI depends on weather.** The paper documents the physical link between weather and AQI using a city-season-level specification (equation 5, p. 7):
 
@@ -187,7 +188,7 @@ $$
 AQI_{jt,s} = b_0 + b_1 \times \text{Wind Speed}_{jt,s} + b_2 \times \text{Rain Volume}_{jt,s} + B \times X_{jt} + \delta_j + \delta_t + \varepsilon_{jts} \tag{5}
 $$
 
-where $$AQI_{jt,s}$$ is the average daily AQI in city $$j$$ in season $$s$$ of year $$t$$; city and year fixed effects are included; standard errors are clustered by city and year. Wind speed and rain volume are both negative and significant (Table 3, p. 7), confirming that weather disperses particulates and lowers AQI.
+where $$AQI_{jt,s}$$ is the average daily AQI in city $$j$$ in season $$s$$ of year $$t$$; city and year fixed effects are included; standard errors are clustered by city and year. The sample covers 2003-2018: all-city models have 1,699 city-season observations and northern-city models have 845. Wind speed and rain volume are both negative across heating and non-heating seasons (Table 3, p. 7), confirming that weather disperses particulates and lowers AQI.
 
 **Step 3: Instrument construction.** Policy uncertainty $$PU_{j,t-5:t}$$ is defined as the standard deviation of the characteristics-adjusted residuals from equation (4) over a six-year rolling window ending at $$t$$. The first stage regresses $$PU$$ on six-year rolling standard deviations of windy days and rainy days (equation 6, p. 8):
 
@@ -201,7 +202,7 @@ $$
 \hat{PU}_{j,t-5:t} = \hat{c}_1 \times \text{SD Windy Days}_{j,t-6:t-1} + \hat{c}_2 \times \text{SD Rainy Days}_{j,t-6:t-1} \tag{7}
 $$
 
-First-stage estimates: $$\hat{c}_1 = 0.01^{***}$$ (t = 3.27), $$\hat{c}_2 = 0.16^{***}$$ (t = 3.71); first-stage F = 14.5 (Table 4 Model 2, p. 8). One-SD weather variability raises measured policy uncertainty by 0.228 SD. The estimation builds on `instrumental-variables` and `panel-regression` primitives.
+The first stage includes AQI and city and average-firm controls, city and year fixed effects, city and year clustered standard errors, and 1,340 city-year observations over 2009-2019 (Table 4 Model 2, p. 8). Estimates are $$\hat{c}_1 = 0.01^{***}$$ (t = 3.27), $$\hat{c}_2 = 0.16^{***}$$ (t = 3.71); the first-stage F-statistic is 14.5. One-SD weather variability raises measured policy uncertainty by 0.228 SD. The estimation builds on `instrumental-variables` and `panel-regression` primitives.
 
 ## Empirical specifications
 
@@ -211,7 +212,7 @@ $$
 \text{Green R\&D}_{j,t+1} = d_0 + d_1 \times \hat{PU}_{j,t-5:t} + d_2 \times \text{Avg Subsidy}_{j,t-5:t} + D \times X_{jt} + \delta_j + \delta_t + \eta_{j,t+1} \tag{8}
 $$
 
-where $$\text{Green R\&D}_{j,t+1}$$ is log aggregate green R&D of city $$j$$'s listed firms, $$\hat{PU}$$ is the weather-instrumented policy uncertainty (equation 7), $$\text{Avg Subsidy}_{j,t-5:t}$$ is the six-year moving average of the characteristics-adjusted subsidy, and $$X_{jt}$$ includes AQI and city and firm-level controls. City and year fixed effects; standard errors clustered by city and year. Headline estimates: $$d_1 = -2.23^{***}$$ (t = -2.64) and $$d_2 = 0.34^{***}$$ (t = 2.76), Table 4 Model 5.
+where $$\text{Green R\&D}_{j,t+1}$$ is log aggregate green R&D of city $$j$$'s listed firms, $$\hat{PU}$$ is the weather-instrumented policy uncertainty (equation 7), $$\text{Avg Subsidy}_{j,t-5:t}$$ is the six-year moving average of the characteristics-adjusted subsidy, and $$X_{jt}$$ includes AQI and city and firm-level controls. The 2009-2019 city-year sample has 1,340 observations; city and year fixed effects are included, with standard errors clustered by city and year. Headline estimates: $$d_1 = -2.23^{***}$$ (t = -2.64) and $$d_2 = 0.34^{***}$$ (t = 2.76), Table 4 Model 5.
 
 The one-standard-deviation translation: $$(0.01 \times 25.3 + 0.16 \times 1.95) \times (-2.23) / 9.54 = -0.132$$ SD in green R&D per SD in weather variability (footnote 18, p. 9).
 
@@ -221,9 +222,11 @@ $$
 \text{Green R\&D}_{ic,j,t+1} = e_0 + e_1 \times \hat{PU}_{j,t-5:t} + e_2 \times \text{Firm Type}_{ic,jt} \times \hat{PU}_{j,t-1} + e_3 \times \text{Avg Subsidy}_{j,t-5:t} + E \times X_{ic,jt} + \delta_i + \delta_t + \eta_{ic,j,t+1} \tag{9}
 $$
 
-with firm and year fixed effects; standard errors clustered by city and year. Firm type indicators include green tech (CSRC industry N77), metropolitan area, large size, state ownership, subsidy reliance (above-median ratio of environmental subsidy to total assets), cross-city registration, and industry affiliation (manufacturing, chemical, metal, public facility). The green-tech and subsidy-reliant interactions are the most significant (Table 6, pp. 10-11).
+with firm and year fixed effects; the table reports robust t-statistics. The 2009-2019 sample has 26,189 firm-year observations. Firm type indicators include green tech (CSRC industry N77), metropolitan area, large size, state ownership, subsidy reliance (above-median ratio of environmental subsidy to total assets), cross-city registration, and industry affiliation (manufacturing, chemical, metal, public facility). The green-tech and subsidy-reliant interactions are the most significant (Table 6, pp. 10-11).
 
 **Green R&D employment (R3).** Equation (8) replaces the dependent variable with $$\log(1 + \text{total R\&D and technical employees in city } j)$$. Result: PU = -1.07\*\*\* (t = -3.41), Table 8 Model 1.
+
+**Financial-constraint interactions (R14).** Table 7 extends equation (9) across the firm sample by adding pairwise and triple interactions among instrumented uncertainty, green-tech status, and one financing proxy at a time (Table 7, p. 12). The specifications include the corresponding lower-order terms, city and firm controls, and firm and year fixed effects. The constraints are over-indebtedness or either interest-coverage ratio, estimated in separate columns; robust t-statistics are reported. Table 7 samples range from 24,068 to 26,189 firm-year observations over 2009-2019. The over-indebtedness interaction is negative, while the interest-coverage interactions are positive, consistent with greater financial pressure amplifying the negative uncertainty effect.
 
 **Placebos (R6).** Equation (8) with three alternative dependent variables: total R&D minus green R&D, city capital expenditure, and city capital expenditure of real estate firms (Table 5 Models 6-8). None shows a significant effect of $$\hat{PU}$$, supporting the exclusion restriction.
 

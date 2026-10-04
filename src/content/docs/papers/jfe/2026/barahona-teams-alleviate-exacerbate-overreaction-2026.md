@@ -4,7 +4,7 @@ description: >-
   Distilled: Preregistered lab experiments and US mutual fund data show that two-person
   teams reduce individual belief overreaction to past returns by 30 to 55 percent, with
   self-selection into team leadership accounting for roughly 70 percent of the lab effect.
-  Journal of Financial Economics 176 (2026), paywalled. Six core results with source
+  Journal of Financial Economics 176 (2026), paywalled. Fifteen core results with source
   locators, datasets used, the measurement framework, and the estimating equations.
 sidebar:
   label: Barahona et al. 2026
@@ -35,7 +35,10 @@ paper:
   outcome:
     - individual belief overreaction coefficient to recent stock returns
     - mutual fund trading sensitivity to past returns
-  outcomeClass: [expectations, fund-behavior]
+    - self-selection intensity in team chat decisions
+    - mutual fund characteristics by management type
+    - mutual fund performance by extrapolation group
+  outcomeClass: [expectations, fund-behavior, behavioral-aggregate-outcomes]
   license: >-
     All rights reserved (Elsevier B.V. copyright 2025); Crossref confirms TDM-only
     licenses (content-versions tdm and stm-asf); no CC licence found.
@@ -43,7 +46,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier ScienceDirect, 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 15
   citedByCount: 0
   methods:
     role: applies-method
@@ -51,7 +54,7 @@ paper:
     buildsFrom: [randomized-survey-experiment, panel-regression, llm-text-classification]
     identification: randomized
   contributionType: [new-fact, new-data, measurement]
-  mechanisms: [behavioral-bias, team-self-selection]
+  mechanisms: [behavioral-bias, team-self-selection, internal-reflection, external-screening]
   introducesData: true
   scope:
     region: US
@@ -64,44 +67,21 @@ paper:
       Lab: 1,512 participants (248 Individual, 456 Group, 405 Internal Reflection,
       403 Self-Selection); Field: 847 unique funds, 308 unique teams, quarterly 1980-2018
   findings:
-    - ref: R1
-      outcome: individual belief overreaction coefficient
-      metric: coefficient
-      value: "-0.092*** [0.035]; 30% reduction relative to Individual mean of 0.311"
-      direction: negative
-      vsBenchmark: "Individual treatment mean overreaction beta = 0.311 (SD = 0.424)"
-    - ref: R2
-      outcome: individual belief overreaction coefficient (channel decomposition)
-      metric: coefficient
-      value: >-
-        Most conservative spec (Col 4): IR = -0.001 (n.s.); SS = -0.068* [0.039]
-        (69% of total); ES = -0.031 (n.s.); total team effect = -0.098
-      direction: negative
-      vsBenchmark: "self-selection (SS) channel alone accounts for ~70% of the -0.098 total reduction"
-    - ref: R3
-      outcome: recency parameter lambda2 in return-extrapolation model
-      metric: coefficient
-      value: "Group lambda2 = 0.953 vs Individual lambda2 = 0.886; recency effect (1-lambda2) is 0.047 for Group vs 0.114 for Individual"
-      direction: positive
-      vsBenchmark: "Individual recency effect is ~2.4x larger than Group recency effect"
-    - ref: R4
-      outcome: votes cast in next round by prior team decision maker
-      metric: coefficient
-      value: "MostVotes_{t-1} x |Error_{t-1}| interaction = -4.440*** [0.645] (Votes, Col 1); -0.137*** [0.018] (MostVotes dummy, Col 3)"
-      direction: negative
-    - ref: R5
-      outcome: prediction accuracy (MSE, MAE) and experimental bonus
-      metric: coefficient
-      value: "MSE: -157.722*** [30.394]; MAE: -2.015*** [0.408]; Bonus: +$0.059** [0.023] (Group vs Individual, full controls)"
-      direction: positive
-      vsBenchmark: "bonus gain ~25% of Individual cross-sectional SD; MAE reduction ~9% of Individual mean"
-    - ref: R6
-      outcome: mutual fund trading sensitivity to past returns (team transmission)
-      metric: coefficient
-      value: "IV sum delta0 + delta1 = 0.45 (Col 7); null of full transmission rejected at IV p = 0.015 (Col 7) and IV p = 0.018 (Col 8); ~55% attenuation of individual overreaction in extrapolative teams"
-      direction: negative
-      vsBenchmark: "full transmission from solo to team management would yield sum delta0 + delta1 = 1"
-  resultType: new-finding
+    - { ref: R1, outcome: individual belief overreaction coefficient, metric: coefficient, value: "-0.092*** [0.035]; 30% reduction relative to Individual mean of 0.311", direction: negative, vsBenchmark: "Individual treatment mean overreaction beta = 0.311 (SD = 0.424)" }
+    - { ref: R2, outcome: individual belief overreaction coefficient (channel decomposition), metric: coefficient, value: "Most conservative spec (Col 4): IR = -0.001 (n.s.); SS = -0.068* [0.039] (69% of total); ES = -0.031 (n.s.); total team effect = -0.098", direction: negative, vsBenchmark: "self-selection (SS) channel alone accounts for ~70% of the -0.098 total reduction" }
+    - { ref: R3, outcome: recency parameter lambda2 in return-extrapolation model, metric: coefficient, value: "Group lambda2 = 0.953 vs Individual lambda2 = 0.886; recency effect (1-lambda2) is 0.047 for Group vs 0.114 for Individual", direction: negative, vsBenchmark: "Individual recency effect is ~2.4x larger than Group recency effect" }
+    - { ref: R4, outcome: votes cast in next round by prior team decision maker, metric: coefficient, value: "MostVotes_{t-1} x |Error_{t-1}| interaction = -4.440*** [0.645] (Votes, Col 1); -0.137*** [0.018] (MostVotes dummy, Col 3)", direction: negative }
+    - { ref: R5, outcome: prediction accuracy (MSE, MAE) and experimental bonus, metric: coefficient, value: "MSE: -157.722*** [30.394]; MAE: -2.015*** [0.408]; Bonus: +$0.059** [0.023] (Group vs Individual, full controls)", direction: positive, vsBenchmark: "bonus gain ~25% of Individual cross-sectional SD; MAE reduction ~9% of Individual mean" }
+    - { ref: R6, outcome: mutual fund trading sensitivity to past returns (team transmission), metric: coefficient, value: "IV sum delta0 + delta1 = 0.45 (Col 7); null of full transmission rejected at IV p = 0.015 (Col 7) and IV p = 0.018 (Col 8); ~55% attenuation of individual overreaction in extrapolative teams", direction: negative, vsBenchmark: "full transmission from solo to team management would yield sum delta0 + delta1 = 1" }
+    - { ref: R7, outcome: individual belief overreaction coefficient, metric: coefficient, value: "Group coefficient on absolute overreaction |beta| = -0.101*** [0.027] (Table 5, Col 1)", direction: negative, vsBenchmark: "Individual mean |beta| = 0.413; group coefficient is a 1% significant reduction" }
+    - { ref: R8, outcome: self-selection intensity in team chat decisions, metric: correlation, value: "Uncontested rounds mean = 16.37 (SD = 3.16); LLM score mean = 6.56 (SD = 0.53); Spearman correlation = 0.293***", direction: positive, vsBenchmark: "Scores range from 0 (external screening) to 10 (self-selection)" }
+    - { ref: R9, outcome: mutual fund trading sensitivity to past returns, metric: coefficient, value: "All teams: counterfactual solo mean = -0.011 (s.e. 0.022; t = -0.489); team mean = -0.034 (s.e. 0.028; t = -1.200); CF - TM = 0.023 (s.e. 0.026; t = 0.891)", direction: none }
+    - { ref: R10, outcome: mutual fund trading sensitivity to past returns, metric: coefficient, value: "Contrarian teams: counterfactual solo mean = -0.224 (s.e. 0.029; t = -7.593); team mean = -0.178 (s.e. 0.043; t = -4.127); CF - TM = -0.046 (s.e. 0.034; t = -1.374)", direction: none, vsBenchmark: "Difference is not statistically significant; individual contrarian behavior is retained" }
+    - { ref: R11, outcome: mutual fund trading sensitivity to past returns, metric: coefficient, value: "Extrapolative teams: counterfactual solo mean = 0.184 (s.e. 0.024; t = 7.815); team mean = 0.090 (s.e. 0.035; t = 2.589); CF - TM = 0.094 (s.e. 0.039; t = 2.414)", direction: negative, vsBenchmark: "Team sensitivity is about half the solo counterfactual, significant at 5%" }
+    - { ref: R12, outcome: mutual fund trading sensitivity to past returns, metric: coefficient, value: "IV test of full transmission of contrarian behavior: H0 delta0 = 1 not rejected, p = 0.568 (Table 8, Col 5)", direction: none, vsBenchmark: "Contrarian behavior is fully transmitted in the IV specification" }
+    - { ref: R13, outcome: mutual fund characteristics by management type, metric: level, value: "Solo vs team means: Fund TNA 1017.82 vs 1200.26 million; number of stocks 89.88 vs 103.07 (medians 52 vs 54); expense ratio 1.25 vs 1.26 percentage points", direction: mixed, vsBenchmark: "Table 6 reports no sizable differences in the characteristics shown" }
+    - { ref: R14, outcome: mutual fund performance by extrapolation group, metric: return-spread, value: "Contrarians outperform extrapolators across five plotted measures: raw returns, benchmark-adjusted returns, CAPM alpha, FF3 alpha, and FF5 alpha; figure does not print exact bar values", direction: positive, vsBenchmark: "Panel A group mean beta labels: -0.22 for contrarians and 0.15 for extrapolators" }
+  resultType: confirms
   relatesTo:
     - { cite: "Afrouzi et al. (2023)", doi: '10.1093/qje/qjad009', relation: builds-on, note: "adopts their preregistered overreaction elicitation task (AR(1) stock return prediction, 20 rounds) as the cognitive measure" }
     - { cite: "Greenwood and Shleifer (2014)", relation: builds-on, note: "uses their survey-based evidence of return extrapolation and their recency-weight model (Eq. 7) as the empirical backdrop" }
@@ -111,8 +91,8 @@ paper:
     - { cite: "Jegadeesh et al. (2019)", doi: '10.1016/j.jfineco.2019.02.010', relation: builds-on, note: "adapts their disjoint-subsample IV strategy to correct for measurement error in the counterfactual overreaction regressor" }
   openQuestions:
     - "How belief aggregation in teams affects outcomes beyond overreaction (e.g. risk-taking, ambiguity preferences, other heuristics): the paper notes this is outside its current scope (Conclusion, p. 15-16)."
-    - "How self-selection and external screening interact within the actual team interaction, since the experimental design measures them in separate pre-interaction and post-interaction phases rather than within a single joint treatment (p. 8, fn. 18)."
-    - "Whether the lab findings extend to settings with non-random team formation, social ties, or professional hierarchies (Conclusion, p. 15)."
+    - "How internal reflection, self-selection, and external screening interact within actual team interaction, since separate treatments isolate mechanisms and do not identify cross-channel interactions (p. 8, fn. 18)."
+    - "How the lab results vary with organizational settings and team formation, given the field analysis's endogeneity of team formation and indirect measure of overreaction (pp. 13-14)."
   replicationCode:
     status: available
   extraction:
@@ -131,6 +111,8 @@ paper:
         (2) R6 column reference corrected from Col 8 to Col 7 for the delta0+delta1=0.45 sum (Col 7 IV gives 1.1703-0.7167=0.4536; Col 8 gives 0.30);
         (3) R6 p-value label corrected from "OLS p=0.018" to "IV p=0.018 (Col 8)" (both 0.015 and 0.018 are from IV columns; OLS gives p=0.000);
         (4) JEL code C91 removed (PDF lists only G41 and D91). All other locators, magnitudes, equations, and classification axes confirmed against the PDF.
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the complete 17-page PDF; appended nine missing findings and expanded the formal sections to include numbered equations (1)-(11) and main estimating specifications. These additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 15 Core rows, equations (1)-(11), classifications, findings, frontmatter, and prose against the PDF; corrected R5 locator, R3 finding direction, resultType, and prose claims; added locatable Bordalo citation. All checked claims supported." }
   licenceVerification:
     - source: Crossref REST API works/10.1016/j.jfineco.2025.104219
       checked: 2026-06-24
@@ -147,7 +129,7 @@ paper:
 
 ## TL;DR
 
-The paper addresses a fundamental question in behavioral finance: does moving from individual to team decision-making amplify or attenuate belief overreaction to recent asset returns? Using preregistered randomized experiments on the Labvanced platform with 1,512 Prolific participants, plus a within-subject field study of US equity mutual fund managers (1980-2018), the paper finds that two-person teams reduce individual overreaction by 30 to 55 percent. A quantitative decomposition, following the approach of Enke et al. (2023), partitions the lab team effect into three channels: internal reflection (the act of pre-team deliberation), self-selection (the tendency of the less-biased member to lead), and external screening (the group interaction itself). Self-selection accounts for roughly 70 percent of the reduction. LLM analysis of roughly 18,000 chat exchanges in the Group treatment corroborates this, and dynamic evidence shows that participants reduce their leadership role after making larger forecast errors. The field results, based on the approach of Bordalo et al. (2020) for identifying overreaction, are consistent: mutual fund teams attenuate extrapolative overreaction by about 55 percent relative to the individual behavior of the same managers, and this attenuation coincides with better investment performance.
+The paper addresses a fundamental question in behavioral finance: does moving from individual to team decision-making amplify or attenuate belief overreaction to recent asset returns? Using preregistered randomized experiments on the Labvanced platform with 1,512 Prolific participants, plus a within-subject field study of US equity mutual fund managers (1980-2018), the paper finds that two-person teams reduce individual overreaction by 30 to 55 percent. A quantitative decomposition, following the approach of Enke et al. (2023), partitions the lab team effect into three channels: internal reflection (the act of pre-team deliberation), self-selection (the tendency of the less-biased member to lead), and external screening (the group interaction itself). Self-selection accounts for roughly 70 percent of the reduction. LLM analysis of roughly 18,000 chat exchanges in the Group treatment corroborates this, and dynamic evidence shows that participants reduce their leadership role after making larger forecast errors. In the field, where overreaction is measured indirectly from funds' sensitivity to past stock returns, mutual fund teams attenuate extrapolative overreaction by about 55 percent relative to the individual behavior of the same managers. This attenuation is associated with better investment performance.
 
 ## Core results
 
@@ -159,120 +141,117 @@ Magnitudes and significance are as reported; `\*` / `\*\*` / `\*\*\*` = 10% / 5%
 | R2 | **Self-selection explains ~70% of the team effect**: the three-channel decomposition shows internal reflection contributes essentially nothing (-0.001, n.s.) and external screening contributes -0.025 to -0.031 (n.s.), while self-selection contributes -0.067 to -0.090 (significant in most specifications) | Table 3/Eq. (5), p. 8 | Most conservative spec (Col 4): IR = -0.001 (n.s.); SS = -0.068\* [0.039]; ES = -0.031 (n.s.); total team effect = -0.098 [0.035] |
 | R3 | **Teams show a weaker recency effect**: fitting the exponential return-extrapolation model separately for each treatment, the recency weight (1 minus the decay parameter) is about 2.4x smaller for Group participants than Individual participants | Fig. 3/Eq. (7), p. 11 | Group lambda2 = 0.953 (recency = 0.047) vs Individual lambda2 = 0.886 (recency = 0.114); Group places more equal weight across all 40 past returns |
 | R4 | **Self-selection is dynamic and driven by past errors**: participants who led the team prediction in round t-1 are significantly less likely to lead in round t after the team made a large forecast error in round t-1 | Table 4/Eq. (6), p. 10 | MostVotes\_{t-1} x \|Error\_{t-1}\| coefficient = -4.440\*\*\* [0.645] (Votes, Col 1); -0.137\*\*\* [0.018] (MostVotes dummy, Col 3); n = 7,657 round observations |
-| R5 | **Teams achieve higher prediction accuracy**: Group participants generate lower mean-squared error, lower mean-absolute error, and earn a higher experimental bonus than Individual participants | Table 5, p. 10 | Group vs Individual: MSE -157.722\*\*\* [30.394]; MAE -2.015\*\*\* [0.408]; Bonus +$0.059\*\* [0.023]; full controls, n = 703 |
+| R5 | **Teams achieve higher prediction accuracy**: Group participants generate lower mean-squared error, lower mean-absolute error, and earn a higher experimental bonus than Individual participants | Table 5, p. 11 | Group vs Individual: MSE -157.722\*\*\* [30.394]; MAE -2.015\*\*\* [0.408]; Bonus +$0.059\*\* [0.023]; full controls, n = 703 |
 | R6 | **Mutual fund teams attenuate extrapolative overreaction by ~55%**: within-subject comparison of team overreaction and statistical counterfactual individual overreaction shows teams transmit only about 45% of extrapolative behavior, while contrarian (non-overreacting) behavior is fully transmitted | Table 8/Eq. (10-11), p. 15 | IV sum delta0 + delta1 = 0.45 (Col 7); null of full transmission (= 1) rejected at IV p = 0.015 (Col 7) and IV p = 0.018 (Col 8); contrarian-only delta0 not significantly below 1 (IV p = 0.568) |
+| R7 | **Lower absolute belief bias**: the group treatment also reduces absolute sensitivity to past returns, establishing that the main result is closer to the rational benchmark rather than merely a change in coefficient sign | Table 5, p. 11 | Group coefficient on absolute overreaction = -0.101\*\*\* [0.027]; Individual mean = 0.413 |
+| R8 | **Chat evidence supports self-selection**: both LLM measurement approaches indicate that one partner commonly leads while the other withdraws, and their team-level measures are positively associated | Fig. 2, p. 9 | Uncontested rounds mean = 16.37 (SD = 3.16); LLM score mean = 6.56 (SD = 0.53); Spearman correlation = 0.293\*\*\* |
+| R9 | **No significant average field difference across all teams**: the within-team comparison of solo counterfactual and observed team trading sensitivity is not statistically significant in the pooled sample | Table 7, p. 13 | Solo counterfactual mean = -0.011 (s.e. 0.022; t = -0.489); team mean = -0.034 (s.e. 0.028; t = -1.200); CF - TM = 0.023 (s.e. 0.026; t = 0.891), N = 308 |
+| R10 | **Contrarian behavior is retained in teams**: among contrarian teams, solo and team sensitivities are statistically indistinguishable | Table 7, p. 13 | Solo counterfactual mean = -0.224 (s.e. 0.029; t = -7.593); team mean = -0.178 (s.e. 0.043; t = -4.127); CF - TM = -0.046 (s.e. 0.034; t = -1.374), N = 143 |
+| R11 | **Extrapolative behavior is attenuated in teams**: among extrapolative teams, mean sensitivity falls by about one-half between solo management and team management | Table 7, p. 13 | Solo counterfactual mean = 0.184 (s.e. 0.024; t = 7.815); team mean = 0.090 (s.e. 0.035; t = 2.589); CF - TM = 0.094 (s.e. 0.039; t = 2.414), N = 165 |
+| R12 | **IV evidence does not reject full transmission of contrarian behavior**: in the field IV specification, the coefficient on solo counterfactual sensitivity is statistically consistent with one | Table 8, p. 15 | Test of H0 delta0 = 1: p = 0.568 (IV Col 5) |
+| R13 | **Solo and team fund samples have similar observed characteristics**: the descriptive statistics support the paper's decision to use a within-subject design rather than rely on between-sample comparability | Table 6, p. 12 | Solo vs team: mean TNA = 1017.82 vs 1200.26 million; mean stocks held = 89.88 vs 103.07 (median 52 vs 54); expense ratio = 1.25 vs 1.26 percentage points |
+| R14 | **Extrapolative trading predicts weaker fund performance**: the paper's full-sample and recursive sorts show lower performance among extrapolators than contrarians across raw, benchmark-adjusted, CAPM, FF3, and FF5 measures | Fig. 4, p. 16 | Panel A labels mean beta as -0.22 for contrarians and 0.15 for extrapolators; exact numerical performance bar values are not printed |
+| R15 | **No evidence of naive one-period extrapolation**: participants are not more likely to predict an identical return in consecutive periods, distinguishing the measured bias from simply repeating the latest return | text p. 11 | Null reported in unreported results; no coefficient or test statistic is given |
 
 **Overall (paper's conclusion).** Both in the lab and in the field, teams reduce belief overreaction relative to individuals. The dominant mechanism is self-selection: in two-person teams, the less-biased member tends to take on decision authority. This process is dynamic (driven by past forecast errors and feedback) and is confirmed by LLM-based analysis of chat exchanges. In the field, the attenuation of extrapolative trading by mutual fund teams is associated with better subsequent fund performance, while contrarian (non-overreacting) behavior is preserved.
 
 ## Theory / model
 
-The paper has no formal structural model. It motivates belief overreaction with the representativeness-heuristic framework of Barberis (2018), which predicts that investors overextrapolate recent returns, and tests team effects on this well-documented bias.
-
-**Cognitive task and AR(1) process.** The hypothetical stock used in the experiment follows an AR(1) process (p. 4):
+The paper does not present a formal structural model. It motivates belief overreaction through representativeness and extrapolation accounts, including Barberis (2018) and Greenwood and Shleifer (2014), and tests whether teams attenuate the tendency to overweight past returns. In the lab task, returns follow the AR(1) process described on p. 4:
 
 $$
-x_t = \rho x_{t-1} + \varepsilon_t, \qquad \varepsilon_t \sim \mathcal{N}(0, \sigma^2), \quad \rho = 0.5, \quad \sigma = 20
+x_t = \rho x_{t-1} + \varepsilon_t, \qquad \varepsilon_t \sim \mathcal{N}(0, \sigma^2), \qquad \rho = 0.5, \quad \sigma = 20
 $$
 
-Given that past returns have only weak predictive power for future returns, the paper sets the rational benchmark at $$\beta_i = 0$$ (the best response when $$\rho$$ is difficult to infer). Any positive $$\beta_i$$ signals overreaction: the participant over-weights the most recent return realization.
+The paper treats zero sensitivity to the latest return as the rational benchmark because past returns have weak predictive power. It predicts an individual coefficient above zero under overreaction and a negative group-treatment effect if teams reduce it (pp. 4-5).
 
-**Return-extrapolation model (recency channel).** Following Greenwood and Shleifer (2014), an exponentially-weighted extrapolation model is estimated to decompose overreaction into a level (attribute substitution) and a recency component (Eq. 7, p. 11):
+The authors replicate widespread individual overreaction in expectations documented by Bordalo et al. (2020) before testing how teams change it.
 
-$$
-\hat{E}_i x_{i,t+1} = \lambda_0 + \lambda_1 \frac{\sum_{j=0}^{N} \lambda_2^j \, x_{t-j}}{\sum_{j=0}^{N} \lambda_2^j} + \varepsilon_{i,t} \tag{7}
-$$
-
-Here $$\lambda_1$$ captures the overall level of attribute substitution (sensitivity to past returns in general) and $$\lambda_2$$ governs the relative importance of more versus less recent returns: as $$\lambda_2 \to 0$$, the most recent observation receives disproportionately more weight (stronger recency effect); as $$\lambda_2 \to 1$$, all past returns receive equal weight. The quantity $$1 - \lambda_2$$ is used as the recency-effect measure.
-
-**Team-effect decomposition.** The aggregate team effect is $$\Delta\beta_G = \bar{\beta}_G - \bar{\beta}_I$$. It is partitioned into three additive channels (Eq. 3, p. 6):
+The conceptual team effect is the difference between mean overreaction in the Group and Individual treatments. Equation (3) partitions that difference into internal reflection, self-selection, and external screening (p. 6):
 
 $$
-\Delta\beta_G
-= \underbrace{(\bar{\beta}_{IR} - \bar{\beta}_I)}_{\Delta\beta_{IR}\,(\text{internal reflection})}
-+ \underbrace{(\bar{\beta}_{SS} - \bar{\beta}_{IR})}_{\Delta\beta_{SS}\,(\text{self-selection})}
-+ \underbrace{(\bar{\beta}_G - \bar{\beta}_{SS})}_{\Delta\beta_{ES}\,(\text{external screening})} \tag{3}
+\Delta\beta_G = \beta_G - \beta_I = (\beta_{IR} - \beta_I) + (\beta_{SS} - \beta_{IR}) + (\beta_G - \beta_{SS}) \tag{3}
 $$
 
-where $$\bar{\beta}_{IR}$$ is average overreaction in the Internal Reflection treatment (participants forecast individually before seeing their partner's prediction, no team interaction yet), $$\bar{\beta}_{SS}$$ is average overreaction in the Self-Selection treatment (voting mechanism picks the team forecast), and $$\bar{\beta}_G$$ is the average in the actual Group treatment. The design isolates each mechanism: IR captures the effect of deliberate pre-team reasoning; the gap between SS and IR isolates the self-selection mechanism; the residual of G vs SS measures external screening via actual discussion.
+Internal Reflection measures beliefs after participants know they are part of a team but before team interaction; Self-Selection uses votes to choose which participant's forecast becomes the team forecast; External Screening is the residual difference between actual discussion and the voting treatment. The decomposition predicts that self-selection lowers team overreaction when less biased members tend to lead. The direction is theoretically ambiguous if the more biased members instead assume leadership (pp. 7-8).
 
 ## Method
 
-**Lab experiment.** The experiment runs on the Labvanced browser-based platform with subjects recruited via Prolific (US-based, pre-screened for 98% approval rate). Participants observe a 40-period AR(1) return series and use a vertical slider to predict the next-period return; the prediction task repeats for 20 rounds per session. Compensation uses a Brier-style scoring rule following Dwyer et al. (1993) and Afrouzi et al. (2023): $$S_t = 100 \times \max(0,\, 1 - |FE_t|/\sigma)$$, paid as a dollar bonus (mean approximately $6.09). Two key treatments:
+**Randomized lab experiment.** The Individual and Group arms randomly assign US Prolific participants to forecast alone or in two-person teams. Each participant sees 40 returns from the same hypothetical AR(1) process over 20 rounds. The two additional treatments isolate channels: Internal Reflection adds individual forecasts before discussion, while Self-Selection asks partners to allocate 100 votes across their independent forecasts. The final sample is 1,512 participants: 248 Individual, 456 Group, 405 Internal Reflection, and 403 Self-Selection (pp. 4, 7-8). Participants receive a score based on forecast error, $$S_t = 100 \times \max(0, 1 - |FE_t|/\sigma)$$, converted to a dollar bonus (p. 4).
 
-- **Individual (I)**: each participant forecasts independently in each round.
-- **Group (G)**: two randomly matched participants communicate via a live chat box and must agree on a joint forecast before advancing; both earn the group score.
+The lab task follows Afrouzi et al. (2023), adapting their overreaction elicitation to forecast hypothetical stock returns. The paper uses two measures of lab overreaction. Equation (1) regresses each participant's forecast on the most recent return; Equation (7) fits an exponentially weighted average of 40 past returns and separates overall sensitivity from recency (pp. 4, 11). For the mechanism evidence, the authors use GPT-4o-mini to code chat exchanges for uncontested first proposals and to generate a separate self-selection score over 100 queries (Fig. 2, p. 9). The Self-Selection treatment panel follows votes and forecast errors over repeated rounds (Table 4, p. 10).
 
-Two additional preregistered treatments isolate mechanism channels:
-
-- **Internal Reflection (IR, RCT-Id AEARCTR-0013710)**: participants forecast individually first, see their partner's forecast, then make a joint prediction; eliminates the actual chat discussion.
-- **Self-Selection (SS, RCT-Id AEARCTR-0014914)**: participants each independently forecast and then allocate 100 votes across the two predictions; the prediction with the most votes becomes the team forecast.
-
-Final sample: 1,512 participants (248 Individual, 456 Group, 405 IR, 403 SS) after quality filtering for abnormally high rates of exactly-correct predictions.
-
-**LLM analysis of chat content.** To quantify self-selection patterns in the Group treatment, the paper uses GPT-4o-mini (07/18/2024) on the roughly 18,000 chat exchanges collected (Fig. 2, p. 9). In a "supervised" pass, the LLM records: (i) the first numeric proposal made and its author, (ii) whether the other participant accepted or counter-proposed. The number of rounds where the first proposal was accepted without counter-proposal (uncontested rounds, mean 16.37 per team) proxies for self-selection intensity. In an "unsupervised" pass, the LLM rates each team's self-selection score on a 0-10 scale (mean 6.56). The two measures correlate at 0.29 (Spearman, p < 0.01, Panel C), validating the LLM-based approach. This LLM analysis is conducted by Enke et al. (2023)-inspired methods adapted to team financial decisions.
-
-**Within-subject field design.** The paper identifies 308 mutual fund teams in which at least one member has also managed a fund individually at some point. The statistical counterfactual $$\hat{\beta}_j^{CF}$$ is the equal-weighted average overreaction of the team's members measured when they manage individually, observing them at the same point in time as the team observation. This within-subject design isolates the team effect from compositional differences between solo- and team-managed funds. An IV strategy based on Jegadeesh et al. (2019) uses disjoint subsamples of the data to construct an instrument for $$\hat{\beta}_j^{CF}$$ that is free of measurement error.
+**Mutual fund field design.** The authors compare 308 teams with the equal-weighted average behavior of the same managers when they worked alone, rather than comparing unrelated solo- and team-managed funds. The underlying panel covers 1980-2018, with 467 managers and 847 funds. The trading response to past returns is estimated at the fund level using stock holdings, returns, controls for stock characteristics and flow-induced trading, and fund-by-quarter fixed effects (Eqs. 8-9, p. 12). The team-level transmission regressions include team controls and, where reported, style fixed effects. To address measurement error in the generated solo counterfactual, the paper instruments it using estimates from disjoint subsamples, following Jegadeesh et al. (2019) (Eqs. 10-11 and Table 8, pp. 13-15).
 
 ## Empirical specifications
 
-**Overreaction measurement (R1-R5, lab).** For each participant $$i$$, an individual overreaction coefficient $$\hat{\beta}_i$$ is estimated from the individual-level time-series regression (Eq. 1, p. 4):
+The lab measure regresses participant i's reported expectation on the latest realized return (Eq. 1, p. 4). Participants see the same 40-return information history in each round, repeated over 20 rounds; this is a participant-level time-series regression, not a treatment regression:
 
 $$
-\hat{E}_i x_{i,t+1} = \alpha_i + \beta_i x_t + \varepsilon_{i,t} \tag{1}
+\widehat{E}_{t} x_{i,t+1} = \alpha_i + \beta_i x_t + \varepsilon_{i,t} \tag{1}
 $$
 
-where $$\hat{E}_i x_{i,t+1}$$ is participant $$i$$'s stated prediction for the next-period return and $$x_t$$ is the most recent return. Rational expectations benchmark: $$\beta_i = 0$$. Larger $$\hat{\beta}_i > 0$$ signals stronger overreaction.
-
-**Team effect regression (R1).** The participant-level overreaction coefficients $$\hat{\beta}_i$$ serve as the dependent variable in the cross-sectional regression (Eq. 2, p. 5):
+The participant-level treatment regression relates the estimated coefficient to Group assignment and survey controls (Eq. 2, p. 5):
 
 $$
-\hat{\beta}_i = \alpha_2 + \gamma G_i + \delta' X_i + \eta_i \tag{2}
+\widetilde{\beta}_i = \alpha_2 + \gamma G_i + \delta' X_i + \eta_i \tag{2}
 $$
 
-where $$G_i = 1$$ for Group treatment participants and $$X_i$$ is a vector of demographic and financial sophistication controls. Standard errors are clustered at the team level. The key estimate is $$\hat{\gamma} = -0.092$$ (Table 2, Col 1), stable from -0.099 to -0.101 with controls (Cols 2-4), corresponding to a 30 percent reduction relative to the Individual mean of 0.311.
+Here G_i equals one for Group participants. Table 2 reports 704 observations in columns 1-3 and 703 in column 4. Columns 2-4 add demographic controls, column 3 adds financial-sophistication controls, and column 4 adds US region and income-category fixed effects. Standard errors are clustered at the team level. The estimated Group coefficient ranges from -0.092 to -0.101 (Table 2, p. 6).
 
-**Mechanism decomposition regression (R2).** The sample is expanded to include all four treatments and the regression becomes (Eq. 4, p. 8):
-
-$$
-\hat{\beta}_i = \alpha_3 + \gamma_{IR} IR_i + \gamma_{SS} SS_i + \gamma_G G_i + \delta' X_i + \varepsilon_i \tag{4}
-$$
-
-where $$IR_i$$, $$SS_i$$, and $$G_i$$ are treatment dummies. The estimated treatment differences map to the three channels in Eq. (3). The most conservative four-control specification gives (Eq. 5, p. 8):
+The four-treatment specification estimates the overreaction coefficient on treatment indicators and controls (Eq. 4, p. 8):
 
 $$
-\underbrace{-0.098}_{\Delta\hat{\beta}_G\;[\text{se}=0.035]}
-= \underbrace{-0.001}_{\Delta\hat{\beta}_{IR}}
-  \underbrace{-0.067}_{\Delta\hat{\beta}_{SS}}
-  \underbrace{-0.031}_{\Delta\hat{\beta}_{ES}} \tag{5}
+\widetilde{\beta}_i = \alpha_3 + \gamma_{IR} IR_i + \gamma_{SS} SS_i + \gamma_G G_i + \delta' X_i + \epsilon_i \tag{4}
 $$
 
-**Dynamic self-selection (R4).** The round-level panel regression identifies how past decision-making errors affect subsequent voting behavior in the Self-Selection treatment (Eq. 6, p. 9):
+It uses all 1,512 participants, with the Individual treatment as the omitted group. The controls are added successively across columns; the final column includes demographics, financial-sophistication controls, and US region and income-category fixed effects. Standard errors are clustered at the team level. Equation (5) reports the decomposition from the most controlled column (Table 3, p. 8):
 
 $$
-Y_{i,t} = \alpha + \beta \, \text{MostVotes}_{i,t-1} + \gamma |\text{Error}_{t-1}| + \delta \, \text{MostVotes}_{i,t-1} \times |\text{Error}_{t-1}| + \varepsilon_t \tag{6}
+\underbrace{-0.098}_{\Delta\widehat{\beta}_G\;[\text{s.e.}=0.035]} = \underbrace{-0.001}_{\Delta\widehat{\beta}_{IR}\;[\text{s.e.}=0.034]} + \underbrace{-0.067}_{\Delta\widehat{\beta}_{SS}\;[\text{s.e.}=0.034]} + \underbrace{-0.031}_{\Delta\widehat{\beta}_{ES}\;[\text{s.e.}=0.035]} \tag{5}
 $$
 
-where $$\text{MostVotes}_{i,t-1} = 1$$ if participant $$i$$ cast the most votes (and hence made the team decision) in round $$t-1$$, and $$|\text{Error}_{t-1}|$$ is the absolute team forecast error in round $$t-1$$, demeaned and standardized. The dependent variable $$Y_{i,t}$$ is either the number of votes cast in round $$t$$ (Cols 1-2) or an indicator for being the decision maker in round $$t$$ (Cols 3-4). The interaction term $$\hat{\delta}$$ captures the feedback loop: the decision maker in round $$t-1$$ reduces their vote count in round $$t$$ by 4.44 votes per standard-deviation increase in the team forecast error (Table 4, Col 1).
-
-**Field overreaction measurement (R6).** For each fund $$j$$, the fund's sensitivity of trades to past returns is estimated by a panel regression (Eqs. 8-9, p. 12):
+Equation (6) tests whether the previous round's forecast error changes the next-round leadership/vote outcome conditional on who led in the previous round (p. 9):
 
 $$
-\text{trade}_{s,j,t+1} = \alpha_j + \beta_j^X r_{s,t-4\to t} + \gamma_j^T C_{s,t} + \theta_{jt} + \varepsilon_{s,j,t+1} \tag{8}
+Y_{i,t} = \alpha + \beta \text{MostVotes}_{i,t-1} + \gamma |\text{Error}_{i,t-1}| + \delta \text{MostVotes}_{i,t-1} \times |\text{Error}_{i,t-1}| + \varepsilon_t \tag{6}
+$$
+
+The outcome is either votes cast or an indicator for being the decision maker. The absolute forecast error is demeaned and standardized. Table 4 uses 7,657 round-participant observations, team-clustered standard errors, and demographic and financial-sophistication controls plus region and income fixed effects in columns 2 and 4; the controls also interact with MostVotes. The interaction estimates are -4.440 [0.645] for vote counts and -0.137 [0.018] for decision-maker status (Table 4, p. 10).
+
+The alternative belief-formation model weights past returns exponentially (Eq. 7, p. 11):
+
+$$
+\widehat{E}_{t} x_{i,t+1} = \lambda_0 + \lambda_1 \frac{\sum_{j=0}^{N} \lambda_2^j x_{t-j}}{\sum_{i=0}^{N} \lambda_2^i} + \varepsilon_{i,t} \tag{7}
+$$
+
+Here N is set to 39, corresponding to 40 past returns. The model is estimated separately by treatment; the Appendix reports nonlinear least squares. Figure 3 reports $$\lambda_2 = 0.886$$ for Individual and 0.953 for Group. The main text does not give standard-error or fixed-effect details for these treatment-specific estimates (Fig. 3, p. 11).
+
+For fund j and stock s, the field measure is estimated from changes in holdings on past stock returns, controls, and fund-time fixed effects (Eqs. 8-9, p. 12):
+
+$$
+\text{trades}_{s,j,t+1} = \alpha_j + \beta_j^X r_{s,t-4\to t} + \gamma_j' C_{s,t} + \theta_{j,t} + e_{s,j,t+1}, \qquad j = 1, \ldots, J \tag{8}
 $$
 
 $$
-\text{trade}_{s,j,t+1} \;\equiv\; \frac{(\text{shares}_{s,j,t+1} - \text{shares}_{s,j,t+1}^{\text{sp(t-adj)}}) P_{s,t+1}}{TNA_{j,t+1}} \tag{9}
+\text{trades}_{s,j,t+1} \equiv \frac{(\text{shares}_{s,j,t+1} - \text{shares}^{\text{split-adj}}_{s,j,t}) P_{s,t+1}}{TNA_{j,t+1}} \tag{9}
 $$
 
-where $$r_{s,t-4\to t} = \sum_{l=0}^{3} w_l r_{s,t-l}$$ is the exponentially-weighted four-quarter past return of stock $$s$$ (weights from Greenwood and Shleifer (2014), $$\lambda = 0.56$$), $$C_{s,t}$$ is a vector of stock controls (momentum, stock characteristics), $$\theta_{jt}$$ is a fund-quarter fixed effect, and $$TNA_{j,t+1}$$ is fund net assets. A positive $$\hat{\beta}_j^X$$ characterizes extrapolators; a negative $$\hat{\beta}_j^X$$ characterizes contrarians.
+The past-return regressor is the weighted sum of four quarterly returns, with weights proportional to $$\lambda^j$$ and $$\lambda = 0.56$$. The controls include stock characteristics and flow-induced trading controls; $$\theta_{j,t}$$ is a fund-quarter fixed effect. The panel uses the stock holdings history from the 1980-2018 field sample. The paper refers to Internet Appendix IA5 for the full control list and investment universe; the main text does not specify a standard-error treatment for this fund-level estimation (Eq. 8, p. 12).
 
-**Team transmission (R6).** The team overreaction $$\hat{\beta}_j^{TM}$$ is regressed on the statistical counterfactual $$\hat{\beta}_j^{CF}$$ (Eq. 10, p. 13):
+The team-level regression compares each observed team's sensitivity with its solo-manager counterfactual (Eq. 10, p. 13):
 
 $$
-\hat{\beta}_j^{TM} = \alpha + \delta_0 \hat{\beta}_j^{CF} + \delta_1 \hat{\beta}_j^{CF} \times D_j^E + \delta_2 D_j^E + \delta_3 C_j + \varepsilon_j \tag{10}
+\widehat{\beta}_j^{TM} = \alpha + \widehat{\beta}_j^{CF} (\delta_0 + \delta_1 D_j^E) + \delta_2 D_j^E + \delta_3 C_j + \epsilon_j \tag{10}
 $$
 
-where $$D_j^E = 1$$ for extrapolative teams ($$\hat{\beta}_j^{CF} > 0$$) and $$C_j$$ are fund controls. Full transmission of overreaction for extrapolative teams implies $$\delta_0 + \delta_1 = 1$$; attenuation implies $$\delta_0 + \delta_1 < 1$$. Contrarian behavior is fully transmitted if $$\delta_0 = 1$$. The IV estimate (Table 8, Col 7) gives $$\delta_0 + \delta_1 \approx 0.45$$; the null $$\delta_0 + \delta_1 = 1$$ is rejected at $$p = 0.015$$ (IV Col 7) and $$p = 0.018$$ (IV Col 8).
+Here D_j^E marks extrapolative teams and C_j contains team controls. Table 8 estimates this cross-section for 308 teams (307 in controlled columns), with team controls and style fixed effects included as indicated and standard errors reported in brackets; the main text does not state a clustering level. The IV columns use disjoint-subsample estimates to instrument the generated counterfactual. The simpler model reported in Table 8 columns 1, 2, 5, and 6 is (Eq. 11, p. 14):
+
+$$
+\widehat{\beta}_j^{TM} = \alpha + \delta_0 \widehat{\beta}_j^{CF} + \delta_1 C_j + \epsilon_j \tag{11}
+$$
+
+In the full IV model, the estimate of $$\delta_0 + \delta_1$$ is 0.4536 in column 7 and 0.4997 in column 8; the null of full extrapolative transmission is rejected at p = 0.015 and p = 0.018, respectively. The null that contrarian behavior is fully transmitted, $$\delta_0 = 1$$, is not rejected in IV column 5 (p = 0.568; Table 8, p. 15).
 
 ## Datasets used
 

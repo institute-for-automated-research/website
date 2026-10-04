@@ -719,6 +719,12 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   behavioral-bias:
     def: Systematic departures from rational expectations or utility (overextrapolation, inattention, prospect-theory preferences) drive choices and prices.
     aliases: [belief-distortion, extrapolation, inattention, prospect-theory]
+  ambiguity-aversion:
+    def: Decision-makers underweight favorable signals or choose cautiously when they view signal quality as ambiguous and assess information quality using a worst-case standard.
+    aliases: [ambiguity-averse-investing]
+  conservatism-illusion:
+    def: Decision-makers choose the more conservative of competing signals because they believe it is more reliable.
+    aliases: [conservative-signal-use]
   learning:
     def: Agents update beliefs from data (Bayesian or adaptive); incomplete information about parameters or states drives dynamics.
     aliases: [bayesian-learning, belief-updating, parameter-uncertainty]
@@ -806,6 +812,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   belief-endogeneity:
     def: Mechanism in which agent beliefs about uncertain fundamentals are determined endogenously by hierarchical position and incentive contracts received, rather than being exogenous; creates disagreement and an uncertainty discount distinct from risk aversion.
     aliases: [endogenous-beliefs, contractual-belief-formation]
+  valuation-belief-heterogeneity:
+    def: Divergent beliefs about long-run valuation-ratio mean reversion generate persistent disagreement in expected equity returns.
+    aliases: [valuation-ratio-belief-heterogeneity, disagreement-about-mean-reversion]
   cost-of-capital:
     def: Opportunity cost of capital deployed in validation, mining, or investment determines security or participation levels; the channel through which capital efficiency differences across protocols or instruments affect equilibrium outcomes.
     aliases: [capital-opportunity-cost, validation-cost-channel]
@@ -827,6 +836,12 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   team-self-selection:
     def: The less-biased team member disproportionately takes decision authority in group choices, attenuating the transmission of individual behavioral biases into collective outcomes.
     aliases: [belief-aggregation-self-selection, team-leadership-selection]
+  internal-reflection:
+    def: Anticipating a team judgment activates deliberative reasoning or cognitive reflection, reducing reliance on intuitive belief biases.
+    aliases: [team-induced-deliberation]
+  external-screening:
+    def: Team interaction filters individual belief biases when members recognize or challenge errors in another member's judgment.
+    aliases: [team-bias-screening]
   uniform-pricing-conduct:
     def: Multi-branch firms set a single network-wide price rather than optimizing locally, decoupling local market concentration from pricing outcomes and creating network-wide spillovers from any ownership change.
     aliases: [network-wide-pricing, uniform-price-setting]
@@ -878,6 +893,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   political-uncertainty:
     def: Heightened uncertainty about future government policy and fiscal plans during election cycles raises risk premia and financial market volatility, transmitting into bank systemic risk.
     aliases: [election-uncertainty, electoral-uncertainty, policy-uncertainty-channel]
+  discount-factor-revision:
+    def: Monetary policy changes risk-free discount rates or risk premia, shifting equity prices through discount-factor revisions rather than cash-flow news.
+    aliases: [discount-rate-channel, discount-factor-channel]
   political-budget-cycle:
     def: Incumbent governments shift public spending before elections to improve electoral prospects, affecting aggregate demand and financial-sector risk.
     aliases: [electoral-fiscal-cycle, political-fiscal-cycle]
@@ -1043,6 +1061,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   t-stat:
     def: Reported t-statistic standing in for the magnitude; use only when no point estimate is the headline number.
     aliases: [t-statistic]
+  panel-unit-root-statistic:
+    def: Test statistic from a panel unit-root test, evaluated against the test's null distribution.
+    aliases: [panel-adf-statistic, ips-zbar]
   hazard-ratio:
     def: Ratio of hazard rates in a survival / duration model. Distinct from a logistic odds ratio; do not conflate.
   probability:

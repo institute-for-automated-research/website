@@ -3,10 +3,11 @@ title: "Policy News and Stock Market Volatility: Baker, Bloom, Davis & Kost (202
 description: >-
   Distilled: Baker, Bloom, Davis and Kost build newspaper-based Equity Market
   Volatility (EMV) trackers that track the VIX with R-squared above 0.60
-  in-sample and 0.55 out-of-sample through 2023; policy news accounts for
-  35-55% of EMV articles; category EMV trackers combined with 10-K exposures
+  in-sample and 0.55 out-of-sample through 2023; 35% of EMV articles refer to
+  fiscal policy, mostly tax policy, while 30% mention monetary policy and 25%
+  refer to regulation; category EMV trackers combined with 10-K exposures
   explain cross-sectional realized volatility. Journal of Financial Economics
-  2026, paywalled. Six core results with source locators, datasets used, the
+  2026, paywalled. Fourteen core results with source locators, datasets used, the
   tracker construction, and empirical specifications.
 sidebar:
   label: Baker-Bloom-Davis-Kost 2026
@@ -27,8 +28,8 @@ paper:
   doi: 10.1016/j.jfineco.2025.104187
   jel:
     codes: [D80, E22, E66, G18, L50]
-    assignedBy: paper (PDF p. 1)
-    date: 2026-06-24
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ['Market Dynamics and Volatility', 'Stock Market Forecasting Methods', 'Monetary Policy and Economic Impact']
   dataAccess: licensed-commercial
   outcome:
@@ -36,13 +37,15 @@ paper:
     - firm-level realized return volatility
     - average pairwise stock return correlations
     - future S&P 500 returns
+    - oil price volatility
+    - EMV article category shares
   outcomeClass: [macro-aggregates, security-returns]
   license: 'paywalled; © 2025 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies (Crossref TDM license at elsevier.com/tdm/userlicense/1.0/, content-version tdm, start 2026-01-01; no CC license found)'
   licenseShort: paywalled
   access: paywalled
   machineAccess: 'blocked-paywall (Elsevier ScienceDirect, 2026-06-24); SSRN preprint at papers.ssrn.com/abstract=3363862'
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 14
   citedByCount: 8
   methods:
     role: both
@@ -51,6 +54,7 @@ paper:
     buildsFrom: [text-classification, panel-regression, lasso]
     identification: descriptive
   contributionType: [new-data, new-fact, measurement]
+  mechanisms: [political-uncertainty, behavioral-bias]
   introducesData: true
   scope:
     region: US
@@ -61,37 +65,20 @@ paper:
     granularity: [aggregate, firm, security]
     n: "11 major U.S. newspapers Jan 1985-Dec 2023 (EMV tracker); 508,447 firm-months 2006-2019 (firm-level analysis)"
   findings:
-    - ref: R1
-      outcome: equity market volatility (VIX)
-      metric: coefficient
-      value: "0.745*** (SE 0.053); R² = 0.603 (monthly, 1985-2023, 468 obs)"
-      direction: positive
-    - ref: R2
-      outcome: equity market volatility (VIX)
-      metric: r-squared
-      value: "R² = 0.558; slope = 0.714*** (SE 0.085) for 2019-2023 out-of-sample monthly VIX"
-      direction: positive
-      vsBenchmark: "R² = 0.606 in-sample 1985-2018"
-    - ref: R3
-      outcome: implied volatility (VIX) at multi-year horizon
-      metric: r-squared
-      value: "R² = 0.691 (1-year VIX), 0.607 (3-year), 0.534 (5-year), 0.334 (10-year)"
-      direction: positive
-    - ref: R4
-      outcome: future S&P 500 returns
-      metric: coefficient
-      value: "slope = 0.0857* at 3-month, 0.0590** at 6-month, 0.0470** at 1-year, 0.0298** at 2-year"
-      direction: positive
-    - ref: R5
-      outcome: firm-level realized return volatility
-      metric: r-squared
-      value: "coefficient = 2.16*** (SE 0.22) on composite exposure index; R² = 0.546"
-      direction: positive
-    - ref: R6
-      outcome: average pairwise stock return correlations
-      metric: coefficient
-      value: "4.24*** (SE 0.020) on ln(EMV); R² = 0.226; doubling ln(EMV) raises average pairwise correlation by ~4.24 pp"
-      direction: positive
+    - { ref: R1, outcome: equity market volatility (VIX), metric: coefficient, value: "0.745*** (SE 0.0533); R² = 0.603 (monthly, 1985-2023, 468 obs)", direction: positive }
+    - { ref: R2, outcome: equity market volatility (VIX), metric: r-squared, value: "R² = 0.558; slope = 0.714*** (SE 0.0835) for 2019-2023 out-of-sample monthly VIX", direction: positive, vsBenchmark: "R² = 0.606 in-sample 1985-2018" }
+    - { ref: R3, outcome: implied volatility (VIX) at multi-year horizon, metric: r-squared, value: "R² = 0.691 (1-year VIX), 0.607 (3-year), 0.534 (5-year), 0.334 (10-year)", direction: positive }
+    - { ref: R4, outcome: future S&P 500 returns, metric: coefficient, value: "slope = 0.0857* at 3-month, 0.0590** at 6-month, 0.0470** at 1-year, 0.0298** at 2-year", direction: positive }
+    - { ref: R5, outcome: firm-level realized return volatility, metric: r-squared, value: "coefficient = 2.16*** (SE 0.22) on composite exposure index; R² = 0.546", direction: positive }
+    - { ref: R6, outcome: average pairwise stock return correlations, metric: coefficient, value: "4.24*** (SE 0.020) on ln(EMV); R² = 0.226; doubling ln(EMV) raises average pairwise correlation by ~4.24 pp", direction: positive }
+    - { ref: R7, outcome: equity market volatility (VIX and realized S&P 500 return volatility), metric: coefficient, value: "Out-of-sample (2019-2023): daily VIX slope = 0.180*** (SE 0.00877), R² = 0.245 (1,300 obs); monthly realized volatility slope = 1.14*** (SE 0.343), R² = 0.543 (60 obs)", direction: positive }
+    - { ref: R8, outcome: implied volatility (VIX) at multi-year horizon, metric: coefficient, value: "Table 3b category tracker slopes: Financial Regulation 1.560*** (1-month), 1.188*** (1-year); Competition Policy 1.671*** (1-year); Macro News: Trade -6.144*** (10-year); R² = 0.610, 0.472, 0.414", direction: mixed }
+    - { ref: R9, outcome: future S&P 500 returns, metric: coefficient, value: "Macroeconomic News & Outlook slopes = 0.215***, 0.157***, 0.114**, 0.109*** at 3-month, 6-month, 1-year, 2-year horizons; National Security Policy = 0.334**, 0.191*, 0.0945, -0.0279 at the same horizons", direction: mixed }
+    - { ref: R10, outcome: oil price volatility, metric: correlation, value: "Petroleum Markets EMV correlation = 0.60 with CBOE Crude Oil Volatility Index (2007-2023) and 0.50 with CBOE Crude Oil Realized Volatility (1986-2023)", direction: positive }
+    - { ref: R11, outcome: EMV article category shares, metric: probability, value: "Macroeconomic News & Outlook appears in 72% of EMV articles; Commodity Markets 44%; Interest Rates 31%; Fiscal Policy 35% (mostly Tax Policy); Tax Policy 30%; Monetary Policy 30%; Regulation 25%; National Security 13%", direction: positive }
+    - { ref: R12, outcome: firm-level realized return volatility, metric: coefficient, value: "Table 5: non-policy composite 2.50*** (SE 0.25), policy composite 1.35*** (SE 0.48), joint estimates 2.46*** (0.25) and 0.83* (0.49); LASSO-selected Interest Rates -9.33*** (1.01), Real Estate 7.90*** (0.81), Commodity Markets 2.50*** (0.29)", direction: mixed }
+    - { ref: R13, outcome: average pairwise stock return correlations, metric: coefficient, value: "Table 6 ln(EMV) slopes: 4.24*** (0.020) baseline; 1.70*** (0.018) controlling for VIX; 1.11*** (0.012) with time fixed effects; non-policy 0.946*** (0.016); policy 0.718*** (0.026)", direction: positive }
+    - { ref: R14, outcome: equity market volatility (VIX), metric: correlation, value: "1985-2016 monthly correlation with VIX: EMV 0.78 vs NVIX 0.70; mean absolute monthly difference: EMV 2.5 vs NVIX 3.5 VIX points; single-newspaper R² falls 17-38 pp; doubling newspaper weight changes R² by +0.002 to +0.004 for two papers, zero for one, and at most -0.011 for others; dropping a newspaper changes R² by at most 0.013", direction: positive }
   resultType: new-finding
   relatesTo:
     - { cite: 'Baker et al. (2016)', doi: '10.1093/qje/qjw024', relation: extends, note: 'extends their EPU newspaper-count method from policy uncertainty to equity market volatility using the same scaled-frequency approach' }
@@ -112,6 +99,11 @@ paper:
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: JEL codes corrected from [G12,G14,D80] to [D80,E22,E66,G18,L50] (PDF p.1); R6 interpretation corrected from 'doubling EMV' to 'doubling ln(EMV)' (PDF p.13); firm-level weighting corrected to 'log market capitalization' (Table 5 notes)."
+    - by: paper-distiller (gpt-6-luna)
+      date: 2026-10-04
+      role: extracted
+      note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF; added eight Core results rows, matched findings, and completed the formal sections with equations and estimating specifications. Not human-verified. Not reproduced."
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 14 results, specifications, classifications, and frontmatter against the PDF; corrected locators, R1/R2 standard errors, topic shares, and body citations. Headline inflation and broad-quantity shares, and the introduction’s realized-volatility correlation, remain omitted." }
   licenceVerification:
     - source: Crossref REST API works/10.1016/j.jfineco.2025.104187
       checked: 2026-06-24
@@ -124,7 +116,7 @@ paper:
 
 ## TL;DR
 
-Baker, Bloom, Davis and Kost construct an Equity Market Volatility (EMV) tracker by counting U.S. newspaper articles that discuss economic conditions, stock market movements, and volatility. Running from January 1985 to December 2023 across eleven major U.S. newspapers, the monthly EMV tracker correlates approximately 0.80 with the VIX and achieves R-squared of 0.60 in contemporaneous regressions. The methodology was finalized in 2018 and first published in a 2019 NBER working paper; data from 2019 onward are fully out-of-sample, and the tracker continues to achieve R-squared above 0.55 through year-end 2023 despite COVID-19, the Russia-Ukraine war, and multiple other episodes. The tracker is decomposed into roughly 40 category-specific EMV trackers covering macroeconomic news, monetary policy, fiscal policy, regulation, and other topics; policy-related categories collectively account for 35-55% of EMV articles, with peaks during 2001-03 (9/11 and Iraq), 2011-12 (debt-ceiling crisis), and the first Trump presidency. Combined with firm-level risk disclosures from 10-K Part 1A filings, the category EMV trackers explain cross-sectional realized volatility and co-movement in daily stock returns, even after conditioning on firm and time fixed effects.
+Baker, Bloom, Davis and Kost construct an Equity Market Volatility (EMV) tracker by counting U.S. newspaper articles that discuss economic conditions, stock market movements, and volatility. Running from January 1985 to December 2023 across eleven major U.S. newspapers, the monthly EMV tracker correlates approximately 0.80 with the VIX and achieves R-squared of 0.60 in contemporaneous regressions. The methodology was finalized in 2018 and first published in a 2019 NBER working paper; data from 2019 onward are fully out-of-sample, and the tracker continues to achieve R-squared above 0.55 through year-end 2023 despite COVID-19, the Russia-Ukraine war, and multiple other episodes. The tracker is decomposed into roughly 40 category-specific EMV trackers covering macroeconomic news, monetary policy, fiscal policy, regulation, and other topics; policy attention varies over time, with peaks during 2001-03 (9/11 and Iraq), 2011-12 (debt-ceiling crisis), and the first Trump presidency. Combined with firm-level risk disclosures from 10-K Part 1A filings, the category EMV trackers explain cross-sectional realized volatility and co-movement in daily stock returns, even after conditioning on firm and time fixed effects.
 
 ## Core results
 
@@ -132,85 +124,147 @@ Magnitudes and significance as reported; `*`/`**`/`***` = 10%/5%/1%. Locators po
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **EMV tracker tracks monthly VIX in-sample** (1985-2023): contemporaneous OLS | Table 1, col 1, p. 6 | Slope = 0.745\*\*\* (SE 0.053), R² = 0.603, 468 monthly obs |
-| R2 | **EMV tracker tracks monthly VIX out-of-sample** (2019-2023): term sets finalized 2018, data from 2019 onward used for testing only | Table 2, col 5, p. 6 | Slope = 0.714\*\*\* (SE 0.085), R² = 0.558 (vs R² = 0.606 in-sample 1985-2018) |
+| R1 | **EMV tracker tracks monthly VIX in-sample** (1985-2023): contemporaneous OLS | Table 1, col 1, p. 6 | Slope = 0.745\*\*\* (SE 0.0533), R² = 0.603, 468 monthly obs |
+| R2 | **EMV tracker tracks monthly VIX out-of-sample** (2019-2023): term sets finalized 2018, data from 2019 onward used for testing only | Table 2, col 5, p. 6 | Slope = 0.714\*\*\* (SE 0.0835), R² = 0.558 (vs R² = 0.606 in-sample 1985-2018) |
 | R3 | **EMV lagged averages retain predictive power at multi-year VIX horizons**: even the 12-month lagged average remains significant at 10-year horizon | Table 3a, cols 4-7, p. 8 | R² = 0.691 (1-year VIX), 0.607 (3-year), 0.534 (5-year), 0.334 (10-year); Newey-West SE |
 | R4 | **EMV tracker predicts future S&P 500 returns**: higher EMV foreshadows higher annualized returns at 3-month to 2-year horizons | Table 4, p. 8 | Slope = 0.0857\* at 3-month, 0.0590\*\* at 6-month, 0.0470\*\* at 1-year, 0.0298\*\* at 2-year |
 | R5 | **Composite firm-level 10-K exposure explains cross-sectional realized volatility**, conditional on firm and time fixed effects | Table 5, col 1, p. 12 | Composite exposure coefficient = 2.16\*\*\* (SE 0.22); R² = 0.546; 508,447 firm-months |
 | R6 | **EMV tracker explains average pairwise return correlations**: firms sharing a leading EMV category comove more strongly when that category's EMV is higher | Table 6, col 1, p. 13 | Coefficient on ln(EMV) = 4.24\*\*\* (SE 0.020); R² = 0.226; doubling ln(EMV) raises avg pairwise correlation ~4.24 pp |
+| R7 | **EMV tracks out-of-sample daily VIX and realized S&P 500 volatility** | Table 2, cols 4 and 6, p. 6 | Daily VIX: 0.180\*\*\* (SE 0.00877), R² = 0.245, 1,300 obs; monthly realized volatility: 1.14\*\*\* (SE 0.343), R² = 0.543, 60 obs |
+| R8 | **Category-specific EMV trackers track VIX at short and long horizons** | Table 3b, p. 8 | Financial Regulation slope = 1.560\*\*\* (1-month) and 1.188\*\*\* (1-year); Competition Policy = 1.671\*\*\* (1-year); Macro News: Trade = -6.144\*\*\* (10-year); R² = 0.610, 0.472, 0.414 |
+| R9 | **Category EMV trackers have heterogeneous future-return associations** | Table 4, p. 8 | Macroeconomic News & Outlook slopes = 0.215\*\*\*, 0.157\*\*\*, 0.114\*\*, 0.109\*\*\* at 3-month, 6-month, 1-year, 2-year horizons; National Security Policy = 0.334\*\*, 0.191\*, 0.0945, -0.0279 at the same horizons |
+| R10 | **Petroleum Markets EMV co-moves with oil implied and realized volatility** | Text §3.8, p. 8 | Correlation = 0.60 with CBOE Crude Oil Volatility Index (2007-2023) and 0.50 with CBOE Crude Oil Realized Volatility (1986-2023) |
+| R11 | **Macroeconomic and policy topics account for substantial shares of EMV articles** | Text §2.3, p. 5 | Macro News & Outlook 72%; Commodity Markets 44%; Interest Rates 31%; Fiscal Policy 35% (mostly Tax Policy); Tax Policy 30%; Monetary Policy 30%; Regulation 25%; National Security 13% |
+| R12 | **Firm-level volatility associations are concentrated in non-policy exposures and selected categories** | Table 5, cols 2-5, p. 12 | Non-policy composite = 2.50\*\*\* (SE 0.25); policy composite = 1.35\*\*\* (0.48); joint = 2.46\*\*\* (0.25) and 0.83\* (0.49); LASSO-selected Interest Rates = -9.33\*\*\* (1.01), Real Estate = 7.90\*\*\* (0.81), Commodity Markets = 2.50\*\*\* (0.29) |
+| R13 | **Pairwise-correlation results persist with controls and across policy splits** | Table 6, cols 2-7, p. 13 | ln(EMV) slopes = 1.70\*\*\* (0.018) controlling for VIX; 1.11\*\*\* (0.012) with time fixed effects; 0.946\*\*\* (0.016) for non-policy and 0.718\*\*\* (0.026) for policy categories |
+| R14 | **EMV tracks VIX better than NVIX and is robust to newspaper composition** | Text §§3.6-3.7, p. 7 | 1985-2016 monthly correlation with VIX: EMV 0.78 vs NVIX 0.70; mean absolute monthly difference: EMV 2.5 vs NVIX 3.5 VIX points; single-newspaper R² falls 17-38 pp; doubling newspaper weight changes R² by +0.002 to +0.004 for two papers, zero for one, and at most -0.011 for others; dropping a newspaper changes R² by at most 0.013 |
 
 **Overall (paper's conclusion).** The EMV tracker is a simple, transparent, and scalable measure of equity market volatility that correlates closely with the VIX in and out of sample. Policy news is a major and time-varying source of stock market volatility; monetary policy and tax policy are the most important policy-related sources, followed by regulation. Category-specific EMV trackers, combined with firm-level 10-K risk exposures, explain the cross-sectional structure of realized volatility and its evolution over time.
 
 ## Theory / model
 
-The paper does not develop a formal structural model. Instead it documents empirical patterns under two competing interpretations of stock market volatility, following the framing of Shiller (1981):
+The paper develops no formal structural model. It frames the empirical exercise around two interpretations of aggregate equity volatility (Introduction, pp. 1-2). Under an efficient-markets view, news changes rational forecasts of future earnings and discount rates. Under the behavioral interpretation discussed by Shiller (1981, 2014), shifts in beliefs or “animal spirits” can move prices beyond changes in fundamentals; limits to arbitrage and fads can allow those movements to persist. The paper measures the newspaper-recorded news and topics that accompany volatility, and does not distinguish causally between these accounts. Its newspaper-headline approach extends an early study of world events and stock prices by Niederhoffer (1971).
 
-1. **Efficient markets view**: equity price movements reflect genuine news about future cash flows and discount rates. Under this view, the EMV tracker provides a catalog of specific news items and economic developments that shift rational investor beliefs.
-
-2. **Animal spirits view** (referencing Shiller 2014 and Keynes): market fluctuations are partly driven by shifts in investor mindsets unrelated to fundamentals. Under this view, the newspaper articles captured by EMV reflect and amplify these mindset shifts over time.
-
-The paper treats both views as consistent with the data and does not attempt to resolve the debate. The core empirical claim is that EMV articles identify the proximate drivers of VIX fluctuations regardless of which interpretation is correct.
-
-Niederhoffer (1971) was an early study linking newspaper headlines to U.S. stock market movements (from 1950 to 1966); the EMV tracker extends this approach with algorithmic term selection and a scalable multi-paper construction running to the present.
-
-**Tested hypotheses:**
-- $$H_1$$: The EMV frequency-count tracker correlates with implied and realized stock market volatility in-sample and out-of-sample across multiple horizons.
-- $$H_2$$: Policy-related EMV categories (fiscal, monetary, regulation, national security) account for a major and time-varying share of overall EMV articles.
-- $$H_3$$: Firm-level EMV category exposures from 10-K Part 1A text combined with category EMV trackers explain firm-level realized volatility and pairwise return correlations after conditioning on firm and time fixed effects.
+The authors test whether the newspaper-based Equity Market Volatility (EMV) tracker covaries with implied and realized equity volatility in and out of sample; whether category trackers track implied volatility and predict returns; and whether category-specific EMV exposures in firms’ 10-K risk disclosures explain cross-sectional volatility and return co-movement. These are descriptive tracking and association tests, not a causal identification design. The paper also applies the tracker method to petroleum markets as a cross-market validation.
 
 ## Method
 
-**EMV tracker construction.** Following Baker et al. (2016), the tracker is built from scaled article counts in leading U.S. newspapers containing terms from three overlapping sets (pp. 3-4):
+**Overall EMV tracker.** Section 2.1 (pp. 3-4) starts with newspaper article counts for terms in the Economic, Equity Market, and Volatility sets. For newspaper \(j\) and month \(t\), the scaled frequency count is:
 
-- **E** (Economic): {economic, economy, financial}
-- **M** (Market): {stock market, equity, equities, S&P, "Standard and Poors" and variants}
-- **V** (Volatility): {volatility, volatile, uncertain, uncertainty, risk, risky}
+$$
+ c_{j,t} = \frac{N_{j,t}(E \cap M \cap V)}{N_{j,t}(\text{all articles})}
+$$
 
-The best-fit permutation is selected from $$2^5 \times 2^6 = 2048$$ candidate combinations (all elements of $$\mathbf{M}' \times \mathbf{V}'$$) by maximizing the R-squared in an OLS regression of the 30-day VIX on the candidate tracker using monthly data from 1990 to 2015. For each newspaper and month, the raw count of articles containing at least one term from each of E, M, and V is divided by the total count of all articles in the same newspaper-month, standardized to unit standard deviation per newspaper, and averaged across the eleven newspapers. The series is then multiplicatively rescaled to match the mean VIX value from 1985 to 2015.
+The authors standardize each newspaper’s scaled count to unit standard deviation, average across the eleven newspapers, and rescale the series to match mean VIX over 1985-2015. The scaled-frequency newspaper method follows Baker et al. (2016), extending their policy-uncertainty measure to equity market volatility. Candidate term combinations are selected by the in-sample fit to 30-day VIX:
 
-**Category-specific EMV trackers.** To decompose aggregate EMV by topic, each EMV article is classified into roughly 40 categories (approximately 20 general economic, approximately 20 policy-related) by checking whether the article contains terms from a category-specific term set $$b$$. The share of articles in category $$b$$ in month $$t$$ times the overall EMV tracker gives the category-specific tracker (p. 4):
+$$
+(\widehat{M},\widehat{V}) = \arg\max_{M' \subseteq \mathcal{P}(M),\;V' \subseteq \mathcal{P}(V)} R^2\!\left(\text{VIX}_{t},\text{EMV}_{t}(M',V')\right)
+$$
 
-$$\left(\frac{\#\{E \cap M \cap V \cap b\}_t}{\#\{E \cap M \cap V\}_t}\right) EMV_t$$
+The candidate selection uses monthly observations from 1990-2015 and 2,048 combinations of the five retained market terms and six volatility terms (Section 2.1, p. 3). The final overall tracker omits episode-specific terms and VIX itself.
 
-where $$\#\{\cdot\}_t$$ counts articles satisfying all conditions in month $$t$$. The **Monetary Policy** term set includes: monetary policy, money supply, open market operations, fed funds rate, discount window, quantitative easing, forward guidance, interest on reserves, taper tantrum, Fed chair names, central bank names, and many others (pp. 3-4, Appendix B).
+**Category trackers.** Section 2.3 (p. 4) classifies an EMV article into each category whose term set it matches. The category tracker is the category’s share of overall EMV articles multiplied by aggregate EMV:
 
-**Firm-level exposure measure.** Following the approach of Davis et al. (2021), who use Part 1A of 10-K filings to explain firm-level stock price volatility in the wake of COVID-19, the paper measures each firm's exposure to EMV categories (p. 11). For firm $$i$$, fiscal year $$y$$, and EMV category $$b$$:
+$$
+\text{EMV}_{t}^{b} = \frac{N_t(E \cap M \cap V \cap b)}{N_t(E \cap M \cap V)}\,\text{EMV}_{t}
+$$
 
-$$F_{iy}^b = \frac{\#\{\text{sentences pertaining to EMV category } b\}_{iy}}{\#\{\text{total sentences in Part 1A of 10K}\}_{iy}} \tag{1}$$
+The authors apply this rule to about forty general economic and policy categories. Categories may overlap, so shares across categories can sum to more than 100 percent.
 
-Firms with the largest Part 1A sentence share in a given category are treated as most exposed to that category's volatility driver. LASSO is used in one robustness specification (Table 5, col 5) to select the most informative categories from among 38 candidate exposure measures.
+**Firm-level exposure.** The firm-year exposure to category \(b\) is the share of sentences in Part 1A of its 10-K assigned to that category (Section 5.1, p. 11):
+
+$$
+F_{i,y}^{b} = \frac{N_{i,y}(\text{sentences pertaining to category } b)}{N_{i,y}(\text{all Part 1A sentences})}
+$$
+
+Filings with fewer than nine counted sentences are dropped. Where multiple filings occur, the paper applies its stated duplicate and calendar-year retiming rules (footnote 18, p. 11). In Table 5’s LASSO exercise, the authors select from 38 category exposure measures and then estimate an OLS regression using the selected measures (p. 12).
 
 ## Empirical specifications
 
-**VIX tracking regression (R1, R2).** The baseline specification regresses contemporaneous implied or realized stock market volatility on the EMV tracker (Tables 1-2):
+**Overall tracker fit and out-of-sample tests (Tables 1-2, pp. 5-6).** The baseline monthly regressions use contemporaneous EMV; Table 1 also adds EMV lags and lagged VIX, tests daily data, uses log levels, and substitutes realized volatility. The monthly and daily VIX regressions are:
 
-$$VIX_t = \alpha + \beta \cdot EMV_t + \varepsilon_t \tag{2}$$
+$$
+\text{VIX}_{t} = \alpha + \beta_0\text{EMV}_{t} + \varepsilon_t
+$$
 
-with heteroskedasticity-robust standard errors. Monthly frequency, January 1985 to December 2023 (in-sample). The out-of-sample test (R2) uses data from January 2019 to December 2023 (60 monthly observations), since the methodology and term sets were finalized in 2018. Log-log specifications and daily data yield similar results (Table 1, cols 4-8).
+$$
+\text{VIX}_{t} = \alpha + \beta_0\text{EMV}_{t} + \beta_1\text{EMV}_{t-1} + \beta_2\text{EMV}_{t-2} + \rho\text{VIX}_{t-1} + \varepsilon_t
+$$
 
-**Long-horizon VIX regression (R3).** Time-$$t$$ implied VIX at horizons $$h$$ from 1 month to 10 years is regressed on contemporaneous EMV and lagged EMV averages (Table 3a, p. 8):
+The final lagged-VIX specification is estimated separately for daily and monthly observations; the daily variant has daily EMV lags. Other Table 1 outcomes replace VIX with \(\log(\text{VIX}_t)\) or monthly realized volatility \(\text{RVol}_t\), with a lagged RVol term in column 8. Table 1 reports heteroskedasticity-robust standard errors. Its sample is January 1985-December 2023 (468 monthly observations in the VIX and RVol regressions; 9,617 daily observations in the daily specifications). Table 2 estimates the contemporaneous univariate equation separately for daily VIX, monthly VIX, and monthly realized volatility in 1985-2018 and 2019-2023; it reports heteroskedasticity-robust standard errors. The out-of-sample monthly sample has 60 observations and the daily sample has 1,300.
 
-$$VIX_t^h = \alpha^h + \beta_0 EMV_t + \beta_1 \overline{EMV}_{t,3} + \beta_2 \overline{EMV}_{t,12} + \varepsilon_t^h$$
+For the transformed and realized-volatility outcomes, the specifications are:
 
-where $$\overline{EMV}_{t,k}$$ is the simple mean of $$EMV_{t-1}, \ldots, EMV_{t-k}$$. Newey-West standard errors with maximum autocorrelation lag of 2. Data: January 1996 to February 2023 (columns 1-4) and November 2002 to July 2016 (columns 5-7, restricted by availability of multi-year VIX data).
+$$
+\log(\text{VIX}_{t}) = \alpha + \beta\log(\text{EMV}_{t}) + \varepsilon_t, \qquad \text{RVol}_{t} = \alpha + \beta_0\text{EMV}_{t} + \varepsilon_t, \qquad \text{RVol}_{t} = \alpha + \beta_0\text{EMV}_{t} + \rho\text{RVol}_{t-1} + \varepsilon_t
+$$
 
-**Return predictability regression (R4).** Annualized S&P 500 returns from month $$t$$ to $$t+\tau$$ are regressed on lagged EMV (Table 4):
+**Long-horizon implied volatility (Table 3a, p. 7).** For each VIX horizon \(h\), the specification includes current EMV and three- and twelve-month lagged averages:
 
-$$r(t \to t+\tau) = \mu + \delta \cdot EMV_{t-1} + \varepsilon_t$$
+$$
+\text{VIX}_{t}^{h} = \alpha^{h} + \beta_{0}^{h}\text{EMV}_{t} + \beta_{3}^{h}\overline{\text{EMV}}_{t,3} + \beta_{12}^{h}\overline{\text{EMV}}_{t,12} + \varepsilon_{t}^{h}
+$$
 
-with Newey-West standard errors at lag equal to the horizon $$\tau$$ (3 months, 6 months, 1 year, 2 years). Monthly data, January 1985 to December 2023.
+Here \(\overline{\text{EMV}}_{t,k}\) is the mean of EMV from \(t-1\) through \(t-k\). The seven horizons range from one month to ten years. Newey-West standard errors use maximum lag 2. The sample is January 1996-February 2023 for horizons up to one year (314 observations) and November 2002-July 2016 for three-, five-, and ten-year horizons (165 observations).
 
-**Firm-level volatility panel regression (R5).** The composite firm-level exposure measure is constructed by weighting the category EMV trackers by each firm's Part 1A exposure shares (p. 11-12, specification 1):
+**Category trackers and VIX horizons (Table 3b, p. 8).** Each displayed category tracker is entered separately in a regression for the one-month, one-year, or ten-year VIX horizon:
 
-$$\sigma_{it} = \alpha_i + \gamma_t + \beta \sum_b F_{iy}^b \cdot EMV_t^b + \varepsilon_{it} \tag{3}$$
+$$
+\text{VIX}_{t}^{h} = \alpha_{b,h} + \beta_{b,h}\text{EMV}_{t}^{b} + \varepsilon_{b,h,t}
+$$
 
-where $$\sigma_{it}$$ is the realized volatility (standard deviation of daily equity returns) for firm $$i$$ in month $$t$$, $$\alpha_i$$ is a firm fixed effect, $$\gamma_t$$ is a time fixed effect, and $$F_{iy}^b$$ is the Part 1A exposure share for firm $$i$$ in fiscal year $$y$$ under EMV category $$b$$. Each firm-month observation is weighted by the firm's lagged log market capitalization times the square root of the number of Part 1A sentences, placing more weight on firms with more informative filings. Standard errors are clustered at the firm level. Sample: 10-K filings issued 2006 to 2019 (fiscal years 2005-2018), 508,447 firm-months. Realized volatility is winsorized at the 1% and 99% levels.
+The table reports Newey-West standard errors with maximum lag 2. Monthly data run from January 1996-February 2023 for one-month and one-year VIX (326 observations), and from November 2002-July 2016 for ten-year VIX (165 observations).
 
-**Pairwise correlation regression (R6).** For each firm-month, the firm's "leading EMV category" $$l$$ is the category most discussed in its most recent Part 1A filing. Average pairwise daily return correlations among firms sharing leading category $$l$$ in month $$t$$ are regressed on the log of the corresponding EMV tracker (Table 6, p. 13):
+**Future S&P 500 returns (Table 4, p. 7).** Annualized total returns over horizon \(\tau\) are regressed on lagged overall or category EMV:
 
-$$\bar{\rho}_{lt} = \mu + \delta \ln(EMV_t^{b-l}) + \varepsilon_{lt}$$
+$$
+r(t \to t+\tau) = \mu_{\tau} + \delta_{\tau}\text{EMV}_{t-1}^{b} + \varepsilon_{t,\tau}
+$$
 
-where $$\bar{\rho}_{lt}$$ is the average pairwise correlation of daily returns in month $$t$$ among firms assigned to leading category $$l$$. All columns include firm fixed effects; some specifications also add the contemporaneous VIX and time fixed effects. The sample mean of the dependent variable is 0.21.
+For the overall tracker, \(b\) denotes the aggregate index; the table also separately estimates Macroeconomic News & Outlook and National Security Policy trackers. The four horizons are 3 months, 6 months, 1 year, and 2 years. Each regression uses monthly data from January 1985-December 2023 (431 observations); Newey-West standard errors use a maximum lag equal to the return horizon.
+
+**Firm-month volatility panel (Table 5, p. 12).** The paper’s numbered main-text estimating equation uses firm and month fixed effects and category exposure weights:
+
+$$
+\sigma_{i,t} = \alpha_i + \gamma_t + \beta\sum_b F_{i,y}^{b}\text{EMV}_{t}^{b} + \epsilon_{i,t}
+\tag{1}
+$$
+
+The dependent variable is the standard deviation of daily firm returns in month \(t\). Table 5 estimates this with the full category composite, non-policy and policy composites separately and jointly, and LASSO-selected category composites. All specifications include firm and time fixed effects, weight observations by lagged log market capitalization times the square root of Part 1A sentence count, winsorize volatility at the 1st and 99th percentiles, and cluster standard errors by firm. The sample covers 508,447 firm-months based on filings issued in 2006-2019.
+
+The non-policy, policy, joint, and selected-category columns replace the full-category sum in equation (1) as follows:
+
+$$
+\begin{aligned}
+\sigma_{i,t} &= \alpha_i + \gamma_t + \beta_N\sum_{b\in B_N}F_{i,y}^{b}\text{EMV}_{t}^{b} + \epsilon_{i,t},\\
+\sigma_{i,t} &= \alpha_i + \gamma_t + \beta_P\sum_{b\in B_P}F_{i,y}^{b}\text{EMV}_{t}^{b} + \epsilon_{i,t},\\
+\sigma_{i,t} &= \alpha_i + \gamma_t + \beta_N\sum_{b\in B_N}F_{i,y}^{b}\text{EMV}_{t}^{b} + \beta_P\sum_{b\in B_P}F_{i,y}^{b}\text{EMV}_{t}^{b} + \epsilon_{i,t},\\
+\sigma_{i,t} &= \alpha_i + \gamma_t + \sum_{b\in S_{\text{LASSO}}}\beta_bF_{i,y}^{b}\text{EMV}_{t}^{b} + \epsilon_{i,t}.
+\end{aligned}
+$$
+
+**Pairwise return correlations (Table 6, p. 13).** For firm-month observations assigned to leading Part 1A category \(l\), the average pairwise daily return correlation is regressed on the log category tracker. A fully controlled variant is:
+
+$$
+\bar{\rho}_{i,t} = \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \lambda\text{VIX}_{t} + \sum_{k=1}^{2}\phi_k\ln(\text{EMV}_{t-k}^{b=l}) + \alpha_i + \gamma_t + \varepsilon_{i,t}
+$$
+
+The table estimates variants that add contemporaneous VIX, two tracker lags, and time fixed effects, and it reports separate non-policy and policy subsamples. All columns include firm fixed effects; time fixed effects appear in columns 4-7. The full sample has 407,479 firm-month observations in the baseline and VIX-control specifications, declining to 390,917 when lagged EMV is included. The non-policy and policy samples have 295,874 and 111,576 observations. Table 6 notes multiply coefficients by 100 but do not specify a standard-error estimator.
+
+The specifications add controls in stages, then estimate the time-fixed-effect specification on the two separate subsamples:
+
+$$
+\begin{aligned}
+\bar{\rho}_{i,t} &= \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \alpha_i + \varepsilon_{i,t},\\
+\bar{\rho}_{i,t} &= \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \lambda\text{VIX}_{t} + \alpha_i + \varepsilon_{i,t},\\
+\bar{\rho}_{i,t} &= \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \sum_{k=1}^{2}\phi_k\ln(\text{EMV}_{t-k}^{b=l}) + \alpha_i + \varepsilon_{i,t},\\
+\bar{\rho}_{i,t} &= \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \alpha_i + \gamma_t + \varepsilon_{i,t},\\
+\bar{\rho}_{i,t} &= \mu + \delta\ln(\text{EMV}_{t}^{b=l}) + \sum_{k=1}^{2}\phi_k\ln(\text{EMV}_{t-k}^{b=l}) + \alpha_i + \gamma_t + \varepsilon_{i,t},\\
+\bar{\rho}_{i,t}^{(g)} &= \mu_g + \delta_g\ln(\text{EMV}_{t}^{b=l}) + \alpha_i + \gamma_t + \varepsilon_{i,t}, \quad g\in\{\text{non-policy},\text{policy}\}.
+\end{aligned}
+$$
+
+**Petroleum-market check (Section 3.8, p. 8).** The authors construct a Petroleum Markets tracker by applying the category-share formula above to the terms oil, petroleum, crude, and gas. They compare it descriptively with the CBOE crude-oil implied-volatility index over 2007-2023 and crude-oil realized volatility over 1986-2023; the paper reports correlations and does not estimate a separate regression.
 
 ## Datasets used
 
@@ -231,7 +285,7 @@ Use the [original](https://doi.org/10.1016/j.jfineco.2025.104187) if you are: (a
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Journal of Financial Economics* 175 (2026), article 104187. Paywalled: © 2025 Elsevier B.V. All rights are reserved. This distillation was extracted by an LLM on 2026-06-24 and is **not human-verified or independently reproduced**.
+Source: peer-reviewed, *Journal of Financial Economics* 175 (2026), article 104187. Paywalled: © 2025 Elsevier B.V. All rights are reserved. This distillation was extracted and checked against the source PDF on 2026-10-04; it has not been independently reproduced.
 
 > Baker, Scott R., Nicholas Bloom, Steven J. Davis, and Kyle Kost.
 > "Policy news and stock market volatility."

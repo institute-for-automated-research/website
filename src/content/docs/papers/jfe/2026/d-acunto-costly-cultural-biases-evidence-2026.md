@@ -3,11 +3,13 @@ title: "How Costly Are Cultural Biases: D'Acunto, Ghosh & Rossi (2026)"
 description: >-
   Distilled: Using a P2P lending platform in India paired with a robo-advising
   tool, D'Acunto, Ghosh, and Rossi show that unassisted lenders discriminate
-  against out-group (Muslim) and lower-caste (Shudra) borrowers, facing 8%
-  higher defaults and up to 7.3 pp lower returns as a result. Robo-advising
-  reduces both biases and improves lender-level returns by 4.5 to 7.3 pp,
-  with biased beliefs as the dominant mechanism over taste-based discrimination.
-  Journal of Financial Economics 2026, CC BY 4.0. Eight core results with
+  against out-group (Muslim) and lower-caste (Shudra) borrowers; the abstract
+  reports 8% higher defaults and up to 7.3 pp lower returns for unassisted
+  choices. In the Auto Invest period, both biases are smaller and average lender-level
+  returns are 4.5 to 7.3 pp higher. The authors do not identify a general causal
+  effect of adoption; biased beliefs are their leading mechanism over taste-based
+  discrimination.
+  Journal of Financial Economics 2026, CC BY 4.0. Twenty-one core results with
   source locators, datasets used, and the estimating equations.
 sidebar:
   label: "D'Acunto-Ghosh-Rossi 2026"
@@ -33,22 +35,25 @@ paper:
   dataAccess: proprietary-confidential
   outcome:
     - probability of lending to out-group (Muslim) borrowers
+    - probability of lending to Shudra borrowers
     - loan default rate
     - lender-level loan returns
-  outcomeClass: [credit-supply, credit-risk]
+    - lender-level total return on investment
+    - lender portfolio diversification
+  outcomeClass: [credit-supply, credit-risk, household-finance]
   license: "CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-11-08; corroborated by artifact p.1 CC BY notice)"
   licenseShort: CC BY 4.0
   access: open
   machineAccess: "open-access PDF (Elsevier ScienceDirect, CC BY 4.0; doi.org/10.1016/j.jfineco.2025.104202; 2026-06-24)"
   redistribution: "extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)"
-  resultsCount: 8
+  resultsCount: 21
   citedByCount: 2
   introducesData: true
   methods:
     role: applies-method
     family: descriptive
     buildsFrom: [panel-regression]
-    identification: selection-on-observables
+    identification: descriptive
   contributionType: [new-fact, measurement]
   mechanisms: [behavioral-bias, disparate-treatment]
   scope:
@@ -60,54 +65,25 @@ paper:
     granularity: [individual, transaction]
     n: "113,283 lender-borrower-loan triads (2,818 unique lenders); 62,831 in caste sub-sample"
   findings:
-    - ref: R1
-      outcome: probability of lending to out-group (Muslim) borrowers
-      metric: pp-effect
-      value: "-5.8 pp (Hindu Lender coefficient = -0.058***, t=-3.52, Table 2 col 1, p.11)"
-      direction: negative
-      vsBenchmark: "vs. Muslim lenders' 18% baseline share of Muslim borrowers"
-    - ref: R2
-      outcome: probability of lending to out-group (Muslim) borrowers
-      metric: pp-effect
-      value: "+4.5 pp for Hindu lenders after Auto Invest (Hindu Lender x Auto Invest = 0.045**, t=2.51, Table 2 col 1, p.11)"
-      direction: positive
-      vsBenchmark: "relative to unassisted Hindu lenders; post-adoption shares equalize across lender religions"
-    - ref: R3
-      outcome: loan default rate
-      metric: pp-effect
-      value: "Muslim borrowers in Hindu lender portfolios 2.4 pp less likely to default (Muslim Borrower = -0.024**, t=-2.02, Table 3 col 1, p.17)"
-      direction: negative
-      vsBenchmark: "vs. in-group (Hindu) borrowers; confirms in-group bias selects worse borrowers"
-    - ref: R4
-      outcome: loan default rate
-      metric: pp-effect
-      value: "Hindu Borrower x Auto Invest = -0.112***, t=-5.21; Muslim Borrower x Auto Invest = -0.073**, t=-2.49 (Table 3 col 2, p.17)"
-      direction: negative
-      vsBenchmark: "relative to unassisted choices; in-group default drops 11.2 pp vs. 7.3 pp for out-group"
-    - ref: R5
-      outcome: lender-level loan returns
-      metric: coefficient
-      value: "Muslim Borrower = 0.282***, t=6.25 (standardized returns, Table 5 col 1, p.21)"
-      direction: positive
-      vsBenchmark: "Muslim borrowers outperform Hindu borrowers in Hindu lenders' portfolios before Auto Invest"
-    - ref: R6
-      outcome: lender-level loan returns
-      metric: coefficient
-      value: "Hindu Borrower x Auto Invest = 0.222***, t=3.07; Muslim Borrower x Auto Invest = -0.012, t=-0.18 (Table 5 col 2, p.21)"
-      direction: positive
-      vsBenchmark: "return improvement after Auto Invest concentrated entirely among in-group (Hindu) borrowers"
-    - ref: R7
-      outcome: lender-level total return on investment
-      metric: pp-effect
-      value: "+4.5 pp (in-group vs. out-group discrimination sample); +7.3 pp (stereotypical discrimination sample) (Fig. 11, p.23)"
-      direction: positive
-      vsBenchmark: "relative to pre-Auto Invest lender-level total returns"
-    - ref: R8
-      outcome: loan default rate
-      metric: pp-effect
-      value: "Shudra Borrower = -3.8 pp (t=-3.03, Table 3 col 4, p.17)"
-      direction: negative
-      vsBenchmark: "Shudra borrowers less likely to default than non-Shudra before Auto Invest; stereotypical discrimination is costly"
+    - { ref: R1, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "-5.8 pp (Hindu Lender coefficient = -0.058***, t=-3.52, Table 2 col 1, p.11)", direction: negative, vsBenchmark: "vs. Muslim lenders' 18% baseline share of Muslim borrowers" }
+    - { ref: R2, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "+4.5 pp for Hindu lenders after Auto Invest (Hindu Lender x Auto Invest = 0.045**, t=2.51, Table 2 col 1, p.11)", direction: positive, vsBenchmark: "relative to unassisted Hindu lenders; post-adoption shares equalize across lender religions" }
+    - { ref: R3, outcome: loan default rate, metric: pp-effect, value: "Muslim borrowers in Hindu lender portfolios 2.4 pp less likely to default (Muslim Borrower = -0.024**, t=-2.02, Table 3 col 1, p.17)", direction: negative, vsBenchmark: "vs. in-group (Hindu) borrowers; confirms in-group bias selects worse borrowers" }
+    - { ref: R4, outcome: loan default rate, metric: pp-effect, value: "Hindu Borrower x Auto Invest = -0.112***, t=-5.21; Muslim Borrower x Auto Invest = -0.073**, t=-2.49 (Table 3 col 2, p.17)", direction: negative, vsBenchmark: "relative to unassisted choices; in-group default drops 11.2 pp vs. 7.3 pp for out-group" }
+    - { ref: R5, outcome: lender-level loan returns, metric: coefficient, value: "Muslim Borrower = 0.282***, t=6.25 (standardized returns, Table 5 col 1, p.21)", direction: positive, vsBenchmark: "Muslim borrowers outperform Hindu borrowers in Hindu lenders' portfolios before Auto Invest" }
+    - { ref: R6, outcome: lender-level loan returns, metric: coefficient, value: "Hindu Borrower x Auto Invest = 0.222***, t=3.07; Muslim Borrower x Auto Invest = -0.012, t=-0.18 (Table 5 col 2, p.21)", direction: positive, vsBenchmark: "return improvement after Auto Invest concentrated entirely among in-group (Hindu) borrowers" }
+    - { ref: R7, outcome: lender-level total return on investment, metric: pp-effect, value: "+4.5 pp (in-group vs. out-group discrimination sample); +7.3 pp (stereotypical discrimination sample) (Fig. 11, p.23)", direction: positive, vsBenchmark: "relative to pre-Auto Invest lender-level total returns" }
+    - { ref: R8, outcome: loan default rate, metric: pp-effect, value: "Shudra Borrower = -3.8 pp (t=-3.03, Table 3 col 4, p.17)", direction: negative, vsBenchmark: "Shudra borrowers less likely to default than non-Shudra before Auto Invest; stereotypical discrimination is costly" }
+    - { ref: R9, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "Hindu Lender x Auto Invest = 0.045** (t=2.07) with lender fixed effects; 0.043** (t=1.96) with lender and year fixed effects (Table 2 cols 3-4, p.11)", direction: positive, vsBenchmark: "de-biasing estimate remains positive and significant with fixed effects" }
+    - { ref: R10, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "Hindu Lender x Auto Invest = 0.009 (t=0.23) for low tool use and 0.052* (t=1.94) for high tool use (Table 2 cols 5-6, p.11)", direction: positive, vsBenchmark: "the estimate is marginally significant for lenders allocating at least 40% of available funds to Auto Invest and near zero for lower-use lenders" }
+    - { ref: R11, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "Pre-adoption bias is 6.4 pp in high-riot states and small, insignificant elsewhere; de-biasing is 4.8 pp (p<0.01) in high-riot states, but the difference across state groups is not significant (Wald chi-square=0.18) (Fig. 4, p.13)", direction: mixed, vsBenchmark: "high vs. low incidence of Hindu-Muslim riots where lenders reside" }
+    - { ref: R12, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "Pre-adoption bias is 9.4 pp in high-BJP-vote-share states vs. 3.5 pp elsewhere; de-biasing differs with chi-square=10.65 (p<0.01) (Fig. 4, p.13)", direction: mixed, vsBenchmark: "high vs. low BJP vote-share states" }
+    - { ref: R13, outcome: probability of lending to out-group (Muslim) borrowers, metric: pp-effect, value: "Pre-adoption bias is 7.1 pp for lenders born after 1990 and small, insignificant for other cohorts; difference chi-square=4.43 (p<0.01) (Fig. 4, p.13)", direction: mixed, vsBenchmark: "lenders born after 1990 vs. older cohorts" }
+    - { ref: R14, outcome: probability of lending to Shudra borrowers, metric: pp-effect, value: "Auto Invest coefficient = 0.011 (t=2.54), an increase of 1.1 pp in Shudra lending (Fig. 6, p.15)", direction: positive, vsBenchmark: "pre-adoption lending was below the 31% borrower-population share for recognizable Shudra borrowers" }
+    - { ref: R15, outcome: probability of lending to Shudra borrowers, metric: pp-effect, value: "For borrowers with >70% caste recognizability, robo-adoption increases Shudra lending by 2.7 pp in high-crime states, less than half that elsewhere (Fig. 6, p.15)", direction: positive, vsBenchmark: "high vs. low crimes against lower castes in the lender's state" }
+    - { ref: R16, outcome: loan default rate, metric: pp-effect, value: "With loan-risk controls, Muslim Borrower = -0.002 (t=-0.10); Hindu Borrower x Auto Invest = -0.072*** (t=-4.55); Muslim Borrower x Auto Invest = -0.070*** (t=-2.82) (Table 3 col 3, p.17)", direction: none, vsBenchmark: "conditional on loan risk, both groups show similarly sized default reductions and the pre-adoption group gap disappears" }
+    - { ref: R18, outcome: lender-level loan returns, metric: coefficient, value: "Uncontrolled Auto Invest effects for Hindu borrowers: OLS 0.217*** (t=4.92), 25th percentile 0.250* (t=1.82), median 0.274*** (t=11.22), 75th percentile 0.109*** (t=11.66); with loan-risk controls OLS is -0.160*** (t=-6.15), while the Hindu quantile estimates are statistically insignificant (Table 6 Panel A, p.21)", direction: mixed, vsBenchmark: "uncontrolled return gains are largest in the lower quantiles; with risk controls, quantile estimates are insignificant while the OLS estimate turns negative" }
+    - { ref: R19, outcome: lender-level total return on investment, metric: level, value: "Purged lender value gain is Rs.457 (about 6% of pre-adoption capital) for in-group/out-group discrimination and Rs.862 (about 12%) for stereotypical discrimination (text p.24)", direction: positive, vsBenchmark: "normalized by average pre-Auto Invest capital disbursed: Rs.7,543 and Rs.7,091, respectively" }
+    - { ref: R21, outcome: loan default rate, metric: probability, value: "Raw lender-level default rates are 33% before and 16% after Auto Invest use (p-value <0.1%; text p.8)", direction: negative, vsBenchmark: "pre- vs. post-adoption; unadjusted descriptive comparison" }
   resultType: new-finding
   relatesTo:
     - { cite: "Fisman et al. (2017)", doi: '10.1257/aer.20120942', relation: tests, note: "tests their cultural-proximity-and-lending framework in a FinTech setting where social monitoring is absent by construction" }
@@ -132,30 +108,45 @@ paper:
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; four locator corrections applied: Table 2 page p.10→p.11 (R1, R2 frontmatter and body table), Eq. 1 heading simplified to p.10 (body text, not Table 2 caption), Eq. 6 page p.22→p.23; all eight coefficient values and t-stats confirmed exact."
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-read the PDF and appended 13 core-result rows (R9-R21), corresponding quantitative findings, complete numbered equations 7-8 and main specification details; extracted, not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 21 rows, equations/specifications, classifications, findings, frontmatter, and prose against the PDF; corrected R18 locator and controlled OLS result, R11 comparison significance, R2 post-adoption interpretation, equation indices, verified the R16 null differential coding, significance legend, and observational wording. R18 locator check and page citation check pass." }
 ---
 
 **What this is.** The paper's core results, the competing hypotheses it tests, and the regression specifications with their defining equations: enough to know what it found and how, without reading all 26 pages. To replicate or extend it, read the full source at the [original](https://doi.org/10.1016/j.jfineco.2025.104202).
 
 ## TL;DR
 
-Using lender-level panel data from Faircent, a peer-to-peer lending platform in India, D'Acunto, Ghosh, and Rossi compare the choices the same lenders make when unassisted and after observing suggestions from an automated robo-advising tool (Auto Invest). Unassisted Hindu lenders are 5.8 percentage points less likely to fund Muslim borrowers than Muslim lenders are, and lenders of all castes systematically under-lend to Shudra (lower-caste) borrowers relative to the platform population. These biases are costly: the disfavored borrowers default less and earn higher standardized returns on average. After adopting Auto Invest, both biases shrink substantially and lender-level total returns improve by 4.5 pp to 7.3 pp. Lenders rarely override robo-advised suggestions to previously-disfavored groups, which supports inaccurate statistical discrimination (biased beliefs) rather than taste-based discrimination, as in Becker (1957), as the dominant mechanism.
+Using lender-level panel data from Faircent, a peer-to-peer lending platform in India, D'Acunto, Ghosh, and Rossi compare the choices the same lenders make when unassisted and after observing suggestions from an automated robo-advising tool (Auto Invest). Unassisted Hindu lenders are 5.8 percentage points less likely to fund Muslim borrowers than Muslim lenders are, and lenders of all castes systematically under-lend to Shudra (lower-caste) borrowers relative to the platform population. These biases are costly: the disfavored borrowers default less and earn higher standardized returns on average. In the Auto Invest period, both biases are smaller and average lender-level total returns are 4.5 pp to 7.3 pp higher; the authors do not identify a general causal effect of adoption. Lenders rarely override robo-advised suggestions to previously-disfavored groups, which supports inaccurate statistical discrimination (biased beliefs) rather than taste-based discrimination, as in Becker (1957), as the dominant mechanism.
 
 ## Core results
 
-Magnitudes and significance are as reported; `\*\*`/`\*\*\*` = 5%/1%. Locators point into the source PDF.
+Magnitudes and significance are as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. Locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | Hindu lenders are **5.8 pp less likely to fund Muslim borrowers** than Muslim lenders before robo-advising | Table 2, col 1, p.11 | Hindu Lender = -0.058\*\*\*, t=-3.52; baseline Muslim-borrower share is 18% for Muslim lenders and 12% for Hindu lenders |
-| R2 | **Auto Invest reduces Hindu lenders' out-group bias by 4.5 pp** | Table 2, col 1, p.11 | Hindu Lender x Auto Invest = 0.045\*\*, t=2.51; after adoption, Hindu and Muslim lenders fund Muslim borrowers at the same rate as the platform population |
+| R2 | **The Hindu-Muslim lending gap is 4.5 pp smaller in the Auto Invest period** | Table 2, col 1, p.11 | Hindu Lender x Auto Invest = 0.045\*\*, t=2.51; the Hindu-Muslim lending gap narrows by 4.5 pp but does not disappear |
 | R3 | **Discrimination is costly**: Muslim borrowers in Hindu lender portfolios default 2.4 pp less than Hindu borrowers | Table 3, col 1, p.17 | Muslim Borrower = -0.024\*\*, t=-2.02; in-group bias selects worse borrowers from the preferred group |
-| R4 | After Auto Invest, **Hindu (in-group) borrowers' default drops 11.2 pp**; Muslim (out-group) drops 7.3 pp; overall improvement driven by eliminating low-quality in-group loans | Table 3, col 2, p.17 | Hindu Borrower x Auto Invest = -0.112\*\*\*, t=-5.21; Muslim Borrower x Auto Invest = -0.073\*\*, t=-2.49 |
+| R4 | In the Auto Invest period, the estimated default reductions are 11.2 pp for Hindu borrowers and 7.3 pp for Muslim borrowers; the in-group estimate is larger | Table 3, col 2, p.17 | Hindu Borrower x Auto Invest = -0.112\*\*\*, t=-5.21; Muslim Borrower x Auto Invest = -0.073\*\*, t=-2.49 |
 | R5 | Before robo-advising, **Muslim borrowers deliver higher standardized returns** for Hindu lenders | Table 5, col 1, p.21 | Muslim Borrower = 0.282\*\*\*, t=6.25 (standardized return); confirms the financial cost of out-group bias |
-| R6 | After Auto Invest, **return improvement concentrated entirely in Hindu (in-group) borrowers**: +0.222 SD; Muslim borrowers unchanged | Table 5, col 2, p.21 | Hindu Borrower x Auto Invest = 0.222\*\*\*, t=3.07; Muslim Borrower x Auto Invest = -0.012, t=-0.18 |
-| R7 | **Lender-level total returns improve by 4.5 pp (in-group vs. out-group) and 7.3 pp (stereotypical discrimination)** after Auto Invest | Fig. 11, p.23 | Average lender-level return increase, value-weighted across all loans before and after Auto Invest adoption |
-| R8 | **Shudra borrowers default 3.8 pp less** than other borrowers before Auto Invest, confirming stereotypical discrimination is costly | Table 3, col 4, p.17 | Shudra Borrower = -0.038\*\*\*, t=-3.03; all-lender sample; lending to Shudra borrowers increases with robo-advice adoption |
+| R6 | In the Auto Invest period, Hindu borrowers' returns are higher by 0.222 SD; the Muslim-borrower estimate is near zero and insignificant | Table 5, col 2, p.21 | Hindu Borrower x Auto Invest = 0.222\*\*\*, t=3.07; Muslim Borrower x Auto Invest = -0.012, t=-0.18 |
+| R7 | **Average lender-level total returns are 4.5 pp (in-group vs. out-group) and 7.3 pp (stereotypical discrimination) higher in the Auto Invest period** | Fig. 11, p.23 | Mean within-lender change in total returns, with loan returns value-weighted within lender and lenders equally weighted |
+| R8 | **Shudra borrowers default 3.8 pp less** than other borrowers before Auto Invest, confirming stereotypical discrimination is costly | Table 3, col 4, p.17 | Shudra Borrower = -0.038\*\*\*, t=-3.03; all-lender sample; lending to Shudra borrowers is higher in the Auto Invest period |
+| R9 | The out-group de-biasing estimate remains positive with lender and year fixed effects | Table 2, cols. 3-4, p.11 | Hindu Lender x Auto Invest = 0.045\*\* (t=2.07) with lender FE; 0.043\*\* (t=1.96) with lender and year FE |
+| R10 | The de-biasing estimate is marginally significant for high-use lenders and near zero for low-use lenders | Table 2, cols. 5-6, p.11 | Hindu Lender x Auto Invest = 0.009 (t=0.23) for <40% use and 0.052\* (t=1.94) for >=40% use |
+| R11 | Out-group bias is larger in high-riot states; the de-biasing estimate is positive there, but is not significantly different across state groups | Fig. 4, p.13 | Bias = 6.4 pp and de-biasing = 4.8 pp (p<0.01) in high-riot states; low-riot estimate small and insignificant; cross-group Wald chi-square = 0.18 (difference not significant) |
+| R12 | Out-group bias is larger where BJP vote share is high, and de-biasing differs across state groups | Fig. 4, p.13 | Pre-adoption bias = 9.4 pp in high-vote-share states vs. 3.5 pp elsewhere; chi-square = 10.65 (p<0.01) |
+| R13 | The out-group bias is concentrated among lenders born after 1990 | Fig. 4, p.13 | Bias = 7.1 pp for post-1990 lenders and small, insignificant for older cohorts; chi-square for difference = 4.43 (p<0.01) |
+| R14 | Lending to Shudra borrowers is higher in the Auto Invest period | Fig. 6, p.15 | Auto Invest coefficient = 0.011 (t=2.54), a 1.1 pp increase |
+| R15 | The Shudra lending response is strongest where caste is recognizable and local anti-caste crime is high | Fig. 6, p.15 | For >70% caste recognizability, increase = 2.7 pp in high-crime states, less than half as large elsewhere |
+| R16 | The default gaps and differential default improvement disappear conditional on loan-risk controls | Table 3, col. 3, p.17 | Muslim Borrower = -0.002 (t=-0.10); Hindu Borrower x Auto Invest = -0.072\*\*\* (t=-4.55); Muslim Borrower x Auto Invest = -0.070\*\*\* (t=-2.82) |
+| R17 | The authors find no systematic average change in lender portfolio diversification after Auto Invest | Text p.18; Table A.3, Online Appendix | No systematic change across the paper's three diversification proxies: loan-size dispersion, loan-return dispersion, and payment dispersion |
+| R18 | Uncontrolled return gains are largest in the lower Hindu-borrower quantiles; with loan-risk controls the quantile estimates are insignificant, while the OLS estimate turns negative | Table 6, Panel A, p.21 | Without risk controls: OLS 0.217\*\*\* (t=4.92), 25th percentile 0.250\* (t=1.82), median 0.274\*\*\* (t=11.22), 75th percentile 0.109\*\*\* (t=11.66); with controls, OLS -0.160\*\*\* (t=-6.15), quantile estimates insignificant |
+| R19 | Purged lender-level value gains from removing cultural bias are 6% to 12% of pre-adoption capital | Text p.24 | Rs.457 (6% of Rs.7,543) for in-group/out-group discrimination; Rs.862 (12% of Rs.7,091) for stereotypical discrimination |
+| R20 | Lenders rarely override robo-advised matches to groups they previously discriminated against, supporting biased beliefs over taste-based discrimination | Text pp.2, 24 | The paper describes the vast majority as not overriding; no percentage is reported |
+| R21 | Raw default rates are lower after lenders use Auto Invest | Text p.8 | Lender-level default rates: 33% before vs. 16% after adoption (p-value <0.1%); unadjusted descriptive comparison |
 
-**Overall (paper's conclusion).** Cultural biases lead lenders to select borrowers from preferred social groups who systematically underperform. The evidence is most consistent with inaccurate statistical discrimination: biased ex-ante beliefs about borrower quality correlated with ethnicity and caste, not a conscious taste for discrimination. Robo-advising reduces both types of bias and generates returns improvements of approximately 6% to 12% of the average capital invested, concentrated in loans to previously-favored in-group borrowers who were over-selected relative to their quality.
+**Overall (paper's conclusion).** Cultural biases lead lenders to select borrowers from preferred social groups who systematically underperform. The evidence is most consistent with inaccurate statistical discrimination: biased ex-ante beliefs about borrower quality correlated with ethnicity and caste, not a conscious taste for discrimination. Auto Invest use is associated with smaller estimates of both types of bias and higher returns. The authors estimate purged value gains of approximately 6% to 12% of average pre-adoption capital, concentrated in loans to previously favored in-group borrowers who were over-selected relative to their quality.
 
 ## Theory / model
 
@@ -171,7 +162,7 @@ The platform design eliminates channels that could rationalize statistical discr
 
 ## Method
 
-The primary estimator is OLS on a lender-borrower-loan triad panel with lender fixed effects and year fixed effects, clustering standard errors at the lender level throughout (Table 2 caption, p.10). The within-lender before-after variation in tool adoption identifies the de-biasing effect; the approach builds on D'Acunto and Rossi (2020) who study robo-advising effects in a savings context.
+The paper estimates OLS regressions on lender-borrower-loan triads, generally including lender and year fixed effects and clustering standard errors by lender. Table 2 varies the controls and fixed effects across columns; the diversification regressions cluster by city, and the quantile regressions omit fixed effects. Adoption is not randomized, and the authors state that they do not estimate a general causal effect of adoption (text p.7). The approach builds on D'Acunto and Rossi (2020), who study robo-advising effects in a savings context.
 
 For loan returns the paper additionally estimates quantile regressions (Eq. 5, p.22) to identify which part of the return distribution drives the improvement:
 
@@ -179,7 +170,7 @@ $$
 Q_\tau(\text{Returns}_{i,j}) = a(\tau) + \beta(\tau)\,\text{Auto Invest}_j + \mathbf{X}'_{i,j}\,\zeta(\tau) + \varepsilon_{i,j} \tag{5}
 $$
 
-where $$Q_\tau$$ is the $$\tau$$-th quantile of standardized loan returns for loan $$i$$ of lender $$j$$, and $$\mathbf{X}_{i,j}$$ are loan risk controls. Coefficient $$\hat{\beta}(\tau)$$ measures how the $$\tau$$-th quantile shifts after the lender adopts Auto Invest.
+where $$Q_\tau$$ is the $$\tau$$-th quantile of standardized loan returns for loan $$i$$ of lender $$j$$, and $$\mathbf{X}_{i,j}$$ are loan risk controls. Coefficient $$\hat{\beta}(\tau)$$ measures how the $$\tau$$-th quantile shifts after the lender adopts Auto Invest. Table 6 reports quantile regressions without lender or year fixed effects, with standard errors clustered by lender; the Hindu/Muslim samples have 2,326/220 loan observations, and the low-/high-recognizability Shudra samples have 462/1,158 observations (Table 6, p.21).
 
 The lender-level total return is computed as a value-weighted average across loans originated before and after Auto Invest adoption (Eq. 6, p.23):
 
@@ -187,7 +178,22 @@ $$
 \text{Lender Tot Ret}_{i,t} = 100 \times \frac{\sum_j \text{Amount Disbursed}_{i,j,t} \times \text{Loan Return}_{j,t}}{\sum_j \text{Amount Disbursed}_{i,j,t}} \tag{6}
 $$
 
-and the lender-level change is POST minus PRE (Eq. 7, p.23). A purged measure (Eq. 8, p.23-24) removes compositional effects by holding the pre-period disbursed amounts fixed and applying post-period returns, isolating the cultural-debiasing channel from other effects of Auto Invest on portfolio composition.
+The paper then calculates each lender's post-minus-pre total-return change (Eq. 7, p.23):
+
+$$
+\text{Change Lender Return}_i = \text{Lender Tot Ret}_{i,\text{POST}} - \text{Lender Tot Ret}_{i,\text{PRE}} \tag{7}
+$$
+
+For the rupee-value measure, Eq. 8 (p.23) holds pre-adoption disbursements fixed and applies post-adoption returns, purging the change that would arise only from different investment amounts:
+
+$$
+\begin{aligned}
+\text{Change Lender Value}_i ={}& [\text{Amt Disb}_{i,\text{POST}} \times \text{Ret}_{i,\text{POST}} - \text{Amt Disb}_{i,\text{PRE}} \times \text{Ret}_{i,\text{PRE}}] \\
+&- [\text{Amt Disb}_{i,\text{POST}} \times \text{Ret}_{i,\text{POST}} - \text{Amt Disb}_{i,\text{PRE}} \times \text{Ret}_{i,\text{POST}}] \tag{8}
+\end{aligned}
+$$
+
+This is equivalent to pre-period amount disbursed times the change in lender return, and underlies the rupee amounts in R19.
 
 ## Empirical specifications
 
@@ -199,27 +205,39 @@ $$
 
 where $$\text{Muslim Borrower}_{i,j,t} = 1$$ if borrower $$i$$ funded by lender $$j$$ in year $$t$$ is Muslim; $$\text{Auto Invest}_{j,t} = 1$$ if the lender has adopted the tool by year $$t$$; $$\text{Hindu Lender}_j = 1$$ if lender $$j$$ is Hindu; $$\mathbf{x}_{i,t}$$ are loan characteristics assigned by the platform (maturity, amount, interest rate); $$\eta_j$$ are lender fixed effects; $$\eta_t$$ are year fixed effects. Coefficient $$\hat{\gamma}$$ (R1) measures the in-group bias before adoption; $$\hat{\delta}$$ (R2) measures the de-biasing effect of robo-advising.
 
+The table reports OLS on the adopting-lender sample, with standard errors clustered by lender. Column 1 has no loan controls or fixed effects (113,284 observations); columns 2-4 add loan controls, lender fixed effects, and then year fixed effects in sequence (113,283 observations); columns 5-6 split by below/above 40% Auto Invest allocation (39,366 and 72,104 observations, respectively) (Table 2, p.11). The within-lender and within-year estimates are R9; the usage-intensity comparison is R10.
+
 **Stereotypical discrimination specification (Eq. 2, p.14):**
 
 $$
 \text{Shudra Borrower}_{i,j,t} = \alpha + \beta\,\text{Auto Invest}_{j,t} + \zeta\,\mathbf{x}_{i,t} + \eta_j + \eta_t + \varepsilon_{i,j,t} \tag{2}
 $$
 
-This drops the Hindu Lender interaction because all castes, including Shudra lenders, discriminate against Shudra borrowers (stereotypical discrimination is not in-group favoritism but group-wide negative stereotyping). Caste recognizability (continuous probability from the Bhagavatula et al. (2017, 2018) matrimonial-registry algorithm) is used to test whether the $$\hat{\beta}$$ coefficient grows with how easily a borrower is identifiable as Shudra (Fig. 5-6, pp.14-15).
+This drops the Hindu Lender interaction because all castes, including Shudra lenders, discriminate against Shudra borrowers (stereotypical discrimination is not in-group favoritism but group-wide negative stereotyping). Caste recognizability (continuous probability from the Bhagavatula et al. (2017, 2018) matrimonial-registry algorithm) is used to test whether the $$\hat{\beta}$$ coefficient grows with how easily a borrower is identifiable as Shudra (Fig. 5-6, pp.14-15). The specification uses loan characteristics, lender and year fixed effects, and lender-clustered standard errors; Fig. 6 reports the overall estimate and subsamples by caste recognizability and state-level crimes against lower castes (Fig. 6, p.15).
 
 **Performance specifications (Eqs. 3-4, p.16 and p.19):**
 
 $$
-\text{Delinquent Loan}_{i,j,t} = \alpha + \gamma\,\text{Muslim Borrower}_j + \delta\,(\text{Muslim Borrower}_j \times \text{Auto Invest}_{j,t}) + \theta\,(\text{Hindu Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \zeta\,\mathbf{x}_{i,t} + \eta_j + \eta_t + \varepsilon_{i,j,t} \tag{3}
+\text{Delinquent Loan}_{i,j,t} = \alpha + \gamma\,\text{Muslim Borrower}_{i,j} + \delta\,(\text{Muslim Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \theta\,(\text{Hindu Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \zeta\,\mathbf{x}_{i,t} + \eta_j + \eta_t + \varepsilon_{i,j,t} \tag{3}
 $$
 
 $$
-\text{Loan Return}_{i,j,t} = \alpha + \gamma\,\text{Muslim Borrower}_j + \delta\,(\text{Muslim Borrower}_j \times \text{Auto Invest}_{j,t}) + \theta\,(\text{Hindu Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \zeta\,\mathbf{x}_{i,t} + \eta_j + \eta_t + \varepsilon_{i,j,t} \tag{4}
+\text{Loan Return}_{i,j,t} = \alpha + \gamma\,\text{Muslim Borrower}_{i,j} + \delta\,(\text{Muslim Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \theta\,(\text{Hindu Borrower}_{i,j} \times \text{Auto Invest}_{j,t}) + \zeta\,\mathbf{x}_{i,t} + \eta_j + \eta_t + \varepsilon_{i,j,t} \tag{4}
 $$
 
-where $$\text{Delinquent Loan}_{i,j,t} = 1$$ if the loan is closed delinquent (more than 90 days past due at closure) and $$\text{Loan Return}_{i,j,t}$$ is the standardized return. Coefficient $$\hat{\gamma}$$ tests whether disfavored borrowers outperformed before the tool was adopted (the cost of bias, R3 and R5); $$\hat{\delta}$$ and $$\hat{\theta}$$ capture the differential change in performance across borrower groups after adoption (R4 and R6). The falsification column (col 3 and col 6 in Table 3, p.17) adds loan risk controls to show that default changes are not driven by compositional shifts in borrower riskiness.
+where $$\text{Delinquent Loan}_{i,j,t} = 1$$ if the loan is closed delinquent (more than 90 days past due at closure) and $$\text{Loan Return}_{i,j,t}$$ is the standardized return. Coefficient $$\hat{\gamma}$$ tests whether disfavored borrowers outperformed before the tool was adopted (the cost of bias, R3 and R5); $$\hat{\delta}$$ and $$\hat{\theta}$$ capture the differential change in performance across borrower groups after adoption (R4 and R6). The default regressions include lender and year fixed effects and cluster standard errors at lender level. Table 3 uses 16,985 Hindu-lender triads for the religion tests and 6,821 caste-subsample triads; columns 3 and 6 add loan-risk controls (Table 3, p.17). The return regressions add lender portfolio risk, use lender and year fixed effects, and cluster by lender; the Table 5 sample has 2,134 observations for Hindu lenders and 859 for the caste analysis (Table 5, p.21). In the default falsification column, the Muslim/Hindu default gaps and differential improvement vanish conditional on loan risk (R16).
 
-**Heterogeneity tests** use cross-sectional proxies for the salience of cultural stereotypes: state-level Hindu-Muslim riots (Ticku (2015)), BJP vote shares (Bhavnani (2014)), and birth-cohort exposure to the rise of Hindu-Muslim conflict (Fig. 4, p.13). The bias is about twice as large for lenders residing in high-riot states (6.4 pp vs. small and insignificant elsewhere), and the de-biasing effect is correspondingly stronger in these states.
+**Return quantiles (Eq. 5, p.22).** The controlled quantile regressions add loan amount, maturity, and annual interest rate; no lender or year fixed effects are included. Standard errors are clustered at lender level. Without risk controls, Hindu-borrower return gains are largest in the lower quantiles. With controls, the quantile estimates are insignificant, while the OLS estimate is negative and significant (Table 6, Panel A, p.21; R18).
+
+**Heterogeneity tests** use cross-sectional proxies for the salience of cultural stereotypes: state-level Hindu-Muslim riots (Ticku (2015)), BJP vote shares (Bhavnani (2014)), and birth-cohort exposure to the rise of Hindu-Muslim conflict (Fig. 4, p.13). The bias is about twice as large for lenders residing in high-riot states (6.4 pp vs. small and insignificant elsewhere), and the de-biasing estimate is positive in high-riot states, but the estimated difference across state groups is not statistically significant (Wald chi-square = 0.18). The BJP-state comparison is 9.4 pp vs. 3.5 pp, and post-1990 lenders show a 7.1 pp bias while older-cohort estimates are small and insignificant (Fig. 4, p.13; R11-R13). The paper reports no randomized Auto Invest adoption and states that it does not estimate a general causal effect of adoption (text p.7).
+
+**Portfolio-diversification specification (Table 4, p.19).** The paper estimates lender-level OLS regressions for the pre/post change in three portfolio-dispersion measures. For the in-group comparison, the estimating specification is:
+
+$$
+\text{Diversification Portfolio}_{j,t} = \alpha + \gamma\,\text{Share Muslim Borrowers}_{j,t} + \delta\,(\text{Share Muslim Borrowers}_{j,t} \times \text{Auto Invest}_{j,t}) + \theta\,(\text{Share Hindu Borrowers}_{j,t} \times \text{Auto Invest}_{j,t}) + \varepsilon_{j,t}
+$$
+
+There are no fixed effects; standard errors are clustered at the city level. The six columns use 2,586/399/2,707 observations for the in-group loan-size, loan-return, and payment-dispersion outcomes and 998/292/979 observations for the corresponding caste outcomes (Table 4, p.19). The paper reports no systematic average change in portfolio diversification across the three proxies (text p.18; Table A.3, Online Appendix; R17). The conclusion also notes that lenders rarely override Auto Invest matches to groups previously avoided, supporting inaccurate beliefs over taste-based preferences, but reports no override percentage (text pp.2, 24; R20).
 
 **Sample:** lender-borrower-loan triads from the Faircent platform, January 2018 to March 2020. Main sample: 113,283 triads involving 2,818 unique Hindu and Muslim lenders and borrowers. Caste sub-sample: 62,831 triads for which Hindu varna (caste category) of the borrower can be inferred from the matrimonial registry. Loan maturity averages 22 months; median maturity 24 months; average loan amount is approximately Rs.130,000 (~$1,770); average annual interest rate is 24%. Standard errors are clustered at the lender level.
 

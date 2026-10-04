@@ -5,7 +5,7 @@ description: >-
   points more stock value during the March 2023 Silicon Valley Bank run;
   Twitter attention at the hourly frequency predicted lower returns for high-risk
   banks, while Twitter sentiment did not amplify run risks. Journal of Financial
-  Economics 176 (2026), paywalled. Eight core results with source locators,
+  Economics 176 (2026), paywalled. Fourteen core results with source locators,
   datasets used, and the estimating equations.
 sidebar:
   label: Cookson et al. 2026
@@ -48,15 +48,15 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier ScienceDirect, 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 14
   citedByCount: 10
   methods:
     role: applies-method
     family: descriptive
-    buildsFrom: [panel-regression, text-classification, event-study]
+    buildsFrom: [panel-regression, text-classification]
     identification: selection-on-observables
   contributionType: [new-fact, new-data]
-  mechanisms: [networks, information-asymmetry, social-coordination]
+  mechanisms: [networks, information-asymmetry]
   introducesData: true
   scope:
     region: US
@@ -64,67 +64,34 @@ paper:
     period: 2020-01..2023-03
     frequency: mixed
     dataType: [market, text, accounting, administrative]
-    granularity: [firm, security, transaction]
-    n: "277 bank holding companies (main cross-section); approx. 15,000 bank-hour observations; approx. 36,659 tweet-level observations"
+    granularity: [firm, security, individual]
+    n: "277 bank holding companies (main cross-section); 15,330 low-run-risk and 14,996 high-run-risk bank-hour observations in Table 6; 36,659 observations in controlled tweet-level specifications"
   findings:
-    - ref: R1
-      outcome: bank stock market loss during the SVB run period
-      metric: coefficient
-      value: "4.317*** pp per 1-SD increase in log pre-run tweets (SE=0.936)"
-      direction: positive
-    - ref: R2
-      outcome: bank stock market loss during the SVB run period
-      metric: coefficient
-      value: "Pre-Exposure x %Uninsured x %LossMTM = 2.407*** (SE=0.561); Pre-Exposure x %Uninsured = 2.695*** (SE=0.701)"
-      direction: positive
-      vsBenchmark: amplifies the classical %Uninsured x %LossMTM run-risk interaction
-    - ref: R3
-      outcome: bank stock market loss during the SVB run period
-      metric: coefficient
-      value: "Triple interaction with full controls = 1.660*** (SE=0.424); Pre-Exposure x %Uninsured = 1.641** (SE=0.613)"
-      direction: positive
-      vsBenchmark: robust to controls for size, analyst coverage, deposit franchise, and market returns
-    - ref: R4
-      outcome: "Q1-2023 deposit outflows (uninsured)"
-      metric: coefficient
-      value: "%Uninsured x %LossMTM x Pre-Exposure = 1.47** (SE=0.746)"
-      direction: positive
-      vsBenchmark: consistent with the stock-return finding at the quarterly deposit frequency
-    - ref: R5
-      outcome: hourly bank stock return during the run period
-      metric: coefficient
-      value: "Post-Mar-9 x high Twitter attention (4h lag) = -0.096** to -0.108** bps/hour for high-run-risk banks (SE approx. 0.038-0.047)"
-      direction: negative
-      vsBenchmark: near-zero and insignificant for low-run-risk banks
-    - ref: R6
-      outcome: hourly bank stock return during the run period
-      metric: coefficient
-      value: "High-retweet tweets: post-Mar-9 x high attention = -0.124*** (SE=0.062); low-retweet (col 3): -0.075* (SE=0.039)"
-      direction: negative
-      vsBenchmark: "coefficient approx. 65% larger for the high-retweet subsample"
-    - ref: R7
-      outcome: bank stock market loss during the SVB run period
-      metric: coefficient
-      value: "VADER Neg(z) x High Run Risk (M2) interaction = 2.99 to 3.15 across Table 8 cols 5-8 (SE approx. 2.02-2.87; all statistically insignificant)"
-      direction: none
-      vsBenchmark: Twitter attention is significant; Twitter sentiment is not
-    - ref: R8
-      outcome: bank stock market loss during the SVB run period
-      metric: coefficient
-      value: "Contagion tweets in-run = 6.696*** (SE=1.333); run-behavior tweets = 7.252*** (SE=1.374); controlling for both reduces pre-exposure coefficient to near zero and insignificant"
-      direction: positive
-      vsBenchmark: in-run tweet content mediates the pre-exposure effect
-  resultType: new-finding
+    - { ref: R1, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "4.317*** pp per 1-SD increase in log pre-run tweets (SE=0.936)", direction: positive }
+    - { ref: R2, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "Pre-Exposure x %Uninsured x %LossMTM = 2.407*** (SE=0.561); Pre-Exposure x %Uninsured = 2.695*** (SE=0.701)", direction: positive, vsBenchmark: "amplifies the classical %Uninsured x %LossMTM run-risk interaction" }
+    - { ref: R3, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "Triple interaction with full controls = 1.660*** (SE=0.424); Pre-Exposure x %Uninsured = 1.641*** (SE=0.613)", direction: positive, vsBenchmark: "robust to controls for size, analyst coverage, deposit franchise, and market returns" }
+    - { ref: R4, outcome: "Q1-2023 deposit outflows (uninsured)", metric: coefficient, value: "%Uninsured x %LossMTM x Pre-Exposure = 1.47** (SE=0.746)", direction: positive, vsBenchmark: "consistent with the stock-return finding at the quarterly deposit frequency" }
+    - { ref: R5, outcome: hourly bank stock return during the run period, metric: coefficient, value: "Post-Mar-9 x high Twitter attention (4h lag) = -0.096** to -0.108** bps/hour for high-run-risk banks (SE approx. 0.038-0.047)", direction: negative, vsBenchmark: "near-zero and insignificant for low-run-risk banks" }
+    - { ref: R6, outcome: hourly bank stock return during the run period, metric: coefficient, value: "High-retweet: post-Mar-9 x high attention = -0.124** (SE=0.062); low-retweet (col 3): -0.075* (SE=0.039)", direction: negative, vsBenchmark: "the high-retweet estimate is about 65% larger in magnitude; the low-retweet estimate is also significant at 10%" }
+    - { ref: R7, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "VADER Neg(z) x High Run Risk (M2) interaction = 2.99 to 3.15 across Table 8 cols 5-8 (SE approx. 2.02-2.87; all statistically insignificant)", direction: none, vsBenchmark: "Twitter attention is significant; Twitter sentiment is not" }
+    - { ref: R8, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "Contagion tweets in-run = 6.696*** (SE=1.333); run-behavior tweets = 7.252*** (SE=1.374); with all in-run tweet and other controls, the pre-exposure coefficient is -0.129 (SE=0.618)", direction: positive, vsBenchmark: "adding the full set of in-run tweet counts and controls reduces the pre-exposure estimate to near zero" }
+    - { ref: R9, outcome: "Run-related Twitter discussion by bank", metric: level, value: "SIVB: 6,528 run tweets and 9,662 contagion tweets; FRC: 1,249 run tweets and 1,368 contagion tweets; 90th-percentile bank: 3 run and 2 contagion tweets", direction: positive, vsBenchmark: "run discussion is concentrated at the distressed banks" }
+    - { ref: R10, outcome: "Twitter pre-exposure determinants", metric: coefficient, value: "Table 3 col. 1: log market capitalization = 0.767*** (SE=0.043); % Loss MTM = -0.027 (SE=0.040); % Uninsured = -0.051 (SE=0.050)", direction: none, vsBenchmark: "traditional run-risk measures are insignificant in the baseline exposure regression" }
+    - { ref: R11, outcome: "Q1-2023 deposit outflows (total)", metric: coefficient, value: "% Uninsured = 1.37*** (SE=0.502); % Uninsured x % Loss MTM x Pre-Exposure = 0.673 (SE=0.536), insignificant in col. 3", direction: none, vsBenchmark: "the triple-interaction amplification is significant for uninsured outflows but not total outflows" }
+    - { ref: R12, outcome: hourly bank stock return during the run period, metric: coefficient, value: "Post-Mar-9 x high attention: -0.074* (1 h lag, SE=0.045); -0.084* (2 h, SE=0.046); -0.100** (4 h, SE=0.042)", direction: negative, vsBenchmark: "similar significant estimates across 1-, 2-, and 4-hour attention windows" }
+    - { ref: R13, outcome: "Immediate bank stock return around tweets", metric: coefficient, value: "VADER Neg x Tech Community = -11.14** (SE=5.45); VADER Neg x Run Tweet = -12.91*** (SE=2.81); VADER Neg x Contagion Tweet = -20.63* (SE=11.19), controlled estimates; effects remain similar in Table 9 with follower and retweet controls", direction: negative, vsBenchmark: "tweet content predicts immediate price response while VADER Neg x High Run Risk is insignificant" }
+    - { ref: R14, outcome: bank stock market loss during the SVB run period, metric: coefficient, value: "% Uninsured = 4.249*** (SE=1.026); % Uninsured x % Loss MTM = 1.742** (SE=0.824), baseline specification without Twitter pre-exposure", direction: positive, vsBenchmark: "classical balance-sheet run-risk benchmark" }
+  resultType: confirms
   relatesTo:
     - { cite: "Diamond and Dybvig (1983)", doi: '10.1086/261155', relation: builds-on, note: "foundational demand-deposit coordination model of bank runs" }
     - { cite: "Goldstein and Pauzner (2005)", doi: '10.1111/j.1540-6261.2005.00762.x', relation: builds-on, note: "global-games model in which depositor communication amplifies run equilibria" }
     - { cite: "Jiang et al. (2024a)", doi: '10.1016/j.jfineco.2024.103899', relation: extends, note: "adds Twitter pre-exposure as an amplifier of their % Uninsured x % Loss MTM run-severity result" }
-    - { cite: "Pedersen (2022)", doi: '10.1016/j.jfineco.2022.05.002', relation: builds-on, note: "theory of investor social media fanatics justifies why pre-exposure is unrelated to traditional run risk" }
-    - { cite: "Bianchi et al. (2023)", doi: '10.1016/j.jmoneco.2023.01.001', relation: extends, note: "adapts their tweet-level 5-minute window identification to bank run period hourly and high-frequency tests" }
+    - { cite: "Pedersen (2022)", doi: '10.1016/j.jfineco.2022.05.002', relation: builds-on, note: "investor fanaticism motivates measuring persistent Twitter attention as pre-exposure" }
+    - { cite: "Bianchi et al. (2023)", doi: '10.1016/j.jmoneco.2023.01.001', relation: extends, note: "adapts their high-frequency tweet-price window approach to tweets about banks during the run" }
     - { cite: "Drechsler et al. (2024)", relation: cites, note: "deposit beta and deposit franchise measures used as balance-sheet controls" }
   openQuestions:
-    - "Whether social media can trigger runs on fundamentally solvent banks via a sunspot equilibrium, which is difficult to identify empirically given the self-fulfilling nature of runs (footnote 5, p. 3; conclusion p. 23)."
-    - "Whether the findings generalize beyond the 2023 US regional banking episode to other financial crises, jurisdictions, or social media platforms (conclusion, p. 23)."
+    - "Whether social media amplifies runs through communication about run intentions at solvent banks, rather than transmitting information about insolvency, remains an open question (Section 2.1, p. 5; conclusion, p. 23)."
+    - "Whether this channel operates in other crises, jurisdictions, or social media platforms is untested in this paper (conclusion, p. 23)."
   replicationCode:
     status: upon-request
   extraction:
@@ -133,6 +100,8 @@ paper:
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; fixed: JEL codes (added G28); R5 coefficient range corrected to -0.096** to -0.108** (col 5 value -0.108** was omitted); R6 low-retweet coefficient corrected to -0.075* (SE=0.039), col 2 value -0.047 had been wrongly paired with col 3 SE; R7 findings value corrected from -0.18 to 3.15 range to 2.99 to 3.15 (the -0.18 was VADER Neg main effect col 5, not the High Run Risk interaction); Eq. (5) control-vector coefficient corrected from b_4 to eta per PDF; colorful adjective 'comprehensive' removed from TL;DR. All other locators, magnitudes, signs, and equation terms verified correct."
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added six Core results, matching findings, and specification details. These additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; corrected R3 and R6 significance, R9 locator, and classification/prose overclaims; all 14 Core rows supported." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jfineco.2025.104218", checked: 2026-06-24, by: "paper-distiller (claude-sonnet-4-6)", found: "license[] entries all content-version=tdm (Elsevier TDM licence, TDMRep, and STM-ASF policies); no CC or open licence entry; PDF p.1 confirms 0304-405X c) 2025 Elsevier B.V. All rights reserved." }
   rightsSignalConflict: false
@@ -153,33 +122,40 @@ during the run. The Twitter effect amplifies classical bank run risks: the inter
 between Twitter pre-exposure, the fraction of uninsured deposits, and mark-to-market asset
 losses is large and statistically significant. At the hourly frequency during the run
 period, Twitter attention (number of tweets in the prior four hours) predicts lower returns
-for high-risk banks but not for low-risk banks. The effect is concentrated in periods when
-tweets are highly retweeted, pointing to a social propagation channel. Twitter sentiment
+for high-risk banks but not for low-risk banks. The negative hourly estimate is larger and more precisely estimated in the
+above-median-retweet subsample, pointing to a social propagation channel. Twitter sentiment
 (VADER negative score), by contrast, does not amplify run risks, distinguishing broad
 attention from negativity as the operative mechanism.
 
 ## Core results
 
-Magnitudes are as reported; `\*\*` = 5%, `\*\*\*` = 1%. Variables marked `(z)` are
+Magnitudes are as reported; `\*` = 10%, `\*\*` = 5%, `\*\*\*` = 1%. Variables marked `(z)` are
 standardized to mean zero, SD one.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | A 1-SD increase in Twitter pre-exposure predicts 4.3 pp more stock market loss during the SVB run | Table 4, Panel A, col. 2, p. 13 | 4.317\*\*\* pp (SE = 0.936) |
 | R2 | Twitter amplifies classical run risks: triple interaction pre-exposure x %Uninsured x %LossMTM is significant | Table 4, Panel A, col. 4, p. 13 | 2.407\*\*\* (SE = 0.561); pre-exposure x %Uninsured = 2.695\*\*\* (SE = 0.701) |
-| R3 | Triple interaction is robust to full controls for size, analyst coverage, deposit franchise, and market returns | Table 4, Panel B, col. 4, p. 14 | 1.660\*\*\* (SE = 0.424); pre-exposure x %Uninsured = 1.641\*\* (SE = 0.613) |
+| R3 | Triple interaction is robust to full controls for size, analyst coverage, deposit franchise, and market returns | Table 4, Panel B, col. 4, p. 14 | 1.660\*\*\* (SE = 0.424); pre-exposure x %Uninsured = 1.641\*\*\* (SE = 0.613) |
 | R4 | Twitter pre-exposure predicts Q1-2023 uninsured deposit outflows through the same triple interaction | Table 5, col. 1, p. 16 | Triple interaction = 1.47\*\* (SE = 0.746); %Uninsured alone = 3.31\*\*\* (SE = 0.993) |
 | R5 | At the hourly frequency, high Twitter attention predicts lower returns for high-run-risk banks, not for low-risk banks | Table 6, Panel A, col. 4-6, p. 18 | High risk: post-Mar-9 x high attention (4h lag) = -0.096\*\* to -0.108\*\* bps/hour (cols 4-6); low risk: near zero, insignificant |
-| R6 | The hourly return effect is driven by broadly retweeted tweets, not low-retweet or high-follower tweets | Table 7, Panel B, col. 3 vs. col. 6, p. 20 | High-retweet: -0.124\*\*\* (SE = 0.062); low-retweet: -0.075\* (SE = 0.039, 10%) |
+| R6 | The hourly return estimate is larger in magnitude for high-retweet than low-retweet activity | Table 7, Panel B, col. 3 vs. col. 6, p. 20 | High-retweet: -0.124\*\* (SE = 0.062); low-retweet: -0.075\* (SE = 0.039, 10%) |
 | R7 | Twitter sentiment (VADER negative score) does not amplify bank run risk | Table 8, col. 5-8, p. 21 | VADER Neg x High Run Risk = statistically insignificant across all specifications |
-| R8 | In-run contagion tweets and run-behavior tweets predict stock losses and account for most of the pre-exposure effect | Table 4, Panel C, col. 2-5, p. 15 | Contagion tweets: 6.696\*\*\* (SE = 1.333); run tweets: 7.252\*\*\* (SE = 1.374); pre-exposure falls to near zero when both are included |
+| R8 | In-run contagion tweets and run-behavior tweets predict stock losses; adding the full set of in-run tweet controls reduces the pre-exposure estimate to near zero | Table 4, Panel C, cols. 2-6, p. 15 | Contagion tweets: 6.696\*\*\* (SE = 1.333); run tweets: 7.252\*\*\* (SE = 1.374); pre-exposure falls to -0.129 (SE = 0.618) with all controls |
+| R9 | Run-related discussion was concentrated at the distressed banks | Table 2, Panel B, p. 9 | SIVB: 6,528 run tweets and 9,662 contagion tweets; FRC: 1,249 run tweets and 1,368 contagion tweets; 90th percentile: 3 run and 2 contagion tweets |
+| R10 | Pre-run Twitter exposure tracks bank size, not baseline balance-sheet run risk | Table 3, col. 1, p. 10 | log(MCap) = 0.767\*\*\* (SE = 0.043); % Loss MTM = -0.027 (SE = 0.040); % Uninsured = -0.051 (SE = 0.050) |
+| R11 | Total deposit outflows do not show the uninsured-deposit amplification result | Table 5, col. 3, p. 16 | % Uninsured = 1.37\*\*\* (SE = 0.502); % Uninsured x % Loss MTM x Pre-Exposure = 0.673 (SE = 0.536), insignificant |
+| R12 | The hourly attention result is similar with 1-, 2-, and 4-hour tweet windows | Table 7, Panel A, cols. 1-3, p. 20 | Post-Mar-9 x high attention: -0.074\* (SE = 0.045), -0.084\* (SE = 0.046), -0.100\*\* (SE = 0.042) |
+| R13 | Negative sentiment predicts immediate losses for run-relevant tweet types, not for high-run-risk banks generally | Table 8, cols. 2, 4, 6, 8, p. 21; Table 9, p. 22 | VADER Neg x Tech Community = -11.14\*\* (SE = 5.45); x Run Tweet = -12.91\*\*\* (SE = 2.81); x Contagion Tweet = -20.63\* (SE = 11.19); similar with follower and retweet controls |
+| R14 | Classical balance-sheet run risk predicts stock losses even without Twitter pre-exposure | Table 4, Panel A, col. 1, p. 13 | % Uninsured = 4.249\*\*\* (SE = 1.026); % Uninsured x % Loss MTM = 1.742\*\* (SE = 0.824) |
 
 **Overall (paper's conclusion).** Social media exposure amplifies classical bank run
-risks, with the channel being Twitter attention and social propagation via retweets,
-not negative sentiment. The effect is consistent across stock-return and deposit-outflow
-measures, and is evident at both the cross-sectional and hourly frequency. The paper
-concludes that social media serves as a coordination device for depositors, linking it
-to the theoretical framework of Diamond and Dybvig (1983) and Goldstein and Pauzner (2005).
+risks, with evidence pointing to Twitter attention and social propagation via retweets,
+not negative sentiment. A similar interaction appears for uninsured deposit outflows,
+though quarterly data make that evidence suggestive about timing; effects are evident at
+both cross-sectional and hourly frequencies. The paper interprets these patterns as
+consistent with social media serving as a coordination device for depositors, linking them
+to Diamond and Dybvig (1983) and Goldstein and Pauzner (2005).
 
 ## Theory / model
 
@@ -205,17 +181,17 @@ channel. Three related empirical hypotheses are tested:
    audience of likely depositors, while negativity alone does not coordinate behavior.
 
 **Identification.** The main cross-sectional identification relies on the fact that
-Twitter pre-exposure in January-February 2023 is driven primarily by bank size and
-investor fanaticism (Pedersen (2022)), and is empirically near-zero correlated with
-traditional run risk factors (Fig. 6b, p. 11: correlation of pre-exposure with run risk
-is 0.023). The content of pre-period tweets is also unrelated to banking distress topics
-(Fig. A.5 in the Appendix). Thus, cross-sectional variation in pre-exposure reflects
-social media reach, not ex ante run vulnerability. For the hourly tests, a narrow
-5-minute window around individual tweets (adapting the approach of Bianchi et al. (2023))
-provides sharper identification by limiting the scope for confounding news and price
-dynamics. For the deposit outflow tests, the quarterly FDIC Call Report data (Drechsler
-et al. (2024) deposit beta measures are also used as controls) corroborates the
-cross-sectional stock-return evidence.
+Twitter pre-exposure in January-February 2023 is associated primarily with bank size and
+investor fanaticism (Pedersen (2022)), and has near-zero correlation with traditional run
+risk factors (Fig. 6b, p. 11: correlation of pre-exposure with run risk is 0.02). This
+pattern is consistent with cross-sectional variation in pre-exposure capturing social
+media reach rather than ex ante run vulnerability, though the observational design does
+not establish that interpretation causally. The content of pre-period tweets is also
+unrelated to banking distress topics (Fig. A.5 in the Appendix). For the hourly tests, a
+narrow 5-minute window around individual tweets (adapting the approach of Bianchi et al.
+(2023)) limits the scope for confounding news and price dynamics. For the deposit outflow
+tests, quarterly FDIC Call Report data provide complementary, suggestive evidence;
+Drechsler et al. (2024) deposit beta measures are also used as controls.
 
 ## Method
 
@@ -275,6 +251,8 @@ CRE loan share, liquid assets, deposit concentration). Table 3 (p. 10) shows siz
 is the dominant predictor (coefficient 0.767\*\*\* in the baseline); the classical run
 risk factors $$\%\text{LossMTM}$$ and $$\%\text{Uninsured}$$ are statistically
 insignificant or slightly negative, supporting the identification strategy.
+This OLS cross-section covers 277 publicly traded bank holding companies. Table 3
+reports robust standard errors in parentheses (Table 3, p. 10).
 
 ## Empirical specifications
 
@@ -294,6 +272,8 @@ vector $$\mathbf{X}_i$$ includes log market cap, analyst coverage, news article 
 deposit beta, market-to-book, CRE loan share, liquid assets, and deposit concentration.
 The key coefficients are those on the triple interaction and the two-way interactions
 involving Pre-Exposure (Table 4, Panel A, col. 4, p. 13).
+This OLS cross-section uses 277 banks, has no fixed effects, and reports robust
+standard errors in parentheses (Table 4, pp. 13-15).
 
 **Deposit outflow specification** (Section 3.2, p. 14, Eq. 4). An analogous
 cross-sectional specification uses Q1-2023 deposit outflows as the outcome:
@@ -307,7 +287,9 @@ $$
 where $$\text{Deposit Outflow}_i = 100 \times (\text{Deposits}_{Q4\text{-}2022} -
 \text{Deposits}_{Q1\text{-}2023}) / \text{Deposits}_{Q4\text{-}2022}$$, computed for
 both uninsured (above the FDIC $250K threshold) and total deposits from the FDIC Call
-Reports. Standard errors are robust. Sample size is 275 (Table 5, p. 16).
+Reports. This OLS cross-section has no fixed effects and reports robust standard
+errors. The baseline sample is 275 banks, falling to 262 in columns with additional
+controls (Table 5, p. 16).
 
 **Hourly panel specification** (Section 3.3, pp. 15-16, Eq. 5). For each bank-hour
 in the period March 6-10, 2023 (shorter window: March 8-9), hourly stock returns
@@ -330,6 +312,9 @@ whether, after the SVB run began (March 9), higher Twitter attention predicted l
 returns for high-risk banks. Table 6 (p. 18) reports Panel A (full March 6-10 window),
 Panel B (shorter March 8-9 window), Panel C (excluding SVB), and Panel D
 (retweet-weighted tweet counts).
+The return and news controls also enter interacted with the post-run indicator; the
+baseline Table 6 sample has 14,786 bank-hour observations in the high-run-risk columns.
+The model is estimated by OLS, with standard errors clustered by bank (Table 6, p. 18).
 
 **Tweet-level high-frequency specification** (Section 3.5, p. 20, Eq. 6). At the
 individual tweet level (one observation per tweet), log price changes in the 5-minute
@@ -347,7 +332,21 @@ minutes prior to the tweet, the count of RavenPack news articles in that window,
 their ESS sentiment. The interaction terms in Table 8 (p. 21) test whether VADER Neg
 amplifies returns for high-run-risk banks and for specific tweet types (run tweets,
 contagion tweets, tech community tweets). Standard errors are clustered at the bank-day
-level.
+level. The interaction specification adds the two sentiment scores interacted with the
+relevant tweet-type or high-run-risk indicator:
+
+$$
+\Delta p_{i,t} = a + b\,\text{VADERPos}_{i,t} + c\,\text{VADERNeg}_{i,t}
++ \theta_1\bigl(\text{VADERPos}_{i,t}\times D_{i,t}\bigr)
++ \theta_2\bigl(\text{VADERNeg}_{i,t}\times D_{i,t}\bigr)
++ \eta\mathbf{X}_{i,t} + \gamma_i + \varepsilon_{i,t}
+$$
+
+Here $$D_{i,t}$$ is, in turn, the Tech Community Flag, Run Tweet, Contagion Tweet,
+or High Run Risk indicator. The Table 8 and 9 tweet-level samples contain 36,659
+observations in controlled specifications; all include bank fixed effects, while
+even-numbered specifications add prior price and news controls. Standard errors are
+clustered by bank-day (Tables 8-9, pp. 21-22).
 
 ## Datasets used
 
