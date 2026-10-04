@@ -57,6 +57,9 @@ if (opt('--year')) pages = pages.filter((p) => p.includes(`/${opt('--year')}/`))
 // "Table 4", "Table IV", "Table A13", "Table IA.2"
 const TID = '((?:IA|A|B|C|D)?\\.?\\d+|[IVXL]+)';
 const captionRe = new RegExp(`^\\s*Table\\s+${TID}\\s*(?:[—–-]\\s*Continued|\\(\\s*continued\\s*\\))?\\s*(?:$|[.:]|\\s{3,})`, 'gim');
+// Two-column layouts put a right-column caption after left-column text on the
+// same line: "...text           Table 4" at line end.
+const captionRightRe = new RegExp(`\\S\\s{3,}Table\\s+${TID}\\s*$`, 'gm');
 const locRe = new RegExp(`Tables?\\s+${TID}[^;|]*?\\bpp?\\.\\s*(\\d+)(?:\\s*[-–]\\s*(\\d+))?`, 'g');
 const normNum = (s) => s.replace(/[−–]/g, '-');
 
@@ -73,7 +76,9 @@ for (const page of pages) {
   const pdfPages = text.split('\f');
   const flat = pdfPages.map((t) => normNum(t).replace(/\s+/g, ' '));
   const cap = {};
-  pdfPages.forEach((t, i) => { for (const c of t.matchAll(captionRe)) (cap[c[1]] ||= new Set()).add(i + 1); });
+  pdfPages.forEach((t, i) => {
+    for (const re of [captionRe, captionRightRe]) for (const c of t.matchAll(re)) (cap[c[1]] ||= new Set()).add(i + 1);
+  });
   // Journals paginate differently (JF cites "p. 569" for PDF page 9). Infer the
   // printed-page offset from page numbers in each page's header/footer lines and
   // accept a locator in either numbering.
