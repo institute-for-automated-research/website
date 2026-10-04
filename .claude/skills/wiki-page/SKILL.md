@@ -39,12 +39,9 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 2. **The Verified discipline**: only stamp a `verified:` block after you have
    actually run the page's keystone access claim against the live source in this
    session. An unrun stamp is a lie. Be precise in `with:` about what ran.
-3. **After any big change, run a Codex review** (`scripts/codex/review.sh`,
-   gpt-6-luna) over the diff. Fix
-   findings, then run another review round. Iterate until clean.
-4. **Build and live-check before considering it done**: `npm run build`, then
+3. **Build and live-check before considering it done**: `npm run build`, then
    confirm routes are 200 with zero redirect hops and badges/twins render.
-5. **Mirror dataset knowledge** to the ZeroPaper pipeline skill (see bottom).
+4. **Mirror dataset knowledge** to the ZeroPaper pipeline skill (see bottom).
 
 ## Adding or editing a dataset / recipe page
 

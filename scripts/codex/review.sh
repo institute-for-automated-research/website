@@ -8,5 +8,8 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 MODEL="${IAR_CODEX_MODEL:-gpt-6-luna}"
 [ $# -eq 0 ] && set -- --uncommitted
+HOOK="$PWD/scripts/codex/no-subagents-hook.mjs"   # reviewer may not spawn agents either
 exec codex exec review "$@" </dev/null -m "$MODEL" \
-  -c "model_reasoning_effort=\"${IAR_CODEX_EFFORT:-high}\""
+  -c "model_reasoning_effort=\"${IAR_CODEX_EFFORT:-high}\"" \
+  --dangerously-bypass-hook-trust \
+  -c "hooks.PreToolUse=[{matcher=\".*\",hooks=[{type=\"command\",command=\"node $HOOK\"}]}]"

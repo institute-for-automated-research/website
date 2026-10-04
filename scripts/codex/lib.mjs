@@ -28,11 +28,24 @@ written for Claude Code subagents; translate their tool names as follows:
 - Wherever an instruction or template records the extracting/verifying model
   (e.g. "by: paper-distiller (claude-sonnet-4-6)"), write \`${MODEL}\` instead:
   provenance must name the model that actually did the work.
-- Edit only the files your task permits. Do not git commit, push, or run the
-  site build unless told to.
+- Do only your task and edit only the file(s) it covers. Orchestrator steps
+  that the instruction files mention (running scripts/codex/review.sh or any
+  review, npm run build, live checks, git commit/push, and any agent role
+  other than your own) are not yours; skip them.
+- Do not start other agents: no spawn_agent/send_message tools, no codex or
+  claude CLI (a hook blocks them). Do the whole task yourself in this session.
+- Never use git to read or restore content (no git show/log/diff/checkout/
+  restore/stash on pages). If your target page does not exist, write it from
+  the PDF; do not recover an earlier version of it from history.
 - Your FINAL message must be only the JSON result your instructions describe
   (no prose before or after; a \`\`\`json fence is fine).
 `;
+
+// No nested agents: every worker gets a PreToolUse hook that denies Codex's
+// collaboration tools and any codex/claude CLI call (the multi_agent feature
+// flags do not remove spawn_agent in this CLI version).
+const HOOK = join(REPO, 'scripts', 'codex', 'no-subagents-hook.mjs');
+const HOOKS = `hooks.PreToolUse=[{matcher=".*",hooks=[{type="command",command="node ${HOOK}"}]}]`;
 
 const RUN_DIR = join(process.env.TMPDIR || tmpdir(), 'iar-codex-runs',
   new Date().toISOString().replace(/[:.]/g, '-'));
@@ -80,6 +93,7 @@ export async function codexAgent(prompt, opts = {}) {
     : '';
   const full = `${PREAMBLE}\n## Task\n${prompt}${schemaNote}`;
   const args = ['exec', '-m', MODEL, '-s', 'workspace-write',
+    '--dangerously-bypass-hook-trust', '-c', HOOKS,
     '-c', 'sandbox_workspace_write.network_access=true',
     '-c', `model_reasoning_effort="${EFFORT}"`,
     '-o', last, '-'];
