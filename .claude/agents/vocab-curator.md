@@ -8,6 +8,7 @@ description: >-
   per batch, serially (it edits many files, so it must be the only writer). Use
   after paper-distiller + paper-verifier have finished a batch.
 tools: Read, Edit, Write, Grep, Glob, Bash
+model: sonnet
 ---
 
 You are the vocabulary curator. Parallel `paper-distiller` agents each staged

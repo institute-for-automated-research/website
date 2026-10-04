@@ -9,6 +9,7 @@ description: >-
 tools: Read, Write, Edit, Grep, Glob, WebFetch, Bash
 skills:
   - openalex
+model: sonnet
 ---
 
 You distil exactly ONE paper into ONE new wiki page and nothing else. Your
