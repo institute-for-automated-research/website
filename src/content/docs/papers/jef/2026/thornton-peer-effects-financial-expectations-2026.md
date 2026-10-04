@@ -25,7 +25,7 @@ paper:
     codes: [G41, D84, D83]
     assignedBy: claude-sonnet-4-6
     date: 2026-06-25
-  topics: ["Experimental Behavioral Economics Studies", "Financial Markets and Investment Strategies", "Innovations in Educational Methods"]
+  topics: []
   dataAccess: licensed-commercial
   outcome:
     - individual financial expectations (FINEX)
@@ -55,7 +55,7 @@ paper:
   findings:
     - { ref: R1, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "0.555*** (t=30.01); OLS, no controls", direction: positive }
     - { ref: R2, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "0.272*** (t=16.88); individual FE, year FE, time-varying controls; 1-SD in FINEXn = 2.6% increase in FINEX", direction: positive, vsBenchmark: "roughly 28% as large as family effect (1-SD family = 9.2%)" }
-    - { ref: R3, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "IV main spec: 0.505*** (t=2.60); restricted to different-region nonlocal family: 0.380*** (t=4.07)", direction: positive, vsBenchmark: "causal IV estimate; 1-SD = 2.8% increase (0.046 * 0.612 per main col-1 spec)" }
+    - { ref: R3, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "Table 6: 0.612*** (t=3.33, col 1); 0.505*** (t=2.60, col 2); different-region family: 0.394*** (t=4.38, col 3), 0.380*** (t=4.07, col 4)", direction: positive, vsBenchmark: "col 1 is the paper's main IV estimate; 1-SD = 2.81% increase (0.046 * 0.612), about 31% of family effect. Col 2's conventional star does not meet the paper's 3.02 first-stage-adjusted 5% t-ratio threshold." }
     - { ref: R4, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "previous-neighborhood FE coef: 0.0484 (t=1.33), not significant", direction: none }
     - { ref: R5, outcome: "individual financial expectations (FINEX)", metric: coefficient, value: "0 years in neighborhood: 0.105 (insig); 3+ years: 0.264 (t=14.3); income and voting similarity show no convergence (Figs. 2-3)", direction: positive, vsBenchmark: "growing pattern consistent with social interaction; inconsistent with homophily" }
     - { ref: R6, outcome: savings behavior (Save dummy), metric: coefficient, value: "-0.0165*** (t=-7.37); individual FE, year FE, time-varying controls", direction: negative }
@@ -68,12 +68,13 @@ paper:
     - { cite: "Burnside et al. (2016)", doi: '10.1086/686732', relation: tests, note: "paper provides empirical evidence consistent with their social-transmission model of housing-market beliefs" }
     - { cite: "Han et al. (2020)", relation: tests, note: "paper provides evidence consistent with their social transmission bias model for investor behavior" }
   openQuestions:
-    - "Cannot extend the analysis beyond 2008 because the Understanding Society Survey (USS) lacks the interview-area variable needed to define neighborhoods; peer effects in the social-media era remain unstudied (p. 20)."
-    - "Online and in-person peer effects may differ substantially; the BHPS sample (1991-2008) predates widespread social media and this distinction cannot be addressed with available data (p. 21)."
-    - "The exclusion restriction for the nonlocal-family instrument cannot be tested directly; the reverse-causality checks (Table 7; restricting nonlocal family to different UK regions, Table 6 cols 3-4) support plausibility but do not constitute a formal test (pp. 11-13)."
+    - "The same neighborhood peer-effects analysis cannot be extended past 2008 because Understanding Society lacks the interview-area variable needed to construct neighborhoods; the paper offers descriptive comparisons with newer survey waves instead (pp. 3, 20)."
+    - "Whether online peer effects differ from in-person effects remains open. The paper notes a slight decline in neighbor interaction and suggests online interaction may replace some of it, but calls for further study (p. 21)."
+    - "The exclusion restriction for the nonlocal-family instrument cannot be tested directly. The previous-neighborhood test (Table 7) and the different-region instrument results (Table 6, cols. 3-4) are presented as evidence that alleviates concerns, not as a formal test (pp. 11-13)."
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (22 pp., all tables and figures); seven results extracted from Tables 2, 6, 7, 8 and Figs. 1, 4. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; five fixes applied: R3 star count corrected (0.505** → 0.505*** per Table 6 col 2); Empirical-specs 0.612** → 0.612*** (t=3.33); λ_{it} → λ_i in both equations (matching PDF Eq. 1 and surrounding text); R5 locator Figs. 2-3 corrected to p. 10 (not pp. 9-11). All other magnitudes, locators, and specifications confirmed." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Adversarially re-checked all seven Core rows, equations, specifications, classification, findings, prose, and frontmatter against the PDF; corrected the R3 main IV reporting and adjusted-inference caveat, R7 specification, OLS causal wording, unrelated topics, and open questions. Reported omitted headline accuracy results for later re-distillation." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jempfin.2026.101712", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[] entries: content-version=tdm URL=https://www.elsevier.com/tdm/userlicense/1.0/ delay-in-days=0 start=2026-06-01; content-version=stm-asf only; no CC license present; paywalled" }
   rightsSignalConflict: false
@@ -83,7 +84,7 @@ paper:
 
 ## TL;DR
 
-Using 18 waves of the British Household Panel Survey (BHPS, 1991-2008) and an instrumental variables strategy adapted from Brown et al. (2008), Thornton (2026) provides causal evidence that neighborhood financial expectations positively influence individual financial expectations. The instrument is the average financial expectations of neighbors' nonlocal family members, which affects a neighbor's beliefs through family interaction but has no direct path to the focal individual. A one-standard-deviation increase in neighborhood financial expectations leads to a 2.8% increase in individual financial expectations (IV estimate), equal to roughly 31% of the corresponding family effect. Peer effects are larger for socially connected individuals, grow with time spent in a neighborhood (consistent with social interaction rather than sorting), and are informative only in neighborhoods with diversity in financial expectations and uniformity in income and voting behavior. These findings support the social transmission frameworks of Burnside et al. (2016) and Han et al. (2020). Individuals also act on their expectations: those expecting financial improvement are less likely to save.
+Using 18 waves of the British Household Panel Survey (BHPS, 1991-2008) and an instrumental variables strategy adapted from Brown et al. (2008), Thornton (2026) provides evidence of a causal effect of neighborhood financial expectations on individual expectations. The instrument is the average financial expectations of neighbors' nonlocal family members; the exclusion restriction assumes it affects the focal individual only indirectly through neighbors. A one-standard-deviation increase in neighborhood financial expectations leads to a 2.8% increase in individual financial expectations (the paper's main IV estimate), equal to roughly 31% of the corresponding family effect. Peer effects are larger for socially connected individuals, grow with time spent in a neighborhood (consistent with social interaction rather than sorting), and are informative only in neighborhoods with diversity in financial expectations and uniformity in income and voting behavior. These findings support the social transmission frameworks of Burnside et al. (2016) and Han et al. (2020). Individuals also act on their expectations: those expecting financial improvement are less likely to save.
 
 ## Core results
 
@@ -93,13 +94,13 @@ Magnitudes and significance as reported; `\*\*`/`\*\*\*` = 5%/1%. Locators point
 |---|---|---|---|
 | R1 | Baseline OLS: neighborhood financial expectations are positively correlated with individual expectations | Table 2, col 1, p. 7 | FINEXn coef = 0.555\*\*\* (t=30.01) |
 | R2 | With individual FE, year FE, and time-varying controls: large, significant peer effect remains | Table 2, col 2, p. 7 | FINEXn coef = 0.272\*\*\* (t=16.88); 1-SD in FINEXn = 2.6% increase in FINEX; roughly 28% as large as the family effect (9.2%) |
-| R3 | IV causal estimate using nonlocal-family expectations as instrument | Table 6, col 2, p. 12 | FINEXn coef = 0.505\*\*\* (t=2.60); restricted to different-region nonlocal family: 0.380\*\*\* (t=4.07, col 4) |
+| R3 | IV estimates using neighbors' nonlocal-family expectations as instrument | Table 6, cols. 1-4, p. 12 | FINEXn coef = 0.612\*\*\* (t=3.33, col 1; paper's main spec); full-controls 0.505\*\*\* (t=2.60, col 2); different-region family: 0.394\*\*\* (t=4.38, col 3) and 0.380\*\*\* (t=4.07, col 4). The paper's first-stage-adjusted 5% threshold is 3.02, so col. 2's t-ratio falls short. |
 | R4 | Reverse causality test: previous-neighborhood expectations do not predict current expectations | Table 7, col 2, p. 13 | FINEXprev coef = 0.0484 (t=1.33), not significant |
 | R5 | Peer effects grow with time in neighborhood; income and voting similarity do not converge | Fig. 1, p. 9; Figs. 2-3, p. 10 | Coef rises from 0.105 (insig) for 0 years to 0.264 (t=14.3) for 3+ years in neighborhood; income and voting coefficients flat or decreasing |
 | R6 | Expecting financial improvement is associated with a lower probability of saving | Table 8, col 2, p. 16 | FINEX coef on Save = -0.0165\*\*\* (t=-7.37) |
 | R7 | Peer effects are larger for socially connected individuals | Fig. 4, p. 14; Figs. 5-7, pp. 15-16 | Daily-talker subsample: coef = 1.01 (t=2.10); not significant for less-frequent interactors; same pattern for neighborhood-likers (Fig. 5) and organization members (Fig. 6) |
 
-**Overall (paper's conclusion).** Financial expectations are causally transmitted among neighbors through social interaction, with a magnitude equal to roughly 31% of the family effect. The evidence is consistent across panel FE, IV, and IV robustness specifications; inconsistent with homophily (peer effects grow while income and political similarity do not); and supported by sociability heterogeneity (socially connected individuals show stronger transmission). Individuals also act on these expectations: optimistic individuals save less.
+**Overall (paper's conclusion).** Financial expectations are causally transmitted among neighbors, with the main IV estimate equal to roughly 31% of the family effect. The evidence is consistent across panel FE, IV, and IV robustness specifications; inconsistent with homophily as the primary explanation (peer effects grow while income and political similarity do not converge); and supported by sociability heterogeneity (socially connected individuals show stronger transmission). The paper interprets the sociability patterns as evidence for social transmission, while noting its IV strategy cannot distinguish social transmission from a common-information channel. Individuals also act on these expectations: optimists save less.
 
 ## Theory / model
 
@@ -107,7 +108,7 @@ The paper does not propose a formal model. The central hypothesis is that an ind
 
 The identification challenge is the reflection problem of Manski (1993): when neighbors have similar expectations, this correlation could arise from (1) endogenous social effects (social interaction), (2) contextual effects (shared local environment), or (3) correlated effects (similar individual characteristics). The paper tests three hypotheses:
 
-- **H1 (social interaction):** Individuals take neighborhood expectations into account when forming their own; the coefficient $$\beta_1$$ in equation (1) captures a causal peer effect.
+- **H1 (social interaction):** Individuals take neighborhood expectations into account when forming their own; $$\beta_1$$ in equation (1) measures the conditional association, while the paper's IV design is used to estimate a causal peer effect.
 - **H2 (homophily):** Individuals sort into neighborhoods with like-minded residents; any observed correlation reflects selection rather than transmission.
 - **H3 (contextual / correlated):** A shared local environment (e.g. the local labor market) drives correlated expectations; there is no individual-level transmission.
 
@@ -135,11 +136,11 @@ $$
 
 The instrument is constructed in two ways: (a) nonlocal family = family members living outside the focal neighborhood; (b) nonlocal family = family members living in a different UK region (19 regions), the more demanding robustness specification. The first-stage $$t$$-statistic in the full-controls specification is 3.61 (Table 4, col 2, p. 10), exceeding the Lee et al. (2022) tF critical value of 3.02 at the 5% level ($$F$$-statistic = 13.03).
 
-**Sociability subsamples.** To provide additional evidence for social interaction as the mechanism, the IV specification from Table 6, col 2 is re-run on subsamples split by four sociability proxies: frequency of talking with neighbors (FRNA), opinion of neighborhood (Lknbr), local organization membership (Org), and desire to move (Lkmove). This approach, similar to Hong et al. (2004), uses sociability variation to test whether more connected individuals exhibit larger peer effects.
+**Sociability subsamples.** To provide additional evidence for social interaction as the mechanism, the Table 6, col. 1 IV specification (wealth, individual FE, and year FE) is re-run on subsamples split by four sociability proxies: frequency of talking with neighbors (FRNA), opinion of neighborhood (Lknbr), local organization membership (Org), and desire to move (Lkmove). This approach, similar to Hong et al. (2004), uses sociability variation to test whether more connected individuals exhibit larger peer effects.
 
 ## Empirical specifications
 
-**Main panel OLS (R1, R2).** Equation (1) is estimated with no controls (Table 2, col 1, $$N$$ = 218,149) and with individual FE, year FE, and time-varying controls (col 2, $$N$$ = 207,362). Standard errors clustered at the neighborhood level throughout. FINEX is coded 1 (better off), 0 (same), -1 (worse off). The focal individual is excluded from the neighborhood average.
+**Main panel OLS (R1, R2).** Table 2 reports the baseline regression without additional controls or fixed effects (col 1, $$N$$ = 218,149) and the specification with individual FE, year FE, and time-varying controls (col 2, $$N$$ = 207,362), following the estimating setup in Eq. (1). Standard errors are clustered at the neighborhood level throughout. FINEX is coded 1 (better off), 0 (same), -1 (worse off). The focal individual is excluded from the neighborhood average.
 
 **IV 2SLS (R3).** Table 6 (p. 12) reports four 2SLS specifications. Columns (1)-(2) define nonlocal family as living outside the focal neighborhood; columns (3)-(4) restrict to a different UK region. Columns (1) and (3) include only wealth as a time-varying control; columns (2) and (4) add the full set of controls plus individual and year FE. The 2SLS coefficient is stable across specifications: from 0.612\*\*\* (col 1) to 0.380\*\*\* (col 4, most demanding).
 
@@ -149,7 +150,7 @@ The instrument is constructed in two ways: (a) nonlocal family = family members 
 
 **Savings regression (R6).** Table 8 (p. 16) regresses a binary savings variable (Save = 1 if the individual saved over the past year) on individual FINEX, with individual FE, year FE, and time-varying controls. Standard errors clustered at the neighborhood level.
 
-**Sociability subsamples (R7).** The IV specification from Table 6, col 2 is re-run separately for each level of each sociability proxy (Figs. 4-7, pp. 14-16). Peer effects are statistically significant only for the most socially connected subgroup in each proxy (daily talkers: coef = 1.01, t = 2.10; neighborhood-likers: coef = 0.583, t = 2.86; organization members: coef = 1.10, t = 2.38; non-movers: coef = 0.72, t = 2.79).
+**Sociability subsamples (R7).** The Table 6, col. 1 IV specification (wealth, individual FE, and year FE) is re-run separately for each level of each sociability proxy (Figs. 4-7, pp. 14-16). Peer effects are statistically significant only for the most socially connected subgroup in each proxy (daily talkers: coef = 1.01, t = 2.10; neighborhood-likers: coef = 0.583, t = 2.86; organization members: coef = 1.10, t = 2.38; non-movers: coef = 0.72, t = 2.79).
 
 ## Datasets used
 

@@ -5,7 +5,8 @@ description: >-
   with low ST values by 0.61% per month in decile sorts (annualized Sharpe ratio 2.52,
   more than double the comparable equity figure). The premium is primarily driven by the
   outperformance of bonds with salient downside rather than the underperformance of those
-  with salient upside, reflecting the asymmetric payoff structure of corporate bonds.
+  with salient upside in raw decile sorts; this asymmetry is not significant after adjusting
+  for bond characteristics. The pattern reflects the asymmetric payoff structure of bonds.
   Journal of Empirical Finance 2026, paywalled. Seven core results with source locators,
   datasets used, the BGS salience model, and the estimation and testing methods.
 sidebar:
@@ -62,12 +63,12 @@ paper:
   findings:
     - { ref: R1, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "-0.48%/month (5-1 quintile ST spread, t=-10.30); FF5 alpha -0.44% (t=-7.01); FFL6 alpha -0.44% (t=-7.22)", direction: negative, vsBenchmark: "FFL6 alpha nearly as large as raw spread; characteristic-adjusted spread -0.45% (t=-10.28)" }
     - { ref: R2, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "-0.61%/month (10-1 decile ST spread, t=-10.96); annualized Sharpe ratio 2.52 vs 0.89 for stocks over same July 2002-June 2021 period (stock 10-1 = -0.78%, t=-3.74)", direction: negative, vsBenchmark: "2.82x the Sharpe ratio of the comparable equity strategy" }
-    - { ref: R3, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "bond salient-downside outperformance 0.50%/month (portfolio 1 minus 5); bond salient-upside underperformance only 0.08%/month (portfolio 6 minus 10); asymmetry t=2.90", direction: negative }
+    - { ref: R3, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "bond salient-downside outperformance 0.50%/month (portfolio 1 minus 5); bond salient-upside underperformance only 0.08%/month (portfolio 6 minus 10); raw-return asymmetry t=2.90", direction: positive }
     - { ref: R4, outcome: cross-sectional corporate bond returns, metric: coefficient, value: "-0.14 (t=-10.46) univariate FM; -0.07 (t=-7.36) with ILLIQ, STR, MAX, MIN, MOM, LTR, COSKEW, SKEW, IVOL, ISKEW, and bond characteristics", direction: negative }
     - { ref: R5, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "-0.19%/week (5-1 quintile spread at weekly frequency, t=-10.61); FFL6 alpha -0.19%/week (t=-9.35)", direction: negative }
     - { ref: R6, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "junk 5-1 spread -0.48%/month (t=-6.89) vs AAA/AA -0.23%/month (t=-4.53); long-maturity spread -0.47%/month (t=-10.79) vs short-maturity -0.22%/month (t=-5.81)", direction: negative, vsBenchmark: "junk premium ~2x AAA/AA; long-maturity ~2x short-maturity" }
-    - { ref: R7, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "all five LTA Diff portfolios significant at 1%; IVOL Diff = -0.48% (t=-9.10); TVOL Diff = -0.43% (t=-9.10); ILLIQ Diff = -0.37% (t=-4.62)", direction: negative, vsBenchmark: "salience premium monotonically larger with all five limits-to-arbitrage proxies" }
-  resultType: new-finding
+    - { ref: R7, outcome: cross-sectional corporate bond returns, metric: return-spread, value: "all five LTA Diff portfolios significant at 1%; Size = +0.20% (t=3.47); TVOL = -0.42% (t=-7.99); IVOL = -0.48% (t=-9.10); ILLIQ = -0.37% (t=-4.42); Attention = -0.22% (t=-3.41)", direction: mixed, vsBenchmark: "premium grows with higher frictions; issue size is inverse, so smaller bonds have the larger premium" }
+  resultType: mixed
   relatesTo:
     - { cite: "Bordalo, Gennaioli & Shleifer (2012)", doi: '10.1093/qje/qjs018', relation: builds-on, note: "foundational BGS salience function and distorted-probability framework" }
     - { cite: "Bordalo, Gennaioli & Shleifer (2013)", relation: builds-on, note: "BGS asset pricing implication: E(R) = -cov(omega, R) = -ST" }
@@ -76,11 +77,12 @@ paper:
     - { cite: "Lin et al. (2011)", doi: '10.1016/j.jfineco.2010.10.004', relation: builds-on, note: "corporate bond liquidity factor (LIQ) that forms the sixth factor in the FFL6 benchmark" }
     - { cite: "Bali, Cakici & Whitelaw (2011)", doi: '10.1016/j.jfineco.2010.08.014', relation: cites, note: "MAX (maximum daily return) used as a lottery-preference control; the MAX effect on bonds differs from stocks" }
   openQuestions:
-    - "Whether other psychological biases beyond salience can help explain the remaining anomalies in the corporate bond market (yield puzzle, high-yield momentum) that rational models cannot reconcile (conclusion, p.23; footnote 40)."
-    - "How the salience premium interacts with different institutional investor mandates across bond market segments, and whether improving market transparency reduces the bias among institutional investors (conclusion, p.23)."
+    - "Which psychological factors, alongside risk-based factors and market frictions, can help explain bond-market anomalies such as default risk, high-yield momentum, and the yield puzzle (conclusion, p.23; footnote 40)."
+    - "How salience thinking relates to prospect theory in bond pricing, given that the paper finds the salience effect related to but extending beyond prospect theory (conclusion, p.23)."
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1-24 plus all tables); seven results extracted from the source PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; five fixes applied: (1) R2 stock same-period comparison corrected from -1.22%/SR=1.34 (1931-2015 row) to -0.78%/SR=0.89 (July 2002-June 2021 row per PDF p.9); (2) R4 full-controls t-stat corrected from -7.63 (partial-controls row 3 of Table 5) to -7.36 (last row, Adj-R2=0.313); (3) R5 FFL6 alpha t-stat corrected from -12.45 (AdjRet Alpha FFL6) to -9.35 (Return Alpha FFL6, consistent with R1 treatment); (4) JEL G41 removed (PDF shows only G12, G14); (5) Eq. 3 notation corrected from tilde to overbar for distorted-probability symbol as in PDF." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Blind audit rechecked seven result rows, equations, specifications, classifications, findings, and page prose against the PDF; corrected R7 values, payoff-state and evaluation-window notation, qualified raw-return asymmetry, corrected its finding direction and result type, and revised an unsupported mechanism claim." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jempfin.2026.101692", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[] contains only TDM and stm-asf entries (Elsevier subscription); no CC or open-access VOR license present; content-version tdm URLs point to elsevier.com/tdm/userlicense/1.0 and elsevier.com/legal/tdmrep-license, start 2026-06-01" }
   rightsSignalConflict: false
@@ -92,7 +94,7 @@ paper:
 
 This paper applies salience theory to the U.S. corporate bond market. Following Bordalo, Gennaioli, and Shleifer (2012) and Cosemans and Frehen (2021), the authors compute a bond-level salience theory value (ST) as the covariance between salience-distorted probability weights and daily bond returns over the prior two months, using daily transaction data from Enhanced TRACE. Bonds with the highest ST values earn lower returns in the subsequent month than bonds with the lowest ST values. The monthly quintile spread is -0.48% (t=-10.30) and the decile Sharpe ratio is 2.52 annualized, more than double the 0.89 observed for stocks over the same sample period.
 
-The key asymmetric finding distinguishes bonds from stocks. In the equity market (Cosemans and Frehen 2021), the salience effect is mainly driven by salient upside: stocks with lottery-like positive payoffs are overpriced. In the corporate bond market, the premium is driven primarily by the outperformance of bonds with salient downside (portfolio 1), not by the underperformance of bonds with salient upside (portfolio 10). This reflects the limited-upside, substantial-downside payoff structure of corporate bonds: bond investors constrained by default risk pay more attention to extreme negative payoffs, making bonds with salient bad news overly attractive and thereby overpriced. The effect survives full Fama-MacBeth controls for FFL6 factor exposures, illiquidity, short-term reversal, lottery features (MAX, MIN), and bond characteristics. It is larger for junk bonds, long-maturity bonds, bonds with greater limits to arbitrage, and bonds with more retail investor demand, and strengthens during high economic uncertainty and bullish credit market sentiment.
+The key asymmetric finding distinguishes bonds from stocks. In the equity market (Cosemans and Frehen 2021), the salience effect is mainly driven by salient upside: stocks with lottery-like positive payoffs are overpriced. In raw corporate-bond decile returns, the premium is driven primarily by the outperformance of bonds with salient downside (portfolio 1), not by the underperformance of bonds with salient upside (portfolio 10). This pattern is consistent with the limited-upside, substantial-downside payoff structure of corporate bonds. The paper also reports that the difference between the downside and upside components is not statistically significant after adjusting returns for rating and maturity (Table 3, Panel B, row 4, p.10; t=1.57). The overall effect survives full Fama-MacBeth controls for FFL6 factor exposures, illiquidity, short-term reversal, lottery features (MAX, MIN), and bond characteristics. It is larger for junk bonds, long-maturity bonds, bonds with greater limits to arbitrage, and bonds with more retail investor demand, and strengthens during high economic uncertainty and bullish credit market sentiment.
 
 ## Core results
 
@@ -104,9 +106,9 @@ Magnitudes and significance are as reported in the source; `\*`/`\*\*`/`\*\*\*` 
 | R2 | **Decile sort: bond 10-1 spread of -0.61%/month delivers Sharpe ratio 2.52**, more than double the stock equivalent | Table 3, Panel B, p.10 | Bond 10-1 return spread = -0.61%\*\*\* (t=-10.96); annualized SR = 2.52; stock 10-1 spread = -0.78%\*\*\* (t=-3.74) with SR = 0.89 over the same July 2002-June 2021 period (the -1.22%/SR=1.34 figures in row 1 are for the longer 1931-2015 stock replication) |
 | R3 | **Asymmetric pattern: bond salience premium mainly from salient-downside outperformance**, not salient-upside underperformance | Table 3, Panel B, pp.9-10 | Decile portfolio 1 (salient downside) excess return = 0.82%; portfolio 5 = 0.32%; portfolio 6 = 0.29%; portfolio 10 (salient upside) = 0.21%; downside minus upside asymmetry gap = 0.42%\*\*\* (t=2.90) |
 | R4 | **FM regression: ST coefficient remains large with full controls** including ILLIQ, STR, MAX, MIN, MOM, LTR, COSKEW, SKEW, IVOL, ISKEW, and bond characteristics | Table 5, p.14 | Univariate: ST = -0.14\*\*\* (t=-10.46); with FFL6 betas only: -0.12\*\*\* (t=-13.30); with full controls: -0.07\*\*\* (t=-7.36); Adj-R2 rises from 0.015 to 0.313 |
-| R5 | **Weekly frequency: negative ST-return relation persists at weekly horizon**, ruling out daily microstructure noise | Table 7, Panel A, p.17 | 5-1 weekly return spread = -0.19%\*\*\* (t=-10.61); FFL6 return alpha = -0.19%\*\*\* (t=-9.35) per week |
+| R5 | **Weekly frequency: negative ST-return relation persists at weekly horizon**, addressing the daily microstructure-noise concern | Table 7, Panel A, p.17 | 5-1 weekly return spread = -0.19%\*\*\* (t=-10.61); FFL6 return alpha = -0.19%\*\*\* (t=-9.35) per week |
 | R6 | **Rating and maturity heterogeneity: salience premium is larger for junk bonds and long-maturity bonds** | Table 8, Panels A1 and B1, pp.17-18 | Junk 5-1 spread = -0.48%\*\*\* (t=-6.89) vs AAA/AA = -0.23%\*\*\* (t=-4.53); long-maturity spread = -0.47%\*\*\* (t=-10.79) vs short-maturity = -0.22%\*\*\* (t=-5.81) |
-| R7 | **Limits to arbitrage amplify the premium**: all five arbitrage-friction proxies produce Diff portfolios significant at 1% | Table 9, Panel A, pp.19-20 | IVOL Diff = -0.48%\*\*\* (t=-9.10); TVOL Diff = -0.43%\*\*\* (t=-9.10); ILLIQ Diff = -0.37%\*\*\* (t=-4.62); Size Diff = -0.20%\*\*\* (t=-3.47); Attention Diff = -0.22%\*\*\* (t=-3.41) |
+| R7 | **Limits to arbitrage amplify the premium**: all five arbitrage-friction proxies produce Diff portfolios significant at 1% | Table 9, Panel A, p.20 | Size Diff = +0.20%\*\*\* (t=3.47); TVOL Diff = -0.42%\*\*\* (t=-7.99); IVOL Diff = -0.48%\*\*\* (t=-9.10); ILLIQ Diff = -0.37%\*\*\* (t=-4.42); Attention Diff = -0.22%\*\*\* (t=-3.41) |
 
 **Overall (paper's conclusion).** The salience premium in corporate bonds cannot be attributed to conventional risk factors, past return patterns, or bond characteristics. The premium is pervasive across all bond rating and maturity segments, is larger where limits to arbitrage are more severe, is stronger for bonds with higher retail investor demand, and intensifies during periods of high economic uncertainty and bullish credit market sentiment. Bond investors, including institutional ones, are not immune to salience bias.
 
@@ -115,7 +117,7 @@ Magnitudes and significance are as reported in the source; `\*`/`\*\*`/`\*\*\*` 
 The paper applies the Bordalo, Gennaioli, and Shleifer (2012) (BGS hereafter) salience model to the corporate bond market. The model relaxes the rational-expectations framework by having agents assign disproportionate weight to payoff states that stand out relative to the payoffs of comparable assets. Asset $i$ has payoffs in $S$ states ordered from most negative to most positive, with objective probabilities $\pi_s$ (equation 1, p.3):
 
 $$
-\left(R^i_{-m},\, \pi_{-m};\; \ldots;\; R^i_{-1},\, \pi_{-1};\; R^i_0,\, \pi_0;\; R^i_1,\, \pi_1;\; \ldots;\; R^i_{n-1},\, \pi_n \right)
+\left(R^i_{-m},\, \pi_{-m};\; \ldots;\; R^i_{-1},\, \pi_{-1};\; R^i_0,\, \pi_0;\; R^i_1,\, \pi_1;\; \ldots;\; R^i_n,\, \pi_n \right)
 $$
 
 For each state $s$, the salience of asset $i$'s payoff relative to the average return $\bar{R}_s$ on similar assets in the same state is measured by the salience function (equation 2, p.4):
@@ -132,9 +134,9 @@ $$
 \bar{\pi}^{ST}_s = \pi_s \omega^{ST}_s, \qquad \omega^{ST}_s = \frac{\delta^{k^i_s}}{\sum_s \delta^{k^i_s} \pi_s} \tag{3}
 $$
 
-where $\delta \in (0, 1)$ governs the degree of distortion. When $\delta < 1$, states with more salient payoffs (lower rank $k^i_s$) receive greater overweighting relative to objective probabilities. When $\delta = 1$, objective probabilities are undistorted.
+where $\delta \in (0, 1]$ governs the degree of distortion. When $\delta < 1$, states with more salient payoffs (lower rank $k^i_s$) receive greater overweighting relative to objective probabilities. When $\delta = 1$, objective probabilities are undistorted.
 
-BGS (2013) show that for a salient thinker, the expected return on an asset negatively depends on the covariance between its salience weights and its returns (equation 4, p.4):
+Bordalo, Gennaioli, and Shleifer (2013; BGS) show that for a salient thinker, the expected return on an asset negatively depends on the covariance between its salience weights and its returns (equation 4, p.4):
 
 $$
 E(R^i_s) = -\text{cov}(\omega^{ST}_s,\, R^i_s) \equiv -ST^i \tag{4}
@@ -142,25 +144,25 @@ $$
 
 An asset has a positive $ST$ value when its positive returns are more salient than its negative returns. Such assets attract excess demand from salient thinkers, driving up prices and reducing future returns. This is the key asset-pricing implication: assets with higher $ST$ earn lower subsequent returns.
 
-**Bond-specific asymmetry.** Corporate bonds have limited upside potential (bounded by par value) but substantial downside (default risk). This payoff asymmetry implies that salient downside states are more likely to attract attention from bond investors than salient upside states. The model therefore predicts that the bond salience premium is driven primarily by the outperformance of bonds with salient downside, which contrasts with the upside-dominated pattern found by Cosemans and Frehen (2021) in the stock market.
+**Bond-specific asymmetry.** Corporate bonds have limited upside potential (bounded by par value) but substantial downside (default risk). The authors attribute the raw-return pattern, in which the low-ST portfolio associated with salient downside outperforms, to this payoff asymmetry. The difference between downside and upside components is not significant after rating and maturity adjustment. This pattern contrasts with the upside-dominated result reported by Cosemans and Frehen (2021) for stocks.
 
 ## Method
 
-**ST value estimation.** For each trading day $d$ in evaluation period $\tau$, the salience degree of bond $i$'s daily return $R^M_{d,\tau}$ is measured relative to the equal-weighted average daily return across all bonds $\bar{R}^M_{d,\tau}$, using the salience function in equation (2) above with parameters $\theta = 0.1$ and $\delta = 0.7$ (BGS 2012 calibration, p.5). A maximum 7-day gap between consecutive trading days is imposed. The baseline evaluation window is the prior two months (requiring at least 10 daily observations), chosen to balance recency of information and estimation reliability.
+**ST value estimation.** For each trading day $d$ in evaluation period $\tau$, the salience degree of bond $i$'s daily return $R^i_{d,\tau}$ is measured relative to the equal-weighted average daily return across all bonds $\bar{R}^M_{d,\tau}$, using the salience function in equation (2) above with parameters $\theta = 0.1$ and $\delta = 0.7$ (BGS 2012 calibration, p.5). A maximum 7-day gap between consecutive trading days is imposed. The baseline evaluation window is the prior two months (requiring at least 10 daily observations), chosen to balance recency of information and estimation reliability.
 
-Daily salience degrees are ranked in descending order to assign salience rankings $k^i_{d,\tau}$. Assuming equal objective probability $\pi_d = 1/N_t$ for each trading day, the salience weight is:
-
-$$
-\omega^{ST}_{d,\tau} = \frac{\delta^{k^i_{d,\tau}}}{\sum_d \delta^{k^i_{d,\tau}} \cdot (1/N_t)}
-$$
-
-where $N_t$ is the number of trading days in $\tau$. The salience theory value of bond $i$ at month $t$ is:
+Daily salience degrees are ranked in descending order to assign salience rankings $k^i_{d,\tau}$. Assuming equal objective probability $\pi_d = 1/N_\tau$ for each trading day, the salience weight is:
 
 $$
-ST^i_t = \text{cov}\!\left(\omega^{ST}_{d,\tau},\, R^i_{d,\tau}\right)
+\omega^{ST}_{d,\tau} = \frac{\delta^{k^i_{d,\tau}}}{\sum_d \delta^{k^i_{d,\tau}} \cdot (1/N_\tau)}
 $$
 
-A positive $ST^i_t$ means the bond's historical daily returns are positively correlated with the salience weights: days with more extreme (salient) returns tend to have positive returns, making the bond appear attractive to salient thinkers.
+where $N_\tau$ is the number of trading days in $\tau$. The salience theory value of bond $i$ at month $t$ is:
+
+$$
+ST^i_\tau = \text{cov}\!\left(\omega^{ST}_{d,\tau},\, R^i_{d,\tau}\right)
+$$
+
+A positive $ST^i_\tau$ means the bond's historical daily returns are positively correlated with the salience weights: days with more extreme (salient) returns tend to have positive returns, making the bond appear attractive to salient thinkers.
 
 **Bond return construction.** The raw monthly return on bond $i$ in month $t$ is (equation 5, p.5):
 
@@ -179,6 +181,8 @@ $$
 where $days_{it}$ is the number of trading days with daily returns, and $vol_{ij,t}$ is the dollar volume (in USD million) on day $j$.
 
 **Factor exposure estimation.** Beta loadings for the six FFL6 factors (MKT, SMB, HML from Fama and French (1993), DEF, TERM, and the Lin et al. (2011) liquidity factor LIQ) are estimated each month $t$ by regressing monthly bond excess returns on factor excess returns over a rolling 60-month window.
+
+For LIQ, the rolling estimation also includes lagged LIQ, and the current and lagged LIQ coefficients are summed to account for nonsynchronous trading (footnote 10, p.5).
 
 ## Empirical specifications
 
@@ -202,7 +206,7 @@ $$
 
 **By rating and maturity (R6).** Bonds are grouped into four rating portfolios (AAA/AA, A, BBB, Junk) and three maturity portfolios (Short: under 5 years; Medium: 5-10 years; Long: over 10 years). Within each group, bonds are further sorted by $ST$ and a high-minus-low (5-1) portfolio is formed. Separate FM regressions within each rating or maturity group confirm the pattern.
 
-**Limits-to-arbitrage interaction (R7).** The FM regression adds an interaction $ST^i_t \times D^i_t$, where $D^i_t$ equals 1 when a limits-to-arbitrage proxy (issue size, TVOL, IVOL, ILLIQ, or Attention) exceeds its cross-sectional median. A significantly negative interaction coefficient indicates a larger salience premium for high-friction bonds (Table 9, Panel B).
+**Limits-to-arbitrage interaction (R7).** The FM regression adds an interaction $ST^i_t \times D^i_t$, where $D^i_t$ equals 1 when a limits-to-arbitrage proxy (issue size, TVOL, IVOL, ILLIQ, or Attention) exceeds its cross-sectional median. In Table 9, Panel B, the ST-by-size interaction is positive and significant at 10%, consistent with a weaker premium for larger issues; the TVOL and IVOL interactions are negative, the ILLIQ interaction is negative at 10%, and the Attention interaction is negative but insignificant after controls (p.20).
 
 ## Datasets used
 

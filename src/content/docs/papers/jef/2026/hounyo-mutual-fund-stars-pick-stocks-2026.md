@@ -57,15 +57,15 @@ paper:
     granularity: [individual]
     n: "3,630 funds, 425 months (Jan 1984-May 2019)"
   findings:
-    - { ref: R1, outcome: "test size of bootstrap procedures", metric: probability, value: "FF joint-resampling generates far more extreme t-statistics than Fixed bootstrap at both T=13 and T=60; duplicate effect persists at large T (Fig. 1, p. 4)", direction: negative, vsBenchmark: "Fixed & Complete (no duplicates) vs Joint & Complete (FF-like); FF failure persists even at T=60" }
-    - { ref: R2, outcome: "test size of bootstrap procedures", metric: probability, value: "CSDWB_I size approx. 10% at all percentiles (max, 99.5, 99th, 95th, 90th) under all three cross-sectional dependence scenarios (Figs. 7-9, pp. 11-12)", direction: positive, vsBenchmark: "CSDWB_I and CSDWB_II near-optimal; FF oversized at max percentile; HL methods undersized or threshold-sensitive" }
+    - { ref: R1, outcome: "test size of bootstrap procedures", metric: probability, value: "FF joint-resampling generates far more extreme t-statistics than Fixed bootstrap at both T=13 and T=60; duplicate effect persists at large T (Fig. 1, p. 4)", direction: positive, vsBenchmark: "Fixed & Complete (no duplicates) vs Joint & Complete (FF-like); FF failure persists even at T=60" }
+    - { ref: R2, outcome: "test size of bootstrap procedures", metric: probability, value: "CSDWB_I and CSDWB_II stay near the 10% size level across percentiles and dependence scenarios (Fig. 7, p. 11); CSDWB methods remain near nominal in empirical simulations (Figs. 8-9, pp. 11-12)", direction: positive, vsBenchmark: "HL_II departs from 10% for small T; HL_I and HL_II also miss at the maximum percentile in the CSDWB-generated simulation" }
     - { ref: R3, outcome: "fraction of funds outperforming the market", metric: probability, value: "CSDWB_I likelihoods: max 0.915, 2nd 0.989*, 5th 0.992*, 99.9 0.988*, 99.5 0.972*, 99th 0.920; FF: max 0.154, 5th 0.568, 99.9 0.492 (Table 2, p. 15)", direction: positive, vsBenchmark: "FF detects no outperformers at any of top 10 percentiles; CSDWB_I and CSDWB_II identify outperformers at 2nd-99th percentiles" }
-    - { ref: R4, outcome: "fraction of funds outperforming the market", metric: probability, value: "Strong evidence of outperformance before 2003; no evidence after 2003 (Table E.3; subperiod split at 2003, §4.1, p. 13-14)", direction: mixed, vsBenchmark: "pre-2003 subperiod: outperformance confirmed; post-2003: null result; breakpoint confirmed by KTWW criteria" }
+    - { ref: R4, outcome: "fraction of funds outperforming the market", metric: probability, value: "Strong evidence of outperformance before 2003; no evidence after 2003 (Table E.3; subperiod split at 2003, §4.1, p. 13-14)", direction: mixed, vsBenchmark: "pre-2003 versus post-2003 subsamples" }
     - { ref: R5, outcome: "mutual fund alpha (abnormal return vs Carhart four-factor model)", metric: return-spread, value: "Best-funds portfolio (238 funds selected via Algorithm 1): cumulative excess returns 8.91% above market at 4-year horizon, 15.12% at 9-year horizon; significant at 10% level for first 4 years (§4.2, Fig. 11, p. 16)", direction: positive, vsBenchmark: "vs equal-weighted broad mutual fund market portfolio, Jan 1984-Dec 2002" }
     - { ref: R6, outcome: "mutual fund alpha (abnormal return vs Carhart four-factor model)", metric: alpha, value: "Time-varying (nonparametric) alpha at 99.5th percentile fund remains stable pre-2005 near upper 90% bootstrap confidence bound; post-2005 volatility rises and alpha approaches lower bound (§4.3, Fig. 12, p. 17)", direction: mixed, vsBenchmark: "vs zero-alpha null; CSDWB_I 10-90% bootstrap confidence interval" }
   resultType: overturns
   relatesTo:
-    - { cite: "Fama and French (2010)", doi: '10.1111/j.1540-6261.2010.01598.x', relation: contradicts, note: "FF bootstrap is severely undersized due to duplicate observations; their finding of no outperformers is overturned by CSDWB" }
+    - { cite: "Fama and French (2010)", doi: '10.1111/j.1540-6261.2010.01598.x', relation: contradicts, note: "FF bootstrap is severely undersized due to duplicate observations; their conclusion that few, if any, funds outperform is challenged by CSDWB evidence" }
     - { cite: "Kosowski et al. (2006)", doi: '10.1016/j.jfineco.2005.12.009', relation: extends, note: "CSDWB extends KTWW bootstrap to cross-sectionally dependent, unbalanced panels; confirms their evidence that skilled funds exist" }
     - { cite: "Harvey and Liu (2022)", doi: '10.1111/jofi.13123', relation: extends, note: "HL attribute FF undersizing to undersampling; paper shows the dominant cause is duplicate observations rather than undersampling" }
     - { cite: "Huang et al. (2023)", doi: '10.1016/j.jeconom.2022.03.011', relation: extends, note: "improves on their bootstrap analysis of mutual fund performance by eliminating the duplicate observations problem" }
@@ -78,6 +78,7 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1-18, all figures and tables); six results extracted from the paywalled PDF. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; fixed missing JEL code G11, corrected Fig. 11 page locator from p. 15 to p. 16 (in Core results table and findings entry for R5); all equations (2.1, 2.2, 2.3, CSDWB_I, 4.1), Table 2 values, and six result rows verified correct." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Flagged for the abstract's power comparison omitted from this page; corrected R1 direction, R2 claims/locators, R4 comparison, fund-selection and time-varying-alpha details, and fund-characteristics scope after a full PDF audit." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jempfin.2025.101673", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[] contains only Elsevier TDM user license, TDM representation license, and STM author self-archiving framework policies (017, 037, 012, 029, 004); no CC license; copyright notice 2025 Elsevier B.V. all rights reserved including for text and data mining and AI training" }
 ---
@@ -100,7 +101,7 @@ while eliminating duplicate observations. Simulations confirm CSDWB achieves nea
 size under a range of cross-sectional dependence scenarios. Applied to 3,630 U.S. equity mutual
 funds from January 1984 to May 2019, CSDWB finds that a measurable fraction of funds outperform
 the market on the four-factor Carhart (1997) model, with outperformance concentrated before 2003
-and absent afterwards.
+and no detected outperformance afterward.
 
 ## Core results
 
@@ -110,20 +111,20 @@ Locators point to tables, figures, and sections of the source PDF.
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | FF joint resampling generates far more extreme bootstrap t-statistics than Fixed (no-duplicate) resampling, even at T=60, confirming duplicate observations (not undersampling) as the dominant distortion | Fig. 1, p. 4 | Joint & Complete bootstrap right-tail density is visibly larger than Fixed & Complete at both T=13 and T=60; the gap persists as T increases, showing duplicate-observation inflation does not vanish with sample size |
-| R2 | CSDWB_I and CSDWB_II have near-optimal test size (~10%) at all percentiles across three cross-sectional dependence scenarios; FF is oversized at the max percentile and HL methods are unreliable for small T | Figs. 7-9, pp. 11-12 | CSDWB_I and CSDWB_II size ≈10% at max, 99.5, 99, 95, 90th percentiles under no, weak, and strong cross-sectional dependence; HL_II size diverges from 10% at small T |
+| R2 | CSDWB_I and CSDWB_II maintain near-optimal test size (~10%) across percentiles and three cross-sectional-dependence scenarios; HL methods deviate in some small-sample and maximum-percentile cases | Fig. 7, p. 11; Figs. 8-9, pp. 11-12 | CSDWB methods remain near the 10% level across the displayed percentiles; HL_II departs from 10% for small T, and HL_I/HL_II miss at the maximum percentile in the CSDWB-generated simulation |
 | R3 | CSDWB detects genuine mutual fund outperformers across the performance distribution; the FF method misses them entirely | Table 2, p. 15 | CSDWB_I: max 0.915, 2nd 0.989\*, 5th 0.992\*, 99.9 0.988\*, 99.5 0.972\*, 99th 0.920; FF: max 0.154, 2nd 0.330, 5th 0.568; KTWW: max 0.424, 2nd 0.806, 5th 0.982\* |
-| R4 | Outperformance is concentrated entirely in the pre-2003 period; no evidence of outperformance after 2003 | §4.1, p. 13-14; Table E.3 | Pre-2003 subperiod: strong evidence of outperformance using CSDWB; post-2003: no evidence; pattern consistent across bootstrap methods |
+| R4 | Outperformance is concentrated in the pre-2003 period; no evidence of outperformance after 2003 | §4.1, pp. 13-14; Table E.3 | Strong evidence before 2003; no evidence after 2003 |
 | R5 | Best-performing funds portfolio (238 funds, selected via MCS-based Algorithm 1 using 1984-1993 data) earns cumulative excess returns of 8.91% above the market over 4 years and 15.12% over 9 years | §4.2, p. 15; Fig. 11, p. 16 | Superior performance significant at 10% level for first 4 years; advantage fades over longer horizons; most notable in 1998, when the portfolio briefly underperforms the market |
-| R6 | Time-varying (nonparametric) alpha for top-percentile funds is stable pre-2005 near the upper bootstrap confidence bound; post-2005 alpha becomes volatile and approaches the lower bound | §4.3, p. 16; Fig. 12, p. 17 | 99.5th percentile fund alpha ≈ 0.05-0.25% per month pre-2005; post-2005 widening confidence interval and alpha near lower bound suggest reduced and uncertain skill |
+| R6 | Time-varying (nonparametric) alpha for top-percentile funds is stable pre-2005 near the upper bootstrap confidence bound; post-2005 alpha becomes volatile and approaches the lower bound | §4.3, p. 16; Fig. 12, p. 17 | The 99.5th-percentile alpha stays relatively stable near the upper confidence bound before 2005; afterward volatility and interval width rise, and alpha tends toward the lower bound |
 
 **Overall (paper's conclusion).** Duplicate observations in the Fama-French (2010) bootstrap
 are the dominant source of its severe undersizing, not the undersampling problem previously
 emphasized by Harvey and Liu (2022). The proposed CSDWB methods correct this flaw and confirm
 that a small but measurable fraction of U.S. equity mutual funds outperform the market, with
-outperformance concentrated in the pre-2003 period. Outperforming funds tend to have lower
-expense ratios, higher total net assets, and higher turnover, consistent with active management
-in a competitive environment before low-cost ETFs and product proliferation compressed alpha
-opportunities post-2003.
+outperformance concentrated in the pre-2003 period. The selected highest-performing funds tend
+to have lower expense ratios and fundamental fees, higher total net assets, and higher turnover.
+The paper links the later decline in alpha to stronger competition, including growth in low-cost
+ETFs and product variety.
 
 ## Theory / model
 
@@ -152,7 +153,8 @@ H_0 : a_i = 0, \quad \text{for } i = 1, \ldots, N. \tag{2.2}
 $$
 
 A positive $$a_i$$ indicates fund $$i$$ outperforms the market after adjusting for factor
-exposures. The paper tests this null by comparing the distribution of estimated
+exposures. Observed fund t-statistics use Newey-West (1986) standard errors. The paper tests
+this null by comparing the distribution of estimated
 $$\hat{t}_{(i)}$$ statistics (ranked order statistics) against a bootstrap-approximated
 distribution under $$H_0$$, focusing on extreme-right-tail percentiles (99th, 99.5th, max)
 following Kosowski et al. (2006) and Fama and French (2010).
@@ -193,20 +195,21 @@ $$
 
 The same scalar weight $$\eta_t^{*b}$$ is applied to the entire cross-section of residuals
 $$(\hat{\varepsilon}_{1t}, \ldots, \hat{\varepsilon}_{N_t t})$$ at each period $$t$$, preserving
-cross-sectional dependence. Missing observations remain intact. Because each observation uses
-a different realization of $$\eta_t^{*b}$$, no exact duplicate $$(\varepsilon_{it}^{*b}, F_t^{*b})$$
-pairs are generated, eliminating the FF duplicate-observations distortion.
+cross-sectional dependence. Missing observations remain intact. Each period uses a different
+realization of $$\eta_t^{*b}$$, shared across funds observed at that date, avoiding the exact
+duplicate $$(\varepsilon_{it}^{*b}, F_t^{*b})$$ pairs generated by the FF procedure.
 
 **CSDWB_II** differs from CSDWB_I solely in that factor returns are not perturbed: $$F_t^{*b} = F_t$$.
 This makes CSDWB_II closely related to both the KTWW and CSDB methods and is useful for
 elucidating differences across approaches.
 
 **Fund selection algorithm** (Algorithm 1, p. 9): A Model Confidence Set (Hansen et al. 2011)
-sequential procedure identifies the best funds. At each iteration, CSDWB is used to derive
-a 90% confidence level for the performance of the current best fund relative to all other
-funds in the active set $$\mathcal{M}_0$$. The worst performer is eliminated if the null of
-equal performance is rejected. The procedure iterates until no further rejection occurs,
-yielding a final set $$\hat{\mathcal{M}}^*_{1-\lambda}$$ of best-performing funds.
+sequential procedure compares pairwise long-short portfolios among funds in the active set
+$$\mathcal{M}_0$$. At each iteration, it uses the maximum absolute pairwise t-statistic and
+CSDWB to test equal performance at $$\lambda=0.90$$. If rejected, it removes the worst fund
+and repeats until there is no rejection, yielding a final set
+$$\hat{\mathcal{M}}^*_{1-\lambda}$$. Pairwise comparisons require at least 36 overlapping
+observations.
 
 ## Empirical specifications
 
@@ -234,9 +237,10 @@ periods, 5% of funds having positive alpha, $$\alpha^+ = 30\%$$. An enhanced emp
 simulation uses CSDWB_I to generate data under the null (Section 3.2.2), avoiding the FF
 duplicate-observations distortion in the simulated DGP.
 
-**Subperiod analysis** (Section 4.1, §4.2): Pre/post-2003 split to test persistence.
-Fund selection period: January 1984 to December 1993 (10 years of training data, 238 funds
-selected via Algorithm 1). Out-of-sample evaluation: January 1984 to December 2002.
+**Subperiod analysis and fund selection** (Sections 4.1-4.2): The performance test splits
+the sample at 2003. The selection procedure uses January 1984 to December 1993, yielding 238
+funds; Figure 11 reports portfolio returns from January 1984 to December 2002 and marks the
+1993 portfolio reconstruction.
 
 **Time-varying alpha** (Section 4.3, equation 4.1, p. 16): A local least-squares estimator
 estimates the time-varying alpha $$a_{it}$$ in:
@@ -246,7 +250,7 @@ r_{it} = a_{it} + \sum_{k=1}^{K} \beta_{ikt} F_{kt} + \varepsilon_{it}, \tag{4.1
 $$
 
 using a rolling-window approach following Cai (2007) and Cai et al. (2018). Bootstrap
-confidence intervals are constructed with CSDWB_I fixing $$\hat{a}_i = 0$$.
+confidence intervals are constructed with CSDWB_I fixing $$\hat{a}_{it} = 0$$.
 
 ## Datasets used
 

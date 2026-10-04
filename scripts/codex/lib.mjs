@@ -1,6 +1,6 @@
 // Shared Codex runner: one `codex exec` call per agent, JSON result parsed
 // from the agent's final message. Used by workflow.mjs and agent.mjs.
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, existsSync, createWriteStream } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -9,6 +9,11 @@ import { fileURLToPath } from 'node:url';
 export const REPO = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const MODEL = process.env.IAR_CODEX_MODEL || 'gpt-6-luna';
 export const EFFORT = process.env.IAR_CODEX_EFFORT || 'high';
+// Recorded in provenance notes next to the model, so a stamp says exactly
+// which setup did the work.
+let cliVersion = 'unknown';
+try { cliVersion = execFileSync('codex', ['--version'], { encoding: 'utf8', timeout: 5000 }).trim(); } catch {}
+export const CODEX_CLI = cliVersion;
 
 // Agent defs and SKILL.md were written for Claude Code subagents. This maps
 // their tool vocabulary onto what a Codex shell agent actually has.
@@ -27,7 +32,9 @@ written for Claude Code subagents; translate their tool names as follows:
   its scripts under scripts/ as the agent file says.
 - Wherever an instruction or template records the extracting/verifying model
   (e.g. "by: paper-distiller (claude-sonnet-4-6)"), write \`${MODEL}\` instead:
-  provenance must name the model that actually did the work.
+  provenance must name the model that actually did the work. Keep the \`by:\`
+  value exactly "<role> (${MODEL})", and begin that entry's \`note:\` with
+  "[${MODEL}, effort ${EFFORT}, ${CODEX_CLI}] ".
 - Do only your task and edit only the file(s) it covers. Orchestrator steps
   that the instruction files mention (running scripts/codex/review.sh or any
   review, npm run build, live checks, git commit/push, and any agent role

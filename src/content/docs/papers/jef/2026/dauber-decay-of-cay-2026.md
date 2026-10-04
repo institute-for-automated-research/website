@@ -2,10 +2,10 @@
 title: "The Decay of cay: Dauber & Lawrenz (2026)"
 description: >-
   Distilled: Documents a substantial decline over the last two decades in the predictive power
-  of the consumption-wealth ratio (cay) for US stock market excess returns, attributing it to a
+  of the consumption-wealth ratio (cay) for US stock market excess returns, linking it to a
   structural shift in the cointegration relationship as asset wealth decouples from aggregate
-  consumption and labor income. Proposes a top-10% household version of cay as the most stable
-  remaining predictor. Journal of Empirical Finance 2026, CC BY 4.0. Six core results with source
+  consumption and labor income. Proposes a top-10% household version of cay as the dominant
+  predictor among alternatives examined. Journal of Empirical Finance 2026, CC BY 4.0. Six core results with source
   locators, datasets used, the model, and the method.
 sidebar:
   label: Dauber-Lawrenz 2026
@@ -56,10 +56,10 @@ paper:
   findings:
     - { ref: R1, outcome: "stock market excess returns (quarterly predictability)", metric: coefficient, value: "aggregate cay NDS full sample 1Q: beta=0.241, t=1.118, adj-R2=0.001 (insignificant)", direction: none, vsBenchmark: "vs. beta=2.165, t>3, adj-R2=9% in Lettau and Ludvigson (2001) sample 1952:4-1998:3" }
     - { ref: R2, outcome: "stock market excess returns (quarterly predictability)", metric: coefficient, value: "cay PCE10 full sample 1Q: beta=0.629, t=2.417, adj-R2=0.020 (significant at 5%)", direction: positive, vsBenchmark: "best among four cay specs; aggregate NDS insignificant (t=1.118)" }
-    - { ref: R3, outcome: "stock market excess returns (quarterly predictability)", metric: probability, value: "Phillips-Ouliaris cointegration test p-values: NDS 0.868, PCE 0.577 (full sample 1952:1-2019:4); cannot reject null of no cointegration", direction: none }
+    - { ref: R3, outcome: "stock market excess returns (quarterly predictability)", metric: probability, value: "Phillips-Ouliaris cointegration test p-values: full sample NDS 0.868, PCE 0.577; Lettau-Ludvigson (2001) sample NDS 0.369, PCE 0.144; cannot reject null of no cointegration in either sample", direction: none }
     - { ref: R4, outcome: "stock market excess returns (quarterly predictability)", metric: coefficient, value: "asset wealth cointegrating parameter beta_a (NDS): declines from ~0.3 in early 1990s toward 0.0 by 2019 and becomes insignificant (Fig. 5, Table 4)", direction: negative }
-    - { ref: R5, outcome: "stock market excess returns (quarterly predictability)", metric: alpha, value: "risk-adjusted abnormal return theta starts ~200bp for all specs in mid-1990s; by 2019 all aggregate specs exhibit double-digit negative theta; cay PCE10 ends near 10bp", direction: mixed, vsBenchmark: "vs. rolling historical mean strategy; theta computed via Goetzmann et al. (2007) / Della Corte et al. (2010) methodology" }
-    - { ref: R6, outcome: "stock market excess returns (quarterly predictability)", metric: t-stat, value: "full sample 1Q t-statistics: cay PCE10 t=2.417, cday t=1.693, cay-g t=1.732, cay-unfi t=1.299", direction: positive, vsBenchmark: "cay PCE10 most stable and significant among alternative constructions (Table 6)" }
+    - { ref: R5, outcome: "stock market excess returns (quarterly predictability)", metric: alpha, value: "risk-adjusted abnormal return theta starts ~200bp for all specs in mid-1990s; all aggregate and NDS10 specs end negative; cay PCE10 ends near positive 10bp", direction: mixed, vsBenchmark: "vs. rolling historical mean strategy; theta computed via Goetzmann et al. (2007) / Della Corte et al. (2010) methodology" }
+    - { ref: R6, outcome: "stock market excess returns (quarterly predictability)", metric: t-stat, value: "full sample 1Q t-statistics: cay PCE10 t=2.417, cday t=1.693, cay-sigma (with market volatility) t=1.732, cay-unfil t=1.299", direction: positive, vsBenchmark: "cay PCE10 is the only alternative significant at 5% (Table 6)" }
   resultType: overturns
   relatesTo:
     - { cite: 'Lettau and Ludvigson (2001)', doi: '10.1111/0022-1082.00347', relation: contradicts, note: 'original cay paper showed strong IS and OOS predictability; this paper documents both have collapsed over the last two decades' }
@@ -72,6 +72,7 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1-20 plus Appendix A); six results extracted from PDF. OpenAlex topics were misclassified for this paper (returned biology and humanities terms for a macrofinance paper, indicating a wrong-work match); cleared to [] rather than store false labels. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all six Core-results rows confirmed; equations (1)-(13) verified term-by-term; one locator fixed: Empirical specifications section cited Fig. 7 at p. 15 corrected to p. 16." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Blind audit against the source PDF corrected R3's earlier-sample test claim, R6's alternative-model label, R5's theta sign, and Eq. 12 notation; all six Core-results rows, equations, specifications, prose, and frontmatter checked." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jempfin.2025.101668", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=http://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-11-23" }
 ---
@@ -91,10 +92,10 @@ US data from 1952:1 to 2019:4, the authors show that aggregate cay has lost even
 predictive ability from the perspective of the most recent data. They trace this decay to a
 structural shift in the underlying cointegration relationship between consumption, aggregate wealth,
 and labor income, as asset wealth has become increasingly detached from aggregate consumption since
-around 2000 due to rising wealth inequality. As a partial remedy, they propose a version of cay
-constructed from the top 10% richest households (cay^PCE10), which remains the most stable and
-significantly predictive alternative among those examined, though even this measure's predictive
-advantage over a naive historical mean strategy has largely disappeared.
+around 2000, a shift the authors link to rising wealth inequality. As a partial remedy, they propose
+a version of cay constructed from the top 10% richest households (cay^PCE10), which is the dominant
+and most stable predictive alternative among those examined, though even this measure's advantage
+over a naive historical mean strategy has largely disappeared.
 
 ## Core results
 
@@ -105,10 +106,10 @@ Locators point into the source PDF.
 |---|---|---|---|
 | R1 | **Aggregate cay (NDS) has lost in-sample predictive power** for 1Q-ahead excess returns in the full sample | Table 3, p. 8 | beta = 0.241, t = 1.118, adj-R2 = 0.001; compare to Lettau and Ludvigson (2001) sample: beta = 2.165, t > 3, adj-R2 = 9% |
 | R2 | **cay^PCE10 (top-10% PCE version) retains marginal in-sample significance** at the 1Q horizon | Table 3, p. 8 | beta = 0.629, t = 2.417\*\*, adj-R2 = 0.020; aggregate NDS coefficient is insignificant (t = 1.118) |
-| R3 | **Cointegration between consumption, wealth, and income cannot be confirmed** for the full sample | Table 4 Panel B, p. 13 | Phillips and Ouliaris (1990) test p-values: NDS = 0.868, PCE = 0.577 (full sample 1952:1-2019:4); p-values below critical values for the Lettau and Ludvigson (2001) sample only |
+| R3 | **Cointegration between consumption, wealth, and income cannot be confirmed** for either sample period | Table 4 Panel B, p. 13 | Phillips and Ouliaris (1990) test p-values: full sample NDS = 0.868, PCE = 0.577; Lettau and Ludvigson (2001) sample NDS = 0.369, PCE = 0.144. The null of no cointegration is not rejected in either sample. |
 | R4 | **Asset wealth coefficient in the cointegrating vector has declined steadily** since the late 1990s | Fig. 5, p. 13 | beta_a (NDS) falls from approximately 0.3 in the early 1990s toward 0.0 by 2019; becomes insignificant from the perspective of the full sample (Table 4 Panel A) |
-| R5 | **Out-of-sample economic performance decays across all specifications** except cay^PCE10 | Fig. 4, pp. 11-12 | Risk-adjusted abnormal return theta starts at approximately 200bp for all specs in mid-1990s; all aggregate cay specs exhibit double-digit negative theta by 2019; cay^PCE10 ends near 10bp |
-| R6 | **cay^PCE10 is the most stable and significant alternative** among four proposed improvements in the full sample | Table 6, p. 17 | Full sample 1Q t-statistics: cay^PCE10 = 2.417\*\*, cday = 1.693, cay^g = 1.732, cay^unfi = 1.299 |
+| R5 | **Out-of-sample economic advantage erodes, while cay^PCE10 remains positive** against the historical-mean strategy | Fig. 4, pp. 11-12 | Risk-adjusted abnormal return theta starts at approximately 200bp for all specs in mid-1990s; all aggregate and NDS10 specs end negative, while cay^PCE10 ends around positive 10bp |
+| R6 | **cay^PCE10 is the most stable and significant alternative** among four proposed improvements in the full sample | Table 6, p. 17 | Full sample 1Q t-statistics: cay^PCE10 = 2.417\*\*, cday = 1.693, cay-sigma (with market volatility) = 1.732, cay-unfil = 1.299 |
 
 **Overall (paper's conclusion).** The predictive ability of cay has fundamentally weakened over the
 last roughly two decades. The decay is traceable to a structural shift in the cointegrating
@@ -225,10 +226,10 @@ conclusions.
 excess returns at horizon $$H$$ is (p. 8, Eq. 12):
 
 $$
-\bar{r}_{t,H} = \alpha^k + \beta^k_{\text{cay}} \widehat{\text{cay}}^k_t + \varepsilon^k_{t,H}, \quad k \in \{\text{NDS, PCE, NDS10, PCE10}\}, \tag{12}
+\tilde{r}_{t,H} = \alpha^k + \beta^k_{\text{cay}} \widehat{\text{cay}}^k_t + \varepsilon^k_{t,H}, \quad k \in \{\text{NDS, PCE, NDS10, PCE10}\}, \tag{12}
 $$
 
-where $$\bar{r}_{t,H} = r_{t+1} - r_{f,t+1} + \cdots + r_{t+H} - r_{f,t+H}$$ is the H-period
+where $$\tilde{r}_{t,H} = r_{t+1} - r_{f,t+1} + \cdots + r_{t+H} - r_{f,t+H}$$ is the H-period
 cumulative log excess return. Newey and West (1987) corrected t-statistics are reported. Table 3
 (p. 8) covers horizons $$H \in \{1, 2, 4, 8, 12, 16, 20\}$$ quarters. A time-varying version
 re-estimates the regression recursively in an expanding window from 1990 to track how the
@@ -251,8 +252,8 @@ period (through 1994:4) and evaluated from 1995:1 onward. The risk-adjusted abno
 $$\theta_t$$ is plotted over time for all four cay specifications (Fig. 4, pp. 11-12).
 
 **Comparison with alternatives (R6).** Table 6 (p. 17) runs Eq. (12) at the 1Q horizon for four
-competing cay specifications (cay^PCE10, cday from Sousa (2010), cay^g from Guo (2006), and
-cay^{unfi} from Kroencke (2017)) using PCE consumption, reporting coefficient estimates,
+competing cay specifications (cay^PCE10, cday from Sousa (2010), cay-sigma from Guo (2006), and
+cay-unfil from Kroencke (2017)) using PCE consumption, reporting coefficient estimates,
 Newey-West t-statistics, and adjusted R2 statistics for both the Lettau and Ludvigson (2001)
 sample period (through 1998:3) and the full sample (through 2019:4).
 
