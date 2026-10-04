@@ -21,6 +21,38 @@ import { dirname, join, resolve } from 'node:path';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const papersDir = join(root, 'src', 'content', 'docs', 'papers');
 
+// --- name normalization (shared by both sides of the --gap match) --------
+// PDF filenames carry accents (JIMÉNEZ), Unicode hyphens (BEN\u2010REPHAEL),
+// apostrophes (D'AVERNAS) and letters NFD cannot split (JØRRING); slugs are
+// plain ASCII kebab-case. Fold both to the slug alphabet so they compare.
+const FOLD = { ø: 'o', æ: 'ae', œ: 'oe', ß: 'ss', đ: 'd', ð: 'd', ł: 'l', þ: 'th', ı: 'i' };
+function norm(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '') // strip combining accents
+    .replace(/[øæœßđðłþı]/g, (c) => FOLD[c])
+    .replace(/['\u2018\u2019\u02bc`]/g, '') // apostrophes: d'avernas -> davernas
+    .replace(/[\p{Pd}\s_]+/gu, '-') // any dash or space -> '-'
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+// Slug-prefix keys a library surname may appear under: the full hyphen-joined
+// form (ben-rephael, demiguel), the apostrophe-split last part (avernas), and
+// the last word of a spaced particle name (DI MAGGIO -> maggio).
+function surnameKeys(raw) {
+  const keys = new Set([norm(raw)]);
+  const parts = norm(raw.replace(/['\u2018\u2019\u02bc`\s]+/g, ' ')).split('-');
+  if (parts.length > 1 && !/[\p{Pd}]/u.test(raw)) keys.add(parts.at(-1));
+  return [...keys].filter(Boolean);
+}
+
+// Content words of a title, for the same-surname tiebreak against a slug.
+const STOP = new Set(['the', 'and', 'for', 'from', 'with', 'into', 'evidence', 'what', 'does', 'how', 'are']);
+const titleWords = (t) => norm(t).split('-').filter((w) => w.length > 2 && !STOP.has(w));
+
 // --- the wiki pages: the source of truth ---------------------------------
 function distilled() {
   const out = [];
@@ -39,7 +71,9 @@ function distilled() {
           journal: j.name,
           year: y.name,
           slug,
-          // First slug token is the lead author surname (cakici-...-2025).
+          // First slug token is the lead author surname (cakici-...-2025);
+          // compound surnames span several tokens (ben-rephael-...), so --gap
+          // matches on the slug prefix, not this field.
           surname: slug.split('-')[0],
           title,
           doi,
@@ -68,6 +102,7 @@ const LIB = {
     // JF: "Volume 80_ Issue 5 (October 2025)/The Journal of Finance - 2025 - SURNAME - Title.pdf"
     scan(dir) {
       const papers = [];
+      let untitled = 0;
       if (!existsSync(dir)) return null;
       for (const vol of readdirSync(dir, { withFileTypes: true })) {
         if (!vol.isDirectory()) continue;
@@ -79,14 +114,26 @@ const LIB = {
         for (const f of readdirSync(join(dir, vol.name))) {
           if (!f.endsWith('.pdf')) continue;
           const m = f.match(/-\s*(\d{4})\s*-\s*([^-]+?)\s*-\s*(.+)\.pdf$/);
-          if (!m) continue;
-          const surname = m[2].trim().split(/\s+/)[0].toLowerCase();
+          if (!m) {
+            untitled++; // older issues: "... - 2008 - SURNAME.pdf", no title
+            continue;
+          }
+          // Keep the whole surname field (BEN\u2010REPHAEL, DI MAGGIO); norm() and
+          // surnameKeys() fold it for matching. `surname` stays readable.
+          const surname = m[2].trim().toLowerCase();
+          const fileYear = m[1];
           // ScienceDirect/Wiley strip punctuation to double-spaces; collapse to
           // one (we lose the odd colon but never invent one).
           const title = m[3].trim().replace(/\s{2,}/g, ' ');
           if (/^(issue information|miscellan|erratum|front matter)/i.test(title)) continue;
-          papers.push({ volume: vol.name, year: volYear, surname, title });
+          // Pages are filed by issue year; the filename year (online date) can
+          // be one earlier (JOHNSTON-ROSS is "2024" in a 2025 issue), so keep it
+          // as a fallback.
+          papers.push({ volume: vol.name, year: volYear, fileYear, surname, title });
         }
+      }
+      if (untitled) {
+        console.warn(`[coverage] skipped ${untitled} PDFs with no title in the filename (not counted below)`);
       }
       // The library has duplicate issue folders (e.g. "... (1)"); dedupe so
       // counts and the TODO list are not doubled.
@@ -106,15 +153,36 @@ function gap(journal, journalDir) {
   if (!cfg) return { error: `no library mapping for journal '${journal}' (have: ${Object.keys(LIB).join(', ')})` };
   const lib = cfg.scan(journalDir);
   if (lib === null) return { error: `library dir not found: ${journalDir} (pass the journal's PDF dir as the 3rd arg)` };
-  // Distilled keys for this journal: year|surname. This is a heuristic match:
-  // two distinct same-surname papers in one journal-year would collapse (one
-  // distilled marks the other done). Rare; the table footnote flags it so a
-  // human eyeballs before relying on the TODO list.
-  const done = new Set(
-    distilled().filter((d) => d.journal === journal).map((d) => `${d.year}|${d.surname}`)
-  );
-  const todo = lib
-    .filter((p) => !done.has(`${p.year}|${p.surname}`))
+  // Match: same issue year (or filename year), and the page slug starts with
+  // one of the library surname's normalized keys. When several library papers
+  // share a year+surname (HOFFMANN x2 in 2025), each page goes to at most one
+  // of them: the one whose title shares the most content words with the slug.
+  // A tie for the top score assigns the page to neither (fails safe as TODO).
+  const pages = distilled().filter((d) => d.journal === journal);
+  const keyed = lib.map((p) => ({ p, keys: surnameKeys(p.surname) }));
+  const prefixHit = (slug, keys) => keys.some((k) => slug === k || slug.startsWith(`${k}-`));
+  const overlap = (p, d) => {
+    const slugWords = new Set(d.slug.split('-'));
+    return new Set(titleWords(p.title).filter((w) => slugWords.has(w))).size;
+  };
+  const titleHit = (p, d) => overlap(p, d) > 0;
+  // A filename-year match is weaker than an issue-year match, so it also needs
+  // a shared title word (guards against the same author's other-year paper).
+  const claims = ({ p, keys }, d) =>
+    prefixHit(d.slug, keys) && (d.year === p.year || (d.year === p.fileYear && titleHit(p, d)));
+  const done = new Set();
+  for (const d of pages) {
+    const rivals = keyed.filter((o) => claims(o, d));
+    if (rivals.length === 1) {
+      done.add(rivals[0]);
+      continue;
+    }
+    const scored = rivals.map((o) => ({ o, n: overlap(o.p, d) })).sort((a, b) => b.n - a.n);
+    if (scored.length > 1 && scored[0].n > 0 && scored[0].n > scored[1].n) done.add(scored[0].o);
+  }
+  const todo = keyed
+    .filter((x) => !done.has(x))
+    .map((x) => x.p)
     .sort((a, b) => b.year.localeCompare(a.year) || a.volume.localeCompare(b.volume) || a.surname.localeCompare(b.surname));
   return { journal, libTotal: lib.length, distilled: lib.length - todo.length, todo };
 }
@@ -143,7 +211,7 @@ if (gapIdx !== -1) {
     console.log(JSON.stringify(r, null, 2));
   } else {
     console.log(`${journal.toUpperCase()} coverage: ${r.distilled}/${r.libTotal} distilled, ${r.todo.length} TODO`);
-    console.log('(matched by lead-author surname + issue year; eyeball before relying.)\n');
+    console.log('(matched by normalized lead-author surname as slug prefix + issue year, title words break ties; eyeball before relying.)\n');
     let curYear = '';
     for (const p of r.todo) {
       if (p.year !== curYear) {
