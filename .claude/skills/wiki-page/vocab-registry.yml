@@ -884,6 +884,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   undercutting-channel:
     def: Mechanism in which a larger minimum price increment reduces front-running of resting limit orders via trivially better quotes, discouraging liquidity provision for narrow-spread stocks while reducing adverse-selection costs for wide-spread stocks.
     aliases: [tick-undercutting, undercutting-friction]
+  pricing-fidelity:
+    def: A coarse tick grid constrains quotes away from competitive prices, raising transaction costs and reducing market quality, especially for narrow-spread securities.
+    aliases: [tick-grid-fidelity, price-grid-fidelity]
   pay-disparity-social-comparison:
     def: Executive-to-worker pay gaps reduce employee commitment and labor-investment efficiency through perceived inequity and social comparison.
     aliases: [social-comparison-channel, executive-worker-pay-gap]

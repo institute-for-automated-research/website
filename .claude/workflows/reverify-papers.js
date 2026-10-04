@@ -1,8 +1,9 @@
 export const meta = {
   name: 'reverify-papers',
-  description: 'Verify-only pass: adversarially re-check already-distilled IAR paper pages against their source PDFs and attest them',
-  whenToUse: 'Given a work-list of already-distilled {slug, journal, year, pdf} pages (scripts/build-reverify-items.mjs), run one paper-verifier per page, no distillation. Used to re-verify the Sonnet-distilled corpus with gpt-6-luna (issue #49). Build/curate/review/commit stay with the caller. Run with node scripts/codex/workflow.mjs (Codex gpt-6-luna), not the Workflow tool.',
+  description: 'Re-check already-distilled IAR paper pages against their source PDFs and attest them, optionally completing thin pages first',
+  whenToUse: 'Given a work-list of already-distilled {slug, journal, year, pdf} pages (scripts/build-reverify-items.mjs), run one paper-verifier per page. With args.complete=true, a paper-distiller first applies its Completeness rules to the existing page (adds missing result rows, mechanisms, equations), then the verifier checks the whole page. Used to re-verify the Sonnet-distilled corpus with gpt-6-luna (issue #49). Build/curate/review/commit stay with the caller. Run with node scripts/codex/workflow.mjs (Codex gpt-6-luna), not the Workflow tool.',
   phases: [
+    { title: 'Complete', detail: 'only with args.complete: one paper-distiller per page adds what the Completeness rules require', model: 'gpt-6-luna' },
     { title: 'Verify', detail: 'one paper-verifier per page, re-checks against the PDF, fixes in place, appends a role: verified attestation', model: 'gpt-6-luna' },
   ],
 };
@@ -14,14 +15,15 @@ if (typeof IAR_CODEX_RUNNER === 'undefined' || IAR_CODEX_RUNNER !== true) {
   throw new Error('Codex-only workflow: run node scripts/codex/workflow.mjs <this script> <args.json>, not the Workflow tool.');
 }
 
-// args = { today: 'YYYY-MM-DD', items: [{ slug, journal, year, pdf }, ...] }
+// args = { today: 'YYYY-MM-DD', complete?: true, items: [{ slug, journal, year, pdf }, ...] }
 let A = args;
 if (typeof A === 'string') {
   try { A = JSON.parse(A); } catch { A = {}; }
 }
 const TODAY = A?.today ?? '';
 const items = Array.isArray(A?.items) ? A.items : [];
-log(`reverify-papers: args type=${typeof args}, parsed items=${items.length}`);
+const COMPLETE = A?.complete === true;
+log(`reverify-papers: args type=${typeof args}, parsed items=${items.length}, complete=${COMPLETE}`);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(TODAY)) {
   log(`reverify-papers: today is not YYYY-MM-DD (${JSON.stringify(TODAY)}); refusing to write attestations`);
   return { ok: false, reason: 'bad today', today: TODAY };
@@ -30,6 +32,22 @@ if (!items.length) {
   log('reverify-papers: no items; nothing to do');
   return { ok: false, reason: 'no items', argsType: typeof args };
 }
+
+const COMPLETE_SCHEMA = {
+  type: 'object',
+  additionalProperties: true,
+  properties: {
+    status: { type: 'string', enum: ['ok', 'failed'] },
+    slug: { type: 'string' },
+    rowsBefore: { type: 'number' },
+    rowsAfter: { type: 'number' },
+    added: { type: 'array' },
+    proposedVocab: { type: 'array' },
+    notes: { type: 'string' },
+    reason: { type: 'string' },
+  },
+  required: ['status', 'slug', 'rowsBefore', 'rowsAfter', 'added'],
+};
 
 const VERIFY_SCHEMA = {
   type: 'object',
@@ -50,6 +68,51 @@ const VERIFY_SCHEMA = {
 };
 
 const dest = (it) => `src/content/docs/papers/${it.journal}/${it.year}/${it.slug}.md`;
+
+const completePrompt = (it) => `You are operating as the "paper-distiller" agent. FIRST read these two files
+and follow them as your operating instructions:
+  - .claude/agents/paper-distiller.md  (your procedure; its "Completeness (required)" section governs this task)
+  - .claude/skills/wiki-page/SKILL.md   (the wiki page rules)
+Then perform this task.
+
+pdf: ${it.pdf}
+path: ${dest(it)}
+slug: ${it.slug}
+today: ${TODAY}
+
+The page at ${dest(it)} already exists, written by an older model, and is
+likely thin. You are in Augment mode on THIS page. This task changes your
+procedure as follows; where it conflicts with your agent definition, this
+prompt wins:
+  - Skip procedure step 3 (Crossref, licenceVerification[], and the duplicate
+    guard: the DOI is in the corpus because this page carries it, so never
+    return "skipped") and step 3b (OpenAlex). Do steps 1, 2, and 4.
+  - Augment mode's PRESERVE of the Core results table and resultsCount is
+    lifted for additions: APPEND a Core results row for every distinct
+    main-text finding the page lacks (main effects, separate identification
+    checks, stressed heterogeneity splits, mechanism tests, null/placebo
+    evidence), each with an exact locator and magnitude from the PDF. New rows
+    go at the END of the table and continue the numbering after the current
+    last R<n>. Existing rows stay byte-identical (a verifier checks them next).
+  - Then set resultsCount to the new row count, make sure findings[] has one
+    entry for every quantitative row, existing and new (ref = its R<n>), and fix
+    any row count stated in the description.
+  - Stage any newly minted vocab terms in the page's paper.proposedVocab
+    frontmatter as your definition says (append; keep existing entries), and
+    list them in your return too.
+  - Also add missing mechanisms and every missing numbered main-text equation
+    and main estimating specification, per "Completeness (required)".
+  - Keep everything else Augment mode preserves: extraction[] and
+    licenceVerification[] entries, licence / access / redistribution / pdf
+    frontmatter, the Attribution block, title and slug.
+Append one extraction[] entry (role: extracted, today, your model id) naming
+what you added. Edit only this one file.
+Your final message is THIS JSON (it replaces the return format in your agent
+definition), nothing after it: {"status": "ok" | "failed", "slug", "rowsBefore",
+"rowsAfter", "added": [one short line per added row or section],
+"proposedVocab": [...], "notes"}. On failure still return every field (status
+"failed", the row counts as you found them, added: [] or what you did add)
+plus "reason".`;
 
 const verifyPrompt = (it) => `You are operating as the "paper-verifier" agent. FIRST read
 .claude/agents/paper-verifier.md and follow it exactly as your operating
@@ -79,6 +142,11 @@ faithful to the PDF in direction and emphasis (e.g. which channel dominates,
 which way a pattern runs across maturities or groups). Fix clear errors in
 place on this one file only.
 
+Before attesting, run \`node scripts/check-relatesto-locatable.mjs\` and fix any
+MISS it reports for THIS page (restore a one-line body mention derived from the
+edge's note; invent nothing). Rewriting prose can drop the sentence that named a
+cited work, and an un-locatable cite fails the site build.
+
 Then append the role: verified attestation dated ${TODAY} as instructed. Keep the
 older entries; the list stacks.
 
@@ -91,14 +159,28 @@ In the returned JSON also report:
     re-distillation step.
 Return the JSON verdict.`;
 
-const results = await parallel(items.map((it) => () =>
+const verify = (it) =>
   agent(verifyPrompt(it), {
     agentType: 'general-purpose',
     label: `verify:${it.slug}`,
     phase: 'Verify',
     schema: VERIFY_SCHEMA,
-  }).then((verified) => ({ slug: it.slug, journal: it.journal, year: it.year, verified }))
-));
+  });
+
+// With complete: the verifier always runs, even if completion failed, since a
+// failed completion may still have edited the page.
+const results = await parallel(items.map((it) => async () => {
+  const completed = COMPLETE
+    ? await agent(completePrompt(it), {
+        agentType: 'general-purpose',
+        label: `complete:${it.slug}`,
+        phase: 'Complete',
+        schema: COMPLETE_SCHEMA,
+      }).catch(() => null)
+    : undefined;
+  const verified = await verify(it);
+  return { slug: it.slug, journal: it.journal, year: it.year, completed, verified };
+}));
 
 const clean = results.filter(Boolean);
 const checked = clean.filter((r) => r.verified?.status === 'checked');
@@ -109,7 +191,9 @@ const failedSlugs = items.filter((it) => !checkedKeys.has(key(it))).map(key);
 // A pass with downgraded rows still needs a human look.
 const flagged = checked.filter((r) => r.verified.verdict === 'flagged' || (r.verified.unresolved?.length ?? 0) > 0);
 const thin = checked.filter((r) => r.verified.thin);
-log(`reverify-papers done: ${checked.length}/${items.length} checked, ${flagged.length} flagged, ${thin.length} thin, ${failedSlugs.length} failed`);
+const completeFailed = COMPLETE ? clean.filter((r) => r.completed?.status !== 'ok').map(key) : [];
+log(`reverify-papers done: ${checked.length}/${items.length} checked, ${flagged.length} flagged, ${thin.length} thin, ${failedSlugs.length} failed` +
+  (COMPLETE ? `, ${completeFailed.length} completion failed` : ''));
 
 return {
   checked: checked.length,
@@ -117,11 +201,18 @@ return {
   flagged: flagged.map((r) => ({ slug: r.slug, unresolved: r.verified.unresolved })),
   thin: thin.map((r) => ({ slug: r.slug, missingHeadlines: r.verified.missingHeadlines })),
   failed: failedSlugs,
+  ...(COMPLETE && {
+    rowsAdded: clean.reduce((n, r) => n + Math.max(0, (r.completed?.rowsAfter ?? 0) - (r.completed?.rowsBefore ?? 0)), 0),
+    completeFailed,
+    // Caller runs vocab-curator once over the batch before building when true.
+    pendingCuration: clean.some((r) => (r.completed?.proposedVocab || []).length > 0),
+  }),
   pages: checked.map((r) => ({
     slug: r.slug,
     path: dest(r),
     verdict: r.verified.verdict,
     rowsChecked: r.verified.rowsChecked,
     fixed: r.verified.fixed,
+    ...(COMPLETE && { rowsBefore: r.completed?.rowsBefore, rowsAfter: r.completed?.rowsAfter, added: r.completed?.added }),
   })),
 };

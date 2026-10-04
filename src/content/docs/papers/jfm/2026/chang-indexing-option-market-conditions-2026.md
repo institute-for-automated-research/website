@@ -5,7 +5,7 @@ description: >-
   deviations, higher options trading volume, and narrower bid-ask spreads than similar-sized
   stocks at the bottom of the Russell 1000 Index, documented via the annual Russell 1000/2000
   reconstitution as a regression discontinuity design (local linear regressions, 1998-2006).
-  Journal of Financial Markets 2026, CC BY-NC-ND 4.0. Six core results with source locators,
+  Journal of Financial Markets 2026, CC BY-NC-ND 4.0. Eleven core results with source locators,
   datasets used, the measure construction, and the identification approach.
 sidebar:
   label: Chang-Ge-Lin-Ma 2026
@@ -30,7 +30,7 @@ paper:
   access: open
   machineAccess: "open-access HTML+PDF (Elsevier ScienceDirect; CC BY-NC-ND 4.0 confirmed via Crossref DOI metadata, 2026-06-25)"
   redistribution: "extract-only (CC BY-NC-ND 4.0 permits redistribution of verbatim copies; no derivative works permitted; PDF not hosted in this batch)"
-  resultsCount: 6
+  resultsCount: 11
   citedByCount: 0
   jel:
     codes: [G12, G13, G14]
@@ -42,6 +42,7 @@ paper:
     - put-call parity deviation (option market conditions)
     - options trading volume
     - options bid-ask spread
+    - stock characteristics around the index cutoff
   outcomeClass: [market-microstructure, asset-prices]
   methods:
     role: applies-method
@@ -49,7 +50,7 @@ paper:
     buildsFrom: [regression-discontinuity-design, panel-regression]
     identification: rdd
   contributionType: [new-fact]
-  mechanisms: [liquidity]
+  mechanisms: [liquidity, information-asymmetry]
   scope:
     region: US
     assetClass: "US equities and exchange-traded options (Russell 1000/2000 threshold stocks)"
@@ -65,6 +66,12 @@ paper:
     - { ref: R4, outcome: "options bid-ask spread (call vs put)", metric: coefficient, value: "call Dum2000 = -3.565 (t = -6.25); put Dum2000 = -1.731 (t = -2.80)", direction: negative, vsBenchmark: "call spreads more affected than put spreads; inconsistent with lending-fee channel" }
     - { ref: R5, outcome: "number of zero trading volume days (OptNZVD)", metric: coefficient, value: "Dum2000 = -32.774 (t = -5.68)", direction: negative, vsBenchmark: "similar-sized stocks at bottom of Russell 1000 Index; bandwidth 50" }
     - { ref: R6, outcome: "options ILLIQ (Optilliq)", metric: coefficient, value: "Dum2000 = -0.050 (t = -5.32)", direction: negative, vsBenchmark: "similar-sized stocks at bottom of Russell 1000 Index; bandwidth 50" }
+    - { ref: R7, outcome: "stock characteristics around the index cutoff", metric: level, value: "At bandwidth 50: median LNMAYSIZE 14.37 (Russell 1000) vs 14.14 (Russell 2000); mean analyst count 9.03 vs 9.78; forecast dispersion 0.34 vs 0.26; stock volume 0.53m vs 0.67m", direction: mixed, vsBenchmark: "bottom 50 Russell 1000 ranks vs top 50 Russell 2000 ranks" }
+    - { ref: R8, outcome: options trading volume, metric: coefficient, value: "Put Dum2000 = 0.566 (t = 4.53); call Dum2000 = 0.524 (t = 3.53)", direction: positive, vsBenchmark: "put and call options separately; bandwidth 50" }
+    - { ref: R9, outcome: "put-call parity deviation (option market conditions)", metric: coefficient, value: "Bandwidth 25: Dum2000 = -0.005 (t = -2.28); bandwidth 75: Dum2000 = -0.003 (t = -2.10)", direction: negative, vsBenchmark: "fully controlled specifications, Table 7 cols. 3 and 6" }
+    - { ref: R10, outcome: options trading volume, metric: coefficient, value: "Bandwidth 25: Dum2000 = 0.514 (t = 2.83); bandwidth 75: Dum2000 = 0.339 (t = 4.54)", direction: positive, vsBenchmark: "fully controlled specifications, Table 7 cols. 3 and 6" }
+    - { ref: R11, outcome: options bid-ask spread, metric: coefficient, value: "Bandwidth 25: Dum2000 = -2.489 (t = -2.96); bandwidth 75: Dum2000 = -2.167 (t = -4.34)", direction: negative, vsBenchmark: "fully controlled specifications, Table 7 cols. 3 and 6" }
+  proposedVocab: []
   resultType: new-finding
   relatesTo:
     - { cite: "Chang et al. (2015)", doi: '10.1093/rfs/hhu041', relation: builds-on, note: "the Russell 1000/2000 regression discontinuity identification strategy and local linear regression approach adopted here" }
@@ -73,12 +80,14 @@ paper:
     - { cite: "Boone and White (2015)", doi: '10.1016/j.jfineco.2015.05.008', relation: cites, note: "firms at top of Russell 2000 have higher stock liquidity and lower information asymmetry; provides the stock-side premise for the mechanism" }
     - { cite: "Kamara and Miller (1995)", doi: '10.2307/2331275', relation: cites, note: "higher options liquidity reduces put-call parity violations; this paper's findings are consistent with that prior result" }
   openQuestions:
-    - "The sample ends in 2006 due to the Russell banding policy implemented in 2007, under which stocks switch indexes only if market capitalizations move beyond a 5% range of the threshold, reducing local continuity of firm assignment around the cutoff; whether similar liquidity spillover effects hold under the post-2007 banding rule or other index reconstitution frameworks is untested (pp. 4-5)."
+    - "The sample ends in 2006 due to the Russell banding policy implemented in 2007, under which stocks switch indexes only if market capitalizations move beyond a 5% range of the threshold, potentially reducing local continuity of firm assignment around the cutoff; whether similar liquidity spillover effects hold under the post-2007 banding rule or other index reconstitution frameworks is untested (pp. 4-5)."
   replicationCode:
     status: none
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (16 pp., 9 tables); six results extracted from the open-access PDF. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; R1-R3, R5-R6 magnitudes and locators confirmed exact; R4 page locator corrected from pp. 9-10 to pp. 10-11 (Table 5 is journal p. 10, Table 6 is journal p. 11); equations (1)-(5) verified term-by-term; no em-dashes or colorful adjectives found." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added R7-R11, matching findings, expanded specification details, and the sample-description result. Additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, magnitudes, equations, specifications, classifications, findings, prose, and frontmatter re-checked against the source PDF; corrected control-window description and softened lending-fee and banding-policy claims." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.finmar.2025.101026", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=http://creativecommons.org/licenses/by-nc-nd/4.0/, start=2025-10-15, delay-in-days=0" }
   rightsSignalConflict: false
@@ -88,11 +97,11 @@ paper:
 
 ## TL;DR
 
-Using the annual Russell 1000/2000 Index reconstitution as a regression discontinuity design (following Chang et al. (2015)), the paper finds that stocks at the top of the Russell 2000 Index exhibit better option market conditions than similar-sized stocks at the bottom of the Russell 1000 Index, over 1998-2006. Specifically, indexed stocks have smaller put-call parity deviations, higher options trading volume, and narrower options bid-ask spreads. Boone and White (2015) document that these same threshold stocks have higher stock liquidity and lower information asymmetry. The paper argues the channel is a supply-side liquidity spillover: improved stock liquidity reduces the hedging costs of options market makers, who hedge by trading the underlying stock, making them more willing to provide liquidity in options. The lending-fee channel is ruled out because call options bid-ask spreads are more affected than put options bid-ask spreads, opposite to the prediction under a short-selling-cost mechanism. The results are consistent with Kamara and Miller (1995), who show that higher options liquidity reduces put-call parity violations.
+Using the annual Russell 1000/2000 Index reconstitution as a regression discontinuity design (following Chang et al. (2015)), the paper finds that stocks at the top of the Russell 2000 Index exhibit better option market conditions than similar-sized stocks at the bottom of the Russell 1000 Index, over 1998-2006. Specifically, indexed stocks have smaller put-call parity deviations, higher options trading volume, and narrower options bid-ask spreads. Boone and White (2015) document that these same threshold stocks have higher stock liquidity and lower information asymmetry. The paper argues the channel is a supply-side liquidity spillover: improved stock liquidity reduces the hedging costs of options market makers, who hedge by trading the underlying stock, making them more willing to provide liquidity in options. The results do not support the lending-fee channel as the primary explanation: call options bid-ask spreads are more affected than put spreads, opposite to the prediction under a short-selling-cost mechanism. The results are consistent with Kamara and Miller (1995), who show that higher options liquidity reduces put-call parity violations.
 
 ## Core results
 
-Magnitudes as reported; `\*\*` = 5%, `\*\*\*` = 1%. All from local linear regressions around the Russell 1000/2000 threshold, bandwidth ±50 stocks, year and industry fixed effects, 1998-2006. Locators point into the source PDF.
+Magnitudes as reported; `\*\*` = 5%, `\*\*\*` = 1%. Main regressions use local linear regressions around the Russell 1000/2000 threshold, bandwidth ±50 stocks, year and industry fixed effects, 1998-2006. Each row gives its own locator and bandwidth where applicable.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
@@ -102,8 +111,13 @@ Magnitudes as reported; `\*\*` = 5%, `\*\*\*` = 1%. All from local linear regres
 | R4 | **Call bid-ask spreads are more affected than put bid-ask spreads**, inconsistent with the lending-fee channel prediction | Tables 5 and 6, pp. 10-11 | Volume: put Dum2000 = 0.566\*\*\* (t = 4.53), call Dum2000 = 0.524\*\*\* (t = 3.53); Spreads: put Dum2000 = -1.731\*\*\* (t = -2.80), call Dum2000 = -3.565\*\*\* (t = -6.25) |
 | R5 | Alternative liquidity measure: indexed stocks have **fewer zero trading volume days** (OptNZVD) | Table 8, col. 3, p. 13 | Dum2000 = -32.774\*\*\* (t = -5.68); N = 321 |
 | R6 | Alternative liquidity measure: indexed stocks have **lower options ILLIQ** (Optilliq) | Table 9, col. 3, p. 14 | Dum2000 = -0.050\*\*\* (t = -5.32); N = 303 |
+| R7 | The cutoff groups have similar median size, while the Russell 2000 group has higher analyst coverage and stock trading volume and lower analyst forecast dispersion | Table 1, p. 6; §3.1, p. 6 | Median LNMAYSIZE: 14.37 (Russell 1000) vs 14.14 (Russell 2000); mean analyst count: 9.03 vs 9.78; forecast dispersion: 0.34 vs 0.26; stock volume: 0.53m vs 0.67m |
+| R8 | Indexing raises **put and call options volume similarly**, consistent with the supply-side liquidity channel | Table 5, p. 10 | Put: Dum2000 = 0.566\*\*\* (t = 4.53); call: Dum2000 = 0.524\*\*\* (t = 3.53); N = 316 each |
+| R9 | Lower put-call parity deviations persist under narrower and wider bandwidths | Table 7, Panel A, cols. 3 and 6, p. 12 | Bandwidth 25: Dum2000 = -0.005\*\* (t = -2.28), N = 101; bandwidth 75: -0.003\*\* (t = -2.10), N = 313 |
+| R10 | Higher options volume persists under narrower and wider bandwidths | Table 7, Panel B, cols. 3 and 6, p. 12 | Bandwidth 25: Dum2000 = 0.514\*\*\* (t = 2.83), N = 184; bandwidth 75: 0.339\*\*\* (t = 4.54), N = 545 |
+| R11 | Narrower options bid-ask spreads persist under narrower and wider bandwidths | Table 7, Panel C, cols. 3 and 6, p. 12 | Bandwidth 25: Dum2000 = -2.489\*\*\* (t = -2.96), N = 184; bandwidth 75: -2.167\*\*\* (t = -4.34), N = 545 |
 
-**Overall (paper's conclusion).** The stock market indexing effect, identified via the Russell 1000/2000 reconstitution, improves option market conditions through liquidity spillovers from equity markets to options markets. The supply-side channel, where options market makers face lower hedging costs when underlying stock liquidity improves, dominates demand-side and lending-fee alternatives. Results are robust to alternative bandwidths (±25 and ±75 stocks, Table 7) and alternative liquidity measures (OptNZVD, Optilliq, Tables 8-9).
+**Overall (paper's conclusion).** The stock market indexing effect, identified via the Russell 1000/2000 reconstitution, improves option market conditions through liquidity spillovers from equity markets to options markets. The supply-side channel, where options market makers face lower hedging costs when underlying stock liquidity improves, dominates the potential demand-side effect; the call-put spread comparison does not support lending fees as the primary explanation. Results are robust to alternative bandwidths (±25 and ±75 stocks, Table 7) and alternative liquidity measures (OptNZVD, Optilliq, Tables 8-9).
 
 ## Theory / model
 
@@ -113,7 +127,7 @@ The paper has no formal economic model. It tests two empirical hypotheses derive
 
 **H2 (supply-side liquidity spillover).** Options market makers hedge their positions by trading the underlying stock. When stock liquidity improves, their hedging costs fall, making them more willing to provide options liquidity (wider coverage, narrower spreads). This supply-side shift predicts higher options volume and narrower bid-ask spreads simultaneously.
 
-**Mechanism distinction.** A demand-side story, where informed arbitrageurs are more attracted to better-liquid stocks and increase options activity, would predict higher volume but wider bid-ask spreads (adverse selection). A lending-fee channel, where lower short-selling costs reduce the replication cost of put options, would predict stronger effects on put options relative to call options. The paper tests these alternatives using separate call and put regressions (Tables 5 and 6): call bid-ask spreads are more affected than put spreads, ruling out the lending-fee channel and pointing toward the supply-side market-making mechanism.
+**Mechanism distinction.** A demand-side story, where informed arbitrageurs are more attracted to better-liquid stocks and increase options activity, would predict higher volume but wider bid-ask spreads (adverse selection). A lending-fee channel, where lower short-selling costs reduce the replication cost of put options, would predict stronger effects on put options relative to call options. The paper tests these alternatives using separate call and put regressions (Tables 5 and 6): call bid-ask spreads are more affected than put spreads, which does not support the lending-fee channel as the primary explanation and points toward the supply-side market-making mechanism.
 
 **Identification.** Each year, Russell constructs the Russell 1000 and Russell 2000 indexes based on market capitalization at end of May; portfolio weights are released in June. Stocks just above the cutoff enter the Russell 2000 with high portfolio weights (the 2000 index has a smaller aggregate market cap denominator), while stocks just below enter the Russell 1000 with low portfolio weights. Market capitalizations around the threshold are continuous, but portfolio weights jump discontinuously, providing near-random assignment in a narrow bandwidth. Chang et al. (2015) establish that this generates significant stock price effects. The paper follows the same setting, focusing on stocks within ±50 ranks of the threshold (1998-2006, ending before Russell's 2007 banding policy change).
 
@@ -143,9 +157,9 @@ $$
 \text{Absoptivspread}_{i,t} = \tau \cdot \text{Dum2000}_{i,t} + \delta X_{i,t-1} + \text{FixedEffects} + \xi_{it} \tag{2}
 $$
 
-where $$\text{Dum2000}_{i,t}$$ equals one when stock $$i$$ is at the top of the Russell 2000 in year $$t$$ (zero when at the bottom of the Russell 1000). $$X_{i,t-1}$$ is a vector of controls following Roll et al. (2010) and Lin and Lu (2015): log market capitalization in May (LNMAYSIZE), book-to-market ratio (B/M), cumulative daily stock return (LAGSTOCKRET), skewness of daily stock returns (LAGSTOCK\_SKEW), log number of analysts (ANALYSTS), standard deviation of analyst earnings forecasts (DISPERSION), average stock bid-ask spread (STKSPREAD), average stock trading volume (STKVOL), mean open-interest-weighted implied volatility (IMPLIEDVOL), cumulative daily S&P 500 return (SP500), and average daily VIX (VIXYEAR). All controls are constructed over the same 11-month window. Fixed effects include year and industry. The coefficient $$\tau$$ captures the indexing effect on option market conditions.
+where $$\text{Dum2000}_{i,t}$$ equals one when stock $$i$$ is at the top of the Russell 2000 in year $$t$$ (zero when at the bottom of the Russell 1000). $$X_{i,t-1}$$ is a vector of controls following Roll et al. (2010) and Lin and Lu (2015): log market capitalization in May (LNMAYSIZE), book-to-market ratio (B/M), cumulative daily stock return (LAGSTOCKRET), skewness of daily stock returns (LAGSTOCK\_SKEW), log number of analysts (ANALYSTS), standard deviation of analyst earnings forecasts (DISPERSION), average stock bid-ask spread (STKSPREAD), average stock trading volume (STKVOL), mean open-interest-weighted implied volatility (IMPLIEDVOL), cumulative daily S&P 500 return (SP500), and average daily VIX (VIXYEAR). LNMAYSIZE is measured in May and B/M at the end of the previous fiscal year; the other controls are constructed over the same 11-month window as the dependent variable. Fixed effects include year and industry. The coefficient $$\tau$$ captures the indexing effect on option market conditions. The fully controlled specification uses 199 stock-year observations within the ±50-rank bandwidth, with year and industry fixed effects (Table 2, col. 3, p. 7). The table reports t-statistics in parentheses; the paper does not specify the standard-error estimator or clustering level.
 
-**Liquidity spillover regressions, equations (3) and (4), pp. 7-8:**
+**Liquidity spillover regressions, equations (3) and (4), p. 7:**
 
 $$
 \text{Optvol}_{i,t} = \tau \cdot \text{Dum2000}_{i,t} + \delta X_{i,t-1} + \text{FixedEffects} + \xi_{it} \tag{3}
@@ -155,11 +169,21 @@ $$
 \text{Optspread}_{i,t} = \tau \cdot \text{Dum2000}_{i,t} + \delta X_{i,t-1} + \text{FixedEffects} + \xi_{it} \tag{4}
 $$
 
-where $$\text{Optvol}_{i,t}$$ is the log of total options contracts and $$\text{Optspread}_{i,t}$$ is the open-interest-weighted daily average bid-ask spread in percent. Equations (3) and (4) are also estimated separately for call and put options (Tables 5 and 6, pp. 9-10) to test the lending-fee channel.
+where $$\text{Optvol}_{i,t}$$ is the log of total options contracts and $$\text{Optspread}_{i,t}$$ is the open-interest-weighted daily average bid-ask spread in percent. Equations (3) and (4) use the same controls, year and industry fixed effects, 11-month July-to-May windows, and ±50-rank samples as equation (2). The fully controlled samples contain 368 stock-years for total options volume (Table 3, p. 8) and 368 for spreads (Table 4, p. 9). Tables 5 and 6 (pp. 10-11) estimate these outcomes separately for calls and puts: Table 5 has 316 observations per side; Table 6 has 363 put and 362 call observations. Each specification includes year and industry fixed effects. The paper reports t-statistics in parentheses and does not identify the standard-error estimator or clustering level.
 
-**Alternative measures.** The same specifications replace the dependent variable with OptNZVD (equation (5), Table 8) and Optilliq, the average daily change in options prices divided by dollar trading volume, adjusted for mechanical price changes due to the underlying (Table 9). Both follow from Amihud (2002) and Liu (2006) adapted for options.
+**Alternative-liquidity specifications, Tables 8-9, pp. 13-14:**
 
-**Robustness.** Table 7 (p. 12) repeats the main regressions with bandwidths of ±25 and ±75 stocks. In both cases the Dum2000 coefficient is negative and statistically significant for put-call parity deviation, positive and significant for options volume, and negative and significant for bid-ask spreads, consistent with the main results at ±50.
+$$
+\text{OptNZVD}_{i,t} = \tau \cdot \text{Dum2000}_{i,t} + \delta X_{i,t-1} + \text{FixedEffects} + \xi_{it}
+$$
+
+$$
+\text{Optilliq}_{i,t} = \tau \cdot \text{Dum2000}_{i,t} + \delta X_{i,t-1} + \text{FixedEffects} + \xi_{it}
+$$
+
+These use the same controls, year and industry fixed effects, 11-month July-to-May window, ±50-rank sample, and t-statistics in parentheses as the main regressions. Fully controlled samples are 321 stock-years for OptNZVD (Table 8, col. 3, p. 13) and 303 for Optilliq (Table 9, col. 3, p. 14). The article does not report the standard-error estimator or clustering level. OptNZVD is the standardized turnover-adjusted count of zero-volume days defined in equation (5). Optilliq is the average daily option price change divided by dollar volume, after adjustment for the option delta times the underlying stock price change. These measures adapt Liu (2006) and Amihud (2002), respectively, to options.
+
+**Robustness.** Table 7 (p. 12) repeats the main regressions with bandwidths of ±25 and ±75 stocks. Fully controlled specifications retain negative and significant parity-deviation and spread coefficients and positive and significant volume coefficients at both bandwidths. Table 7 reports t-statistics in parentheses; it does not state a standard-error estimator or clustering procedure.
 
 ## Datasets used
 
@@ -174,7 +198,7 @@ Sample: 1998-2006 (9 annual reconstitutions), 11-month estimation window per rec
 
 ## When to read the full paper
 
-Use the [original](https://doi.org/10.1016/j.finmar.2025.101026) if you are: studying how equity market structure changes spill over into derivatives markets; extending the analysis to post-2007 reconstitutions or other index settings; distinguishing supply-side (market-making cost), demand-side (informed trading), and lending-fee channels in options markets; or building on the put-call parity deviation measure of Rösch et al. (2017) in an RDD setting. Tables 2-4 (pp. 7-9) contain the primary results; Tables 5-6 (pp. 9-10) contain the mechanism tests; Tables 7-9 (pp. 12-14) contain robustness.
+Use the [original](https://doi.org/10.1016/j.finmar.2025.101026) if you are: studying how equity market structure changes spill over into derivatives markets; extending the analysis to post-2007 reconstitutions or other index settings; distinguishing supply-side (market-making cost), demand-side (informed trading), and lending-fee channels in options markets; or building on the put-call parity deviation measure of Rösch et al. (2017) in an RDD setting. Tables 2-4 (pp. 7-9) contain the primary results; Tables 5-6 (pp. 10-11) contain the mechanism tests; Tables 7-9 (pp. 12-14) contain robustness.
 
 ## Attribution and rights
 
