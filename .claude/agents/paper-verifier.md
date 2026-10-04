@@ -117,12 +117,12 @@ the JSON verdict below.
    mis-indented, is invalid YAML and breaks the build):
 
    ```yaml
-       - { by: paper-verifier (claude-sonnet-4-6), date: <today, from your prompt>, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; <one line: verdict and any fix>." }
+       - { by: paper-verifier (<your model id>), date: <today, from your prompt>, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; <one line: verdict and any fix>." }
    ```
 
-   This records which model verified the page and when. Use `claude-sonnet-4-6`
-   only if that is the model you are actually running as; otherwise write your
-   real model id. Today's date comes from your prompt.
+   This records which model verified the page and when. Write the model id you
+   are actually running as (your prompt states it, e.g. `gpt-6-luna`). Today's
+   date comes from your prompt.
 
 ## Hard rules
 - You edit ONLY the one page at `path`. Never touch other files.

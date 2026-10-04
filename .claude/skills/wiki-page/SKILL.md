@@ -39,7 +39,8 @@ provenance that was **actually exercised**, not transcribed. Do not weaken that.
 2. **The Verified discipline**: only stamp a `verified:` block after you have
    actually run the page's keystone access claim against the live source in this
    session. An unrun stamp is a lie. Be precise in `with:` about what ran.
-3. **After any big change, launch a Sonnet review agent** over the diff. Fix
+3. **After any big change, run a Codex review** (`scripts/codex/review.sh`,
+   gpt-6-luna) over the diff. Fix
    findings, then run another review round. Iterate until clean.
 4. **Build and live-check before considering it done**: `npm run build`, then
    confirm routes are 200 with zero redirect hops and badges/twins render.
@@ -230,14 +231,24 @@ Artifacts (single source of truth, reuse every batch):
   canonical `methods.buildsFrom`/`family` slugs.
 - `.claude/workflows/distill-papers.js` : fans out distill->verify as a
   `pipeline`, one file per paper. Invoke with
-  `Workflow({scriptPath: ".../distill-papers.js", args: {today, items:[{slug,journal,year,pdf,hint}]}})`.
+  `node scripts/codex/workflow.mjs .claude/workflows/distill-papers.js args.json`
+  with `args.json` = `{today, items:[{slug,journal,year,pdf,hint}]}`.
   Pages are organised `papers/<journal>/<year>/<slug>.md` (journal = lowercase
   code in src/journals.js; year = the journal ISSUE year). The orchestrator sets
   journal+year from the issue you scouted, which is what prevents the
   online-first vs issue-year mismatch (the distiller uses the year you pass).
-  (The workflow runtime only resolves built-in agent types, so the script uses
-  `general-purpose` + `model: sonnet` and has each agent read its def file from
-  disk as step one. `args` may arrive as a JSON string; the script reparses it.)
+  Every agent runs on Codex (`gpt-6-luna`; override with `IAR_CODEX_MODEL`,
+  `IAR_CODEX_EFFORT`, `IAR_CODEX_CONCURRENCY`, default 6 at a time) via
+  `codex exec`, reads its def file from disk as step one, and gets a runtime
+  preamble (`scripts/codex/lib.mjs`) mapping the defs' Claude tool names onto
+  shell tools (pdftotext / pdftoppm for PDFs, curl for web) and requiring the
+  attestation `by:` to name the model that actually ran. The backfill-axes and
+  backfill-findings workflows run the same way. Per-agent logs and
+  `result.json` land in `$TMPDIR/iar-codex-runs/<timestamp>/`.
+  Codex-only is enforced: each workflow throws unless the runner launched it,
+  and a PreToolUse hook (`.claude/hooks/block-claude-workflows.mjs`) blocks the
+  Workflow tool from launching any paper workflow/agent or any Sonnet model.
+  One-off manual Agent calls (e.g. to spot-check a page) are still allowed.
 
 Steps:
 1. **Scout** candidates and resolve each PDF's absolute path on disk. First see
@@ -252,7 +263,7 @@ Steps:
    titled filenames; some corpora only have coded names). Build the `items`
    work-list programmatically so unicode hyphens / double-spaces in filenames are
    exact, not hand-typed.
-2. **Run the workflow** (Sonnet fan-out). It writes + self-verifies each page.
+2. **Run the workflow** (Codex gpt-6-luna fan-out). It writes + self-verifies each page.
 3. **Reconcile across the batch (this is the orchestrator's job; no single
    agent sees all pages):**
    - **Slug consistency**: collapse `data:<slug>` variants that denote the same
@@ -278,7 +289,8 @@ Steps:
      `vocab-curator` agent ONCE over the batch pages. It folds each page's
      `paper.proposedVocab` into `vocab-registry.yml`, merges synonyms, and
      rewrites `methods.buildsFrom`/`family` to canonical slugs. It is serial
-     (one writer, no parallel collision) and must run before the build.
+     (one writer, no parallel collision) and must run before the build. Run it on Codex:
+     `node scripts/codex/agent.mjs vocab-curator "today: <date>\n     pages: <the batch page paths>"`.
    - **Em-dash / colorful-adjective sweep**: verifiers miss these; grep the new
      pages for the em-dash char (U+2014) and obvious promotional adjectives.
      Watch one YAML trap when fixing an em-dash inside an unquoted plain `note:`
@@ -291,7 +303,7 @@ Steps:
    re-emits a `Duplicate id` warning for every page touched since the last clean
    build. Wipe both. Acceptable output is then only the `datasets cited but
    undocumented` backlog line. No `Duplicate id`, no `tags not in any axis` orphan.
-5. **Mandated review loop**: launch a Sonnet review agent over the diff; fix
+5. **Mandated review loop**: run `scripts/codex/review.sh` over the diff; fix
    findings; re-review until `clean` (CLAUDE.md rule).
 6. **Live-check + commit**: confirm `dist/wiki/papers/<journal>/<year>/<slug>/index.html` + the
    `.md` twin exist and the page is in `/llms.txt`; commit (infra, harness,

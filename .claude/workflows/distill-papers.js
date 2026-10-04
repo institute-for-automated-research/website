@@ -1,12 +1,19 @@
 export const meta = {
   name: 'distill-papers',
   description: 'Distil research-paper PDFs into IAR wiki pages, then adversarially verify each against its source PDF',
-  whenToUse: 'Given a work-list of {slug, pdf, hint} papers, fan out paper-distiller agents (one file each) then paper-verifier agents to re-check locators/magnitudes against the PDF. Build/review/commit stay with the caller.',
+  whenToUse: 'Given a work-list of {slug, pdf, hint} papers, fan out paper-distiller agents (one file each) then paper-verifier agents to re-check locators/magnitudes against the PDF. Build/review/commit stay with the caller. Run with node scripts/codex/workflow.mjs (Codex gpt-6-luna), not the Workflow tool.',
   phases: [
-    { title: 'Distill', detail: 'one paper-distiller per paper, writes papers/<journal>/<year>/<slug>.md', model: 'sonnet' },
-    { title: 'Verify', detail: 'one paper-verifier per page, re-checks against the PDF', model: 'sonnet' },
+    { title: 'Distill', detail: 'one paper-distiller per paper, writes papers/<journal>/<year>/<slug>.md', model: 'gpt-6-luna' },
+    { title: 'Verify', detail: 'one paper-verifier per page, re-checks against the PDF', model: 'gpt-6-luna' },
   ],
 };
+
+// Codex-only. The Codex runner (scripts/codex/workflow.mjs) passes this
+// sentinel; the Workflow tool does not, so a Claude/Sonnet launch stops here
+// before any agent starts.
+if (typeof IAR_CODEX_RUNNER === 'undefined' || IAR_CODEX_RUNNER !== true) {
+  throw new Error('Codex-only workflow: run node scripts/codex/workflow.mjs <this script> <args.json>, not the Workflow tool.');
+}
 
 // args = { today: 'YYYY-MM-DD',
 //          items: [{ slug, journal, year, pdf, hint }, ...] }
@@ -111,7 +118,6 @@ const results = await pipeline(
   (it) =>
     agent(distillPrompt(it), {
       agentType: 'general-purpose',
-      model: 'sonnet',
       label: `distill:${it.slug}`,
       phase: 'Distill',
       schema: DISTILL_SCHEMA,
@@ -123,7 +129,6 @@ const results = await pipeline(
     }
     return agent(verifyPrompt(it), {
       agentType: 'general-purpose',
-      model: 'sonnet',
       label: `verify:${it.slug}`,
       phase: 'Verify',
       schema: VERIFY_SCHEMA,

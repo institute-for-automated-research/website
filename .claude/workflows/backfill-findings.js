@@ -1,12 +1,19 @@
 export const meta = {
   name: 'backfill-findings',
   description: 'Backfill the "what works" effectiveness axis (findings[] per Core-results row + paper-level resultType) onto already-distilled IAR paper pages, then verify each against the PDF',
-  whenToUse: 'Given a work-list of already-distilled {slug, journal, year, pdf} papers, add the effectiveness axis (findings[] built from each page\'s Core-results table, one per quantitative row, plus the paper-level resultType verdict), confirm values against the PDF, preserving all existing content, then verify each. Build/review/commit stay with the caller.',
+  whenToUse: 'Given a work-list of already-distilled {slug, journal, year, pdf} papers, add the effectiveness axis (findings[] built from each page\'s Core-results table, one per quantitative row, plus the paper-level resultType verdict), confirm values against the PDF, preserving all existing content, then verify each. Build/review/commit stay with the caller. Run with node scripts/codex/workflow.mjs (Codex gpt-6-luna), not the Workflow tool.',
   phases: [
-    { title: 'Findings', detail: 'one agent per page builds findings[] from the Core-results table + assigns resultType, preserves the rest', model: 'sonnet' },
-    { title: 'Verify', detail: 'one agent per page re-checks findings values/direction and resultType against the PDF', model: 'sonnet' },
+    { title: 'Findings', detail: 'one agent per page builds findings[] from the Core-results table + assigns resultType, preserves the rest', model: 'gpt-6-luna' },
+    { title: 'Verify', detail: 'one agent per page re-checks findings values/direction and resultType against the PDF', model: 'gpt-6-luna' },
   ],
 };
+
+// Codex-only. The Codex runner (scripts/codex/workflow.mjs) passes this
+// sentinel; the Workflow tool does not, so a Claude/Sonnet launch stops here
+// before any agent starts.
+if (typeof IAR_CODEX_RUNNER === 'undefined' || IAR_CODEX_RUNNER !== true) {
+  throw new Error('Codex-only workflow: run node scripts/codex/workflow.mjs <this script> <args.json>, not the Workflow tool.');
+}
 
 // args = { today: 'YYYY-MM-DD', items: [{ slug, journal, year, pdf, hint }, ...] }
 let A = args;
@@ -120,7 +127,7 @@ return notes; otherwise leave the table untouched.)
 Then APPEND one extraction[] entry (do not overwrite existing ones), same
 indentation as the others. Write the note as a YAML BLOCK scalar (note: >-), NEVER
 a plain one-line scalar (a colon-space inside a plain note breaks the build):
-    - by: paper-distiller (claude-sonnet-4-6)
+    - by: paper-distiller (${MODEL})
       date: ${TODAY}
       role: extracted
       note: >-
@@ -168,7 +175,7 @@ value over a guess.
 
 Append one extraction[] entry (do not overwrite), same indentation. Write the
 note as a YAML BLOCK scalar (note: >-), NEVER a plain one-line scalar:
-    - by: paper-verifier (claude-sonnet-4-6)
+    - by: paper-verifier (${MODEL})
       date: ${TODAY}
       role: verified
       note: >-
@@ -182,7 +189,6 @@ const results = await pipeline(
   (it) =>
     agent(findingsPrompt(it), {
       agentType: 'general-purpose',
-      model: 'sonnet',
       label: `findings:${it.slug}`,
       phase: 'Findings',
       schema: FINDINGS_SCHEMA,
@@ -194,7 +200,6 @@ const results = await pipeline(
     }
     return agent(verifyPrompt(it), {
       agentType: 'general-purpose',
-      model: 'sonnet',
       label: `verify:${it.slug}`,
       phase: 'Verify',
       schema: VERIFY_SCHEMA,

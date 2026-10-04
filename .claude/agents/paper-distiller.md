@@ -52,7 +52,7 @@ with the compact JSON result described at the bottom.
    `https://api.crossref.org/works/<doi>` and read `title`, `author`,
    `container-title`, `published`, `page`, and any `license[]` block
    (content-version, URL, start). Record what you actually found in
-   `licenceVerification[]` with today's date and `by: paper-distiller (claude-sonnet-4-6)`.
+   `licenceVerification[]` with today's date and `by: paper-distiller (<your model id>)`.
    Today's date is given in your prompt; if absent, read it from the
    environment, never guess.
    **Duplicate guard:** once you have the resolved DOI, grep the corpus for it
@@ -235,7 +235,7 @@ with the compact JSON result described at the bottom.
     proposals here. The batch vocab-curator reconciles the
     `family`/`builds-from`/`mechanism`/`metric`/`outcome-class` axes.
   - `extraction`: exactly one entry now,
-    `by: paper-distiller (claude-sonnet-4-6)`, `date: <today>`,
+    `by: paper-distiller (<your model id>)`, `date: <today>`,
     `role: extracted`, `note:` stating you read the PDF, that it is not
     human-verified and not reproduced.
   - `licenceVerification[]`: from step 3 (omit only if no DOI and nothing
