@@ -2,17 +2,17 @@
 title: "How to Dominate the Historical Average: Li, Li, Lyu & Yu (2025)"
 description: >-
   Distilled: Proposes a conservative-slope forecast for the equity premium that
-  sets the predictive slope to a small positive constant (1/A), reducing bias
-  relative to the historical average while matching its zero estimation variance,
+  sets the predictive slope to a small signed constant (±1/A), reducing bias
+  relative to the historical average while matching its zero slope-estimation variance,
   and proves ex ante that this forecast first-order stochastically dominates the
-  historical average whenever the population predictive slope is nonzero. Review
-  of Financial Studies 2025, CC BY-NC-ND 4.0. Seven core results with source
+  historical average under the stated slope and error-distribution conditions. Review
+  of Financial Studies 2025, CC BY-NC-ND 4.0. Twelve core results with source
   locators, datasets used, the theoretical framework, and the empirical method.
 sidebar:
   label: Li-Li-Lyu-Yu 2025
   order: 1
 tags: [paper-summary, asset-pricing, return-forecasting, equity-premium, time-series,
-       panel-regression, peer-reviewed, unreplicated, data:shiller-data, data:wrds]
+       peer-reviewed, unreplicated, data:shiller-data, data:wrds]
 paper:
   authors: Kai Li, Yingying Li, Changlei Lyu, Jialin Yu
   authorList:
@@ -42,13 +42,13 @@ paper:
   access: open
   machineAccess: "open-access (Oxford University Press, CC BY-NC-ND 4.0, 2026-06-06)"
   redistribution: extract-only (CC BY-NC-ND 4.0 does not permit derivative mirroring without permission)
-  resultsCount: 7
+  resultsCount: 12
   citedByCount: 3
 
   methods:
     role: proposes-method
     contributes: conservative-slope-forecast
-    family: descriptive
+    family: theory
     buildsFrom: [time-series-forecasting]
     identification: descriptive
 
@@ -61,58 +61,28 @@ paper:
     assetClass: US equities (CRSP value-weighted index)
     period: 1872-01..2017-12
     frequency: annual
-    dataType: [market]
+    dataType: [market, accounting]
     granularity: [aggregate]
     n: "23 predictors, annual US market returns 1872-2017 (sample varies by predictor; dp starts 1872)"
 
   findings:
-    - ref: R1
-      outcome: out-of-sample R-squared for equity premium prediction
-      metric: oos-r-squared
-      value: "3.4% (p=.044) for A=50 (dp predictor)"
-      direction: positive
-      vsBenchmark: positive vs historical average (HM); OLS gives 0.2% (p=.477)
-    - ref: R2
-      outcome: out-of-sample R-squared for equity premium prediction
-      metric: oos-r-squared
-      value: "2.1% (p=.019) for A=100 (dp predictor)"
-      direction: positive
-      vsBenchmark: "positive vs HM; more statistically significant than OLS (p=.477) and CT++ (p=.286)"
-    - ref: R3
-      outcome: out-of-sample R-squared for equity premium prediction
-      metric: oos-r-squared
-      value: "0.5% (p=.009) for A=500; 0.2% (p=.008) for A=1,000 (dp predictor)"
-      direction: positive
-      vsBenchmark: statistically significant at 99% level despite smaller magnitude; OLS is insignificant
-    - ref: R4
-      outcome: out-of-sample equity premium forecast accuracy
-      metric: oos-r-squared
-      value: "15 of 23 predictors have significantly positive OOS R-squared at 90% level; 8 at 95% level"
-      direction: positive
-      vsBenchmark: "vs historical average; OLS/CT generates statistically insignificant OOS R-squared for most predictors per Goyal and Welch (2008)"
-    - ref: R5
-      outcome: out-of-sample equity premium forecast accuracy
-      metric: oos-r-squared
-      value: "Method first-order stochastically dominates HM: CDF of MSE using method is everywhere above CDF of HM MSE (Figure 6, 40-year windows)"
-      direction: positive
-      vsBenchmark: beats HM on every quantile of MSE distribution; confirmed empirically with dp predictor
-    - ref: R6
-      outcome: out-of-sample equity premium forecast accuracy
-      metric: oos-r-squared
-      value: "Simulation OOS R-squared distributions: A=50 centered at ~4-5 (broadest), A=100 at ~3-4, A=200 at ~2, A=500 at ~1 (narrowest); all to the right of origin, i.e. positive R-squared"
-      direction: positive
-      vsBenchmark: all simulation R-squared distributions are right of zero (vs HM); OLS distribution spans negative values
-    - ref: R7
-      outcome: out-of-sample equity premium forecast accuracy
-      metric: oos-r-squared
-      value: "Confidence bounds from Campbell and Shiller (1988a) generate positive OOS R-squared from 1987 onward (A=209)"
-      direction: positive
-      vsBenchmark: "positive OOS R-squared using confidence bound as slope; demonstrates previously published estimates add value to OOS forecasts"
+    - { ref: R1, outcome: "out-of-sample R-squared for equity premium prediction", metric: oos-r-squared, value: "3.4% (p=.044) for A=50 (dp predictor)", direction: positive, vsBenchmark: "positive vs historical average (HM); OLS gives 0.2% (p=.477)" }
+    - { ref: R2, outcome: "out-of-sample R-squared for equity premium prediction", metric: oos-r-squared, value: "2.1% (p=.019) for A=100 (dp predictor)", direction: positive, vsBenchmark: "positive vs HM; more statistically significant than OLS (p=.477) and CT++ (p=.286)" }
+    - { ref: R3, outcome: "out-of-sample R-squared for equity premium prediction", metric: oos-r-squared, value: "0.5% (p=.009) for A=500; 0.2% (p=.008) for A=1,000 (dp predictor)", direction: positive, vsBenchmark: "statistically significant at 99% level despite smaller magnitude; OLS is insignificant" }
+    - { ref: R4, outcome: "out-of-sample equity premium forecast accuracy", metric: probability, value: "15 of 23 predictors have significantly positive OOS R-squared at 90% level; 8 at 95% level", direction: positive, vsBenchmark: "vs historical average; OLS/CT generates statistically insignificant OOS R-squared for most predictors per Goyal and Welch (2008)" }
+    - { ref: R5, outcome: "out-of-sample equity premium forecast accuracy", metric: probability, value: "Method first-order stochastically dominates HM: CDF of MSE using method is everywhere above CDF of HM MSE (Figure 6, 40-year windows)", direction: positive, vsBenchmark: "beats HM on every quantile of MSE distribution; confirmed empirically with dp predictor" }
+    - { ref: R6, outcome: "out-of-sample equity premium forecast accuracy", metric: oos-r-squared, value: "Simulation OOS R-squared distributions: A=50 mode near 6-7 (broadest), A=100 near 3-4, A=200 near 2, A=500 near 1 (narrowest); all to the right of origin, i.e. positive R-squared", direction: positive, vsBenchmark: "all simulation R-squared distributions are right of zero (vs HM); OLS distribution spans negative values" }
+    - { ref: R7, outcome: "out-of-sample equity premium forecast accuracy", metric: oos-r-squared, value: "Confidence bounds from Campbell and Shiller (1988a) generate positive OOS R-squared from 1987 onward (A=209)", direction: positive, vsBenchmark: "positive OOS R-squared using confidence bound as slope; demonstrates previously published estimates add value to OOS forecasts" }
+    - { ref: R8, outcome: "predictive-slope estimation error", metric: level, value: "A=50 RMSE below HM across b_r=[0.0479, 0.2306]; both slope variances are zero", direction: positive, vsBenchmark: "lower predictive-slope RMSE than HM throughout the reported population-slope range" }
+    - { ref: R9, outcome: "out-of-sample equity premium forecast accuracy", metric: probability, value: "Simulated method MSE CDF is above HM throughout for A=50 to 500 in 1-, 10-, and 40-year rolling forecast windows", direction: positive, vsBenchmark: "first-order stochastic dominance over HM at all three forecast horizons" }
+    - { ref: R10, outcome: "out-of-sample equity premium forecast accuracy", metric: probability, value: "Annual HM squared error minus method squared error has a positive-centered kernel density; method performance is steadier than OLS and higher A reduces noise", direction: positive, vsBenchmark: "positive average gain and lower variability than OLS" }
+    - { ref: R11, outcome: "out-of-sample equity premium forecast accuracy", metric: oos-r-squared, value: "At A=100, OOS R-squared is 2.1% and squared market Sharpe ratio is 0.078; 0.021/0.078=27% proportional expected-return increase for an investor recognizing predictability", direction: positive, vsBenchmark: "27% implied proportional increase in expected return" }
+    - { ref: R12, outcome: "out-of-sample equity premium forecast accuracy", metric: probability, value: "Figure 1 cumulative dp forecast SSE gain is reported significant at the 99.2% confidence level", direction: positive, vsBenchmark: "statistically better cumulative forecast performance than HM" }
 
-  resultType: new-finding
+  resultType: confirms
 
   relatesTo:
-    - { cite: "Goyal and Welch (2008)", doi: '10.1093/rfs/hhm014', relation: tests, note: "Method is applied to and outperforms HM on the same 23 predictors; directly addresses their finding that regressions fail OOS" }
+    - { cite: "Goyal and Welch (2008)", relation: tests, note: "Method is applied to and outperforms HM on the same 23 predictors; directly addresses their finding that regressions fail OOS" }
     - { cite: "Goyal, Welch, and Zafirov (2024)", doi: '10.1093/rfs/hhae044', relation: cites, note: "Confirms Goyal and Welch (2008) findings on larger predictor set over longer sample" }
     - { cite: "Campbell and Thompson (2008)", doi: '10.1093/rfs/hhm055', relation: extends, note: "Method generalizes CT sign restriction to a conservative constant slope; ex ante dominance proof answers their question of whether anything can beat HM" }
     - { cite: "Stambaugh (1999)", relation: cites, note: "Documents bias in OLS predictive slope for persistent predictors; motivates bias-reduction focus" }
@@ -122,7 +92,6 @@ paper:
   openQuestions:
     - "Whether the method extends to multivariate forecasts combining multiple predictors simultaneously (p. 3091 and conclusion p. 3113-3114)."
     - "Whether advances in time-series econometrics that improve sign estimation and tighten confidence bounds will further sharpen the bias reduction and performance advantage (conclusion p. 3114)."
-    - "Whether the approach improves shrinkage estimators by replacing the historical average as the shrinkage limit, an extension explored in Internet Appendix B.5 but not the focus of the paper (p. 3100-3101)."
 
   replicationCode:
     url: "https://doi.org/10.7910/DVN/9VNJUN"
@@ -131,6 +100,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-06, role: extracted, note: "Full PDF read (pp. 3086-3116, 31 pages); seven results extracted with source locators. Not human-verified. Not reproduced. Replication code available at Harvard Dataverse." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-06, role: verified, note: "All 7 Core-results rows verified against PDF (Table 3 p.3110, Fig.3 p.3105, Fig.6 p.3112, §5.4 p.3112-3113); all equations (1-14) checked term-by-term; four fixes applied: (1) broken LaTeX delimiter $$b$ → $$b$$ in Method §Step 2, (2) mechanisms limits-to-arbitrage replaced with estimation-variance-reduction (paper invokes only bias-variance tradeoff), (3) Theorem 3 B₁ ≥ corrected to B₁ > per Lemma 1 strict inequality, (4) R6 simulation centers corrected from A=50~3.5/A=100~4 to A=50~4-5/A=100~3-4 (lower A → higher R², consistent with Fig.3 and paper text p.3104)." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented five missing main-text results, the findings axis, missing numbered equations, and formal specification details. Not human-verified. Not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, magnitudes, equations, specifications, axes, findings, prose, and frontmatter checked against the PDF; corrected Table 3 page references, the Figure 3 A=50 peak, the forecast sample description, and overclaims; both required locator checks pass. The separate Cochrane (1991) investment-to-capital confidence-bound result is still omitted and reported for re-distillation. Findings pass (2026-10-04): added the R8 finding." }
 
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/rfs/hhaf010", checked: 2026-06-06, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://creativecommons.org/licenses/by-nc-nd/4.0/, delay-in-days=0, start=2025-02-12" }
@@ -142,7 +113,7 @@ paper:
 
 ## TL;DR
 
-The paper proposes an OOS equity premium forecast: instead of setting the predictive slope to zero (historical average) or estimating it by OLS, use a small positive constant slope $$\delta = 1/A$$ (where A is a large positive number calibrated to the lower confidence bound of the estimated slope). The method has zero estimation variance, matching the historical average, but a lower bias when the population slope is nonzero. The paper proves theoretically (Theorems 1-4) that this forecast first-order stochastically dominates the historical average, and shows empirically on 23 predictors from Goyal and Welch (2008) that 15 of 23 generate significantly positive OOS $$R^2$$ at the 90% level. Goyal, Welch, and Zafirov (2024) confirmed the Goyal and Welch (2008) findings using a larger predictor set, providing the direct motivation for the paper. The dividend-to-price ratio achieves an OOS $$R^2$$ of 2.1% (p = .019) at A = 100, versus an insignificant 0.2% for OLS. Clark and West (2006) show finite-sample estimation noise makes OLS $$R^2$$ negative under the null of no predictability; the proposed method avoids this by using a constant slope with zero variance.
+The paper proposes an OOS equity premium forecast: instead of setting the predictive slope to zero (historical average) or estimating it by OLS, use a small signed constant slope $$\delta = \pm1/A$$. The sign comes from economic restrictions or inference, while confidence bounds can guide the choice of A. The method has zero slope-estimation variance, matching the historical average, but a lower bias when the population slope is nonzero. Under the stated distribution and slope conditions, Theorems 1-4 establish first-order stochastic dominance over the historical average. Empirically, 15 of 23 predictors generate significantly positive OOS $$R^2$$ at the 90% level. Goyal, Welch, and Zafirov (2024) confirmed the Goyal and Welch (2008) findings using a larger predictor set. The dividend-to-price ratio achieves an OOS $$R^2$$ of 2.1% (p = .019) at A = 100, versus an insignificant 0.2% for OLS. Clark and West (2006) show finite-sample estimation noise can make predictive-regression OOS $$R^2$$ negative under the null of no predictability; the proposed method uses a constant slope to avoid slope-estimation variance.
 
 ## Core results
 
@@ -150,15 +121,20 @@ Magnitudes and significance are as reported; `\*`/`\*\*` = 10%/5%. Locators poin
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Method OOS $$R^2$$ for dp predictor (A=50): statistically significant improvement over HM | Table 3, p. 3110 | $$R^2 = 3.4\%$$, p-value = .044; OLS $$R^2 = 0.2\%$$, p-value = .477 |
-| R2 | Method OOS $$R^2$$ for dp predictor (A=100): gains statistical power as A increases | Table 3, p. 3110 | $$R^2 = 2.1\%$$, p-value = .019; OLS $$R^2 = 0.2\%$$, p = .477; CT++ $$R^2 = 1.8\%$$, p = .286 |
-| R3 | Method OOS $$R^2$$ for dp predictor (A=500, A=1,000): very conservative slopes still beat HM at 99% significance | Table 3, p. 3110 | A=500: $$R^2 = 0.5\%$$, p=.009; A=1,000: $$R^2 = 0.2\%$$, p=.008 |
-| R4 | Across 23 predictors, 15 (8) have positive OOS $$R^2$$ at 90% (95%) significance | §5 / Internet Appendix C, p. 3090-3091 | 15 of 23 at 90%; 8 of 23 at 95%; OLS and CT generate statistically insignificant $$R^2$$ for most (Goyal and Welch 2008) |
+| R1 | Method OOS $$R^2$$ for dp predictor (A=50): statistically significant improvement over HM | Table 3, p. 3111 | $$R^2 = 3.4\%$$, p-value = .044; OLS $$R^2 = 0.2\%$$, p-value = .477 |
+| R2 | Method OOS $$R^2$$ for dp predictor (A=100): gains statistical power as A increases | Table 3, p. 3111 | $$R^2 = 2.1\%$$, p-value = .019; OLS $$R^2 = 0.2\%$$, p = .477; CT++ $$R^2 = 1.8\%$$, p = .286 |
+| R3 | Method OOS $$R^2$$ for dp predictor (A=500, A=1,000): very conservative slopes still beat HM at 99% significance | Table 3, p. 3111 | A=500: $$R^2 = 0.5\%$$, p=.009; A=1,000: $$R^2 = 0.2\%$$, p=.008 |
+| R4 | Across 23 predictors, 15 (8) have positive OOS $$R^2$$ at 90% (95%) significance | §5 / Internet Appendix C, pp. 3090-3091; conclusion p. 3113 | 15 of 23 at 90%; 8 of 23 at 95%; OLS and CT generate statistically insignificant $$R^2$$ for most (Goyal and Welch 2008) |
 | R5 | Method first-order stochastically dominates HM for dp predictor: empirical CDF of MSE everywhere above HM CDF | Figure 6, p. 3112 | A=100 CDF (MSE) > HM CDF for all MSE thresholds in 40-year rolling windows; confirmed with kernel smoothing in Internet Appendix C.5 |
-| R6 | Simulations confirm method's OOS $$R^2$$ distribution is entirely to the right of zero; OLS can be negative | Figure 3, p. 3105 | A=50 centered at ~4-5 (broadest), A=100 at ~3-4, A=200 at ~2, A=500 at ~1 (narrowest spike); OLS distribution spans $[-10, +10]$ with nontrivial probability of $$R^2 < 0$$ |
+| R6 | Simulations confirm method's OOS $$R^2$$ distribution is entirely to the right of zero; OLS can be negative | Figure 3, p. 3105 | A=50 peaks near 6-7 (broadest), A=100 near 3-4, A=200 at ~2, A=500 at ~1 (narrowest spike); OLS distribution spans $[-10, +10]$ with nontrivial probability of $$R^2 < 0$$ |
 | R7 | Previously published confidence bounds (Campbell and Shiller 1988a) add value to OOS forecasts when used as the predictive slope | §5.4, p. 3112-3113 | A=209 (95% lower bound from Campbell and Shiller 1988a) produces positive OOS $$R^2$$ from 1987 onward; demonstrates prior study estimates are not data mining |
+| R8 | Simulated predictive-slope RMSE is lower for the method than HM over the reported population-slope range | Figure 2, p. 3103 | For $$b_r$$ from 0.0479 to 0.2306, A=50 has lower bias and RMSE than HM, with zero slope variance for both; OLS slope standard deviation is almost as large as HM bias |
+| R9 | Simulated forecast MSE CDFs show first-order stochastic dominance over HM at 1-, 10-, and 40-year horizons | Figure 4, p. 3106 | Method CDF is above HM throughout for A=50 to 500 in the 1-, 10-, and 40-year rolling windows |
+| R10 | Annual forecast-error differences are positive on average and less variable for the method than OLS | Figure 5, p. 3109 | The kernel density of HM squared error minus method squared error is centered in the positive region; higher A reduces noise |
+| R11 | The dp forecast improvement corresponds to a 27% proportional increase in expected return for an investor recognizing predictability | text p. 3111 | At A=100, $$R^2=2.1\%$$ and squared market Sharpe ratio is 0.078; $$0.021/0.078=27\%$$ |
+| R12 | Cumulative dp forecast performance is statistically better than HM | text p. 3088 | Figure 1 cumulative SSE gain has a reported 99.2% confidence level |
 
-**Overall (paper's conclusion).** A conservative deterministic predictive slope, calibrated to a lower confidence bound near zero, provably dominates the historical average and empirically dominates OLS and Campbell-Thompson forecasts on most of the 23 standard predictors from Goyal and Welch (2008). The method is an ex ante validated benchmark for time-varying expected return models.
+**Overall (paper's conclusion).** A conservative deterministic predictive slope, often guided by a confidence bound near zero, dominates the historical average under the paper's stated conditions and empirically produces positive OOS predictability for many of the 23 standard predictors from Goyal and Welch (2008). The method offers a candidate benchmark for time-varying expected-return models.
 
 ## Theory / model
 
@@ -213,7 +189,7 @@ E\!\left[\text{MSE}_{\hat{\mu}} - \text{MSE}_{\hat{\mu}+\hat{b}x}\right]
 = \left(b^2 - \text{Bias}(\hat{b})^2 - \text{Variance}(\hat{b})\right)x^2 - 2E\!\left[(\hat{\mu}-\mu)\hat{b}\right]x. \tag{10}
 $$
 
-The historical average's slope is zero and therefore unbiased but uses no predictive information. A regression slope reduces the first two terms but can inflate the variance term to the point where it dominates, yielding a negative OOS $$R^2$$. The method uses a deterministic $$\delta$$, so the variance of $$\hat{b}$$ is zero and Equation (10) simplifies to $$(b^2 - \text{Bias}(\hat{b})^2)x^2 > 0$$ whenever $$\hat{b}$$ is between 0 and $$b$$. This is the core intuition: a constant nonzero slope beats both the historical average (zero slope, biased) and OLS (unbiased mean but high variance).
+The historical average's slope is zero and therefore biased when the predictor is informative, but it uses no predictive information and has no slope-estimation variance. A regression slope can reduce bias but can inflate the variance term to the point where it dominates, yielding a negative OOS $$R^2$$. With a deterministic slope and an unbiased estimate of $$\mu$$, the final term in Equation (10) is zero and the variance of $$\hat{b}$$ is zero, leaving $$(b^2 - \text{Bias}(\hat{b})^2)x^2$$, which is positive when the fixed slope lies between 0 and $$b$$. This is the core intuition: a constant nonzero slope reduces bias relative to the historical average while avoiding OLS slope-estimation variance; OLS slope estimates can also be biased in this setting.
 
 **Gradient descent interpretation.** The method is a one-step gradient descent update of the historical average toward greater predictability, using the sign (but not the magnitude) of $$b$$ as the gradient signal and step size $$1/A$$ (Equation 11, p. 3099):
 
@@ -229,17 +205,48 @@ The implementation has three steps.
 
 **Step 1: Obtain the sign of $$b$$.** Sign can come from (a) economic theory, as in Campbell and Thompson (2008), who restrict the OLS slope to have the theoretically expected sign, or (b) statistical inference: use the confidence interval $$[\hat{b}_L, \hat{b}_U]$$ for population slope $$b$$. If $$0 < \hat{b}_L$$ the slope is significantly positive; if $$\hat{b}_U < 0$$ it is significantly negative. The method builds on `time-series-forecasting` (predictive regression) but replaces the OLS slope with a constant.
 
-**Step 2: Choose A.** Setting $$1/A$$ to the lower confidence bound $$\hat{b}_L$$ ensures with near certainty that $$\delta$$ is between 0 and $$b$$ (Equation 7, p. 3093):
+**Step 2: Choose A.** A 95% confidence interval for the population slope is (Equation 6, p. 3093):
 
 $$
-0 < \hat{b}_L \leq b \quad \text{with 95\% probability.} \tag{7}
+\hat{b}_L \leq b \leq \hat{b}_U. \tag{6}
 $$
 
-For the dividend-to-price ratio, Campbell and Shiller (1988a) Table 4 give a predictive slope of 0.129 (SE = 0.057); the standardized predictor has a standard deviation of 0.277, so the 95% lower confidence bound for the standardized slope is $$(0.129 - 1.96 \times 0.057) \times 0.277 = 0.0048$$, implying $$A = 209$$ (p. 3094).
+When the estimated slope is significantly positive, this gives the following with 95% probability (Equation 7, p. 3093):
+
+$$
+0 < \hat{b}_L \leq b. \tag{7}
+$$
+
+Set $$1/A$$ to the lower confidence bound to choose the conservative slope. For the dividend-to-price ratio, Campbell and Shiller (1988a) Table 4 give a predictive slope of 0.129 (SE = 0.057); the standardized predictor has a standard deviation of 0.277, so the 95% lower confidence bound for the standardized slope is $$(0.129 - 1.96 \times 0.057) \times 0.277 = 0.0048$$, implying $$A = 209$$ (p. 3094).
+
+When sign inference can be wrong, let $$p$$ be the probability of a correct sign and $$q$$ the probability of an incorrect sign. The probability condition underlying the sign-uncertainty dominance result is (Equation 8, p. 3095):
+
+$$
+\frac{p}{q} > \frac{F(c,0)-F(c,-1)}{F(c,1)-F(c,0)} \quad \text{for all } c. \tag{8}
+$$
 
 **Step 3: Standardize the predictor.** Predictors are standardized to zero mean and unit variance using a 20-year rolling backward-looking window, so $$\delta = 1/A$$ measures the effect of a one-standard-deviation change in the predictor on the forecast annual return (p. 3094, 3107).
 
 **Simulation design.** A VAR(1) for log returns $$r$$, log dividend-to-price ratio $$dp$$, and log dividend growth $$\Delta d$$ following Cochrane (2008) provides the data-generating process (Equations 12-13, p. 3101). Parameters are calibrated to the sample (Table 1, p. 3102): population predictive slope $$b_r = 0.143$$, $$\rho = 0.8911$$. The historical average (HM) uses a rolling 20-year window. OOS $$R^2$$ is computed per Equation 14 (p. 3103):
+
+The VAR system is (Equation 12, p. 3101):
+
+$$
+\begin{aligned}
+r_{t+1} &= a_r + b_r dp_t + \epsilon^r_{t+1},\\
+dp_{t+1}-\overline{dp} &= \rho(dp_t-\overline{dp}) + \epsilon^{dp}_{t+1},\\
+\Delta d_{t+1} &= a_d + b_d dp_t + \epsilon^d_{t+1}.
+\end{aligned}
+\tag{12}
+$$
+
+The Campbell-Shiller return identity is (Equation 13, p. 3101):
+
+$$
+r_{t+1} = \kappa_0 - \kappa_1 dp_{t+1} + dp_t + \Delta d_{t+1}, \tag{13}
+$$
+
+where $$\kappa_0=\log(1+e^{-\overline{dp}})+\kappa_1\overline{dp}$$ and $$\kappa_1=e^{-\overline{dp}}/(1+e^{-\overline{dp}})$$; together the equations imply $$b_r=1-\kappa_1\rho+b_d$$.
 
 $$
 R^2 = \frac{\text{MSE}_{\hat{\mu}} - \text{MSE}_{\hat{\mu}+\delta x}}{\text{MSE}_{\hat{\mu}}}. \tag{14}
@@ -249,11 +256,13 @@ $$
 
 **Data.** Annual value-weighted CRSP market returns (post-1926) and S&P 500 Index returns (pre-1926), 23 predictors from Goyal and Welch (2008) extended through 2017 (Table 2, p. 3105): bm, cape Shiller, cay, corpr, csp, de, dfr, dfy, dp, dy, ep, eqis, ik, infl, ltr, lty, tbl, tms, ntis, svar, and four Robert Shiller series. Predictors are standardized using rolling 20-year windows. Forecasts start 20 years after the sample start year for each predictor.
 
-**OOS $$R^2$$ evaluation (R1-R4, R7).** For each predictor, compute annual one-step-ahead OOS forecasts using the method with $$A \in \{50, 100, 200, 500, 1000\}$$, OLS, CT+, and CT++ (Campbell and Thompson 2008). Compute $$R^2$$ via Equation (14). Report one-sided p-values using Diebold (2015) heteroscedasticity-adjusted test, cross-checked by Harvey, Leybourne, and Newbold (1997). For dp, this corresponds to a sample of 146 annual observations.
+**OOS $$R^2$$ evaluation (R1-R4, R7).** For each predictor, compute annual one-step-ahead OOS forecasts using the method with $$A \in \{50, 100, 200, 500, 1000\}$$, OLS, CT+, and CT++ (Campbell and Thompson 2008). Compute $$R^2$$ via Equation (14). Report one-sided p-values using Diebold (2015) heteroscedasticity-adjusted test, cross-checked by Harvey, Leybourne, and Newbold (1997). For dp, the raw predictor sample spans 1872-2017 (146 annual observations); forecast evaluation begins after the initial 20-year estimation window.
+
+The main predictive regression is Equation (1), $$r_{t+1}=\mu+b x_t+e_{t+1}$$, estimated from annual return and predictor observations. The paper uses the 20-year rolling window for the historical mean, predictor mean and standard deviation, and OLS comparator; the alternative method then fixes the slope at the sign-restricted constant $$\delta=\pm1/A$$, rather than estimating its magnitude each period. Predictors and returns are annual, while the dp raw predictor sample contains 146 annual observations; the forecast evaluation starts after the initial 20-year estimation window. This is a univariate time-series design with no fixed effects. For Table 3, the one-sided Diebold (2015) p-values use standard errors adjusted for return heteroscedasticity; the Harvey, Leybourne, and Newbold (1997) modified test gives similar results (Table 3 note, p. 3110).
 
 **Stochastic dominance evaluation (R5).** Estimate the empirical CDF of OOS MSE over 40-year rolling windows of annual successive one-year-ahead forecasts using dp predictor (Figure 6, p. 3112). Compare the method CDF (A=100) to the historical mean CDF. First-order dominance requires the method CDF to lie everywhere above (to the left of) the HM CDF. Kernel smoothing (Internet Appendix C.5) confirms the finding.
 
-**Bias-variance simulation (R6).** Generate 10,000 simulation samples of the VAR in Equations (12)-(13) with parameters from Table 1. In each sample compute the OOS $$R^2$$ using a rolling 20-year window for HM and a rolling 20-year window for $$\delta = 1/A$$ for the method. Figure 3 (p. 3105) reports the kernel density of the $$R^2$$ distribution across simulations for $$A \in \{50, 100, 200, 500\}$$ and OLS.
+**Bias-variance simulation (R6).** Generate simulation samples of the VAR in Equations (12)-(13) with parameters from Table 1. In each sample compute the OOS $$R^2$$ using a rolling 20-year window for HM and a rolling 20-year window for $$\delta = 1/A$$ for the method. Figure 3 (p. 3105) reports the kernel density of the $$R^2$$ distribution across simulations for $$A \in \{50, 100, 200, 500\}$$ and OLS.
 
 ## Datasets used
 
@@ -272,7 +281,7 @@ Use the [original](https://doi.org/10.1093/rfs/hhaf010) if you are: (a) construc
 
 ## Attribution and rights
 
-Source: peer-reviewed, *The Review of Financial Studies* 38(10). This distillation was extracted by an LLM on 2026-06-06 and is **not human-verified or independently reproduced**. The CC BY-NC-ND 4.0 licence permits non-commercial reproduction with attribution and no derivatives; the verbatim PDF is not hosted here.
+Source: peer-reviewed, *The Review of Financial Studies* 38(10). This distillation was updated by an LLM on 2026-10-04 and is **not human-verified or independently reproduced**. The CC BY-NC-ND 4.0 licence permits non-commercial reproduction with attribution and no derivatives; the verbatim PDF is not hosted here.
 
 > Li, Kai, Yingying Li, Changlei Lyu, and Jialin Yu. "How to Dominate the Historical Average."
 > *The Review of Financial Studies* 38, no. 10 (2025): 3086-3116.

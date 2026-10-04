@@ -7,7 +7,7 @@ description: >-
   of both the level and composition of debt, rationalizing a leverage cap plus a
   TLAC requirement that can be satisfied with bail-in debt. Bail-ins replace
   bailouts as a recapitalization tool even without planner commitment. Review of
-  Financial Studies 2025, paywalled. Five core results with source locators, the
+  Financial Studies 2025, paywalled. Six core results with source locators, the
   model, and its key propositions with equations.
 sidebar:
   label: Clayton-Schaab 2025
@@ -33,13 +33,13 @@ paper:
     - optimal bank liability structure (standard debt vs. bail-in debt)
     - socially optimal composition and level of bank debt
     - welfare effect of bail-in regulation vs. bailouts
-  outcomeClass: [firm-financing, credit-risk]
+  outcomeClass: [firm-financing, optimal-contract-design, social-welfare]
   license: "Oxford standard publication reuse rights (all rights reserved, paywalled; content-version vor, URL https://academic.oup.com/pages/standard-publication-reuse-rights, start 2025-03-18, delay-in-days 0)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (Oxford Academic site, 2026-06-06)"
   redistribution: extract-only
-  resultsCount: 5
+  resultsCount: 6
   citedByCount: 2
   methods:
     role: theory
@@ -68,6 +68,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-06, role: extracted, note: "Read PDF in full (pp. 2810-2843 + conclusion + references); all propositions, equations, and locators drawn directly from the PDF. Not human-verified; not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-06, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all five core-result locators, all model equations (1, 2, 6, 9, 12, 16, 18, 20, 21, 26, 27, 29), and Propositions 1-5 confirmed correct. Fixed: removed JEL code G21 (not listed in PDF abstract; PDF states only G28 and G33)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF; appended the missing Corollary 2 result and added omitted numbered main-text equations. These additions are not human-verified and have not been reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all six Core results, page-present equations and specifications, classification axes, findings/resultType, prose, citations, and frontmatter against the PDF. Corrected the debt-threshold comparison's scope, reversed mechanism description, added the definition of L^s, and corrected outcomeClass; required locator checks found no issue on this page." }
   licenceVerification:
     - { source: "Crossref works/10.1093/rfs/hhaf002", checked: 2026-06-06, by: "paper-distiller (claude-sonnet-4-6)", found: "license[]: content-version vor, URL https://academic.oup.com/pages/standard-publication-reuse-rights, start 2025-03-18, delay-in-days 0. Oxford standard reuse rights; not CC; paywalled." }
 ---
@@ -83,9 +85,11 @@ incentive problem. In the presence of fire sales from liquidations, the privatel
 combines short-term standard debt (which forces liquidation in bad states and provides strong
 incentives) and long-term bail-in debt (which avoids resource costs of liquidation by writing
 down to pledgeable income). A social planner that internalizes the fire-sale externality
-intervenes in both the level and the composition of debt: it prefers less standard debt (a
-leverage cap / maximum leverage requirement) and less total debt (a TLAC requirement satisfiable
-with bail-in debt). The model shows that bail-ins replace bailouts as a recapitalization tool
+intervenes in both the level and composition of debt: it favors less standard debt and less total
+debt on the margin. The policy combines a maximum leverage requirement to limit total debt with
+a TLAC requirement that limits standard debt and can be met with bail-in debt. In the
+linear-private-benefit illustration, both socially optimal debt thresholds are weakly below their
+private-optimum counterparts. The model shows that bail-ins replace bailouts as a recapitalization tool
 and that statutory provisions increasing the cost of bailouts improve welfare, providing a unified
 rationalization of postcrisis regulation. The framework connects to demand-based explanations of
 standard debt (Bolton and Oehmke (2019); Walther and White (2020)) and extends the macroprudential
@@ -97,16 +101,17 @@ setting.
 | # | Result | Locator | Magnitude as reported |
 |---|---|---|---|
 | R1 | Privately optimal contract uses both standard and bail-in debt | Proposition 1, Corollary 1, pp. 2822-2825 | Liability structure has three regions: liquidation ($$R_1 \le R_\ell^p$$), bail-in write-down ($$R_\ell^p < R_1 \le R_u^p$$), and no write-down ($$R_1 > R_u^p$$); implemented with short-term standard debt face value $$(1-b)R_\ell^p Y_0$$ and long-term bail-in debt face value $$(1-b)(R_u^p - R_\ell^p)Y_0$$ |
-| R2 | Social optimum has same structure as private optimum but with additional wedges on standard and total debt | Proposition 3, Equations (24)-(28), pp. 2827-2829 | Socially optimal thresholds $$R_\ell^s \le R_\ell^p$$ and $$R_u^s \le R_u^p$$: planner uses less standard debt and less total debt than private banks; wedges $$\tau_\ell^s \ge 0$$ and $$\tau_u^s \ge 0$$ reflect social cost of liquidations $$\lambda^s \sigma \gamma^s$$ |
+| R2 | Social optimum has the private optimum's structure, with wedges that discourage standard debt and total debt on the margin | Proposition 3, Equations (24)-(28), pp. 2827-2829 | Wedges $$\tau_\ell^s \ge 0$$ and $$\tau_u^s \ge 0$$ reflect the social cost of liquidations $$\lambda^s \sigma \gamma^s$$. In the linear-private-benefit special case, $$R_\ell^s \le R_\ell^p$$ and $$R_u^s \le R_u^p$$ |
 | R3 | All three model ingredients (initial incentive problem, continuation incentive problem, costly liquidation) are needed for bail-in debt to be part of the optimal contract | Proposition 2, p. 2826 | If $$B_0(e_0) = 0$$: bail-in debt alone suffices. If $$B_1 = 0$$: long-term debt alone suffices. If $$\gamma = 1$$: standard debt alone suffices. All three ingredients are needed for the combined structure |
 | R4 | With planner commitment over bailouts, bail-ins dominate bailouts: the socially optimal contract with no bailouts is Pareto efficient | Proposition 4, p. 2832 | No bailouts ($$T_0 = T_1 = 0$$) is Pareto efficient; bailouts are redundant recapitalization when bail-ins are available; both instruments can achieve same state contingencies in bank debt contracts |
 | R5 | Without planner commitment, Pareto-efficient debt levels still eliminate bailouts entirely; welfare is increasing in the cost of bailouts F | Proposition 5, p. 2834 | For any $$F \ge 0$$, Pareto-efficient debt levels $$(R_\ell^s, R_u^s)$$ result in no banks being bailed out; welfare is strictly increasing in F because higher F relaxes the no-bailout constraint (Equation 29) |
+| R6 | Macroprudential policy and an ex post resolution authority can implement the social optimum | Corollary 2, pp. 2829-2830 | Require $$R_\ell^s$$ in non-bail-in-able senior debt and $$R_u^s-R_\ell^s$$ in bail-in-able junior debt; the authority writes down junior debt to $$R_1-R_\ell^s$$ when $$R_\ell^s \le R_1 \le R_u^s$$, yielding the Proposition 3 allocation |
 
 **Overall (paper's conclusion).** The paper provides a single contracting framework that
 rationalizes both a maximum leverage requirement and a TLAC requirement as jointly optimal
 responses to fire sale externalities. Bail-in debt is the instrument of choice because it
-combines the incentive properties of equity with the cash-flow transfer properties of standard
-debt, making it superior to outside equity as a loss-absorbing instrument. Bail-ins replace
+combines the incentive properties of standard debt with the loss-absorbing properties of equity,
+making it superior to outside equity as a loss-absorbing instrument. Bail-ins replace
 bailouts in the regulatory toolkit; statutory provisions that increase the cost of engaging
 in bailouts complement bail-in regulation by allowing looser regulatory constraints while
 still preventing bailouts in equilibrium.
@@ -166,6 +171,71 @@ $$\mathbb{E}[c_2(R_1, R_2)(\Lambda_2(R_2) - 1) \mid e_1 = 0] \ge B_1 R_1 Y_0. \t
 
 $$-B_0'(e_0^*) Y_0 = \mathbb{E}_0[c(R_1)(\Lambda_1(R_1) - 1) \mid e_0 = 0]. \tag{12}$$
 
+
+**Other numbered model equations (pp. 2817-2820).** The page's resource,
+participation, date-1 incentive, and date-0 effort equations above are part of
+the full model system. The remaining payoff, monotonicity, choice, and market
+clearing equations are (locators identify the printed equation pages):
+
+Bank limited liability and total bank payoff (pp. 2817-2818):
+
+$$c_1(R_1), c_2(R_1,R_2) \ge 0. \tag{3}$$
+
+$$c_1(R_1)+c_2(R_1,R_2)+B_0(e_0^*)Y_0+(1-\alpha(R_1))(1-e_1^*(R_1))B_1R_1Y_0. \tag{4}$$
+
+Investor expected payoff (p. 2817):
+
+$$x(R_1\mid e_1^*,\alpha,x_1,x_2)=\begin{cases}x_1(R_1)+\mathbb{E}[x_2(R_1,R_2)\mid e_1=e_1^*(R_1)],&\alpha(R_1)=0,\\x_1(R_1),&\alpha(R_1)=1.\end{cases} \tag{5}$$
+
+Repayment monotonicity (p. 2818):
+
+$$R_1\ge R_1'\Rightarrow x(R_1)\ge x(R_1'). \tag{7}$$
+
+$$R_2\ge R_2'\Rightarrow x_2(R_1,R_2)\ge x_2(R_1,R_2'). \tag{8}$$
+
+Date-1 expected bank payoff and date-0 effort choice (p. 2819):
+
+$$c(R_1\mid e_1^*,\alpha,c_1,c_2,Y_0)=\begin{cases}c_1(R_1)+\mathbb{E}[c_2(R_1,R_2)+(1-e_1^*(R_1))B_1R_1Y_0\mid e_1=e_1^*(R_1)],&\alpha(R_1)=0,\\c_1(R_1),&\alpha(R_1)=1.\end{cases} \tag{10}$$
+
+$$\max_{e\in[0,1]}\mathbb{E}[c(R_1)\mid e_0=e]+B_0(e)Y_0. \tag{11}$$
+
+The bank chooses the feasible contract to maximize (p. 2819):
+
+$$\mathbb{E}[c(R_1)\mid e_0=e_0^*]+B_0(e_0^*)Y_0. \tag{13}$$
+
+The arbitrageur's demand and market clearing (pp. 2820-2821):
+
+$$\frac{\partial F(\Omega)}{\partial\Omega}=\gamma. \tag{14}$$
+
+$$\Omega(\alpha,e_0^*)=\int_{\underline R}^{\overline R}\alpha(R_1)R_1f_1(R_1\mid e_0^*)\,dR_1. \tag{15}$$
+
+**Remaining numbered contract and policy equations.** The date-2 repayment
+schedule, private liability schedule, optimal date-0 effort condition,
+social liability schedule, planner's first-order conditions, and planner's
+effort condition complete the main-text numbered equations:
+
+Lemma 1's repayment schedule and the private bank's liability schedule
+(pp. 2821-2823):
+
+$$x_1(R_1)=0,\quad x_2(R_1,R_2)=\begin{cases}R_2R_1Y_0,&R_2\le R_2^u(R_1),\\R_2^u(R_1)R_1Y_0,&R_2>R_2^u(R_1),\end{cases}\quad R_2^u(R_1)\le\overline R_2. \tag{17}$$
+
+$$L(R_1)=\begin{cases}(1-b)R_\ell^pY_0,&R_1\le R_\ell^p,\\(1-b)R_1Y_0,&R_\ell^p\le R_1\le R_u^p,\\(1-b)R_u^pY_0,&R_u^p\le R_1.\end{cases} \tag{19}$$
+
+The private optimum's effort condition (p. 2823):
+
+$$-B_0'(e_0^*)=\int_{R_\ell^p}^{\overline R}\max\{bR_1,R_1-(1-b)R_u^p\}(f_{1H}(R_1)-f_{1L}(R_1))\,dR_1. \tag{22}$$
+
+The planner's liability schedule, first-order conditions, and effort condition
+(pp. 2827-2828):
+
+$$L(R_1)=\begin{cases}(1-b)R_\ell^sY_0^s,&R_1\le R_\ell^s,\\(1-b)R_1Y_0^s,&R_\ell^s\le R_1\le R_u^s,\\(1-b)R_u^sY_0^s,&R_u^s\le R_1.\end{cases} \tag{23}$$
+
+$$\frac{1-\Lambda_1(R_\ell^s)}{(1-e_0^s)+e_0^s\Lambda_1(R_\ell^s)}\frac{1}{|B_0''(e_0^s)|}b\lambda^sG^s=b+\lambda^s(1-b-\gamma^s)+\tau_\ell^s. \tag{24}$$
+
+$$\frac{F_{1L}(R_u^s)-F_{1H}(R_u^s)}{|B_0''(e_0^s)|}\lambda^sG^s=(\lambda^s-1)(1-F_1(R_u^s\mid e_0^s))-\tau_u^s. \tag{25}$$
+
+$$-B_0'(e_0^s)=\int_{R_\ell^s}^{\overline R}\max\{bR_1,R_1-(1-b)R_u^s\}(f_{1H}(R_1)-f_{1L}(R_1))\,dR_1. \tag{28}$$
+
 ## Method
 
 This is a pure theory paper. The model is solved by characterizing the set of feasible contracts
@@ -176,9 +246,12 @@ utility subject to those constraints.
 **Pledgeability reduction (Lemma 1, p. 2822).** The binary date 1 effort problem reduces to
 a Holmstrom and Tirole (1997) style pledgeability constraint. The optimal contract sets
 $$x_1(R_1) = 0$$ and repays investors on date 2 at a threshold $$R_2^u(R_1)$$. Bank
-high effort on date 1 is incentive compatible if and only if $$c(R_1) \ge b R_1 Y_0$$,
-where $$b = \int_{\overline{R}_2^u}^{\overline{R}} [R_2 - \overline{R}_2^u] f_{2H}(R_2) dR_2$$
-is a constant (p. 2822, Equation 18).
+high effort on date 1 is incentive compatible if and only if (p. 2822):
+
+$$c(R_1) \ge b R_1 Y_0. \tag{18}$$
+
+Here $$b = \int_{\overline{R}_2^u}^{\overline{R}} [R_2 - \overline{R}_2^u] f_{2H}(R_2) dR_2$$
+is a constant (Equation 18).
 
 **Mapping to promised liabilities.** The paper maps actual-repayment contracts to promised
 "face value" liabilities $$L(R_1)$$: if $$L(R_1) \le (1-b)R_1 Y_0$$ the bank avoids
@@ -205,7 +278,8 @@ $$\tau_\ell^s = \left(1 - \frac{1 - \Lambda_1(R_\ell^s)}{(1 - e_0^s) + e_0^s \La
 $$\tau_u^s = \frac{F_{1L}(R_u^s) - F_{1H}(R_u^s)}{|B_0''(e_0^s)|} L^s \sigma \gamma^s \ge 0, \tag{27}$$
 
 where $$\sigma$$ is the liquidation price elasticity and $$\gamma^s$$ is the equilibrium
-liquidation price. The wedge $$\tau_\ell^s$$ reflects the social cost of additional
+liquidation price, and $$L^s = \int_{R_\ell^s}^{\overline R} R_1 (f_{1L}(R_1) - f_{1H}(R_1))\,dR_1 \ge 0$$.
+The wedge $$\tau_\ell^s$$ reflects the social cost of additional
 liquidations induced by standard debt; $$\tau_u^s$$ reflects the social cost of more
 total debt through the indirect effort channel.
 

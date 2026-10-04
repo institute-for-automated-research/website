@@ -1017,6 +1017,26 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Competition accelerates imitation and follow-on innovation, shortening the period firms capture exclusive patent rents and reducing innovation's economic value.
     aliases: [patent-rent-erosion, competitive-obsolescence-of-innovation]
 
+  government-expropriation:
+    def: Government captures project cash flows after private investment, weakening private incentives and limiting project financing.
+    aliases: [sovereign-expropriation, public-sector-expropriation, expropriation-risk]
+
+  uncertainty-hedging:
+    def: Contract design exposes agents to multiple uncertain activities so pessimistic beliefs are less costly, supporting effort and reducing incentive costs.
+    aliases: [ambiguity-hedging, belief-hedging]
+
+  motivated-memory-suppression:
+    def: Agents suppress encoded outcome memories that conflict with a preferred self-image, while stronger incentives for accurate recall can reduce the bias.
+    aliases: [motivated-memory, memory-suppression, self-image-memory-bias]
+
+  protocol-design:
+    def: Blockchain validation rules and attacker incentives determine the investment required to disrupt transaction processing.
+    aliases: [consensus-protocol-design]
+
+  estimation-variance-reduction:
+    def: A fixed conservative forecast slope avoids slope-estimation noise while reducing bias relative to the zero-slope historical average.
+    aliases: [zero-variance-bias-reduction]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -1100,6 +1120,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   index-growth:
     def: Cumulative percentage growth in a price or quantity index over a stated horizon, expressed relative to the base-period level; used when the headline result is a long-run index change rather than a per-unit regression effect.
     aliases: [cumulative-price-growth, long-run-index-growth, index-level-change]
+  entry-share:
+    def: Share of observed sample entries in a specified entry mode or category.
+    aliases: [sample-entry-share]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -1206,3 +1229,7 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   ethnic-collective-violence:
     def: Collective violence targeting a racial, ethnic, or religious minority group, including lynching, pogroms, and organized mob violence motivated by inter-group political or social competition.
     aliases: [racial-violence-outcome, collective-violence-minority]
+
+  blockchain-security:
+    def: Security of a blockchain protocol, measured by survival probability or resistance to a successful attack.
+    aliases: [distributed-ledger-security]

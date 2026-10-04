@@ -5,7 +5,7 @@ description: >-
   (private-sector operator shirking and government expropriation of project returns).
   The second-best contract features government guarantees to financiers, government
   coinvestment, development rights, and tax subsidies, matching observed practice in
-  public-private partnerships. Review of Financial Studies 2025, paywalled. Seven
+  public-private partnerships. Review of Financial Studies 2025, paywalled. Sixteen
   core results with source locators, the model equations, and the method.
 sidebar:
   label: Acharya-Parlatore-Sundaresan 2025
@@ -23,9 +23,9 @@ paper:
   venueShort: Rev. Fin. Stud. 2025
   doi: 10.1093/rfs/hhaf007
   jel:
-    codes: [D82, G30, G32, G38, H20, H54]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-06
+    codes: [D82, G32, H54]
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Public-Private Partnership Projects"]
   dataAccess: hand-collected
   introducesData: true
@@ -34,6 +34,9 @@ paper:
     - optimal government guarantee to financiers
     - optimal government coinvestment
     - optimal return promised to financiers
+    - phase and drivers of infrastructure contract disputes
+    - phase and causes of Indian power plant failures
+    - share of investment disputes involving developed economies
   outcomeClass: [firm-financing, firm-real-outcomes]
   license: >-
     Oxford Standard Publication Reuse Rights (confirmed via Crossref DOI metadata:
@@ -43,7 +46,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Oxford Academic / OUP, 2026-06-06)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 16
   citedByCount: 2
 
   methods:
@@ -53,11 +56,16 @@ paper:
 
   contributionType: [new-theory, new-fact]
 
-  mechanisms: [moral-hazard, agency, financial-constraint]
+  mechanisms: [moral-hazard, agency, financial-constraint, government-expropriation]
 
   scope:
     region: theoretical (with India case evidence)
     assetClass: infrastructure projects (public-private partnerships)
+    period: 2007-01..2020-12
+    frequency: mixed
+    dataType: [administrative, other]
+    granularity: [individual, transaction]
+    n: "635 highway dispute records; 34 stressed power plants; 2,912 NHAI highway cases in the cited population"
 
   relatesTo:
     - { cite: "Holmstrom and Tirole (1998)", doi: '10.1086/250001', relation: builds-on, note: "operator effort model: high/low effort determines project success probability, private benefit from shirking" }
@@ -78,11 +86,18 @@ paper:
   findings:
     - { ref: R1, outcome: feasibility and scale of infrastructure projects, metric: probability, value: "double moral hazard renders projects infeasible (extensive margin) or limits scale (intensive margin); feasibility threshold Gamma-bar = (1-p_h)*A_g + R-underbar where both A_o and A_g matter", direction: negative, vsBenchmark: "single moral hazard benchmarks (Prop. 1, Prop. 2): operator MH alone limits feasibility only; government MH alone limits neither" }
     - { ref: R2, outcome: optimal government guarantee to financiers, metric: coefficient, value: "K_g* = A_g + R-underbar - (R - A_o) > 0 when Gamma-bar <= (R-A_o) < Gamma_R; decreasing in (R-A_o) and increasing in A_g and C", direction: positive, vsBenchmark: "zero guarantee is insufficient when double moral hazard is present (Prop. 4)" }
-    - { ref: R3, outcome: optimal government coinvestment, metric: level, value: "I_g* = 0 for (R-A_o) < Gamma_I; I_g* > 0 and increasing in (R-A_o) for Gamma_I <= (R-A_o) < Gamma*; I_g* = K-bar_0 for Gamma_R <= (R-A_o) < Gamma*", direction: positive, vsBenchmark: "pecking order: guarantees first, coinvestment second (Prop. 4)" }
-    - { ref: R4, outcome: optimal return promised to financiers, metric: coefficient, value: "R_f = R-underbar for low (R-A_o); R_f strictly > R-underbar and increasing in (R-A_o) for Gamma_R <= (R-A_o) < Gamma* (Prop. 4c)", direction: positive, vsBenchmark: "R_f > minimum required return only when IRF binds simultaneously with ICG" }
-    - { ref: R5, outcome: optimal government guarantee to financiers, metric: coefficient, value: "dK_g*/dC > 0; dR_f*/dC <= 0: higher government benefit from expropriating requires higher guarantees and lower coupon to financiers (Prop. 5)", direction: positive, vsBenchmark: "developing-economy governments face higher C, need higher guarantees but have less fiscal capacity" }
-    - { ref: R6, outcome: feasibility and scale of infrastructure projects, metric: level, value: "dI*/dK-bar_0 >= dI*/dK-bar_1 >= 0; project scale increases with both K-bar_0 and K-bar_1; feasibility threshold independent of K-bar_0 and K-bar_1 (Prop. 6)", direction: positive, vsBenchmark: "fiscal resources expand scale but not feasibility; timing matters: K-bar_0 weakly dominates K-bar_1 (Prop. 7)" }
-    - { ref: R7, outcome: feasibility and scale of infrastructure projects, metric: probability, value: "94% of Indian stressed thermal power plant failures (2007-2011) attributable to public or private moral hazard; 72% due to public moral hazard, 22% due to private moral hazard, 6% unclassified (Table 5, p. 1400)", direction: positive, vsBenchmark: "double moral hazard prevalence confirmed in developing-economy data" }
+    - { ref: R3, outcome: optimal government coinvestment, metric: level, value: "I_g* = 0 for (R-A_o) < Gamma_I; I_g* > 0 and weakly increasing in (R-A_o) for Gamma_I < (R-A_o) < Gamma*; I_g* = K-bar_0 for Gamma_R <= (R-A_o) < Gamma*; R_f* > R-underbar only for Gamma_R < (R-A_o) < Gamma* (Prop. 4)", direction: positive, vsBenchmark: "pecking order: guarantees first, coinvestment second (Prop. 4)" }
+    - { ref: R4, outcome: optimal government guarantee to financiers, metric: coefficient, value: "dK_g*/dC > 0; dR_f*/dC <= 0: higher government benefit from expropriating requires higher guarantees and lower coupon to financiers (Prop. 5)", direction: positive, vsBenchmark: "developing-economy governments face higher C, need higher guarantees but have less fiscal capacity" }
+    - { ref: R5, outcome: feasibility and scale of infrastructure projects, metric: level, value: "dI*/dK-bar_0 >= dI*/dK-bar_1 >= 0; project scale increases with both K-bar_0 and K-bar_1; feasibility threshold independent of K-bar_0 and K-bar_1 (Props. 6-7)", direction: positive, vsBenchmark: "fiscal resources expand scale but not feasibility; timing matters: K-bar_0 weakly dominates K-bar_1 (Prop. 7)" }
+    - { ref: R7, outcome: phase and causes of Indian power plant failures, metric: probability, value: "Table 5 reports 66 failure-cause entries across 34 plants: 72% public moral hazard, 22% private moral hazard, and 6% unclassified (p. 1400)", direction: positive, vsBenchmark: "the cause classifications are consistent with the model's double moral hazard assumption" }
+    - { ref: R8, outcome: feasibility and scale of infrastructure projects, metric: level, value: "With government moral hazard absent, if R-A_o < r/p_h the project is unfunded; if R-A_o > r/p_h it is funded at I_f = I-bar without government guarantees (Prop. 1)", direction: mixed, vsBenchmark: "operator moral hazard alone restricts feasibility but not project scale" }
+    - { ref: R9, outcome: feasibility and scale of infrastructure projects, metric: level, value: "With operator moral hazard absent, R > r/p_h is sufficient for funding at I = I-bar without government guarantees (Prop. 2)", direction: none, vsBenchmark: "government moral hazard alone affects neither feasibility nor scale" }
+    - { ref: R10, outcome: feasibility and scale of infrastructure projects, metric: coefficient, value: "∂I*/∂K-bar_0 >= ∂I*/∂K-bar_1 (Prop. 7)", direction: positive, vsBenchmark: "date-0 fiscal resources weakly expand scale at least as much as date-1 resources" }
+    - { ref: R11, outcome: feasibility and scale of infrastructure projects, metric: level, value: "∂Γ/∂Φ = 0 and ∂I-bar/∂Φ > 0; I-bar = [rK-bar_0 + (1-p_h)min{Φ,K-bar_1} + p_hΦ]/r (Eq. 1; Prop. 8)", direction: mixed, vsBenchmark: "greater government default penalty raises maximum project scale but does not change feasibility" }
+    - { ref: R13, outcome: phase and drivers of infrastructure contract disputes, metric: probability, value: "66% (420 of 635) of Indian highway dispute cases are postaward/construction; 2% (11) preaward, 0% (1) postcompletion, and 32% (203) unclear/no data (Table 2, p. 1398)", direction: positive }
+    - { ref: R14, outcome: phase and drivers of infrastructure contract disputes, metric: probability, value: "For arbitration-proceeds disputes, NHAI was petitioner in 123/260 and firms in 137/260; for payment disputes, NHAI was petitioner in 15/90 and firms in 75/90; for termination/debarment, 1/32 and 31/32 (Table 3, p. 1398)", direction: mixed }
+    - { ref: R15, outcome: phase and causes of Indian power plant failures, metric: probability, value: "94% (32 of 34) of stressed thermal plant cases emerged postaward/construction; 6% (2) preaward (Table 4, p. 1399)", direction: positive }
+    - { ref: R16, outcome: share of investment disputes involving developed economies, metric: probability, value: "The developed-economy share of ICSID cases rose from 7% in 2010 to 30% in 2014 (text p. 1400)", direction: positive }
 
   resultType: new-finding
 
@@ -97,6 +112,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-06, role: extracted, note: "Full text read (pp. 1368-1418); seven results extracted. Not human-verified. Not reproduced. Paper is pure theory with descriptive evidence (India case study); no replication code generated." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-06, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; fixed JEL codes (added G30, G38, H20 missing from PDF p. 1368); corrected findings R6 and Core table R5: dI*/dK-bar_1 was stated < 0 but PDF Prop. 6b gives dI*/dK-bar_1 >= 0 (both fiscal resources weakly increase scale); all equations (ICO, ICG, IRF, IRG, ICG, NDK, NDR, scale formula, Eq. 1) verified term-by-term against PDF; India evidence magnitudes (Table 5: 72%/22%/6%; Table 4: 94%) confirmed; no em-dashes or colorful adjectives found." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full source PDF (pp. 1368-1418); appended Core results R8-R16, aligned findings with quantitative rows, added the missing government-expropriation mechanism, completed scope metadata, and corrected the displayed Eq. (1) transcription. This extraction is not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, reported magnitudes, equations, classification, findings, and prose re-checked against the source PDF; corrected Proposition 4 threshold boundaries, aligned findings references, clarified Table 5's cause-entry denominator, and replaced an unsupported institution name. Locator checks found no issues for this page." }
 
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/rfs/hhaf007", checked: 2026-06-06, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://academic.oup.com/pages/standard-publication-reuse-rights, delay-in-days=0, start=2025-01-24. Standard OUP reuse rights, not Creative Commons." }
@@ -120,9 +137,10 @@ infrastructure gaps globally. The second-best optimal financing contract combine
 (a) government guarantees to financiers against project failure to discipline the government's
 expropriation incentive, (b) direct government coinvestment when the project return is
 sufficiently high, (c) development rights to private parties, and (d) tax subsidies.
-These features match institutional arrangements common in practice (TIFIA, UK Infrastructure
-Bank, Hong Kong MTR, etc.). India evidence shows 72% of stressed coal-power-plant failures
-are attributable to public moral hazard.
+These features match institutional arrangements common in practice (TIFIA, a U.K. Treasury
+co-lending unit, and Hong Kong MTR, among others). In the Indian power-plant evidence, 72% of
+the reported failure-cause entries are classified as public moral hazard, 22% as private moral
+hazard, and 6% as unclassified; the 34 plants can contribute multiple cause entries.
 
 The paper relates to three literature strands. On government expropriation and growth, Myers
 (1997) establishes the debt overhang idea that motivated sovereign debt dynamics; here it applies
@@ -143,11 +161,20 @@ source PDF.
 |---|---|---|---|
 | R1 | **Double moral hazard limits feasibility and scale jointly**; neither moral hazard alone causes both problems | Props. 1-3, pp. 1382-1385; Table 1, p. 1385 | Three feasibility thresholds: (i) if $$(R-A_o) < \underline{\Gamma}$$, project unfunded absent government MH; (ii) if $$\underline{\Gamma} \leq (R-A_o) < \overline{\Gamma}$$, project unfunded due to government MH; (iii) otherwise funded but at limited scale when $$(R-A_o) < \Gamma^*$$ |
 | R2 | **Optimal financing contract requires government guarantees** $$K_g > 0$$ when $$(R-A_o) \leq \Gamma^*$$; guarantees decrease in project return net of operator agency rent | Prop. 4, pp. 1386-1387; Figure 4, p. 1388 | $$K_g^* = A_g + \underline{R} - (R-A_o)$$ for $$\overline{\Gamma} \leq (R-A_o) < \Gamma_R$$; decreasing in $$(R-A_o)$$, positive throughout the region |
-| R3 | **Pecking order: guarantees precede coinvestment**; government coinvestment $$I_g > 0$$ only when project return is sufficiently high relative to moral hazard severity | Prop. 4, pp. 1386-1387; Figure 4, p. 1388 | $$I_g^* = 0$$ for $$(R-A_o) < \Gamma_I$$; $$I_g^* > 0$$ and rising for $$\Gamma_I \leq (R-A_o) < \Gamma^*$$; maximal $$I_g^* = \bar{K}_0$$ at $$\Gamma_R$$ |
+| R3 | **Pecking order: guarantees precede coinvestment**; government coinvestment $$I_g > 0$$ only when project return is sufficiently high relative to moral hazard severity | Prop. 4, pp. 1386-1387; Figure 4, p. 1388 | $$I_g^* = 0$$ for $$(R-A_o) < \Gamma_I$$; $$I_g^* > 0$$ and weakly increasing for $$\Gamma_I < (R-A_o) < \Gamma^*$$; maximal $$I_g^* = \bar{K}_0$$ for $$\Gamma_R \leq (R-A_o) < \Gamma^*$$; $$R_f^* > \underline{R}$$ only for $$\Gamma_R < (R-A_o) < \Gamma^*$$ |
 | R4 | **Higher government benefit from expropriating** ($$C$$) requires larger guarantees and a lower coupon; expropriation risk is worse in high-$$C$$ (developing-economy) settings | Prop. 5, p. 1389 | $$\partial K_g^*/\partial C > 0$$ and $$\partial R_f^*/\partial C \leq 0$$; developing economies need higher guarantees but their fiscal limits make these harder to provide |
 | R5 | **Government fiscal resources increase scale but not feasibility**; resources available at the investment stage (date 0) weakly dominate those at the cash flow stage (date 1) | Props. 6-7, pp. 1389-1390 | $$\partial I^*/\partial \bar{K}_0 \geq \partial I^*/\partial \bar{K}_1 \geq 0$$; feasibility thresholds $$\overline{\Gamma}$$ and $$\underline{\Gamma}$$ independent of $$\bar{K}_0, \bar{K}_1$$ (Prop. 6a: $$\partial\overline{\Gamma}/\partial\bar{K}_0 = \partial\overline{\Gamma}/\partial\bar{K}_1 = 0$$) |
 | R6 | **Development rights and tax subsidies** improve feasibility and scale; it is always optimal to set the tax-sharing rate $$\tau = 1$$ (fully share tax revenue with private sector) | Prop. 10-11, pp. 1395-1397 | Development rights $$D$$ and externalities $$X$$ raise $$\overline{\Gamma}$$ and $$I^*$$; distribution of rights to operator vs. financiers depends on which constraint is binding |
-| R7 | **India evidence confirms double moral hazard**: 72% of stressed thermal power plant failures 2007-2011 due to public (government) moral hazard, 22% private, 6% unclassified | Table 5, p. 1400; Tables 2-3, p. 1398 | 34 stressed plants; 1,165 NHAI cases (40% of 2,912 highway disputes); government as petitioner in 123 of 139 arbitration-related cases |
+| R7 | **India evidence is consistent with double moral hazard**: among reported power-plant failure causes, 72% are classified as public moral hazard, 22% private, and 6% unclassified | Table 5, p. 1400; Tables 2-3, p. 1398 | Table 5 reports 66 cause entries across 34 stressed plants; 1,165 NHAI cases (40% of 2,912 highway disputes); government as petitioner in 123 of 139 arbitration-related cases |
+| R8 | **Operator moral hazard alone restricts feasibility, not scale** | Prop. 1, text p. 1382 | If $$R-A_o < r/p_h$$, the project is not funded; if $$R-A_o > r/p_h$$, it is funded at $$I_f=\bar{I}$$ without government guarantees |
+| R9 | **Government moral hazard alone does not restrict feasibility or scale** | Prop. 2, text p. 1382 | If $$R > r/p_h$$, the project is funded at $$I=\bar{I}$$ without government guarantees |
+| R10 | **Fiscal resources at the investment stage weakly dominate later resources for scale** | Prop. 7, text p. 1390 | $$\partial I^*/\partial K_0 \geq \partial I^*/\partial K_1$$ |
+| R11 | **Limited commitment restricts maximum scale but not feasibility** | Eq. (1) and Prop. 8, text p. 1393 | $$\frac{\partial \Gamma}{\partial \Phi}=0$$ and $$\frac{\partial \bar{I}}{\partial \Phi}>0$$; $$\bar{I}=\frac{r\bar{K}_0+(1-p_h)\min\{\Phi,\bar{K}_1\}+p_h\Phi}{r}$$ |
+| R12 | **Private operator coinvestment accompanies financier investment** | Prop. 9, text p. 1395 | If funded, the operator and financiers both coinvest; the operator's fraction is determined by $$A_o$$ and is independent of project return |
+| R13 | **Highway disputes mostly arise after contract award** | Table 2, p. 1398 | 66% (420/635) postaward/construction; 2% (11/635) preaward; 0% (1/635) postcompletion; 32% (203/635) unclear/no data |
+| R14 | **Highway litigation roles vary by dispute type** | Table 3, p. 1398 | Arbitration proceeds: NHAI petitioner 123/260, firm petitioner 137/260; payments: 15/90 and 75/90; wrongful termination/debarment: 1/32 and 31/32 |
+| R15 | **Stressed thermal plant cases emerge in the postaward phase** | Table 4, p. 1399 | 94% (32/34) postaward/construction; 6% (2/34) preaward |
+| R16 | **Developed economies form a rising share of ICSID infrastructure cases** | text p. 1400 | Developed-economy share: 7% in 2010, rising to 30% in 2014 |
 
 **Overall (paper's conclusion).** The double moral hazard problem jointly limits the feasibility
 and scale of privately financed infrastructure, explaining global infrastructure gaps. The
@@ -280,10 +307,10 @@ $$
 $$
 
 subject to modified IRF, IRG, ICG, NDK-LC, NDR-LC, and MS constraints, yielding a maximum
-feasible project scale:
+feasible project scale (Appendix B, p. 1410). The main-text limited-commitment extension gives the maximum project scale (Eq. 1, p. 1393):
 
 $$
-\bar{I} = \frac{r\bar{K}_0 + (1-p_h)\min\!\{\Phi, \bar{K}_1\} + p_h\Phi}{(r - p_h D)} \tag{Eq. 1}
+\bar{I} = \frac{r\bar{K}_0 + (1-p_h)\min\{\Phi, \bar{K}_1\} + p_h\Phi}{r} \tag{1}
 $$
 
 ## Empirical specifications
@@ -302,10 +329,13 @@ government moral hazard in payments.
 **Stressed thermal power plants in India (Section 4.1.2, pp. 1398-1400).** Hand-collected
 data on 34 stressed coal-fueled power plants initiated 2007-2011, sourced from monthly Broad
 Status Reports of the Central Electricity Authority. Table 4 (p. 1399) shows 94% of failures
-occur in the postaward/construction phase. Table 5 (p. 1400) classifies each plant's cause of
-failure into private moral hazard (22%) and public moral hazard (72%), with 6% unclassified.
+occur in the postaward/construction phase. Table 5 (p. 1400) reports 66 failure-cause entries
+across the 34 plants, classified as private moral hazard (22%), public moral hazard (72%), or
+unclassified (6%); individual plants can have multiple cause entries.
 No regression or econometric test is performed; the classification is based on qualitative
 case-by-case analysis (Appendix B1).
+
+Table 3 (p. 1398) further shows firms initiated 137 of 260 arbitration-proceeds cases while NHAI initiated 123; for payment disputes firms initiated 75 of 90 cases and NHAI 15, and for termination/debarment the corresponding counts were 31 and 1. The paper also reports that developed-economy cases under ICSID rose from 7% in 2010 to 30% in 2014 (text p. 1400).
 
 ## Datasets used
 

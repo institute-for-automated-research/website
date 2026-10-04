@@ -5,8 +5,9 @@ description: >-
   in investment outcomes: subjects overremember gains and underremember losses,
   which translates into overly optimistic beliefs, excess reinvestment, and
   overconfidence about stock-picking ability. Review of Financial Studies 2025,
-  paywalled. Eight core results with source locators, datasets used, the
-  experimental model, and the estimating specifications.
+  paywalled. Eighteen core results have source locators and report the main
+  effects, mechanism tests, and reported null and robustness checks, alongside
+  the experimental model and estimating specifications.
 sidebar:
   label: Godker-Jiao-Smeets 2025
   order: 1
@@ -35,6 +36,9 @@ paper:
     - subjective posterior belief about stock quality
     - probability of suboptimal reinvestment
     - points bet suboptimally (overconfidence measure)
+    - points bet on the optimality of investment choice
+    - probability of reinvestment
+    - task-order effects on memory, beliefs, and suboptimal reinvestment
   outcomeClass: [household-finance, expectations]
   license: >-
     Oxford standard publication reuse rights (confirmed via Crossref DOI metadata:
@@ -44,72 +48,40 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (OUP site; Crossref licence confirms no OA; 2026-06-06)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 18
   citedByCount: 15
   methods:
     role: applies-method
-    family: descriptive
-    buildsFrom: [randomized-survey-experiment, panel-regression, probit-regression, logit-regression]
+    family: reduced-form-causal
+    buildsFrom: [randomized-survey-experiment, logit-regression]
     identification: randomized
   contributionType: [new-fact, new-data]
-  mechanisms: [behavioral-bias, learning]
+  mechanisms: [behavioral-bias, learning, motivated-memory-suppression]
   scope:
     region: Germany, UK, US
     assetClass: experimental risky stocks (lab)
-    period: 2019..2023
     frequency: mixed
     dataType: [experimental, survey]
     granularity: [individual]
     n: "229 subjects (Exp. 1), 498 subjects (Exp. 2), 487 subjects (Exp. 3)"
   findings:
-    - ref: R1
-      outcome: recalled number of positive investment outcomes (memory bias)
-      metric: coefficient
-      value: "Delay condition: mean bias +0.89 positive outcomes overremembered (p = .000); Immediate condition: mean bias +0.27 (p = .058); difference p = .018 (Table 2, p. 1614)"
-      direction: positive
-      vsBenchmark: Delay significantly larger than Immediate control
-    - ref: R2
-      outcome: recalled number of negative investment outcomes (memory bias)
-      metric: coefficient
-      value: "Delay condition: mean bias -0.73 negative outcomes underremembered (p = .000); Immediate: -0.28 (p = .037); difference p = .038 (Table 2, p. 1614)"
-      direction: negative
-      vsBenchmark: Delay significantly more negative than Immediate control
-    - ref: R3
-      outcome: subjective posterior belief about stock quality
-      metric: pp-effect
-      value: "Delay beliefs on average 8.16 percentage points too optimistic vs objective Bayesian posterior (t-test p = .004, Figure 2, p. 1616)"
-      direction: positive
-      vsBenchmark: 8.16 pp above objective Bayesian benchmark
-    - ref: R4
-      outcome: subjective posterior belief about stock quality
-      metric: coefficient
-      value: "Each overremembered positive outcome raises belief by 6.20pp (p < .01); each underremembered negative outcome lowers belief by 7.96pp (p < .01) (Table 3 cols 1-2, p. 1617)"
-      direction: positive
-      vsBenchmark: memory bias directly predicts belief distortion
-    - ref: R5
-      outcome: probability of suboptimal reinvestment
-      metric: probability
-      value: "41.9% of Delay subjects reinvest suboptimally; 20.5% in Immediate condition; difference significant at 1% (Figure 3, p. 1619; Table 4 col. 2)"
-      direction: positive
-      vsBenchmark: Delay suboptimal reinvestment rate roughly double Immediate control
-    - ref: R6
-      outcome: probability of suboptimal reinvestment
-      metric: coefficient
-      value: "Each overremembered positive outcome raises probability of suboptimal reinvestment by 59.9% (odds ratio, Table 4 col. 3, p. 1620); each underremembered loss decreases suboptimal reinvestment probability by 38.3% (Table 4 col. 4)"
-      direction: positive
-      vsBenchmark: memory bias magnitude predicts suboptimal reinvestment
-    - ref: R7
-      outcome: points bet suboptimally (overconfidence measure)
-      metric: coefficient
-      value: "Delay subjects bet on average 46.3 points suboptimally; Reminder condition 31.5 points; difference +14.8 points (p < .01) (Table 5 col. 2, p. 1622)"
-      direction: positive
-      vsBenchmark: "47% more suboptimal betting in Delay vs Reminder"
-    - ref: R8
-      outcome: points bet suboptimally (overconfidence measure)
-      metric: coefficient
-      value: "Each overremembered positive outcome increases suboptimal betting by 2.8 points (p < .05, Table 5 col. 3); HighStakes treatment eliminates memory bias for high-SDE subjects (Table 7 col. 1: coeff -0.469, p < .05) (pp. 1622-1625)"
-      direction: positive
-      vsBenchmark: memory suppression explains mechanism (motivated memory)
+    - { ref: R1, outcome: recalled number of positive investment outcomes (memory bias), metric: level, value: "Delay mean +0.89 outcomes (p = .000); Immediate +0.27 (p = .058); difference p = .018 (Table 2, p. 1614)", direction: positive, vsBenchmark: Delay significantly larger than Immediate control }
+    - { ref: R2, outcome: recalled number of negative investment outcomes (memory bias), metric: level, value: "Delay mean -0.73 outcomes (p = .000); Immediate -0.28 (p = .037); difference p = .038 (Table 2, p. 1614)", direction: negative, vsBenchmark: Delay significantly more negative than Immediate control }
+    - { ref: R3, outcome: subjective posterior belief about stock quality, metric: pp-effect, value: "Delay beliefs 8.16 percentage points above objective Bayesian posterior (t-test p = .004, Figure 2, p. 1616)", direction: positive, vsBenchmark: 8.16 pp above objective Bayesian benchmark }
+    - { ref: R4, outcome: subjective posterior belief about stock quality, metric: coefficient, value: "Positive memory bias coefficient 6.196 (SE 0.92); negative memory bias coefficient -7.958 (SE 1.02); both p < .01 (Table 3, p. 1617)", direction: mixed, vsBenchmark: Memory bias predicts belief distortion }
+    - { ref: R5, outcome: probability of suboptimal reinvestment, metric: probability, value: "41.9% in Delay vs 20.5% in Immediate; difference significant at 1% (Figure 3, p. 1619; Table 4, p. 1620)", direction: positive, vsBenchmark: Delay suboptimal reinvestment rate roughly double Immediate control }
+    - { ref: R6, outcome: probability of suboptimal reinvestment, metric: level, value: "Odds ratio 1.599 (SE 0.22) for positive memory bias; odds ratio 0.617 (SE 0.10) for negative memory bias; both p < .01 (Table 4, p. 1620)", direction: mixed, vsBenchmark: Memory bias magnitude predicts suboptimal reinvestment }
+    - { ref: R7, outcome: points bet suboptimally (overconfidence measure), metric: coefficient, value: "Delay coefficient +14.788 points (SE 4.18, p < .01; Table 5, p. 1622); mean 46.3 Delay vs 31.5 Reminder (Figure 4, p. 1621)", direction: positive, vsBenchmark: 47% more suboptimal betting in Delay vs Reminder }
+    - { ref: R8, outcome: points bet suboptimally (overconfidence measure), metric: coefficient, value: "Each overremembered positive outcome is associated with 2.790 more points bet suboptimally (SE 1.25, p < .05; Table 5, p. 1622)", direction: positive, vsBenchmark: Memory bias magnitude predicts suboptimal betting }
+    - { ref: R9, outcome: points bet on the optimality of investment choice, metric: coefficient, value: "Delay coefficient +9.381 points (SE 2.85, p < .01; N = 487; Table 5, p. 1622)", direction: positive, vsBenchmark: Delay vs Reminder for points bet across all choices }
+    - { ref: R10, outcome: recalled number of positive investment outcomes (memory bias), metric: level, value: "HighStakes delay mean 0.11 (p = .591); Delay-Immediate treatment effect 0.32 (p = .151); Baseline treatment effect 0.48 (p = .010; Table 6, p. 1623)", direction: none, vsBenchmark: High recall incentives remove statistical evidence of the bias relative to Baseline }
+    - { ref: R11, outcome: recalled number of positive investment outcomes (memory bias), metric: level, value: "NoChoice delay mean 0.18 (p = .398); Delay-Immediate treatment effect 0.49 (p = .051); Baseline treatment effect 0.48 (p = .010; Table 6, p. 1623)", direction: mixed, vsBenchmark: NoChoice condition lacks significant within-delay bias and has borderline treatment effect }
+    - { ref: R12, outcome: recalled number of negative investment outcomes (memory bias), metric: probability, value: "Delay condition probability of underremembering negative outcomes is almost 60% (p < .001; text p. 1625, Internet Appendix C)", direction: positive, vsBenchmark: Higher than Immediate condition }
+    - { ref: R13, outcome: subjective posterior belief about stock quality, metric: t-stat, value: "Delay vs NoRecall difference not significant (t-test p = .714; text p. 1605 and p. 1626, Internet Appendix G Table 16)", direction: none, vsBenchmark: NoRecall placebo }
+    - { ref: R14, outcome: probability of suboptimal reinvestment, metric: t-stat, value: "Delay vs NoRecall difference not significant (t-test p = .343; suboptimal-investment subsample p = .383; text p. 1626, Internet Appendix G Table 16)", direction: none, vsBenchmark: NoRecall placebo }
+    - { ref: R15, outcome: task-order effects on memory, beliefs, and suboptimal reinvestment, metric: t-stat, value: "No significant task-order impact: memory bias p = .314, beliefs p = .890, suboptimal reinvesting p = .428 (text p. 1626)", direction: none, vsBenchmark: Randomized task order }
+    - { ref: R17, outcome: probability of reinvestment, metric: level, value: "Delay odds ratio 2.213 (SE 0.78, p < .05; N = 152; Table 4, p. 1620)", direction: positive, vsBenchmark: Delay vs Immediate }
+    - { ref: R18, outcome: recalled number of positive investment outcomes (memory bias), metric: level, value: "Experiment 2 Baseline: Delay-group mean +0.36 (p = .023); Delay-Immediate treatment effect +0.48 (p = .010; N = 185; Table 6, p. 1623)", direction: positive, vsBenchmark: Experiment 2 Baseline Delay vs Immediate }
   resultType: new-finding
   replicationCode:
     url: "https://doi.org/10.7910/DVN/7K6ZPK"
@@ -125,7 +97,7 @@ paper:
     - "Whether the positive memory bias extends to extreme outcome events (very large gains or losses), where psychologists document enhanced emotional memory (p. 1628)."
     - "How the memory bias and its behavioral consequences evolve over longer time horizons beyond 1 week; experiments studied memory 1 week after observation (p. 1629)."
     - "How the memory bias operates in field settings for uninvolved investors (not personally invested), and how social transmission of memory interacts with market prices (pp. 1628-1629)."
-    - "Whether debiasing interventions (reminders of actual outcomes) are effective in field settings and whether they should target description vs experience learning (p. 1601)."
+    - "Whether reminder-based interventions can debias investors in field settings and improve learning from experience, compared with information campaigns that target learning from description (p. 1601)."
   proposedVocab:
     - { axis: topic, term: behavioral-finance, def: "Research on how psychological biases, heuristics, and deviations from rationality affect investor behavior and asset prices.", aliases: [investor-psychology, behavioral-economics-finance] }
     - { axis: topic, term: investor-beliefs, def: "Formation, updating, and distortion of individual investor beliefs about asset quality or return distributions.", aliases: [belief-formation, subjective-beliefs] }
@@ -151,6 +123,8 @@ paper:
         Equations (1) and (2) verified term-by-term against PDF pp. 1604 and
         1611. Fixed JEL codes: distiller had [D01, G41, G11] but PDF lists
         only D01, G4; corrected to [D01, G4].
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the assigned PDF; appended ten Core-results rows and aligned findings, added the motivated-memory mechanism proposal, and completed the main-text estimating specifications. These additions are not human-verified or reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 18 Core results, equations, specifications, classification axes, findings, frontmatter, prose, and DOI edges checked against the PDF. Corrected mechanism overstatement, odds-vs-probability phrasing, unsupported Immediate-condition claim, null-result wording, finding metrics, causal-method classification, unsupported method and period tags, and design description; table-locator check flagged no rows and this page has no un-locatable relatesTo cites." }
   licenceVerification:
     - source: "Crossref REST API works/10.1093/rfs/hhaf006"
       checked: 2026-06-06
@@ -174,11 +148,11 @@ stocks they chose to invest in. This positive memory bias: (a) distorts beliefs
 about stock quality by 8.16 percentage points toward optimism relative to the
 objective Bayesian posterior, (b) doubles the rate of suboptimal reinvestment
 (41.9% vs 20.5%), and (c) raises overconfident betting on one's own stock
-picks by 47%. The mechanism is motivated memory suppression (not genuine
-forgetting), consistent with the framework of Benabou and Tirole (2002): raising
-the financial incentive for accurate recall eliminates the bias for subjects prone
-to self-deception, and the bias disappears when subjects did not actively choose
-their investment (passive endowment condition).
+picks by 47%. The proposed mechanism is motivated memory suppression,
+consistent with the framework of Benabou and Tirole (2002): raising the
+financial incentive for accurate recall reduces measured memory bias among
+subjects high in self-deceptive enhancement, and the bias is not statistically
+significant in the passive endowment condition.
 
 ## Core results
 
@@ -189,12 +163,22 @@ Locators point into the source PDF.
 |---|---|---|---|
 | R1 | Subjects **overremember positive investment outcomes** after 1 week | Table 2, p. 1614; Figure 1, p. 1613 | Delay: +0.89 outcomes overremembered (p = .000); Immediate: +0.27 (p = .058); difference p = .018 |
 | R2 | Subjects **underremember negative investment outcomes** after 1 week | Table 2, p. 1614; Figure 1, p. 1613 | Delay: -0.73 outcomes underremembered (p = .000); Immediate: -0.28 (p = .037); difference p = .038 |
-| R3 | **Beliefs are 8.16 percentage points too optimistic** in the Delay condition relative to the objective Bayesian posterior | Figure 2, p. 1616; Internet App. D | t-test p = .004; effect is absent in Immediate condition |
+| R3 | **Beliefs are 8.16 percentage points too optimistic** in the Delay condition relative to the objective Bayesian posterior | Figure 2, p. 1616; Internet App. D | t-test p = .004 |
 | R4 | **Memory bias directly predicts belief distortion**: each recalled positive outcome raises subjective belief by 6.20pp; each underremembered loss reduces it by 7.96pp | Table 3 cols 1-2, p. 1617 | 6.20\*\*\* (0.92) and -7.958\*\*\* (1.02); R2 = 0.52-0.55 |
 | R5 | **Suboptimal reinvestment doubles** in the Delay vs Immediate condition (41.9% vs 20.5%) | Figure 3, p. 1619; Table 4 col. 2, p. 1620 | Odds ratio 3.542\*\*\* (1.44) for Delay treatment dummy; significant at 1% |
-| R6 | **Memory bias magnitude predicts suboptimal reinvestment**: each overremembered positive outcome raises probability of suboptimal reinvestment by 59.9% | Table 4 cols 3-4, p. 1620 | Odds ratio 1.599\*\*\* (0.22) for positive-outcome memory bias; 0.617\*\*\* (0.10) for negative-outcome bias |
+| R6 | **Memory bias magnitude predicts suboptimal reinvestment**: each overremembered positive outcome is associated with 1.599 times the odds of suboptimal reinvestment | Table 4 cols 3-4, p. 1620 | Odds ratio 1.599\*\*\* (0.22) for positive-outcome memory bias; 0.617\*\*\* (0.10) for negative-outcome bias |
 | R7 | **Overconfident betting is 47% higher** in Delay vs Reminder condition; Delay subjects bet 46.3 vs 31.5 points suboptimally | Figure 4, p. 1621; Table 5 col. 2, p. 1622 | 14.788\*\*\* (4.18) additional suboptimal points in Delay; p < .01 |
-| R8 | **Motivated memory suppression drives the bias**: high recall incentives eliminate the memory bias for high-SDE subjects; only actively choosing investors exhibit the bias | Table 7, p. 1625; Table 6, p. 1623 | HighStake coeff for high-SDE: -0.469\*\* (0.19); NoChoice treatment effect 0.18 (p = .398, insignificant) |
+| R8 | **Evidence supports motivated memory suppression**: high recall incentives reduce the memory bias for high-SDE subjects; only actively choosing investors exhibit the bias | Table 7, p. 1625; Table 6, p. 1623 | HighStake coeff for high-SDE: -0.469\*\* (0.19); NoChoice treatment effect 0.18 (p = .398, insignificant) |
+| R9 | **Delay raises confidence across all investment choices**, in addition to increasing suboptimal betting | Table 5, p. 1622 | Delay coefficient +9.381\*\*\* (SE 2.85, N = 487, R2 = .02) |
+| R10 | **High recall incentives attenuate the positive memory bias**, consistent with suppression rather than deletion | Table 6, p. 1623 | HighStakes Delay mean 0.11 (p = .591); Delay-Immediate treatment effect +0.32 (p = .151); Baseline treatment effect +0.48 (p = .010) |
+| R11 | **The positive memory bias depends on active choice**: it is not significant when subjects are assigned the stock | Table 6, p. 1623 | NoChoice Delay mean 0.18 (p = .398); Delay-Immediate treatment effect +0.49 (p = .051); Baseline treatment effect +0.48 (p = .010) |
+| R12 | **Belief-based estimation implies frequent underremembering of negative outcomes** | Text p. 1625; Internet Appendix C | Delay probability of underremembering negative outcomes is almost 60% (p < .001), higher than in Immediate |
+| R13 | **There is no significant evidence that the memory-elicitation task changes subjective beliefs** | Text p. 1626; Internet Appendix G, Table 16 | Delay vs NoRecall difference not significant (t-test p = .714) |
+| R14 | **There is no significant evidence that the memory-elicitation task changes investment decisions** | Text p. 1626; Internet Appendix G, Table 16 | Delay vs NoRecall difference not significant (t-test p = .343); lower-expected-return subsample p = .383 |
+| R15 | **Randomized task order does not affect the main outcomes** | Text p. 1626 | t-test p = .314 for memory bias, p = .890 for beliefs, and p = .428 for suboptimal reinvesting |
+| R16 | **Anticipated regret is not supported as an alternative mechanism** | Text p. 1627; Internet Appendix I | Memory bias is not significantly correlated with regret proneness; the main text does not report a coefficient or p-value |
+| R17 | **Delay increases reinvestment in the stock overall**, alongside the increase in suboptimal reinvestment | Table 4, col. 1, p. 1620 | Delay odds ratio 2.213\*\* (SE 0.78, N = 152, pseudo-R2 = .05) |
+| R18 | **Experiment 2 replicates the positive memory bias in its Baseline condition** | Table 6, p. 1623 | Delay mean +0.36 (p = .023); Delay-Immediate treatment effect +0.48 (p = .010; N = 185) |
 
 **Overall (paper's conclusion).** Investors systematically overremember their
 gains and underremember their losses, and this positive memory bias operates as
@@ -219,9 +203,9 @@ occurred, relative to a control group that elicits memory immediately
 
 The identification logic is a between-subject random assignment to Delay vs
 Immediate conditions, with the 1-week gap as the treatment that activates
-memory processes. The Immediate condition holds constant all non-memory
-factors (information acquisition, salience, attention) that could influence
-recall.
+memory processes. Both groups observe outcomes under the same experimental
+design and with the same level of engagement; the outcome draws need not be
+identical across subjects.
 
 The Bayesian benchmark for subjective beliefs is the objective posterior
 (equation 1, p. 1604):
@@ -257,7 +241,7 @@ The parimutuel betting payoff in experiment 3 follows Enke, Graeber, and
 Oprea (2023), equation 2 (p. 1611):
 
 $$
-\text{payoff}_i = \frac{b_i}{\frac{\sum_{l=1}^{10} x_l b_l}{\sum_{l=1}^{10} b_l}} + (100 - b_i) \tag{2}
+\text{payoff}_i = \frac{b_i}{\frac{\sum_{j=1}^{10} x_j b_j}{\sum_{j=1}^{10} b_j}} + (100 - b_i) \tag{2}
 $$
 
 where $$b_i$$ denotes points bet by subject $$i$$ and $$x_i$$ is an indicator equal
@@ -289,11 +273,11 @@ level is the difference between recalled and actually observed counts of
 positive (or negative) outcomes.
 
 **Identification via timing variation.** The comparison of Delay vs Immediate
-conditions isolates the effect of memory from attention, salience, and
-information processing, which are held constant because both groups observe the
-same outcomes with the same level of engagement. A NoRecall condition in
-experiment 1 (no memory task) confirms that the memory elicitation task itself
-does not affect subsequent beliefs or investment decisions.
+conditions is designed to isolate memory effects from attention, salience, and
+information processing, which the design holds constant across groups. A
+NoRecall condition in experiment 1 (no memory task) finds no significant
+differences in subsequent beliefs or investment decisions, consistent with the
+memory elicitation task not affecting those outcomes.
 
 The **randomized-survey-experiment** primitive underlies all three experiments:
 random assignment to conditions, incentivized elicitation of beliefs and choices,
@@ -302,57 +286,116 @@ HighStake vs Baseline, or NoChoice vs Baseline).
 
 ## Empirical specifications
 
-**Memory bias (R1, R2).** The memory bias is regressed on a constant and tested
-with a t-test against zero for each condition (Table 2, p. 1614):
+The paper reports treatment comparisons and regression tables rather than one
+common estimating equation. The equations below express those reported
+specifications. In the tables, standard errors are in parentheses where reported;
+the paper does not state a clustering adjustment.
+
+**Experiment 1 memory bias (R1-R2).** Memory bias is recalled minus observed
+outcomes, tested against zero within each treatment and compared across
+conditions (Table 2, p. 1614):
 
 $$
-\text{MemoryBias}_{i,s} = \alpha + \beta \cdot \mathbf{1}[\text{Delay}_i] + \gamma \cdot \text{Session}_{is} + \varepsilon_{is}
+\text{Bias}_{i,k}=\text{Recalled}_{i,k}-\text{Observed}_{i,k},\qquad
+H_0:E[\text{Bias}_{i,k}\mid c]=0,\qquad
+H_0:E[\text{Bias}_{i,k}\mid Delay]=E[\text{Bias}_{i,k}\mid Immediate]
 $$
 
-where $$\text{MemoryBias}_{is}$$ is the subject's recalled minus actually observed
-count of positive (or negative) outcomes, and $$\text{Session}_{is}$$ is a session
-fixed effect. Column 1 of Table 2 reports the t-test of the Delay group mean
-against zero; column 3 tests the Delay-Immediate difference.
+Here $$k$$ indexes positive or negative outcomes and $$c$$ the treatment condition.
+The table reports t-tests, not a regression: stock investors only, N = 74 in
+Delay and N = 78 in Immediate. No fixed effects are used; inference is by the
+reported t-tests against zero and for the difference in means.
 
-**Memory-based beliefs (R3, R4).** OLS regressions with session fixed effects (Table 3, p. 1617):
-
-$$
-\text{SubjProb}_{is} = \alpha + \beta_1 \cdot \text{MemBias}_{\text{pos},is} + \beta_2 \cdot \text{MemBias}_{\text{neg},is} + \gamma \cdot \text{ObjProb}_{is} + \delta \cdot \text{Session}_{is} + \varepsilon_{is}
-$$
-
-Dependent variable: subjective probability that the stock is good (1-100).
-Columns 3 and 4 use belief distortion (difference between posterior log-likelihood
-ratios of subjective and objective probabilities) as the dependent variable.
-N = 188, R2 = 0.31-0.55. Standard errors in parentheses.
-
-**Reinvestment behavior (R5, R6).** Logit regressions with session fixed effects (Table 4, p. 1620):
+**Beliefs and belief distortion (R3-R4).** Table 3 reports separate OLS
+specifications for each memory-bias measure and outcome (p. 1617):
 
 $$
-\Pr(\text{Invest}_{is}) = F\left(\alpha + \beta \cdot \text{Delay}_i + \gamma_1 \cdot \text{MemBias}_{\text{pos},is} + \gamma_2 \cdot \text{MemBias}_{\text{neg},is} + \delta \cdot \text{Session}_{is}\right)
+\text{SubjProb}_{i}=\alpha+\beta\,\text{MemBias}_{i,k}
++\gamma\,\text{ObjProb}_{i}+\lambda_{s(i)}+\varepsilon_i
 $$
 
-Dependent variable: a dummy equal to 1 if the subject reinvested in the stock
-(Inv.) or a dummy equal to 1 if the subject reinvested suboptimally from a
-Bayesian perspective (Inv. (Subopt.)). Odds ratios reported. N = 152, pseudo-R2 = 0.05-0.13.
-Sample restricted to subjects who invested in the stock.
-
-**Overconfidence / suboptimal betting (R7, R8).** OLS regressions (Table 5, p. 1622):
-
 $$
-\text{PointsBet}_{is} = \alpha + \beta \cdot \text{Delay}_i + \gamma_1 \cdot \text{MemBias}_{\text{pos},is} + \varepsilon_{is}
+\text{BeliefDist}_{i}=\alpha+\beta\,\text{MemBias}_{i,k}
++\lambda_{s(i)}+\varepsilon_i
 $$
 
-Dependent variable: number of points bet suboptimally (Points bet (subopt.)
-= points bet when the stock chosen had fewer than 6 positive outcomes, i.e.,
-was suboptimally chosen from a Bayesian perspective). N = 191 (col. 2),
-N = 83 (col. 3 for Delay subjects only). R2 = 0.02-0.06. No session fixed
-effects in experiment 3 (collected in one online session).
+$$k$$ is positive bias in column 1 / 3 and negative bias in column 2 / 4;
+$$\lambda_{s(i)}$$ are session fixed effects. Objective probability enters only
+the subjective-probability specifications. N = 188 for subjective probability
+and N = 182 for belief distortion. Standard errors are in parentheses; no
+cluster adjustment is stated.
 
-**Mechanism tests (R8).** OLS regressions split by median self-deceptive
-enhancement (SDE) score (Table 7, p. 1625); Treatment (HighStake) is the
-dummy for the high-incentive condition. The memory-suppression prediction is
-that HighStake reduces bias for high-SDE subjects (column 1: coeff -0.469,
-p < .05) but not for low-SDE subjects (column 2: 0.115, p = .60).
+**Reinvestment (R5-R6, R17).** Table 4 uses logit regressions, reporting odds ratios,
+for reinvestment and suboptimal reinvestment (p. 1620):
+
+$$
+\Pr(\text{Invest}_{i}=1)=F(\alpha+\beta\,\text{Delay}_{i}+\lambda_{s(i)})
+$$
+
+$$
+\Pr(\text{InvestSubopt}_{i}=1)=F(\alpha+\beta\,X_i+\lambda_{s(i)})
+$$
+
+For the first specification, $$X_i=\text{Delay}_i$$; the suboptimal-investment
+specification uses Delay in column 2, positive memory bias in column 3, and
+negative memory bias in column 4. Column 1 estimates overall reinvestment on Delay. Session fixed effects are included in all
+columns. N = 152, restricted to subjects investing in the stock. Standard errors
+are in parentheses and odds ratios are reported; no cluster adjustment is stated.
+
+**Experiment 3 betting (R7, R9).** Table 5 reports separate OLS regressions for
+all points bet, suboptimal points bet by treatment, and suboptimal points bet on
+positive memory bias (p. 1622):
+
+$$
+\text{PointsBet}_{i}=\alpha+\beta\,\text{Delay}_{i}+\varepsilon_i
+$$
+
+$$
+\text{PointsBetSubopt}_{i}=\alpha+\beta\,\text{Delay}_{i}+\varepsilon_i
+$$
+
+$$
+\text{PointsBetSubopt}_{i}=\alpha+\beta\,\text{MemBiasPos}_{i}+\varepsilon_i
+$$
+
+The comparison group is Reminder. No session fixed effects are included (one
+online session); N = 487 for all bets, N = 191 for suboptimal bets by treatment,
+and N = 83 for the memory-bias regression, restricted to Delay subjects with
+suboptimal choices. Standard errors are in parentheses; no cluster adjustment
+is stated.
+
+**Mechanism tests (R8, R10-R11, R18).** Table 6 reports t-tests of mean positive
+memory bias against zero by condition and Delay-versus-Immediate mean
+comparisons (p. 1623):
+
+$$
+\text{Bias}_{i}=\text{RecalledPos}_{i}-\text{ObservedPos}_{i},\qquad
+H_0:E[\text{Bias}\mid c,Delay]=0,\qquad
+H_0:E[\text{Bias}\mid c,Delay]=E[\text{Bias}\mid c,Immediate]
+$$
+
+The conditions are Baseline, HighStakes, and NoChoice. Table 6 gives the total
+condition Ns (185, 154, and 159); it reports t-test p-values, with no regression
+or fixed effects. Table 7 then estimates the HighStakes treatment coefficient
+separately above and below the median SDE score (p. 1625):
+
+$$
+\text{BiasPos}_{i}=\alpha+\beta\,\text{HighStakes}_{i}+\varepsilon_i
+$$
+
+N = 172 for high-SDE and N = 167 for low-SDE subjects. No fixed effects are
+reported; standard errors are in parentheses, with no cluster adjustment stated.
+
+**Placebo and robustness tests (R12-R16).** The text reports a model-based
+probability of underremembering negative outcomes near 60% in Delay (p < .001;
+text p. 1625, Internet Appendix C), with a larger probability than Immediate.
+The NoRecall placebo tests report no significant Delay-NoRecall difference in
+beliefs (p = .714) or investment decisions (p = .343; lower-expected-return
+subsample p = .383; text p. 1626, Internet Appendix G Table 16). Randomized
+task order has no significant effect on memory bias (p = .314), beliefs
+(p = .890), or suboptimal reinvesting (p = .428; text p. 1626). The regret
+robustness test finds no significant association, but its coefficient and p-value
+are not stated in the main text (text p. 1627, Internet Appendix I).
 
 ## Datasets used
 
@@ -387,8 +430,8 @@ are publicly available at Harvard Dataverse
 Source: peer-reviewed, *The Review of Financial Studies* 38(6), 2025.
 Published by Oxford University Press on behalf of the Society for Financial
 Studies. All rights reserved. Commercial re-use requires reprints permission
-from OUP. This distillation was extracted by an LLM on 2026-06-06 and is
-**not human-verified or independently reproduced**. Extract-only: the OUP
+from OUP. This distillation was updated on 2026-10-04 and is **not independently
+reproduced**. Extract-only: the OUP
 standard publication reuse rights do not permit mirroring the verbatim PDF.
 
 > Gödker, Katrin, Peiran Jiao, and Paul Smeets. "Investor Memory."
