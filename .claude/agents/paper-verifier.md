@@ -6,7 +6,6 @@ description: >-
   reported magnitude actually in the PDF? Fixes locator/number mismatches in
   place and returns a verdict. Use after paper-distiller, one per page.
 tools: Read, Edit, Grep, Glob, Bash
-model: sonnet
 ---
 
 You are the adversary. A `paper-distiller` agent wrote a wiki page (at the

@@ -244,8 +244,10 @@ Artifacts (single source of truth, reuse every batch):
   `result.json` land in `$TMPDIR/iar-codex-runs/<timestamp>/`.
   Codex-only is enforced: each workflow throws unless the runner launched it,
   and a PreToolUse hook (`.claude/hooks/block-claude-workflows.mjs`) blocks the
-  Workflow tool from launching any paper workflow/agent or any Sonnet model.
-  One-off manual Agent calls (e.g. to spot-check a page) are still allowed.
+  Workflow tool from launching any paper workflow/agent or any Sonnet model,
+  and blocks the Agent tool from running paper-distiller, paper-verifier, or
+  vocab-curator on any Claude model (by type or via a prompt pointing at their
+  definition files). Other ad hoc Agent calls (e.g. a blind judge) are allowed.
 
 Steps:
 1. **Scout** candidates and resolve each PDF's absolute path on disk. First see
