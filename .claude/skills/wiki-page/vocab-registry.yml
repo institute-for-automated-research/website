@@ -987,6 +987,18 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Political mechanism in which a dominant group responds to credible signals of minority political-power gains by increasing violence or intimidation to suppress minority participation, as in Blalock (1967).
     aliases: [minority-threat-response, blalock-power-threat, ethnic-backlash]
 
+  csr-differentiation-saturation:
+    def: Widespread mandated CSR participation erodes CSR's value as a selective product-differentiation signal, reducing stakeholder benefits while leaving compliance costs in place.
+    aliases: [csr-signal-dilution, csr-differentiation-erosion]
+
+  complementary-innovation-capabilities:
+    def: Exploratory knowledge in acquired private firms combines with public acquirers' commercialization, patenting, and capital-market capabilities to create post-acquisition innovation synergies.
+    aliases: [innovation-capability-complementarity, complementary-innovation-assets]
+
+  innovation-rent-erosion:
+    def: Competition accelerates imitation and follow-on innovation, shortening the period firms capture exclusive patent rents and reducing innovation's economic value.
+    aliases: [patent-rent-erosion, competitive-obsolescence-of-innovation]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found

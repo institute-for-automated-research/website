@@ -7,13 +7,13 @@ description: >-
   shift toward smaller private targets, cut stock payment, and retain only deals
   with better announcement returns during the two-year pilot; the effect reverses
   partially after the pilot ends. Journal of Corporate Finance 96 (2026), paywalled
-  (Elsevier). Nine core results with source locators, the DID specification, and
+  (Elsevier). Twenty core results with source locators, the DID specification, and
   channel evidence on information asymmetry and valuation. LLM-distilled, not
   human-verified.
 sidebar:
   label: Lin-Yao-Zou 2026
   order: 1
-tags: [paper-summary, mergers-acquisitions, stock-liquidity, tick-size, information-asymmetry, panel-regression, natural-experiment, peer-reviewed, unreplicated, data:wrds, data:sdc-platinum]
+tags: [paper-summary, mergers-acquisitions, stock-liquidity, tick-size, information-asymmetry, panel-regression, randomized, peer-reviewed, unreplicated, data:wrds, data:sdc-platinum]
 paper:
   authors: Chen Lin, Wentao Yao, Hong Zou
   authorList:
@@ -36,40 +36,55 @@ paper:
     - percentage of M&A deal value paid by stock
     - deal completion rate
     - deal announcement returns CAR(-2,2)
+    - public-target indicator
+    - deal size scaled by acquirer assets
+    - deal completion indicator
+    - deal type relative to vertical mergers
   outcomeClass: [firm-real-outcomes, firm-financing, security-returns]
   license: "Elsevier standard journal article licence; no CC licence; content-version tdm (Elsevier TDM 1.0) and stm-asf (policy-017, policy-037); start 2026-01-01 per Crossref"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier ScienceDirect, 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 9
+  resultsCount: 20
   citedByCount: 0
   methods:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [difference-in-differences, panel-regression, event-study]
-    identification: natural-experiment
+    identification: randomized
   contributionType: [new-fact]
   mechanisms: [information-asymmetry, liquidity, financial-constraint]
   scope:
     region: US
     assetClass: US equities (small and mid-cap; 2016 SEC Tick Size Pilot stocks)
-    period: 2015Q1..2018Q3
+    period: 2015Q1..2019Q4
     frequency: quarterly
-    dataType: [market, accounting, administrative]
-    granularity: [firm, security]
+    dataType: [market, accounting, other]
+    granularity: [firm, transaction]
     n: "211 unique firms; 2929 firm-quarter observations; 451 M&A deals"
   findings:
-    - { ref: R1, outcome: "M&A investment intensity", metric: coefficient, value: "-0.020** (t = -2.72)", direction: negative, vsBenchmark: "~10.9% decline relative to SD of 0.183; TG1 coefficient insignificant (0.001, t = 0.16)" }
+    - { ref: R1, outcome: "M&A investment intensity", metric: coefficient, value: "-0.020** (t = -2.72)", direction: negative, vsBenchmark: "About 10.9% decline relative to SD of 0.183; TG1 coefficient insignificant (0.001, t = 0.15)" }
     - { ref: R2, outcome: "M&A investment intensity (non-stock-financed deals)", metric: coefficient, value: "-0.015* (t = -2.10)", direction: negative }
     - { ref: R3, outcome: "M&A investment intensity", metric: coefficient, value: "-0.028** (t = -2.54) triple-DID b1; combined b1+b2 = -0.026 (p = 0.02)", direction: negative, vsBenchmark: "Low-asymmetry (high analyst coverage) firms show a larger reduction than high-asymmetry firms" }
     - { ref: R4, outcome: "M&A investment intensity", metric: coefficient, value: "-0.033** (t = -2.85) triple-DID b1; combined b1+b2 = -0.034 (p = 0.00)", direction: negative, vsBenchmark: "High ex-ante stock valuation or large actual price drop amplifies the reduction" }
-    - { ref: R5, outcome: "percentage of M&A deal value paid by stock", metric: pp-effect, value: "-13.7 pp (t = -3.11)", direction: negative }
+    - { ref: R5, outcome: "percentage of M&A deal value paid by stock", metric: pp-effect, value: "-13.7 pp*** (t = -3.11)", direction: negative }
     - { ref: R6, outcome: "deal completion rate", metric: coefficient, value: "+0.265** (t = 2.27)", direction: positive, vsBenchmark: "Public target down -0.074* (t = -2.01); deal size down -0.273*** (t = -3.09); all Table 5" }
     - { ref: R7, outcome: "deal type (horizontal and diversifying vs vertical)", metric: coefficient, value: "Diversifying -1.887** (t = -2.08); Horizontal -1.482* (t = -1.71) multinomial logit", direction: negative }
     - { ref: R8, outcome: "deal announcement returns CAR(-2,2)", metric: car, value: "+0.023* (t = 2.04)", direction: positive, vsBenchmark: "Pre-pilot TG2&3 coefficient -0.015** (t = -2.45); retained deals generate better announcement returns" }
-    - { ref: R9, outcome: "M&A investment intensity (post-pilot reversal)", metric: coefficient, value: "+0.012*** (t = 3.62)", direction: positive, vsBenchmark: "~28% of M&A intensity SD; partial recovery only; TG1 insignificant (0.011, t = 1.51)" }
-  resultType: new-finding
+    - { ref: R9, outcome: "M&A investment intensity (post-pilot reversal)", metric: coefficient, value: "+0.012*** (t = 3.62)", direction: positive, vsBenchmark: "About 28% of M&A intensity SD; partial recovery only; TG1 insignificant (0.011, t = 1.51)" }
+    - { ref: R10, outcome: "pre-pilot balance in M&A intensity and firm characteristics", metric: level, value: "M&A intensity: t-test p = 0.16, K-S p = 0.98; characteristic t-test p-values range 0.21-0.40", direction: none, vsBenchmark: "test groups versus control group; no statistically significant pre-pilot differences" }
+    - { ref: R11, outcome: "M&A investment intensity", metric: coefficient, value: "Dynamic DID leads: Post(-4) = -0.014 (t = -1.04), Post(-3) = 0.010 (t = 0.46), Post(-2) = 0.026 (t = 1.73); pilot Post(+2) = -0.032** (t = -2.60)", direction: negative, vsBenchmark: "No significant pre-pilot divergence; a significant decline appears in a pilot-period bin" }
+    - { ref: R12, outcome: "M&A investment intensity", metric: coefficient, value: "TestGroup2&3*Post = -0.021** (t = -2.47) in the control and test groups 2-3 subsample", direction: negative, vsBenchmark: "The main estimate remains negative and significant when test group 1 is excluded" }
+    - { ref: R13, outcome: "M&A investment intensity", metric: coefficient, value: "Low forecast dispersion: b1 = -0.025** (t = -2.73), b1+b2 = -0.027 (p = 0.03); small bid-ask spread: b1 = -0.017* (t = -2.03), b1+b2 = -0.024 (p = 0.07)", direction: negative, vsBenchmark: "Both additional low-information-asymmetry proxies show larger M&A reductions; combined effects are significant at 5% and 10%, respectively" }
+    - { ref: R14, outcome: "M&A investment intensity", metric: coefficient, value: "Large actual price-drop split: b1 = -0.030** (t = -2.83), b1+b2 = -0.037 (p = 0.02)", direction: negative, vsBenchmark: "Firms with a large actual price drop reduce M&A intensity more" }
+    - { ref: R15, outcome: "public-target indicator", metric: coefficient, value: "TestGroup2&3*Post = -0.074* (t = -2.01), controlled deal-level specification", direction: negative }
+    - { ref: R16, outcome: "deal size scaled by acquirer assets", metric: coefficient, value: "TestGroup2&3*Post = -0.273*** (t = -3.09); with controls, -0.231** (t = -2.80)", direction: negative }
+    - { ref: R17, outcome: "deal completion indicator", metric: coefficient, value: "TestGroup2&3*Post = +0.265** (t = 2.27); with controls, +0.288** (t = 2.48)", direction: positive }
+    - { ref: R18, outcome: "deal type relative to vertical mergers", metric: coefficient, value: "Diversifying vs vertical: TestGroup2&3*Post = -1.887** (t = -2.08); with controls, -2.014** (t = -2.17)", direction: negative }
+    - { ref: R19, outcome: "deal type relative to vertical mergers", metric: coefficient, value: "Horizontal vs vertical: TestGroup2&3*Post = -1.482* (t = -1.71); with controls, -1.605* (t = -1.80)", direction: negative }
+    - { ref: R20, outcome: "deal announcement returns CAR(-2,2)", metric: car, value: "After excluding stock-financed deals, TestGroup2&3*Post = +0.030* (t = 2.04)", direction: positive, vsBenchmark: "The announcement-return increase persists in non-stock-financed deals" }
+  resultType: mixed
   relatesTo:
     - { cite: "Albuquerque et al. (2020)", doi: '10.1016/j.jfineco.2020.07.002', relation: builds-on, note: "Evidence that the 2016 tick size increase lowers stock prices for small-spread stocks via higher information asymmetry and required returns" }
     - { cite: "Huang et al. (2024)", doi: '10.1016/j.jcorpfin.2024.102562', relation: tests, note: "Trading cost-based hypothesis that liquid acquirer stock attracts lower target prices; this paper finds the IA&V channel extends to non-stock-financed deals, so trading cost alone cannot explain the results" }
@@ -77,13 +92,15 @@ paper:
     - { cite: "Edmans et al. (2012)", doi: '10.1146/annurev-financial-110311-101826', relation: builds-on, note: "Framework for real effects of financial markets on corporate investment decisions, motivating study of M&A through the lens of stock liquidity" }
     - { cite: "Ye et al. (2023)", relation: cites, note: "Related SEC tick size pilot study on managerial learning from stock prices; this paper focuses on M&A investment rather than internal capital expenditure" }
   openQuestions:
-    - "The post-pilot sample is truncated at 2019Q4 to avoid COVID-19 effects, so whether M&A activity fully recovers to pre-pilot levels in the long run is not established (Table 8 note, p. 16)."
-    - "The sample covers only firms that conducted at least one M&A in the seven pre-pilot quarters; whether the tick-size shock also affects the entry decision of otherwise inactive acquirers is not examined (p. 7)."
+    - "The post-pilot sample is truncated at 2019Q4 to avoid COVID-19 effects, so whether M&A activity fully recovers to pre-pilot levels in the long run is not established (Section 4.9, p. 16)."
+    - "The sample covers only firms that conducted at least one M&A in the seven pre-pilot quarters; whether the tick-size shock also affects the entry decision of otherwise inactive acquirers is not examined (p. 6)."
   replicationCode:
     status: upon-request
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-26, role: extracted, note: "Full PDF read (20 pp.); nine core results extracted from Tables 2-8; not human-verified; not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all nine Core-results rows confirmed correct against Tables 2-8; two frontmatter errors fixed: G14 removed from JEL codes (PDF lists only G18, G34) and 'Corporate Social Responsibility Reporting' removed from topics (unrelated to paper content); equations and specifications verified term-by-term; no em-dashes or colorful adjectives found." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results table with eleven findings and matching findings[] entries, plus the corrected main estimating-equation control coefficient; not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 20 Core-results rows, equations, specifications, classifications, findings, frontmatter, and prose against the PDF; corrected a control t-statistic, triple-DID sample description, scope and identification classifications, and locators; all headline results are present. Findings pass (2026-10-04): added the R10 finding." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jcorpfin.2025.102890", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "license[]: content-version tdm (Elsevier TDM 1.0, start 2026-01-01) and content-version stm-asf (policy-017/policy-037, start 2026-01-01); no CC licence present; article is paywalled" }
 ---
@@ -92,7 +109,7 @@ paper:
 
 ## TL;DR
 
-Using the SEC's 2016 Tick Size Pilot as an exogenous shock to stock liquidity, this paper shows that firms whose stocks are assigned to larger minimum price increments (test groups 2 and 3, required to quote and trade at the $0.05 increment) significantly reduce the intensity of their M&A activity relative to control firms during the two-year pilot period. Firms in test groups 2 and 3 also cut stock payments in M&A deals, avoid large and public-target acquisitions, exhibit higher deal completion rates, and concentrate the reduction in horizontal and diversifying (rather than vertical) mergers. The retained deals earn better announcement returns. The evidence points to information asymmetry and valuation costs of lower stock liquidity as the dominant driver, not just the higher trading costs hypothesized by Huang et al. (2024): the reduction in M&A intensity persists even after excluding stock-financed deals, ruling out the trading-cost-only explanation. A partial reversal after the pilot ends corroborates the causal interpretation. Edmans et al. (2012) provide the motivating framework for studying real effects of stock markets on corporate investment.
+Using the SEC's 2016 Tick Size Pilot as an exogenous shock to stock liquidity, this paper shows that firms whose stocks are assigned to larger minimum price increments (test groups 2 and 3, required to quote and trade at the $0.05 increment) significantly reduce the intensity of their M&A activity relative to control firms during the two-year pilot period. Firms in test groups 2 and 3 also cut stock payments in M&A deals, avoid large and public-target acquisitions, exhibit higher deal completion rates, and concentrate the reduction in horizontal and diversifying (rather than vertical) mergers. The retained deals earn better announcement returns. The evidence points to information asymmetry and valuation costs of lower stock liquidity as the dominant driver, not just the higher trading costs hypothesized by Huang et al. (2024): the reduction in M&A intensity persists even after excluding stock-financed deals, showing that the trading-cost-only explanation cannot account for the full reduction. A partial reversal after the pilot ends corroborates the causal interpretation. Edmans et al. (2012) provide the motivating framework for studying real effects of stock markets on corporate investment.
 
 ## Core results
 
@@ -100,7 +117,7 @@ Magnitudes and significance are as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. L
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Firms in test groups 2&3 significantly reduce M&A intensity during the pilot | Table 2, col (2), p. 9 | TestGroup2&3\*Post = -0.020\*\* (t = -2.72); ~10.9% decline relative to SD of 0.183; TG1 insignificant (0.001, t = 0.16) |
+| R1 | Firms in test groups 2&3 significantly reduce M&A intensity during the pilot | Table 2, col (2), p. 9 | TestGroup2&3\*Post = -0.020\*\* (t = -2.72); ~10.9% decline relative to SD of 0.183; TG1 insignificant (0.001, t = 0.15) |
 | R2 | Reduction persists for non-stock-financed deals, supporting information asymmetry over pure trading-cost explanation | Table 2, col (6), p. 9 | -0.015\* (t = -2.10) after excluding all stock-financed deals from the sample |
 | R3 | Channel (information asymmetry): lower ex-ante information asymmetry amplifies the reduction | Table 3, Panel A, col (1), p. 12 | Triple-DID b1 = -0.028\*\* (t = -2.54) with high-analyst-coverage proxy; combined b1+b2 = -0.026 (p = 0.02) |
 | R4 | Channel (valuation): higher pre-pilot stock valuation or larger price drop amplifies the reduction | Table 3, Panel B, col (1), p. 12 | Triple-DID b1 = -0.033\*\* (t = -2.85) for high ex-ante stock valuation; combined b1+b2 = -0.034 (p = 0.00) |
@@ -109,6 +126,17 @@ Magnitudes and significance are as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. L
 | R7 | The decline in M&A is concentrated in horizontal and diversifying mergers, not vertical | Table 6, cols (1)-(2), p. 16 | Multinomial logit relative to vertical: Diversifying = -1.887\*\* (t = -2.08); Horizontal = -1.482\* (t = -1.71) |
 | R8 | Deal announcement returns improve for retained M&A deals of pilot firms | Table 7, col (1), p. 17 | CAR(-2,2): +0.023\* (t = 2.04); pre-pilot TG2&3 coefficient -0.015\*\* (t = -2.45), consistent with retained deals being higher quality |
 | R9 | M&A intensity partially recovers after the pilot ends | Table 8, p. 18 | TestGroup2&3\*Post2 = +0.012\*\*\* (t = 3.62); ~28% of SD of M&A intensity; TG1 insignificant (0.011, t = 1.51) |
+| R10 | Test and control firms are balanced on pre-pilot M&A intensity and firm characteristics | Table 1, Panel C, p. 6 | M&A intensity t-test p = 0.16 and K-S p = 0.98; reported characteristic t-test p-values range 0.21-0.40 |
+| R11 | Dynamic DID shows no significant pre-pilot divergence and a significant decline in a pilot-period bin | Table 2, col (5), p. 9 | Pre-pilot Post(-4) = -0.014 (t = -1.04), Post(-3) = 0.010 (t = 0.46), Post(-2) = 0.026 (t = 1.73); pilot Post(+2) = -0.032\*\* (t = -2.60) |
+| R12 | The M&A-intensity result persists when test group 1 is excluded | Table 2, col (4), p. 9 | TestGroup2&3\*Post = -0.021\*\* (t = -2.47) in the test-groups-2-and-3 plus control subsample |
+| R13 | Two additional low-information-asymmetry proxies show larger M&A reductions | Table 3, Panel A, cols (2)-(3), p. 12 | Low forecast dispersion: b1 = -0.025\*\* (t = -2.73), b1+b2 = -0.027 (p = 0.03); small bid-ask spread: b1 = -0.017\* (t = -2.03), b1+b2 = -0.024 (p = 0.07) |
+| R14 | Firms with a large actual stock-price drop reduce M&A intensity more | Table 3, Panel B, col (2), p. 12 | Triple-DID b1 = -0.030\*\* (t = -2.83); combined b1+b2 = -0.037 (p = 0.02) |
+| R15 | Conditional on undertaking M&A, treated firms are less likely to acquire a public target | Table 5, col (2), p. 14 | TestGroup2&3\*Post = -0.074\* (t = -2.01) |
+| R16 | Conditional on undertaking M&A, treated firms select smaller deals | Table 5, cols (3)-(4), p. 14 | TestGroup2&3\*Post = -0.273\*\*\* (t = -3.09); with controls, -0.231\*\* (t = -2.80) |
+| R17 | Conditional on undertaking M&A, treated firms have higher deal completion rates | Table 5, cols (5)-(6), p. 14 | TestGroup2&3\*Post = +0.265\*\* (t = 2.27); with controls, +0.288\*\* (t = 2.48) |
+| R18 | Treated firms reduce diversifying deals relative to vertical deals | Table 6, cols (1), (3), p. 16 | TestGroup2&3\*Post = -1.887\*\* (t = -2.08); with controls, -2.014\*\* (t = -2.17), multinomial logit |
+| R19 | Treated firms reduce horizontal deals relative to vertical deals | Table 6, cols (2), (4), p. 16 | TestGroup2&3\*Post = -1.482\* (t = -1.71); with controls, -1.605\* (t = -1.80), multinomial logit |
+| R20 | Higher announcement returns persist after stock-financed deals are removed | Table 7, col (2), p. 17 | CAR(-2,2): TestGroup2&3\*Post = +0.030\* (t = 2.04) |
 
 **Overall (paper's conclusion).** The tick-size increase causes firms to reduce M&A investment by cutting lower-quality acquisitions (horizontal, diversifying) and structuring retained deals more carefully (smaller size, private targets, less stock payment). The disciplinary effect of reduced stock liquidity raises deal announcement returns for pilot firms. M&A activity shows a partial reversal after the pilot ends, consistent with a causal liquidity shock rather than a pre-existing trend.
 
@@ -129,7 +157,7 @@ The competing *trading cost-based hypothesis* (Huang et al. (2024)) predicts tha
 The main estimating equation (Eq. 1 in the paper, p. 7) is a firm-by-year-quarter OLS panel regression estimated on a symmetric window of seven pre-pilot quarters and seven post-pilot quarters, with the event quarter (2016Q4) excluded:
 
 $$
-\text{M\&A intensity}_{it} = \eta_i + \psi_{jt} + \beta_1 \, \text{TG1}_i \times \text{Post}_t + \beta_2 \, \text{TG2\&3}_i \times \text{Post}_t + \beta_4 X_{it} + \varepsilon_{it} \tag{1}
+\text{M\&A intensity}_{it} = \eta_i + \psi_{jt} + \beta_1 \, \text{TG1}_i \times \text{Post}_t + \beta_2 \, \text{TG2\&3}_i \times \text{Post}_t + \beta_3 X_{it} + \varepsilon_{it} \tag{1}
 $$
 
 where $$\eta_i$$ are firm fixed effects, $$\psi_{jt}$$ are industry (2-digit SIC)-by-year-quarter fixed effects, $$\text{TG1}_i$$ is a dummy for assignment to test group 1, $$\text{TG2\&3}_i$$ is a dummy for assignment to test groups 2 or 3, $$\text{Post}_t$$ equals one for the seven pilot quarters (2017Q1-2018Q3) and zero for the seven pre-pilot quarters (2015Q1-2016Q3), and $$X_{it}$$ is a vector of controls (log total assets, market-to-book ratio, leverage, cash flow, institutional ownership). The coefficient $$\beta_2$$ is the average treatment effect of the tick-size increase on M&A intensity for firms in test groups 2 and 3 relative to the control group. Standard errors are clustered at both the firm and year-quarter level throughout.
@@ -139,7 +167,7 @@ This specification builds on `difference-in-differences` identification and `pan
 **Channel analysis (triple-DID).** To identify the information asymmetry channel, the specification adds a third interaction layer (Section 4.4, p. 11):
 
 $$
-\text{M\&A intensity}_{it} = \eta_i + \psi_{jt} + b_1 \, \text{TG2\&3}_i \times \text{Post}_t \times \text{LowAsymm}_i + b_2 \, \text{TG2\&3}_i \times \text{Post}_t + \cdots + \beta_4 X_{it} + \varepsilon_{it}
+\text{M\&A intensity}_{it} = \eta_i + \psi_{jt} + b_1 \, \text{TG2\&3}_i \times \text{Post}_t \times \text{LowAsymm}_i + b_2 \, \text{TG2\&3}_i \times \text{Post}_t + \cdots + \beta_3 X_{it} + \varepsilon_{it}
 $$
 
 Three proxies for low ex-ante information asymmetry (*LowAsymm*) are used: high analyst coverage (top tercile of coverage over the seven pre-pilot quarters), low earnings forecast dispersion (bottom tercile of EPS forecast standard deviation over absolute mean EPS), and small bid-ask spread (average daily quoted spread at most 3 cents in the pre-pilot period, following Albuquerque et al. (2020) and Ran and Ye (2024)). The prediction is $$b_1 < 0$$ and the combined $$b_1 + b_2 < 0$$ with $$|b_1 + b_2| > |b_2|$$: firms that were more transparent pre-pilot experience a larger decline in M&A intensity when the tick size increases, because the cost of the information asymmetry shock is proportionally larger for them. An analogous triple-DID tests the valuation channel, replacing *LowAsymm* with *HighValuation* (pre-pilot Tobin's Q in top tercile) or *LargePriceDrop* (actual stock price decline from pre-pilot to pilot period in top tercile).
@@ -152,7 +180,7 @@ Three proxies for low ex-ante information asymmetry (*LowAsymm*) are used: high 
 
 **Parallel trends check (Table 2, col 5; Fig. 1, p. 10).** A dynamic lead-lag DID defines two-quarter indicator dummies in the pre-pilot period backward from the reference quarter (-1 = 2016Q3) and one- or two-quarter indicators in the pilot period. No significant pre-trend divergence between test groups 2-3 and the control group is found in M&A intensity before the pilot (Fig. 1); the statistically significant drop emerges in periods +3 and +4 after pilot initiation.
 
-**Triple-DID channel tests (Table 3, p. 12; R3 and R4).** Same two-way fixed effects structure as Eq. (1), adding $$\text{TG2\&3}_i \times \text{Post}_t \times \text{Channel}_i$$ as the key coefficient (b1). Observations are restricted to test groups 2-3 and the control group; test group 1 interactions enter as separate controls. Both the asymmetry proxies (Panel A: three proxies) and the valuation proxies (Panel B: two proxies) yield significant b1 at the 5% level, with the combined b1+b2 significant at the 5% level or better and negative, supporting both channels of the information asymmetry and valuation hypothesis.
+**Triple-DID channel tests (Table 3, p. 12; R3 and R4).** Same two-way fixed effects structure as Eq. (1), adding $$\text{TG2\&3}_i \times \text{Post}_t \times \text{Channel}_i$$ as the key coefficient (b1). The full firm-quarter sample is used, with test-group-1 interactions included as separate controls; Table 3 reports 2,929 observations in most columns and 2,728 when forecast dispersion is used. All three information-asymmetry proxies and both valuation proxies yield negative triple-interaction coefficients; the small-spread proxy is significant at 10%, and its combined effect is significant at 10%. The remaining reported channel coefficients and combined effects are significant at 5% or better.
 
 **Stock payment DID (Table 4, p. 13; R5).** Dependent variable is the percentage of deal value paid by acquirer stock. For deals with missing stock payment percentage but inferrable zero values (remaining payment components sum to 100%), the stock fraction is set to zero. Only industry and time fixed effects used at the deal level. Massa and Xu (2013) provides the benchmark for interpreting these results.
 
@@ -160,7 +188,7 @@ Three proxies for low ex-ante information asymmetry (*LowAsymm*) are used: high 
 
 **Multinomial logit deal types (Table 6, p. 16; R7).** Vertical merger (vertical relatedness coefficient between acquirer and target SIC-4 industries exceeding 1%, from the 2012 US BEA Input-Output tables) is the reference category. Coefficients on $$\text{TG2\&3}_i \times \text{Post}_t$$ are negative and significant for both diversifying (-1.887**, t = -2.08 in col 1; -2.014**, t = -2.17 with controls in col 3) and horizontal (-1.482*, t = -1.71 in col 2; -1.605*, t = -1.80 with controls in col 4) relative to vertical.
 
-**Announcement return DID (Table 7, p. 17; R8).** The five-day CAR(-2,2) is regressed on the same DID structure as Eq. (1) at the deal level, controlling for deal size, all-cash indicator, diversifying deal indicator, and public target. The key coefficient $$\text{TG2\&3}_i \times \text{Post}_t = +0.023$$ (t = 2.04) represents a 2.3-percentage-point improvement in announcement returns for retained deals; this holds for non-stock-financed deals too (col 2, +0.030*, t = 2.04), consistent with the information asymmetry and valuation hypothesis rather than the trading cost-based hypothesis.
+**Announcement return DID (Table 7, p. 17; R8).** The five-day CAR(-2,2) is regressed on the same DID structure as Eq. (1) at the deal level, controlling for deal size, all-cash indicator, stock payment, diversifying deal indicator, and public target in column (1). After stock-financed deals are dropped in column (2), stock payment is omitted. The key coefficient $$\text{TG2\&3}_i \times \text{Post}_t = +0.023$$ (t = 2.04) represents a 2.3-percentage-point improvement in announcement returns for retained deals; this holds for non-stock-financed deals too (col 2, +0.030*, t = 2.04), consistent with the information asymmetry and valuation hypothesis rather than the trading cost-based hypothesis.
 
 ## Datasets used
 
@@ -184,6 +212,6 @@ Unlike Ye et al. (2023), who study how the same 2016 pilot affected the sensitiv
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Journal of Corporate Finance* 96 (2026), article 102890. Published by Elsevier B.V. This distillation was extracted by an LLM on 2026-06-26 and is **not human-verified or independently reproduced**. The article is paywalled; no CC licence is present. Extract-only redistribution.
+Source: peer-reviewed, *Journal of Corporate Finance* 96 (2026), article 102890. Published by Elsevier B.V. This distillation was extracted and source-verified by an LLM on 2026-10-04; it is **not human-verified or independently reproduced**. The article is paywalled; no CC licence is present. Extract-only redistribution.
 
 > Lin, Chen, Wentao Yao, and Hong Zou. "The real effects of tick-size adjustments: Evidence from the 2016 tick-size pilot." *Journal of Corporate Finance* 96 (2026): 102890. DOI: 10.1016/j.jcorpfin.2025.102890. Published by Elsevier B.V. All rights reserved.

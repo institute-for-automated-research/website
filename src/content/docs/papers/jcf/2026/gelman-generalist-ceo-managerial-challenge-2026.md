@@ -1,10 +1,10 @@
 ---
-title: "Generalist CEO and Managerial Challenge: Gelman, Fralich, Bitektine & Zahraei (2026)"
+title: "When Does a Generalist CEO Create Shareholder Value? The Effect of Managerial Challenge: Gelman, Fralich, Bitektine & Zahraei (2026)"
 description: >-
-  Distilled: CEO generalist experience raises announcement CARs only when the hiring firm faces a
-  managerial challenge (high complexity or prior poor performance); the pooled average effect is
-  zero. CEO compensation carries a stable experience premium regardless of firm challenge. Journal
-  of Corporate Finance vol. 97 (2026), CC BY 4.0. Nine core results with source locators, datasets
+  Distilled: CEO generalist experience is associated with higher announcement CARs when the hiring firm faces a
+  managerial challenge (high complexity or prior poor performance); the pooled average is not
+  statistically significant. CEO compensation carries a stable experience premium regardless of firm challenge. Journal
+  of Corporate Finance vol. 97 (2026), CC BY 4.0. Twenty core results with source locators, datasets
   used, the CEO job-market toy model, and the event-study and OLS interaction specifications.
 sidebar:
   label: Gelman et al. 2026
@@ -26,13 +26,14 @@ paper:
   tier: field
   jel:
     codes: [G34, M12, G14]
-    assignedBy: claude-sonnet-4-6
+    assignedBy: gpt-6-luna
     date: 2026-06-26
   topics: ["Human Resource and Talent Management", "Corporate Finance and Governance", "Leadership and Management in Organizations"]
   dataAccess: licensed-commercial
   outcome:
     - cumulative abnormal return around new CEO announcement
     - CEO total compensation (log)
+    - incoming CEO generalist experience (GAI)
     - long-term industry-adjusted ROA and Tobin's Q
   outcomeClass: [security-returns, firm-real-outcomes, labor-careers-health]
   license: "CC BY 4.0 (Crossref: content-version vor, URL http://creativecommons.org/licenses/by/4.0/, start 2025-11-18)"
@@ -40,13 +41,13 @@ paper:
   access: open
   machineAccess: "open-access PDF via doi.org/10.1016/j.jcorpfin.2025.102917 (CC BY 4.0, confirmed 2026-06-26)"
   redistribution: "extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)"
-  resultsCount: 9
+  resultsCount: 20
   citedByCount: 1
   methods:
     role: both
-    family: reduced-form-causal
+    family: descriptive
     buildsFrom: [event-study, panel-regression, survival-analysis, matching]
-    identification: selection-on-observables
+    identification: descriptive
   contributionType: [new-theory, new-fact]
   mechanisms: [ceo-firm-complementarity]
   scope:
@@ -54,7 +55,7 @@ paper:
     assetClass: US equities (S&P 1500 common stocks)
     period: 2000-01..2015-12
     frequency: mixed
-    dataType: [market, accounting, administrative, text]
+    dataType: [market, accounting, text]
     granularity: [firm, individual]
     n: "1095 CEO turnovers in S&P 1500-listed firms, 2000-2015"
   findings:
@@ -67,7 +68,18 @@ paper:
     - { ref: R7, outcome: CEO total compensation (log), metric: coefficient, value: "GAI = 0.0728** (se = 0.0307); moderation by complexity or performance not significant", direction: positive }
     - { ref: R8, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI_SURP x Any challenge = 0.00743** (se = 0.00289); GAI_SURP x No challenge = -0.00738* (se = 0.00442)", direction: mixed }
     - { ref: R9, outcome: long-term industry-adjusted ROA, metric: coefficient, value: "GAI_SURP x Complexity index = 0.00592** (se = 0.00252)", direction: positive }
-  resultType: new-finding
+    - { ref: R10, outcome: "CEO generalist experience (GAI)", metric: coefficient, value: "Performance index = -0.126*** (se = 0.0386), Table 3 col 2; residual firm efficiency = -1.173*** (se = 0.369), col 4", direction: negative }
+    - { ref: R11, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI x One challenge = 0.00503* (se = 0.00305); One Challenge = No Challenge test p = 0.0159", direction: positive }
+    - { ref: R12, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI x Double challenge = 0.0162*** (se = 0.00545); Double Challenge = One Challenge test p = 0.0605", direction: positive }
+    - { ref: R13, outcome: "long-term industry-adjusted Tobin's Q", metric: coefficient, value: "GAI_SURP x Performance index = 0.0688* (se = 0.0366), col 6; 0.0690* (se = 0.0366), col 8", direction: positive }
+    - { ref: R14, outcome: "long-term industry-adjusted Tobin's Q", metric: coefficient, value: "GAI_SURP = -0.0154 (se = 0.0287), not significant; GAI_SURP x Any challenge = 0.00435 (se = 0.0325), not significant", direction: none }
+    - { ref: R15, outcome: "CEO succession hazard", metric: coefficient, value: "GAI = 0.114*** (se = 0.0435), Table 9 col 1", direction: positive }
+    - { ref: R16, outcome: "CEO succession hazard", metric: coefficient, value: "GAI x Complexity index = -0.0647* (se = 0.0369), col 2; in full model col 6 = -0.0597 (se = 0.0367), not significant", direction: negative }
+    - { ref: R17, outcome: "CEO succession hazard", metric: coefficient, value: "GAI x Performance index = 0.0964** (se = 0.0407), col 4; 0.0967** (se = 0.0407), full model col 6", direction: positive }
+    - { ref: R18, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI x Low complexity = -0.000122 (se = 0.00297), not significant", direction: none }
+    - { ref: R19, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI_SURP x High complexity = 0.00860** (se = 0.00390); GAI_SURP x Low performance = 0.00813** (se = 0.00338); split tests p = 0.0602 and p = 0.0077", direction: positive }
+    - { ref: R20, outcome: "cumulative abnormal return around new CEO announcement", metric: coefficient, value: "GAI_SURP = 0.00208 (se = 0.00260), not significant; residual experience does not restore a pooled average effect", direction: none }
+  resultType: overturns
   relatesTo:
     - { cite: "Custodio, Ferreira and Matos (2013)", doi: '10.1016/j.jfineco.2013.01.001', relation: extends, note: "uses their GAI measure; extends their null CAR finding by showing it is conditional on firm-level challenge" }
     - { cite: "Betzer, van den Bongard and Limbach (2020)", relation: contradicts, note: "their broad null investor reaction to CEO experience explained by pooling challenge and non-challenge firms" }
@@ -81,6 +93,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Read full PDF; not human-verified; not reproduced. CC BY 4.0 confirmed via Crossref API." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; 3 fixes: CAPM Alpha citation corrected from Carhart (1997) to Jensen (1969) per PDF p. 7; R6 locator widened from col 8 to cols 7-8 (Double Challenge term is col 7, Any Challenge is col 8); colorful adjective removed from openQuestions." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full source PDF. Added eleven result rows and matching findings, updated the row count, added the omitted Appendix A equation and estimating specifications. These additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Rechecked all 20 result rows, equations, specifications, classifications, findings, prose, and frontmatter against the PDF; corrected the R17 comparison, R16 finding direction, performance-index timing, model assumption, and causal/design framing. Two conclusion/intro headline magnitudes remain omitted for redistillation. Table-locator pass (2026-10-04): R10, Table 3, p. 9 -> p. 10; R11, Table 4, p. 12 -> p. 11; R12, Table 4, p. 12 -> p. 11." }
   licenceVerification:
     - { source: "Crossref works/10.1016/j.jcorpfin.2025.102917", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "license[]: vor CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/, start 2025-11-18); also tdm licenses from Elsevier" }
 ---
@@ -95,9 +109,10 @@ experience at new CEO announcements, and why prior studies found no such reactio
 turnovers in S&P 1500 firms from 2000 to 2015 and the General Ability Index (GAI) of Custodio,
 Ferreira and Matos (2013), they find no significant average CAR response to CEO experience. However,
 when the firm is complex (large in scale and scope of operations) or has performed poorly prior to the
-CEO change, investors react positively to higher GAI. One standard deviation of experience raises
-market capitalization by about 0.85% for a complex firm and 0.82% for a poorly performing firm; in
-firms facing at least one challenge (roughly two-thirds of the sample), the effect is 0.68%. CEO
+CEO change, investors react positively to higher GAI. One standard deviation of experience is associated
+with CAR increases corresponding to about 0.85% of market capitalization for a complex firm and 0.82%
+for a poorly performing firm; in firms facing at least one challenge (roughly two-thirds of the sample),
+the estimate is 0.68%. CEO
 compensation, by contrast, carries a positive and stable experience premium (7.3% per SD) regardless
 of firm challenge, consistent with a CEO job-market model where the outside option is priced against
 average-firm challenge rather than the specific hiring firm.
@@ -111,14 +126,25 @@ average-firm challenge rather than the specific hiring firm.
 | R3 | High-complexity firms show positive investor reaction to CEO experience; low-complexity firms do not | Table 4, col 3, p. 11 | GAI × High complexity = 0.00900\*\* (se = 0.00372); F-test split-sample p = 0.0433 |
 | R4 | Prior firm performance negatively moderates the GAI-CAR effect (higher performance, smaller GAI benefit) | Table 4, col 4, p. 11 | GAI × Performance index = −0.00654\*\*\* (se = 0.00241); F-test split-sample p = 0.0028 |
 | R5 | Low-performing firms: CEO experience raises CARs by 0.82%; high-performing firms: no significant effect | Table 4, col 5, p. 11 | GAI × Low performance = 0.00874\*\*\* (se = 0.00329); GAI × High performance = −0.00439 (not sig) |
-| R6 | Any-challenge firms: one SD in GAI raises CARs by 0.68%; Double Challenge shows the largest effect | Table 4, cols 7-8, p. 11 | GAI × Any challenge = 0.00727\*\*\* (se = 0.00281); GAI × Double challenge = 0.0162\*\*\* (se = 0.00545); vs No Challenge p = 0.0031 |
+| R6 | Any-challenge firms: one SD in GAI raises CARs by 0.68%; Double Challenge shows the largest effect | Table 4, cols 7-8, pp. 11-12 | GAI × Any challenge = 0.00727\*\*\* (se = 0.00281); GAI × Double challenge = 0.0162\*\*\* (se = 0.00545); vs No Challenge p = 0.0031 |
 | R7 | CEO compensation premium for generalist experience is positive and unmoderated by firm challenge | Table 5, col 1, p. 13 | GAI = 0.0728\*\* (se = 0.0307); 7.3% per SD; no significant moderation by complexity or performance |
 | R8 | GAI Surprise robustness: challenge firms show positive CARs; no-challenge firms show negative CARs | Table 6, col 8, p. 15 | GAI\_SURP × Any challenge = 0.00743\*\* (se = 0.00289); GAI\_SURP × No challenge = −0.00738\* (se = 0.00442) |
 | R9 | Long-term ROA: complexity positively moderates the effect of residual CEO experience on operational performance | Table 7, col 2, p. 16 | GAI\_SURP × Complexity index = 0.00592\*\* (se = 0.00252) |
+| R10 | Poor prior performance and lower residual firm efficiency predict appointments of higher-GAI CEOs | Table 3, cols 2 and 4, p. 10 | Performance index = −0.126\*\*\* (se = 0.0386); Residual firm efficiency = −1.173\*\*\* (se = 0.369) |
+| R11 | One-challenge firms have higher experience-related CARs than no-challenge firms | Table 4, col 7, p. 11 | GAI × One challenge = 0.00503\* (se = 0.00305); One vs. No Challenge p = 0.0159 |
+| R12 | Double-challenge firms show the largest experience-related CAR coefficient | Table 4, col 7, p. 11 | GAI × Double challenge = 0.0162\*\*\* (se = 0.00545); Double vs. One Challenge p = 0.0605 |
+| R13 | For long-term Tobin's Q, GAI Surprise interacts positively with prior performance, a weak exception to the broader challenge pattern | Table 8, cols 6 and 8, p. 17 | GAI\_SURP × Performance index = 0.0688\* (se = 0.0366), col 6; 0.0690\* (se = 0.0366), col 8 |
+| R14 | Long-term Tobin's Q shows no significant GAI Surprise main effect or Any Challenge interaction | Table 8, cols 1 and 8, p. 17 | GAI\_SURP = −0.0154 (se = 0.0287), not significant; GAI\_SURP × Any challenge = 0.00435 (se = 0.0325), not significant |
+| R15 | Higher-GAI CEOs have a higher baseline hazard of succession | Table 9, col 1, p. 19 | GAI = 0.114\*\*\* (se = 0.0435) |
+| R16 | Complexity alignment weakly lowers CEO succession hazard in the split specification, but not in the full model | Table 9, cols 2 and 6, p. 19 | GAI × Complexity index = −0.0647\* (se = 0.0369), col 2; −0.0597 (se = 0.0367), col 6, not significant |
+| R17 | The GAI–succession-hazard association is stronger at higher prior performance; the paper interprets poorly performing, high-GAI matches as having longer CEO presence | Table 9, cols 4 and 6, p. 19 | GAI × Performance index = 0.0964\*\* (se = 0.0407), col 4; 0.0967\*\* (se = 0.0407), col 6 |
+| R18 | Low-complexity firms show no significant GAI-CAR relation | Table 4, col 3, p. 11 | GAI × Low complexity = −0.000122 (se = 0.00297), not significant |
+| R19 | GAI Surprise reproduces the high-complexity and low-performance CAR effects | Table 6, cols 3 and 5, p. 15 | GAI\_SURP × High complexity = 0.00860\*\* (se = 0.00390); GAI\_SURP × Low performance = 0.00813\*\* (se = 0.00338); split tests p = 0.0602 and p = 0.0077 |
+| R20 | GAI Surprise leaves the pooled average CAR effect insignificant | Table 6, col 1, p. 15 | GAI\_SURP = 0.00208 (se = 0.00260), not significant |
 
-**Overall.** Generalist CEO experience benefits investors when the firm faces at least one dimension of
-managerial challenge (complexity or prior poor performance), and appears to destroy value for firms
-without such challenge. CEO compensation does not share this conditionality: boards pay a consistent
+**Overall.** Higher generalist CEO experience is associated with stronger investor reactions when the
+firm faces at least one dimension of managerial challenge (complexity or prior poor performance), and
+with negative reactions in firms without such challenge in the GAI Surprise specifications. CEO compensation does not share this conditionality: boards pay a consistent
 premium for experience irrespective of firm challenge, consistent with the theoretical prediction that
 CEO outside options are tied to market-average challenge, not the specific firm. Betzer, van den
 Bongard and Limbach (2020)'s absence of a broad investor reaction is explained by pooling challenge
@@ -140,7 +166,12 @@ Investor (residual) surplus is the difference between total surplus and CEO comp
 
 $$v(c_j, m_i) = c_j \cdot m_i - p \tag{A2}$$
 
-**CEO outside option and round-1 compensation.** If round two occurs, the CEO faces firm $$k$$ with
+If no first-round deal is reached, a second-round firm can hire the candidate and pay the
+entire match surplus (Appendix A, p. 21):
+
+$$p_2 = T'(c_k, m_i) = c_k \cdot m_i \tag{A3}$$
+
+**CEO outside option and round-1 compensation.** The paper assumes $$p_0 \leq C_{\min} m_i$$. If round two occurs, the CEO faces firm $$k$$ with
 challenge $$c_k \sim U[C_{\min}, C_{\max}]$$ and receives pay equal to total surplus. The expected
 round-2 compensation, conditional on entering round two, is:
 
@@ -204,9 +235,9 @@ year). High complexity = upper tercile; low complexity = lower two terciles (p. 
 **Performance Index.** Firm performance is isolated from industry and firm-characteristics effects
 using two components (p. 7): (1) CAPM Alpha (Jensen, 1969) estimated on monthly CRSP returns
 over the three years before the CEO announcement; (2) Residual Firm Efficiency from
-Demerjian, Lev and McVay (2012), the residual of a regression of total factor productivity on firm
-characteristics, averaged over years t-3 to t-1. The Performance Index is the average of these two
-standardized measures. Low performance = below-median index in the year of turnover.
+Demerjian, Lev and McVay (2012), the residual of a regression of firm efficiency on firm
+characteristics, measured in the calendar year before the CEO announcement. The Performance Index
+is the average of these two standardized measures. Low performance = below-median index in the year of turnover.
 
 **GAI Surprise.** To partially address endogeneity from non-random CEO-firm matching, the paper
 constructs GAI Surprise as the OLS residual from regressing incoming CEO GAI on Complexity,
@@ -232,15 +263,48 @@ assets, prior 3-year firm efficiency, complexity, performance, previous-year sto
 volatility, Fasttrack, MaleY0, Insider, Forced, Unclassified, and CEO age dummies. Year and
 2-digit SIC industry fixed effects are included throughout; standard errors are clustered by firm.
 
+Table 3 estimates the CEO sorting equation, with incoming-CEO GAI as the dependent variable; the
+specification used to construct GAI Surprise is column 4 (p. 10):
+
+$$\text{GAI}_{it} = \alpha + \beta_1 \text{Complexity}_{it} + \beta_2 \text{Performance}_{it} + \gamma' X_{it} + \delta_t + \delta_{s(1)} + \varepsilon_{it}$$
+
+The columns replace the two indices with their scale/scope and performance components, then add
+departing-CEO compensation and GAI controls. Controls include sales growth, lagged assets, prior
+firm efficiency and returns, turnover indicators, and CEO characteristics. Year and one-digit SIC
+fixed effects are included, with standard errors clustered by firm; column 4 has 961 observations.
+The residual from this fitted model is GAI Surprise, used in Table 6 and the long-term outcome tests.
+
+For Table 4, the split-sample specifications estimate group-specific experience slopes, with
+No, One, and Double Challenge categories as defined above; Any Challenge pools the latter two
+(Table 4, cols. 3, 5, 7-8, pp. 11-12):
+
+$$\text{CAR}_{22,it} = \alpha + \sum_{g \in \mathcal{G}} \beta_g (\text{GAI}_{it} \times \mathbf{1}\{\text{Challenge}_{it}=g\}) + \sum_{g \in \mathcal{G}} \theta_g \mathbf{1}\{\text{Challenge}_{it}=g\} + \gamma' X_{it} + \delta_t + \delta_{s(2)} + \varepsilon_{it}$$
+
+Table 4 uses 1,095 CEO turnovers, the controls listed above, year and two-digit SIC fixed effects,
+and firm-clustered standard errors. The threshold splits are upper-tercile complexity and
+below-median performance; No Challenge is high performance/low complexity, Double Challenge is
+low performance/high complexity, One Challenge contains the other two combinations, and Any
+Challenge is the complement of No Challenge.
+
 **Compensation regression (Table 5, p. 13).** Log total CEO compensation (TDC1 from Execucomp,
-first full calendar year as CEO) is regressed on GAI and the same challenge interactions with
+first calendar year for which Execucomp reports the executive as CEO) is regressed on GAI and the same challenge interactions with
 identical controls. This tests whether firm challenge moderates the compensation-experience relation,
 as it does for CARs; the prediction is that it does not.
+
+$$\log(\text{Comp}_{it}) = \alpha + \beta_1 \text{GAI}_{it} + \beta_2 (\text{GAI}_{it} \times \text{Challenge}_{it}) + \beta_3 \text{Challenge}_{it} + \gamma' X_{it} + \delta_t + \delta_{s(2)} + \varepsilon_{it}$$
+
+Table 5 has 941 observations in the baseline and challenge specifications, the same control set,
+year and two-digit SIC fixed effects, and firm-clustered standard errors (Table 5, pp. 13-14).
 
 **GAI Surprise robustness (Table 6, p. 15).** GAI Surprise replaces GAI as the main explanatory
 variable, replicating all challenge-interaction specifications with the same control set. The
 purpose is to show that results hold when the experience measure isolates the component not
 predicted by observable firm and departing-CEO characteristics.
+
+$$\text{CAR}_{22,it} = \alpha + \beta_1 \text{GAI\_SURP}_{it} + \beta_2 (\text{GAI\_SURP}_{it} \times \text{Challenge}_{it}) + \beta_3 \text{Challenge}_{it} + \gamma' X_{it} + \delta_t + \delta_{s(2)} + \varepsilon_{it}$$
+
+Table 6 uses 944 observations, year and two-digit SIC fixed effects, the Table 4 controls, and
+standard errors clustered by firm (Table 6, p. 15).
 
 **Long-term performance (Tables 7-8, p. 16-17).** Industry-adjusted ROA ($$\bar{\Omega}\_{\text{IND\_ADJ\_ROA}}_{t+1:t+3}$$)
 and Tobin's Q, averaged over years t+1 to t+3 after appointment, are the outcome variables.
@@ -250,12 +314,20 @@ challenge-interaction structure as Table 4 applies. Year and sector fixed effect
 standard errors. A propensity-score-matched sample (matched on complexity, performance, firm
 controls, year and industry) is used as a further robustness check (Internet Appendix 7).
 
+$$\overline{\text{IND\_ADJ\_Y}}_{i,t+1:t+3} = \alpha + \beta_1 \text{GAI\_SURP}_{it} + \beta_2 (\text{GAI\_SURP}_{it} \times \text{Challenge}_{it}) + \beta_3 \text{Challenge}_{it} + \rho\,\text{IND\_ADJ\_Y}_{i,t-1} + \gamma' X_{it} + \delta_t + \delta_s + \varepsilon_{it}$$
+
+Here $$Y$$ is ROA in Table 7 or Tobin's Q in Table 8; the samples contain 890 and 891 observations,
+respectively, with the Table 4 controls, year and sector fixed effects, and firm-clustered standard
+errors (pp. 16-17).
+
 **CEO tenure (Cox hazard model, Table 9, p. 19).** The hazard of CEO succession is modeled as:
 
 $$h(t) = h_0(t) \exp\!\left(\beta_1 \text{GAI}_{it} + \beta_2 \text{GAI}_{it} \times \text{Challenge}_{it} + \gamma' X_{it}\right)$$
 
-using CEO departure dates from Execucomp as of June 30, 2024. Year and 2-digit SIC dummies; same
-controls as Table 4. A higher (lower) coefficient means shorter (longer) expected CEO tenure.
+using CEO departure dates from Execucomp as of June 30, 2024. The sample has 1,086 CEO spells.
+Year and 2-digit SIC dummies and the same controls as Table 4 are included; standard errors are
+reported in parentheses (Table 9, p. 19). A higher (lower) coefficient means shorter (longer)
+expected CEO tenure.
 
 ## Datasets used
 

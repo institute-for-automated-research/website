@@ -7,7 +7,7 @@ description: >-
   more conservatively than non-bank lenders and pricing concentrated among
   lenders who are themselves aware of cybersecurity risk. Cybersecurity
   insurance does not mitigate the higher spreads. Journal of Corporate Finance
-  vol. 98, 2026, paywalled; eight core results with source locators, the
+  vol. 98, 2026, paywalled; 21 core results with source locators, the
   regression specifications, and datasets used.
 sidebar:
   label: Choi-Degryse-Smedts 2026
@@ -32,16 +32,17 @@ paper:
   dataAccess: licensed-commercial
   outcome:
     - syndicated loan all-in-spread-drawn (AISD)
+    - borrower cybersecurity insurance coverage
     - number of financial covenants
     - lender share in syndicated loan
     - borrower distance-to-default
-  outcomeClass: [firm-financing, credit-supply]
+  outcomeClass: [firm-financing, credit-supply, credit-risk]
   license: "Elsevier paywalled; Crossref license block contains TDM-only licenses (Elsevier TDM userlicense 1.0, TDMRep, and STM-ASF policy licenses only); no CC or open-access license found"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier/ScienceDirect, 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 21
   citedByCount: 1
   methods:
     role: applies-method
@@ -55,18 +56,31 @@ paper:
     assetClass: syndicated corporate loans
     period: 2012-01..2018-12
     frequency: annual
-    dataType: [accounting, text]
+    dataType: [market, accounting, text]
     granularity: [firm, transaction]
     n: "5,957 loan facilities from 1,714 unique borrowers"
   findings:
     - { ref: R1, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "0.021** on cybersecurity risk score (firm+industry-year FE); ~2.1% increase per 1 SD, ~4.15 bps", direction: positive }
-    - { ref: R2, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "AboveZero: 0.063*** (firm+industry-year FE); firms with non-zero cybersecurity exposure face ~12.71 bps higher AISD on average", direction: positive }
+    - { ref: R2, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "AboveZero: 0.063*** (firm+industry-year FE); firms with a positive cybersecurity-risk score face ~12.71 bps higher AISD on average", direction: positive }
     - { ref: R3, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Commercial bank only: 0.029** (intensive), 0.087*** (extensive); NonBank interaction: -0.033***, -0.092*** (nearly offsets base effect)", direction: positive, vsBenchmark: "commercial banks more conservative; non-bank participation largely offsets the cyber premium" }
     - { ref: R4, outcome: number of financial covenants, metric: coefficient, value: "0.065* more covenants per 1 SD cybersecurity risk (commercial banks only; ~6% of mean covenant count)", direction: positive }
     - { ref: R5, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Insurance: 0.003-0.004 (ns); Cybersecurity risk x Insurance: 0.001-0.007 (ns)", direction: none }
-    - { ref: R6, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "No-mention: -0.014 (ns); Mention: 0.028***; Insured lenders: 0.042***", direction: positive, vsBenchmark: "pricing absent without lender awareness; only lenders discussing cybersecurity risk price it in spreads" }
-    - { ref: R7, outcome: lender share in syndicated loan, metric: coefficient, value: "Cybersecurity risk x Insured: -1.310** on lead arranger share (%); paper reports 2.51% (1.31%) decrease per 1 SD when lender discussed risk (insurance) (mean share 19.81%)", direction: negative }
-    - { ref: R8, outcome: borrower distance-to-default, metric: coefficient, value: "-0.209* (loan-level sample), -0.181* (firm-year sample) per 1 SD cybersecurity risk; ~3% decrease in distance-to-default", direction: negative }
+    - { ref: R6, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "NoMention: -0.014 (ns); Mention: 0.028***; NoInsurance: 0.014 (ns); Insurance-discussion: 0.042***", direction: positive, vsBenchmark: "pricing is absent when lead arrangers do not discuss cybersecurity or insurance, and present in the discussion subsamples" }
+    - { ref: R7, outcome: lender share in syndicated loan, metric: coefficient, value: "Single-lead sample, col. 1: Cybersecurity risk x Discussed = -2.505***; x Insured = -1.310** on lead arranger share (%); corresponding decreases are 2.51% and 1.31% per 1 SD, respectively (mean share 19.81%)", direction: negative }
+    - { ref: R8, outcome: borrower distance-to-default, metric: coefficient, value: "-0.209* (loan-level sample), -0.181* (firm-year sample) per 1 SD cybersecurity risk; ~3% decrease in distance-to-default, consistent with a credit-risk channel", direction: negative }
+    - { ref: R9, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Cybersecurity risk x InvestmentBank: -0.017 (SE 0.015); AboveZero x InvestmentBank: -0.039 (SE 0.040); both insignificant", direction: none, vsBenchmark: "investment-bank participation does not significantly change the commercial-bank pricing slope" }
+    - { ref: R10, outcome: number of financial covenants, metric: coefficient, value: "0.028 (SE 0.025), not significant in the full sample", direction: none, vsBenchmark: "the positive covenant response is limited to commercial-bank-only loans" }
+    - { ref: R11, outcome: "borrower cybersecurity insurance coverage", metric: coefficient, value: "Cybersecurity risk coefficient 0.139** in industry-year logit; a 1 SD increase is associated with about 14% higher odds of insurance", direction: positive }
+    - { ref: R12, outcome: "borrower cybersecurity insurance coverage", metric: coefficient, value: "Cybersecurity risk coefficient -0.117 (SE 0.262), insignificant with firm and industry-year fixed effects", direction: none }
+    - { ref: R13, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "NoInsurance-discussion subsample: cybersecurity risk coefficient 0.014 (SE 0.016), not significant", direction: none, vsBenchmark: "the risk premium appears in the subsample whose lead arrangers discuss cybersecurity and insurance (Table 6, col. 4)" }
+    - { ref: R14, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Cybersecurity risk x Insured: 0.022** with firm and lender fixed effects; 0.035*** with firm-lender fixed effects", direction: positive }
+    - { ref: R15, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Cybersecurity risk x lender discussion intensity: 0.002* with firm and lender fixed effects; 0.004*** with firm-lender fixed effects; about 0.2% and 0.4% per additional keyword", direction: positive }
+    - { ref: R16, outcome: lender share in syndicated loan, metric: coefficient, value: "All lead arrangers: Discussed interactions -1.615*** and -0.716; Insured interactions -0.403 and -0.792**. All lenders: Discussed interactions -0.165** and -0.059; Insured interactions -0.090 and -0.120", direction: negative, vsBenchmark: "negative exposure responses are generally weaker outside the single-lead-arranger sample" }
+    - { ref: R17, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Lattanzio and Ma Cyber_score: 0.034*** for commercial-bank loans and 0.028*** in the full sample", direction: positive, vsBenchmark: "alternative 10-K cybersecurity-risk measure in extended samples" }
+    - { ref: R18, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Jamilov et al. Cyber_Mentioned indicator: 0.070* for commercial-bank loans and 0.030* in the full sample", direction: positive, vsBenchmark: "alternative conference-call measure in extended samples" }
+    - { ref: R19, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Including post-breach observations: Cybersecurity risk 0.019** and AboveZero 0.063***; N=6,316", direction: positive, vsBenchmark: "baseline association persists without dropping post-breach observations" }
+    - { ref: R20, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Excluding all firms with a breach: Cybersecurity risk 0.021** and AboveZero 0.069***; N=4,881", direction: positive, vsBenchmark: "baseline association persists after excluding all firms that experienced a breach" }
+    - { ref: R21, outcome: "syndicated loan all-in-spread-drawn (AISD)", metric: coefficient, value: "Without firm fixed effects, Cybersecurity risk coefficients are -0.001, -0.003, -0.004 and AboveZero coefficients are 0.003, 0.002, 0.002 across year, industry, and industry-year specifications; all insignificant", direction: none, vsBenchmark: "cross-sectional associations disappear without firm-level controls" }
   resultType: new-finding
   relatesTo:
     - { cite: "Florackis et al. (2023)", doi: '10.1093/rfs/hhac024', relation: builds-on, note: "cybersecurity risk measure from textual similarity of 10-K disclosures to pre-breach firms; main risk measure used throughout" }
@@ -84,6 +98,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Full PDF read (pp. 1-20 incl. appendices A-D); eight results extracted from Tables 2-9. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; six locator errors corrected (R1/R2 p.5->p.6, R3 p.6->p.7, R4 p.7->p.8, Table A.4 p.19->p.20, Appendix C pp.17-18->p.18 and Eq.4 p.17->p.18); all eight coefficient magnitudes and significance stars confirmed against Tables 2-9; Eq.8 DD formula verified term-by-term; no em-dashes or colorful adjectives found." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added 13 Core results rows, matching findings entries, and missing estimating specifications and Appendix C equations. Additions are not human-verified and the analysis was not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 21 Core results rows, findings, locators, reported magnitudes and specifications against the PDF; verified formal equations and classification axes. Corrected the Table 8 Discussed/Insured mapping in R7, clarified Table 6 discussion subsamples, corrected R2's positive-score description, added the credit-risk outcome class, classified DealScan as market data and qualified the credit-risk channel language." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jcorpfin.2026.102958", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "license block contains TDM-only licenses (Elsevier TDM userlicense 1.0 and TDMRep, plus Elsevier STM-ASF policy licenses only); no CC or open-access license present; paper is paywalled" }
 ---
@@ -92,24 +108,37 @@ paper:
 
 ## TL;DR
 
-Using 5,957 syndicated loan facilities for U.S. non-financial firms from 2012 to 2018, the paper asks whether lenders price firms' ex-ante cybersecurity risk in loan spreads. The main measure of cybersecurity risk, from Florackis et al. (2023), captures the textual similarity of a firm's 10-K disclosures to those of firms that experienced data breaches. The paper's key findings are: (1) a one standard deviation increase in cybersecurity risk raises the All-in-Spread-Drawn (AISD) by about 2%, equivalent to roughly 4 basis points; (2) first-time exposure to non-zero cybersecurity risk adds about 13 basis points; (3) commercial banks price the risk more strictly than non-bank lenders; (4) pricing depends on the lender's own awareness: only lenders who discuss cybersecurity risk in conference calls price it in spreads; (5) cybersecurity insurance does not reduce the premium; and (6) the credit risk channel, identified via distance-to-default, mediates the pricing. Prior studies such as Huang and Wang (2021) and Sheneman (2017) documented ex-post pricing after data breaches; this paper is the first to examine ex-ante pricing from the lenders' perspective.
+Using 5,957 syndicated loan facilities for U.S. non-financial firms from 2012 to 2018, the paper asks whether lenders price firms' ex-ante cybersecurity risk in loan spreads. The main measure of cybersecurity risk, from Florackis et al. (2023), captures the textual similarity of a firm's 10-K disclosures to those of firms that experienced data breaches. The paper's key findings are: (1) a one standard deviation increase in cybersecurity risk is associated with about a 2% increase in the All-in-Spread-Drawn (AISD), equivalent to roughly 4 basis points; (2) firms with a positive cybersecurity-risk score face about 13 basis points higher spreads; (3) commercial banks price the risk more strictly than non-bank lenders; (4) pricing depends on lenders' own awareness: the premium appears when lead arrangers discuss cybersecurity risk and is larger when they also discuss insurance; (5) cybersecurity insurance does not reduce the premium; and (6) higher cybersecurity risk is associated with lower distance-to-default, consistent with a credit-risk channel. Prior studies such as Huang and Wang (2021) and Sheneman (2017) documented ex-post pricing after data breaches; this paper examines ex-ante pricing from the lenders' perspective.
 
 ## Core results
 
-Magnitudes and significance are as reported; \*/\*\*/\*\*\* = 10%/5%/1%. All main regressions use the log AISD as the outcome and include firm fixed effects and industry-year fixed effects. Standard errors are clustered at the firm level. Locators point into the source PDF.
+Magnitudes and significance are as reported; \*/\*\*/\*\*\* = 10%/5%/1%. The preferred spread regressions use log AISD as the outcome and include firm and industry-year fixed effects; Table 2 also reports specifications with year, industry, and firm fixed effects. Standard errors are clustered at the firm level unless noted. Locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Lenders price cybersecurity risk at the **intensive margin**: within-firm increases in the cybersecurity risk score raise the AISD | Table 2, col. (3), p. 6 | Coefficient on Cybersecurity risk = 0.021\*\*; ~2.1% increase in AISD per 1 SD, ~4.15 bps (mean AISD = 195 bps) |
-| R2 | At the **extensive margin**, first exposure to non-zero cybersecurity risk carries a large premium | Table 2, col. (4), p. 6 | AboveZero coefficient = 0.063\*\*\*; firms with any cybersecurity exposure face ~12.71 bps higher AISD on average |
+| R1 | Lenders price cybersecurity risk at the **intensive margin**: within-firm increases in the cybersecurity risk score are associated with higher AISD | Table 2, col. (3), p. 6 | Coefficient on Cybersecurity risk = 0.021\*\*; ~2.1% higher AISD per 1 SD, ~4.15 bps (mean AISD = 195 bps) |
+| R2 | At the **extensive margin**, firms with a positive cybersecurity-risk score face a large premium | Table 2, col. (4), p. 6 | AboveZero coefficient = 0.063\*\*\*; firms with a positive score face ~12.71 bps higher AISD on average |
 | R3 | **Commercial banks price cybersecurity risk more strictly** than non-bank lenders; non-bank participation nearly offsets the premium | Table 3, cols. (1)-(4), p. 7 | CBank-only: Cybersecurity risk = 0.029\*\* (intensive), AboveZero = 0.087\*\*\* (extensive); NonBank interaction: -0.033\*\*\*, AboveZero x NonBank = -0.092\*\*\* (offsets base) |
 | R4 | Commercial banks **attach more financial covenants** as cybersecurity risk rises | Table 4, col. (1), p. 8 | Cybersecurity risk coefficient = 0.065\*; ~0.065 additional covenants per 1 SD, ~6% of mean covenant count; effect not significant in full sample with non-bank lenders |
 | R5 | **Cybersecurity insurance does not mitigate** the higher loan spreads | Table 5, cols. (3)-(4), p. 8 | Insurance coefficient = 0.003-0.004 (ns); Cybersecurity risk x Insurance = 0.001-0.007 (ns); both small and insignificant |
-| R6 | Pricing is **driven by lender awareness**: the premium appears only when lead arrangers discuss cybersecurity risk in their own conference calls | Table 6, cols. (1)-(2), p. 9 | No-mention subsample: coefficient = -0.014 (ns); Mention subsample: 0.028\*\*\*; Insured lenders: 0.042\*\*\* |
-| R7 | Aware lenders **reduce their loan-share exposure** to riskier borrowers after recognizing their own cybersecurity risk | Table 8, col. (1), p. 11 | Cybersecurity risk x Insured: -1.310\*\* on lead arranger share (%); paper reports a 2.51% (1.31%) decrease per 1 SD when lead arranger discussed cybersecurity risk (insurance policy) |
-| R8 | Cybersecurity risk is priced **via the credit risk channel**: it lowers borrower distance-to-default | Table 9, p. 12 | Cybersecurity risk coefficient on distance-to-default: -0.209\* (loan-level sample), -0.181\* (firm-year sample); ~3% average decrease per 1 SD |
+| R6 | Pricing depends on lender awareness: the premium appears when lead arrangers discuss cybersecurity risk and insurance | Table 6, cols. (1)-(4), p. 9 | NoMention: -0.014 (ns); Mention: 0.028\*\*\*; NoInsurance: 0.014 (ns); Insurance-discussion: 0.042\*\*\* |
+| R7 | Lenders who discuss cybersecurity risk **reduce their loan-share exposure** to riskier borrowers | Table 8, col. (1), p. 11 | Discussed interaction = -2.505\*\*\*; Insured interaction = -1.310\*\* on lead arranger share (%); corresponding decreases are 2.51% and 1.31% per 1 SD, respectively |
+| R8 | Cybersecurity risk is associated with **lower borrower distance-to-default**, consistent with a credit-risk channel | Table 9, p. 12 | Cybersecurity risk coefficient on distance-to-default: -0.209\* (loan-level sample), -0.181\* (firm-year sample); ~3% average decrease per 1 SD |
+| R9 | Investment-bank participation does not significantly change the commercial-bank cybersecurity pricing slope | Table 3, cols. (3)-(4), p. 7 | Cybersecurity risk x InvestmentBank = -0.017 (SE 0.015); AboveZero x InvestmentBank = -0.039 (SE 0.040); both insignificant |
+| R10 | The covenant response is not statistically significant in the full lender sample | Table 4, col. (2), p. 8 | Cybersecurity risk coefficient = 0.028 (SE 0.025), not significant; commercial-bank-only coefficient in R4 is 0.065\* |
+| R11 | Firms with higher cross-sectional cybersecurity risk are more likely to have insurance | Table 5, col. (1), p. 8 | Logit coefficient = 0.139\*\*; a 1 SD increase in risk corresponds to about 14% higher odds of coverage |
+| R12 | Within-firm changes in cybersecurity risk do not predict insurance uptake | Table 5, col. (2), p. 8 | Cybersecurity risk coefficient = -0.117 (SE 0.262), not significant with firm and industry-year fixed effects |
+| R13 | Cybersecurity risk is not priced when lead arrangers do not discuss insurance | Table 6, col. (3), p. 9 | NoInsurance subsample coefficient = 0.014 (SE 0.016), not significant; the Insurance subsample coefficient is 0.042\*\*\* |
+| R14 | The risk premium is stronger when single lead arrangers discuss cybersecurity and insurance, including with firm-lender fixed effects | Table 7, cols. (1), (3), p. 10 | Cybersecurity risk x Insured = 0.022\*\* with firm and lender fixed effects; 0.035\*\*\* with firm-lender fixed effects |
+| R15 | More lender discussion intensity is associated with stronger pricing of borrower cybersecurity risk | Table 7, cols. (2), (4), p. 10 | Cybersecurity risk x Intensity = 0.002\* and 0.004\*\*\*; about 0.2% and 0.4% higher spreads per additional keyword |
+| R16 | Lender-share reductions extend beyond single-lead loans, with weaker estimates in wider lender samples | Table 8, cols. (3)-(6), p. 11 | All lead arrangers: Discussed interactions = -1.615\*\*\*, -0.716; Insured = -0.403, -0.792\*\*. All lenders: Discussed = -0.165\*\*, -0.059; Insured = -0.090, -0.120 |
+| R17 | An alternative 10-K cybersecurity measure also predicts higher loan spreads | Table 10, cols. (1)-(2), p. 13 | Lattanzio and Ma Cyber_score coefficients = 0.034\*\*\* for commercial-bank loans and 0.028\*\*\* for the full sample |
+| R18 | An alternative conference-call indicator also predicts higher loan spreads | Table 10, cols. (3)-(4), p. 13 | Jamilov et al. Cyber_Mentioned coefficients = 0.070\* and 0.030\* for commercial-bank loans and the full sample |
+| R19 | Baseline pricing estimates persist when post-breach observations are retained | Table 11, cols. (1)-(2), p. 13 | Cybersecurity risk = 0.019\*\*; AboveZero = 0.063\*\*\*; N = 6,316 |
+| R20 | Baseline pricing estimates persist after excluding firms that ever experienced a breach | Table 11, cols. (3)-(4), p. 13 | Cybersecurity risk = 0.021\*\*; AboveZero = 0.069\*\*\*; N = 4,881 |
+| R21 | Cross-sectional estimates without firm fixed effects are null | Table A.4, p. 20 | Cybersecurity risk coefficients = -0.001, -0.003, -0.004; AboveZero = 0.003, 0.002, 0.002 across year, industry, and industry-year fixed effects; all insignificant |
 
-**Overall (paper's conclusion).** Lenders do price ex-ante cybersecurity risk, but only through within-firm changes in risk scores (not cross-sectional differences), and only when they are themselves engaged with cybersecurity risk management. Commercial banks are more conservative than non-bank lenders. The credit risk mechanism, proxied by distance-to-default, mediates the pricing. Cybersecurity insurance neither reduces breach probability nor provides comprehensive loss coverage, so it does not lower the credit premium.
+**Overall (paper's conclusion).** Lenders do price ex-ante cybersecurity risk based on within-firm changes in risk scores; cross-sectional differences alone are not significant. Pricing is strongest when lead arrangers discuss their own cybersecurity risk and insurance policies. Commercial banks are more conservative than non-bank lenders. The negative association with distance-to-default is consistent with a credit-risk channel. Cybersecurity insurance neither reduces breach probability nor provides comprehensive loss coverage, so it does not lower the credit premium.
 
 ## Theory / model
 
@@ -157,13 +186,79 @@ where LenderComposition is a categorical variable: the base group is commercial-
 
 **Lender share (exposure reduction).** The outcome is each lender's percentage share in the syndicated loan. The interaction of Cybersecurity risk with Discussed and Insured tests whether aware lenders reduce exposure to riskier borrowers. Results: Table 8, p. 11.
 
-**Credit risk mechanism: Merton distance-to-default.** To test the credit channel, the dependent variable is replaced with the Merton (1974) distance-to-default (DD), calculated following the Appendix C procedure (p. 18). Firm value $$V$$ and asset volatility $$\sigma_V$$ are solved simultaneously from the Black-Scholes-Merton equity pricing equation (Eq. 4, p. 18) and the relationship between equity volatility and asset volatility (Eq. 7, p. 18). The distance-to-default (Eq. 8, p. 18) is:
+**Credit risk mechanism: Merton distance-to-default.** To test the credit channel, the dependent variable is replaced with the Merton (1974) distance-to-default (DD). Appendix C specifies a geometric Brownian motion for firm value (Eq. 3, p. 18):
+
+$$
+dV = \mu V\,dt + \sigma_V V\,dW \tag{3}
+$$
+
+Equity is treated as a call option on firm value, with equity value given by the Black-Scholes-Merton relation (Eq. 4, p. 18), where $$d_1$$ and $$d_2$$ are defined by Eqs. 5-6 (p. 18):
+
+$$
+E = V N(d_1) - e^{-rT} F N(d_2) \tag{4}
+$$
+
+$$
+d_1 = \frac{\ln(V/F) + (r + 0.5\sigma_V^2)T}{\sigma_V\sqrt{T}} \tag{5}
+$$
+
+$$
+d_2 = d_1 - \sigma_V\sqrt{T} \tag{6}
+$$
+
+The equity volatility and asset volatility relation is (Eq. 7, p. 18):
+
+$$
+\sigma_E = \left(\frac{V}{E}\right)N(d_1)\sigma_V \tag{7}
+$$
+
+They solve Eqs. 3 and 4 simultaneously to infer $$V$$ and $$\sigma_V$$. The distance-to-default (Eq. 8, p. 18) is:
 
 $$
 DD = \frac{\ln\!\left(\dfrac{V}{F}\right) + \left(\mu - 0.5\sigma_V^2\right) T}{\sigma_V \sqrt{T}} \tag{8}
 $$
 
 where $$F$$ is the face value of debt, $$\mu$$ is the estimated annual return on firm assets (risk-free rate plus 0.06 as equity premium proxy), and $$T = 1$$ year. A negative coefficient on Cybersecurity risk in Eq. (1) re-estimated with DD as the outcome would confirm the credit channel (higher risk reduces distance-to-default). Results: Table 9, p. 12. Both Kamiya et al. (2021) and prior credit rating agency analyses motivate this mechanism test.
+
+**Other estimating specifications.** For financial monitoring, the authors replace the Eq. (1) outcome with the number of financial covenants (Table 4, p. 8):
+
+$$
+\text{NFinancialCovenant}_{i,j,t} = \beta_1\text{CybersecurityRisk}_{i,t-1} + \gamma X_{i,j,t-1} + \text{FirmFE}_i + \text{IndustryYearFE}_{s,t} + \varepsilon_{i,j,t}
+$$
+
+Errors are clustered by firm. The commercial-bank-only sample has 3,242 loan facilities; the full sample has 5,957.
+
+The insurance-uptake model is a firm-year logit (Table 5, cols. 1-2, p. 8):
+
+$$
+\log\left(\frac{\Pr(\text{Insurance}_{i,t}=1)}{1-\Pr(\text{Insurance}_{i,t}=1)}\right) = \beta_1\text{CybersecurityRisk}_{i,t-1} + \gamma X_{i,t-1} + \text{IndustryYearFE}_{s,t} + [\text{FirmFE}_i]
+$$
+
+The bracketed firm effects appear only in column 2. The samples contain 3,269 firm-years in column 1 and 1,287 in column 2. The loan-spread insurance specification (Table 5, cols. 3-4, p. 8) augments Eq. (1):
+
+$$
+\log \text{AISD}_{i,j,t} = \beta_1\text{CybersecurityRisk}_{i,t-1} + \beta_2\text{Insurance}_{i,t} + \beta_3(\text{CybersecurityRisk}_{i,t-1}\times\text{Insurance}_{i,t}) + \gamma X_{i,j,t-1} + \text{FirmFE}_i + \text{IndustryYearFE}_{s,t} + \varepsilon_{i,j,t}
+$$
+
+These facility samples contain 2,992 commercial-bank loans and 5,535 loans overall; standard errors are clustered by firm.
+
+For single-lead-arranger loans, the awareness specifications interact borrower risk with lender awareness categories or the number of discussion keywords (Table 7, p. 10):
+
+$$
+\log \text{AISD}_{i,j,t} = \beta_1\text{CybersecurityRisk}_{i,t-1} + \beta_2(\text{CybersecurityRisk}_{i,t-1}\times\text{Discussed}_j) + \beta_3(\text{CybersecurityRisk}_{i,t-1}\times\text{Insured}_j) + \gamma X_{i,j,t-1} + \text{FE} + \varepsilon_{i,j,t}
+$$
+
+$$
+\log \text{AISD}_{i,j,t} = \beta_1\text{CybersecurityRisk}_{i,t-1} + \beta_2(\text{CybersecurityRisk}_{i,t-1}\times\text{Intensity}_{j,t-1}) + \gamma X_{i,j,t-1} + \text{FE} + \varepsilon_{i,j,t}
+$$
+
+Both use 4,396 facilities. Columns 1-2 include industry-year, firm, and lender fixed effects; columns 3-4 include industry-year and firm-lender fixed effects. Standard errors are two-way clustered by borrower and lead arranger. For lender shares (Table 8, p. 11), the dependent variable is the percentage allocation to lender $$j$$ in the syndicate:
+
+$$
+\text{Share}_{i,j,t} = \beta_1\text{CybersecurityRisk}_{i,t-1} + \beta_2(\text{CybersecurityRisk}_{i,t-1}\times\text{Discussed}_{j,t-1}) + \beta_3(\text{CybersecurityRisk}_{i,t-1}\times\text{Insured}_{j,t-1}) + \gamma X_{i,j,t-1} + \text{FE} + \varepsilon_{i,j,t}
+$$
+
+The specifications use lender and firm fixed effects or firm-lender fixed effects, alongside industry-year effects, and cluster errors by borrower and lender. Samples are 4,396 single-lead facilities, 6,279 lead-arranger observations, and 36,105 all-lender observations.
 
 ## Datasets used
 
@@ -185,6 +280,6 @@ Read the [original](https://doi.org/10.1016/j.jcorpfin.2026.102958) if you are: 
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Journal of Corporate Finance* vol. 98, 2026, article 102958. DOI: [10.1016/j.jcorpfin.2026.102958](https://doi.org/10.1016/j.jcorpfin.2026.102958). This distillation was extracted by an LLM (claude-sonnet-4-6) on 2026-06-26 and is **not human-verified or independently reproduced**. The paper is paywalled (Elsevier; no CC license). Only text excerpts and numeric results appear here under extract-only use; the verbatim PDF is not hosted or redistributed.
+Source: peer-reviewed, *Journal of Corporate Finance* vol. 98, 2026, article 102958. DOI: [10.1016/j.jcorpfin.2026.102958](https://doi.org/10.1016/j.jcorpfin.2026.102958). This page includes an initial distillation and verification from 2026-06-26 and an expanded extraction and re-verification by gpt-6-luna on 2026-10-04. The analysis was not independently reproduced or human-verified. The paper is paywalled (Elsevier; no CC license). Only text excerpts and numeric results appear here under extract-only use; the verbatim PDF is not hosted or redistributed.
 
 Choi, Bok Min, Hans Degryse, and Kristien Smedts. "Do lenders price firms' cybersecurity risk?" *Journal of Corporate Finance* 98 (2026): 102958. DOI: 10.1016/j.jcorpfin.2026.102958.
