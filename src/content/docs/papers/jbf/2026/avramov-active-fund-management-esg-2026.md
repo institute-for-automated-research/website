@@ -5,7 +5,7 @@ description: >-
   with ESG considerations, showing that heterogeneous fund ESG preferences intensify
   information acquisition across the ESG spectrum, improving price informativeness and
   lowering the cost of capital for green firms through a concave, amplified ESG-return
-  relation. Journal of Banking and Finance vol. 182 (2026), CC BY-NC-ND 4.0. Six core
+  relation. Journal of Banking and Finance vol. 182 (2026), CC BY-NC-ND 4.0. Eleven core
   results with source locators, datasets used, the model equations, and the method.
 sidebar:
   label: Avramov-Cheng-Tarelli 2026
@@ -32,16 +32,17 @@ paper:
   topics: ["Sustainable Finance and Green Bonds", "Financial Markets and Investment Strategies", "Corporate Social Responsibility Reporting"]
   dataAccess: licensed-commercial
   outcome:
+    - cross-fund dispersion in ESG preferences by stock
     - implied cost of equity capital (ICC) for individual stocks
     - stock price informativeness
     - fund portfolio ESG deviation from benchmark
-  outcomeClass: [security-returns, fund-behavior]
+  outcomeClass: [security-returns, fund-behavior, asset-prices]
   license: "CC BY-NC-ND 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL http://creativecommons.org/licenses/by-nc-nd/4.0/, start 2025-11-20; corroborated by artifact p.1 CC BY-NC-ND license notice)"
   licenseShort: CC BY-NC-ND 4.0
   access: open
   machineAccess: "open-access PDF available via publisher DOI (Elsevier ScienceDirect, confirmed 2026-06-25)"
   redistribution: extract-only (CC BY-NC-ND 4.0 permits verbatim redistribution but prohibits derivative works; this page is an IAR adaptation for noncommercial research purposes)
-  resultsCount: 6
+  resultsCount: 11
   citedByCount: 1
   methods:
     role: both
@@ -49,7 +50,7 @@ paper:
     buildsFrom: [noisy-rational-expectations, fama-macbeth, portfolio-sort]
     identification: descriptive
   contributionType: [new-theory, new-fact]
-  mechanisms: [information-asymmetry]
+  mechanisms: [information-asymmetry, sustainability-preferences]
   scope:
     region: US
     assetClass: US equities and US equity mutual funds
@@ -64,8 +65,13 @@ paper:
     - { ref: R3, outcome: "implied cost of equity capital (ICC)", metric: basis-points, value: "High Green IO group: green vs. brown ICC = -0.115%/month (-0.066% DGTW-adj.); high/low Green-IO ICC spread = -0.094% (-0.046%)", direction: negative, vsBenchmark: "low Green IO group (insignificant ESG-ICC spread at 10% level)" }
     - { ref: R4, outcome: "implied cost of equity capital (ICC)", metric: basis-points, value: "Low Brown IO group: green vs. brown ICC = -0.138%/month (-0.079% DGTW-adj.); high/low Brown-IO ICC spread = 0.134% (0.077%)", direction: negative, vsBenchmark: "high Brown IO group (insignificant ESG-ICC spread)" }
     - { ref: R5, outcome: "implied cost of equity capital (ICC)", metric: coefficient, value: "Green IO = -0.824*** (t=-7.84); High Green IO = -0.035*** (t=-9.09); High ESG × High Green IO = -0.020*** (t=-3.03); Low ESG × Brown IO = -0.352*** (t=-3.17)", direction: negative }
-    - { ref: R6, outcome: fund abnormal returns in ESG-matched stocks, metric: alpha, value: "High-Green-IO high-ESG stocks: CAPM alpha = -0.304%/month; HML-R (high vs. low ESG within high Green IO) = -0.588%/month; Low-Brown-IO low-ESG stocks: CAPM alpha = +0.455%/month; outperform low-Brown-IO high-ESG by 0.579%/month", direction: positive, vsBenchmark: "green stocks held by brown funds yield insignificant CAPM alpha" }
-  resultType: new-finding
+    - { ref: R6, outcome: cross-sectional stock returns, metric: alpha, value: "High-Green-IO high-ESG stocks: CAPM alpha = -0.304%/month; HML-R (high vs. low ESG within high Green IO) = -0.588%/month; Low-Brown-IO low-ESG stocks: CAPM alpha = +0.455%/month; outperform low-Brown-IO high-ESG by 0.579%/month", direction: mixed, vsBenchmark: "green stocks held by brown funds yield insignificant returns" }
+    - { ref: R7, outcome: cross-fund dispersion in ESG preferences by stock, metric: level, value: "Stock ESGDisp mean = 0.168, standard deviation = 0.069", direction: positive }
+    - { ref: R8, outcome: stock price informativeness, metric: coefficient, value: "At h=5 years, Log(M/A) × Stock ESGDisp = 0.235*** (t=5.25) in Model 8 and 0.203*** (t=5.55) in Model 9; Model 10 = 0.089** (t=2.42). Log(M/A) × Stock ESGDev = 0.112** (t=2.99) in Model 7, 0.084* (t=1.98) in Model 9, and 0.046 (t=1.09) in Model 10", direction: positive }
+    - { ref: R9, outcome: implied cost of equity capital (ICC), metric: basis-points, value: "Univariate ESG sort: high-ESG versus low-ESG ICC difference = -0.135%/month; DGTW-adjusted difference = -0.084%/month; both significant at 1%", direction: negative, vsBenchmark: "brown (bottom-quintile ESG) stocks" }
+    - { ref: R10, outcome: implied cost of equity capital (ICC), metric: coefficient, value: "Table 4 Models 5-6: High Stock ESG × High Green IO = -0.022*** (t=-3.33); Low Stock ESG × Brown IO = -0.322*** (t=-2.78); Low Stock ESG × High Brown IO = -0.011* (t=-1.74)", direction: negative }
+    - { ref: R11, outcome: cross-sectional stock returns, metric: return-spread, value: "Realized-return tests align with the predicted negative ESG-return relation in January 2001-October 2012; after 2012 average realized returns do not align with the predictions, attributed to unexpected ESG-preference shifts; the main text reports no coefficient for this period split", direction: mixed }
+  resultType: mixed
   relatesTo:
     - { cite: "Grossman and Stiglitz (1980)", relation: builds-on, note: "equilibrium information acquisition framework; model extends to multi-asset setting with heterogeneous ESG preferences" }
     - { cite: "Kacperczyk, Van Nieuwerburgh & Veldkamp (2016)", relation: builds-on, note: "rational attention allocation model for mutual funds; paper extends by incorporating ESG motives as a new force shaping attention allocation" }
@@ -75,11 +81,13 @@ paper:
   openQuestions:
     - "How to account explicitly for the additional information about assets' ESG profiles when ESG ratings disagree substantially across vendors (conclusion, p.15)."
     - "Incorporating delegation, where uninformed households entrust investments to informed intermediaries, which could yield testable equilibrium restrictions on fund flows and ESG-driven motives (conclusion, p.15)."
-    - "Extending the framework to settings with dynamic preferences for sustainability and ESG profiles under symmetric risk, as in De Angelis et al. (2023) and Avramov et al. (2025) (conclusion, p.15)."
+    - "Extending the framework to settings with dynamic preferences for sustainability and ESG profiles under symmetric information, as in De Angelis et al. (2023) and Avramov et al. (2025) (conclusion, p.15)."
     - "Relaxing the assumption of exogenous firm ESG profiles to allow activist shareholders to improve the sustainability performance of targeted firms (conclusion, p.15)."
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (16 pp., Tables 1-4, Fig. 1, Online Appendix referenced); six results extracted from the CC-BY-NC-ND open-access PDF. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; five fixes applied: JEL codes M14/Q01 added (p.1); R1 71.4% corrected from ESGDev h=5 to ESGDisp h=1 (p.9 text); R5 model locator corrected from 1-2,5-6 to 1-4 (Table 4); Eq.(5) page corrected p.5→p.4; δ̄_i formula corrected from S⁻¹ to σ̂⁻¹ (posterior precision, Proposition 1 p.4). R6 direction:positive left as-is (ambiguous; paper text p.13 asserts green funds earn positive abnormal returns, though stock CAPM alpha is −0.304%)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Added five Core-results rows (R7-R11), matching findings entries, missing numbered equations/specification details, and a staged mechanism term after reading the PDF. Not human-verified. Not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Audited all 11 results, equations, specifications, classifications, findings, frontmatter, and prose against the source PDF; corrected equation terms, page locators, open-question wording, and R6's stock-return classification. Flagged omitted headline holdings, dispersion/tracking-error, and fund-performance results for re-distillation." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jbankfin.2025.107597", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=http://creativecommons.org/licenses/by-nc-nd/4.0/, start=2025-11-20; two additional TDM entries present (Elsevier TDM license)" }
   rightsSignalConflict: false
@@ -89,7 +97,7 @@ paper:
 
 ## TL;DR
 
-Avramov, Cheng, and Tarelli develop a noisy rational-expectations equilibrium model of active fund management in which agents have heterogeneous ESG preferences and can acquire costly private signals about asset payoffs. Building on the information acquisition framework of Grossman and Stiglitz (1980), the model shows that in equilibrium ESG-perceptive fund managers intensify information acquisition for assets that deviate from ESG neutrality, especially green (high-ESG) assets, which broadens the scope of active management. The enhanced signal precision lowers the posterior variance of green asset payoffs, reducing their implied cost of equity capital (ICC) and making the ESG-ICC relation negative and concave. The paper relates to the evidence in Hartzmark and Sussman (2019) that sustainability ratings drive fund flows, and tests the equilibrium ESG-return predictions of Pastor, Stambaugh & Taylor (2021) by documenting a concave (not merely linear) ESG-ICC relation amplified by an information channel absent from prior theory. Applied to monthly data on U.S. equity mutual funds and common stocks from 2007 to 2021, the model predictions are confirmed: stocks held by funds with heterogeneous ESG preferences display higher price informativeness, green stocks held by green funds have significantly lower ICC than brown stocks, and green funds earn significantly positive abnormal returns when investing in green stocks.
+Avramov, Cheng, and Tarelli develop a noisy rational-expectations equilibrium model of active fund management in which agents have heterogeneous ESG preferences and can acquire costly private signals about asset payoffs. Building on the information acquisition framework of Grossman and Stiglitz (1980), the model predicts that ESG-perceptive managers acquire more information about green assets while ESG-indifferent managers acquire more about brown assets; in aggregate, acquisition rises for both green and brown assets as they depart from ESG neutrality. This expands the scope of active management. The enhanced signal precision lowers posterior variance and, together with nonpecuniary ESG demand, makes the ESG-ICC relation negative and concave, with a stronger negative relation among green assets. The paper relates to the evidence in Hartzmark and Sussman (2019) that sustainability ratings drive fund flows, and tests the equilibrium ESG-return predictions of Pastor, Stambaugh & Taylor (2021) by documenting a concave ESG-ICC relation amplified by information acquisition. Applied to monthly data on U.S. equity mutual funds and common stocks from 2007 to 2021, the paper finds that stocks held by funds with heterogeneous ESG preferences display higher price informativeness and green stocks held by green funds have lower ICC than brown stocks. In separate results, it reports positive abnormal returns for green funds investing in green stocks, while the early-period stock-return tests show a negative alpha for high-Green-IO/high-ESG stocks.
 
 ## Core results
 
@@ -97,14 +105,19 @@ Magnitudes and significance are as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. L
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Stock price informativeness increases with departure from green neutrality (ESGDev) and with fund ESG preference heterogeneity (ESGDisp) | Table 2, Models 2-4, p. 9 | β₂ on Log(M/A) × ESGDev = 0.039\*\*\* (t=5.51) in Model 2; 1-SD increase in ESGDev → 43.9% (h=1) higher price informativeness; 1-SD increase in ESGDisp → 71.4% (h=1); β₃ on Log(M/A) × ESGDisp = 0.098\*\*\* (h=1) |
-| R2 | ESG-ICC relation is negative and concave: the difference in DGTW-adjusted ICC widens sharply from low-to-mid to mid-to-high ESG quintiles | Figure 1, p. 13; Table 3, p. 12 | DGTW-adj. ICC difference between ESG quintiles Q1 and Q3: 0.012%/month; between Q3 and Q5: 0.072%/month; all differences significant at 1% |
-| R3 | When Green IO is high, green stocks display significantly lower ICC than brown stocks; the effect is absent at low Green IO | Table 3, Panel A, p. 12 | High Green IO group: green vs. brown ICC = -0.115\*\*\* (-0.066\*\*\* DGTW-adj.) per month; HML-R ICC spread across high/low Green-IO portfolios = -0.094% (-0.046%), significant |
-| R4 | When Brown IO is low, green stocks display significantly lower ICC than brown stocks; at high Brown IO the spread is insignificant | Table 3, Panel B, p. 12 | Low Brown IO group: green vs. brown ICC = -0.138\*\*\* (-0.079\*\*\* DGTW-adj.) per month; ICC spread across high/low Brown-IO portfolios = 0.134% (0.077%), significant at 0.134% (0.077%) |
+| R1 | Stock price informativeness increases with departure from green neutrality (ESGDev) and with fund ESG preference heterogeneity (ESGDisp) | Table 2, Models 2-4, p. 10; discussion p. 9 | β₂ on Log(M/A) × ESGDev = 0.039\*\*\* (t=5.51) in Model 2; 1-SD increase in ESGDev → 43.9% (h=1) higher price informativeness; 1-SD increase in ESGDisp → 71.4% (h=1); β₃ on Log(M/A) × ESGDisp = 0.098\*\*\* (h=1) |
+| R2 | ESG-ICC relation is negative and concave: the difference in DGTW-adjusted ICC widens sharply from low-to-mid to mid-to-high ESG quintiles | Figure 1, p. 13; §4.2, p. 11 | DGTW-adj. ICC difference between ESG quintiles Q1 and Q3: 0.012%/month; between Q3 and Q5: 0.072%/month; all differences significant at 1% |
+| R3 | When Green IO is high, green stocks display significantly lower ICC than brown stocks; the effect is absent at low Green IO | Table 3, Panel A, p. 12; §4.2, p. 11 | High Green IO group: green vs. brown ICC = -0.115\*\*\* (-0.066% DGTW-adj.) per month; HML-R ICC spread across high/low Green-IO portfolios = -0.094% (-0.046%), significant |
+| R4 | When Brown IO is low, green stocks display significantly lower ICC than brown stocks; at high Brown IO the spread is insignificant | Table 3, Panel B, p. 12; §4.2, p. 11 | Low Brown IO group: green vs. brown ICC = -0.138\*\*\* (-0.079% DGTW-adj.) per month; the HML-R ICC spread between high- and low-Brown-IO portfolios is 0.134% (0.077% DGTW-adj.) and significant |
 | R5 | Fama-MacBeth ICC regression confirms: Green IO and its interaction with high-ESG stock significantly reduce ICC | Table 4, Models 1-4, p. 14 | Green IO = -0.824\*\*\* (t=-7.84); High Green IO = -0.035\*\*\* (t=-9.09); High ESG × High Green IO = -0.020\*\*\* (t=-3.03); Low ESG × Brown IO = -0.352\*\*\* (t=-3.17); Low ESG × High Brown IO = -0.014\*\* (t=-2.24) |
-| R6 | Green funds earn significantly positive abnormal returns when investing in green stocks; green stocks held by brown funds yield insignificant returns | Online Appendix Table A.2, referenced p. 13 | High-Green-IO, high-ESG stocks: CAPM alpha = -0.304%/month; HML-R (high vs. low ESG, high Green IO) = -0.588%/month (Panel A1); Low-Brown-IO, low-ESG stocks: CAPM alpha = +0.455%/month, outperform high-ESG stocks by 0.579%/month (Panel A3) |
+| R6 | In early-period realized-return tests, high-Green-IO/high-ESG stocks have a negative CAPM alpha, while low-Brown-IO/low-ESG stocks have a positive alpha | §4.2, p. 13 (discussion of Online Appendix Table A.6) | High-Green-IO, high-ESG stocks: CAPM alpha = -0.304%/month; HML-R (high vs. low ESG, high Green IO) = -0.588%/month (Panel A1); Low-Brown-IO, low-ESG stocks: CAPM alpha = +0.455%/month, outperform high-ESG stocks by 0.579%/month (Panel A3). These are stock-portfolio realized-return results, distinct from the positive fund-performance finding described in §4.3. |
+| R7 | Stocks display cross-fund dispersion in ESG preferences | Table 1, Panel A, p. 9 | Stock ESGDisp mean = 0.168, standard deviation = 0.069 |
+| R8 | ESG-related price-informativeness associations persist at the five-year earnings horizon, with stronger evidence for ESG preference dispersion | Table 2, Models 6-10, p. 10 | Log(M/A) × Stock ESGDisp = 0.235*** (t=5.25) in Model 8, 0.203*** (t=5.55) in Model 9, and 0.089** (t=2.42) in Model 10; Log(M/A) × Stock ESGDev = 0.112** (t=2.99) in Model 7, 0.084* (t=1.98) in Model 9, and 0.046 (t=1.09) in Model 10 |
+| R9 | A univariate ESG sort shows lower implied cost of capital for green stocks than brown stocks | Table 3, Panel A, All row, p. 12; §4.2, p. 11 | High-ESG minus low-ESG ICC difference = -0.135%/month; DGTW-adjusted difference = -0.084%/month; both significant at 1% |
+| R10 | The preferred-domain ICC interaction results remain in the combined ownership specification | Table 4, Models 5-6, p. 14 | High Stock ESG × High Green IO = -0.022*** (t=-3.33); Low Stock ESG × Brown IO = -0.322*** (t=-2.78); Low Stock ESG × High Brown IO = -0.011* (t=-1.74) |
+| R11 | The realized-return test does not match the expected-return pattern after 2012 | §4.2, p. 13 (discussion of Online Appendix Table A.7) | In January 2001-October 2012 the negative ESG-return relation appears in the reported tests; after 2012 average realized returns do not align with predictions, which the authors attribute to unexpected shifts in ESG preferences; no period-specific coefficient is reported in the article text |
 
-**Overall (paper's conclusion).** ESG considerations play a central role in shaping mutual funds' information decisions, portfolio choices, and the cross-section of asset prices. Information acquisition driven by ESG motives not only provides capital to green firms at a lower cost but also improves overall financial market efficiency by incorporating more private information into equilibrium prices. The concave ESG-ICC relation and the asymmetric performance of green and brown funds in their preferred ESG domains provide corroborating evidence for the model's information channel.
+**Overall (paper's conclusion).** ESG considerations play a central role in shaping mutual funds' information decisions, portfolio choices, and the cross-section of asset prices. Information acquisition driven by ESG motives not only provides capital to green firms at a lower cost but also improves overall financial market efficiency by incorporating more private information into equilibrium prices. The concave ESG-ICC relation and the paper's separately reported positive performance for green funds in their preferred domains provide corroborating evidence for the model's information channel.
 
 ## Theory / model
 
@@ -118,7 +131,7 @@ f_N = \mu_N + z_N
 \tag{1}
 $$
 
-where $$\mu_i$$ is the expected payoff, $$b_i$$ is the asset's exposure to the aggregate factor $$z_N$$, and $$z_i \sim \mathcal{N}(0, \sigma_i)$$ is an idiosyncratic shock. Shocks are uncorrelated. The risk factor supply for asset $$i$$ is $$\bar{x}_i + x_i$$ where $$\bar{x}_i$$ is mean supply and $$x_i \sim \mathcal{N}(0, \sigma_N^2(1+b_i^2))$$ is a random component. Random supply introduces noise that prevents prices from fully revealing private signals.
+where $$\mu_i$$ is the expected payoff, $$b_i$$ is the asset's exposure to the aggregate factor $$z_N$$, and $$z_i \sim \mathcal{N}(0, \sigma_i)$$ is an idiosyncratic shock. Shocks are uncorrelated. The risk factor supply for asset $$i$$ is $$\bar{x}_i + x_i$$ where $$\bar{x}_i$$ is mean supply and $$x_i \sim \mathcal{N}(0, \sigma_X(1+b_i^2))$$ is a random component. Random supply introduces noise that prevents prices from fully revealing private signals.
 
 Agents are indexed by $$j$$ on a continuum. Each agent-asset pair $$(i,j)$$ can acquire a private signal (p. 3, Eq. 2):
 
@@ -138,6 +151,15 @@ $$
 
 where $$\rho > 0$$ is the common risk-aversion coefficient, $$W_j$$ is terminal wealth, and $$G_j = \sum_{i=1}^N q_{ij} g_i$$ is the portfolio ESG score ($$q_{ij}$$ = holding of asset $$i$$, $$g_i$$ = ESG score, mean-zero with $$g_N = 0$$). A higher $$\delta_j$$ implies stronger ESG-driven preferences; $$\delta_j = 0$$ yields standard mean-variance.
 
+The equilibrium price under market clearing combines posterior risk-adjusted payoffs, random supply, and nonpecuniary ESG demand (p. 4, Eq. 4):
+
+$$
+p_i = \mu_i + \zeta_i z_i + b_i \zeta_N z_N - \rho(\bar{\sigma}_i + b_i\bar{\sigma}_N) - \rho\left[\frac{\zeta_i}{\bar{S}_i}x_i + b_i\left(\frac{\zeta_i}{\bar{S}_i}+\frac{\zeta_N}{\bar{S}_N}\right)x_N\right] + \bar{\delta}_i g_i
+\tag{4}
+$$
+
+Here $$\bar{S}_i$$ is mean signal precision, $$\bar{\sigma}_i$$ is the aggregate posterior payoff variance, $$\zeta_i$$ is the fraction of posterior precision attributable to price and private signals, and $$\bar{\delta}_i$$ is the precision-weighted ESG preference for asset $$i$$. The random supply terms lower price, while ESG preference raises the price of greener assets (Proposition 1, p. 4).
+
 The key pricing implication follows from Proposition 4 (p. 5). The expected net payoffs are (Eqs. 9-10):
 
 $$
@@ -156,7 +178,14 @@ where $$\bar{\sigma}_i$$ is the cross-agent average posterior payoff variance (t
 
 ## Method
 
-In period 1, each agent chooses signal precision $$S_{ij}$$ for each asset to maximize expected utility (p. 4, Eq. 5). Proposition 2 characterizes the optimum (p. 5, Eq. 6):
+In period 1, each agent chooses signal precision $$S_{ij}$$ for each asset to maximize expected utility (p. 4, Eq. 5):
+
+$$
+U_{1j} = \text{E}_{1j}\left[\text{E}_{2j}[W_j] - \frac{\rho}{2}\text{Var}_{2j}[W_j] + \delta_j G_j\right]
+\tag{5}
+$$
+
+Proposition 2 characterizes the optimum (p. 5, Eq. 6):
 
 $$
 \hat{S}_{ij} = \max\!\left[0,\; s \;\middle|\; c'_{ij}(s) = \psi_{ij}\right]
@@ -166,11 +195,11 @@ $$
 The pre-cost marginal benefit of information for asset-agent pair $$(i,j)$$ is (p. 5, Eq. 7):
 
 $$
-\psi_{ij} = \frac{1}{2\rho}\!\left(\bar{\sigma}_i + \left(\rho^2\sigma_X + \bar{S}_i\right)\bar{\sigma}_i^2 + \left(\rho\bar{\sigma}_i + \left(\bar{\delta}_j - \bar{\delta}_i\right)g_i\right)^{\!2}\right)
+\psi_{ij} = \frac{1}{2\rho}\!\left(\bar{\sigma}_i + \left(\rho^2\sigma_X + \bar{S}_i\right)\bar{\sigma}_i^2 + \left(\rho\bar{\sigma}_i + \left(\delta_j - \bar{\delta}_i\right)g_i\right)^{\!2}\right)
 \tag{7}
 $$
 
-where $$\bar{S}_i = \int S_{ij}\,dj$$ is the cross-agent average signal precision and $$\sigma_X$$ is the variance of the aggregate risk factor supply. The term $$(\bar{\delta}_j - \bar{\delta}_i)g_i$$ captures the ESG motive: funds whose ESG preference $$\bar{\delta}_j$$ is above (below) the aggregate $$\bar{\delta}_i$$ have a higher (lower) marginal benefit of acquiring information about asset $$i$$ when that asset's ESG score $$g_i$$ is nonzero.
+where $$\bar{S}_i = \int S_{ij}\,dj$$ is the cross-agent average signal precision and $$\sigma_X$$ is the variance of the aggregate risk factor supply. The term $$(\delta_j - \bar{\delta}_i)g_i$$ captures the ESG motive: funds whose ESG preference $$\delta_j$$ is above (below) the aggregate $$\bar{\delta}_i$$ have a higher (lower) marginal benefit of acquiring information about asset $$i$$ when that asset's ESG score $$g_i$$ is nonzero.
 
 Proposition 3 establishes that the cross-agent average signal precision increases with the absolute departure from green neutrality (p. 5, Eq. 8):
 
@@ -179,13 +208,36 @@ $$
 \tag{8}
 $$
 
-where $$\sigma_\delta$$ is the cross-agent dispersion in ESG preferences and $$\xi_{Ai} > 0$$ is a positive scalar. This proves that aggregated information acquisition rises for both green and brown assets as their ESG scores depart from zero, because the marginal benefit of information acquisition is quadratic in ESG preferences. As a consequence, the informational efficiency of asset prices (price informativeness) increases for stocks with more extreme ESG profiles and for stocks held by funds with more dispersed ESG preferences.
+where $$\sigma_\delta$$ is the cross-agent variance in ESG preferences and $$\xi_{Ai} > 0$$ is a positive scalar. This proves that aggregated information acquisition rises for both green and brown assets as their ESG scores depart from zero, because the marginal benefit of information acquisition is quadratic in ESG preferences. As a consequence, the informational efficiency of asset prices (price informativeness) increases for stocks with more extreme ESG profiles and for stocks held by funds with more dispersed ESG preferences.
+
+The model also characterizes the expected portfolio deviations from market weights for non-aggregate assets and the aggregate asset (p. 6, Eqs. 11-12):
+
+$$
+\text{E}[q_{ij}-\bar{q}_i] = \frac{\Delta\delta_{ij}g_i}{\rho\bar{\sigma}_i} + \left(1+\frac{\Delta\delta_{ij}g_i}{\rho\bar{\sigma}_i}\right)\frac{\Delta S_{ij}}{\bar{\sigma}_i^{-1}}, \quad i=1,\ldots,N-1
+\tag{11}
+$$
+
+$$
+\text{E}[q_{Nj}-\bar{q}_N] = \frac{\Delta S_{Nj}}{\bar{\sigma}_N^{-1}} - \sum_{i=1}^{N-1} b_i\text{E}[q_{ij}-\bar{q}_i]
+\tag{12}
+$$
+
+where $$\Delta\delta_{ij}=\delta_j-\bar{\delta}_i$$ and $$\Delta S_{ij}=S_{ij}-\bar{S}_i$$. Thus ESG motives and relative information precision jointly determine active tilts (Proposition 5, p. 6).
+
+Expected excess net payoff decomposes into a portfolio-tilt component and a skill component (p. 6, Eq. 13):
+
+$$
+\text{EENP}_j = \sum_{i=1}^{N} \left[\frac{\Delta\delta_{ij}g_i}{\rho\bar{\sigma}_i} + \left(1+\frac{\Delta\delta_{ij}g_i}{\rho\bar{\sigma}_i}\right)\frac{\Delta S_{ij}}{\bar{\sigma}_i^{-1}}\right](\rho\bar{\sigma}_i-\bar{\delta}_i g_i) + \sum_{i=1}^{N}\frac{V_{ii}}{\rho}\Delta S_{ij}
+\tag{13}
+$$
+
+The first term captures expected net payoffs multiplied by unconditional tilts; the second captures skill from signal precision relative to the cross-agent average (Proposition 6, p. 6).
 
 The equilibrium is solved by a fixed-point problem on $$\bar{S}_i$$: agents choose optimal signal precisions given aggregate precision, and aggregate precision is consistent with individual choices. The model builds on the information acquisition framework of Breugem and Buss (2019) for institutional investors, extending it to incorporate heterogeneous ESG preferences. The fund performance measure follows Kacperczyk, Van Nieuwerburgh & Veldkamp (2016): the expected excess net payoff (EENP) decomposes into an ESG-based portfolio tilt component and a skill (private signal precision) component, with both building on the `noisy-rational-expectations` and `fama-macbeth` primitives listed above.
 
 ## Empirical specifications
 
-**Price informativeness (Eq. 14, Table 2, p. 9).** Price informativeness is measured following Bai et al. (2016) as the ability of the current market-to-book ratio to predict future earnings-to-assets. The monthly Fama and MacBeth (1973) regression tests the model predictions about ESGDev and ESGDisp:
+**Price informativeness (Eq. 14, Table 2, p. 10).** Price informativeness is measured following Bai et al. (2016) as the ability of the current market-capitalization-to-assets ratio to predict future earnings-to-assets. The authors estimate annual Fama and MacBeth (1973) cross-sectional regressions for h=1 and h=5; they report Newey-West adjusted t-statistics. There are no panel fixed effects in this two-step design. The estimation sample has 32,136 stock-year observations for h=1 and 18,602 for h=5. The model is:
 
 $$
 \frac{E_{i,y+h}}{A_{i,y}} = \alpha + \beta_1\log\!\frac{M_{i,y}}{A_{i,y}} + \beta_2\log\!\frac{M_{i,y}}{A_{i,y}} \times \text{ESGDev}_{i,y} + \beta_3\log\!\frac{M_{i,y}}{A_{i,y}} \times \text{ESGDisp}_{i,y}
@@ -193,9 +245,9 @@ $$
 \tag{14}
 $$
 
-where $$E_{i,y+h}/A_{i,y}$$ is earnings-before-interest-and-taxes over total assets for stock $$i$$ in year $$y+h$$, $$M_{i,y}/A_{i,y}$$ is the market-to-book ratio, $$\text{ESGDev}_{i,y}$$ is the absolute departure from green neutrality (from LASSO residual of MSCI ESG on 94 non-ESG characteristics), $$\text{ESGDisp}_{i,y}$$ is the stock-level dispersion in fund ESG preferences, and $$N_{i,y}$$ stacks all other stock-level controls. Standard errors follow Newey and West (1987). Forecasting horizons are $$h=1$$ year (Models 1-5) and $$h=5$$ years (Models 6-10).
+where $$E_{i,y+h}/A_{i,y}$$ is earnings-before-interest-and-taxes over total assets for stock $$i$$ in year $$y+h$$, $$M_{i,y}/A_{i,y}$$ is the market-capitalization-to-assets ratio, $$\text{ESGDev}_{i,y}$$ is the absolute departure from green neutrality (from LASSO residual of MSCI ESG on 94 non-ESG characteristics), $$\text{ESGDisp}_{i,y}$$ is the stock-level dispersion in fund ESG preferences, and $$N_{i,y}$$ stacks all other stock-level controls. Standard errors follow Newey and West (1987). Forecasting horizons are $$h=1$$ year (Models 1-5) and $$h=5$$ years (Models 6-10).
 
-**ESG-ICC regression (Eq. 15, Table 4, p. 14).** The implied cost of capital is estimated following Hou et al. (2012) and Pastor, Stambaugh & Taylor (2022). The main Fama and MacBeth (1973) regression is:
+**ESG-ICC regression (Eq. 15, Table 4, p. 14).** The implied cost of capital is estimated following Hou et al. (2012) and Pástor, Stambaugh, and Taylor (2022). The monthly Fama and MacBeth (1973) regression uses 233,537 stock-month observations, stock-level controls, and Newey-West adjusted t-statistics. This two-step cross-sectional design includes no panel fixed effects. The specification is:
 
 $$
 \text{ICC}_{i,t} = \alpha + \beta_1\,\text{ESG}_{i,t-1} + \beta_2\,\text{IO}_{i,t-1} + \beta_3\,\text{ESG}_{i,t-1} \times \text{IO}_{i,t-1} + c N_{i,t-1} + \varepsilon_{i,t}
@@ -218,6 +270,8 @@ where $$\text{ICC}_{i,t}$$ is the monthly implied cost of capital for stock $$i$
 | I/B/E/S analyst forecasts | Analyst coverage and forecast dispersion as stock-level controls; earnings forecasts for ICC computation via Hou et al. (2012) | [I/B/E/S](/wiki/commercial/ibes/) (licensed) |
 
 Sample: January 2007 to December 2021 (15 years, monthly). Full sample contains 4031 unique equity funds and 3422 unique stocks; average 1777 funds and 1374 stocks per month. Equity funds are restricted to those with TNA of at least $15 million, identified as active via CRSP objective codes.
+
+The portfolio analysis in Table 3 forms 3 ownership terciles crossed with 5 ESG quintiles. Each portfolio is value-weighted, with monthly ICC measurement and rebalancing; reported t-statistics use Newey-West corrections. Table 3 uses monthly observations from the sample described in Section 3.1, but does not report a single pooled observation count for these portfolio-time-series comparisons.
 
 ## When to read the full paper
 

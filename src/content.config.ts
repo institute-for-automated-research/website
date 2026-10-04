@@ -353,8 +353,9 @@ export const collections = {
             // but not whether the model WORKED. findings[] records each headline
             // result as a structured row so the corpus answers "what kind of
             // models/effects actually work, with what magnitude, against which
-            // benchmark" without reading prose. One entry per Core-results row;
-            // `ref` ties it to that row so it stays traceable and verifiable.
+            // benchmark" without reading prose. One entry per quantitative
+            // Core-results row; purely qualitative rows (no magnitude) get no
+            // entry. `ref` ties it to that row so it stays traceable and verifiable.
             // Omit findings (and resultType) for a pure-theory paper that
             // reports no empirical result.
             findings: z

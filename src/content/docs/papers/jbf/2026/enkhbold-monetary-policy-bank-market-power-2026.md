@@ -5,8 +5,9 @@ description: >-
   a 100 bps monetary policy shock transmits 34 bps to mortgage rates in competitive banking
   markets but near-zero in concentrated markets; wholesale funding reliance amplifies the gap
   in competitive markets and dampens it in concentrated ones. Journal of Banking and Finance
-  187 (2026), paywalled. Six core results with source locators, datasets used, and the
-  estimating regression specification.
+  187 (2026), paywalled. Sixteen core results cover the funding correlations,
+  liability responses, rate-regime heterogeneity, identification checks, and
+  alternative market-power measures, with source locators and estimating specifications.
 sidebar:
   label: Enkhbold 2026
   order: 1
@@ -27,7 +28,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Elsevier ScienceDirect, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 16
   citedByCount: 1
   jel:
     codes: [E52, G21, L13]
@@ -38,30 +39,41 @@ paper:
   outcome:
     - mortgage rate pass-through to borrowers
     - loan-level mortgage rate change at the bank-MSA-quarter level
-  outcomeClass: [household-finance]
+    - bank wholesale funding, retail-deposit, and liability shares
+  outcomeClass: [household-finance, bank-funding]
   methods:
     role: applies-method
     family: reduced-form-causal
     buildsFrom: [panel-regression, instrumental-variables]
     identification: instrument
-  contributionType: [new-fact, measurement]
-  mechanisms: [market-power, liquidity]
+  contributionType: [new-fact]
+  mechanisms: [market-power, liquidity, wholesale-funding-substitution]
   scope:
     region: US
     assetClass: US residential mortgages (30-year fixed, single-family)
     period: 2000-01..2019-12
     frequency: quarterly
     dataType: [market, accounting, administrative]
-    granularity: [firm]
-    n: "~40,000 bank-MSA-quarter obs; 27 largest US banks (>$1B assets), 2000Q1-2019Q4"
+    granularity: [firm, transaction]
+    n: "27 largest US banks (>$1B assets), 2000Q1-2019Q4; funding-composition regressions N≈39,800-40,400, mortgage-rate specifications N≈10,100-69,300"
   findings:
     - { ref: R1, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "18.47*** bps direct effect; 34.1 bps total for high-WFR competitive banks (Table 4, competitive subsample)", direction: positive, vsBenchmark: "~35 bps above near-zero concentrated-market pass-through" }
-    - { ref: R2, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "9.10 bps baseline (insig., t=0.83); WFR interaction = -0.728** bps/log-WFR; near-zero total (Table 4, concentrated subsample)", direction: none }
+    - { ref: R2, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "9.10 bps baseline (insig., t=0.83); WFR interaction = -0.728** bps/log-WFR; near-zero total (Table 4, concentrated subsample)", direction: negative }
     - { ref: R3, outcome: "mortgage rate pass-through to borrowers at ZLB (competitive)", metric: basis-points, value: "38.80*** bps at ZLB vs 23.14*** non-ZLB; WFR interaction = 10.05*** bps (Table 5)", direction: positive, vsBenchmark: "68% above non-ZLB competitive baseline of 23.1 bps" }
     - { ref: R4, outcome: "mortgage rate pass-through to borrowers at ZLB (concentrated)", metric: basis-points, value: "-21.18*** bps at ZLB vs -1.81* non-ZLB (Table 5)", direction: negative, vsBenchmark: "vs +38.8 bps in competitive ZLB markets; sign reversal" }
     - { ref: R5, outcome: "mortgage rate pass-through to borrowers by shock direction", metric: basis-points, value: "contractionary: competitive 29.66*** bps, concentrated 8.73***; expansionary: competitive 6.86*** bps, concentrated -3.17 (insig.) (Table 7)", direction: mixed, vsBenchmark: "contractionary 4.3x expansionary pass-through in competitive markets" }
-    - { ref: R6, outcome: "mortgage rate pass-through to borrowers (Lerner index robustness)", metric: basis-points, value: "Lerner x monetary shock = -9.40*** bps (Table 9, col 4); branch share x log(WFR) x shock (triple interaction) = +60.79*** bps (col 3)", direction: negative, vsBenchmark: "HHI-based dampening confirmed across all four alternative market power measures (Tables 8-9)" }
-  resultType: new-finding
+    - { ref: R6, outcome: "mortgage rate pass-through to borrowers (market-power robustness)", metric: basis-points, value: "Lerner x shock = -9.40*** bps; branch share x shock = +73.35** bps and branch share x log(WFR) x shock = +60.79*** bps (Table 9, cols 3-4)", direction: mixed, vsBenchmark: "Table 9 results differ by proxy: the Lerner interaction is negative, while branch-share interactions are positive" }
+    - { ref: R7, outcome: "bank wholesale funding, retail-deposit, and liability shares", metric: correlation, value: "Corr(log WFR, federal funds rate): 0.346* competitive, 0.221* concentrated; Corr(wholesale funding liabilities, federal funds rate): -0.352* competitive, -0.116* concentrated (Table 2, p. 5)", direction: mixed, vsBenchmark: "funding reliance correlation is 57% higher in competitive markets; wholesale funding level correlation is more negative there" }
+    - { ref: R8, outcome: "bank wholesale funding, retail-deposit, and liability shares", metric: coefficient, value: "FFR x HHI: -0.00346*** for retail deposits/liabilities, +0.00575*** for wholesale funding/liabilities, and +0.0000143*** for WFR/liabilities (Table 3, p. 6)", direction: mixed }
+    - { ref: R9, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Low-rate: competitive baseline 17.43*** and WFR interaction 25.77***; concentrated 32.07*** and 4.41***. High-rate: competitive 7.26*** and 18.37***; concentrated -16.99*** and 1.83*** (Table 6, p. 11)", direction: mixed, vsBenchmark: "at high rates, concentrated-market baseline pass-through reverses sign while competitive baseline remains positive" }
+    - { ref: R10, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "WFR interaction: contractionary +16.03*** competitive and +2.12*** concentrated; expansionary -2.46 competitive (insig.) and -3.79*** concentrated (Table 7, p. 13)", direction: mixed, vsBenchmark: "the concentrated-market interaction changes sign between rate hikes and cuts" }
+    - { ref: R11, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Jarociński-Karadi shock: direct effect 30.96*** competitive and 8.75*** concentrated; WFR interaction -58.92*** competitive and +2.08** concentrated (Table 8, p. 14)", direction: mixed, vsBenchmark: "relative to Bauer-Swanson baseline, direct effects reverse sign; concentrated-market interaction remains positive" }
+    - { ref: R12, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Liability-based WFR interaction: +143.9* competitive and +5.14 concentrated (insig.) (Table 8, p. 14)", direction: positive, vsBenchmark: "the positive concentrated-market estimate is not statistically significant" }
+    - { ref: R13, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "HHI SD x policy shock x log(WFR) = -16.79*** (SE 3.92; Table 9, col. 1, pp. 14-15)", direction: negative, vsBenchmark: "greater concentration dampens the positive WFR interaction" }
+    - { ref: R14, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Using second lags of HHI and WFR as instruments: HHI SD x policy shock = -9.14** (SE 3.99; Table 9, col. 2, pp. 14-15)", direction: negative }
+    - { ref: R15, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Policy shock x branch share = +73.35** (SE 29.83) and policy shock x branch share x log(WFR) = +60.79*** (SE 6.05; Table 9, col. 3, pp. 14-15)", direction: positive }
+    - { ref: R16, outcome: "mortgage rate pass-through to borrowers", metric: basis-points, value: "Policy shock x Lerner = -9.40*** (SE 2.92; Table 9, col. 4, pp. 14-15); triple interaction = +1.45 (SE 1.71, insignificant)", direction: negative }
+  resultType: mixed
   relatesTo:
     - { cite: "Drechsler et al. (2017)", doi: '10.1093/qje/qjx019', relation: builds-on, note: "deposit channel mechanism: market-power banks hold deposit spreads wide, limiting outflows and pass-through when the policy rate rises" }
     - { cite: "Choi and Choi (2021)", relation: builds-on, note: "wholesale funding as a substitute for deposit funding in response to monetary tightening; banks in concentrated markets borrow more wholesale" }
@@ -77,6 +89,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1-17 including appendix and references); six results extracted from Tables 4-9. Not human-verified. Not reproduced. Data available on request per p. 17." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two errors fixed: (1) Method section cited Table 8 col 2 for the -9.14 lagged-IV result, corrected to Table 9 col 2 (HHI sd x Δt = -9.14** (3.99)); (2) R6 labelled 60.79*** as 'branch share x shock', corrected to the triple interaction Δt x Branch share x log(WFR); all other magnitudes (Tables 4, 5, 7, 9) and equation (1) terms verified correct." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added results R7-R16, complete estimating specifications, mechanism coverage, and equations. Not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Rechecked all 16 Core results, specifications, classification axes, prose, frontmatter, and citation DOIs against the source PDF; corrected robustness claims and findings directions, and removed unsupported measurement classification." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1016/j.jbankfin.2026.107690", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license[]: Elsevier TDM 1.0 and TDMRep licences only; no CC licence found. Crown Copyright 2026 per PDF p. 1 footer." }
 ---
@@ -85,7 +99,7 @@ paper:
 
 ## TL;DR
 
-The paper studies how the interaction between local deposit market concentration and bank wholesale funding reliance (WFR) shapes the transmission of monetary policy surprises to mortgage rates. Using US bank- and loan-level data from 2000 to 2019, and building on the deposit channel of Drechsler et al. (2017) and the wholesale funding analysis of Choi and Choi (2021), the paper shows that in competitive markets (low HHI) a 100 bps policy shock raises mortgage rates by 34 bps for banks with high WFR; wholesale funding amplifies pass-through because it ties funding costs directly to market rates. In concentrated markets (high HHI), the same shock produces near-zero pass-through: banks use market power to hold deposit rates steady and absorb the cost change in margins rather than passing it to borrowers. The 35 bps differential translates to approximately $67 per month on a $300,000 mortgage ($24,000 over the loan life). Wang et al. (2022) show that market power dampens transmission in a structural model; this paper adds WFR as an interacting channel and traces heterogeneity across the interest rate cycle. These contrasts sharpen at the zero lower bound and during contractionary episodes, and hold across alternative market power measures including the Lerner index and branch market share.
+The paper studies how the interaction between local deposit market concentration and bank wholesale funding reliance (WFR) shapes the transmission of monetary policy surprises to mortgage rates. Using US bank- and loan-level data from 2000 to 2019, and building on the deposit channel of Drechsler et al. (2017) and the wholesale funding analysis of Choi and Choi (2021), the paper shows that in competitive markets (low HHI) a 100 bps policy shock raises mortgage rates by 34 bps for banks with high WFR; wholesale funding amplifies pass-through because it ties funding costs directly to market rates. In concentrated markets (high HHI), the same shock produces near-zero pass-through: banks use market power to hold deposit rates steady and absorb the cost change in margins rather than passing it to borrowers. The 35 bps differential translates to approximately $67 per month on a $300,000 mortgage ($24,000 over the loan life). Wang et al. (2022) show that market power dampens transmission in a structural model; this paper adds WFR as an interacting channel and traces heterogeneity across the interest rate cycle. These contrasts sharpen at the zero lower bound and during contractionary episodes. Robustness results vary by measure: HHI and Lerner estimates indicate dampening, while branch-share interactions are positive and alternative shock and funding measures change the wholesale-funding interaction.
 
 ## Core results
 
@@ -98,69 +112,98 @@ Magnitudes and significance as reported; `\*`/`\*\*`/`\*\*\*` = 10%/5%/1%. Locat
 | R3 | Zero lower bound amplifies competitive pass-through to 38.8 bps | Table 5, p. 10 | Competitive baseline at ZLB = 38.80\*\*\* bps (vs 23.14\*\*\* non-ZLB); WFR interaction = 10.05\*\*\* bps |
 | R4 | ZLB reverses concentrated-market pass-through to -21.2 bps | Table 5, p. 10 | Concentrated ZLB = -21.18\*\*\* bps (vs -1.81\* non-ZLB); sign reversal vs competitive ZLB (+38.8 bps) |
 | R5 | Asymmetric transmission: contractionary shocks pass through 4x more than expansionary | Table 7, p. 13 | Contractionary: competitive 29.66\*\*\* bps, concentrated 8.73\*\*\*; expansionary: competitive 6.86\*\*\* bps, concentrated -3.17 (insig.) |
-| R6 | Robustness: Lerner index and branch share confirm market power dampening | Table 9, pp. 15-16 | Lerner x shock = -9.40\*\*\* bps; branch share x log(WFR) x shock (triple interaction) = +60.79\*\*\* bps; lagged HHI as IV yields -9.14\*\* bps interaction |
+| R6 | Market-power robustness results vary by proxy | Table 9, pp. 14-15 | Lerner x shock = -9.40\*\*\* bps; branch share x shock = +73.35\*\* bps and branch share x log(WFR) x shock = +60.79\*\*\* bps; lagged HHI as IV yields -9.14\*\* bps interaction |
+| R7 | Wholesale funding reliance and funding levels covary differently with policy rates across market structures | Table 2, p. 5 | Corr(log WFR, federal funds rate): 0.346\* competitive, 0.221\* concentrated; corr(wholesale funding liabilities, federal funds rate): -0.352\* competitive, -0.116\* concentrated |
+| R8 | Policy-rate and concentration interaction predicts shifts between retail deposits and wholesale funding | Table 3, p. 6 | FFR x HHI: -0.00346\*\*\* for retail deposits/liabilities, +0.00575\*\*\* for wholesale funding/liabilities, and +0.0000143\*\*\* for WFR/liabilities |
+| R9 | Pass-through differs between low- and high-rate regimes | Table 6, p. 11 | Low rates: competitive 17.43\*\*\* baseline + 25.77\*\*\* WFR interaction; concentrated 32.07\*\*\* + 4.41\*\*\*. High rates: competitive 7.26\*\*\* + 18.37\*\*\*; concentrated -16.99\*\*\* + 1.83\*\*\* |
+| R10 | Wholesale-funding interactions vary with the direction of policy shocks | Table 7, p. 13 | Contractionary: +16.03\*\*\* bps competitive and +2.12\*\*\* concentrated; expansionary: -2.46 bps competitive (insig.) and -3.79\*\*\* concentrated |
+| R11 | Alternative shock identification preserves positive concentrated-market interaction but changes other coefficients | Table 8, p. 14 | Jarociński-Karadi shock: direct effect 30.96\*\*\* bps competitive and 8.75\*\*\* concentrated; WFR interaction -58.92\*\*\* competitive and +2.08\*\* concentrated |
+| R12 | Liability-based wholesale funding measure gives different interaction magnitudes | Table 8, p. 14 | WFR interaction = +143.9\* bps competitive; +5.14 bps concentrated (insig.) |
+| R13 | Triple interaction supports concentration dampening at higher wholesale funding reliance | Table 9, col. 1, pp. 14-15 | HHI SD x policy shock x log(WFR) = -16.79\*\*\* (SE = 3.92) |
+| R14 | Instrumenting market structure and funding retains a negative concentration interaction | Table 9, col. 2, pp. 14-15 | Second lags of HHI and WFR as instruments: HHI SD x policy shock = -9.14\*\* (SE = 3.99) |
+| R15 | Branch market share produces positive shock interactions | Table 9, col. 3, pp. 14-15 | Policy shock x branch share = +73.35\*\* (SE = 29.83); triple interaction with log(WFR) = +60.79\*\*\* (SE = 6.05) |
+| R16 | Lerner-index market power is negatively associated with pass-through | Table 9, col. 4, pp. 14-15 | Policy shock x Lerner = -9.40\*\*\* (SE = 2.92); triple interaction = +1.45 (SE = 1.71, insig.) |
 
 **Overall (paper's conclusion).** Market concentration dampens monetary policy transmission by allowing banks to absorb policy shocks in margins. Wholesale funding reliance amplifies this gap: in competitive markets it ties funding costs to market rates and forces pass-through; in concentrated markets it provides a substitute for unraised deposit rates, further cushioning borrowers from the policy change. The Federal Reserve's ability to affect household mortgage costs depends on local banking market structure throughout the interest rate cycle.
 
 ## Theory / model
 
-The paper has no formal theoretical model. It builds on two prior mechanisms and documents a new interaction between them.
+The paper does not specify a formal theoretical model. It combines the deposit channel of Drechsler et al. (2017) with wholesale-funding substitution discussed by Choi and Choi (2021). When market power lets banks hold deposit rates below policy rates, depositors leave and banks replace some retail funding with wholesale funding. Because wholesale costs track policy rates more closely, this replacement affects mortgage-rate pass-through differently in competitive and concentrated markets (Introduction, pp. 1-2; §3, pp. 6-7).
 
-**Deposit channel (Drechsler et al. (2017)).** When the policy rate rises, banks with market power over local depositors need not match the rate increase: they hold the deposit spread wide and allow some depositors to leave without triggering mass outflows. This contracts aggregate deposits but does not immediately force pass-through to lending rates.
-
-**Wholesale funding substitution (Choi and Choi (2021)).** As policy tightens, banks can replace contracting retail deposits with wholesale funding (repos, federal funds purchased, brokered deposits, time deposits from institutional investors). In concentrated markets, this substitution is cost-effective because raising deposit rates on a large base is expensive relative to borrowing wholesale at the margin. In competitive markets, thin markups force deposit repricing anyway, so wholesale funding adds cost pressure rather than providing insulation.
-
-**Central hypothesis.** The two mechanisms interact: wholesale funding amplifies pass-through in competitive markets (funding costs track the policy rate closely) but dampens it in concentrated markets (market power absorbs wholesale cost increases into margins). The paper documents this interaction empirically across multiple policy-rate regimes.
-
-**Identification.** The paper exploits cross-bank variation in HHI (measured from the FDIC Summary of Deposits) and WFR (from Call Reports), holding constant time trends via the monetary shock variable and location trends via MSA fixed effects. Bauer and Swanson (2023) high-frequency monetary surprises serve as the exogenous policy variable (see Method). Within each MSA, the identifying variation is cross-bank heterogeneity in market concentration and funding mix.
+The tested hypothesis is that wholesale funding reliance amplifies pass-through in competitive markets, where banks have limited room to absorb cost changes, while deposit-market power can weaken or reverse that pass-through in concentrated markets. The paper tests the claim using within-MSA differences across banks and time variation in high-frequency monetary-policy surprises. A separate second-lag IV specification addresses endogeneity of market structure and funding choice (Table 9, p. 15).
 
 ## Method
 
-The estimating equation (equation (1), p. 8) is a panel regression of loan-level mortgage rate changes on the monetary shock, the log wholesale funding ratio, and their interaction, with bank and MSA fixed effects:
+The paper estimates fixed-effects panel regressions. Equation (1) is the main loan-level mortgage-rate specification (p. 8):
 
 $$
-\Delta r_{mbt} = \alpha_b + \alpha_m + \beta_1 \Delta_t + \beta_2 \log(\text{WFR}_{bt-1}) + \beta_3 \log(\text{WFR}_{bt-1}) \times \Delta_t \tag{1}
+\begin{aligned}
+\Delta r_{mbt} ={}& \alpha_b + \alpha_m + \beta_1 \Delta i_t + \beta_2 \log(\text{WFR}_{bt-1}) + \beta_3 \log(\text{WFR}_{bt-1}) \times \Delta i_t \\
+&+ \Gamma \text{HH Controls}_{mbt-1} + \Xi \text{HH Controls}_{mbt-1} \times \Delta i_t \\
+&+ \Pi \text{Bank Controls}_{bt-1} + \Lambda \text{Bank Controls}_{bt-1} \times \Delta i_t \\
+&+ \Psi \text{Macro Controls}_{mt-1} + \Omega \text{Macro Controls}_{mt-1} \times \Delta i_t + \epsilon_{mbt} \tag{1}
+\end{aligned}
 $$
 
-$$
-+ \;\Gamma \text{HH Controls}_{mbt-1} + \Xi \text{HH Controls}_{mbt-1} \times \Delta_t
-$$
+Here $$\Delta r_{mbt}$$ is the mortgage-rate change for loans in MSA $$m$$ originated by bank $$b$$ in quarter $$t$$; $$\alpha_b$$ and $$\alpha_m$$ are bank and MSA fixed effects; $$\Delta i_t$$ is a 100 bps monetary shock; and $$\text{WFR}_{bt-1}$$ is wholesale funding divided by retail deposits. Household controls include credit score, LTV, and debt-to-income ratio. Bank controls include branch count, liquid assets, duration mismatch, liability interest rate, real-estate and commercial-and-industrial loan shares, equity-to-asset ratio, and MBS-to-asset ratio. Macro controls include unemployment, income per capita, and house prices. The authors cluster standard errors by bank and quarter (equation (1) notes, pp. 8-9).
+
+The policy shocks are changes in financial variables in a 30-minute FOMC announcement window, from 10 minutes before to 20 minutes after the announcement. Bauer and Swanson (2023) orthogonalize the measure to Fed information effects; Table 8 also uses the sign-based Jarociński and Karadi (2020) measure (pp. 3, 13-14). Deposit-market concentration is the local deposit HHI:
 
 $$
-+ \;\Pi \text{Bank Controls}_{mbt-1} + \Lambda \text{Bank Controls}_{mbt-1} \times \Delta_t
+\text{HHI}_{mt} = \sum_{b \in m} \left(\frac{\text{dep}_{mbt}}{\sum_{b' \in m} \text{dep}_{mb't}}\right)^2
 $$
 
-$$
-+ \;\Psi \text{Macro Controls}_{mt-1} + \Omega \text{Macro Controls}_{mt-1} \times \Delta_t + \epsilon_{mbt}
-$$
-
-where $$\Delta r_{mbt}$$ is the change in the loan-level mortgage rate at MSA $$m$$, bank $$b$$, quarter $$t$$; $$\alpha_b$$ is a bank fixed effect; $$\alpha_m$$ is an MSA fixed effect; $$\Delta_t$$ is the Bauer and Swanson (2023) monetary shock normalized to a 100 bps impact; and $$\text{WFR}_{bt-1} = \text{wholesale funding}_b / \text{retail deposits}_b$$ at quarter $$t-1$$. HH controls (interacted with the shock) include the borrower's credit score, LTV, and debt-to-income ratio. Bank controls include number of branches, liquidity asset ratio, duration mismatch, liability interest rate, real estate loans ratio, commercial and industrial loans ratio, and MBS-to-asset ratio. Macro controls include the unemployment rate, house price index, and personal income per capita. Standard errors are clustered at the bank and quarter levels.
-
-**Policy shocks.** The shock $$\Delta_t$$ aggregates changes in financial variables in a 30-minute window around FOMC announcements (10 minutes before to 20 minutes after), orthogonalized to Fed information effects following Bauer and Swanson (2023). An alternative sign-based decomposition from Jarocinski and Karadi (2020) is used in robustness checks (Table 8).
-
-**Market concentration.** Local deposit market concentration in MSA $$m$$ at quarter $$t$$ is the Herfindahl-Hirschman Index constructed from the FDIC Summary of Deposits (p. 3):
-
-$$
-\text{HHI}_{mt} = \sum_{b \in m} \left( \frac{dep_{mbt}}{\sum_{b' \in m} dep_{mb't}} \right)^2
-$$
-
-where $$dep_{mbt}$$ is deposits of bank $$b$$ in MSA $$m$$ in year $$t$$. A lower HHI indicates a competitive market; a higher HHI indicates a concentrated market. The main results split the sample at the median HHI into competitive (HHI = 0) and concentrated (HHI = 1) subsamples.
-
-The method builds on `panel-regression` with two-way fixed effects and `instrumental-variables` for the monetary shock. Robustness checks instrument for potential endogeneity of market structure using lagged HHI and WFR as instruments (Table 9, col 2; interaction coefficient -9.14** bps).
+The baseline results split observations into competitive and concentrated markets using the HHI classification. Table 9 replaces or instruments the concentration and funding variables to assess robustness and endogeneity. The baseline design is a reduced-form panel specification using high-frequency monetary shocks; the table 9 lagged-variable instrument check is a distinct identification check, not the source of the baseline policy shock.
 
 ## Empirical specifications
 
-All headline results come from equation (1), estimated separately on competitive and concentrated subsamples. The focal coefficient is $$\beta_3$$, the interaction of log WFR and the monetary shock, capturing how wholesale funding reliance moderates policy pass-through.
+**Funding-composition specification (Table 3, p. 6).** For changes in deposit/liability shares, wholesale-funding/liability shares, and WFR/liabilities, the paper estimates:
 
-**Main pass-through (R1, R2; Table 4).** The competitive subsample (HHI = 0, N = 24,539) yields a direct shock effect of 18.47\*\*\* bps (SE = 6.14) and a WFR interaction of 15.68\* bps (SE = 8.69). The concentrated subsample (HHI = 1, N = 30,527) yields a baseline of 9.10 bps (SE = 11.05, insignificant) and a WFR interaction of -0.728\*\* bps (SE = 0.318). For a $300,000 mortgage the 35 bps gap translates to approximately $67 per month.
+$$
+\Delta y_{mbt} = \alpha_b + \alpha_m + \beta_1 \text{FFR}_t + \beta_2(\text{FFR}_t \times \text{HHI}_{m,t-1}) + \beta_3 \text{HHI}_{m,t-1} + \Gamma \text{HH Controls}_{mb,t-1} + \Xi \text{Bank Controls}_{b,t-1} + \epsilon_{mbt}
+$$
 
-**ZLB vs non-ZLB (R3, R4; Table 5).** The same regression is estimated separately for the ZLB period (2009-2015, cols 3-4) and non-ZLB periods (cols 1-2). The deposit floor constraint pins deposit rates at zero in competitive markets, removing the margin buffer and raising competitive pass-through to 38.80\*\*\* bps. In concentrated markets, forward guidance and quantitative easing compress long-term premia while market power prevents pass-through of cheap funding to borrowers, producing a large negative coefficient of -21.18\*\*\* bps.
+The table notes report bank and MSA fixed effects and bank-clustered standard errors. The samples contain 39,785-40,381 bank-MSA-quarter observations depending on the outcome. Table 2's 2000Q1-2019Q4 correlations are descriptive, with 0.346* versus 0.221* correlations between log WFR and the federal funds rate in competitive versus concentrated markets (p. 5).
 
-**Low vs high policy rates (Table 6).** Estimated separately for low and high rate periods (split at the median federal funds rate). In competitive markets, the WFR interaction is largest at low rates (25.77\*\*\* bps) and remains large at high rates (18.37\*\*\* bps). In concentrated markets the baseline is positive at low rates (32.07\*\*\* bps) but deeply negative at high rates (-16.99\*\*\* bps), reflecting that banks at low rates lower mortgage rates to expand lending volume while using their pricing power to avoid fully passing the cost saving to borrowers at high rates.
+**Main mortgage pass-through and heterogeneity (Tables 4-7, pp. 9-13).** Equation (1) is estimated for competitive and concentrated market samples (Table 4), then by non-ZLB/ZLB periods (Table 5), low/high federal-funds-rate regimes (Table 6), and contractionary/expansionary shocks (Table 7). The shock-direction split estimates separate terms for positive and negative policy shocks. Tables 4-7 use bank and MSA fixed effects and standard errors clustered by bank and quarter. The reported sample sizes are 24,539 and 30,527 in Table 4; 17,281, 22,473, 10,067, and 12,182 across Table 5; 16,888, 20,100, 10,454, and 14,554 across Table 6; and 28,295 or 33,710 in Table 7. The source reports the actual coefficients in R1-R5 and R9-R10.
 
-**Contractionary vs expansionary shocks (R5; Table 7).** The sample is split into expansionary and contractionary periods. Within each, the model estimates separate coefficients for positive shocks ($$\Delta_t > 0$$, rate hikes) and negative shocks ($$\Delta_t < 0$$, rate cuts). Contractionary shocks produce 29.66\*\*\* bps pass-through in competitive markets (concentrated: 8.73\*\*\*) with WFR adding 16.03\*\*\* bps in competitive markets. Expansionary shocks produce only 6.86\*\*\* bps in competitive markets and an insignificant -3.17 bps in concentrated markets, consistent with banks in concentrated markets rebuilding margins during easing.
+**Alternative policy-shock and funding measures (Table 8, p. 14).** The baseline regression is re-estimated for the competitive and concentrated subsamples using liability-based WFR and the Jarociński-Karadi shock. It retains bank and MSA fixed effects and bank-quarter clustered standard errors; sample sizes range from 27,351 to 34,664. The alternative shock yields direct coefficients of 30.96*** and 8.75*** bps and interactions of -58.92*** and 2.08** bps in competitive and concentrated markets, respectively (R11). The liability-based WFR interaction estimates are 143.9* and 5.14 bps, the latter insignificant (R12).
 
-**Alternative market power measures (R6; Tables 8-9).** The specification is replicated with (i) liability-side wholesale funding share, (ii) branch market share, and (iii) the Lerner index as market power proxies. The Lerner index specification (Table 9, col 4) yields a direct interaction of -9.40\*\*\* bps, providing the most direct evidence that price-setting ability, not just market concentration, dampens transmission. Branch share produces a positive triple interaction of +60.79\*\*\* bps (col 3; this is the Δt × Branch share × log(WFR) coefficient; the simpler Δt × Branch share = 73.35\*\* bps), showing that physical presence amplifies rather than dampens transmission, distinct from market power measured by HHI or Lerner.
+**Market-power and endogeneity specifications (Table 9, pp. 14-15).** Table 9 estimates an expanded interaction model with HHI and WFR, and substitutes branch market share or the Lerner index. Its general HHI specification is:
+
+$$
+\begin{aligned}
+\Delta r_{mbt} ={}& \alpha_b + \alpha_m + \beta_1 \Delta i_t + \beta_2 \log(\text{WFR}_{bt-1}) + \beta_3 \log(\text{WFR}_{bt-1})\times\Delta i_t \\
+&+ \beta_4 \text{HHI}_{m,t-1} + \beta_5 \text{HHI}_{m,t-1}\times\Delta i_t + \beta_6 \text{HHI}_{m,t-1}\times\log(\text{WFR}_{bt-1}) \\
+&+ \beta_7 \text{HHI}_{m,t-1}\times\Delta i_t\times\log(\text{WFR}_{bt-1}) + \Gamma \text{HH Controls}_{mb,t-1} \\
+&+ \Xi \text{HH Controls}_{mb,t-1}\times\Delta i_t + \Pi \text{Bank Controls}_{b,t-1} + \Lambda \text{Bank Controls}_{b,t-1}\times\Delta i_t \\
+&+ \Psi \text{Macro Controls}_{m,t-1} + \Omega \text{Macro Controls}_{m,t-1}\times\Delta i_t + \epsilon_{mbt}
+\end{aligned}
+$$
+
+The HHI SD x shock x log(WFR) coefficient is -16.79*** (SE 3.92) in column 1 (R13). Column 2 uses second lags of HHI and WFR as instruments and reports HHI SD x shock = -9.14** (SE 3.99), as also recorded in R14. Columns 3-4 replace HHI with branch market share and the Lerner index. These specifications use bank and MSA fixed effects and bank-quarter clustered standard errors; N is 61,143, 25,324, 69,292, and 62,015 by column. The branch-share and Lerner coefficients are summarized in R6 and R15-R16. Their signs differ by proxy: branch-share interactions are positive, while the Lerner shock interaction is negative. The table's notes list household, bank, and macro controls as in equation (1).
+
+For column 3, the market-power interactions use branch market share in place of HHI:
+
+$$
+\begin{aligned}
+\Delta r_{mbt} ={}& \alpha_b + \alpha_m + \beta_1 \Delta i_t + \beta_2 \log(\text{WFR}_{bt-1}) + \beta_3 \log(\text{WFR}_{bt-1})\times\Delta i_t \\
+&+ \beta_4 \text{BranchShare}_{bt-1} + \beta_5 \text{BranchShare}_{bt-1}\times\Delta i_t + \beta_6 \text{BranchShare}_{bt-1}\times\log(\text{WFR}_{bt-1}) \\
+&+ \beta_7 \text{BranchShare}_{bt-1}\times\Delta i_t\times\log(\text{WFR}_{bt-1}) + \Gamma \text{HH Controls}_{mbt-1} + \Xi \text{HH Controls}_{mbt-1}\times\Delta i_t \\
+&+ \Pi \text{Bank Controls}_{bt-1} + \Lambda \text{Bank Controls}_{bt-1}\times\Delta i_t + \Psi \text{Macro Controls}_{mt-1} + \Omega \text{Macro Controls}_{mt-1}\times\Delta i_t + \epsilon_{mbt}
+\end{aligned}
+$$
+
+Column 4 substitutes the Lerner index, retaining the same main effects, pairwise terms, triple interaction, and controls:
+
+$$
+\begin{aligned}
+\Delta r_{mbt} ={}& \alpha_b + \alpha_m + \beta_1 \Delta i_t + \beta_2 \log(\text{WFR}_{bt-1}) + \beta_3 \log(\text{WFR}_{bt-1})\times\Delta i_t \\
+&+ \beta_4 \text{Lerner}_{bt-1} + \beta_5 \text{Lerner}_{bt-1}\times\Delta i_t + \beta_6 \text{Lerner}_{bt-1}\times\log(\text{WFR}_{bt-1}) \\
+&+ \beta_7 \text{Lerner}_{bt-1}\times\Delta i_t\times\log(\text{WFR}_{bt-1}) + \Gamma \text{HH Controls}_{mbt-1} + \Xi \text{HH Controls}_{mbt-1}\times\Delta i_t \\
+&+ \Pi \text{Bank Controls}_{bt-1} + \Lambda \text{Bank Controls}_{bt-1}\times\Delta i_t + \Psi \text{Macro Controls}_{mt-1} + \Omega \text{Macro Controls}_{mt-1}\times\Delta i_t + \epsilon_{mbt}
+\end{aligned}
+$$
 
 ## Datasets used
 

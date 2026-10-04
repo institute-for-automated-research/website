@@ -82,7 +82,7 @@ paper:
     granularity: [<aggregate | industry | firm | individual | security | transaction>]  # unit of observation; omit for theory
     n: <sample size as the paper states it, e.g. "12,345 firm-months">  # omit for theory
   # --- the "what works" effectiveness axis: did the model/effect work, with what magnitude ---
-  findings:                  # one entry per Core-results row; omit entirely for a pure-theory paper
+  findings:                  # one entry per quantitative Core-results row (skip qualitative rows); omit entirely for a pure-theory paper
     - { ref: <R1>, outcome: <dep var, reuse paper-level outcome phrasing>, metric: <kebab slug: sharpe-ratio | alpha | t-stat | r-squared | coefficient | ...>, value: <magnitude as reported>, direction: <positive | negative | none | mixed>, vsBenchmark: <comparison to baseline, omit if none> }
   resultType: <confirms | overturns | null-result | mixed | new-finding>  # paper-level verdict; omit for pure theory
   # --- finding-lineage edges to prior work (how lit evolves / what is contested) ---

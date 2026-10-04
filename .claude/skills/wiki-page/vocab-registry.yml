@@ -740,6 +740,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   esg-reputation:
     def: Reputational damage from ESG incidents causes customers or stakeholders to reduce purchases or engagement, transmitting ESG shocks into lower future sales and cash flows.
     aliases: [customer-demand-channel, reputational-damage, esg-cash-flow-channel]
+  sustainability-preferences:
+    def: Nonpecuniary utility from firms' sustainability profiles changes investor portfolio demand and equilibrium asset prices.
+    aliases: [esg-preferences, nonpecuniary-sustainability-utility]
   political-capture:
     def: Incumbent firms use political connections to lobby for regulatory barriers to entry and capital flows, entrenching their market positions against competitive replacement.
     aliases: [regulatory-capture, political-connections-entrenchment]
@@ -818,6 +821,9 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   social-coordination:
     def: Social media publicly aggregates and broadcasts concerns, enabling rapid coordination on withdrawal decisions and amplifying run risks by lowering the threshold for a coordinated run.
     aliases: [depositor-coordination, social-media-coordination]
+  coordination-risk:
+    def: Investors holding similar positions may exit together after a shared shock, amplifying price declines and liquidity demand.
+    aliases: [crowded-exit-risk, correlated-exit-risk]
   team-self-selection:
     def: The less-biased team member disproportionately takes decision authority in group choices, attenuating the transmission of individual behavioral biases into collective outcomes.
     aliases: [belief-aggregation-self-selection, team-leadership-selection]
@@ -872,6 +878,18 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   political-uncertainty:
     def: Heightened uncertainty about future government policy and fiscal plans during election cycles raises risk premia and financial market volatility, transmitting into bank systemic risk.
     aliases: [election-uncertainty, electoral-uncertainty, policy-uncertainty-channel]
+  political-budget-cycle:
+    def: Incumbent governments shift public spending before elections to improve electoral prospects, affecting aggregate demand and financial-sector risk.
+    aliases: [electoral-fiscal-cycle, political-fiscal-cycle]
+  wholesale-funding-substitution:
+    def: Banks replace retail deposits with wholesale funding as policy tightens, changing how funding costs pass through to lending rates.
+    aliases: [wholesale-for-retail-funding]
+  labor-risk:
+    def: Borrower labor health, retention, and productivity risk caused by environmental exposure raises expected default risk and lenders' required compensation.
+    aliases: [worker-health-risk, labor-retention-risk]
+  transition-risk:
+    def: Borrower cash-flow and credit risk from shifting toward less-polluting production, including compliance, green investment, reputational costs, and potential shutdowns.
+    aliases: [environmental-transition-risk, low-carbon-transition-risk]
   policy-backstop-substitution:
     def: Investors' expectation of central bank downside support reduces demand for put option insurance; the implicit guarantee partially substitutes for put protection, generating lower put implied volatility during accommodative policy periods.
     aliases: [fed-put-mechanism, greenspan-put-channel, central-bank-put-backstop]
@@ -938,7 +956,7 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     aliases: [enforcement-detection-failure, low-prosecution-probability]
 
   network-scale-economies:
-    def: Two sources of efficiency from consolidating mobile networks: economies of density (fewer operators per area means denser users per cell, reducing path loss) and economies of pooling (merged bandwidth and customer base reduce queuing waste, raising delivered speeds).
+    def: "Two sources of efficiency from consolidating mobile networks: economies of density (fewer operators per area means denser users per cell, reducing path loss) and economies of pooling (merged bandwidth and customer base reduce queuing waste, raising delivered speeds)."
     aliases: [economies-of-density, economies-of-pooling, telecom-scale-efficiency]
 
   discrimination-radicalization:
@@ -1028,7 +1046,7 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
     def: Sample covariance between two variables across cross-sectional units; measures the direction and scale of their joint variation, not normalized to the [-1, 1] interval.
     aliases: [sample-covariance, cross-sectional-covariance]
   cer:
-    def: Annualized certainty-equivalent return: the fixed return yielding the same expected utility as the investor's dynamic portfolio strategy; computed by simulation over the predictive return distribution.
+    def: "Annualized certainty-equivalent return: the fixed return yielding the same expected utility as the investor's dynamic portfolio strategy; computed by simulation over the predictive return distribution."
     aliases: [certainty-equivalent-return, certainty-equivalent-yield]
   regret-rate:
     def: Asymptotic rate of growth of cumulative regret as a function of time horizon T; characterizes the efficiency of an adaptive learning algorithm relative to the best fixed policy.
@@ -1068,6 +1086,9 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
     def: Lender-side credit provision - bank lending volumes, loan approval and amount, monitoring intensity, and aggregate credit growth.
   credit-risk:
     def: Realized or expected credit deterioration - default and delinquency probabilities, covenant violations, supervisory ratings, and banking-crisis probability.
+  regulatory-enforcement-risk:
+    def: Firm-level likelihood or exposure to investigation, prosecution, or regulatory sanctions for legal or regulatory violations.
+    aliases: [regulatory-litigation-risk]
   bank-funding:
     def: Intermediary funding and liquidity - deposit flows and composition, reserves, payment-system flows, and money-fund portfolio weights.
   household-finance:
@@ -1146,7 +1167,7 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
     aliases: [civil-rights-participation, civic-activism, organizational-membership]
 
   judicial-behavior:
-    def: Direct outcomes of judicial and public official decision-making: vote direction, sentence severity, and language in official opinions.
+    def: "Direct outcomes of judicial and public official decision-making: vote direction, sentence severity, and language in official opinions."
     aliases: [public-official-behavior, judicial-ruling-outcomes]
 
   ethnic-collective-violence:
