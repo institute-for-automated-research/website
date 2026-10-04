@@ -25,7 +25,16 @@ the JSON verdict below.
    trust the page's numbers; read the actual table/figure.
 3. For each result row check:
    - **Locator**: does the cited Table/Figure/§ and page actually contain this
-     result? (Wrong table number is the most common error.)
+     result? (Wrong table number is the most common error.) The page must be
+     the one the table itself is printed on (its caption page, or a
+     continuation page holding the cited panel/columns), not the page of the
+     text that discusses it. If a number in the row comes from the text, cite
+     that page separately: "Table 4, p. 8; text p. 6". A page off by one or two
+     is a common error that reading the table alone does not catch, so run
+     `node scripts/check-table-locators.mjs <path> --pdf <pdf>` and resolve
+     every row it flags: correct the page, or confirm against the PDF that the
+     cited page is right (e.g. the cited columns sit on a continuation page)
+     and leave it.
    - **Magnitude**: are the coefficient, t-stat/significance, sign, and units
      as reported in the PDF? Flag rounding that changes meaning, dropped signs,
      and significance-star mismatches.

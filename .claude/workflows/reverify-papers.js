@@ -142,7 +142,11 @@ faithful to the PDF in direction and emphasis (e.g. which channel dominates,
 which way a pattern runs across maturities or groups). Fix clear errors in
 place on this one file only.
 
-Before attesting, run \`node scripts/check-relatesto-locatable.mjs\` and fix any
+Before attesting, run \`node scripts/check-table-locators.mjs ${dest(it)} --pdf ${it.pdf}\`
+and resolve every row it flags (step 3, Locator): it catches table pages off by
+one or two, which earlier passes of this workflow often missed.
+
+Then run \`node scripts/check-relatesto-locatable.mjs\` and fix any
 MISS it reports for THIS page (restore a one-line body mention derived from the
 edge's note; invent nothing). Rewriting prose can drop the sentence that named a
 cited work, and an un-locatable cite fails the site build.

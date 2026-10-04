@@ -246,7 +246,9 @@ with the compact JSON result described at the bottom.
 ## Body rules
 - Match the template's sections and headings exactly (see paper-template.md).
 - **Core results table**: one row per headline result, each with a real
-  Locator (Table/Figure/§ + page) and the Magnitude as reported (keep the
+  Locator (Table/Figure/§ + page; the page is where the table itself is
+  printed, not the text discussing it; a number taken from the text gets its
+  own "text p. N") and the Magnitude as reported (keep the
   paper's own coefficients, t-stats, significance; use `\*` to escape
   asterisks in this Markdown body table ONLY, never in a YAML frontmatter scalar
   where `\*` is an invalid escape). Do not round away meaning, do not invent numbers.

@@ -276,6 +276,8 @@ original (link) to replicate or extend>
 
 ## Core results
 <table: # | Result | Locator (Table/Figure/§ + page) | Magnitude as reported>
+<Locator page = where the table itself is printed; a number taken from the text
+ gets its own page: "Table 4, p. 8; text p. 6">
 <keep the paper's own coefficients, t-stats, signs, significance; escape \* >
 <use row ids R1, R2, ... in the # column: the frontmatter `findings[].ref`
 points back to them, so the structured "what works" axis stays traceable to the
