@@ -298,6 +298,29 @@ rewriting. Read the existing page first, then:
 - You still must READ THE PDF to write the equations; never reconstruct them
   from the existing prose.
 
+## Completeness (required)
+- **Core results cover the paper, not a sample of it.** One row per distinct
+  main-text finding: main effects, the identification check (e.g. IV) as its
+  own row when it is a separate specification, heterogeneity splits the paper
+  stresses, mechanism tests, and null/placebo results the paper uses as
+  evidence. Never merge distinct specifications or distinct claims into one
+  row (the row budget below is the one exception).
+  Include the paper's headline descriptive table if it carries a main claim.
+- **Row budget: about 8 to 12 (advisory).** A full empirical paper usually
+  lands there. Fewer needs a reason in your return notes. Above 12, and only
+  then, you may combine related outcomes from the same table that support one
+  claim into one row, keeping each magnitude. Outcomes the paper argues as
+  separate claims stay separate rows even past 12.
+- **mechanisms is set whenever the paper argues for an economic channel**
+  (most papers do). Omit only for pure measurement or method papers. Mint via
+  proposedVocab if no registry term fits.
+- **Formal sections are complete.** Every numbered main-text equation and
+  every main estimating specification appears as display math with its
+  locator. Each estimating specification also states its fixed effects,
+  standard-error treatment, and sample (model and objective equations need
+  only the locator). Prefer full coverage over a representative subset. Copy
+  grouping and parentheses exactly as printed.
+
 ## Hard rules
 - NO em-dashes anywhere. NO colorful adjectives. Use `:` `,` `(` instead.
 - Provenance honesty is the whole point. role is `extracted` only (you read,
