@@ -1065,6 +1065,38 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Endogenous entry and candidate selection sort political contests by unobserved candidate valence, shaping observed challengers and incumbency advantage.
     aliases: [valence-selection, candidate-entry-selection]
 
+
+  applied-knowledge-diffusion:
+    def: Progress-oriented ideas spread through practical science and industrial writing to a broad literate audience, linking Enlightenment language to applied economic activity.
+    aliases: [applied-science-ideas-diffusion]
+  law-and-order-policy-alignment:
+    def: Drug-related hardship and disorder shift voters toward law-enforcement policies and the party advocating those responses.
+    aliases: [punitive-policy-alignment, enforcement-policy-alignment]
+  time-displacement:
+    def: Mobile app use diverts limited time from studying, sleep, or other productive activities, reducing academic or health outcomes.
+    aliases: [time-allocation-displacement]
+  peer-environment-disruption:
+    def: A peer's app use disrupts a shared study environment or crowds out productive group study, affecting another person's outcome.
+    aliases: [roommate-disruption]
+  selective-admissions-advantage:
+    def: Admissions preferences and recruitment practices at selective colleges alter applicant access to institutions, affecting later career outcomes.
+    aliases: [legacy-and-recruitment-preferences]
+  housing-supply-constraints:
+    def: Limited or regulated construction makes local housing supply respond weakly to demand, allowing demand growth to raise prices relative to construction costs.
+    aliases: [inelastic-housing-supply, housing-supply-inelasticity]
+  housing-user-cost:
+    def: Mortgage terms, real interest rates, taxes, maintenance, expected appreciation, and ownership risk change the annual cost of owning housing relative to renting.
+    aliases: [user-cost-of-housing, mortgage-user-cost-channel]
+  human-capital-investment:
+    def: Educational investment builds skills and credentials that raise later productivity and earnings, while college attendance delays labor-market entry during skill accumulation.
+    aliases: [education-investment, schooling-returns]
+  entry-selection:
+    def: Higher fixed operating costs deter marginal entrants, shifting firm composition toward entrants productive enough to cover higher labor costs.
+    aliases: [minimum-wage-entry-selection]
+  labor-turnover-cost-savings:
+    def: Higher worker retention reduces search, recruitment, and training costs and can raise workforce experience and efficiency.
+    aliases: [retention-cost-savings, turnover-cost-channel]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -1140,6 +1172,9 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   auc-roc:
     def: Area under the receiver operating characteristic curve for a binary classifier; value in [0.5, 1.0] where 0.5 is uninformative and 1.0 is perfect; standard in bank failure prediction and financial crisis early warning.
     aliases: [auc, area-under-roc, roc-auc]
+  pr-auc-lift:
+    def: Precision-recall AUC divided by the unconditional outcome rate, measuring lift over the naive base-rate benchmark.
+    aliases: [pr-auc-to-base-rate]
 
   irr:
     def: Internal rate of return to an educational or financial investment; the discount rate at which the present discounted value of lifetime benefits equals the present discounted value of costs.
@@ -1153,7 +1188,7 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
     aliases: [sample-entry-share]
   p-value:
     def: Probability under a statistical test's null hypothesis of observing a statistic at least as extreme as the reported value.
-    aliases: [pvalue, significance-probability]
+    aliases: [pvalue, significance-probability, joint-test-p-value]
   attenuation-bound:
     def: Sensitivity bound reporting the maximum change in an estimated treatment effect under specified selection-on-unobservables assumptions.
     aliases: [selection-bias-bound, omitted-variable-attenuation-bound]

@@ -2,17 +2,17 @@
 title: "Enlightenment Ideals and Belief in Progress: Almelhem et al. (2026)"
 description: >-
   Distilled: Using LDA topic modeling and sentiment analysis on 264,443 English
-  volumes printed 1500-1900, this paper documents that science-language volumes
-  secularized by the mid-eighteenth century, that those at the nexus of science
+  volumes printed 1500-1900, this paper documents that the religious-language
+  share in science-language volumes fell by the mid-eighteenth century, that those at the nexus of science
   and political economy became the most progress-oriented during the
   Enlightenment, and that industrial volumes at this nexus were the most
   progress-oriented from the mid-eighteenth century onward. QJE 2026, CC BY 4.0.
-  Five core results with source locators, datasets used, the classification and
+  Nine core results with source locators, datasets used, the classification and
   sentiment methods with equations, and the estimating specifications.
 sidebar:
   label: Almelhem et al. 2026
   order: 1
-tags: [paper-summary, text-as-data, economic-history, panel-data, panel-regression,
+tags: [paper-summary, text-as-data, economic-history,
        open-access, cc-by, peer-reviewed, unreplicated, data:hathitrust]
 paper:
   authors: Ali Almelhem, Murat Iyigun, Austin Kennedy, Jared Rubin
@@ -34,18 +34,19 @@ paper:
   outcome:
     - progress-oriented language score of published volumes
     - science-religion language separation in published volumes
+    - association between industrial language and category weights in published volumes
   outcomeClass: [cultural-change]
   license: "CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL https://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-11-29; corroborated by artifact p. 263 Creative Commons Attribution License notice)"
   licenseShort: CC BY 4.0
   access: open
   machineAccess: "open-access PDF via Oxford Academic (CC BY 4.0, Advance Access 2025-11-29; not machine-fetched directly)"
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
-  resultsCount: 5
+  resultsCount: 9
   citedByCount: 4
   methods:
     role: applies-method
     family: descriptive
-    buildsFrom: [lda-topic-model, k-fold-cross-validation, panel-regression]
+    buildsFrom: [lda-topic-model, k-fold-cross-validation]
     identification: descriptive
   contributionType: [new-data, new-fact, measurement]
   introducesData: true
@@ -57,22 +58,27 @@ paper:
     granularity: [individual]
     n: "264,443 unique English volumes published in England, 1500-1900"
   findings:
-    - { ref: R1, outcome: share of religious language in science-language volumes, metric: probability, value: "~30% religious language weight in early 18th century science volumes, declining to ~10% by 1850 (Figure III, p. 286)", direction: negative }
-    - { ref: R2, outcome: average progress-oriented sentiment score (percentile), metric: probability, value: "~10th-15th percentile pre-1650, rising to ~50th-60th percentile by 1800-1850 (Figure V, p. 291)", direction: positive }
-    - { ref: R3, outcome: predicted progress sentiment at science-political economy nexus, metric: coefficient, value: "50%/50% science-political economy mix has highest predicted progress score among all language combinations from approximately 1700 onward (Figure VII, p. 295)", direction: positive, vsBenchmark: "above 100% science, pure political economy, and religion-nexus combinations" }
-    - { ref: R4, outcome: "predicted progress sentiment at science-political economy nexus with high industrial scores", metric: coefficient, value: "volumes at 75th industry percentile at science-political economy nexus have approximately 2x predicted progress score vs. zero-industry volumes at same nexus by 1800 (Figure XI, p. 305)", direction: positive, vsBenchmark: "zero industry score at 50%/50% science-political economy nexus" }
-    - { ref: R5, outcome: "predicted progress sentiment at science-law and science-economics nexus", metric: coefficient, value: "sharp 18th-century rise mirroring science-political economy result when political economy is replaced by law or economics categories (Figure VIII, p. 298)", direction: positive, vsBenchmark: "arts and literature nexus combinations" }
+    - { ref: R1, outcome: share of religious language in science-language volumes, metric: probability, value: "~30% religious language weight in early 18th century science volumes, declining to close to 10% by 1850 (Figure III, p. 286)", direction: negative }
+    - { ref: R2, outcome: average progress-oriented sentiment score (percentile), metric: level, value: "~10th-15th percentile pre-1650, rising to ~50th-60th percentile by 1800-1850 (Figure V, p. 291)", direction: positive }
+    - { ref: R3, outcome: predicted progress sentiment at science-political economy nexus, metric: level, value: "The science-political economy nexus has the highest predicted progress scores from the late seventeenth century onward; several nearby mixtures (40/60, 50/50, and 60/40) lead (Figure VII, p. 295; Online Appendix Figure B.20)", direction: positive, vsBenchmark: "above pure science, religion-political economy, and other simplex locations" }
+    - { ref: R4, outcome: "predicted progress sentiment at science-political economy nexus with high industrial scores", metric: level, value: "At the 50% science / 50% political economy location, predicted progress sentiment rises with industry score, especially in the eighteenth and nineteenth centuries; zero-industry volumes are around zero for most of the period (Figure XI, pp. 305-306)", direction: positive, vsBenchmark: "zero industry score at 50%/50% science-political economy nexus" }
+    - { ref: R5, outcome: "predicted progress sentiment at science-law, science-economics, and science-arts/literature nexuses", metric: level, value: "Science-law and science-economics intersections rise in the eighteenth century and level off; science-arts/literature also rises then, but other locations have similar or slightly higher predicted sentiment by the nineteenth century (Figure VIII, pp. 298-299)", direction: positive }
+    - { ref: R7, outcome: average progress-oriented sentiment score (percentile), metric: level, value: "Manuals primarily used science language disproportionately from around 1700; science-language manuals led on progress sentiment in the eighteenth century, while science-political economy manuals led in the nineteenth century (text p. 296; Online Appendix H)", direction: mixed }
+    - { ref: R9, outcome: average progress-oriented sentiment score (percentile), metric: level, value: "No discernible difference between translated and originally English volumes before the nineteenth century; from approximately the second quarter of the nineteenth century, originally English volumes have higher progress scores (text p. 291 n. 33; Online Appendix Figure B.16)", direction: mixed }
   resultType: confirms
+  mechanisms: [applied-knowledge-diffusion]
   relatesTo:
     - { cite: "Mokyr (2016)", relation: tests, note: "tests the Industrial Enlightenment thesis that progress-oriented scientific culture was central to Britain's industrialization" }
     - { cite: "Erikson (2021)", doi: '10.7312/erik18434', relation: extends, note: "extends LDA text analysis from political and economic tracts to a 400-year corpus of all types of English volumes" }
     - { cite: "Grajzl and Murrell (2024)", doi: '10.1017/ssh.2024.17', relation: extends, note: "extends their 1530-1700 corpus forward to 1900, documenting secularization of science language beginning mid-17th century" }
   openQuestions:
-    - 'Whether similar patterns of progress-oriented language change appear in other European languages (Dutch, French, German), which would corroborate or refine the McCloskey (2006, 2010, 2016) bourgeois virtues thesis as a pan-European phenomenon (pp. 310-311).'
+    - 'Whether similar patterns appear in corpora of other languages, particularly Dutch as suggested by McCloskey (2006, 2010, 2016), or in other national print cultures (pp. 310-311).'
     - 'Whether the observed language changes reflect greater freedom of expression and a marketplace of ideas, consistent with theories of political fragmentation and Enlightenment belief in free thought (pp. 310-311).'
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-28, role: extracted, note: "Full text read (pp. 263-314 plus all figures); five results extracted from the CC-BY PDF. Not human-verified. Not reproduced. Replication data available at Harvard Dataverse (Almelhem et al. 2025); code availability not stated." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-28, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all five Core result locators and magnitudes confirmed. Fixed: JEL codes expanded from [N33, O14, Z11] to [C81, C88, N33, N63, O14, Z11] per abstract; corrected 'Hathithrust' typo to 'HathiTrust' in two body locations. Equations (1)-(7) verified term-by-term against PDF pp. 279, 285, 289, 294, 303." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added four distinct main-text findings, their structured findings entries, the applied-knowledge-diffusion mechanism proposal, and related quantitative outcome wording. Not human-verified. Not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Core rows, equations and specifications, classifications, findings, frontmatter, and prose checked against the PDF; corrected R1/R4/R5, overclaiming, the regression sample description, and non-panel classification. All nine rows supported; no headline result omitted." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/qje/qjaf054", checked: 2026-06-28, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-11-29" }
   rightsSignalConflict: false
@@ -82,7 +88,7 @@ paper:
 
 ## TL;DR
 
-The paper applies Latent Dirichlet Allocation to 264,443 English volumes from the HathiTrust Digital Library (printed in England, 1500-1900) to trace how the languages of science, religion, and political economy evolved in the centuries leading to the British Industrial Revolution. Three findings emerge. First, the languages of science and religion diverged in the mid-eighteenth century: science volumes that had used roughly 30% religious language in the early eighteenth century used only about 10% by 1850. Second, regression analysis shows that volumes using language at the nexus of science and political economy became the most progress-oriented beginning in the late seventeenth century, while volumes using purely scientific language were largely neutral. Third, within this nexus, those that also used the language of industrialization were the most progress-oriented from the mid-eighteenth century onward. The findings support Mokyr (2016)'s Industrial Enlightenment thesis: it was pragmatic, industrially oriented scientific writing aimed at a broad literate audience, not elite scientific discourse, that carried progress-oriented culture into Britain's economic take-off.
+The paper applies Latent Dirichlet Allocation to 264,443 English volumes from the HathiTrust Digital Library (printed in England, 1500-1900) to trace how the languages of science, religion, and political economy evolved in the centuries leading to the British Industrial Revolution. Three findings emerge. First, overlap between the languages of science and religion thinned in the mid-eighteenth century: science-language volumes' religious-language share fell from roughly 30% in the early eighteenth century to close to 10% by 1850. Second, regression analysis shows that the science-political economy nexus had the highest predicted progress sentiment beginning in the late seventeenth century; pure-science volumes also had positive predicted sentiment, but less than the nexus. Third, within this nexus, predicted progress sentiment rose with industrial-language scores, especially in the eighteenth and nineteenth centuries. These patterns are consistent with Mokyr (2016)'s Industrial Enlightenment thesis and locate progress-oriented language in pragmatic, industrially oriented scientific writing aimed at a broader literate audience. The analysis documents language patterns and does not establish that they caused Britain's economic take-off.
 
 ## Core results
 
@@ -90,13 +96,17 @@ Magnitudes and descriptions are as reported; locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Languages of science and religion became **distinct in the mid-eighteenth century**; science volumes ceased to use religious language | Figure II, p. 284; Figure III, p. 286 | Science volumes used ~30% religious language in the early 18th century, declining to ~10% by 1850; by 1750 essentially no volumes sit at the science-religion vertex of the language simplex |
+| R1 | Overlap between science and religion language **thinned from the mid-eighteenth century** | Figure II, p. 284; Figure III, p. 286 | Science-language volumes used ~30% religious language in the early 18th century, declining to close to 10% by 1850; topics combining science and religion thinned after 1750 |
 | R2 | **Average progress sentiment rose** from the mid-seventeenth century and persisted through the period | Figure V, p. 291 | Progress score (percentile) rose from ~10th-15th percentile pre-1650 to ~50th-60th percentile by 1800-1850 |
-| R3 | **Science-political economy nexus** volumes were the most progress-oriented from ~1700 onward | Figure VII, p. 295; Online Appendix Table B.1 | Predicted progress score for 50%/50% science-political economy mix is highest among all language combinations beginning late 17th century; volumes using purely scientific or purely religious language score lower |
-| R4 | **Industrial language** at the science-political economy nexus amplified progress orientation from the mid-eighteenth century | Figure XI, p. 305; Online Appendix Table B.4 | Within the 50%/50% science-political economy nexus, volumes at the 75th percentile of industrial language had approximately 2x the predicted progress score of zero-industry volumes by 1800 |
-| R5 | Pattern is **robust to alternative category definitions**; replacing political economy with law or economics yields the same 18th-century rise | Figure VIII, p. 298 | Science-law and science-economics nexus volumes both show a sharp 18th-century rise in predicted progress sentiment, mirroring the science-political economy finding; the pattern does not emerge for arts and literature |
+| R3 | **Science-political economy nexus** volumes had the highest progress orientation from the late seventeenth century onward | Figure VII, p. 295; Online Appendix Figure B.20 | Predicted progress scores are highest around this nexus; 40/60, 50/50, and 60/40 science-political economy mixtures lead, while pure science and other simplex locations score lower |
+| R4 | **Industrial language** at the science-political economy nexus amplified progress orientation from the mid-eighteenth century | Figure XI, p. 305; text p. 306; Online Appendix Table B.4 | At the 50%/50% nexus, predicted progress sentiment rises with industry score, especially in the eighteenth and nineteenth centuries; zero-industry volumes are around zero for most of the period |
+| R5 | Alternative category definitions yield similar rises, with a **less persistent lead for arts and literature** | Figure VIII, pp. 298-299 | Science-law and science-economics intersections rise in the eighteenth century and level off. The science-arts/literature intersection also rises, but other locations have similar or slightly higher predicted sentiment by the nineteenth century |
+| R6 | Industrial terminology clustered at the science-political economy nexus, while pure-science volumes were most related to industrialization | Figure IX, p. 302; text p. 301 | Industrial terminology appears overwhelmingly on the science-political economy axis, especially from around 1750; pure-science volumes are most related to industrialization and religion-political economy volumes least related |
+| R7 | The progress-orientation pattern differed across practical manuals and the full corpus | Text p. 296; Online Appendix H | From around 1700 to 1900, a disproportionate share of manuals primarily used science language; science-language manuals were most progress-oriented in the eighteenth century, while science-political economy manuals were most progress-oriented in the nineteenth century |
+| R8 | An optimism-dictionary placebo indicates the progress result is not a general rise in optimistic language | Text p. 296 n. 40; Online Appendix F | Results for the optimism dictionary were nearly the mirror opposite of the progress-sentiment results in Figure VI |
+| R9 | Progress scores were higher in originally English volumes than translations from the second quarter of the nineteenth century | Text p. 291 n. 33; Online Appendix Figure B.16 | No discernible difference before the nineteenth century; from approximately the second quarter of the nineteenth century, originally English volumes had higher progress scores |
 
-**Overall (paper's conclusion).** The results are consistent with Mokyr (2016)'s claim that the Industrial Enlightenment diffused progress-oriented views of science into industry and political economy. It was the literate artisan and applied-science audience, not the elite scientific community, whose language became most progress-oriented in the run-up to Britain's industrialization.
+**Overall (paper's conclusion).** The results are consistent with Mokyr (2016)'s claim that progress-oriented views of science were associated with the Industrial Enlightenment. The paper locates this language in pragmatic industrial works at the science-political economy nexus, which spoke to a broader political and economic audience, including literate artisans and craftsmen; it does not establish a causal effect on Britain's economic take-off.
 
 ## Theory / model
 
@@ -106,7 +116,7 @@ The paper has no formal economic model. The empirical analysis tests three subsi
 2. The language of science became more progress-oriented during the Enlightenment, with the effect concentrated at the nexus of science and political economy rather than in pure scientific discourse.
 3. Volumes using the language of industrialization at the science-political economy nexus were particularly progress-oriented in the period before and during Britain's Industrial Revolution.
 
-**Identification strategy.** The analysis is descriptive: the regressions are accounting exercises documenting how progress-oriented language correlates with category weights and industrial language over time. The authors explicitly state that the regressions "are not meant to imply a causal relationship, as omitted variable biases and reverse causation may be present" (p. 293, p. 305). The evidence is structural in the sense of testing whether the pattern predicted by Mokyr (2016) is present in the data, but causality is not claimed.
+**Identification strategy.** The analysis is descriptive: the regressions are accounting exercises documenting how progress-oriented language correlates with category weights and industrial language over time. The authors explicitly state that the regressions "are not meant to imply a causal relationship, as omitted variable biases and reverse causation may be present" (p. 293, p. 305). The exercise checks whether patterns predicted by Mokyr (2016) appear in the data, but causality is not claimed.
 
 ## Method
 
@@ -114,7 +124,7 @@ The method builds on the `lda-topic-model` technique applied to historical text 
 
 ### LDA topic model
 
-The corpus is a document-term matrix $$D \times V$$, where $$D$$ is the number of volumes and $$V$$ is the vocabulary size. LDA (Blei, Ng, and Jordan (2003)) models each volume as a mixture over $$T = 60$$ topics and each topic as a multinomial distribution over words. The optimal $$T$$ is chosen by 4-fold cross-validation on perplexity (Section II.D, p. 276-277). The output is, for each volume $$v$$ and topic $$t$$, a weight $$\alpha_{t,v}$$ representing how strongly the topic appears in that volume, with $$\sum_{t=1}^{60} \alpha_{t,v} = 1$$ for each volume.
+The corpus is a document-term matrix with $$V$$ rows for volumes and $$W$$ columns for vocabulary terms. LDA (Blei, Ng, and Jordan (2003)) models each volume as a mixture over $$T = 60$$ topics and each topic as a multinomial distribution over words. The optimal $$T$$ is chosen by 4-fold cross-validation on perplexity (Section II.D, pp. 276-277). The output is, for each volume $$v$$ and topic $$t$$, a weight $$\alpha_{t,v}$$ representing how strongly the topic appears in that volume, with $$\sum_{t=1}^{60} \alpha_{t,v} = 1$$ for each volume.
 
 ### Topic categorization and volume classification
 
@@ -160,17 +170,17 @@ An industrial score is constructed from the weighted index of machine-related ro
 
 ### Regression 1: Progress sentiment and language category weights (eq. 6, p. 294)
 
-Volumes are placed into 20-year bins by publication date. The baseline estimating equation is:
+Volumes are placed into 20-year bins by publication date, from 1610 through 1890; the sixteenth century is excluded because few volumes were digitized then. The baseline estimating equation is:
 
 $$
 \text{Sentiment}_{v,t} = \alpha_1 + \alpha_2\,\text{Science}_v + \alpha_3\,\text{PolitEcon}_v + \alpha_4\,\text{Science}_v \times \text{PolitEcon}_v + \alpha_5\,\text{Science}_v \times \text{Religion}_v + \alpha_6\,\text{Religion}_v \times \text{PolitEcon}_v + \lambda_t + \lambda_t\,\mathbf{A}_{v,t}\,\boldsymbol{\alpha} + \varepsilon_{v,t} \tag{6}
 $$
 
-where $$\text{Sentiment}_{v,t}$$ is the progress score (percentile) of volume $$v$$ in bin $$t$$; $$\text{Science}_v$$, $$\text{Religion}_v$$, $$\text{PolitEcon}_v$$ are the volume's category weights from equations (2)-(4); $$\text{Religion}_v$$ is excluded as the reference category; $$\lambda_t$$ are 20-year bin fixed effects; and $$\mathbf{A}_{v,t}$$ is the vector of all variables and interactions in equation (6), with time-varying slope $$\lambda_t\,\boldsymbol{\alpha}$$ allowing all coefficients to change across bins. Standard errors are clustered by year of publication. Full results are in Online Appendix Table B.1; predicted values for key language mixes are plotted in Figure VII (p. 295).
+where $$\text{Sentiment}_{v,t}$$ is the progress score (percentile) of volume $$v$$ in bin $$t$$; $$\text{Science}_v$$, $$\text{Religion}_v$$, and $$\text{PolitEcon}_v$$ are the volume's category weights from equations (2)-(4); $$\text{Religion}_v$$ is excluded as the reference category; $$\lambda_t$$ are 20-year bin fixed effects; and $$\mathbf{A}_{v,t}$$ is the vector of all variables and interactions in equation (6), with time-varying slopes $$\lambda_t\,\boldsymbol{\alpha}$$ allowing coefficients to change across bins. Standard errors are clustered by publication year. Full results are in Online Appendix Table B.1; predicted values for key language mixes are plotted in Figure VII (p. 295).
 
 ### Regression 2: Progress sentiment, category weights, and industrial language (eq. 7, p. 303)
 
-The industrial score is added as an additional regressor with all two-way and three-way interactions:
+The industrial score is added as a regressor along with the two-way and three-way interaction terms listed in the equation:
 
 $$
 \text{Sentiment}_{v,t} = \beta_1 + \beta_2\,\text{Science}_v + \beta_3\,\text{PolitEcon}_v + \beta_4\,\text{Industry}_v + \beta_5\,\text{Science}_v \times \text{PolitEcon}_v + \beta_6\,\text{Science}_v \times \text{Religion}_v + \beta_7\,\text{Religion}_v \times \text{PolitEcon}_v + \beta_8\,\text{Science}_v \times \text{Industry}_v + \beta_9\,\text{PolitEcon}_v \times \text{Industry}_v + \beta_{10}\,\text{Science}_v \times \text{Religion}_v \times \text{Industry}_v + \beta_{11}\,\text{Science}_v \times \text{PolitEcon}_v \times \text{Industry}_v + \beta_{12}\,\text{Religion}_v \times \text{PolitEcon}_v \times \text{Industry}_v + \lambda_t + \lambda_t\,\mathbf{B}_{v,t}\,\boldsymbol{\beta} + \varepsilon_{v,t} \tag{7}
@@ -178,7 +188,7 @@ $$
 
 where $$\text{Industry}_v$$ is the normalized industrial language score of volume $$v$$ and all other notation follows equation (6). As before, all slope coefficients are interacted with bin fixed effects to allow time variation. Full results are in Online Appendix Table B.4; predicted values for the 50%/50% science-political economy location at varying industry percentiles are plotted in Figure XI (p. 305).
 
-Both regressions are run on pre-1650 data excluded in robustness checks (Online Appendix Figure B.19, B.27); results are similar. Alternative dictionaries using 1708 *Dictionarium Anglo-Britannicum* progress words and a ChatGPT-generated Enlightenment-era synonym list also yield similar patterns (Online Appendix Figures B.10-B.13).
+Robustness checks that exclude pre-1650 data yield similar results (Online Appendix Figures B.19 and B.27). Alternative dictionaries using 1708 *Dictionarium Anglo-Britannicum* progress words and a ChatGPT-generated Enlightenment-era synonym list also yield similar patterns (Online Appendix Figures B.10-B.13).
 
 ## Datasets used
 

@@ -3,11 +3,11 @@ title: "Who's Afraid of the Minimum Wage?: Rao & Risch (2026)"
 description: >-
   Distilled: Using matched IRS administrative tax records for roughly 271,000
   independent U.S. businesses over 2010-2019 and a stacked difference-in-differences
-  design on 19 state minimum wage changes, Rao and Risch find that firms in
+  design on 19 policy changes across 17 states, Washington, DC, and Chicago, Rao and Risch find that firms in
   highly exposed industries do not lay off workers but modestly reduce part-time
   hiring, fully finance higher wage costs through revenue growth, and leave owner
   profits unchanged; firm entry falls roughly 2% and individual low earners gain
-  earnings with stable employment rates. QJE 2026, CC BY 4.0. Eight core results
+  earnings with stable employment rates. QJE 2026, CC BY 4.0. Twenty-three core results
   with source locators, datasets, and the estimating equations.
 sidebar:
   label: Rao & Risch 2026
@@ -26,27 +26,42 @@ paper:
   doi: 10.1093/qje/qjaf053
   jel:
     codes: [J23, J31, J38, L13, L11]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-28
-  topics: ["Labor market dynamics and wage inequality", "Firm Innovation and Growth", "Digital Economy and Work Transformation"]
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
+  topics: ["Labor market dynamics and wage inequality", "Entrepreneurship Studies and Influences", "Industrial Organization and Market Structure"]
   dataAccess: proprietary-confidential
   outcome:
     - number of employment relationships per firm
+    - firm wage bill as share of baseline revenue
     - owner profits as share of baseline revenue
     - firm revenues as share of baseline revenue
     - firm entry and exit rates in highly exposed industries
+    - number of active independent firms in highly exposed industries
     - value added per worker at independent firms
     - annual earnings of low-earning workers
+    - worker earnings pre-trend coefficients
     - annual earnings of young workers (ages 15-26)
+    - annual compensation by worker earnings category
     - individual employment probability
     - worker retention rates
+    - employment composition by worker earnings
+    - firm cost components as shares of baseline revenue
+    - nonlabor input costs as a share of baseline revenue
+    - productivity-quartile membership among entrants
+    - cost-efficiency quartile membership among firms
+    - wage-bill-to-revenue quartile membership among firms
+    - aggregate and average firm income-statement outcomes
+    - employment probability of young workers
+    - worker employment by employer type
+    - number of jobs held by employed teenagers
+    - firm profits and input cost ratios by entry status
   outcomeClass: [firm-real-outcomes, labor-careers-health]
   license: "CC BY 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL https://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-12-10; corroborated by artifact p. 373 Creative Commons Attribution License notice and p. 427 footer)"
   licenseShort: CC BY 4.0
   access: open
   machineAccess: "open-access PDF available via Oxford University Press (confirmed 2026-06-28)"
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
-  resultsCount: 8
+  resultsCount: 23
   citedByCount: 1
   methods:
     role: applies-method
@@ -54,7 +69,7 @@ paper:
     buildsFrom: [difference-in-differences, panel-regression, event-study]
     identification: natural-experiment
   contributionType: [new-data, new-fact, measurement]
-  mechanisms: [market-power]
+  mechanisms: [market-power, entry-selection, labor-turnover-cost-savings]
   introducesData: true
   scope:
     region: US
@@ -69,11 +84,24 @@ paper:
     - { ref: R2, outcome: "firm wage bill as share of baseline revenue", metric: coefficient, value: "0.0143 (s.e. = 0.00167) at s+4; 1.43 cents per dollar baseline revenue", direction: positive }
     - { ref: R3, outcome: "firm revenue as share of baseline revenue", metric: coefficient, value: "0.0331 at s+4; 3.31 cents per dollar baseline revenue; consumers bear 100% of incidence (Table II)", direction: positive }
     - { ref: R4, outcome: "owner profits as share of baseline revenue", metric: coefficient, value: "0.0002 (s.e. = 0.0029) at s+4; null; rules out profit losses >0.37% of baseline revenues at 95% confidence", direction: none }
-    - { ref: R5, outcome: "number of active independent firms in highly exposed industries", metric: pp-effect, value: "-1.97% total active firms at s+4; entry -5.5%; exit flat (increase >0.53% ruled out at 95%)", direction: negative }
+    - { ref: R5, outcome: "number of active independent firms in highly exposed industries", metric: coefficient, value: "-1.97% total active firms at s+4; entry -5.5%; exit flat (increase >0.53% ruled out at 95%)", direction: negative }
     - { ref: R6, outcome: "value added per worker at independent firms", metric: coefficient, value: "0.0462 (s.e. = 0.0102) at s+4; 4.6% across all firms; entrants +15.5%; incumbents +3.1%", direction: positive }
     - { ref: R7, outcome: "annual earnings of low-earning workers", metric: level, value: "$1,473 increase (+18.9%) at s+4; own-wage employment elasticity -0.013 (s.e. = 0.036)", direction: positive }
     - { ref: R8, outcome: "annual earnings of young workers (ages 15-26)", metric: level, value: "$1,995 increase (+21.8%) at s+4; employment elasticity 0.064 (s.e. = 0.032); retention +1.30 pp for low earners", direction: positive }
-  resultType: new-finding
+    - { ref: R9, outcome: "composition of employment relationships by worker earnings", metric: probability, value: "Missing hires consist entirely of workers who would have earned <$3,900 annually; 67% would have earned <$1,000", direction: negative }
+    - { ref: R10, outcome: "firm cost components as shares of baseline revenue", metric: coefficient, value: "Wage bill +0.0201 for restaurants and +0.0076 for other/retail firms; COGS +0.0131 overall, +0.0053 for restaurants, and +0.0210 for other/retail firms; other deductions +0.0035 overall, +0.0029 for restaurants, and +0.0039 for other/retail firms", direction: positive }
+    - { ref: R11, outcome: "firm productivity distribution among entrants", metric: pp-effect, value: "Entrants are 4.11 pp more likely to rank in the high-productivity quartile (s.e. = 0.0128) and 5.81 pp less likely to rank in the low-productivity quartile (s.e. = 0.0176)", direction: mixed }
+    - { ref: R12, outcome: "aggregate income-statement outcomes of independent firms", metric: coefficient, value: "Aggregate revenue +0.0263 (s.e. = 0.0294, ns), wage bill +0.0112* (s.e. = 0.0061), material costs +0.0133 (s.e. = 0.0168, ns), profits -0.0012 (s.e. = 0.0025, ns), and value added per worker +0.0805* (s.e. = 0.0467); * p < .10", direction: mixed }
+    - { ref: R13, outcome: "average income-statement outcomes of active independent firms", metric: coefficient, value: "Average log effects: revenue +0.0432, wage bill +0.0767, material costs +0.0266, profits +0.0278, and value added per worker +0.0464", direction: positive }
+    - { ref: R14, outcome: "number of employment relationships in unexposed industries", metric: coefficient, value: "-0.191 (s.e. = 0.152) at s+4; no differential employment effect", direction: none }
+    - { ref: R15, outcome: "employment probability of young workers (ages 15-26)", metric: pp-effect, value: "+1.39 percentage points for the average baseline 15-26 year old", direction: positive }
+    - { ref: R16, outcome: "employment of low-earning workers by employer type", metric: pp-effect, value: "Workers from exposed industries: -0.0126 at exposed independent businesses and +0.0173 at large C-corporations", direction: mixed }
+    - { ref: R17, outcome: "number of jobs held by employed teenagers", metric: level, value: "0.045 fewer jobs at s+4 (s.e. = 0.015), from an average and median of 1.6 jobs", direction: negative }
+    - { ref: R18, outcome: "cost-efficiency quartile membership among firms", metric: pp-effect, value: "Low material-cost quartile probability +0.0324 for entrants (s.e. = 0.0217), +0.0194 for incumbents (s.e. = 0.00569), and +0.0179 for all firms (s.e. = 0.00585); entrants are 0.0267 less likely to be in the high material-cost quartile (s.e. = 0.0124)", direction: mixed }
+    - { ref: R19, outcome: "firm profits and input cost ratios by entry status", metric: coefficient, value: "Incumbents: profits/revenue -0.0064 (s.e. = 0.00251), wage bill/revenue +0.0091 (s.e. = 0.00163), material costs/revenue -0.0033 (s.e. = 0.00215); entrants' profits/revenue +0.0070 (s.e. = 0.0111)", direction: mixed }
+    - { ref: R21, outcome: "wage-bill-to-revenue quartile membership among firms", metric: pp-effect, value: "Entrants: low quartile -0.0236 (s.e. = 0.00781), high quartile +0.0271 (s.e. = 0.00775); incumbents: high quartile +0.0310 (s.e. = 0.00502); all firms: high quartile +0.0237 (s.e. = 0.00434)", direction: mixed }
+    - { ref: R22, outcome: "worker earnings pre-trend coefficients", metric: coefficient, value: "Pre-reform event-study coefficients are described as precise zeroes for s=-4 through s=-2", direction: none }
+  resultType: confirms
   relatesTo:
     - { cite: "Card and Krueger (1995)", relation: extends, note: "extends prior employment-effect evidence to the independent-business margin; confirms small employment effects using a matched panel" }
     - { cite: "Cengiz et al. (2019)", doi: '10.1093/qje/qjz014', relation: builds-on, note: "builds on aggregate employment-effect estimates; traces the independent-firm mechanism behind the aggregate null" }
@@ -88,6 +116,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-28, role: extracted, note: "Full PDF read (pp. 373-427); eight results extracted with source locators. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-28, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 8 rows pass; both equations match PDF term-by-term; JEL codes L13 and L11 added (missing from prior extraction, confirmed p. 374)." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added fifteen Core results rows, thirteen quantitative findings, and their matching metadata, plus the missing main-text estimating specifications and equations. These additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 23 Core results, equations, specifications, classifications, findings, prose, and frontmatter against the PDF; corrected R5's metric, R12's significance and wording, R18's direction, equation denominator subscripts, relevant text locators, the reallocation claim, policy-count phrasing, and attribution date. Noted inconsistent young-worker age labels in the source. Locator and citation guards pass. Review pass (2026-10-04): Labeled the collapsed-count, quartile-transition, and aggregate equations as unnumbered reconstructions because the paper does not print them." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/qje/qjaf053", checked: 2026-06-28, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-12-10" }
 ---
@@ -102,45 +132,63 @@ replicate or extend it, read the full source at the
 Rao and Risch construct the first matched firm-worker-owner panel from the
 universe of U.S. pass-through tax returns, covering roughly 271,000 independent
 businesses in highly minimum-wage-exposed industries over 2010-2019. Using 19
-state minimum wage increases between 2013 and 2016 as quasi-natural experiments
-and a stacked difference-in-differences design with 22 control states as clean
-comparators, they estimate how independent businesses accommodate higher wage
+minimum-wage policy changes across 17 states, Washington, DC, and Chicago
+between 2013 and 2016, plus a stacked difference-in-differences design with 22
+control states as clean comparators, they estimate how independent businesses accommodate higher wage
 floors. Firms do not lay off existing workers but modestly reduce part-time
 hiring, ending up with about 1.5 fewer employment relationships per year. They
 fully finance the higher wage bills through revenue growth: four years out,
 revenues rise 3.3% of baseline while profits are statistically indistinguishable
 from zero change. Firm entry falls roughly 2%, with surviving entrants
 positively selected for efficiency. At the individual level, low earners and
-young workers gain substantially in earnings (+18.9% and +21.8%) with
-essentially unchanged employment rates. Minimum wages redistribute from
-consumers to workers; owners escape the burden.
+young workers gain substantially in earnings (+18.9% and +21.8%); employment is
+essentially unchanged for low earners and modestly higher for young workers.
+Minimum wages redistribute from consumers to workers; owners escape the burden.
 
 ## Core results
 
 Magnitudes are as reported from the source PDF. Locators are in the form
-Table/Figure, page number. All coefficients are from the stacked
-difference-in-differences specification at event-year s+4 (four years after
-the initial minimum wage increase).
+Table/Figure, page number. Unless stated otherwise, post-policy estimates are
+from the stacked difference-in-differences specification at event-year s+4
+(four years after the initial minimum wage increase).
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Firms reduce part-time hiring; no layoffs; employment falls ~2% | Figure II Panel A, p. 390 | 1.5 fewer employment relationships per firm per year; own-wage employment elasticity -0.245 (s.e. 0.134) |
+| R1 | Firms reduce part-time hiring; no layoffs; employment falls ~2% | Figure II Panel A, p. 390; text p. 389 | 1.5 fewer employment relationships per firm per year; own-wage employment elasticity -0.245 (s.e. 0.134) |
 | R2 | Wage bills rise sharply after the minimum wage increase | Figure III Panel A, p. 392; Table II, p. 397 | +0.0143 of baseline revenue (s.e. 0.00167); 1.43 cents per dollar baseline revenue |
 | R3 | Revenues rise and fully cover the added labor costs | Figure IV, p. 395; Table II, p. 397 | +0.0331 of baseline revenue; 3.31 cents per dollar; consumers bear 100% of incidence |
-| R4 | Owner profits are unchanged: incidence falls on consumers, not owners | Figure V, p. 396; Table II, p. 397 | 0.0002 (s.e. 0.0029); null result; rules out losses larger than 0.37% of baseline revenues at 95% confidence |
-| R5 | Firm entry falls; total active firms decline ~2% | Figure VI, p. 401 | -1.97% total active firms; entry rate -5.5%; exit flat (increase >0.53% ruled out at 95%) |
+| R4 | Owner profits are unchanged: incidence falls on consumers, not owners | Figure V, p. 396; text p. 394; Table II, p. 397 | 0.0002 (s.e. 0.0029); null result; rules out losses larger than 0.37% of baseline revenues at 95% confidence |
+| R5 | Firm entry falls; total active firms decline ~2% | Figure VI, p. 401; text pp. 400, 402 | -1.97% total active firms; entry rate -5.5%; exit flat (increase >0.53% ruled out at 95%) |
 | R6 | Value added per worker rises; stronger among entrants | Table III, p. 402 | +4.6% across all firms (coeff. 0.0462, s.e. 0.0102); entrants +15.5% (0.1550, s.e. 0.0473); incumbents +3.1% (0.0313, s.e. 0.0149) |
-| R7 | Low-earning workers gain earnings with near-zero employment effect | Figure VII Panel A, p. 409; Table VI Panel A, p. 411 | +$1,473 (+18.9%) at s+4; own-wage employment elasticity -0.013 (s.e. 0.036) |
-| R8 | Young workers gain earnings with stable employment; retention rises | Figure VII Panel B, p. 409; Figure VIII, p. 413; Figure IX, p. 415 | +$1,995 (+21.8%) for ages 15-26 at s+4; employment elasticity 0.064 (s.e. 0.032); retention +1.30 pp for low earners |
+| R7 | Low-earning workers gain earnings with near-zero employment effect | Figure VII Panel A, p. 409; text pp. 376, 409-410; Online Appendix Figure I.11 | +$1,473 (+18.9%) at s+4; own-wage employment elasticity -0.013 (s.e. 0.036) |
+| R8 | Young workers gain earnings with stable employment; retention rises | Figure VII Panel B, p. 409; Figure VIII, p. 413; Figure IX, p. 415; text pp. 410, 414; Online Appendix Figure I.11 | +$1,995 (+21.8%) for baseline ages 15-26 at s+4; employment elasticity 0.064 (s.e. 0.032); retention +1.30 pp for low earners |
+| R9 | Reduced hiring is concentrated among very low-earning workers | Figure II Panels B-C, text p. 391 | Missing hires consist entirely of workers who would have earned less than $3,900 annually; 67% would have earned less than $1,000 |
+| R10 | Costs rise across categories, with nonlabor cost increases differing by industry | Table II, p. 397; text pp. 397-398 | Wage bill: 0.0201 for restaurants, 0.0076 for other/retail; COGS: +0.0131 overall, +0.0053 for restaurants, +0.0210 for other/retail; other deductions: +0.0035 overall, +0.0029 for restaurants, +0.0039 for other/retail, all as shares of baseline revenue |
+| R11 | Entrants are positively selected on productivity | Table IV, p. 403 | Entrants are 0.0411 more likely to rank in the high-productivity quartile (s.e. 0.0128) and 0.0581 less likely in the low-productivity quartile (s.e. 0.0176) |
+| R12 | Aggregate point estimates are positive for revenue and value added; wage bills rise weakly significantly and profits are unchanged | Table V, p. 405 | Aggregates scaled by baseline revenue: revenue 0.0263 (s.e. 0.0294, ns), wage bill 0.0112* (s.e. 0.0061), material costs 0.0133 (s.e. 0.0168, ns), profits -0.0012 (s.e. 0.0025, ns), value added per worker 0.0805* (s.e. 0.0467); * p < .10 |
+| R13 | Average outcomes among all active firms rise in the unbalanced panel | Table V, p. 405 | Average log effects: revenue 0.0432 (s.e. 0.0048), wage bill 0.0767 (s.e. 0.0054), material costs 0.0266 (s.e. 0.0059), profits 0.0278 (s.e. 0.0083), value added per worker 0.0464 (s.e. 0.0044) |
+| R14 | Unexposed industries show no employment response in the placebo test | Online Appendix Figure H.8, reported text p. 399 | Employment relationships estimate -0.191 (s.e. 0.152) at s+4; no differential pre- or post-policy trends in other firm outcomes |
+| R15 | Young workers become more likely to be employed | Figure VIII, p. 413; text p. 410 | Employment probability +1.39 percentage points for the average baseline 15-26 year old |
+| R16 | Low-earning workers shift from independent firms to large C-corporations | Table VI Panel A, p. 411 | For workers initially in exposed industries, employment at exposed independent firms -0.0126 (s.e. 0.0055), at large C-corporations +0.0173 (s.e. 0.0065) |
+| R17 | Employed teenagers hold fewer jobs after the increase | Text p. 419 | 0.045 fewer jobs at s+4 (s.e. 0.015), from an average and median of 1.6 jobs |
+| R18 | Firms shift toward lower material costs relative to revenue | Table IV, p. 403; text p. 404 | Low material-cost quartile probability: entrants +0.0324 (s.e. 0.0217), incumbents +0.0194 (s.e. 0.00569), all firms +0.0179 (s.e. 0.00585); entrants are 0.0267 less likely to have high material costs (s.e. 0.0124) |
+| R19 | Profit shares fall among incumbents while entrant profit shares are statistically unchanged | Table III, p. 402 | Incumbent profits/revenue -0.0064 (s.e. 0.00251); wage bill/revenue +0.0091 (s.e. 0.00163); material costs/revenue -0.0033 (s.e. 0.00215); entrant profits/revenue +0.0070 (s.e. 0.0111) |
+| R20 | Compensation gains reach workers earning above the minimum-wage equivalent | Figure III Panel B, p. 392; text p. 393 | Annual compensation rises for workers earning $3,900-$35,000, with the largest gains among workers earning around a full-time minimum wage; no earnings reductions appear higher in the distribution |
+| R21 | Entrants and incumbents shift toward higher wage-bill-to-revenue quartiles | Table IV, p. 403 | Entrants: low quartile -0.0236 (s.e. 0.00781), high quartile +0.0271 (s.e. 0.00775); incumbents: high quartile +0.0310 (s.e. 0.00502); all firms: high quartile +0.0237 (s.e. 0.00434) |
+| R22 | Worker earnings show no differential pre-trend before minimum wage changes | Figure VII, p. 409; text p. 408 | Pre-reform earnings coefficients are described as precise zeroes for event years s=-4 through s=-2 |
+| R23 | Worker outcomes remain similar around a 2010 placebo event | Online Appendix Figures I.13-I.14; text p. 414 | Earnings and employment paths in treatment and control states are described as very similar around the placebo event |
 
 **Overall (paper's conclusion).** Independent businesses are more adaptable than
 the conventional narrative about small-firm vulnerability to minimum wage hikes
-suggests. They absorb the cost shock by passing it through to consumers via
-revenue growth and by shedding the least productive firms from the industry,
-leaving owners whole and workers better off. The worker-reallocation channel
-(from independent businesses to larger C-corporations), analogous to what
-Dustmann et al. (2022) document for Germany, explains why firm-level employment
-reductions do not translate into individual-level unemployment.
+suggests. They accommodate the cost shock through revenue growth, while lower
+entry among less productive firms and positive selection among entrants reshape
+the industry. This reduces the number of firms without evidence of higher exit.
+The paper cannot separate price pass-through from demand reallocation or
+quantify their relative contributions.
+The worker-reallocation channel (from independent businesses to larger
+C-corporations), analogous to what Dustmann et al. (2022) document for Germany,
+helps explain why firm-level employment reductions do not translate into
+individual-level unemployment; increased retention also contributes to this pattern.
 
 ## Theory / model
 
@@ -188,8 +236,8 @@ providing a set of clean controls (p. 385). The stacked design compares treated
 firms in each reform cohort to all control firms over event time, avoiding the
 negative-weight problem in staggered difference-in-differences that arises when
 previously treated units serve as controls (Callaway and Sant'Anna (2021);
-Goodman-Bacon (2021)). Pre-trend validation at s = -4 to s = -2 confirms
-parallel trends across all primary outcomes.
+Goodman-Bacon (2021)). Pre-trend analyses at s = -4 to s = -2 assess the
+plausibility of parallel trends across the primary outcomes.
 
 ## Method
 
@@ -215,8 +263,8 @@ and untreated states relative to the pre-reform base year. Standard errors are
 clustered at the state-by-cohort level.
 
 For outcomes scaled by baseline revenue the dependent variable is
-$$y_{jct} = z_{jct} / \text{revenue}_{j,s-1}$$. For percent-change outcomes the
-dependent variable is $$y_{jct} = z_{jct} / z_{j,s-1}$$.
+$$y_{jct} = z_{jct} / \text{revenue}_{jc,s-1}$$. For percent-change outcomes the
+dependent variable is $$y_{jct} = z_{jct} / z_{jc,s-1}$$.
 Regressions are weighted by log baseline revenues.
 
 **Individual-level estimating equation (equation 2, p. 387).** For individual i
@@ -232,6 +280,13 @@ individual-cohort fixed effect (replacing the firm fixed effect). For binary
 employment outcomes the specification is a linear probability model (LPM),
 with coefficients interpreted as percentage-point changes for the treatment
 group relative to the control group.
+
+For the individual panel estimates in equation (2), standard errors are
+clustered by state-by-cohort. The main samples are a 2% random sample of
+low-earning individuals and a 2% random sample of people ages 15-26, with
+individual-cohort and cohort-by-year fixed effects. Binary employment outcomes
+use the LPM; earnings are measured annually, with log earnings used for the
+own-wage elasticity calculation (pp. 387, 407-408).
 
 ## Empirical specifications
 
@@ -254,6 +309,15 @@ The main firm-level outcomes are:
 - Owner profits / baseline revenue (Figure V; Table II)
 - Number of employment relationships (Figure II; Section IV.A)
 - Value added per worker (Table III)
+
+For Figure II's employment-composition estimates, the authors use equation (1)
+with outcomes for entrants, separations, and employment counts by worker age
+and annual earnings. These regressions include firm-cohort and cohort-by-year
+fixed effects and the baseline firm and market controls described above; they
+are weighted by base-year firm employment, winsorize employment counts at the
+99th percentile, and cluster standard errors by state-by-cohort (Figure II,
+p. 390). The other balanced-panel firm specifications weight by log baseline
+revenue and winsorize raw firm outcomes at 1% in each tail (Table II, p. 397).
 
 The COGS and other-deductions items complete the income statement decomposition
 in Table II, which traces the incidence of each cost dollar:
@@ -283,11 +347,92 @@ administrative data:
 - Young workers: 2% random sample of individuals ages 15-26 in the year before
   the minimum wage increase, regardless of employment status.
 
-Individual employment outcomes use an LPM; earnings outcomes use the log of
-annual individual income estimated via equation (2) with individual-cohort fixed
-effects. Own-wage employment elasticities are estimated as the percent change in
-employment divided by the percent change in average annual earnings, calculated
-using the delta method.
+The paper's sample description and Table I label the young-worker panel ages
+16-26 (pp. 382, 387), while the Figure VII and VIII captions label their
+baseline group ages 15-26 (pp. 409, 413). The age-specific estimates above
+follow the figure captions; the PDF does not reconcile the difference.
+
+Individual employment outcomes use an LPM. The main earnings estimates use
+annual income levels; log annual earnings enter the own-wage elasticity
+calculation, which divides the percent change in employment by the percent
+change in earnings using the delta method.
+
+**Reconstruction (not printed in the paper): collapsed firm-count specification
+(Section IV.E; Figure VI, p. 401).** The authors describe collapsing firm records
+to cells indexed by reform cohort, year, treatment status, industry, and market
+characteristics, then estimating event-time changes in active-firm, entrant, and
+exit counts:
+
+$$
+Y_{gct} = \alpha + \sum_{s=-4,\,s\neq -1}^{4} \left(\beta_s\,\text{treat}_{gc} + \Gamma_s X_{gc}\right) \times \text{year}_{s=t} + \delta_{ct} + \nu_{gct}
+$$
+
+Here $$Y_{gct}$$ is the number of active firms, entrants, or exits in cell $$g$$;
+$$X_{gc}$$ includes baseline two-digit industry, county-density quintile,
+county-employment-rate quintile, and commuting-zone pre-period firm-churn
+controls, each interacted flexibly with year. The specification has cohort-by-
+year fixed effects; it is weighted by the base-year firm count in each cell, and
+standard errors are clustered by state-by-cohort. The sample is the collapsed
+firm-count data from highly exposed industries in treatment and control states.
+
+**Reconstruction (not printed in the paper): quartile-transition specification
+(Table IV, p. 403).** For each baseline measure $$k$$ and quartile $$q$$, the
+outcome is an indicator that firm $$j$$ belongs to that quartile at event time
+$$s+4$$. This expresses the paper's stated use of equation (1)'s event-time
+design and controls:
+
+$$
+\mathbb{1}\{Q_{jct}^{k}=q\} = \alpha + \sum_{s=-4,\,s\neq -1}^{4} \left(\beta_s\,\text{treat}_{jc} + \Gamma_s X_{jc}\right) \times \text{year}_{s=t} + \delta_{ct} + \psi_{jc} + \nu_{jct}
+$$
+
+The fixed effects are firm-cohort and cohort-by-year. Controls are baseline
+industry, county-density quintile, and county-employment-rate quintile,
+flexibly interacted with year. The unbalanced panel has about 271,307 active
+firms per year; standard errors are clustered by state-by-cohort. Table IV does
+not state a regression weight.
+
+**Reconstruction (not printed in the paper): aggregate specification (Table V,
+p. 405).** For the aggregate row, state-by-industry totals of each
+income-statement item are scaled by baseline total revenue and estimated over
+event time:
+
+$$
+Y_{gct}^{\text{agg}} = \alpha + \sum_{s=-4,\,s\neq -1}^{4} \beta_s\,\text{treat}_{gc}\times\text{year}_{s=t} + \delta_{ct} + \nu_{gct}
+$$
+
+The observations are state-by-industry totals; regressions are weighted by
+baseline total revenue and standard errors are clustered by state-by-cohort.
+The table note identifies cohort-by-year fixed effects for the average-log
+specification below, but does not enumerate additional fixed effects for the
+aggregate regression. For the unbalanced firm-panel row, the specification is
+the firm-level event-study equation (1), with cohort-by-year fixed effects and
+two-digit industry, county-density-quintile, and county-employment-rate-quintile
+controls flexibly interacted with year. It uses about 271,307 active firms per
+year, clusters standard errors by state-by-cohort, and estimates average log
+impacts. The aggregate row is suggestive because its state-level cells provide
+relatively few observations.
+
+**Worker-transition and teenage repeated-cross-section specifications (Table VI,
+pp. 411-412).** For the low-earning worker panel, equation (2) is estimated as
+an LPM for indicators of employment in each industry and employer type at
+$$s+4$$. The specification includes individual-cohort and cohort-by-year fixed
+effects, age and age-squared, and county-density and county-employment-rate
+quintiles flexibly interacted with year. It clusters standard errors by
+state-by-cohort; panel-row regression samples range from 842,201 to 1,485,775
+observations. The repeated cross-section of teenagers uses the same controls
+and cohort-by-year effects, without individual fixed effects; its two row
+samples are 5,338,697 and 2,370,428 observations. These estimates compare
+employment outcomes from $$s-1$$ to $$s+4$$. Figure IX's retention regression
+uses the low-earning panel, an LPM, individual-cohort and cohort-by-year fixed
+effects, the same age and market controls, and state-by-cohort clustered
+standard errors (Figure IX, p. 415).
+
+As an identification check, the worker earnings event-study coefficients for
+the pre-reform years $$s=-4$$ through $$s=-2$$ are described as precise zeroes
+(Figure VII, p. 409; text p. 408). A separate placebo exercise assigns a 2010
+minimum-wage event, at least three years before the first actual increase; the
+paper reports very similar earnings and employment paths between treatment and
+control states in that exercise (Online Appendix Figures I.13-I.14; text p. 414).
 
 ## Datasets used
 
@@ -314,7 +459,7 @@ tables and figures.
 ## Attribution and rights
 
 Source: peer-reviewed, *The Quarterly Journal of Economics* 141(1), 2026.
-This distillation was extracted by an LLM on 2026-06-28 and is
+This distillation was extracted by an LLM on 2026-10-04 and is
 **not human-verified or independently reproduced**. The CC BY 4.0 licence
 permits mirroring; the verbatim PDF is not hosted in this batch.
 

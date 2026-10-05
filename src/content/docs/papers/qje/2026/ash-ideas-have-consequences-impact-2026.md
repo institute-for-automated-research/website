@@ -4,7 +4,7 @@ description: >-
   Distilled: The Manne Economics Institute for Federal Judges shifted judicial
   behavior: trained judges used more economics language in their opinions, voted
   more often against federal regulatory agencies, and imposed stricter criminal
-  sentences. The Quarterly Journal of Economics (2026), CC BY-NC 4.0. Seven
+  sentences. The Quarterly Journal of Economics (2026), CC BY-NC 4.0. Fourteen
   core results with source locators, datasets used, and the DiD estimating
   equations.
 sidebar:
@@ -35,13 +35,19 @@ paper:
     - probability of voting against federal regulatory agencies
     - conservative vote rate in economics cases
     - probability of imposing a prison sentence
+    - sentence length in criminal cases
+    - use of economics language in district-court opinions
+    - predicted economics-topic similarity in circuit-court opinions
+    - use of legal-scholarship language in judicial opinions
+    - use of statistical/quantitative language in judicial opinions
+    - probability of voting against antitrust rights
   outcomeClass: [judicial-behavior, political-development]
   license: "CC BY-NC 4.0 (confirmed via Crossref DOI metadata: content-version vor, URL https://creativecommons.org/licenses/by-nc/4.0/, delay-in-days 0, start 2025-08-26; corroborated by artifact pp. 845 and 887 CC BY-NC notice)"
   licenseShort: CC BY-NC 4.0
   access: open
   machineAccess: "open-access at OUP site (CC BY-NC 4.0 confirmed in Crossref DOI metadata 2026-06-28); not machine-fetched this session"
   redistribution: "extract-only (CC BY-NC 4.0 permits non-commercial mirroring; PDF not hosted in this batch)"
-  resultsCount: 7
+  resultsCount: 14
   citedByCount: 2
   methods:
     role: applies-method
@@ -59,13 +65,20 @@ paper:
     granularity: [individual]
     n: "~200,000 circuit court cases (1970-2005); ~1 million district court sentencing decisions (1992-2011, full dataset per abstract p. 846); ~840 Manne-attending federal judges (1976-1998)"
   findings:
-    - { ref: R1, outcome: "use of economics language in judicial opinions", metric: sd-effect, value: "beta=0.363 (se=0.154), approx +0.36 SD short-run within-judge effect on word-embedding similarity to economics lexicon", direction: positive }
-    - { ref: R2, outcome: "use of economics language in judicial opinions", metric: sd-effect, value: "beta=0.430 (se=0.1305), approx +0.43 SD in early period (pre-1987 sample)", direction: positive, vsBenchmark: "pre-1987 effect larger than all-years estimate; economics ideas more novel in LEC heyday" }
+    - { ref: R1, outcome: "use of economics language in judicial opinions", metric: sd-effect, value: "beta=0.363 (se=0.1340), approx +0.36 SD short-run within-judge effect on word-embedding similarity to economics lexicon", direction: positive }
+    - { ref: R2, outcome: "use of economics language in judicial opinions", metric: sd-effect, value: "beta=0.430 (se=0.1805), approx +0.43 SD in early period (pre-1987 sample)", direction: positive, vsBenchmark: "pre-1987 effect larger than all-years estimate; economics ideas more novel in LEC heyday" }
     - { ref: R3, outcome: "probability of voting against federal regulatory agencies", metric: pp-effect, value: "beta=0.162 (se=0.0675), +16.2 pp short-run effect on votes against labor and environmental agencies", direction: positive }
     - { ref: R4, outcome: "conservative vote rate in economics cases", metric: pp-effect, value: "beta=0.265 (se=0.1316), +26.5 pp short-run; most conservative long-run estimate col.(11) beta=0.043", direction: positive }
     - { ref: R5, outcome: "conservative vote rate in non-economics cases", metric: pp-effect, value: "beta=0.02 to 0.06 across cols.(13)-(16), not statistically significant", direction: none }
     - { ref: R6, outcome: "probability of prison sentence given", metric: pp-effect, value: "beta=0.0617 (se=0.0202), +6.2 pp short-run incarceration rate in district courts (1992-2003)", direction: positive }
     - { ref: R7, outcome: "probability of prison sentence given", metric: pp-effect, value: "beta=0.035 (se=0.0135), +3.5 pp long-run incarceration rate", direction: positive }
+    - { ref: R8, outcome: "sentence length in criminal cases", metric: coefficient, value: "Poisson coefficient=-0.026 (se=0.1724) short run and 0.045 (se=0.0709) long run; neither statistically significant", direction: none }
+    - { ref: R9, outcome: "use of economics language in district-court opinions", metric: coefficient, value: "positive and statistically significant; main text reports N=508,325 but no coefficient", direction: positive }
+    - { ref: R10, outcome: "predicted economics-topic similarity in circuit-court opinions", metric: coefficient, value: "positive and statistically significant event-study effect; main text reports no coefficient", direction: positive }
+    - { ref: R11, outcome: "use of legal-scholarship language in judicial opinions", metric: coefficient, value: "no effect found; main text reports no coefficient", direction: none }
+    - { ref: R12, outcome: "use of statistical/quantitative language in judicial opinions", metric: coefficient, value: "no effect found; main text reports no coefficient", direction: none }
+    - { ref: R13, outcome: "probability of voting against federal regulatory agencies", metric: coefficient, value: "negative statistically significant event-study pre-trend at k=-3; plotted estimate, numeric coefficient not stated in text", direction: negative }
+    - { ref: R14, outcome: "probability of voting against antitrust rights", metric: coefficient, value: "coefficients mostly positive and noisy; one statistically significant, with no numeric coefficient reported in main text", direction: mixed }
   resultType: new-finding
   relatesTo:
     - { cite: "Baye and Wright (2011)", relation: builds-on, note: "prior evidence that law and economics training affected antitrust decisions and that Manne-trained judges are less likely to be reversed on appeal" }
@@ -83,6 +96,8 @@ paper:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: "2026-06-28", role: extracted, note: "Full text read (pp. 845-887); seven results extracted from the PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: "2026-06-28", role: verified, note: "Locators and reported magnitudes re-checked against source PDF; all 7 Core results coefficients and SEs confirmed in Tables I and II. Fixed: JEL codes corrected to paper's stated D7/K0/Z1; scope period extended to 2011-12 (district court data goes to 2011 per abstract p.846); fabricated Bayes-plausibility equation removed (not in PDF; replaced with p.880 verbal description); 'not statistically different from' overclaim corrected to 'not that different from' (p.877 wording); district court sentencing period clarified as 1992-2011 full dataset / 1992-2003 event-study window throughout." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: "2026-06-28", role: verified, note: "R3 N=2,408 re-checked against Table I p.868 col.(5): confirmed correct. Col.(5) Post Manne=0.162 (SE=0.0675), N=2,408, Short run sample (Voting against regulators). Col.(13) also has N=2,408 but is Conservative vote nonecon cases; the shared N reflects the same Bloomberg Law short-run event-study sample. No correction needed." }
+    - { by: "paper-distiller (gpt-6-luna)", date: "2026-10-04", role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-read the PDF and added seven main-text findings, their Core results rows and findings entries, plus outcome-specific estimating specifications; not human-verified and not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: "2026-10-04", role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 14 Core rows, cited table/figure pages, equations, specifications, classification, findings, prose, and frontmatter re-checked against the PDF. Corrected R1/R2 standard errors and significance, R3 sample N (2,408 to 2,650), and R7 significance; no headline results omitted." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/qje/qjaf042", checked: "2026-06-28", by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://creativecommons.org/licenses/by-nc/4.0/, delay-in-days=0, start=2025-08-26" }
   rightsSignalConflict: false
@@ -100,13 +115,20 @@ Significance is as reported; standard errors clustered by judge. Locators point 
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | Manne attendance **increased economics language use** by ~0.36 SD short-run (all years) | Table I col. (1), p. 868; Figure III, p. 869 | beta=0.363 (se=0.154), N=5,261; significant at 5% |
-| R2 | Effect on economics language is larger in the **early period** (pre-1987): ~0.43 SD | Table I col. (2), p. 868 | beta=0.430 (se=0.1305), N=3,214; significant at 1% |
-| R3 | Manne attendance **raised probability of voting against labor/environmental regulators** by ~16 pp | Table I col. (5), p. 868; Figure IV, p. 872 | beta=0.162 (se=0.0675), N=2,408; significant at 5% |
+| R1 | Manne attendance **increased economics language use** by ~0.36 SD short-run (all years) | Table I col. (1), p. 868; Figure III, p. 869 | beta=0.363 (se=0.1340), N=5,261; significant at 1% |
+| R2 | Effect on economics language is larger in the **early period** (pre-1987): ~0.43 SD | Table I col. (2), p. 868 | beta=0.430 (se=0.1805), N=3,214; significant at 5% |
+| R3 | Manne attendance **raised probability of voting against labor/environmental regulators** by ~16 pp | Table I col. (5), p. 868; Figure IV, p. 872 | beta=0.162 (se=0.0675), N=2,650; significant at 5% |
 | R4 | **Conservative voting in economics cases** increased by ~27 pp short-run (long-run conservative estimate: ~4 pp) | Table I col. (9), p. 868; col. (11) discussed p. 877 | beta=0.265 (se=0.1316), N=804 short-run; beta=0.043 long-run conservative estimate |
 | R5 | **No significant effect** on conservative voting in non-economics cases | Table I cols. (13)-(16), p. 868 | beta=0.02 to 0.06 across specs, all insignificant; consistent with economics-specific channel |
 | R6 | Manne attendance **increased probability of imposing a prison sentence** by ~6.2 pp short-run | Table II col. (1), p. 869; Figure V, p. 875 | beta=0.0617 (se=0.0202), N=70,784; significant at 1% |
-| R7 | Long-run effect on **prison sentence probability**: ~3.5 pp | Table II col. (2), p. 869 | beta=0.035 (se=0.0135), N=260,516; significant at 5% |
+| R7 | Long-run effect on **prison sentence probability**: ~3.5 pp | Table II col. (2), p. 869 | beta=0.035 (se=0.0135), N=260,516; significant at 1% |
+| R8 | No detectable change in **sentence length** | Table II cols. (3)-(4), p. 869; text p. 877 | Poisson coefficients=-0.026 (se=0.1724) short run and 0.045 (se=0.0709) long run; neither statistically significant |
+| R9 | Manne attendance increased economics language in **district-court opinions** | text p. 871; Online Appendix D.3 | Positive and statistically significant; N=508,325; coefficient not reported in the article text |
+| R10 | Alternative supervised measure also shows increased **economics-topic similarity** | text p. 871; Online Appendix D.4, Figure A.20 and Table A.10 | Positive, statistically significant event-study effect; magnitude not reported in the article text |
+| R11 | No effect on **legal-scholarship style** in opinions | text p. 871; Online Appendix D.5, Figure A.21 | No effect found; coefficient not reported in the article text |
+| R12 | No effect on **statistical/quantitative language** | text p. 871; Online Appendix D.5, Figure A.22 | No effect found; coefficient not reported in the article text |
+| R13 | Regulatory-vote event study has a **negative pre-trend** three years before attendance | Figure IV, p. 872; text pp. 872-873 | Statistically significant negative coefficient at k=-3; numeric estimate is plotted but not stated in text |
+| R14 | Antitrust-vote estimates are mostly null and noisy, with one positive significant estimate | text p. 874; Online Appendix G, Table A.14 | Coefficients mostly positive and noisy; one statistically significant, no numeric coefficient reported in article text |
 
 **Overall (paper's conclusion).** The U.S. law and economics movement, disseminated through the Manne program, shifted legal outcomes across the federal judiciary. The finding that neither the legalist view (judges apply law as written) nor the attitudinalist view (judges follow party) can explain the results points to a third channel: within-judge shifts in the intellectual framework used to decide cases. The persuasion rate for conservative voting in economics cases is approximately 8%, comparable in magnitude to major media-effects estimates such as the Fox News effect on Republican voting estimated by DellaVigna and Kaplan (2007).
 
@@ -155,11 +177,21 @@ where $Z^k_{jt}$ are indicators for $k$ years before/after Manne attendance ($k 
 Specific implementations by outcome:
 
 - **Economics language (R1-R2):** Sample limited to majority-opinion authors on economics cases; circuit court level (N approx 5,261 in the short-run sample). The early-period (pre-1987) subsample isolates the heyday when classes were most oversubscribed (N=3,214).
-- **Voting against regulators (R3):** Binary outcome: whether judge voted against the government in a labor or environmental agency case. Sample: ever-attenders in the event-study window (N=2,408 short run; 4,244 long run).
+- **Voting against regulators (R3):** Binary outcome: whether judge voted against the government in a labor or environmental agency case. Sample: ever-attenders in the event-study window (N=2,650 short run; 4,244 long run).
 - **Conservative voting (R4-R5):** Binary vote direction from the Songer-Auburn database (hand-coded 5% sample of circuit court cases through 2002). Smaller N (N=804 short-run economics cases) due to the limited Songer-Auburn coverage.
 - **Criminal sentencing (R6-R7):** Binary outcome: any prison sentence given. OLS. District court cases; event-study (short-run) sample 1992-2003, N=70,784; long-run sample uses all ever-attenders across all years (1992-2011), N=260,516. Sentence length analyzed separately via Poisson regression; no significant effect found (Table II cols. (3)-(4)), consistent with limited judicial discretion over length under mandatory guidelines in this period.
 
-Observations are weighted so that judge-years count equally (reweighting by judge-year to prevent courts and years with more cases from having disproportionate influence).
+
+**Outcome-specific estimating specifications and inference.** For circuit-court outcomes (R1-R5, R10, and R13-R14), the paper estimates the baseline and event-study forms above with judge and circuit-year fixed effects; Table I reports the baseline post-Manne estimates. The circuit regressions use judge-clustered standard errors and judge-year weights. Economics-language regressions use economics-topic cases and opinion authors; regulator voting uses labor and environmental agency appeals; conservative-vote regressions use the Songer-Auburn hand-coded sample; antitrust regressions use the smaller newly coded sample. Table I's short-run and long-run columns are separate sample specifications, and the pre-1987 columns are a separate early-period split.
+
+For district-court any-prison outcomes (R6-R7), OLS applies the same post-Manne/event-time design with judge and district-year fixed effects, judge-clustered standard errors, and judge-year weights. The short-run event-study sample covers 1992-2003, N=70,784; the long-run ever-attender sample covers 1992-2011, N=260,516. The sentence-length outcome in R8 is estimated using Poisson regressions with the same fixed effects and judge-clustered standard errors; the short-run and long-run samples have N=70,482 and N=259,107, respectively. In conditional-mean form, the reported Poisson specification is: (Table II, p. 869)
+
+$$\mathbb{E}[\text{SentenceLength}_{ijct} \mid \cdot] = \exp\left(\alpha_j + \alpha_{ct} + \gamma Z^{\text{post}}_{jt} + \mathbf{X'}_{ijct}\beta\right).$$
+
+Table II notes that judge-year weights apply to its OLS regressions, not its Poisson regressions.
+
+The paper also checks the text mechanism using an alternative supervised economics-topic measure, legal-scholarship-style similarity, and statistical/quantitative language (R10-R12). These checks are reported in Online Appendix D.4-D.5 and summarized in the main text; the article text does not state their coefficient magnitudes. The regulatory pre-trend in R13 is the event-study estimate at three years before attendance. The article reports it as significantly negative in the first three specifications, notes it is absent with peer-share controls, and says the Rambachan-Roth test cannot rule out substantial nonlinear pre-trends (pp. 872-873; Online Appendix Figures A.23-A.24). The antitrust result (R14) is based on the smaller, separately coded antitrust sample and is summarized in the main text as noisy and mostly null (p. 874).
+Judge-year weighting is used in OLS specifications as described above; Table II reports unweighted Poisson regressions for sentence length.
 
 ## Datasets used
 
@@ -171,7 +203,7 @@ Observations are weighted so that judge-years count equally (reweighting by judg
 | Manne Program attendance records | Hand-compiled from Butler (1999) and FOIA requests to the LEC at George Mason University; attendance year for each of ~840 ever-attending federal judges, 1976-1998 | No page yet |
 | Songer-Auburn database | Hand-coded 5% sample of circuit court cases through 2002; liberal/conservative/neutral vote coding for 5% of cases | No page yet |
 
-Sample scope: circuit courts 1970-2005 (economics language and regulatory voting); district courts 1992-2011 (criminal sentencing; event-study window 1992-2003). Judge-year is the effective unit of observation. Observations weighted to treat judge-years equally.
+Sample scope: circuit courts 1970-2005 (economics language and regulatory voting); district courts 1992-2011 (criminal sentencing; event-study window 1992-2003). Judge-year is the effective unit of observation. OLS observations are weighted to treat judge-years equally; Table II Poisson regressions are unweighted.
 
 ## When to read the full paper
 

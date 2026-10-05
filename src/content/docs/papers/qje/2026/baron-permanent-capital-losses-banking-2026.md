@@ -6,7 +6,7 @@ description: >-
   by asset write-downs rather than temporary price dislocations, and that forceful liquidity
   interventions restore only a transient fraction of bank value. Historical government
   recapitalizations have been too small, delayed, and narrow to restore banking sector
-  capitalization. The Quarterly Journal of Economics, 2026, paywalled. Eight core results
+  capitalization. The Quarterly Journal of Economics, 2026, paywalled. Fifteen core results
   with source locators, datasets used, and empirical specifications.
 sidebar:
   label: Baron et al. 2026
@@ -37,13 +37,19 @@ paper:
     - bank equity abnormal returns at banking crisis onset
     - long-run bank dividends and earnings per share
     - bank market capitalization relative to precrisis level
-  outcomeClass: [security-returns, firm-real-outcomes]
+    - nonfinancial equity abnormal returns after banking crises
+    - five-year bank outcomes by crisis-onset market-to-book ratio
+    - bank equity returns after credit-boom and non-credit-boom crises
+    - bank trading losses by securities-to-assets ratio
+    - bank and nonfinancial equity returns by peak nonperforming loan rates
+    - bank equity returns and capitalization in panic-only crises
+  outcomeClass: [security-returns, firm-real-outcomes, credit-supply]
   license: "© 2025 The Author(s). Published by Oxford University Press on behalf of President and Fellows of Harvard College. All rights reserved."
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (Oxford Academic publisher site; Crossref license is CHORUS standard publication model, not open access; 2026-06-28)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 15
   citedByCount: 0
   methods:
     role: applies-method
@@ -51,24 +57,31 @@ paper:
     buildsFrom: [driscoll-kraay-regression, event-study]
     identification: descriptive
   contributionType: [new-data, new-fact]
-  mechanisms: [intermediary-constraint, fire-sale-externality]
+  mechanisms: [intermediary-constraint, fire-sale-externality, liquidity, asset-quality-deterioration]
   scope:
     region: global (46 economies)
     assetClass: bank equities and nonfinancial equities
     period: 1870-01..2019-12
     frequency: mixed
-    dataType: [market, accounting, administrative]
+    dataType: [market, accounting, other]
     granularity: [aggregate, firm]
-    n: "76 bank equity crises across 46 economies 1870-2019; individual-bank panel for 10 largest banks in 17 economies, N approx. 3,835 country-years in main returns regressions"
+    n: "76 bank equity crises across 46 economies, 1870-2019; main country-level returns regressions have 3,835 observations at h=1 (falling to 3,370 at h=5); individual-bank analyses cover the 10 largest banks in 17 economies"
   findings:
-    - { ref: R1, outcome: bank equity abnormal returns, metric: car, value: "-68 log points (banks) and -36 log points (nonfinancials) at crisis onset; bank cumulative abnormal return at t+3 = -0.263*** (s.e. 0.047), at t+5 = -0.043 (s.e. 0.079)", direction: negative }
+    - { ref: R1, outcome: bank equity abnormal returns, metric: car, value: "-68 log points (banks) and -36 log points (nonfinancials) at crisis onset; bank cumulative abnormal return at t+3 = -0.263*** (s.e. 0.091), at t+5 = -0.043 (s.e. 0.079)", direction: negative }
     - { ref: R2, outcome: "long-run bank earnings and dividends per share", metric: coefficient, value: "country-level earnings coefficient = 1.750*** (s.e. 0.408); dividends = 2.483*** (s.e. 0.545); bank-level earnings = 0.981*** (s.e. 0.218), with crisis FEs = 0.792*** (s.e. 0.213)", direction: positive, vsBenchmark: "near-zero coefficient predicted by temporary-loss (discount-rate) view" }
     - { ref: R3, outcome: bank equity cumulative return from crisis trough, metric: car, value: "peak bounce-back from trough = ~30% of initial decline; gains partially reverse after ~12 months; no recovery to precrisis level by t+5", direction: mixed }
-    - { ref: R4, outcome: cumulative bank book income components, metric: coefficient, value: "cumulative write-downs by t+5 = -0.338*** of precrisis book equity; write-downs account for ~100% of market-value losses by t+5; trading income = small fraction", direction: negative }
-    - { ref: R5, outcome: bank equity unlevered cumulative return vs peak NPL rate, metric: r-squared, value: "adj. R2 = 0.232 (full sample); adj. R2 = 0.529 excluding USA 1990 and SWE 1991 outliers; relationship statistically significant", direction: negative }
+    - { ref: R4, outcome: cumulative bank book income components, metric: coefficient, value: "Table IV cumulative write-downs by t+5 = -0.413*** (Panel A) and -0.460*** (Panel B) of precrisis book equity; reported write-down/market-equity-loss ratios are 122.2% and 124.7%; trading income is a small fraction overall", direction: negative }
+    - { ref: R5, outcome: bank equity unlevered cumulative return vs peak NPL rate, metric: r-squared, value: "adj. R2 = 0.232 (full sample); adj. R2 = 0.529 excluding USA 1990 and SWE 1991 outliers; the negative relationship is statistically significant", direction: negative }
     - { ref: R6, outcome: bank equity after liquidity-based intervention, metric: car, value: "within 2 months equity continues to decline; bank equity then rises ~20%; gain reverses between months 12 and 36; no persistent increase in bank capitalization", direction: mixed }
-    - { ref: R7, outcome: government recapitalization size relative to bank losses, metric: level, value: "mean = 24% of precrisis book equity; 43% of market-value losses; 65% of programs narrow (few banks targeted)", direction: none }
+    - { ref: R7, outcome: government recapitalization size relative to bank losses, metric: level, value: "mean = 24% of precrisis book equity; 43% of market-value losses; 65% of programs narrow (few banks targeted); median delay = 4 months from panic start and 18 months from bank-equity decline", direction: positive }
     - { ref: R8, outcome: probability of banking crisis aversion by early liquidity intervention, metric: probability, value: "~50% of 183 incipient panics without prior equity decline averted; 75% of bank equity crises show equity decline strictly before the panic; essentially 0 averted once large equity decline has occurred", direction: positive, vsBenchmark: "essentially no bank equity crises averted after large equity decline already occurs" }
+    - { ref: R9, outcome: nonfinancial equity abnormal returns after banking crises, metric: car, value: "At t+5, cumulative abnormal excess return = 0.313*** (s.e. 0.081); cumulative abnormal real return = 0.321*** (s.e. 0.080)", direction: positive, vsBenchmark: nonfinancial equities recover toward the precrisis trend while bank equity remains depressed }
+    - { ref: R10, outcome: five-year bank outcomes by crisis-onset market-to-book ratio, metric: coefficient, value: "Most distressed banks (M/B < 0.2) vs healthiest (M/B > 0.8): five-year real credit growth is 26 log points lower and income/precrisis book equity is 87 percentage points lower; future returns, book equity growth, and net income decline monotonically across M/B bins", direction: negative, vsBenchmark: healthiest M/B bin (>0.8) }
+    - { ref: R11, outcome: bank equity returns after credit-boom and non-credit-boom crises, metric: coefficient, value: "Crises preceded by an above-median credit boom have an additional -60 log-point abnormal bank equity return in year t+3, persisting through t+5; crises without a preceding credit boom earn returns near the unconditional country average", direction: negative, vsBenchmark: crises without a preceding credit boom }
+    - { ref: R12, outcome: bank trading losses by securities-to-assets ratio, metric: pp-effect, value: "At h=0, cumulative trading income/book income is 69.0% for the top securities/assets quartile vs 23.1% for the bottom quartile; difference = 45.9** percentage points. At h=5, shares are 9.8% vs 2.1%", direction: positive, vsBenchmark: bottom securities/assets quartile }
+    - { ref: R13, outcome: nonfinancial equity returns by peak NPL rates, metric: correlation, value: "No association between peak NPL rates and nonfinancial equity returns is reported; the corresponding association is present for bank returns", direction: none, vsBenchmark: bank equity returns }
+    - { ref: R14, outcome: bank equity returns and capitalization in panic-only crises, metric: index-growth, value: "85 panic-only crises; bank equity returns recover to precrisis levels by year five, liquidity interventions coincide with full equity rebounds, and dividend declines are small and temporary", direction: positive, vsBenchmark: "bank equity crises, which show persistent losses" }
+    - { ref: R15, outcome: bank equity abnormal returns at banking crisis onset, metric: car, value: "Using real total returns instead of excess returns, cumulative abnormal bank returns are -0.241** (s.e. 0.111) at t+3 and -0.138* (s.e. 0.082) at t+4", direction: negative, vsBenchmark: baseline excess-return specification }
   resultType: overturns
   relatesTo:
     - { cite: "Baron, Verner & Xiong (2021)", doi: '10.1093/qje/qjaa034', relation: builds-on, note: "BVX country-level bank and nonfinancial equity index data; bank equity crisis definition refined from BVX's definition" }
@@ -87,6 +100,8 @@ paper:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-28, role: extracted, note: "Full text read (pp. 667-732 plus appendix references); eight results extracted. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-28, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: JEL code G12 added (G01, G12, G15, G21 per p. 667) and R6 timing corrected (within 2 months equity continues to decline per p. 712, not rise; ~20% rise comes after that initial decline)." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-28, role: verified, note: "FLAG 1: Italy topic removed; paper is a 46-economy global study, Italy appears only as one of many country episodes in Table V (pp. 716-721). FLAG 2: R7 metric corrected from probability to level; the three values (24% book equity, 43% losses, 65% narrow) are descriptive summary statistics confirmed at Table V p. 721 and prose p. 722, not predicted probabilities." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and appended seven omitted main-text findings, added the asset-quality mechanism and its staged vocabulary term, and completed formal specification coverage. These additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; pass. Corrected R1 t+3 standard error, R4 write-down magnitudes, R7 delay medians, equation (3) error-term index, R5 metric slug, and sample/classification metadata. Review pass (2026-10-04): labeled the probit equation as a reconstruction and set R7 direction to positive." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/qje/qjaf052", checked: 2026-06-28, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model, delay-in-days=0, start=2025-11-04; CHORUS standard publication model (paywalled, not CC-licensed)" }
 ---
@@ -121,14 +136,21 @@ point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Bank equity has large, permanent abnormal declines at crisis onset; no elevated returns in years t+1 to t+5** | Figure I, p. 685; Table II Panel A, p. 687 | Average abnormal return: -68 log points (banks), -36 log points (nonfinancials) at crisis onset; bank cumulative abnormal return at t+3 = -0.263\*\*\* (s.e. 0.047); at t+5 = -0.043 (s.e. 0.079); nonfinancials at t+5 = +0.313\*\*\* (s.e. 0.081) |
+| R1 | **Bank equity has large, permanent abnormal declines at crisis onset; no elevated returns in years t+1 to t+5** | Figure I, p. 685; Table II Panel A, p. 687 | Average abnormal return: -68 log points (banks), -36 log points (nonfinancials) at crisis onset; bank cumulative abnormal return at t+3 = -0.263\*\*\* (s.e. 0.091); at t+5 = -0.043 (s.e. 0.079); nonfinancials at t+5 = +0.313\*\*\* (s.e. 0.081) |
 | R2 | **Initial bank equity declines predict long-run earnings and dividend declines** (earnings-driven, not discount-rate-driven) | Table III, p. 695 | Country-level: coeff. on 5-yr log-change in earnings per share = 1.750\*\*\* (s.e. 0.408); dividends = 2.483\*\*\* (s.e. 0.545); bank-level: earnings = 0.981\*\*\* (s.e. 0.218); with crisis FEs = 0.792\*\*\* (s.e. 0.213) |
 | R3 | **Even with perfect trough timing, bounce-back averages only ~30% of initial decline; gains reverse after ~12 months** | Figure II, pp. 691-692 | Peak bounce-back from trough = ~30% of initial bank equity decline; gains begin reversing after approximately one year; banks do not recover to precrisis levels by t+5 |
-| R4 | **Write-downs account for nearly all bank losses; trading losses from asset sales during panics are small on average** | Figure IV, Table IV, pp. 703-706 | Cumul. write-downs by t+5 = -0.338\*\*\* of precrisis book equity; write-downs account for approx. 100% of market-value losses by t+5; trading income = small fraction; banks with large securities portfolios show larger immediate trading losses |
-| R5 | **Countries with larger bank equity declines exhibit higher subsequent NPL rates** (consistent with asset quality as primary mechanism) | Figure V, p. 709 | Adj. R² = 0.232 (full sample); adj. R² = 0.529 excluding USA 1990 and SWE 1991 outliers; relationship statistically significant across advanced economies |
+| R4 | **Write-downs account for nearly all bank losses; trading losses from asset sales during panics are small on average** | Figure IV, Table IV, pp. 703-706 | Table IV cumulative write-downs by t+5 = -0.413\*\*\* (Panel A) and -0.460\*\*\* (Panel B) of precrisis book equity; reported write-down/market-equity-loss ratios are 122.2% and 124.7%; trading income is a small fraction overall; banks with large securities portfolios show larger immediate trading losses |
+| R5 | **Countries with larger bank equity declines exhibit higher subsequent NPL rates** (consistent with asset quality as primary mechanism) | Figure V, p. 709; Online Appendix Table A.16 | Adj. R² = 0.232 (full sample); adj. R² = 0.529 excluding USA 1990 and SWE 1991 outliers; the negative relationship is statistically significant |
 | R6 | **Liquidity-based interventions yield only a transient ~20% bank equity rebound that reverses by months 12-36** | Figure VI, pp. 711-712 | Within two months of intervention, bank equity continues to decline; bank equity then rises by about ~20%, but this gain is short-lived; gains reverse between months 12 and 36; no persistent or large increase in bank capitalization from liquidity support or liability guarantees |
-| R7 | **Government recapitalizations are small (~24% of book equity, ~43% of losses), delayed, and narrow** | Table V, Figure VII, pp. 715-722 | Mean recap size: ~24% of precrisis book equity; ~43% of market-value losses; 65% of programs narrow (few banks targeted); median delay ~8-9 months from panic start; bank market cap remains persistently lower 5 years after crisis |
+| R7 | **Government recapitalizations are small (~24% of book equity, ~43% of losses), delayed, and narrow** | Table V, Figure VII, pp. 715-722 | Mean recap size: ~24% of precrisis book equity; ~43% of market-value losses; 65% of programs narrow (few banks targeted); median delay is 4 months from panic start and 18 months from bank-equity decline; bank market cap remains persistently lower 5 years after crisis |
 | R8 | **Early liquidity interventions can avert incipient panics only before large equity declines occur**; 75% of bank equity crises feature equity decline strictly preceding the panic | Section VI, pp. 725-728 | Of 183 incipient liquidity shocks without prior bank equity decline: ~92 (~50%) averted by early intervention; of 76 bank equity crises: 57 (75%) show equity decline before any panic; essentially no bank equity crises averted by liquidity intervention after large equity decline has occurred |
+| R9 | **Nonfinancial equity recovers after bank equity crises, unlike bank equity** | Table II, pp. 687-688; text p. 686 | At t+5, cumulative abnormal excess return = 0.313\*\*\* (s.e. 0.081); cumulative abnormal real return = 0.321\*\*\* (s.e. 0.080); the paper describes recovery toward the precrisis trend |
+| R10 | **Crisis-onset market-to-book ratios identify banks with persistently worse outcomes** | Text p. 698, discussion of Online Appendix Table A.10 | Relative to healthiest banks (M/B > 0.8), the most distressed banks (M/B < 0.2) have 26 log points less real credit growth and income/precrisis book equity 87 percentage points lower over five years; returns, book equity growth, and net income decline monotonically across bins |
+| R11 | **Bank equity underperformance is concentrated after credit-boom crises** | Text pp. 699-700, discussion of Online Appendix Table A.14 | A preceding above-median credit boom predicts an additional 60 log-point abnormal decline in bank equity returns in year t+3, persisting through t+5; without a preceding boom returns are near the country average |
+| R12 | **Banks with high securities holdings incur greater immediate trading losses** | Table IV, p. 706; Figure IV, p. 703 | At h=0, cumulative trading income/book income is 69.0% for top-quartile securities/assets banks vs 23.1% for bottom-quartile banks, a 45.9\*\* percentage-point difference; by h=5 the shares are 9.8% vs 2.1% |
+| R13 | **The asset-quality relation is bank-specific, not a general crisis-return pattern** | Text p. 710, discussion of Online Appendix Figure A.25 | Peak NPL rates are associated with bank equity losses, while the paper reports no association between NPL rates and nonfinancial equity returns |
+| R14 | **Panic-only crises exhibit temporary losses and a stronger liquidity-intervention rebound** | Text pp. 724-725, discussion of Online Appendix Figures A.28-A.30 | 85 panic-only crises; bank equity returns recover to precrisis levels by year five, equity prices fully rebound around liquidity interventions, dividend declines are small and temporary, and output/credit declines are shallower than in bank equity crises |
+| R15 | **Bank return findings persist with real-return measurement** | Table II, p. 688 | Cumulative abnormal bank real return is -0.241\*\* (s.e. 0.111) at t+3 and -0.138\* (s.e. 0.082) at t+4, versus the baseline excess-return specification |
 
 **Overall (paper's conclusion).** Bank equity crises produce permanent capital losses driven by
 deteriorating asset quality and eventual write-downs, not temporary price dislocations. Forceful
@@ -206,6 +228,15 @@ $$
 \Delta y_{i,b,t-1,t+5} = \alpha_b + \beta r_{i,b,t-1,t} + \varepsilon_{i,b,t} \tag{2b}
 $$
 
+The even-numbered Panel B columns add crisis-episode fixed effects, giving the
+additional estimating specification reported in Table III (p. 695):
+
+$$
+\Delta y_{i,b,t-1,t+5} = \alpha_b + \lambda_c + \beta r_{i,b,t-1,t} + \varepsilon_{i,b,t}
+$$
+
+Here $$\lambda_c$$ is a fixed effect for crisis episode $$c$$.
+
 A coefficient $$\beta \approx 1$$ means a 1 log-point initial equity decline predicts an
 approximately equal 1 log-point long-run decline in earnings or dividends, supporting the
 permanent-loss view. Standard errors are Huber-White at the country level (Panel A) and
@@ -215,7 +246,7 @@ clustered by crisis episode at the bank level (Panel B), reported in Table III (
 by their market-to-book (M/B) ratio at crisis onset to assess cross-bank heterogeneity:
 
 $$
-\Delta y_{i,b,t,t+5} = \alpha_i + \sum_k \beta_k \left(\frac{M}{B}\right)_{(\text{lower}_k,\, \text{upper}_k),\, i,b,t} + \varepsilon_{i,b,t} \tag{3}
+\Delta y_{i,b,t,t+5} = \alpha_i + \sum_k \beta_k \mathbf{1}\!\left\{\left(\frac{M}{B}\right)_{i,b,t} \in (\text{lower}_k,\,\text{upper}_k)\right\} + \varepsilon_{i,t} \tag{3}
 $$
 
 The five bins are M/B ratios 0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8, and above 0.8. Country
@@ -263,7 +294,16 @@ immediate trading losses during panics.
 total return of the bank equity index (from $$t-1$$ to $$t+5$$) against the peak NPL rate
 (maximum from $$t$$ to $$t+5$$) across crises in advanced JST economies with available NPL
 data. Unlevered returns (returns divided by banking sector book leverage) measure the implied
-market value of asset losses. A line of best fit with adjusted R² is shown.
+market value of asset losses. The plotted OLS fit is:
+
+$$
+\text{UnleveredReturn}_{j,t-1,t+5} = a + b\,\text{PeakNPL}_{j,t,t+5} + u_j
+$$
+
+where $$j$$ indexes crisis episodes. There are no fixed effects; the main-text figure reports
+the adjusted R² and the article refers to Online Appendix Table A.16 for significance tests.
+The main-text PDF does not state a standard-error treatment for that appendix regression.
+The sample is the available bank equity crises in advanced JST economies with NPL data.
 
 **Liquidity intervention event study (R6).** Using monthly BVX equity index returns, equation
 (1) is re-estimated with the event month $$t$$ set to the first month of extraordinary central
@@ -275,7 +315,35 @@ with Driscoll-Kraay standard errors (Figure VI, p. 711).
 events (Online Appendix Table A.17) estimates predictors of crisis aversion using four
 binary variables: (i) small bank equity decline preceding the panic (below 30%), (ii) early
 liquidity intervention within one month of the panic, (iii) outbreak of war, and (iv) run
-initially focused on a single institution (Online Appendix Table A.18).
+initially focused on a single institution (Online Appendix Table A.18). The probit described in Section VI.B, written out from the text, is unnumbered:
+
+$$
+\Pr(\text{Averted}_j=1\mid X_j) = \Phi\!\left(\gamma_0 + \gamma_1\text{SmallBEDecline}_j + \gamma_2\text{EarlyLiqInterv}_j + \gamma_3\text{War}_j + \gamma_4\text{SingleBank}_j\right)
+$$
+
+The article describes a probit and the four indicators but does not report fixed effects or the
+standard-error treatment in the main-text PDF. The sample is the full historical event sample
+listed in Online Appendix Table A.17.
+
+**Distressed-bank heterogeneity (R10).** Equation (3) is estimated on bank-year observations
+at crisis onset for the 10 largest banks in each country. Its dependent variables are five-year
+changes in returns, real credit growth, real book equity growth, net income, and write-downs;
+the regressions include country fixed effects. The main text reports the monotonic pattern and
+the credit-growth and income magnitudes on p. 698, while Online Appendix Table A.10 contains
+the full estimates. The main-text PDF does not specify that table's standard-error treatment.
+
+**Credit-boom heterogeneity (R11).** Online Appendix Figure A.20 and Table A.14 split bank
+equity crises by whether the precrisis credit-to-GDP increase is above the sample median. The
+analysis re-estimates the bank return specification in equation (1) by subsample. No additional
+fixed effects are introduced beyond the country effects in equation (1); the main-text PDF does
+not state the appendix standard-error treatment. The return contrast is reported in the text on
+pp. 699-700.
+
+**Panic-only comparison (R14).** Online Appendix Figures A.28-A.30 contrast the historical
+sample of 85 panic-only crises with bank equity crises using event-time bank returns, dividends,
+liquidity-intervention returns, real GDP, and bank credit. The figures compare group trajectories;
+the main-text PDF does not report a regression specification, fixed effects, or standard errors for
+these comparisons. The outcome patterns are summarized in the text on pp. 724-725.
 
 ## Datasets used
 
@@ -312,8 +380,9 @@ Read the original if you are:
 ## Attribution and rights
 
 Source: peer-reviewed, *The Quarterly Journal of Economics* (2026), pp. 667-732. This
-distillation was extracted by an LLM on 2026-06-28 and is **not human-verified or
-independently reproduced**. The work is paywalled; reproduction is extract-only.
+distillation was extracted by an LLM on 2026-10-04 and verified against the source PDF on
+2026-10-04; it has not been independently reproduced. The work is paywalled; reproduction
+is extract-only.
 
 > Baron, Matthew, Luc Laeven, Julien Pénasse, and Yevhenii Usenko. "Permanent Capital
 > Losses after Banking Crises." *The Quarterly Journal of Economics* (2026): 667-732.

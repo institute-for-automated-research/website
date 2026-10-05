@@ -7,7 +7,7 @@ description: >-
   not demand. Panel evidence from 37 emerging economies and case studies of
   Canada, Chile, and three large Latin American devaluations confirm significant
   export responses to monetary-policy-induced exchange rate changes. The Quarterly
-  Journal of Economics 2026, CC BY 4.0. Seven core results with source locators,
+  Journal of Economics 2026, CC BY 4.0. Eighteen core results with source locators,
   datasets used, the model, and the method.
 sidebar:
   label: McLeay-Tenreyro 2026
@@ -39,7 +39,7 @@ paper:
   access: open
   machineAccess: "open-access PDF via Oxford Academic (doi.org redirect confirmed 2026-06-28)"
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
-  resultsCount: 7
+  resultsCount: 18
   citedByCount: 3
 
   methods:
@@ -49,7 +49,7 @@ paper:
     buildsFrom: [local-projections, panel-regression]
     identification: instrument
   contributionType: [new-theory, new-fact]
-  mechanisms: [dollar-pricing-wedge]
+  mechanisms: [dollar-pricing-wedge, export-supply-channel]
   scope:
     region: global
     period: 1981-01..2023-12
@@ -65,6 +65,17 @@ paper:
     - { ref: R5, outcome: export quantities (Canada energy and chemicals), metric: pp-effect, value: "energy peak -1.5% after 3 months; chemicals -1% after 7 months (1 pp policy rate increase)", direction: negative, vsBenchmark: "MCP model broadly replicates scale and timing (Figure XI, p. 656)" }
     - { ref: R6, outcome: export quantities (Chile mining and manufacturing), metric: pp-effect, value: "mining -10% on impact; manufacturing avg -1.25% over first 6 months (1 pp tightening)", direction: negative, vsBenchmark: "MCP model calibrated to Chile broadly matches (Figure XII, p. 657)" }
     - { ref: R7, outcome: dollar export price pass-through, metric: pp-effect, value: "MCP: -0.06%; PCP: -0.34%; DCP: -0.07% (year-1 avg, 100 bps easing)", direction: negative, vsBenchmark: "MCP low pass-through matches DCP but arises from equilibrium not stickiness (Table III, p. 639)" }
+    - { ref: R8, outcome: share of homogeneous goods in exports, metric: probability, value: "Developing economies: above 70% average; emerging economies: around 60%; advanced economies: around 35% (1985-2023)", direction: positive, vsBenchmark: "Homogeneous-goods shares are higher in developing and emerging economies than advanced economies (Figure IV, p. 617)" }
+    - { ref: R9, outcome: export quantities (mixed producer-currency and dollar-pricing model), metric: pp-effect, value: "Impact increase approximately 0.9% with 80% PCP exporters and 1.4% with 20% PCP exporters; both cases decay toward zero over about 10 quarters", direction: positive, vsBenchmark: "Aggregate exports expand with either 20% or 80% differentiated PCP-sector share (Figure VII, p. 641)" }
+    - { ref: R10, outcome: export quantities (model under alternative supply capacity), metric: pp-effect, value: "Impact increase approximately 4.8% at returns to scale 1, 1.3% at 0.85, and below 1% at 0.72", direction: positive, vsBenchmark: "The export expansion is smaller as decreasing returns make marginal cost rise more steeply (Figure VIII, p. 643)" }
+    - { ref: R11, outcome: export quantities (homogeneous goods in simulated-data VAR), metric: pp-effect, value: "Estimated dynamic responses are imprecise; zero is within the 68% confidence bands for homogeneous exports", direction: none, vsBenchmark: "A one-lag VAR on 1,000 simulated periods recovers impact effects less reliably at later horizons (Figure IX, p. 648; text p. 648)" }
+    - { ref: R12, outcome: export quantities relative to U.S. exports, metric: level, value: "Six-month exchange-rate increases after devaluation: Argentina 130%, Brazil 40%, Mexico 50%; normalized exports visibly shift to faster growth after the events, with no coefficient reported", direction: positive, vsBenchmark: "Normalized exports were falling or growing slowly beforehand; Figure XIII controls for global trade trends using U.S. exports (Figure XIII, p. 659; text p. 660)" }
+    - { ref: R13, outcome: differentiated auto exports, metric: pp-effect, value: "Auto exports show a statistically significant increase after an appreciation; no point magnitude is reported in the main text", direction: positive, vsBenchmark: "This exception is not explained by either sticky-price DCP fit or steep supply curves (text p. 658 n. 30; Online Appendix Figure A.14)" }
+    - { ref: R14, outcome: export quantities (flexible dollar-pricing goods), metric: pp-effect, value: "Price durations up to two quarters have little qualitative effect; durations of three quarters or longer significantly curtail the export response", direction: positive, vsBenchmark: "Longer rigidity weakens the response relative to fully flexible prices (text pp. 641-642; Online Appendix Figure A.2)" }
+    - { ref: R15, outcome: aggregate activity (37 emerging and developing economies), metric: pp-effect, value: "A 1 percentage point monetary tightening lowers CPI and industrial production in the panel impulse responses; the paper reports the responses graphically, without text point estimates", direction: negative, vsBenchmark: "Responses use a 1 pp policy-rate normalization (Figure X, p. 652; text p. 651)" }
+    - { ref: R16, outcome: Canadian CPI and GDP, metric: pp-effect, value: "Both CPI and GDP fall significantly after a 1 percentage point monetary tightening; no point magnitudes are reported in the main text", direction: negative, vsBenchmark: "Country-specific six-lag VAR estimates, January 1981-October 2015 (Figure XI, p. 656; text p. 656)" }
+    - { ref: R17, outcome: Chilean non-mining activity, metric: pp-effect, value: "Non-mining activity falls gradually after a 1 percentage point monetary shock; no point magnitude is reported in the main text", direction: negative, vsBenchmark: "Country-specific four-lag VAR estimates, April 2003-July 2017 (Figure XII, p. 657; text p. 658)" }
+    - { ref: R18, outcome: Chilean CPI, metric: pp-effect, value: "CPI falls, but the response is not statistically significant; no point magnitude is reported in the main text", direction: none, vsBenchmark: "Four-lag VAR estimate (Figure XII, p. 657; text p. 658)" }
   resultType: overturns
   relatesTo:
     - { cite: 'Gopinath et al. (2020)', doi: '10.1257/aer.20171201', relation: contradicts, note: 'their DCP model predicts muted export response (0.14%); MCP restores strong response (0.95%)' }
@@ -82,6 +93,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-28, role: extracted, note: "Full PDF read (pp. 605-666); seven results extracted. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-28, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: JEL codes corrected (E52/F41/F31 -> E31/E52/E58/F41/Q02/Q30 per PDF p. 605), Canada VAR lag count corrected (one lag -> six lags per Figure XI caption p. 656), colorful adjective 'very large' removed from R6 row title." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Added eleven core result rows (R8-R18), corresponding findings, the export-supply mechanism, and the missing numbered main-text equations and estimating specification inventory from the PDF. Additions are not human-verified or reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 18 core results, equations, specifications, classifications, findings, prose, and frontmatter re-checked against the source PDF; no corrections needed. Table locators and relatesTo locatability checks pass. Review pass (2026-10-04): corrected Eqs. (11) and (37) to match the source PDF." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1093/qje/qjaf043", checked: 2026-06-28, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=vor, URL=https://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-09-22" }
   rightsSignalConflict: false
@@ -106,6 +119,17 @@ Magnitudes as reported; `\*\*\*` = 1%. Locators point to the source PDF.
 | R5 | Canada: monetary tightening causes large export falls consistent with MCP predictions | Figure XI, p. 656 | Energy exports peak -1.5% after 3 months; chemicals -1% after 7 months per 1 pp policy rate increase |
 | R6 | Chile: monetary tightening causes large mining export falls consistent with MCP | Figure XII, p. 657 | Mining exports fall ~10% on impact; manufacturing exports avg -1.25% first 6 months per 1 pp tightening |
 | R7 | MCP dollar export price pass-through is small (-0.06%), matching DCP, but arises from equilibrium not stickiness | Table III, p. 639 | Year-1 avg: MCP -0.06%, PCP -0.34%, DCP -0.07% (100 bps easing) |
+| R8 | Homogeneous goods make up a larger export share in developing and emerging economies | Figure IV, p. 617; text p. 617 | 1985-2023 averages: developing economies above 70%, emerging economies around 60%, advanced economies around 35% |
+| R9 | Mixed dollar and producer-currency pricing still yields an export expansion at both tested exporter shares | Figure VII, p. 641 | Impact export quantity response is approximately 0.9% with an 80% PCP export sector and 1.4% with a 20% PCP sector; both responses unwind over about 10 quarters |
+| R10 | Export supply capacity controls how much exports expand after a depreciation | Figure VIII, p. 643; text pp. 643-644 | Impact export quantity response is approximately 4.8% at returns to scale 1, 1.3% at 0.85, and below 1% at 0.72 |
+| R11 | A hybrid VAR can recover impact effects on simulated data, but dynamic estimates for homogeneous exports are imprecise | Figure IX, p. 648; text p. 648 | VAR estimated on 1,000 simulated periods; zero lies within the 68% confidence bands for homogeneous-good exports |
+| R12 | Exports visibly accelerate relative to U.S. exports after large Latin American devaluations | Figure XIII, p. 659; text pp. 659-660 | Six-month exchange-rate increase: Argentina 130%, Brazil 40%, Mexico 50%; normalized exports turn to faster growth after the devaluations, with no coefficient reported |
+| R13 | Auto exports are a counterexample: they rise significantly after an appreciation | Text p. 658 n. 30; Online Appendix Figure A.14 | Statistically significant positive response; the main text reports no point magnitude |
+| R14 | Longer dollar-price rigidity curtails the export response | Text pp. 641-642; Online Appendix Figure A.2 | Durations up to two quarters have little qualitative effect; durations of three quarters or longer significantly reduce the response |
+| R15 | Panel estimates also show CPI and industrial production fall after monetary tightening | Figure X, p. 652; text p. 651 | Both responses are plotted for a normalized 1 percentage point policy-rate increase; no text point estimates are reported |
+| R16 | Canadian CPI and GDP fall significantly after monetary tightening | Figure XI, p. 656; text p. 656 | Both outcomes decline; no point magnitudes are reported in the main text |
+| R17 | Chilean non-mining activity falls gradually after monetary tightening | Figure XII, p. 657; text p. 658 | Gradual decline; no point magnitude is reported in the main text |
+| R18 | The Chilean CPI response is not statistically significant | Figure XII, p. 657; text p. 658 | CPI falls, but the response is statistically insignificant |
 
 **Overall (paper's conclusion).** The pass-through of monetary policy via the export channel is strong even when goods are priced in dollars, as long as dollar-pricing exporters face competitive markets with flexible prices. The standard interpretation of low exchange rate pass-through to dollar export prices as evidence of nominal rigidities is misleading: in the MCP model, low pass-through is an equilibrium result of high demand elasticity and rising marginal costs, not a friction. Monetary policy and the exchange rate remain effective stabilization tools in a world of dollar dominance. The policy implications of dollar pricing may need to be reassessed.
 
@@ -167,6 +191,156 @@ where $$\rho$$ is policy smoothing, $$\phi_\pi > 1$$ is the inflation response c
 
 **The central finding.** The depreciation lowers domestic dollar costs (wages expressed in dollars fall). For a monopolistic sticky-price DCP exporter, the price cannot adjust so markups rise but quantities stay flat. For a competitive flexible-price exporter with high $$\eta^g$$, the optimal reset price falls only slightly (elastic demand means profits respond more to volume than to margin). The quantity adjustment is large, continuing until rising marginal cost from expanding production offsets the improved profitability. The supply constraint parameter $$v_g$$ determines the size of the export response: under constant returns ($$v_g = 1$$), the quantity response is very large; under decreasing returns ($$v_g = 0.85$$), it is still substantially larger than in the DCP model. The MCP model nests sticky-price DCP (set $$\eta^g = \sigma$$, $$\delta^g_p = 0.75$$) and PCP (set $$\delta^g_p = 0$$, $$\eta^g = \sigma$$) as special cases.
 
+### Remaining numbered model equations
+
+The numbered system also defines the household demand, asset-market, firm-pricing,
+aggregation, and calibrated small-open-economy relationships below. Equations
+(1)-(3), (15), (21), (24), and (25) appear above.
+
+Consumption demand and price indices, equations (4)-(7), pp. 623-624:
+
+$$
+\text{C}_{j,t}(g)=\left(\frac{\text{P}_{j,t}(g)}{\text{P}_{j,t}}\right)^{-\sigma}\text{C}_{j,t} \tag{4}
+$$
+
+$$
+\text{C}^{g}_{ij,t}(\omega)=\frac{\gamma^{g}_{ij}}{|\Omega^{g}_{i}|}\left(\frac{\text{P}^{g}_{ij,t}(\omega)}{\text{P}_{j,t}(g)}\right)^{-\eta_g}\text{C}_{j,t}(g) \tag{5}
+$$
+
+$$
+\text{P}_{j,t}(g)=\left(\sum_i\frac{\gamma^{g}_{ij}}{|\Omega^{g}_{i}|}\int_{\omega\in\Omega^{g}_{i}}\text{P}^{g}_{ij,t}(\omega)^{1-\eta_g}d\omega\right)^{\frac{1}{1-\eta_g}} \tag{6}
+$$
+
+$$
+\text{P}_{j,t}=\left(\int_0^1\text{P}_{j,t}(g)^{1-\sigma}dg\right)^{\frac{1}{1-\sigma}} \tag{7}
+$$
+
+Labor aggregation and labor demand, equations (8)-(9), p. 625:
+
+$$
+\text{L}_{j,t}=\left(\int_0^1\text{N}_{j,t}(h)^{\frac{\vartheta-1}{\vartheta}}dh\right)^{\frac{\vartheta}{\vartheta-1}} \tag{8}
+$$
+
+$$
+\text{N}_{j,t}(h)=\left(\frac{\text{W}_{j,t}(h)}{\text{W}_{j,t}}\right)^{-\vartheta}\text{L}_{j,t} \tag{9}
+$$
+
+The household budget constraint and risk-premium rule are equations (10)-(11),
+p. 625:
+
+$$
+\text{P}_{j,t}\text{C}_{j,t}+\mathcal{E}_{\$,j,t}(1+i^{\$}_{j,t})\text{B}^{\$}_{j,t}+\text{B}_{j,t}=\text{W}_{j,t}(h)\text{N}_{j,t}(h)+\Pi_{j,t}+\mathcal{E}_{\$,j,t}\text{B}^{\$}_{j,t+1}+\sum_{s\in S}\text{Q}_{j,t+1}(s)\text{B}_{j,t+1}(s) \tag{10}
+$$
+
+$$
+i^{\$}_{j,t}=\bar{i}^{\$}_{j}+\psi\left(\exp\left(\frac{\text{B}^{\$}_{j,t}}{\text{P}^{\$}_{\$,t}}-\bar{\text{B}}^{\$}_{j}\right)-1\right) \tag{11}
+$$
+
+The domestic Euler equation, UIP condition, and reset-wage condition are
+(12)-(14), p. 626:
+
+$$
+\text{C}_{j,t}^{-\sigma_c}=\beta(1+i_{j,t+1})\mathbb{E}_t\left[\text{C}_{j,t+1}^{-\sigma_c}\frac{\text{P}_{j,t}}{\text{P}_{j,t+1}}\right] \tag{12}
+$$
+
+$$
+(1+i_{j,t+1})\mathbb{E}_t\left[\text{C}_{j,t+1}^{-\sigma_c}\frac{1}{\text{P}_{j,t+1}}\right]=(1+i^{\$}_{j,t+1})\mathbb{E}_t\left[\text{C}_{j,t+1}^{-\sigma_c}\frac{\mathcal{E}_{\$,j,t+1}}{\text{P}_{j,t+1}\mathcal{E}_{\$,j,t}}\right] \tag{13}
+$$
+
+$$
+\mathbb{E}_t\sum_{s=0}^{\infty}(\beta\delta_w)^s\text{N}_{j,t+s}(h)\text{C}_{j,t+s}^{-\sigma_c}\left[\frac{\bar{\text{W}}_{j,t}(h)}{\text{P}_{j,t+s}}-\frac{\vartheta}{\vartheta-1}\text{N}_{j,t+s}(h)^\varphi\text{C}_{j,t+s}^{\sigma_c}\right]=0 \tag{14}
+$$
+
+Intermediate-input aggregation and export demand are equations (16)-(17), p. 627:
+
+$$
+\text{X}_{j,t}=\left(\int_0^1\text{X}_{j,t}(g)^{\frac{\sigma-1}{\sigma}}dg\right)^{\frac{\sigma}{\sigma-1}} \tag{16}
+$$
+
+$$
+\text{Y}^{g}_{ji,t}(\omega)=\frac{\gamma^{g}_{ji}}{|\Omega^{g}_{j}|}\left(\frac{\text{P}^{g}_{ji,t}(\omega)}{\text{P}_{i,t}(g)}\right)^{-\eta_g}\left(\frac{\text{P}_{i,t}(g)}{\text{P}_{i,t}}\right)^{-\sigma}(\text{C}_{i,t}+\text{X}_{i,t}) \tag{17}
+$$
+
+Firm profits and producer-currency reset pricing are equations (18)-(20),
+pp. 627-628:
+
+$$
+\Pi_{j,t}(\omega)=\sum_i\left(\text{P}^{g,j}_{ji,t}(\omega)\text{Y}^{g}_{ji,t}(\omega)-\text{MC}^{g}_{j,t}(\omega)\text{Y}^{g}_{ji,t}(\omega)\right) \tag{18}
+$$
+
+$$
+\Pi^{\$}_{j,t}(\omega)=\sum_i\left(\text{P}^{g,\$}_{ji,t}(\omega)\text{Y}^{g}_{ji,t}(\omega)-\frac{\text{MC}^{g}_{j,t}(\omega)\text{Y}^{g}_{ji,t}(\omega)}{\mathcal{E}_{\$,j,t}}\right) \tag{19}
+$$
+
+$$
+\mathbb{E}_t\sum_{s=0}^{\infty}(\beta\delta_p^g)^s\frac{\text{C}_{j,t}^{\sigma_c}\text{P}_{j,t}}{\text{C}_{j,t+s}^{\sigma_c}\text{P}_{j,t+s}}\text{Y}^{g}_{ji,t+s}(\omega)\left[\bar{\text{P}}^{g,j}_{ji,t}(\omega)-\frac{\eta_g}{\eta_g-1}\text{MC}^{g}_{j,t+s}(\omega)\right]=0 \tag{20}
+$$
+
+The marginal-cost conditions for labor and intermediate inputs are (22)-(23),
+p. 629:
+
+$$
+\text{MC}^{g}_{j,t}(\omega)=\frac{\text{W}_{j,t}\text{L}_{j,t}(\omega)}{(1-\alpha)\text{Y}^{g}_{j,t}(\omega)} \tag{22}
+$$
+
+$$
+\text{MC}^{g}_{j,t}(\omega)=\frac{\text{P}_{j,t}\text{X}_{j,t}(\omega)}{\alpha\text{Y}^{g}_{j,t}(\omega)} \tag{23}
+$$
+
+Market clearing and aggregate trade/output definitions are equations (26)-(31),
+pp. 629-630:
+
+$$
+\text{Y}^{g}_{j,t}(\omega)=\sum_i\text{Y}^{g}_{ji,t}(\omega) \tag{26}
+$$
+
+$$
+\text{L}_{j,t}=\int_0^1\text{L}^{g}_{j,t}dg \tag{27}
+$$
+
+$$
+\text{X}_{j,t}=\int_0^1\text{X}^{g}_{j,t}dg \tag{28}
+$$
+
+$$
+\text{NTB}_{ji,t}=\int_0^1\left[\int_{\omega\in\Omega_j^g}\text{P}^{g}_{ji,t}(\omega)\text{Y}^{g}_{ji,t}(\omega)d\omega-\int_{\omega\in\Omega_i^g}\text{P}^{g}_{ij,t}(\omega)\text{Y}^{g}_{ij,t}(\omega)d\omega\right]dg \tag{29}
+$$
+
+$$
+\text{NTB}_{j,t}\equiv\sum_{i\ne j}\text{NTB}_{ji,t} \tag{30}
+$$
+
+$$
+\text{Y}_{j,t}=\frac{\text{P}_{j,t}\text{C}_{j,t}+\text{NTB}_{j,t}}{\text{P}_{j,t}} \tag{31}
+$$
+
+The export and import price indices are defined in equations (32)-(33), p. 630;
+the paper then deflates nominal flows by these indices to obtain real trade
+quantities:
+
+$$
+\text{P}_{ji,t}\equiv\int_0^1\left(\frac{\gamma^g_{ji}}{|\Omega_j^g|\int_0^1\gamma^g_{ji}dg}\int_{\omega\in\Omega_j^g}\text{P}^{g}_{ji,t}(\omega)d\omega\right)dg \tag{32}
+$$
+
+$$
+\text{P}_{ij,t}\equiv\int_0^1\left(\frac{\gamma^g_{ij}}{|\Omega_i^g|\int_0^1\gamma^g_{ij}dg}\int_{\omega\in\Omega_i^g}\text{P}^{g}_{ij,t}(\omega)d\omega\right)dg \tag{33}
+$$
+
+The calibrated small-open-economy demand relationships are equations (34)-(36),
+pp. 632-633:
+
+$$
+\text{C}_{H,t}=\left[\kappa_M\text{C}_{H,t}(g_M)^{\frac{\sigma-1}{\sigma}}+(1-\kappa_M)\text{C}_{N,t}(g_N)^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}} \tag{34}
+$$
+
+$$
+\text{Y}^{g_N}_{H,t}(\omega)=\text{Y}^{g_N}_{HH,t}(\omega)=\frac{1}{|\Omega^{g_N}_{H}|}\left(\frac{\text{P}^{g_N}_{HH,t}(\omega)}{\text{P}_{H,t}}\right)^{-\sigma}(\text{C}_{H,t}+\text{X}_{H,t}) \tag{35}
+$$
+
+$$
+\text{Y}^{g_H}_{HU,t}(\omega)\approx\frac{1}{|\Omega^{g_H}_{H}|}\left(\frac{\text{P}^{\$,g_H}_{HU,t}(\omega)}{\text{P}^{\$}_{U,t}(g_H)}\right)^{-\eta_{g_H}}\gamma^{g_H}_{HU}(\text{C}_{U,t}+\text{X}_{U,t}) \tag{36}
+$$
+
 ## Method
 
 **Model calibration and simulation.** The model is linearized around a deterministic steady state and simulated using impulse response functions (Figure VI, p. 637). The baseline calibration for households and policy follows Gopinath et al. (2020): cross-product elasticity $$\sigma = 2$$, labor demand elasticity $$\vartheta = 4$$, Calvo price rigidity $$\delta_p = 0.75$$ (four-quarter mean duration), Calvo wage rigidity $$\delta_w = 0.75$$ (Table II, pp. 634-635). The key departures for the homogeneous export sector: fully flexible prices ($$\delta^{g_H}_p = 0$$), cross-variety elasticity $$\eta^{g_H} = 17$$ (from Broda and Weinstein (2006) for crude oil 1972-1988), and decreasing returns $$v_{g_H} = 0.85$$ (calibrated from the share of structures in Canadian mining value-added). Country-specific calibrations for Canada and Chile are in Table IV (p. 654).
@@ -174,6 +348,17 @@ where $$\rho$$ is policy smoothing, $$\phi_\pi > 1$$ is the inflation response c
 The method builds on `local-projections` (Jordà 2005) for the empirical tests and `panel-regression` for the motivating cross-country facts, with the proposed `nk-soe-dsge` framework as the structural basis.
 
 **Monetary policy shock identification.** Because the exchange rate is endogenous, the empirical strategy uses monetary policy shocks identified by purging the interest rate of its response to current macroeconomic conditions. Shocks are obtained as residuals $$\hat{\epsilon}_{i,t}$$ from a forward-looking interest rate rule (equation 38, p. 650):
+
+Before the empirical shock construction, the paper checks identification in a
+simulated-data exercise using the one-lag hybrid VAR (equation 37, p. 647):
+
+$$
+\text{X}_t=\text{c}+\text{B}\text{X}_{t-1}+\epsilon_t,\qquad \text{X}_t=[\zeta^M_t,\mathcal{E}_{\$,H,t},\text{Y}^{g_{H2}}_t,\text{Y}^{g_{H1}}_t,\text{Y}_t]' \tag{37}
+$$
+
+The VAR uses one lag, orders the simulated monetary shock first for recursive
+identification, and is estimated on 1,000 simulated periods. Homogeneous-export
+responses are imprecise, with zero inside the 68% intervals (Figure IX, p. 648).
 
 $$
 \Delta i_{i,t} = \alpha + \phi_\pi E_t \pi^f_{i,t+12} + \phi_y E_t \Delta y^f_{i,t+12} + \sum_{j=1}^2 \phi_\pi \pi_{i,t-j} + \sum_{j=1}^2 \phi_y \Delta y_{i,t-j} + \sum_{j=1}^2 \phi_e \Delta NEER_{i,t-j} + \sum_{j=1}^2 \phi_i i_{i,t-j} + \epsilon_{i,t}, \tag{38}
@@ -199,6 +384,11 @@ $$
 
 where $$h$$ is the horizon in months, the interaction term $$\Delta NEER_{i,t} \times \hat{\epsilon}_{i,t}$$ captures the differential effect through the exchange rate, and $$\omega^h_{i,t}$$ is the residual. Impulse responses are normalized to a 1 percentage point interest rate increase on impact (so all results correspond to a monetary tightening). The panel database is from Brandao-Marques et al. (2021), covering 37 countries.
 
+Country fixed effects are included at each horizon. Figure X reports 68% confidence
+intervals; the main-text equation and caption do not specify a clustering or
+other standard-error formula. The monthly horizon and 11-month export peak are
+reported in the text (p. 652).
+
 **Section V.C: Country VARs for Canada and Chile (equation 40, p. 655).** For each economy, a hybrid VAR with six lags (Canada) or four lags (Chile) is estimated:
 
 $$
@@ -206,6 +396,9 @@ $$
 $$
 
 where $$\mathbf{X}_t$$ contains the monetary policy shock series (ordered first for recursive identification), exchange rate, CPI, GDP, and sectoral exports; $$\mathbf{W}_t$$ includes the U.S. dollar price of Canadian commodities (Canada only). Identification is recursive (Cholesky), with the cumulative monetary shock ordered first. For Canada: Champagne and Sekkel (2018) narrative shocks, monthly, 1981-2015. For Chile: Brandao-Marques et al. (2021) shocks, monthly, 2003-2017. Model impulse responses (solid red lines in Figures XI-XII) are scaled to match the average estimated exchange rate response over the first six months.
+
+The figure captions report 68% confidence intervals. The main-text specification
+does not state a separate standard-error or bootstrap procedure.
 
 ## Datasets used
 
@@ -219,7 +412,7 @@ where $$\mathbf{X}_t$$ contains the monetary policy shock series (ordered first 
 | Chilean national statistics (Banco Central de Chile) | Monthly IMACEC (output), policy rate, CPI, mining and manufacturing exports, exchange rate, 2003-2017 | no page yet |
 | Harvard Dataverse replication files | Assembled replication dataset (McLeay and Tenreyro 2025, doi:10.7910/DVN/SASVME) | no page yet |
 
-Sample: panel LP covers quarterly data for 37 countries (1990-2019); country VARs use monthly data (Canada: T ≈ 418 months; Chile: T ≈ 172 months); invoicing regression covers 1,173 country-year observations across 101 countries.
+Sample: panel LP covers monthly data for 37 countries (1990-2019; response horizons reported in months); country VARs use monthly data (Canada: January 1981-October 2015; Chile: April 2003-July 2017); invoicing regression covers 1,173 country-year observations across 101 countries.
 
 ## When to read the full paper
 
