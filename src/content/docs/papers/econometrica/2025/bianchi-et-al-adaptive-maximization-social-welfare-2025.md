@@ -4,8 +4,8 @@ description: >-
   Distilled: A policymaker repeatedly setting a tax rate to maximize social welfare
   (weighted sum of public revenue and private consumer surplus) cannot observe welfare
   directly, only demand outcomes; cumulative regret must grow at rate T^{2/3} (vs
-  T^{1/2} for standard bandits), and Tempered Exp3 achieves this bound while Dyadic
-  Search recovers T^{1/2} under concavity. Econometrica 2025, CC BY 4.0. Six core
+  T^{1/2} for standard bandits), and Tempered Exp3 attains this rate up to a log factor while Dyadic
+  Search recovers T^{1/2} under concavity. Econometrica 2025, CC BY 4.0. Seven core
   results with source locators, the setup model, and both algorithms with equations.
 sidebar:
   label: Cesa-Bianchi-Colomboni-Kasy 2025
@@ -37,16 +37,15 @@ paper:
   access: open
   machineAccess: "open-access CC-BY 4.0 (Wiley/Econometrica; licence confirmed in Crossref metadata, 2026-06-26)"
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
-  resultsCount: 6
+  resultsCount: 7
   citedByCount: 2
   methods:
-    role: both
+    role: theory
     contributes: tempered-exp3-social-welfare
     family: theory
     buildsFrom: [exp3-bandit-algorithm, dyadic-search]
-    identification: descriptive
   contributionType: [new-theory, new-method]
-  mechanisms: [learning, information-asymmetry]
+  mechanisms: [learning, information-asymmetry, taxes]
   scope:
     region: theoretical
   findings:
@@ -56,6 +55,7 @@ paper:
     - { ref: R4, outcome: "stochastic regret of Dyadic Search for concave welfare", metric: regret-rate, value: "order T^{1/2} up to log terms (Theorem 4)", direction: positive, vsBenchmark: "rate-optimal for stochastic concave case; matches Theorem 3 lower bound" }
     - { ref: R5, outcome: "adversarial regret for nonlinear income taxation with H wage brackets", metric: regret-rate, value: "c4*H^{1/3}*log(T)^{1/3}*T^{2/3} (Theorem 5, Eq. 24)", direction: positive, vsBenchmark: "scales as H^{1/3} in number of tax brackets H" }
     - { ref: R6, outcome: "relative difficulty of welfare maximization vs. monopoly pricing", metric: regret-rate, value: "T^{2/3} vs T^{1/2} for finite policy sets (Table I, p. 1080); bilateral trade finite rate is T^{2/3}, continuous rate is T", direction: positive, vsBenchmark: "welfare maximization strictly harder than monopoly pricing due to integral counterfactual demand structure" }
+    - { ref: R7, outcome: "cumulative regret in adaptive policy choice for social welfare maximization", metric: regret-rate, value: "average regret falls by more than half relative to uniform-random policy choice, averaged across 4,000 simulations (Figure 2; text p. 1085)", direction: negative, vsBenchmark: "uniform-random policy choice" }
   resultType: new-finding
   relatesTo:
     - { cite: "Auer, Cesa-Bianchi, Freund & Schapire (2002)", doi: '10.1137/s0097539701398375', relation: builds-on, note: "Tempered Exp3 modifies their Exp3 algorithm for the nonstochastic bandit to handle indirect welfare estimation via inverse-probability-weighted demand" }
@@ -66,16 +66,18 @@ paper:
     - { cite: "Chetty (2009)", doi: '10.1146/annurev.economics.050708.142910', relation: cites, note: "sufficient statistics for welfare analysis; the envelope-theorem welfare representation underpins the algorithmic welfare estimator" }
     - { cite: "Lattimore and Szepesvari (2020)", doi: '10.1017/9781108571401', relation: builds-on, note: "bandit algorithms textbook providing the T^{1/2} multiarmed bandit baseline that the paper shows welfare maximization exceeds" }
   openQuestions:
-    - "Whether the log(T)^{1/3} gap between the T^{2/3} lower bound and the algorithm's log(T)^{1/3}*T^{2/3} upper bound can be closed; authors conjecture a Tsallis-INF variant may achieve this at the cost of computational complexity (p. 1085)."
+    - "Whether the log(T)^{1/3} gap between the T^{2/3} lower bound and the algorithm's log(T)^{1/3}*T^{2/3} upper bound can be closed; the authors conjecture an alternative could remove the term, motivated by Tsallis-entropy results for standard bandits, at the cost of reduced computational efficiency and a less transparent proof (p. 1085)."
     - "Formal regret analysis and lower bounds for the commodity taxation extension (Algorithm 4, Section 6); characterization left for future research (p. 1093)."
     - "Extension to settings with income effects or externalities, which would require modifying the welfare representation and the algorithms (p. 1094)."
-    - "Formal analysis of Thompson sampling variants for this welfare-maximization setting; conjectured to underexplore relative to Tempered Exp3 without forced uniform mixing (p. 1095)."
+    - "Formal analysis of Thompson sampling variants for this welfare-maximization setting; the authors conjecture Thompson sampling underexplores relative to an optimal algorithm and that added forced exploration might improve cumulative welfare (p. 1095)."
   replicationCode:
     url: https://doi.org/10.5281/zenodo.15042114
     status: available
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Full text read (pp. 1073-1104 including Appendix A); six results extracted from the CC-BY PDF. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: (1) Eq. 1 corrected from mixed-subscript U_i(x) form to the PDF's U_i(x_i) with consistent x_i throughout; (2) R6 magnitude corrected: bilateral trade finite-policy-set rate is T^{2/3} per Table I, not T (T is the continuous rate)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results with the Figure 2 simulation finding and its findings entry; added missing main-text equations 5, 6, 10, 14, and 16-30, including the income-tax and commodity-tax extensions, plus the simulation specification. Not human-verified. Not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 7 Core results, equations, specifications, classifications, findings, prose, relatesTo edges, and frontmatter against the PDF; corrected the commodity-tax demand-update indicator, theory-paper role, Thompson-sampling comparison, and Tsallis-entropy conjecture wording. No headline results omitted; table-locator check passed. Post-verification review (2026-10-04) corrected the Eq. (30) indicator to 1(x_i = floor(x)), as printed in Algorithm 4." }
   licenceVerification:
     - { source: "Crossref REST API works/10.3982/ECTA22351", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "license[].content-version=unspecified, URL=https://creativecommons.org/licenses/by/4.0/, start=2025-01-01" }
 ---
@@ -98,6 +100,7 @@ Rates hold up to logarithmic factors unless stated. Locators point into the sour
 | R4 | **Dyadic Search achieves $$T^{1/2}$$** for stochastic concave welfare via active interval narrowing | Theorem 4, p. 1086 | Order $$T^{1/2}$$ (up to log terms); rate-optimal for stochastic concave case |
 | R5 | **Income taxation extension**: Tempered Exp3 adapted to $$H$$ wage brackets achieves adversarial regret of order $$H^{1/3} \log(T)^{1/3} T^{2/3}$$ | Theorem 5, Eq. 24, p. 1092 | $$\mathcal{R}_T \leq c_4 \cdot H^{1/3} \log(T)^{1/3} T^{2/3}$$ for $$H$$ tax brackets |
 | R6 | **Welfare is harder than monopoly pricing**: for finite policy sets, monopoly pricing achieves $$T^{1/2}$$ while optimal taxation requires $$T^{2/3}$$ | Table I, p. 1080 | $$T^{1/2}$$ (monopoly pricing, finite) vs $$T^{2/3}$$ (optimal taxation, finite) vs $$T^{2/3}$$ (bilateral trade, finite; continuous rate is $$T$$) |
+| R7 | **Simulation illustration**: Tempered Exp3's average regret declines relative to uniform-random policy choice | Figure 2 and text, p. 1085 | Average regret drops by more than half over time relative to uniform-random choice, averaged across 4,000 simulations; $$v_i \sim U[0,1]$$, $$\lambda=0.7$$, $$K=20$$, $$\eta=0.025$$, $$\gamma=0.1$$ |
 
 **Overall (paper's conclusion).** Welfare maximization is a strictly harder adaptive learning problem than reward maximization in standard bandits, because welfare depends on the integral of demand over counterfactual policies. The $$T^{2/3}$$ rate is sharp (lower and upper bounds coincide up to $$\log(T)^{1/3}$$). Concavity of welfare restores the $$T^{1/2}$$ bandit rate. The algorithms are adversarially robust and apply to public policy settings where behavioral responses (demand, labor supply) are observable but utility is not.
 
@@ -133,6 +136,48 @@ $$
 
 **Comparison of learning problems (Table I, p. 1080).** The rate hierarchy is: monopoly pricing (Kleinberg and Leighton (2003)) achieves $$T^{1/2}$$ because its objective is one-sided Lipschitz and requires only pointwise demand; optimal taxation requires $$T^{2/3}$$ because welfare also depends on integrated demand for counterfactual policies; bilateral trade (Cesa-Bianchi, Cesari, Colomboni, Fusco, and Leonardi (2024a)) has rate $$T$$ because its objective is not one-sided Lipschitz. Mirrlees (1971) and Saez (2001) treat income tax design as a static structural problem; this paper adapts it to adaptive online learning. Ramsey (1927) commodity taxation is the basis for the Section 6 extension. Chetty (2009) establishes the sufficiency of the envelope-theorem welfare representation for arbitrary preference structures beyond the binary baseline. Lattimore and Szepesvari (2020) provide the $$T^{1/2}$$ multiarmed bandit baseline.
 
+The comparison objectives for monopoly pricing and bilateral trade are (Eq. 5 and Eq. 6, p. 1079):
+
+$$
+U_i^{\text{MP}}(x)=x_i\,\mathbf{1}(x_i\leq v_i)=x\,G_i(x) \tag{5}
+$$
+
+$$
+U_i^{\text{BT}}(x)=\mathbf{1}(v_i^b\geq x)\max(x-v_i^s,0)+\mathbf{1}(v_i^s\leq x)\max(v_i^b-x,0)=G_i^b(x)\int_0^x G_i^s(x')\,\mathrm{d}x'+G_i^s(x)\int_x^1 G_i^b(x')\,\mathrm{d}x' \tag{6}
+$$
+
+Here $$v_i^b$$ and $$v_i^s$$ are buyer and seller valuations, and $$G_i^b$$ and $$G_i^s$$ their acceptance functions.
+
+**Commodity-tax model.** Section 6 replaces the scalar tax with a vector for $$k$$ goods and lets the individual choose a continuous consumption vector. Demand is defined by utility maximization (Eq. 25, p. 1092), indirect utility by the same value function normalized to zero at zero taxes, and social welfare by public revenue plus weighted private utility (Eq. 26, p. 1092):
+
+$$
+y_i=G_i(x_i)=\arg\max_{y\in[0,1]^k}\left[u_i(y)-\langle x_i+p,y\rangle\right] \tag{25}
+$$
+
+$$
+v_i(x)=v_0+\max_{y\in[0,1]^k}\left[u_i(y)-\langle x+p,y\rangle\right],\quad v_i(0)=0,\qquad U_i(x_i)=\langle x_i,y_i\rangle+\lambda v_i(x_i) \tag{26}
+$$
+
+The envelope theorem gives $$\nabla_x v_i(x)=G_i(x)$$. The paper defines the demand-to-indirect-utility mapping by projecting demand onto gradients of differentiable functions (Eq. 27, p. 1093):
+
+$$
+\Pi(G(\cdot))\in\arg\min_{v(\cdot)\in\mathcal{V}}\int_{[0,1]^k}\left\|\nabla_x v(x)-G(x)\right\|^2\,\mathrm{d}x,\quad \mathcal{V}=\{v:v\text{ differentiable},\ \nabla_xv\in L^2,\ v(0)=0\} \tag{27}
+$$
+
+For the commodity-tax algorithm, estimated welfare, assignment probabilities, and the inverse-probability weighted demand update with its projection back to an indirect utility function are (Eqs. 28-30, p. 1093):
+
+$$
+\hat{U}_i(x)=\langle x_i,\hat{G}_i\rangle+\lambda\hat{v}_i(x_i) \tag{28}
+$$
+
+$$
+p_i=(1-\gamma)\frac{\exp(\eta\hat{U}_i(x))}{\sum_{x'\in\mathcal{X}}\exp(\eta\hat{U}_i(x'))}+\frac{\gamma}{(K+1)^k} \tag{29}
+$$
+
+$$
+\widetilde{G}_{i+1}(x)=\hat{G}_i(x)+y_i\frac{\mathbf{1}(x_i=\lfloor x\rfloor)}{p_i},\qquad \hat{v}_{i+1}=\Pi(\widetilde{G}_{i+1}),\qquad \hat{G}_{i+1}(x)=\nabla_x\hat{v}_{i+1}(x) \tag{30}
+$$
+
 ## Method
 
 The paper proposes two algorithms. Algorithm 1 handles the general (possibly adversarial, nonconcave) case; Algorithm 2 exploits concavity in the stochastic case.
@@ -161,6 +206,12 @@ $$
 \hat{\mathbb{U}}_{i+1,k} = \tilde{x}_k \cdot \hat{\mathbb{G}}_{i+1,k} + \frac{\lambda}{K} \cdot \sum_{k' > k} \hat{\mathbb{G}}_{i+1,k'} \tag{9}
 $$
 
+The theorem's finite-grid upper bound before tuning is (Eq. 10, p. 1084):
+
+$$
+\mathcal{R}_T\leq\left[\gamma+\eta(e-2)\frac{K+1}{K}\left(\frac{2K+1}{6}+\frac{\lambda^2}{\gamma}\right)+\frac{\lambda}{K}\right]T+\frac{\log(K+1)}{\eta} \tag{10}
+$$
+
 **Theorem 2 + Corollary 1 (Adversarial and stochastic upper bound, p. 1083-1084).** With optimal tuning $$\gamma = c_1 (\log(T)/T)^{1/3}$$, $$\eta = c_2 \gamma^2$$, $$K = \lfloor c_3/\gamma \rfloor$$, expected regret is bounded above by (Eq. 11, p. 1084):
 
 $$
@@ -181,17 +232,71 @@ $$
 \hat{\Delta}_t(x, x') = x' \cdot \hat{G}_t(x') - x \cdot \hat{G}_t(x) - \lambda \cdot (x' - x) \cdot \hat{G}_t(x, x') \tag{13}
 $$
 
-where $$\hat{G}_t(x, x')$$ is the average of $$y_i$$ for observations $$x_i \in (x, x')$$. The confidence interval is (Eq. 15, p. 1088):
+where $$\hat{G}_t(x, x')$$ is the average of $$y_i$$ for observations $$x_i \in (x, x')$$. The estimated welfare difference for an interval split is additive (Eq. 14, p. 1088):
+
+$$
+\hat{\Delta}_t(l,r)=\hat{\Delta}_t(l,c)+\hat{\Delta}_t(c,r) \tag{14}
+$$
+
+The confidence interval is (Eq. 15, p. 1088):
 
 $$
 J_t(x, x') = \hat{\Delta}_t(x, x') \pm \bigl(\Gamma_t(x') + \Gamma_t(x) + \Gamma_t(x, x')\bigr) \tag{15}
 $$
 
+The confidence interval for the full interval combines the endpoint and subinterval uncertainty terms (Eq. 16, p. 1089):
+
+$$
+J_t(l,r)=\hat{\Delta}_t(l,r)\pm\left(\Gamma_t(r)+\Gamma_t(l)+\Gamma_t(l,c)+\Gamma_t(c,r)\right) \tag{16}
+$$
+
 with half-lengths $$\Gamma_t(x) = x \cdot \sqrt{\frac{1}{2 n_t(x)} \log(2/\delta)}$$ for the revenue component and $$\Gamma_t(x, x') = \lambda (x'-x)\bigl(\sqrt{\frac{\log(2/\delta)}{2(n_t(x,x')+1)}} + \frac{2}{n_t(x,x')+1}\bigr)$$ for the integral component. If the confidence interval $$J_t(l, c)$$ or $$J_t(l, r)$$ lies entirely above zero, the optimal policy cannot be to the left of $$l$$, so $$I_\tau$$ is trimmed accordingly. Concavity ensures the trimming is valid and yields $$T^{1/2}$$ regret (Theorem 4).
+
+**Nonlinear income-tax extension.** Section 5 allows a wage-dependent tax schedule and welfare weights that vary with potential wages. For an arriving individual with potential wage $$w_i$$ and participation cost $$v_i$$, welfare is (Eq. 17, p. 1090):
+
+$$
+U_i(x(\cdot))=x(w_i)w_i\mathbf{1}\{v_i\leq w_i(1-x(w_i))\}+\omega(w_i)\max\{w_i(1-x(w_i))-v_i,0\} \tag{17}
+$$
+
+With a piecewise-constant schedule on wage brackets $$w\in\mathcal{W}$$, the bracket-specific labor-supply measure and welfare are (Eq. 18, p. 1090):
+
+$$
+G_i(w,x)=w_i\mathbf{1}\{v_i\leq w_i(1-x)\}\mathbf{1}\{\lfloor w_i\rfloor=w\},\qquad U_i(x(\cdot))=\sum_{w\in\mathcal{W}}\left[x(w)G_i(w,x(w))+\omega(w_i)\int_{x(w)}^1G_i(w,x')\,\mathrm{d}x'\right] \tag{18}
+$$
+
+Tempered Exp3 is extended across wage brackets. Its bracket-conditional assignment probability, schedule assignment, inverse-probability weighted labor-supply estimate, and accumulated welfare estimate are (Eqs. 19-22, p. 1091):
+
+$$
+p_i(x\mid w)=(1-\gamma)\frac{\exp(\eta\hat{U}_i(x,\lfloor w\rfloor))}{\sum_{x'\in\mathcal{X}}\exp(\eta\hat{U}_i(x',\lfloor w\rfloor))}+\frac{\gamma}{K+1} \tag{19}
+$$
+
+$$
+x_i(w)=\max\left\{x\in\mathcal{X}:\sum_{x'\in\mathcal{X},\,x'<x}p_i(x'\mid w)\leq A_i\right\},\qquad A_i\sim U[0,1] \tag{20}
+$$
+
+$$
+\hat{G}_i(x,w)=y_iw_i\frac{\mathbf{1}\{\lfloor w_i\rfloor=w,\ x_i(w_i)=x\}}{p_i(x\mid w)} \tag{21}
+$$
+
+$$
+\hat{U}_{i+1}(x,w)=\hat{U}_i(x,w)+x\hat{G}_i(x,w)+\frac{\omega(w_i)}{K}\sum_{x'>x}\hat{G}_i(x',w) \tag{22}
+$$
+
+Under the assumptions $$\omega(w)\leq1$$ and $$(K+1)\eta<\gamma$$, the adversarial regret bound is (Eq. 23, p. 1091):
+
+$$
+\mathcal{R}_T\leq\left[\gamma+\eta(e-2)\frac{K+1}{K}\left(\frac{2K+1}{6}+\frac{1}{\gamma}\right)+\frac{1}{K}\right]T+\frac{H\log(K+1)}{\eta} \tag{23}
+$$
+
+For the tuning $$K=c_1(T/H)^{1/3}$$, $$\gamma=c_2/(K+1)$$, and $$\eta=c_3/(K+1)^2$$, the rate for $$H$$ brackets is (Eq. 24, p. 1092):
+
+$$
+\mathcal{R}_T\leq c_4 H^{1/3}\log(T)^{1/3}T^{2/3} \tag{24}
+$$
 
 ## Empirical specifications
 
-The paper is entirely theoretical. The one numerical illustration (Figure 2, p. 1085) uses simulated data: $$v_i \overset{\text{i.i.d.}}{\sim} U[0,1]$$, $$\lambda = 0.7$$, $$K = 20$$, $$\eta = 0.025$$, $$\gamma = 0.1$$, $$T = 1000$$ periods, averaged across 4000 Monte Carlo replications. Tempered Exp3 reduces average cumulative regret to below half the uniform-random baseline by period 1000 (Figure 2, left panel). All theoretical claims rest on formal proofs in Appendix A and the Online Supplement (Cesa-Bianchi, Colomboni, and Kasy (2025)); no real-world data are used.
+The paper is entirely theoretical, with no estimating regressions, fixed effects, or standard-error estimates. The one numerical illustration (Figure 2, p. 1085) uses simulated data: $$v_i \overset{\text{i.i.d.}}{\sim} U[0,1]$$, $$\lambda = 0.7$$, $$K = 20$$, $$\eta = 0.025$$, $$\gamma = 0.1$$, $$T = 1000$$ periods, averaged across 4000 Monte Carlo replications. The authors report that average regret drops by more than half relative to uniform-random choice (text p. 1085). All theoretical claims rest on formal proofs in Appendix A and the Online Supplement (Cesa-Bianchi, Colomboni, and Kasy (2025)); no real-world data are used.
 
 ## Datasets used
 
@@ -213,7 +318,7 @@ The locators above point to the exact theorems, algorithms, and figures in the s
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Econometrica* 93(3). This distillation was extracted by an LLM on 2026-06-26 and is **not human-verified or independently reproduced**. The CC BY 4.0 licence permits mirroring; the verbatim PDF is not hosted in this batch.
+Source: peer-reviewed, *Econometrica* 93(3). This distillation was extracted by an LLM and verified against the source PDF on 2026-10-04; it has not been independently reproduced. The CC BY 4.0 licence permits mirroring; the verbatim PDF is not hosted in this batch.
 
 > **Attribution (CC BY 4.0).** Cesa-Bianchi, Nicolò, Roberto Colomboni, and Maximilian Kasy.
 > "Adaptive Maximization of Social Welfare."

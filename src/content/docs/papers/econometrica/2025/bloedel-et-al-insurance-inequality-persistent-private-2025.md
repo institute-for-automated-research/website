@@ -4,7 +4,7 @@ description: >-
   Distilled: Under any ergodic finite-state Markov type process, the optimal
   insurance contract always generates immiseration (Theorem 1), with backloaded
   high-powered incentives under positive serial correlation (Theorem 2).
-  Econometrica 2025, paywalled. Five core results with source locators, the
+  Econometrica 2025, paywalled. Ten core results with source locators, the
   recursive contract model, the marginal cost martingale method, and numerical
   illustrations of speed of immiseration and short-run distortions.
 sidebar:
@@ -30,14 +30,24 @@ paper:
   dataAccess: public
   outcome:
     - "agent consumption and continuation utility under optimal insurance contract"
+    - "cross-type continuation utility spread under FOSD type process"
+    - "implementable promised-utility domain under persistent types"
     - "long-run income inequality under persistent private information"
+    - "mean consumption under CARA utility with persistent types (simulation)"
+    - "insurance and intertemporal wedges under persistence"
+    - "mean consumption and consumption inequality under persistent types (simulation)"
+    - "consumption distribution under simulated optimal insurance contracts"
+    - "stationary distribution of promised-utility states"
+    - "within-period insurance wedge"
+    - "intertemporal consumption wedge"
+    - "agent flow and continuation utility across shock histories"
   outcomeClass: [optimal-contract-design, social-welfare]
   license: "Paywalled. No CC licence block found in Crossref DOI metadata (checked 2026-06-26). Artifact (p. 821) states: © 2025 The Econometric Society. Published by Wiley."
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (Wiley/Econometrica site, 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 5
+  resultsCount: 10
   citedByCount: 2
   methods:
     role: theory
@@ -51,8 +61,14 @@ paper:
   findings:
     - { ref: R1, outcome: "agent consumption and continuation utility under optimal insurance contract", metric: level, value: "v_i(t) -> -infinity and c(t) + omega(t) -> c_bar in probability as t -> infinity for all types i (Theorem 1, p. 834)", direction: negative }
     - { ref: R2, outcome: "cross-type continuation utility spread under FOSD type process", metric: level, value: "v_i(t) - v_{i-1}(t) -> +infinity in probability; conditional variance V -> +infinity as t -> infinity (Theorem 2, p. 836)", direction: positive }
+    - { ref: R3, outcome: "implementable promised-utility domain under persistent types", metric: equilibrium-condition, value: "D = V_d = {v in U^d: v_d > v_{d-1} > ... > v_1} under MLRP or PPR; under CARA with MLRP/PPR, D = D* = V_d (Theorem 3, Appendix B, p. 853)", direction: positive }
     - { ref: R4, outcome: "mean consumption under CARA utility with persistent types (simulation)", metric: level, value: "mean consumption declines faster in medium-run as persistence q increases from 0.5 to 0.95 in 420,000-path simulations (Figure 3, p. 842)", direction: negative }
     - { ref: R5, outcome: "insurance and intertemporal wedges under persistence", metric: level, value: "insurance wedge turns negative (over-insurance) after consecutive low shocks; intertemporal wedge orders of magnitude larger than i.i.d. case (Figure 5, p. 845)", direction: mixed }
+    - { ref: R6, outcome: "mean consumption and consumption inequality under persistent types (simulation)", metric: level, value: "for the first few periods, greater persistence (q = 0.65, 0.8, 0.95 versus q = 0.5) makes mean consumption decrease more slowly and its variance increase more slowly; initial mean consumption rises with persistence (Figure 3 and text p. 842)", direction: mixed }
+    - { ref: R7, outcome: "stationary distribution of promised-utility states", metric: probability, value: "if all rays are distinct, stationary mass is 0.5 on E2 and 0.5(1-q)q^(k-1) on B_k for k >= 1 (Figure 4, p. 844)", direction: positive }
+    - { ref: R8, outcome: "within-period insurance wedge", metric: level, value: "positive under i.i.d. types and along consecutive high shocks; negative after consecutive low shocks under persistence (Figure 5, p. 845)", direction: mixed }
+    - { ref: R9, outcome: "intertemporal consumption wedge", metric: level, value: "positive after low shocks in the i.i.d. case; remains positive but becomes an order of magnitude larger after consecutive low shocks under persistence (Figure 5, p. 845)", direction: positive }
+    - { ref: R10, outcome: "agent flow and continuation utility across shock histories", metric: level, value: "at period 6 with three high and three low shocks, flow and continuation utilities after a low shock are approximately two times lower when the prior low shocks occurred in periods {0,1,2} rather than {3,4,5}, for q = 0.8 (text p. 846)", direction: negative, vsBenchmark: "Same counts of high and low shocks, different order" }
   resultType: overturns
   relatesTo:
     - { cite: "Thomas and Worrall (1990)", doi: '10.1016/0022-0531(90)90023-d', relation: extends, note: "generalizes their i.i.d. immiseration result to ergodic finite-state Markov type processes via the marginal cost martingale approach" }
@@ -72,6 +88,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Full text read (pp. 821-857 + Appendices A-B); five results extracted from source PDF. Not human-verified. Not reproduced. Replication code at https://doi.org/10.5281/zenodo.14720557 not run here." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: (1) IC*_ij equation corrected from i-subscripts to j-subscripts throughout (u_i→u_j, w_i→w_j, consistent with derivation and p. 830 specific case; text updated from PK_i to PK_j); (2) resultType changed from new-finding to overturns (contradicts edge with Williams 2011 present). All five Core-results rows (R1-R5) confirmed correct against PDF at cited locators. Theorems 1-3 verified term-by-term. Simulation parameters, conditional variance eq. (4.1), Bellman eq. (FE), and marginal cost martingale Prop. 4.4 all confirmed." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the assigned PDF and augmented the Core results table and findings with five additional main-text results, added numbered equations (3.1) and (6.1), labeled equation (4.1), and expanded the simulation specifications. These additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, all ten Core-results rows, equations, specifications, findings, classification, and prose checked against the source PDF; corrected the proof sketch's convergence qualifications and changed two off-registry wedge metrics to level. Required locator guards show no issues for this page." }
   licenceVerification:
     - { source: "Crossref REST API works/10.3982/ECTA20404", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "No license block found in Crossref response. Artifact (p. 821) states copyright 2025 The Econometric Society; treated as paywalled." }
   rightsSignalConflict: false
@@ -81,9 +99,9 @@ paper:
 
 ## TL;DR
 
-The paper studies long-run welfare and inequality in optimal insurance contracts when the agent's privately observed type follows an ergodic finite-state Markov chain, filling the gap between the i.i.d. benchmark of Thomas and Worrall (1990) and the permanent-shock benchmark of Williams (2011). A risk-neutral principal offers an infinite-horizon insurance contract to a risk-averse agent whose privately observed endowment evolves with arbitrary serial correlation bounded between these extremes.
+The paper studies long-run welfare and inequality in optimal insurance contracts when the agent's privately observed type follows an ergodic finite-state Markov chain, filling the gap between the i.i.d. benchmark of Thomas and Worrall (1990) and the permanent-shock benchmark of Williams (2011). A risk-neutral principal offers an infinite-horizon insurance contract to a risk-averse agent whose privately observed endowment follows a fully connected finite-state Markov process that permits arbitrary serial correlation.
 
-**Theorem 1** (the central result) shows that immiseration is universal under ergodic persistence: the agent's promised utilities, flow utilities, and consumption all converge to their lower bounds in probability. **Theorem 2** strengthens this under positive serial correlation (FOSD): the spread in continuation utility across types and the conditional variance of promised utility both diverge to infinity, reflecting "backloaded high-powered incentives." The key insight is that ergodicity (mean-reversion) is the critical determinant: Williams (2011) shows bliss only at the knife-edge of zero mean-reversion (permanent shocks); any positive amount of mean-reversion restores immiseration.
+**Theorem 1** (the central result) shows that immiseration is universal under ergodic Markov types: the agent's promised utilities and flow utilities decrease without bound, while consumption converges to its lower bound, all in probability. **Theorem 2** strengthens this under positive serial correlation (FOSD): the spread in continuation utility across types and the conditional variance of promised utility both diverge to infinity, reflecting "backloaded high-powered incentives." The authors interpret ergodicity as mean-reversion and argue that it distinguishes their results from Williams (2011), where Gaussian random-walk shocks generate long-run bliss.
 
 The proofs construct a **marginal cost martingale**: a specific directional derivative of the principal's value function that is a strictly positive martingale under the optimal contract. The Martingale Convergence Theorem combined with a "renewal property" of the Markov process shows this martingale converges to zero, implying immiseration. Numerical simulations with CARA utility and two endowment types show that greater persistence accelerates immiseration in the medium run, generates over-insurance (negative insurance wedge) after consecutive low shocks, and introduces order-dependence absent in the i.i.d. CARA case.
 
@@ -96,10 +114,21 @@ The proofs construct a **marginal cost martingale**: a specific directional deri
 | R3 | **Theorem 3 (Recursive Domain):** under MLRP or PPR type process, the implementable domain is characterized explicitly | Theorem 3, Appendix B, p. 853 | $$D = V_d = \{\mathbf{v} \in \mathcal{U}^d : v_d > v_{d-1} > \cdots > v_1\}$$ under MLRP or PPR; under CARA + MLRP/PPR, $$D = D^* = V_d$$; an open, convex cone independent of $$\alpha$$ and $$U$$ (within DARA class) |
 | R4 | **Numerical (§5.1):** greater persistence yields faster immiseration in medium-run | Figure 3, p. 842 | 420,000 simulated paths of CARA/$$d=2$$ model: for $$q = 0.8$$ vs i.i.d. ($$q = 0.5$$), mean consumption $$\mu_{C,t}$$ declines faster and variance $$\sigma^2_{C,t}$$ grows faster in medium-run; patterns reverse in the first few periods |
 | R5 | **Numerical (§5.2):** persistence induces over-insurance and large intertemporal wedges after consecutive low shocks | Figure 5, p. 845 | Insurance wedge turns negative (over-insurance) after strings of low shocks; intertemporal wedge grows to orders of magnitude larger than i.i.d. case; consumption depends on shock order (early bad luck penalized more than late bad luck) |
+| R6 | **Numerical (§5.1):** higher persistence initially slows the decline in mean consumption and rise in inequality | Figure 3 and text p. 842 | For the first few periods, higher q makes mean consumption decrease more slowly and variance increase more slowly; initial mean consumption increases with persistence |
+| R7 | **Numerical (§5.2):** promised utility moves among state rays with a stationary distribution | Figure 4, p. 844 | If all rays are distinct, stationary mass is 0.5 on E2 and 0.5(1-q)q^(k-1) on B_k for k >= 1 |
+| R8 | **Numerical (§5.2):** persistence changes the sign of the within-period insurance wedge across histories | Figure 5, p. 845 | Positive under i.i.d. types and along consecutive high shocks; negative after consecutive low shocks with persistence (over-insurance) |
+| R9 | **Numerical (§5.2):** persistence magnifies the intertemporal wedge after low shocks | Figure 5, p. 845 | Positive after low shocks under i.i.d. types; remains positive but becomes an order of magnitude larger after consecutive low shocks under persistence |
+| R10 | **Numerical (§5.2):** shock order affects utility under persistence | Text p. 846 | With q = 0.8 and three high plus three low shocks by period 6, flow and continuation utilities after a low shock are approximately two times lower when low shocks occur in periods 0-2 than in periods 3-5 |
 
 **Overall (paper's conclusion).** Immiseration is not an artifact of the i.i.d. assumption but is universal under ergodic persistence. The key determinant of long-run outcomes is mean-reversion in the type process. Any positive amount of mean-reversion is sufficient to generate immiseration, while the bliss result of Williams (2011) arises only at the knife-edge of zero mean-reversion. Persistence does affect the speed of immiseration and generates qualitatively new short-run distortions: over-insurance, large intertemporal wedges, and order-dependent consumption that are absent in the i.i.d. case.
 
 ## Theory / model
+
+The feasible recursive menu correspondence is defined by the promise-keeping and downward incentive constraints (equation (3.1), p. 831):
+
+$$
+\Gamma(\mathbf{v}) := \{(u_i,\mathbf{w}_i)_{i\in S} \in (\mathcal{U}\times D)^d : (PK_i) \text{ and } (IC_{ij}) \text{ hold for all } i>j \in S \text{ at } \mathbf{v}\in D\} \tag{3.1}
+$$
 
 The environment is a discrete-time infinite-horizon insurance model (§2, p. 827). A risk-neutral principal with discount factor $$\alpha \in (0,1)$$ offers an insurance contract to a risk-averse agent (same discount factor). The agent's Bernoulli utility is $$U: (\underline{c}, \infty) \to \mathbb{R}$$ satisfying **Assumption DARA** (p. 827): strictly increasing, strictly concave, satisfying Inada conditions $$\lim_{c \to \underline{c}} U'(c) = +\infty$$ and $$\lim_{c \to \infty} U'(c) = 0$$, bounded above and unbounded below ($$\mathcal{U} = (-\infty, 0)$$), and with decreasing absolute risk aversion. Standard CARA and HARA utilities satisfy DARA.
 
@@ -143,15 +172,15 @@ $$
 
 where $$\Gamma(\mathbf{v})$$ is the constraint correspondence of all menus satisfying (PK$$_i$$)-(IC$$_{ij}$$) with $$\mathbf{w}_i \in D$$ for all $$i$$. Under (TVC)-Regularity, $$P(\cdot, s)$$ is convex, and there exists a unique optimal contract $$\xi^*$$ that is continuous on $$D \times S$$ (Proposition 3.2(b)).
 
-The **conditional variance of continuation utility**, used in Theorem 2, is defined at (4.1, p. 835):
+The **conditional variance of continuation utility**, used in Theorem 2, is defined by equation (4.1, p. 835):
 
 $$
-\mathbf{V}\!\left(v_{s^{(t+1)}}^{(t)} \;\Big|\; \mathbf{v}^{(t)}, s^{(t)}\right) := \sum_{i=1}^d f_{s^{(t)},i} \left(v_i^{(t)} - \sum_{k=1}^d f_{s^{(t)},k}\, v_k^{(t)}\right)^2
+\mathbf{V}\!\left(v_{s^{(t+1)}}^{(t)} \;\Big|\; \mathbf{v}^{(t)}, s^{(t)}\right) := \sum_{i=1}^d f_{s^{(t)},i} \left(v_i^{(t)} - \sum_{k=1}^d f_{s^{(t)},k}\, v_k^{(t)}\right)^2 \tag{4.1}
 $$
 
 ## Method
 
-The core methodology is the **marginal cost martingale** (§4.3, pp. 837-840). It builds on the `mechanism-design` framework and `value-function-iteration` (Bellman equation) ideas, extending the martingale approach of Thomas and Worrall (1990) for i.i.d. types to the general Markovian setting via the Fernandes and Phelan (2000) recursive formulation. The paper's stated primary methodological contributions are (i) the recursive formulation using interim promised utilities (extending Fernandes and Phelan (2000)) and (ii) the marginal cost martingale for analyzing long-run outcomes.
+The core methodology is the **marginal cost martingale** (§4.3, pp. 837-840). It builds on the mechanism-design framework and value-function-iteration (Bellman equation) ideas, extending the martingale approach of Thomas and Worrall (1990) for i.i.d. types to the general Markovian setting via the Fernandes and Phelan (2000) recursive formulation. The paper's stated primary methodological contributions are (i) the recursive formulation using interim promised utilities (extending Fernandes and Phelan (2000)) and (ii) the marginal cost martingale for analyzing long-run outcomes.
 
 Let $$DP(\mathbf{v}, s) = (P_1(\mathbf{v}, s), \dots, P_d(\mathbf{v}, s))$$ denote the gradient of $$P$$ with respect to $$\mathbf{v}$$. The **directional derivative in direction $$\mathbf{1} = (1, \dots, 1) \in \mathbb{R}^d$$** is:
 
@@ -169,19 +198,29 @@ $$
 D_{\mathbf{1}} P(\mathbf{v}, s) = \sum_{i=1}^d f_{si}\, D_{\mathbf{1}} P(\mathbf{w}_i, i)
 $$
 
-which is precisely the martingale condition $$\mathbf{E}[D_{\mathbf{1}} P(\mathbf{v}^{(t+1)}, s^{(t+1)}) \mid \mathbf{v}^{(t)}, s^{(t)}] = D_{\mathbf{1}} P(\mathbf{v}^{(t)}, s^{(t)})$$. Strict positivity holds because the cost function $$C(\cdot, j)$$ is convex and the cost-smoothing motive always pushes $$D_{\mathbf{1}} P > 0$.
+which is precisely the martingale condition $$\mathbf{E}[D_{\mathbf{1}} P(\mathbf{v}^{(t+1)}, s^{(t+1)}) \mid \mathbf{v}^{(t)}, s^{(t)}] = D_{\mathbf{1}} P(\mathbf{v}^{(t)}, s^{(t)})$$. Strict positivity holds because the cost function $$C(\cdot, j)$$ is convex and the cost-smoothing motive always pushes $$D_{\mathbf{1}} P > 0$$.
+
+For the closed-economy extension, the analogous marginal-cost relation (equation (6.1), p. 849) is
+
+$$
+D_{\mathbf{1}}P_{\tilde{q}}(\mathbf{v}^{(t)},s^{(t)},t) = \frac{q_{t+1}/q_t}{\alpha} \; \mathbb{E}\!\left[D_{\mathbf{1}}P_{\tilde{q}}(\mathbf{v}^{(t+1)},s^{(t+1)},t+1) \mid \mathbf{v}^{(t)},s^{(t)}\right] \tag{6.1}
+$$
+
+It is a martingale when $$q_{t+1}/q_t = \alpha$$ for every t; the paper notes it is a non-negative supermartingale if $$q_{t+1}/q_t \geq \alpha$$ throughout, while market-clearing prices can require the opposite inequality (pp. 849-850).
 
 **Proof sketch for Theorem 1 (§4.3):**
 
 **Step 1 (Marginal cost martingale, p. 837).** By Proposition 4.4, $$D_{\mathbf{1}} P(\mathbf{v}^{(t)}, s^{(t)})$$ is a strictly positive martingale. By the Martingale Convergence Theorem, it converges a.s. to some non-negative limit $$Z \geq 0$$.
 
-**Step 2 (Convergence to zero, p. 839).** The key step is showing $$Z = 0$$ in probability. Assumption Markov implies the agent's highest-type realization $$\omega_d$$ occurs infinitely often along any sample path. At such "renewal" histories the optimal contract is **efficient** (renegotiation-proof): the principal does not need to screen through continuation contracts, so the marginal cost martingale splits like in the i.i.d. case. At these histories, if the martingale were to converge to a strictly positive number, then $$\mathbf{v}^{(t)}$$ would converge to some interior point of $$D$$, implying the optimal contract perfectly stabilizes consumption, which contradicts incentive compatibility (Lemma C.18). Thus the martingale must converge to zero at renewal histories, and the Markov ergodicity extends this to all histories.
+**Step 2 (Convergence to zero, pp. 839-840).** The paper shows that the martingale converges to zero almost surely. Under Assumption Markov, the highest type occurs infinitely often almost surely. At histories following a report of the highest type, the optimal contract is **efficient** in the paper's sense: the principal does not need to screen through continuation contracts. Along that subsequence, a positive limit for the marginal-cost martingale would imply convergence of promised utilities to an interior point, which is inconsistent with the incentive provision required there. The paper then uses a renewal argument to extend convergence of the marginal-cost martingale to zero across histories.
 
-**Step 3 (Convergence of allocations, p. 840).** $$D_{\mathbf{1}} P(\mathbf{v}^{(t)}, s^{(t)}) \to 0$$ implies that the Lagrange multipliers on the incentive constraints converge to zero. This in turn implies that the agent's consumption converges to the level that the first-best contract would deliver if cost were zero, which is $$\underline{c}$$.
+**Step 3 (Convergence of allocations, p. 840).** The paper shows that the incentive-constraint multipliers converge to zero in probability in the general case (almost surely in the i.i.d. and binary-type cases). It then shows that consumption converges in probability to its lower bound $$\underline{c}$$.
 
 For **Theorem 2** (backloaded incentives), the argument uses Theorem 1(b) (flow utility $$u^{(t)} \to -\infty$$) combined with the incentive constraint (IC$$_{ij}^*$$): for FOSD type processes, the Markov information rent (the second bracketed term) is non-negative (Theorem 3 in Appendix B guarantees $$\mathbf{E}^{\mathbf{f}_i}[\mathbf{w}_i] \geq \mathbf{E}^{\mathbf{f}_j}[\mathbf{w}_i]$$ whenever $$i > j$$). Since the i.i.d. information rent grows without bound (from Theorem 1(b)) and the Markov rent is non-negative, the spread $$v_i^{(t)} - v_{i-1}^{(t)}$$ must also grow without bound.
 
 ## Empirical specifications
+
+This is a theory paper and estimates no empirical regression. Its solved example numerically computes optimal contracts under CARA utility, two endowment types and symmetric transition probabilities, then simulates outcomes over q in {0.5, 0.65, 0.8, 0.95}; there are no regression fixed effects or standard errors. The simulation compares 420,000 paths per q over 40 periods, from 21 initial promised-utility states on a grid whose two coordinates are evenly spaced between -10 and -1, with 20,000 paths per initial state; half of the paths start at the low type so types begin at their stationary distribution (Figure 3 and text pp. 841-842). The reported outcomes are sample means and variances of consumption, and Figure 5 traces wedges along six consecutive high or low shocks starting from E2 (p. 845).
 
 Section 5 presents numerical simulations for the **CARA / binary-type ($$d = 2$$) / symmetric-transitions** special case, using (p. 841):
 

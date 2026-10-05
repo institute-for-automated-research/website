@@ -2,10 +2,10 @@
 title: "Feedback Design in Dynamic Moral Hazard: Ely, Georgiadis & Rayo (2025)"
 description: >-
   Distilled: In a dynamic moral hazard setting with a binary success signal, the jointly
-  optimal performance feedback and reward contract takes a two-phase bang-bang form: an
-  initial silent phase (agent kept in the dark) followed by a full-transparency pronto
-  phase, driven by a backward compounding effect that makes front-loading ignorance
-  uniquely optimal. Econometrica 2025, CC BY-NC 4.0. Five core theoretical results with
+  optimal performance feedback and reward contract has at most two bang-bang phases: an
+  initial silent phase (agent kept in the dark), when warranted by effort costs, followed
+  by a full-transparency pronto phase, driven by a backward compounding effect that
+  makes front-loading ignorance optimal. Econometrica 2025, CC BY-NC 4.0. Eight core theoretical results with
   source locators, the model equations, and the solution method; LLM-distilled, not
   reproduced.
 sidebar:
@@ -25,8 +25,8 @@ paper:
   doi: 10.3982/ECTA21871
   jel:
     codes: [D82, D86, C73]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-26
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: [Game Theory and Applications, Opinion Dynamics and Social Influence, Experimental Behavioral Economics Studies]
   dataAccess: public
   outcome:
@@ -38,13 +38,13 @@ paper:
   access: open
   machineAccess: 'open-access (CC BY-NC 4.0, Wiley/Econometric Society; PDF not machine-fetched directly; licence confirmed in Crossref DOI metadata 2026-06-26)'
   redistribution: 'extract-only (CC BY-NC 4.0 permits sharing for noncommercial purposes; PDF not hosted in this batch)'
-  resultsCount: 5
+  resultsCount: 8
   citedByCount: 3
   methods:
     role: theory
     family: theory
     buildsFrom: [principal-agent, bayesian-persuasion, mechanism-design]
-  contributionType: [new-theory]
+  contributionType: [new-theory, new-method]
   mechanisms: [moral-hazard, information-asymmetry]
   scope:
     region: theoretical
@@ -62,6 +62,8 @@ paper:
   extraction:
     - { by: 'paper-distiller (claude-sonnet-4-6)', date: 2026-06-26, role: extracted, note: 'Full text read (pp. 597-621); five theoretical results extracted with equation locators. Not human-verified. Not reproduced.' }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF (pp. 597-621); all 5 Core results rows and all model/method equations (eqs. 1-4, Obj, P, Feas, Prop. 3 bang-bang, Thm. 1 rewards) verified correct. Removed colorful adjective 'novel' from TL;DR; no em-dashes found." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full 26-page PDF; appended three extension results, equations (5) and (6), and the empirical-specifications note. Additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all eight Core results, equations and specifications, classifications, prose, citations, and frontmatter against the source PDF; removed theory-only findings metadata, qualified uniqueness and direct-monitoring claims, corrected the description of Φ, and confirmed all row locators. No unresolved errors." }
   licenceVerification:
     - { source: 'Crossref REST API works/10.3982/ECTA21871', checked: 2026-06-26, by: 'paper-distiller (claude-sonnet-4-6)', found: 'license content-version=unspecified, URL=https://creativecommons.org/licenses/by-nc/4.0/, delay-in-days=0, start=2025-01-01' }
   rightsSignalConflict: false
@@ -71,7 +73,7 @@ paper:
 
 ## TL;DR
 
-The paper studies the optimal joint design of performance feedback and monetary rewards when the only available performance signal is coarse: a binary "success" that arrives stochastically as a function of the agent's accumulated effort. A "backward compounding effect" governs the analysis: promising greater future rewards to prevent pausing raises the cost of all earlier rewards as well, and this cost is larger the further into the future the information is hidden. As a result, it is always optimal to front-load the agent's ignorance. The optimal contract takes a two-phase bang-bang form (Theorem 1, p. 606): a fully silent phase in which the principal says nothing and the agent works regardless of success, followed by a full-transparency pronto phase in which the agent is immediately informed and stops upon success. The silent phase exists precisely when the flow cost satisfies c < 1/2. The two-phase structure is robust to continuation payoffs, a more informed agent, learning-by-doing, and costly direct monitoring.
+The paper studies the optimal joint design of performance feedback and monetary rewards when the only available performance signal is coarse: a binary "success" that arrives stochastically as a function of the agent's accumulated effort. A "backward compounding effect" governs the analysis: promising greater future rewards to prevent pausing raises the cost of all earlier rewards as well, and this cost is larger the further into the future the information is hidden. As a result, the optimal baseline contract front-loads the agent's ignorance. The optimal contract has at most two phases (Theorem 1, p. 606): when c < 1/2, a fully silent phase in which the principal says nothing and the agent works regardless of success, followed by a full-transparency pronto phase in which the agent is immediately informed and stops upon success; otherwise, the silent phase has zero length. The two-phase structure remains optimal with continuation payoffs, a more informed agent, and upfront effort investment. With costly direct monitoring, Proposition 4 shows that a sufficiently short early-silence policy dominates always-pronto when m > c; it does not characterize the fully optimal contract in that extension.
 
 ## Core results
 
@@ -82,10 +84,13 @@ All results are theoretical; locators point into the source PDF.
 | R1 | Local incentive constraint (LIC): necessary condition for incentive compatibility via deterring instantaneous pauses | Prop. 1, p. 602 | r(t)R(t)f(t) - cp(t) ≥ cr(t)Q(t)f(t) + ∫ r(s)[R(s)-cQ(s)]\|f'(s)\| ds - c∫ r(s)f(s) ds |
 | R2 | Minimal implementing reward schedule: unique least-cost reward satisfying LIC with equality at every t | Prop. 2, p. 603 | r(t)R(t) = c[p(t)/f(t) - ∫ f'(s)/f(s)² p(s) ds - ∫ (r(s)-r(t)q(s\|t)) ds] (eq. 4) |
 | R3 | Principal's objective simplifies to (Obj); relaxed problem (P) admits bang-bang solution with cutoffs t\* and T\* | Lemma 1 + Prop. 3, pp. 605-606 | t\* = min{t : 1-2c-cΦ(t) ≤ 0}; p = 1 on [0,t\*], 1-F(t) on (t\*,T\*], 0 thereafter; r = 1 on [0,T\*] |
-| R4 | Every optimal policy takes exactly two phases: silent (no disclosure) then pronto (immediate disclosure) | Thm. 1, p. 606 | Silent reward: c/λ(T\*) + cF(t\*)/f(t\*); pronto reward: c/λ(T\*); silent phase iff c < 1/2 |
-| R5 | With direct monitoring cost m > c, early silence dominates always pronto when the silent phase is sufficiently short | Prop. 4, p. 612 | Expected cost ratio Δ(t̃) < 1 iff m > c and t̃ sufficiently small; m > c is the exact threshold |
+| R4 | When T > t*, every optimal policy has at most two phases: silent (no disclosure) then pronto (immediate disclosure) | Thm. 1, p. 606 | Silent reward: c/λ(T\*) + cF(t\*)/f(t\*); pronto reward: c/λ(T\*); silent phase has positive length iff c < 1/2 |
+| R5 | With direct monitoring cost m > c, early silence dominates always-pronto when the silent phase is sufficiently short | Prop. 4, p. 612; proof, p. 620 | Expected cost ratio Δ(t) < 1 for sufficiently small t iff m > c |
+| R6 | With continuation payoffs for both parties, the silent cutoff is unchanged and the principal extends the pronto phase | §5.1, text p. 609 | The objective gains (v + π)F(T̃); t* is unchanged and T* weakly increases |
+| R7 | With probability h of privately learning success, the two-phase policy remains optimal with a lower silent-phase reward | Cor. 1, p. 610 | Silent-phase reward: c/λ(T̃) + c(1-h)F(t*)/f(t*), below the baseline reward; cutoff t* unchanged |
+| R8 | An upfront effort investment preserves the silent-then-pronto structure and expands the range supporting a silent phase | §5.3, text p. 611 | Silent phase iff c < 1/(2-μ), compared with c < 1/2 in baseline; its length grows with μ |
 
-**Overall (paper's conclusion).** The backward compounding effect unifies the analysis: silence grants the agent rents, and these rents compound the longer they are deferred, making it uniquely optimal to front-load ignorance. The two-phase bang-bang structure holds under every extension considered, and the key quantity governing it is the function Φ(t) = F(t)(d/dt)(1/f(t)), which measures how severely the backward compounding escalates over time.
+**Overall (paper's conclusion).** The backward compounding effect unifies the analysis: silence grants the agent rents, and these rents compound the longer they are deferred, so the optimal baseline contract front-loads ignorance. The two-phase structure remains in the continuation-payoff, more-informed-agent, and upfront-investment extensions; the direct-monitoring result compares early silence with always-pronto rather than establishing a fully optimal contract. The key quantity is Φ(t) = F(t)(d/dt)(1/f(t)), which captures the compounding effect.
 
 ## Theory / model
 
@@ -95,7 +100,7 @@ $$
 \Phi(t) := F(t)\,\frac{d}{dt}\frac{1}{f(t)}, \quad \Phi(0) = 0, \quad \Phi \text{ weakly increasing.} \tag{1}
 $$
 
-A larger $$\Phi(t)$$ means the backward compounding effect is more severe: the hazard rate is falling faster (large $$-f'/f^2$$) and there is more cumulative mass of past rewards to compound (large $$F(t)$$).
+A larger $$\Phi(t)$$ means the backward compounding effect is more severe: the density is declining faster in inverse-density terms (large $$-f'/f^2$$), and more cumulative probability mass is available for past rewards to compound (large $$F(t)$$).
 
 The principal designs (i) a reward schedule $$R(t) \geq 0$$ paid upon success at t and (ii) a feedback policy. By a direct-mechanism argument it suffices to consider direct policies: $$q(s|t)$$, the probability the agent is asked to continue working at s conditional on having succeeded at $$t \leq s$$, and $$r(s)$$, the probability the agent is asked to continue conditional on no success yet. The total probability the agent is asked to work at least until s is (p. 600, eq. 2):
 
@@ -131,6 +136,12 @@ $$
 
 The first term is the zero-rent reward (just enough to cover current expected cost). The second term is the backward compounding penalty: since $$f' \leq 0$$, this term is positive and requires raising current rewards to compensate for high future rewards. The third term is the information rebate: when the principal reveals a success at t (low $$q(s|t)$$), the agent works less thereafter, reducing future reward obligations, so current rewards can be lower.
 
+For deterministic-deadline contracts, the minimal reward schedule in equation (4) simplifies to equation (5) (p. 603):
+
+$$
+R(t) = c\left[\frac{p(t)}{f(t)} - \int_t^{\tilde T} \frac{f'(s)}{f(s)^2}p(s)\,ds - \int_t^{\tilde T} \bigl(1-q(s|t)\bigr)\,ds\right]. \tag{5}
+$$
+
 **Step 3 - Simplified objective and bang-bang relaxed problem (Lemma 1 + Proposition 3, pp. 605-606).** Substituting (4) into the objective, Lemma 1 shows it simplifies to:
 
 $$
@@ -147,19 +158,29 @@ $$
 \text{s.t.} \quad r(t)[1-F(t)] \leq p(t) \leq 1, \quad 0 \leq r(t) \leq 1 \text{ non-increasing.} \tag{Feas}
 $$
 
+The numbered feasibility restriction in the relaxed problem is equation (6) (p. 605):
+
+$$
+r(t)[1-F(t)] \leq p(t) \leq 1. \tag{6}
+$$
+
 Since $$\Phi$$ is weakly increasing, the coefficient $$1-2c-c\Phi(t)$$ is weakly decreasing in t: positive at t = 0 when c < 1/2 and eventually non-positive. Because the objective is linear in $$p(t)$$ and $$r(t)$$, Proposition 3 establishes a bang-bang solution: define $$t^* = \min\{t : 1-2c-c\Phi(t) \leq 0\}$$ and let $$T^* \in (t^*, T]$$ be the optimal terminal date. Then:
 
 $$
 p(t) = \begin{cases} 1 & t \in [0, t^*], \\ 1-F(t) & t \in (t^*, T^*], \\ 0 & t > T^*, \end{cases} \qquad r(t) = \begin{cases} 1 & t \leq T^*, \\ 0 & t > T^*. \end{cases}
 $$
 
-**Step 4 - Two-phase optimal contract (Theorem 1, p. 606).** The bang-bang solution is implemented by a deterministic-deadline contract with exactly two phases. In Phase 1 (silent phase, $$t \in [0, t^*]$$): the principal is silent; $$q(t|s) \equiv r(t) \equiv 1$$; the agent works continuously regardless of success. In Phase 2 (pronto phase, $$t \in (t^*, T^*]$$): $$r(t) = 1$$ and $$q(s|t) \equiv 0$$; the agent quits immediately upon success. Substituting into (4) and simplifying using $$\lambda(T^*) = f(T^*)/[1-F(T^*)]$$, the reward for each phase is (Appendix A.5, pp. 618-619):
+**Step 4 - Optimal contract with at most two phases (Theorem 1, p. 606).** When $$T > t^*$$, the bang-bang solution is implemented by a deterministic-deadline contract with at most two phases. In Phase 1 (silent phase, $$t \in [0, t^*]$$): the principal is silent; $$q(s|t) \equiv r(t) \equiv 1$$; the agent works continuously regardless of success. In Phase 2 (pronto phase, $$t \in (t^*, T^*]$$): $$r(t) = 1$$ and $$q(s|t) \equiv 0$$; the agent quits immediately upon success. Substituting into (4) and simplifying using $$\lambda(T^*) = f(T^*)/[1-F(T^*)]$$, the reward for each phase is (Appendix A.5, pp. 618-619):
 
 $$
 R(t) = \frac{c}{\lambda(T^*)} + \frac{cF(t^*)}{f(t^*)} \quad \text{for } t \in [0, t^*], \qquad R(t) = \frac{c}{\lambda(T^*)} \quad \text{for } t \in (t^*, T^*].
 $$
 
 The phase 1 reward exceeds the phase 2 reward by $$cF(t^*)/f(t^*)$$: the "silent premium" that compensates for the rents the agent would earn during the pronto phase, compounded backward into the silent phase. The cutoff $$t^* > 0$$ (positive silent phase) if and only if c < 1/2. Global incentive compatibility is verified by showing that the non-increasing reward profile makes any global deviation unprofitable (Appendix A.5). The result contrasts with Ely and Szydlowski (2020), where quitting is irreversible and rewards are exogenous, and with Halac, Kartik, and Liu (2016) and Mason and Välimäki (2015), neither of which allows the principal to strategically withhold performance feedback.
+
+## Empirical specifications
+
+This is a pure theory paper and has no empirical estimating specifications, fixed effects, standard-error treatment, or estimation sample.
 
 ## Datasets used
 
@@ -173,7 +194,7 @@ Read the [original](https://doi.org/10.3982/ECTA21871) if you are: designing per
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was extracted by an LLM on 2026-06-26 and is **not human-verified or independently reproduced**. The CC BY-NC 4.0 licence permits noncommercial sharing; the verbatim PDF is not hosted in this batch.
+Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was updated by an LLM on 2026-10-04 and is **not human-verified or independently reproduced**. The CC BY-NC 4.0 licence permits noncommercial sharing; the verbatim PDF is not hosted in this batch.
 
 > **Attribution (CC BY-NC 4.0).** Ely, Jeffrey C., George Georgiadis, and Luis Rayo.
 > "Feedback Design in Dynamic Moral Hazard."

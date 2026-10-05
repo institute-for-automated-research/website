@@ -1053,6 +1053,18 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: Inheritance rights raise single women's lifetime resources and marriage-market outside options, delaying marriage and reducing fertility.
     aliases: [inheritance-rights-marriage-timing]
 
+  choice-based-selection:
+    def: Patient choices and priority rules select patients and patient-kidney matches with different survival gains, inducing nonrandom treatment and outcome selection.
+    aliases: [selection-through-choice, assignment-selection]
+
+  choice-adjustment-costs:
+    def: Costs incurred when an agent changes a chosen action or state, shaping the direction and timing of adjustment after a parameter change.
+    aliases: [costly-adjustment]
+
+  candidate-quality-selection:
+    def: Endogenous entry and candidate selection sort political contests by unobserved candidate valence, shaping observed challengers and incumbency advantage.
+    aliases: [valence-selection, candidate-entry-selection]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -1154,6 +1166,14 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   equilibrium-condition:
     def: Theoretical equilibrium result reported as an existence, uniqueness, inequality, or equilibrium characterization condition.
     aliases: [equilibrium-existence, equilibrium-inequality]
+
+  wedge:
+    def: Deviation of an allocation or intertemporal condition from its frictionless benchmark, reported as a gap such as an insurance or Euler-equation wedge.
+    aliases: [insurance-wedge, intertemporal-wedge]
+
+  interval-length:
+    def: Length of a reported confidence or credible interval, used to compare estimator precision.
+    aliases: [confidence-interval-length, credible-interval-length, CIL]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -1264,3 +1284,10 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
   blockchain-security:
     def: Security of a blockchain protocol, measured by survival probability or resistance to a successful attack.
     aliases: [distributed-ledger-security]
+
+  health-survival:
+    def: Patient survival, longevity, mortality, and survival gains from medical treatments or health care allocation.
+    aliases: [patient-survival, health-outcomes]
+
+  equilibrium-condition:
+    def: Theoretical equilibrium and comparative-statics characterizations, including existence, uniqueness, and ordering conditions.

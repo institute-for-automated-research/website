@@ -5,9 +5,9 @@ description: >-
   buyer and seller private value distributions and on the first-best trade
   probability from eBay Best Offer bargaining data, using a hierarchy of
   behavioral assumptions without specifying a complete equilibrium model. Under
-  preferred assumptions (stochastic monotonicity and positive correlation), at
-  least 37% of failed trades are cases where gains from trade existed.
-  Econometrica 2025, paywalled. Seven core results with source locators, the
+  preferred assumptions (surplus weak monotonicity and buyer monotonicity), the
+  median product has a 37.3% lower bound on impasse conditional on gains from trade.
+  Econometrica 2025, paywalled. Fifteen core results with source locators, the
   bounds framework with equations, and the estimation approach.
 sidebar:
   label: Freyberger-Larsen 2025
@@ -32,14 +32,16 @@ paper:
   outcome:
     - first-best trade probability P(B >= S) in consumer markets
     - inefficient impasse rate in sequential-offer bargaining
+    - sale probability in consumer markets
     - buyer and seller private value distributions
+    - width of buyer and seller private value distribution bounds
   outcomeClass: [market-microstructure]
   license: "paywalled (no license block in Crossref metadata; copyright The Econometric Society 2025)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (doi.org redirect to Wiley/Econometric Society site; 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 15
   citedByCount: 4
   methods:
     role: both
@@ -60,11 +62,17 @@ paper:
   findings:
     - { ref: R1, outcome: "seller value distribution bounds validity", metric: probability, value: "100% of 36 products have crossing seller monotonicity (A2) bounds; IVE = 0.23", direction: negative, vsBenchmark: "A2 rejected for all products; unobserved heterogeneity invalidates monotonicity (Table III, p. 182)" }
     - { ref: R2, outcome: "buyer value distribution bounds validity", metric: probability, value: "42% crossing rate under independence (A3); 11% statistically significant; IVE = 0.006", direction: mixed, vsBenchmark: "partial rejection of buyer independence; stochastic monotonicity A4 bounds do not cross (Table III, p. 182)" }
-    - { ref: R3, outcome: "stochastic monotonicity and positive correlation combined bounds validity", metric: probability, value: "0% crossing rate for A4+A5 combined bounds across all 36 products; IVE = 0", direction: positive, vsBenchmark: "preferred Goldilocks assumptions fully consistent with data (Table III, p. 182)" }
+    - { ref: R3, outcome: "stochastic monotonicity and positive correlation combined bounds validity", metric: probability, value: "0% crossing rate for A4+A5 combined bounds across all 36 products; IVE = 0", direction: positive, vsBenchmark: "preferred combined assumptions fully consistent with data (Table III, p. 182)" }
     - { ref: R4, outcome: "first-best trade probability P(B >= S)", metric: probability, value: "P(B >= S) lower bound = 0.508 [95% CI: 0.450, 0.540] for cell phone product; P(sale) = 0.276", direction: positive, vsBenchmark: "implied inefficient impasse = 45.6% (= 1 - 0.276/0.508) (Table V, p. 186)" }
     - { ref: R5, outcome: "inefficient impasse lower bound across all 36 products", metric: probability, value: "median lower bound = 37.3%; range 18.0% to 54.2%", direction: positive, vsBenchmark: "all 36 products have lower bounds above P(sale) under preferred assumptions (Fig. 6B, pp. 187-188)" }
     - { ref: R6, outcome: "inefficient impasse lower bound", metric: pp-effect, value: "-0.058 (S.E. 0.0250) for auto accept/decline users vs. non-users", direction: negative, vsBenchmark: "5.8 pp lower impasse for sellers using auto accept/decline (Table VI Panel A, p. 189)" }
     - { ref: R7, outcome: "inefficient impasse lower bound", metric: pp-effect, value: "-0.119 (S.E. 0.0610) for new vs. used products; t = 1.95", direction: negative, vsBenchmark: "11.9 pp lower impasse for new products, nearly significant at 5% (Table VI Panel C, p. 189)" }
+    - { ref: R8, outcome: "sale probability in consumer markets", metric: probability, value: "All-products sale probability = 0.30 in 12,012 sequences; mean final price conditional on trade = 0.84 of list price (Table I, p. 166)", direction: none, vsBenchmark: "Descriptive sample benchmark across 36 products" }
+    - { ref: R9, outcome: "width of buyer and seller private value distribution bounds", metric: probability, value: "Min/mean/max widths: seller A1 = 0.340/0.416/0.524, A3 = 0.173/0.281/0.433, A4 = 0.334/0.413/0.516, A5 = 0.277/0.369/0.511, A4+A3 = 0.171/0.269/0.380, A4+A5 = 0.271/0.369/0.499; buyer A1 = 0.408/0.428/0.459, A2 = 0.292/0.367/0.429, A3 = 0.097/0.230/0.341, A4 = 0.399/0.418/0.451, A5 = 0.367/0.413/0.437, A2+A3 = 0.089/0.217/0.324, A2+A5 = 0.240/0.343/0.398, A4+A3 = 0.109/0.238/0.346, A4+A5 = 0.364/0.407/0.432 (Table IV, p. 183)", direction: negative, vsBenchmark: "Mean integrated widths show tighter bounds under selected restrictions; seller bounds invoking A2 are omitted because they cross" }
+    - { ref: R12, outcome: "inefficient impasse lower bound", metric: pp-effect, value: "High seller reviews vs. low = +0.041 (S.E. 0.0154); high buyer experience vs. low = +0.040 (S.E. 0.0152); high seller/high buyer experience vs. low/low = -0.004 (S.E. 0.0320); high seller/low buyer experience vs. low/low = +0.008 (S.E. 0.0321); low seller/high buyer experience vs. low/low = +0.027 (S.E. 0.0325) (Table VI, p. 189)", direction: mixed, vsBenchmark: "Higher reviews and buyer experience are associated with higher lower bounds; experience-combination differences are imprecise" }
+    - { ref: R13, outcome: "buyer and seller private value distribution bounds validity", metric: probability, value: "For combined assumptions, seller A2+A3 and A2+A5 each cross for 100% of products (IVE = 0.23 for both); seller A4+A3 crosses for 19%, rejects for 3%, IVE = 0.00. Buyer A2+A3 crosses for 78%, rejects for 47%, IVE = 0.07; A2+A5 crosses for 3%, no significant rejections, IVE = 0.00; A4+A3 crosses for 42%, rejects for 8%, IVE = 0.006 (Table III, p. 182)", direction: mixed, vsBenchmark: "Crossings vary with the combined behavioral restrictions" }
+    - { ref: R14, outcome: "inefficient impasse lower bound", metric: pp-effect, value: "Differences: communication -0.045 (S.E. 0.0415); eBay store -0.042 (0.0255); U.S. buyer -0.043 (0.0319); high photos -0.010 (0.0163); high seller rating -0.002 (0.0156); high seller experience +0.003 (0.0155); high reference price -0.003 (0.0120); high seller/high buyer experience vs. low/low -0.004 (S.E. 0.0320) (Table VI, p. 189)", direction: mixed, vsBenchmark: "These differences are not statistically significant; measures are exploratory lower-bound comparisons" }
+    - { ref: R15, outcome: "first-best trade probability P(B >= S)", metric: probability, value: "Preferred surplus weak-monotonicity plus buyer-monotonicity lower bounds: electronics 0.701 [95% CI: 0.606, 0.756] vs. P(sale) = 0.441; video games 0.591 [0.483, 0.650] vs. 0.427; computers/tablets 0.604 [0.494, 0.661] vs. 0.368 (Table V, p. 186)", direction: positive, vsBenchmark: "Each confidence interval lies above its realized sale probability" }
   resultType: new-finding
   relatesTo:
     - { cite: "Myerson and Satterthwaite (1983)", doi: '10.1016/0022-0531(83)90048-0', relation: builds-on, note: "MS impossibility theorem motivates measuring how far real-world bargaining falls from the first-best trade probability" }
@@ -82,6 +90,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Read full PDF pp. 161-194 plus references. Extracted bounds equations, estimation approach, and empirical results. Not human-verified; not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; fixed 4 errors: (1) eq. 9 used starred X^{S*}_{AC}/X^{S*}_Q (PDF uses unstarred conditional probability X^S_{AC}/X^S_Q at p. 174); (2) A2 description said 'weakly decreasing in y' (wrong direction, upper support is increasing in y per A2.i at p. 172); (3) R6/R7 Table VI locators cited pp. 190/191 (table is on p. 189); (4) R7 Diff S.E. was 0.0605 (Diff S.E. is 0.0610; 0.0605 is the No-column S.E. at Table VI p. 189). All other magnitudes, equations, and frontmatter confirmed." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF. Added missing main-text findings and complete numbered equations and estimation specifications. These additions are not yet re-verified, not human-verified, and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 15 core result rows, equations and specifications, classifications, and prose against the PDF; corrected the impasse conditioning language and Table VI locator and subgroup specification issues." }
   licenceVerification:
     - { source: "Crossref api.crossref.org/works/10.3982/ECTA20125", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "No license[] block in Crossref metadata. Title, authors (Freyberger; Larsen), container-title (Econometrica), published (2025), pages (161-194) confirmed. Copyright The Econometric Society 2025. Paper is paywalled." }
 ---
@@ -90,7 +100,7 @@ paper:
 
 ## TL;DR
 
-Freyberger and Larsen (2025) use eBay Best Offer platform data to measure how efficiently buyers and sellers in consumer markets reach agreement. Rather than estimating a structural bargaining model, they propose an incomplete-model (partial identification) approach: they derive sharp nonparametric bounds on buyer and seller private value distributions ($$F_B$$, $$F_S$$) and on the counterfactual first-best trade probability $$P(B \geq S)$$ under a hierarchy of behavioral assumptions. The weakest assumption (Assumption A1, revealed preferences only) gives wide bounds. The strongest assumptions (seller monotonicity A2, buyer independence A3, as in Perry (1986) and Cramton (1992)) cross for most products, indicating they are too strong for inexperienced consumer negotiators and fail in the presence of unobserved game-level heterogeneity. The preferred assumptions, stochastic monotonicity (A4) and positive correlation (A5), are consistent with the data for all 36 products and yield informative non-crossing bounds. Under these, the paper finds that for the median product at least 37% of failed trades are inefficient: the buyer genuinely valued the good more than the seller but the parties failed to agree. The auto accept/decline feature and new product status are each associated with lower inefficient impasse, while buyer experience appears to worsen it, consistent with information-rent extraction motives noted by Myerson and Satterthwaite (1983). The approach builds on the partial identification tradition of Manski (1989) and the incomplete-model auction bounds of Haile and Tamer (2003), extending both to a two-sided sequential bargaining setting. Keniston (2017) and Larsen (2021) are the closest related structural empirical studies; this paper extends beyond them by weakening the behavioral assumptions required.
+Freyberger and Larsen (2025) use eBay Best Offer platform data to measure how efficiently buyers and sellers in consumer markets reach agreement. Rather than estimating a structural bargaining model, they propose an incomplete-model (partial identification) approach: they derive sharp nonparametric bounds on buyer and seller private value distributions ($$F_B$$, $$F_S$$) and on the counterfactual first-best trade probability $$P(B \geq S)$$ under a hierarchy of behavioral assumptions. The weakest assumption (Assumption A1, revealed preferences only) gives wide bounds. Seller monotonicity A2 bounds cross for all products, while buyer independence A3 bounds cross for 42% of products; combining the strongest assumptions also produces widespread crossings. These results show that the assumptions can be too strong for inexperienced consumer negotiators and can fail in the presence of unobserved game-level heterogeneity. The preferred assumptions, surplus weak monotonicity (A7) and buyer monotonicity (A2.ii), yield informative non-crossing bounds. For the median product, the lower bound on impasse conditional on gains from trade is 37.3%. Seller auto accept/decline use and new product status are associated with lower impasse lower bounds, while more seller reviews and buyer experience are associated with higher lower bounds. The authors suggest that information-rent extraction could explain the latter patterns, but the heterogeneity results are exploratory and not causal. Their focus on inefficient trade is motivated by the impossibility result of Myerson and Satterthwaite (1983). The approach builds on the partial identification tradition of Manski (1989) and the incomplete-model auction bounds of Haile and Tamer (2003), extending both to a two-sided sequential bargaining setting. Keniston (2017) and Larsen (2021) are the closest related structural empirical studies; this paper extends beyond them by weakening the behavioral assumptions required.
 
 ## Core results
 
@@ -103,92 +113,159 @@ Freyberger and Larsen (2025) use eBay Best Offer platform data to measure how ef
 | R5 | Median product: inefficient impasse lower bound = 37.3%; range 18.0% to 54.2% | Fig. 6B, pp. 187-188 | All 36 products have lower bounds above P(sale) under preferred assumptions |
 | R6 | Auto accept/decline: inefficient impasse lower bound 5.8 pp lower for users vs. non-users | Table VI Panel A, p. 189 | Diff = -0.058, S.E. = 0.0250 (statistically significant) |
 | R7 | New products: inefficient impasse lower bound 11.9 pp lower than used products | Table VI Panel C, p. 189 | Diff = -0.119, S.E. = 0.0610; t = 1.95 (nearly significant at 5%) |
+| R8 | Full-sample descriptive benchmark: sale probability and prices in the 36-product sample | Table I, p. 166 | 12,012 sequences; P(sale) = 0.30; mean final price over list price when trade occurs = 0.84; failed-trade buyer and seller prices = 0.64 and 0.98 |
+| R9 | Assumption sets tighten average distribution bounds by different amounts | Table IV, p. 183 | Min/mean/max widths: seller A1 = 0.340/0.416/0.524, A3 = 0.173/0.281/0.433, A4 = 0.334/0.413/0.516, A5 = 0.277/0.369/0.511, A4+A3 = 0.171/0.269/0.380, A4+A5 = 0.271/0.369/0.499; buyer A1 = 0.408/0.428/0.459, A2 = 0.292/0.367/0.429, A3 = 0.097/0.230/0.341, A4 = 0.399/0.418/0.451, A5 = 0.367/0.413/0.437, A2+A3 = 0.089/0.217/0.324, A2+A5 = 0.240/0.343/0.398, A4+A3 = 0.109/0.238/0.346, A4+A5 = 0.364/0.407/0.432 |
+| R10 | Secret auto-accept and auto-decline thresholds validate the preferred seller bounds | Figure 3, pp. 179-180 | In the 363-sequence cell-phone subsample, preferred independence plus stochastic-monotonicity bounds contain the empirical threshold CDFs; crossings occur only for seller-monotonicity bounds |
+| R11 | List-price recall makes buyer independence bounds cross, while combined monotonicity and positive-correlation bounds remain non-crossing | Figure 5, p. 181 | The independence lower bound lies nearly entirely above its upper bound; combined positive-correlation and monotonicity bounds do not cross |
+| R12 | Higher seller reviews and buyer experience are associated with a higher inefficient-impasse lower bound | Table VI, p. 189 | High reviews: +0.041 (S.E. 0.0154); high buyer experience: +0.040 (S.E. 0.0152); high seller/low buyer experience vs. low/low: +0.008 (S.E. 0.0321); low seller/high buyer experience vs. low/low: +0.027 (S.E. 0.0325) |
+| R13 | Combined assumptions produce additional rejected and non-rejected bound sets | Table III, p. 182 | Seller A2+A3 and A2+A5 each cross for 100% of products (IVE = 0.23 for both); seller A4+A3 crosses for 19%, rejects for 3%, IVE = 0.00; buyer A2+A3 crosses for 78%, rejects for 47%, IVE = 0.07; A2+A5 crosses for 3%, no significant rejections, IVE = 0.00; A4+A3 crosses for 42%, rejects for 8%, IVE = 0.006 |
+| R14 | Other heterogeneity comparisons show no statistically significant differences | Table VI, p. 189 | Difference estimates (S.E.): communication -0.045 (0.0415); eBay store -0.042 (0.0255); U.S. buyer -0.043 (0.0319); high photos -0.010 (0.0163); high seller rating -0.002 (0.0156); high seller experience +0.003 (0.0155); high reference price -0.003 (0.0120); high seller/high buyer experience vs. low/low -0.004 (0.0320) |
+| R15 | Preferred first-best trade lower bounds exceed realized sale probabilities for the other three category-leading products | Table V, p. 186 | Electronics: 0.701 [95% CI: 0.606, 0.756] vs. P(sale) = 0.441; video games: 0.591 [0.483, 0.650] vs. 0.427; computers/tablets: 0.604 [0.494, 0.661] vs. 0.368 |
 
-**Overall (paper's conclusion).** Seller monotonicity, while satisfied in theoretical equilibria such as Cramton (1992) and Perry (1986), is rejected for all 36 products, most likely because unobserved game-level heterogeneity (e.g., aspects of the item's condition known to both parties but not the econometrician) induces nonmonotonicities between the seller's value and first offer. Stochastic monotonicity and positive correlation are consistent with the data and yield the tightest non-crossing bounds. Under these preferred assumptions, real-world eBay consumer bargaining exhibits substantial inefficient impasse: at least 37.3% of failed trades (median product) are cases where the buyer values the good above the seller. Automation tools (auto accept/decline) and new product status are associated with lower impasse; increased buyer experience appears linked to higher impasse, consistent with experienced agents extracting information rents at the cost of reducing total surplus.
+**Overall (paper's conclusion).** Seller monotonicity, while satisfied in theoretical equilibria such as Cramton (1992) and Perry (1986), is rejected for all 36 products, most likely because unobserved game-level heterogeneity (e.g., aspects of the item's condition known to both parties but not the econometrician) induces nonmonotonicities between the seller's value and first offer. Stochastic monotonicity and positive correlation are consistent with the data and yield informative non-crossing bounds. Under the preferred surplus weak-monotonicity and buyer-monotonicity bounds, the median product's lower bound on inefficient impasse conditional on gains from trade is 37.3%. Auto accept/decline use and new product status are associated with lower impasse lower bounds, while more seller reviews and buyer experience are associated with higher lower bounds. The authors suggest that information-rent extraction could explain the latter patterns; these comparisons are exploratory and do not establish causation.
 
 ## Theory / model
 
-The paper has no formal theoretical model. It proposes an incomplete-model (partial identification) framework whose theoretical content lies in the bargaining game setup, the revealed-preference restrictions, and the sharpness proofs.
+The paper has no complete equilibrium model. It studies alternating-offer eBay bargaining with fixed private values: a seller with value $$S$$ and a buyer with value $$B$$ bargain over a sequence of seller and buyer offers. Agreement at price $$P$$ yields buyer payoff $$B-P$$ and seller payoff $$P$$; breakdown yields seller value $$S$$ and zero to the buyer. Values are known to the respective agents and may be correlated across bargaining sequences through unobserved game-level heterogeneity (Section 3.1, pp. 167-168; Section 3.2, pp. 168-169).
 
-**Bargaining game setup (Section 3.1, p. 167).** A seller with private value $$S \sim F_S$$ and a buyer with private value $$B \sim F_B$$ negotiate over the eBay Best Offer protocol. The seller posts a list price as the first offer ($$P_1^S$$); the buyer responds with a first offer ($$P_2^B$$); each party then alternates accepting, countering, or quitting, up to three offers per side. Values represent net willingness to accept (seller) and willingness to pay (buyer) inclusive of outside options. The paper allows $$B$$ and $$S$$ to be correlated across instances through unobserved game-level heterogeneity $$W$$ known to both agents but not the econometrician.
+The observed sequence is summarized by four offer thresholds: $$X^S_{AC}$$, the smallest seller price accepted or countered; $$X^S_Q$$, the seller's quit price; $$X^B_{AC}$$, the largest buyer price accepted or offered; and $$X^B_Q$$, the buyer's quit price. Under revealed preferences A1, $$X^S_Q \leq S \leq X^S_{AC}$$ and $$X^B_{AC} \leq B \leq X^B_Q$$. The distribution representations are:
 
-Key sequence-level statistics (p. 167):
-- $$X^S_{AC}$$: smallest offer the seller makes or accepts/counters (prices at which she is willing to trade)
-- $$X^S_Q$$: largest price at which the seller quits
-- $$X^B_{AC}$$: largest price the buyer accepts or offers
-- $$X^B_Q$$: smallest price at which the buyer quits
+$$
+F_S(x)=P(S\leq x)=\int P(S\leq x\mid P^S_1=y)\,dF_{P^S_1}(y), \tag{1}
+$$
 
-Assumption A1 (revealed preferences, p. 170) implies $$X^S_Q \leq S \leq X^S_{AC}$$ and $$X^B_{AC} \leq B \leq X^B_Q$$ in every realization.
+$$
+F_B(x)=P(B\leq x)=\int P(B\leq x\mid P^S_1=y,P^B_2=z)\,dF_{P^S_1,P^B_2}(y,z). \tag{2}
+$$
 
-**Representation lemma (p. 167).** Applying the law of iterated expectations:
+Equation (1) appears in Section 3.1, p. 167; equation (2) appears in Section 3.1, p. 168. They are the law-of-iterated-expectations representations underlying the sharp bounds. Assumption A1 implies unconditional bounds:
 
-$$P(S \leq x) = \int P\!\left(S \leq x \mid P_1^S = y\right) dF_{P_1^S}(y), \tag{1}$$
+$$
+P(X^S_{AC}\leq x)\leq F_S(x)\leq P(X^S_Q\leq x), \tag{3}
+$$
 
-$$P(B \leq x) = \int P\!\left(B \leq x \mid P_1^S = y,\, P_2^B = z\right) dF_{P_1^S, P_2^B}(y, z). \tag{2}$$
+$$
+P(X^B_Q\leq x)\leq F_B(x)\leq P(X^B_{AC}\leq x). \tag{4}
+$$
 
-These representations are the foundation for all bounds: each assumption restricts the unobserved conditional $$P(S \leq x | P_1^S = y)$$ (or its buyer analogue), which is then bracketed by observed empirical quantities from the sequence of offers, acceptances, and quits.
+(Section 3.4, p. 170.)
 
-**Identification logic.** The central objects $$F_S$$, $$F_B$$, and $$P(B \geq S)$$ are not directly observable. The paper asks what can be inferred from observable bargaining actions under progressively stronger behavioral restrictions, without selecting a specific equilibrium. The answer is sharp bounds: for every assumption set, the paper proves that any CDF between the lower and upper bound is consistent with the data and the assumptions (Theorems 1-7, pp. 170-185). Sharpness means there exists a data-generating process satisfying the assumptions under which the true distribution exactly equals the bound.
+Assumption A2 is support monotonicity in own first offers: seller value support rises with the seller's first offer, and buyer value support rises with the buyer's offer conditional on the seller's first offer. Let $$X^{S*}_{AC}(y)$$ and $$X^{S*}_Q(y)$$ denote the corresponding conditional support thresholds; $$X^{B*}_{AC}(y,z)$$ and $$X^{B*}_Q(y,z)$$ are their buyer counterparts. The sharp bounds are:
+
+$$
+\int \mathbf{1}\!\left(X^{S*}_{AC}(y)\leq x\right)dF_{P^S_1}(y)\leq F_S(x)\leq\int \mathbf{1}\!\left(X^{S*}_Q(y)\leq x\right)dF_{P^S_1}(y), \tag{5}
+$$
+
+$$
+\int \mathbf{1}\!\left(X^{B*}_Q(y,z)\leq x\right)dF_{P^S_1,P^B_2}(y,z)\leq F_B(x)\leq\int \mathbf{1}\!\left(X^{B*}_{AC}(y,z)\leq x\right)dF_{P^S_1,P^B_2}(y,z). \tag{6}
+$$
+
+(Assumption A2 and Theorem 2, p. 172.)
+
+Assumption A3 imposes seller independence from the buyer's first offer conditional on the seller's first offer, and buyer independence from the seller's first offer. With $$m^S_{AC}(x,y,z)=P(X^S_{AC}\leq x\mid P^S_1=y,P^B_2=z)$$ and $$m^S_Q$$ defined analogously, the bounds are:
+
+$$
+\int \max_z m^S_{AC}(x,y,z)\,dF_{P^S_1}(y)\leq F_S(x)\leq\int \min_z m^S_Q(x,y,z)\,dF_{P^S_1}(y), \tag{7}
+$$
+
+$$
+\max_{y'}P(X^B_Q\leq x\mid P^S_1=y')\leq F_B(x)\leq\min_{y'}P(X^B_{AC}\leq x\mid P^S_1=y'). \tag{8}
+$$
+
+(Assumption A3 and Theorem 3, p. 173.)
+
+A4 weakens support monotonicity to stochastic monotonicity: conditional seller and buyer CDFs decrease in their own offers. Let $$m^B_Q(x,y,z)=P(X^B_Q\leq x\mid P^S_1=y,P^B_2=z)$$ and define $$m^B_{AC}$$ analogously. Then:
+
+$$
+\int \max_{y'\geq y}P(X^S_{AC}\leq x\mid P^S_1=y')\,dF_{P^S_1}(y)\leq F_S(x)\leq\int \min_{y'\leq y}P(X^S_Q\leq x\mid P^S_1=y')\,dF_{P^S_1}(y), \tag{9}
+$$
+
+$$
+\int \max_{z'\geq z}m^B_Q(x,y,z')\,dF_{P^S_1,P^B_2}(y,z)\leq F_B(x)\leq\int \min_{z'\leq z}m^B_{AC}(x,y,z')\,dF_{P^S_1,P^B_2}(y,z). \tag{10}
+$$
+
+A5 captures positive association in the sense that each agent's value is stochastically increasing in the opponent's first offer. Its bounds are:
+
+$$
+\int \max_{z'\geq z}m^S_{AC}(x,y,z')\,dF_{P^S_1,P^B_2}(y,z)\leq F_S(x)\leq\int \min_{z'\leq z}m^S_Q(x,y,z')\,dF_{P^S_1,P^B_2}(y,z), \tag{11}
+$$
+
+$$
+\int \max_{y'\geq y}P(X^B_Q\leq x\mid P^S_1=y')\,dF_{P^S_1}(y)\leq F_B(x)\leq\int \min_{y'\leq y}P(X^B_{AC}\leq x\mid P^S_1=y')\,dF_{P^S_1}(y). \tag{12}
+$$
+
+(Assumptions A4-A5 and Theorems 4-5, pp. 174-175.)
+
+For first-best trade, the target is the surplus distribution $$P(B-S\geq x)$$. Under A6, surplus stochastic monotonicity, and buyer monotonicity A2.ii:
+
+$$
+P(B-S\geq x)\geq\int \max_{z'\leq z}P\!\left(X^{B*}_{AC}(y,z)-X^S_{AC}\geq x\mid P^S_1=y,P^B_2=z'\right)dF_{P^S_1,P^B_2}(y,z), \tag{13}
+$$
+
+$$
+P(B-S\geq x)\leq\int \min_{z'\geq z}P\!\left(X^{B*}_Q(y,z)-X^S_Q\geq x\mid P^S_1=y,P^B_2=z'\right)dF_{P^S_1,P^B_2}(y,z). \tag{14}
+$$
+
+Under the stronger support restriction A7, surplus weak monotonicity, the sharp bounds become:
+
+$$
+P(B-S\geq x)\geq\int \mathbf{1}\!\left(X^{B*-S}_{AC}(y,z)\geq x\right)dF_{P^S_1,P^B_2}(y,z), \tag{15}
+$$
+
+$$
+P(B-S\geq x)\leq\int \mathbf{1}\!\left(X^{B*-S}_Q(y,z)\geq x\right)dF_{P^S_1,P^B_2}(y,z). \tag{16}
+$$
+
+Here $$X^{B*-S}_{AC}(y,z)=\overline{\operatorname{supp}}(X^{B*}_{AC}(y,z)-X^S_{AC}:P^B_2\geq z,P^S_1=y)$$ and $$X^{B*-S}_Q(y,z)=\underline{\operatorname{supp}}(X^{B*}_Q(y,z)-X^S_Q:P^B_2\leq z,P^S_1=y)$$ (Assumptions A6-A7 and Theorems 6-7, pp. 184-185). Evaluating at $$x=0$$ bounds $$P(B\geq S)$$; a lower bound on inefficient impasse is $$1-P(\text{sale})/P(B\geq S)^{LB}$$.
 
 ## Method
 
-The paper derives a hierarchy of sharp bounds on $$F_S$$, $$F_B$$, and $$P(B - S \geq x)$$ under five assumption sets (A1 through A5 for marginal distributions, A6-A7 for the surplus object).
+This is a partial-identification method, not an equilibrium estimator. The authors derive sharp nonparametric lower and upper bounds under A1-A5 for the marginal value CDFs and A6-A7 for the surplus CDF. Assumptions are nested or combined to show how much tighter bounds become and whether the data reject them. They allow correlated values and unobserved game-level heterogeneity and do not specify beliefs, equilibrium refinements, or equilibrium selection (Sections 3.3-3.7, pp. 170-175).
 
-**Unconditional bounds from A1 alone (Theorem 1, p. 170).** Revealed preferences directly imply:
+The observed sequence thresholds are formed from accepted/countered and quit offers. The sample support estimators under A2 use the most conservative observed thresholds in each conditional offer set (Section 4.1, p. 176):
 
-$$P(X^S_{AC} \leq x) \leq F_S(x) \leq P(X^S_Q \leq x), \tag{3}$$
+$$
+\widehat X^{S*}_{AC}(y)=\min_{i:P^S_{1i}\geq y}X^S_{AC,i},\qquad
+\widehat X^{S*}_Q(y)=\max_{i:P^S_{1i}\leq y}X^S_{Q,i}.
+$$
 
-$$P(X^B_Q \leq x) \leq F_B(x) \leq P(X^B_{AC} \leq x). \tag{4}$$
+For conditional probabilities, the Nadaraya-Watson estimator with an Epanechnikov kernel is (Section 4.1, p. 176):
 
-These are the weakest bounds. The seller upper bound is often near 1 because seller quit prices are unobserved when sequences end in agreement or buyer quit.
+$$
+\widehat m(x,w)=\frac{\sum_{i=1}^n K_h(W_i-w)\mathbf{1}(X_i\leq x)}{\sum_{i=1}^n K_h(W_i-w)}.
+$$
 
-**Monotonicity bounds from A1+A2 (Theorem 2, p. 172).** Assumption A2 states that $$\overline{\text{supp}}(S | P_1^S = y)$$ is weakly increasing in $$y$$ (sellers with higher first offers have stochastically higher values), and analogously for buyers. Defining $$X^{S*}_{AC}(y) \equiv \overline{\text{supp}}(X^S_{AC} | P_1^S \geq y)$$:
+The bandwidth is $$n^{-1/4}$$ for one conditioning variable and $$n^{-1/5}$$ for two.  Support and bound plug-in estimates use sample analogues, with outward-bias adjustments where available and half-median-unbiased corrections for potentially inward-biased estimators following Chernozhukov, Lee, and Rosen (2013); the two-dimensional support estimators also use a Lipschitz correction and tail truncation (pp. 176-177).
 
-$$\int \mathbf{1}\!\left(X^{S*}_{AC}(y) \leq x\right) dF_{P_1^S}(y) \leq F_S(x) \leq \int \mathbf{1}\!\left(X^{S*}_Q(y) \leq x\right) dF_{P_1^S}(y), \tag{5}$$
+For each product, the estimated bound at a given x averages the appropriate estimated conditional probability or indicator over the observed conditioning offers. As one example, the estimated A4 seller lower bound is:
 
-with analogous buyer bounds (eq. 6, p. 172). Seller monotonicity bounds cross for all 36 products (R1), and the auto-accept/decline validation confirms the rejection (Section 5.1.1, p. 178-179).
+$$
+\widehat F^L_{S,A4}(x)=\frac{1}{n}\sum_{i=1}^n\max_{y'\geq P^S_{1i}}\widehat P(X^S_{AC}\leq x\mid P^S_1=y').
+$$
 
-**Independence bounds from A1+A3 (Theorem 3, p. 173).** Assumption A3 states (i) $$S$$ is independent of $$P_2^B$$ conditional on $$P_1^S$$, and (ii) $$B$$ is independent of $$P_1^S$$. With $$m^S_{AC}(x, y, z) = P(X^S_{AC} \leq x | P_1^S = y, P_2^B = z)$$:
+The integrated violation error used to summarize crossings (Section 5.2, pp. 181-182) is:
 
-$$\int \max_z m^S_{AC}(x, y, z)\, dF_{P_1^S}(y) \leq F_S(x) \leq \int \min_z m^S_Q(x, y, z)\, dF_{P_1^S}(y), \tag{7}$$
+$$
+\text{IVE}=\int\max\{F^L(x)-F^U(x),0\}\,dG(x),
+$$
 
-$$\max_{y'} P(X^B_Q \leq x \mid P_1^S = y') \leq F_B(x) \leq \min_{y'} P(X^B_{AC} \leq x \mid P_1^S = y'). \tag{8}$$
-
-Buyer independence bounds cross for 42% of products (R2). The paper demonstrates that additive or multiplicative unobserved heterogeneity violates A3 even within Perry (1986) and Cramton (1992) equilibria (Supplemental Appendix G, p. 173-174).
-
-**Stochastic monotonicity bounds from A1+A4 (Theorem 4, pp. 174-175).** Assumption A4 weakens A2 to require only that $$P(S \leq x | P_1^S = y)$$ is weakly decreasing in $$y$$ for all $$x$$. The bounds are:
-
-$$\int \max_{y' \geq y} P(X^S_{AC} \leq x \mid P_1^S = y')\, dF_{P_1^S}(y) \leq F_S(x) \leq \int \min_{y' \leq y} P(X^S_Q \leq x \mid P_1^S = y')\, dF_{P_1^S}(y), \tag{9}$$
-
-with analogous buyer bounds (eq. 10). These are implied by A2 but do not cross.
-
-**Positive correlation bounds from A1+A5 (Theorem 5, p. 175).** Assumption A5 states that $$P(S \leq x | P_1^S = y, P_2^B = z)$$ is weakly decreasing in $$z$$ (one agent's value is stochastically increasing in the other's first offer). Combined with A4:
-
-$$\int \max_{z' \geq z} m^S_{AC}(x, y, z')\, dF_{P_1^S, P_2^B}(y, z) \leq F_S(x) \leq \int \min_{z' \leq z} m^S_Q(x, y, z')\, dF_{P_1^S, P_2^B}(y, z). \tag{11}$$
-
-Combined A4+A5 bounds do not cross for any of the 36 products (R3, Table III), making these the preferred "Goldilocks" assumptions.
-
-**Surplus bounds for $$P(B \geq S)$$ (Theorems 6-7, p. 185).** To bound the first-best trade probability directly, the paper adds Assumption A6 (surplus stochastic monotonicity: $$P(B - S \geq x | P_1^S = y, P_2^B = z)$$ increasing in $$z$$) and A7 (surplus weak monotonicity: $$\overline{\text{supp}}(B - S | P_1^S = y, P_2^B = z)$$ increasing in $$z$$). Under A1, buyer monotonicity A2.ii, and A7:
-
-$$P(B - S \geq x) \geq \int \mathbf{1}\!\left(X^{B*-S}_{AC}(y, z) \geq x\right) dF_{P_1^S, P_2^B}(y, z), \tag{15}$$
-
-where $$X^{B*-S}_{AC}(y, z) \equiv \overline{\text{supp}}(X^B_{AC}(y, z) - X^S_{AC} : P_2^B \geq z, P_1^S = y)$$. Evaluating at $$x = 0$$ gives a lower bound on $$P(B \geq S)$$. The inefficient impasse lower bound is then $$1 - P(\text{sale})/\widehat{P}(B \geq S)^{LB}$$.
-
-**Estimation (Section 4, pp. 176-177).** Conditional probabilities such as $$P(X^S_{AC} \leq x | P_1^S = y)$$ are estimated using the Nadaraya-Watson kernel estimator with an Epanechnikov kernel and bandwidth $$n^{-1/4}$$ for one-dimensional conditioning. For two-dimensional conditioning on $$(P_1^S, P_2^B)$$ the bandwidth is $$n^{-1/5}$$. Because some plug-in estimators are inward biased (artificially tight), the paper modifies them to be half-median-unbiased following Chernozhukov, Lee, and Rosen (2013) (p. 176). All estimation is done separately by product; prices are normalized by the product's reference price.
+where $$G$$ is the unconditional lower-bound distribution for sellers and the unconditional upper-bound distribution for buyers. The crossing grid runs from 0 to 2.5 in increments of 0.1 reference-price units; crossing rejection uses 95% one-sided subsampling confidence bands (p. 181; Supplemental Appendix E).
 
 ## Empirical specifications
 
-The estimation sample requires at least 200 bargaining sequences per product after restrictions (nonoverlapping buyer/seller time windows, first-seller-per-buyer limit, exclusion of extreme offers). This yields 12,012 sequences for 36 products (Table A1, Supplemental Appendix, p. 166).
+The sample is 12,012 eBay Best Offer sequences across 36 products, with at least 200 sequences per product after restrictions. Prices are normalized by product reference prices; estimates are run separately for each product. The data contain offer sequences, accept/counter/quit decisions, transaction status, and, for subsets, auto-accept/decline thresholds and listing/buyer/seller characteristics (Table I, p. 166; Section 4, p. 176). This is not a regression design: there are no regression fixed effects. Bound uncertainty is estimated by subsampling; the heterogeneity table reports standard errors for product-level differences computed by the delta method.
 
-**Bounds validation via auto-accept/decline prices (Section 5.1.1, pp. 178-180).** For the 363 negotiations where sellers reported secret auto-accept and auto-decline thresholds, the paper uses these as known bounds on $$S$$ (auto-accept price is a weak upper bound; auto-decline price is a weak lower bound) to cross-check the estimated $$F_S$$ bounds without using these prices in estimation. Under combined independence + stochastic monotonicity, the estimated bounds are consistent: the auto-accept CDF lies above the $$F_S$$ lower bound and the auto-decline CDF lies below the $$F_S$$ upper bound (Figure 3, right panel, p. 179). Seller monotonicity bounds are rejected by this exercise.
+For the Table III specification, each bound is evaluated over the stated grid and the paper records whether the lower bound exceeds the upper bound, whether any crossing is significant, and the product-level IVE; values are then summarized across products (Table III, p. 182). Table IV computes the integrated upper-minus-lower width for each product and reports the minimum, mean, and maximum across products, omitting seller-monotonicity widths where bounds cross (Table IV, p. 183).
 
-**Bound crossing tests (Section 5.2, Table III, pp. 181-182).** For each assumption set and each product, the paper tests whether the estimated lower bound significantly exceeds the estimated upper bound at any price point on a grid from 0 to 2.5 (increments of 0.1 units of reference price), using 95% one-sided subsampling confidence bands. The integrated violation error (IVE) measures the average excess where lower exceeds upper:
+The independent validation uses the 363 cell-phone negotiations where sellers report nonzero auto-accept and auto-decline prices. These thresholds are withheld from bound construction; their empirical CDFs are compared with seller-value bounds, providing an out-of-sample consistency check (Figure 3, pp. 179-180). A separate buyer-bound check imposes list-price recall, $$B\leq P^S_1$$, and tests whether this restriction causes buyer-independence bounds to cross (Figure 5, p. 181).
 
-$$\text{IVE} = \int \max\!\left(F^L(x) - F^U(x),\, 0\right) dG(x),$$
+For Table V and Figure 6, the authors estimate bounds on $$P(B\geq S)$$ under surplus stochastic monotonicity, surplus weak monotonicity, buyer monotonicity, and seller monotonicity; compare these with observed sale probabilities; and calculate the implied inefficient-impasse lower bound. Table V reports subsampling 95% confidence intervals for four category-leading products (pp. 185-188). Under the preferred surplus weak-monotonicity plus buyer-monotonicity specification, Figure 6B reports the lower bounds for all 36 products (pp. 187-188).
 
-where $$G$$ is the unconditional lower bound (sellers) or upper bound (buyers). Table III reports crossing fraction, rejection fraction, and IVE across all 36 products and all assumption sets.
+For Table VI, they recompute the inefficient-impasse lower bound within groups defined by communication, seller store status, buyer location, auto-accept/decline use, listing photos, seller rating/reviews/experience, buyer experience, product condition, and reference price. For each product $$j$$ and condition $$g$$ in Panels A and B, the group-specific lower bound and within-product contrast are:
 
-**Inefficient impasse heterogeneity (Section 6.4, Table VI, pp. 188-191).** For each subsample condition (message exchanged, eBay store seller, U.S. buyer, auto accept/decline prices reported, number of photos relative to median, seller rating, seller/buyer experience level, new vs. used product, reference price relative to median), the paper computes the inefficient impasse lower bound $$1 - P(\text{sale})/\widehat{P}(B \geq S)^{LB}$$ separately for observations satisfying and not satisfying the condition, requiring at least 100 qualifying observations per group per product. Within-product differences are averaged across products with standard errors via the delta method. All bounds use surplus weak monotonicity (A7) combined with buyer monotonicity (A2.ii).
+$$
+L_{jg}=1-\frac{P_j(\text{sale}\mid g)}{P_j(B\geq S\mid g)^{LB}},\qquad \Delta_{jg}=L_{jg}-L_{j,\neg g}.
+$$ For the comparison group, $$L_{j,\neg g}=1-P_j(\text{sale}\mid\neg g)/P_j(B\geq S\mid\neg g)^{LB}$$. Panel A compares condition met with not met within product; Panel B compares experience combinations with the low-seller/low-buyer experience group. These panels retain products with at least 100 observations in each relevant group. Panel C instead compares estimates across products: two product identifiers observed in both new and used condition, and products above versus below median reference price. Differences are averaged across products; standard errors are computed by the delta method (Table VI, p. 189). The comparisons are exploratory, and the authors caution that selection into characteristics prevents causal interpretation (p. 188).
 
 ## Datasets used
 

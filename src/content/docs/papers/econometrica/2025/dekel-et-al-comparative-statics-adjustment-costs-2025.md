@@ -4,9 +4,9 @@ description: >-
   Distilled: Develops a general theory of monotone comparative statics for models
   with adjustment costs, showing that ordinal complementarity on the objective and
   minimal monotonicity of the cost function suffice for comparative-statics
-  conclusions and a Le Chatelier principle. Applied to saving, factor demand,
+  conclusions, while monotone costs support a Le Chatelier principle. Applied to saving, factor demand,
   pricing, labor supply, and capital investment. Econometrica 2025, CC BY 4.0.
-  Six core theorems with proof locators and formal equations.
+  Fourteen main results, including comparative-statics extensions, dynamic results, and necessity characterizations, with source locators and formal equations.
 sidebar:
   label: Dekel-Quah-Sinander 2025
   order: 1
@@ -31,32 +31,35 @@ paper:
   outcome:
     - optimal action response to parameter shocks under adjustment costs
     - short-run vs. long-run adjustment magnitude (Le Chatelier principle)
-  outcomeClass: [firm-real-outcomes, household-finance]
+  outcomeClass: [equilibrium-condition]
   license: 'CC BY 4.0 (confirmed via Crossref DOI metadata: content-version unspecified, URL https://creativecommons.org/licenses/by/4.0/, delay-in-days 0, start 2025-01-01; corroborated by p. 661 Creative Commons Attribution License notice in artifact)'
   licenseShort: CC BY 4.0
   access: open
   machineAccess: 'open-access PDF (Wiley/Econometric Society; confirmed via DOI 2026-06-26)'
   redistribution: extract-only (CC BY 4.0 permits mirroring; PDF not hosted in this batch)
-  resultsCount: 6
+  resultsCount: 14
   citedByCount: 0
   methods:
     role: theory
     family: theory
     buildsFrom: [lattice-comparative-statics]
   contributionType: [new-theory]
+  mechanisms: [choice-adjustment-costs]
   scope:
     region: theoretical
   relatesTo:
     - { cite: 'Milgrom and Shannon (1994)', doi: '10.2307/2951479', relation: extends, note: 'Theorem 1 generalizes their Theorem 4 monotone comparative statics to the costly-adjustment case; their result is the special case C = 0' }
     - { cite: 'Milgrom and Roberts (1996)', relation: extends, note: 'Theorem 2 strictly generalizes their Le Chatelier principle; their setting (some dimensions have infinite short-run cost, others zero) is a special case of a monotone C' }
-    - { cite: 'Samuelson (1947)', doi: '10.2307/3438190', relation: builds-on, note: 'the Le Chatelier principle originated with Samuelson; this paper establishes it holds under minimal ordinal conditions on the objective and cost' }
+    - { cite: 'Samuelson (1947)', relation: builds-on, note: 'the Le Chatelier principle originated with Samuelson; this paper establishes it holds under minimal ordinal conditions on the objective and cost' }
     - { cite: 'Caplin and Leahy (2019)', doi: '10.3386/w25707', relation: extends, note: 'Proposition 2 recovers their wishful-thinking saving result without requiring their Kullback-Leibler functional-form assumption on C' }
   openQuestions:
-    - 'The converse of Theorem 4 (whether monotonicity is necessary as well as sufficient for the strong dynamic Le Chatelier principle) is left open; the authors conjecture it holds under weaker assumptions but note a different proof strategy is needed (p. 682).'
+    - 'The paper gives no converse for Theorem 4. The authors conjecture that the strong dynamic Le Chatelier principle holds under somewhat weaker assumptions, but say identifying necessary and sufficient conditions is challenging and leave it open (p. 682).'
     - 'Remark 5 (p. 675) identifies the more general model in which the prevailing norm evolves sluggishly as a potentially interesting avenue for future work not pursued in the paper.'
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-26, role: extracted, note: "Full text read (pp. 661-694); six theorems extracted with proof locators and formal equations. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: (1) Appendix I cost inequality mislabelled as eq. (4), corrected to eq. (5), and second C_i argument 'z∧x' corrected to 'y∧z'; (2) factor-demand profit function F(k,ℓ,(p,η,−w))=pf(k,ℓ)−rk−wℓ incorrect, corrected to F(k,ℓ,−w)=f(k,ℓ)−rk−wℓ per §4.2 p. 673; (3) mechanisms: [participation-frictions] removed as a clear mismatch (paper invokes adjustment costs, not participation frictions)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added missing main-text results, the adjustment-cost mechanism, and completeness notes for the formal model sections; not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 14 Core rows, equations, classifications, and prose against the PDF; corrected incomplete conditions and overclaims and removed a mismatched DOI. Table locators pass." }
   licenceVerification:
     - { source: 'Crossref REST API works/10.3982/ECTA22841', checked: 2026-06-26, by: 'paper-distiller (claude-sonnet-4-6)', found: 'license[].content-version=unspecified, URL=https://creativecommons.org/licenses/by/4.0/, delay-in-days=0, start=2025-01-01' }
   rightsSignalConflict: false
@@ -66,7 +69,7 @@ paper:
 
 ## TL;DR
 
-The paper develops a general theory of monotone comparative statics for models with costly adjustment. The key insight is that the standard comparative-statics conclusion (an increase in a parameter leads to a higher optimal action) holds under the ordinal complementarity conditions of quasi-supermodularity and single-crossing differences on the objective, with only a minimal monotonicity condition on the cost function: it must be weakly less costly to adjust less. This is used to prove a general Le Chatelier principle, originating with Samuelson (1947): under adjustment costs the short-run response to a shock is bounded by the long-run response. Both results are extended to a fully dynamic model with long-lived forward-looking agents (and, separately, short-lived agents). Applications include saving by wishful thinkers, factor demand following Milgrom and Roberts (1996), pricing, labor supply, and capital investment. A key feature is that convex and nonconvex adjustment costs are handled in a unified framework.
+The paper develops a general theory of monotone comparative statics for models with costly adjustment. The key insight is that the standard comparative-statics conclusion (an increase in a parameter leads to a higher optimal action) holds under the ordinal complementarity conditions of quasi-supermodularity and single-crossing differences on the objective, with only minimal monotonicity of the cost function: canceling all increases or all decreases in the adjustment vector must weakly lower cost. The Le Chatelier result, originating with Samuelson (1947), requires monotone adjustment costs and bounds the short-run response to a shock by the long-run response. Both results are extended to a fully dynamic model with long-lived forward-looking agents (and, separately, short-lived agents). Applications include saving by wishful thinkers, factor demand following Milgrom and Roberts (1996), pricing, labor supply, and capital investment. A key feature is that convex and nonconvex adjustment costs are handled in a unified framework.
 
 ## Core results
 
@@ -76,12 +79,20 @@ Theorems are qualitative; the "magnitude" column gives the precise conclusion. A
 |---|---|---|---|
 | R1 | Theorem 1: comparative statics with adjustment costs | Theorem 1, p. 666 | If C is minimally monotone and θ̄ ≥ θ̲, then x̂ ≥ x̲ for some x̂ ∈ arg max G(x, θ̄) (provided the argmax is nonempty) |
 | R2 | Theorem 2: Le Chatelier principle | Theorem 2, §4, p. 671 | If C is monotone and x̄ ∈ arg max F(x, θ̄) satisfies x̄ ≥ x̲, then x̄ ≥ x̂ ≥ x̲ for some short-run x̂; if x̄ is the largest long-run optimum then x̄ ≥ x̂ for every short-run x̂ |
-| R3 | Theorem 3: dynamic Le Chatelier (long-lived agents) | Theorem 3, §5.2, p. 675 | Under monotone C_t and θ̲ ≤ θ_t ≤ θ̄ for every t, there is a solution (x_t) with x̲ ≤ x_t ≤ x̄ for every period t |
-| R4 | Theorem 4: strong dynamic Le Chatelier | Theorem 4, §5.2, p. 675 | Under supermodularity, BCS, and additive separability of a time-invariant C, there is a solution with x̲ ≤ x_t ≤ x_{t+1} ≤ x̄ for every t (monotone upward adjustment over time) |
-| R5 | Theorem 5: short-lived dynamic Le Chatelier | Theorem 5, §6, p. 679 | Short-lived agents' equilibrium satisfies x̲ ≤ x_t ≤ x̄ in the same direction as in Theorem 3 |
-| R6 | Theorem 6: short- vs. long-lived agents | Theorem 6, §6, pp. 679-680 | Under additional convexity and equi-BCS conditions, short-lived agents adjust more sluggishly: x̲ ≤ x̃_t ≤ x_t ≤ x̄ for some equilibrium pair |
+| R3 | Theorem 3: dynamic Le Chatelier (long-lived agents) | Theorem 3, §5.2, p. 675 | Given a frictionless optimum x̄ ≥ x̲ and θ̲ ≤ θ_t ≤ θ̄ in every period, if the long-lived agent's problem has a solution, some optimal path satisfies x̲ ≤ x_t ≤ x̄ for every t |
+| R4 | Theorem 4: strong dynamic Le Chatelier | Theorem 4, §5.2, p. 675 | With F supermodular and BCS in x, single-crossing differences, a time-invariant monotone additively separable cost C, and a permanent shift θ_t = θ̄, some optimal path satisfies x̲ ≤ x_t ≤ x_{t+1} ≤ x̄ for every t |
+| R5 | Theorem 5: short-lived dynamic Le Chatelier | Theorem 5, §6, p. 679 | With monotone C_t and a permanent upper bound x̄, some equilibrium path satisfies x̲ ≤ x_t ≤ x̄ when θ̲ ≤ θ_t ≤ θ̄; if θ_t is also nondecreasing, it satisfies x̲ ≤ x_t ≤ x_{t+1} ≤ x̄ |
+| R6 | Theorem 6: short- vs. long-lived agents | Theorem 6, §6, pp. 679-680 | With F supermodular, monotone additively separable convex C_t, equi-BCS conditions, and nondecreasing θ_t, a suitably bounded short-lived equilibrium path and some optimal long-lived path satisfy x̲ ≤ x̃_t ≤ x_t ≤ x̄ |
+| R7 | Theorem 1*: comparative statics with a shifting constraint set | Theorem 1*, §3.1, p. 668 | If θ̄ ≥ θ and L̄ ≥ss L, minimally monotone costs imply some maximizer x̂ on L̄ satisfies x̂ ≥ x |
+| R8 | Proposition 1: every optimum moves up under strictness | Proposition 1, §3.2, pp. 668-669 | Strict single-crossing differences with minimally monotone costs, or single-crossing with strictly minimally monotone costs, implies x̂ ≥ x for every maximizer x̂ |
+| R9 | Proposition 2: wishful thinking reduces saving | Proposition 2, §3.3, pp. 670-671 | For some costly-adjustment optimum (ĉ, Ĝ), c̄ ≥ ĉ ≥ c₀ and Ḡ ≥₁ Ĝ ≥₁ G₀; the optimistic believer consumes at least as much as the wishful thinker |
+| R10 | Proposition 3: Le Chatelier with costly long-run adjustment | Proposition 3, §4.1, p. 672 | With monotone C₁ and C₂, choices can be selected so x₂ ≥ x₁ ≥ x across sequential short- and long-run adjustments |
+| R11 | Proposition 4: every short-run optimum stays below the long-run optimum | Proposition 4, §4.1, p. 672 | Strictly monotone costs imply x̄ ≥ x̂ ≥ x for every short-run maximizer x̂ |
+| R12 | Theorem 1†: necessity of minimal monotonicity | Theorem 1†, §7, pp. 680-681 | Minimal monotonicity is equivalent to the stated universal comparative-statics property for both parameter increases and decreases |
+| R13 | Theorem 2†: necessity of weak monotonicity | Theorem 2†, §7, p. 681 | Weak monotonicity is necessary and sufficient for the Le Chatelier bracketing property to hold across objectives |
+| R14 | Theorem 3†: necessity of monotonicity in dynamic Le Chatelier | Theorem 3†, §7, pp. 681-682 | For the stated admissible cost set and parameter conditions, monotonicity is necessary and sufficient for dynamic Le Chatelier bracketing |
 
-**Overall (paper's conclusion).** Comparative statics and the Le Chatelier principle are robust to adjustment costs under ordinal (not cardinal) complementarity conditions on the objective and minimal monotonicity on the cost. The prior literature, including Milgrom and Roberts (1996), required that short-run adjustment be completely infeasible in some dimensions. Section 7 establishes converses showing that minimal monotonicity (Theorem 1) and weak monotonicity (Theorem 2) are necessary as well as sufficient.
+**Overall (paper's conclusion).** Comparative statics and the Le Chatelier principle are robust to adjustment costs under ordinal (not cardinal) complementarity conditions on the objective. Theorem 1 requires only minimal monotonicity of costs, while the classical Le Chatelier theorem requires monotonicity; Section 7 establishes converses, with weak monotonicity necessary and sufficient for the classical Le Chatelier result and monotonicity necessary and sufficient for the dynamic result under the stated conditions. The prior literature, including Milgrom and Roberts (1996), required that short-run adjustment be completely infeasible in some dimensions. Theorem 4 has no converse in the paper.
 
 ## Theory / model
 
@@ -169,7 +180,7 @@ which holds because each $$C_i$$ is single-dipped at zero. Combined with supermo
 
 ## Empirical specifications
 
-This paper contains no empirical analysis. The formal results are applied to five standard economic models; these applications demonstrate that the theory delivers sharp conclusions without the auxiliary functional-form assumptions that each literature has typically imposed.
+This paper contains no empirical analysis and therefore has no estimating specification. Its numbered equations (1)-(8) appear in appendices, not in the main text; they are proof steps. The formal results are applied to standard economic models, deriving comparative statics without imposing the auxiliary functional-form assumptions often used in those literatures.
 
 **Saving by wishful thinkers (§3.3, pp. 669-671, Proposition 2).** Following Caplin and Leahy (2019), an agent consumes $$c \in [0, w]$$ and chooses a belief $$G$$ (a CDF over future income) from a set $$\mathcal{G}$$ ordered by first-order stochastic dominance. The lifetime payoff is (p. 669):
 
@@ -185,11 +196,11 @@ $$
 
 where $$C$$ is minimally monotone and $$G_0$$ is the realist's belief. Proposition 2 (p. 670) establishes $$\hat{c} \geq c_0$$ (wishful thinkers over-consume) and $$\hat{G} \geq_1 G_0$$ (wishful thinkers adopt more optimistic beliefs). The proof applies Theorem 1*, the constraint-shift variant of Theorem 1, since $$[0, w] \times \mathcal{G}$$ is a sublattice. Notably, Caplin and Leahy (2019) assumed the Kullback-Leibler functional form for C; this assumption is not needed here.
 
-**Factor demand (§4.2, p. 673).** A firm uses capital k and labor $$\ell$$ to produce output $$f(k, \ell)$$. Profit at factor prices $$(r, w)$$ is $$F(k, \ell, -w) = f(k, \ell) - rk - w\ell$$. By Theorem 2, a drop in the wage w precipitates a short-run increase in both k and $$\ell$$ when $$f$$ is supermodular (complements), with a further increase in the long run. When $$f$$ is submodular (substitutes), rewriting the choice variable as $$(x_1, x_2) = (-k, \ell)$$ restores supermodularity; $$\ell$$ still increases in both runs while k now decreases.
+**Factor demand (§4.2, p. 673).** A firm uses capital k and labor $$\ell$$ to produce output $$f(k, \ell)$$. Profit at factor prices $$(r, w)$$ is $$F(k, \ell, -w) = f(k, \ell) - rk - w\ell$$. With monotone adjustment costs, Theorem 2 implies that a drop in the wage w precipitates a short-run increase in both k and $$\ell$$ when $$f$$ is supermodular (complements), with a further increase in the long run. When $$f$$ is submodular (substitutes), rewriting the choice variable as $$(x_1, x_2) = (-k, \ell)$$ restores supermodularity; $$\ell$$ still increases in both runs while k now decreases.
 
-**Pricing (§4.3 and §5.3, pp. 673-674, 677).** A monopolist with constant marginal cost $$c$$ faces demand $$D(p, \eta)$$ where $$\eta$$ is an elasticity shifter. Profit $$F(p, (c, -\eta)) = (p - c)D(p, \eta)$$ has single-crossing differences in $$(p, (c, -\eta))$$ (using the "log increasing differences" condition, p. 673) and is quasi-supermodular since $$p \in \mathbb{R}$$. By Theorems 1 and 2, the monopolist raises her price in both the short and long run whenever marginal cost rises or demand becomes less elastic ($$\eta$$ falls), without any assumptions on the adjustment cost C beyond minimization at zero. Theorem 4 further implies that prices adjust monotonically upward over time in the dynamic version.
+**Pricing (§4.3 and §5.3, pp. 673-674, 677).** A monopolist with constant marginal cost $$c$$ faces demand $$D(p, \eta)$$ where $$\eta$$ is an elasticity shifter. Profit $$F(p, (c, -\eta)) = (p - c)D(p, \eta)$$ has single-crossing differences in $$(p, (c, -\eta))$$ (using the "log increasing differences" condition, p. 673) and is quasi-supermodular since $$p \in \mathbb{R}$$. Theorem 1 implies a price increase when marginal cost rises or demand becomes less elastic ($$\eta$$ falls) if the adjustment cost is minimized at zero. If the cost is single-dipped (and hence monotone in this one-dimensional setting), Theorem 2 bounds the short-run price below the long-run price, and Theorem 4 implies monotone upward price adjustment over time after a permanent shock.
 
-**Labor supply (§5.4, pp. 677-678).** A worker chooses labor supply $$x \in L \subseteq \mathbb{R}_+$$ with per-period utility $$F(x, T) = wx - T(wx) - \kappa(x)$$, where T is the tax schedule and $$\kappa$$ is effort disutility. A tax reform from T to $$\tilde{T}$$ with lower marginal rates ($$\tilde{T} \geq_{\text{flat}} T$$) yields F with single-crossing differences in $$(x, T)$$. Theorems 1-4 imply that labor supply rises at every horizon and adjusts monotonically upward over time under a one-off permanent rate cut.
+**Labor supply (§5.4, pp. 677-678).** A worker chooses labor supply $$x \in L \subseteq \mathbb{R}_+$$ with per-period utility $$F(x, T) = wx - T(wx) - \kappa(x)$$, where T is the tax schedule and $$\kappa$$ is effort disutility. A tax reform from T to $$\tilde{T}$$ with lower marginal rates ($$\tilde{T} \geq_{\text{flat}} T$$) yields F with single-crossing differences in $$(x, T)$$. With single-dipped adjustment costs, the Le Chatelier results imply that labor supply rises at every horizon and adjusts monotonically upward over time under a one-off permanent rate cut.
 
 **Capital investment (§5.5, pp. 678-679).** A firm adjusts capital $$k_t \in \mathbb{R}_+$$ with per-period profit $$F(k, (p, \eta, -r)) = pf(k, \eta) - rk$$ where $$f$$ has increasing differences (so F has increasing differences in $$(k, \theta)$$ for $$\theta = (p, \eta, -r)$$). Investing $$i_t = k_t - k_{t-1}$$ costs $$C(i_t) \geq 0$$, assumed only to be single-dipped at zero. Theorem 4 delivers monotone upward adjustment of capital over time whenever the marginal product of capital rises (fall in r, rise in p, or rise in $$\eta$$). The analysis covers both convex and nonconvex (lumpy) investment; when adjustment costs are not even single-dipped (e.g., a minimum investment threshold creates a region $$C(\varepsilon) = \infty$$), Theorem 1 still applies since C remains minimally monotone.
 
@@ -207,7 +218,7 @@ Read the original at [https://doi.org/10.3982/ECTA22841](https://doi.org/10.3982
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was extracted by an LLM on 2026-06-26 and is **not human-verified or independently reproduced**.
+Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was extracted by an LLM and re-checked against the source PDF; its results have not been independently reproduced.
 
 > **Attribution (CC BY 4.0).** Dekel, Eddie, John K.-H. Quah, and Ludvig Sinander.
 > "Comparative Statics With Adjustment Costs and the Le Chatelier Principle."

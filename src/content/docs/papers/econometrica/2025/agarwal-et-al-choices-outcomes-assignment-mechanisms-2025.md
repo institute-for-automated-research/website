@@ -6,7 +6,7 @@ description: >-
   decisions and survival outcomes, finding the kidney waitlist mechanism achieves an
   average LYFT of 9.29 years (1.75 years above random assignment) while the maximum
   possible is 14.08 years, exposing a planner's dilemma between efficiency and
-  prioritizing the sickest. Econometrica 2025, paywalled. Seven core results with
+  prioritizing the sickest. Econometrica 2025, paywalled. Sixteen core results with
   source locators, the assignment-outcomes joint model, and the defining equations.
 sidebar:
   label: Agarwal-Hodgson-Somaini 2025
@@ -39,7 +39,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (Econometric Society site, 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 16
   citedByCount: 4
   methods:
     role: both
@@ -48,7 +48,7 @@ paper:
     buildsFrom: [instrumental-variables, survival-analysis, gibbs-mcmc-estimation]
     identification: instrument
   contributionType: [new-method, new-fact, measurement]
-  mechanisms: [information-asymmetry]
+  mechanisms: [choice-based-selection]
   scope:
     region: US
     assetClass: deceased donor kidneys (ESRD patient waitlist)
@@ -63,9 +63,18 @@ paper:
     - { ref: R3, outcome: "maximum achievable LYFT under optimal planner assignment", metric: level, value: "14.08 years; realized is 4.8 years below the maximum", direction: positive, vsBenchmark: "4.8 years above realized (9.29); optimal rematching of transplanted = 9.93 (13.4% of gap)" }
     - { ref: R4, outcome: "LYFT under optimal assignment using observables only", metric: level, value: "11.04 years; 1.8 years above realized assignment", direction: positive, vsBenchmark: "1.8 years above realized (9.29); 3.0 years below full-information optimal (14.08)" }
     - { ref: R5, outcome: "average LYFT from preferred spec vs observational model", metric: level, value: "preferred specification (with unobservables) = 8.93 years; no-instruments observational = 8.25 years", direction: positive, vsBenchmark: "observational model understates LYFT by 0.68 years vs preferred specification (Table VII)" }
-    - { ref: R6, outcome: "positive selection on unobservables into transplantation", metric: correlation, value: "1-SD rise in selectivity raises untransplanted survival 0.316 SD (s.e. 0.062); lowers acceptance 4.0 pp (s.e. 0.001)", direction: positive, vsBenchmark: "transplanted patients' predicted LYFT distribution shifted ~1.1 years right vs full distribution (Figure 2b)" }
+    - { ref: R6, outcome: "positive selection on unobservables into transplantation", metric: coefficient, value: "1-SD rise in selectivity raises untransplanted survival 0.316 years (s.e. 0.062); lowers acceptance 4.0 pp (s.e. 0.001)", direction: mixed, vsBenchmark: "transplanted patients' predicted LYFT distribution shifted ~1.1 years right vs full distribution (Figure 2b)" }
     - { ref: R7, outcome: "LYFT variance decomposition into patient, donor, and match components", metric: sd-effect, value: "patient-specific SD = 3.26 years; donor-specific = 0.99 years; match-specific = 0.41 years", direction: positive, vsBenchmark: "patient heterogeneity dominates; rematching alone captures only 13.4% of maximum possible LYFT gain" }
-  resultType: new-finding
+    - { ref: R8, outcome: "waitlist mortality and transplant receipt", metric: probability, value: "27.4% died by year five; 47.2% received a transplant by year five; 54.3% ultimately received a deceased donor kidney", direction: mixed, vsBenchmark: "175,640-patient sample registered 2000-2010" }
+    - { ref: R9, outcome: "deceased donor kidney offer and discard patterns", metric: probability, value: "18.9% of donors had at least one viable kidney discarded; those donors' organs received an average of 1,892.5 offers versus 547.8 offers per donor overall", direction: mixed, vsBenchmark: "median offers per donor = 51 overall" }
+    - { ref: R10, outcome: "acceptance and post-transplant survival by match-specific value", metric: coefficient, value: "1-SD match-value increase: acceptance +0.066 (s.e. 0.001) and +0.065 (0.001); post-transplant survival effects = -0.003 (s.e. 0.249) and +0.092 (0.245), neither statistically significant", direction: mixed, vsBenchmark: "survival without transplant is not reported for match-specific value" }
+    - { ref: R11, outcome: "patient acceptance response to match-specific LYFT", metric: probability, value: "1-SD increase in match-specific expected LYFT raises acceptance probability by 0.24%", direction: positive, vsBenchmark: "controls for patient- and donor-specific fixed effects" }
+    - { ref: R12, outcome: "maximum LYFT under allocation based on the observational model", metric: level, value: "11.75 years when evaluated under the preferred model, versus 14.08 years for preferred-model optimal allocation", direction: negative, vsBenchmark: "observational-model allocation captures 51% of the maximum increase over realized assignment" }
+    - { ref: R13, outcome: "transplanted patient health and demographics across assignments", metric: level, value: "age 60+ share: 26.9% realized versus 16.8% optimal; diabetes: 33.3% versus 27.7%; mean untransplanted survival: 7.11 versus 7.61 years", direction: mixed, vsBenchmark: "optimal allocation also raises LYFT for each reported age and racial/ethnic group (Table VIII)" }
+    - { ref: R14, outcome: "LYFT under sickest-first assignment", metric: level, value: "3.41 years", direction: negative, vsBenchmark: "benchmark transplants patients with the lowest untransplanted survival first" }
+    - { ref: R15, outcome: "transplant receipt and donor quality induced by the top-10 offer instruments", metric: coefficient, value: "KDPI <= 50% offer coefficients: 0.0479 (s.e. 0.00460) and 0.0481 (0.00466) for any transplant; 0.0602 (0.00358) for KDPI <= 50% transplant; -0.0122 (0.00251) for KDPI > 50% or missing transplant", direction: mixed, vsBenchmark: "KDPI > 50% or missing offer coefficients for any, KDPI <= 50%, and KDPI > 50% or missing transplant: 0.0234 (0.00386) and 0.0247 (0.00387) for any transplant, -0.0167 (0.00292) for KDPI <= 50% transplant, and 0.0414 (0.00245) for KDPI > 50% or missing transplant; first-stage F-statistics = 142.6-162.7" }
+    - { ref: R16, outcome: "patient acceptance response to scarcity instruments", metric: coefficient, value: "log(1 + donors) coefficients = -0.0434 to -0.0355; log(1 + offers) coefficients = -0.0390 to -0.0316", direction: negative, vsBenchmark: "first-stage F-statistics = 296.8-1,361.8 across Table IV specifications" }
+  resultType: mixed
   relatesTo:
     - { cite: "Wolfe et al. (2008)", doi: '10.1111/j.1600-6143.2008.02177.x', relation: extends, note: "prior observational LYFT estimates using hazard ratios; this paper improves with quasi-experimental variation and finds ~1 year upward revision in average LYFT" }
     - { cite: "Heckman and Navarro (2007)", doi: '10.1016/j.jeconom.2005.11.002', relation: builds-on, note: "framework for jointly identifying outcome distributions conditional on selection unobservables using a continuous instrument to trace out selectivity" }
@@ -82,6 +91,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: "2026-06-26", role: extracted, note: "Full PDF read (pp. 395-438); results, model equations, instruments, and empirical specifications extracted. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; fixed 3 errors: Table III SE clustering was 'offer year' (PDF says 'registration year'); diabetic half-life example had 3.58 assigned to Panel A (without transplant) when PDF p. 419 says 3.58 is Panel B (with transplant) and 1.45 is Panel A; R2 Magnitude column '70.9%' corrected to PDF-stated 70.4% (p. 426). All 7 core result magnitudes confirmed against Figure 4 (p. 425) and Table VII (p. 421); all equations (3.1-3.3, 5.1-5.7, 7.1) verified term-by-term against PDF." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full 45-page PDF; appended nine quantitative findings, completed finding mappings, added mechanism and outcome-class vocabulary proposals, and expanded formal equations and estimating specifications. New extraction is not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 16 Core results, formal equations and specifications, classification, prose, findings, and frontmatter against the PDF; corrected the 0.316-year unit, first-accepted-offer definition, R3/R7 text locators, Table IV priority controls, the selection-versus-rematching summary, findings direction, outcomeClass, and resultType." }
   licenceVerification:
     - { source: "Crossref REST API works/10.3982/ECTA20203", checked: "2026-06-26", by: "paper-distiller (claude-sonnet-4-6)", found: "no license[] block present; Econometric Society; access is paywalled; no CC licence identified." }
 ---
@@ -104,13 +115,22 @@ Magnitudes are as reported; locators point into the source PDF. The 2005 cohort 
 |---|---|---|---|
 | R1 | Realized assignment achieves average LYFT of **9.29 years**, 1.75 years above random | Figure 4, p. 425 | Realized = 9.29; random = 7.54; difference = +1.75 years |
 | R2 | **Patient choice drives 70.4% of the LYFT gain** over random assignment; priority rules alone (no-choice) achieve only 8.05 | Figure 4, p. 425 | No-choice LYFT = 8.05; realized = 9.29; random = 7.54; choice share = 70.4% (PDF text, p. 426; no-choice achieves 29.6% of the gain over random) |
-| R3 | **Maximum possible LYFT = 14.08 years**, 4.8 years above realized; optimal rematching of transplanted yields only 9.93 (13.4% of the gap) | Figure 4, p. 425 | Optimal = 14.08; realized = 9.29; optimal rematching = 9.93; patient-selection dominates |
+| R3 | **Maximum possible LYFT = 14.08 years**, 4.8 years above realized; optimal rematching of transplanted yields only 9.93 (13.4% of the gap) | Figure 4, p. 425; text p. 426 | Optimal = 14.08; realized = 9.29; optimal rematching = 9.93; patient-selection dominates |
 | R4 | Observables-only optimal assignment reaches **11.04 years**, 1.8 years above realized and 3.0 below full-information optimal | Figure 4, p. 425 | Observables optimum = 11.04; full optimal = 14.08; realized = 9.29 |
 | R5 | Preferred specification (instruments + unobservables) LYFT = **8.93 years**; observational model (no instruments) = 8.25, a 0.68-year underestimate | Table VII, col 1-2, p. 421 | Preferred = 8.93 (s.e. 0.12); no-instruments = 8.25 (s.e. 0.07); positive selection on unobservables biases the observational estimate downward |
-| R6 | **Positive selection on unobservables**: 1-SD rise in patient selectivity reduces acceptance by 4.0 pp and raises untransplanted survival by 0.316 SD | Table VI, p. 420; Figure 2b, p. 422 | Acceptance effect: -0.040 (s.e. 0.001); untransplanted survival: +0.316 SD (s.e. 0.062); transplanted patients' predicted LYFT distribution shifted ~1.1 years right vs full distribution |
-| R7 | **Patient heterogeneity dominates LYFT variance**: patient-specific SD = 3.26 years; donor-specific = 0.99 years; match-specific = 0.41 years | p. 423 | Variance decomposition of LYFT: patient component = 3.26 yr SD vs donor = 0.99 yr vs match = 0.41 yr; rematching alone captures only 13.4% of maximum gain |
+| R6 | **Positive selection on unobservables**: 1-SD rise in patient selectivity reduces acceptance by 4.0 pp and raises untransplanted survival by 0.316 years | Table VI, p. 420; Figure 2b, p. 422 | Acceptance effect: -0.040 (s.e. 0.001); untransplanted survival: +0.316 years (s.e. 0.062); transplanted patients' predicted LYFT distribution shifted ~1.1 years right vs full distribution |
+| R7 | **Patient heterogeneity dominates LYFT variance**: patient-specific SD = 3.26 years; donor-specific = 0.99 years; match-specific = 0.41 years | p. 423; text p. 426 | Variance decomposition of LYFT: patient component = 3.26 yr SD vs donor = 0.99 yr vs match = 0.41 yr; rematching alone captures only 13.4% of maximum gain |
+| R8 | Waitlist patients face high mortality and limited transplant receipt | Table I, p. 401; text p. 401 | 27.4% died by year five; 47.2% received a transplant by year five; 54.3% ultimately received a deceased donor kidney |
+| R9 | Kidney offers are highly skewed and some viable kidneys are discarded after repeated rejection | Table II, p. 402; text p. 401 | 18.9% of donors had at least one viable kidney discarded; those donors received 1,892.5 offers on average versus 547.8 overall; median = 51 offers per donor |
+| R10 | Match-specific unobservables strongly predict acceptance, while their estimated post-transplant survival correlation is not significant | Table VI, p. 420 | A 1-SD increase in match value changes acceptance by +0.066 (s.e. 0.001) and +0.065 (0.001); post-transplant survival effects = -0.003 (s.e. 0.249) and +0.092 (0.245), neither statistically significant |
+| R11 | Patient choices select kidneys with higher predicted LYFT | Text p. 423, footnote 28 | A 1-SD increase in match-specific LYFT raises acceptance probability by 0.24%, controlling for patient and donor fixed effects |
+| R12 | Optimal allocation based on observational estimates understates feasible LYFT | Text p. 426 | Observational-model optimal rematching yields 11.75 years when valued under the preferred model, versus 14.08 years under preferred-model optimal allocation; it captures 51% of the maximum gain over realized assignment |
+| R13 | Optimal allocation changes the health and demographic composition of transplanted patients | Table VIII, p. 427 | Age 60+ share falls from 26.9% realized to 16.8% optimal; diabetes falls from 33.3% to 27.7%; mean untransplanted survival rises from 7.11 to 7.61 years |
+| R14 | Prioritizing the sickest patients first lowers average LYFT | Text p. 429 | Assignment that transplants patients with the lowest untransplanted survival first achieves 3.41 years of LYFT |
+| R15 | Potential top-10 offers predict transplant receipt and the donor-quality group received | Table III, p. 409 | For KDPI <= 50% offers, coefficients for any, KDPI <= 50%, and KDPI > 50% or missing transplants are 0.0479 (s.e. 0.00460), 0.0602 (0.00358), and -0.0122 (0.00251); for KDPI > 50% or missing offers, the corresponding coefficients are 0.0234 (0.00386), -0.0167 (0.00292), and 0.0414 (0.00245); F-statistics = 142.6-162.7 |
+| R16 | Scarcity instruments predict lower acceptance across progressively controlled first-stage specifications | Table IV, p. 410 | Log(1 + donors) coefficients = -0.0434, -0.0429, -0.0393, -0.0355 (s.e. 0.00209, 0.00208, 0.00204, 0.00206); log(1 + offers) = -0.0390, -0.0387, -0.0336, -0.0316 (s.e. 0.00106, 0.00106, 0.00106, 0.00109); F-statistics = 296.8-1,361.8 |
 
-**Overall (paper's conclusion).** The mechanism outperforms random assignment primarily through patient choice and selection, not priority rules or patient-kidney matching. However, meaningful gains in average LYFT require changing which patients are transplanted, not only to whom they are matched, creating a dilemma for policymakers who also wish to prioritize the sickest patients. Observational methods that do not account for selection on unobservables underestimate both LYFT and the potential gains from improved allocation.
+**Overall (paper's conclusion).** The mechanism outperforms random assignment through both patient selection and advantageous patient-kidney matching, with patient choice a key contributor relative to priority rules alone. Further gains over the realized assignment are larger from changing which patients are transplanted than from rematching kidneys among the same patients, creating a dilemma for policymakers who also wish to prioritize the sickest patients. Observational methods that do not account for selection on unobservables underestimate LYFT and the potential gains from improved allocation.
 
 ## Theory / model
 
@@ -135,12 +155,18 @@ where $$q_j \in \mathbb{R}^{d_q}$$ are organ-type observables, $$\nu_{i,1}$$ is 
 **Decision equation** (eq. 3.3, p. 405): patient accepts organ $$j$$ if
 
 $$
-D_{i,j} = g_D(q_j, x_i, z_i, \nu_{i,D}, \varepsilon_{i,j,D}) = 1, \tag{3.3}
+D_{i,j} = g_D(q_j, x_i, z_i, \nu_{i,D}, \varepsilon_{i,j,D}) \in \{0,1\}, \tag{3.3}
 $$
 
 where $$z_i \in \mathbb{R}^{d_z}$$ is the scarcity instrument (excluded from outcome equations), $$\nu_{i,D}$$ is unobserved selectivity, and $$\varepsilon_{i,j,D}$$ is a match-specific preference shock.
 
-Patient $$i$$ is transplanted organ $$j$$ if $$T_{i,j} = 1\{A_i \ge t_{i,j}\} \prod_{j' < j, j' \in J_i} (1 - D_{i,j'}) D_{i,j} = 1$$, i.e., she is alive when the organ arrives, rejects all prior offers, and accepts this one. The observed outcome is then
+Patient $$i$$ is assigned the first accepted organ in her offer set before leaving the list (eq. (1), p. 404):
+
+$$
+T_{i,j} = 1\{A_i \geq t_{i,j}\} D_{i,j} \prod_{j' < j,\, j' \in J_i} (1-D_{i,j'}). \tag{1}
+$$
+
+The observed outcome is then
 
 $$
 Y_i = \sum_{j \in J_i} T_{i,j} Y_{i,j} + \Bigl(1 - \sum_{j \in J_i} T_{i,j}\Bigr) Y_{i,0}.
@@ -164,7 +190,7 @@ where $$M(Y \mid X)$$ denotes the median of $$Y$$ given $$X$$ and $$t_{i,j}$$ is
 
 Identification proceeds in three steps building on Heckman and Navarro (2007) and Imbens and Angrist (1994).
 
-**Lemma 1** (p. 411) uses variation in the offer sequence $$J_i$$. Let $$N_i = \min\{n : D_{i,j(i,n)} = 1\}$$ be the number of offers rejected before first acceptance. For a patient with priority type $$x_i$$ and scarcity $$z_i$$, comparing patients who received offer-type sequences $$(q_{j(i,1)}, \ldots, q_{j(i,n)})$$ vs $$(q_{j(i,1)}, \ldots, q_{j(i,n-1)})$$ identifies the marginal distributions of $$Y_{i,j(i,n)}$$ and $$Y_{i,0}$$ conditional on $$N_i = n$$. This is a standard LATE argument (Imbens and Angrist (1994)) extended to the sequential setting.
+**Lemma 1** (p. 411) uses variation in the offer sequence $$J_i$$. Let $$N_i = \min\{n : D_{i,j(i,n)} = 1\}$$ be the index of the first accepted offer, one greater than the number of rejected offers. For a patient with priority type $$x_i$$ and scarcity $$z_i$$, comparing patients who received offer-type sequences $$(q_{j(i,1)}, \ldots, q_{j(i,n)})$$ vs $$(q_{j(i,1)}, \ldots, q_{j(i,n-1)})$$ identifies the marginal distributions of $$Y_{i,j(i,n)}$$ and $$Y_{i,0}$$ conditional on $$N_i = n$$, the offer sequence, scarcity, and being alive when the nth offer arrives. This is a standard LATE argument (Imbens and Angrist (1994)) extended to the sequential setting.
 
 **Lemma 2** (p. 413) shows that offer-sequence variation identifies the choice function $$g_D(\cdot)$$ via its Fourier-Legendre approximation. The key quantity is the moment generating structure: for a sequence $$q_j^n$$ of $$n$$ identical organ-type offers and $$k \le n$$,
 
@@ -177,7 +203,7 @@ where $$v(\varepsilon_D; q_j, z)$$ is the CDF of rejection probabilities across 
 **Theorem 1** (p. 414) combines the offer instrument and the scarcity instrument $$z_i$$ to identify the expected outcomes conditional on the selection unobservables $$\nu_{i,D}$$ and $$\varepsilon_{i,j,D}$$. The scarcity instrument "traces out" the selectivity unobservable via (eq. 5.2, p. 414):
 
 $$
-E\!\left[Y_{i,0} \times 1\{T_i = 0\} \mid q_j^k, z_i\right] = \int_0^1 E\!\left[Y_{i,0} \mid \nu_D = v(\varepsilon_D;\, z_i, q_i)\right] \varepsilon_D^k \,\mathrm{d}v(\varepsilon_D;\, z_i, q_i). \tag{5.2}
+E\!\left[Y_{i,0} \times 1\{T_i = 0\} \mid q_j^k, z_i\right] = \int_0^1 E\!\left[Y_{i,0} \mid \nu_D = v(\varepsilon_D;\, z_i, q_j)\right] \varepsilon_D^k \,\mathrm{d}v(\varepsilon_D;\, z_i, q_j). \tag{5.2}
 $$
 
 **Estimation** uses a parameterized Box-Cox version of equations (3.1)-(3.3), estimated by Gibbs sampling (McCulloch and Rossi (1994)) (eqs. 5.3-5.7, pp. 415-416). Let $$B(Y; \rho) = (Y^\rho - 1)/\rho$$ denote the Box-Cox transformation (Box and Cox (1964)):
@@ -204,25 +230,37 @@ where $$\nu_{i,D}$$, $$\nu_{i,f}$$, and $$\tilde{\nu}_{i,0}$$ are independently 
 
 ## Empirical specifications
 
-**First stage: offer instrument** (Table III, p. 409). A linear probability model for whether a transplant occurs and its type, as a function of the number of "desirable" donors available in the two years following registration:
+**Survival and choice estimates** (Table V, pp. 417-419). The structural model is estimated across three specifications: (1) observational (no scarcity instrument, with selection-related patient and match unobservables assumed mutually independent), (2) preferred (scarcity instrument = number of past donors), and (3) robustness (past offers instrument). Marginal half-life effects are reported for a 1-SD increase in continuous characteristics. Diabetic patients have a shorter half-life by 3.58 years with a transplant (Panel B) and 1.45 years without a transplant (Panel A; PDF p. 419). Positive tissue-type matching raises post-transplant half-life substantially (Panel B). A 1-SD increase in $$\nu_{i,D}$$ is associated with a 0.316-year increase in untransplanted survival (Table VI, Panel A, p. 420).
+
+**Offer-instrument first stage** (Table III, p. 409). The outcomes are any transplant, a transplant from a KDPI <= 50% donor, and a transplant from a KDPI > 50% or missing donor. For any transplant, columns 1-2 add progressively richer patient controls; columns 3-4 report the donor-quality outcomes:
 
 $$
-\text{Transplant}_{i} = \alpha \log(1 + \#\text{top-10 offers in 2 years}) + x_i \gamma + \text{DSA FE} + \text{year FE} + \text{blood-type FE} + e_i.
+Y_i^{(m)} = \beta_{m,L}\log(1+O_{i,L}) + \beta_{m,H}\log(1+O_{i,H}) + X_i'\gamma_m + \alpha_{d(i)} + \lambda_{y(i)} + \mu_{b(i)} + e_i^{(m)}.
 $$
 
-Coefficients: 0.0479 (s.e. 0.0046) for KDPI $$\le 50\%$$ organs (column 1). F-statistics range from 142.6 to 162.7 across columns, far above the conventional threshold of 10. Sample: N = 132,507 non-pediatric patients registered 2000-2008.
+Here $$O_{i,L}$$ and $$O_{i,H}$$ count potential top-10 offers from the two donor-quality groups; $$X_i$$ includes priority and (in columns 2-4) patient controls. All columns include DSA, registration-year, and blood-type fixed effects. Standard errors cluster by DSA, registration year, and blood type. The sample is non-pediatric patients registered 2000-2008; N = 132,507 (columns 1, 3, 4) and 130,923 (column 2).
 
-**First stage: scarcity instruments** (Table IV, p. 410). A linear probability model for whether patient $$i$$ accepts an offer from donor $$j$$:
+**Scarcity first stage** (Table IV, p. 410). Acceptance on the first 100 offers per donor is estimated with both scarcity measures and progressively expanded controls:
 
 $$
-\text{Accept}_{ij} = \alpha_1 \log(1 + \#\text{donors}) + \alpha_2 \log(1 + \#\text{offers}) + x_i \gamma + w_j \psi + m_{ij} \delta + \text{FE} + e_{ij}.
+\text{Accept}_{ij} = \beta_D\log(1+\text{Donors}_{it}) + \beta_O\log(1+\text{Offers}_{it}) + X_i'\gamma + W_j'\psi + M_{ij}'\delta + \alpha_{\text{offer-year}} + \alpha_{\text{priority-type}} + \alpha_{\text{DSA}} + \alpha_{\text{blood-type}} + \alpha_{\text{years-waited}} + e_{ij}.
 $$
 
-The number of donors has coefficient $$-0.0434$$ (s.e. 0.00209) and the number of offers $$-0.039$$ (s.e. 0.00106) in columns 1-2. F-statistics range from 296.8 to 1,361.8 across specifications. The instruments remain significant and of similar magnitude after adding patient characteristics (columns 3-4), donor characteristics (columns 5-6), and match characteristics (columns 7-8). Sample: N = 851,753-863,073 offers from the first 100 donors per patient, registered 2000-2009.
+Columns 1-4 omit some donor/match covariates and use N = 863,073; columns 5-8 include donor and match controls and use N = 851,753. Standard errors cluster by DSA, offer year, years waited at offer, and blood type. Priority controls include pediatric status, CPRA categories, and time on dialysis; patient, donor, and match control definitions are reported in the Table IV note.
 
-Standard errors are clustered by DSA, registration year, and blood type in Table III; by DSA, offer year, years waited at offer, and blood type in Table IV.
+**Structural survival and choice estimates** (Table V, pp. 417-419). Equations (5.3)-(5.7) above define the estimated Box-Cox survival outcomes and latent-index acceptance model. Table V reports the model-implied half-life and acceptance marginal effects at median observable covariates, integrating over unobservables, for no-instrument, past-donor, and past-offer specifications. Each specification includes DSA, blood-type, and registration-year fixed effects, patient/donor/offer covariates, and standard errors in parentheses. The MCMC summary draws 250,000 samples, burns in 50,000, and retains every tenth draw. The estimation cohort is the paper's non-pediatric 2000-2010 waitlist sample.
 
-**Survival and choice estimates** (Table V, p. 417-418). The structural model is estimated across three specifications: (1) observational (no instruments, $$\nu_{i,D}$$ independent of $$\nu_{i,0}$$ and $$\nu_{i,1}$$), (2) preferred (scarcity instrument = number of past donors), and (3) robustness (past offers instrument). Marginal half-life effects are reported for a 1-SD increase in continuous characteristics. Diabetic patients have a shorter half-life by 3.58 years with a transplant (Panel B) and 1.45 years without a transplant (Panel A; PDF p. 419). Positive tissue-type matching raises post-transplant half-life substantially (Panel B). Selectivity raises untransplanted survival by 0.316 SD per 1-SD increase in $$\nu_{i,D}$$ (Table VI, Panel A, p. 420).
+**Match-value correlation diagnostic** (Table VI, p. 420; text p. 423, footnote 28). Table VI reports model-implied marginal changes from 1-SD shifts in patient selectivity and match value, rather than a separate causal regression. For the additional acceptance-sorting check, the paper regresses conditional expected LYFT on predicted acceptance probability, controlling for patient and donor fixed effects; the text reports the 0.24% increase for a 1-SD increase in match-specific LYFT. No additional fixed effects beyond those stated in the footnote are specified there.
+
+**LYFT and assignment benchmarks** (Table VII, p. 421; Figure 4, p. 425; text pp. 426, 429). Table VII averages model-implied median-survival differences across realized transplants, using the three instrument specifications and an additional donor-characteristics specification; standard errors are in parentheses. Figure 4 benchmarks the 2005 registrant cohort. The full-information optimal assignment solves the simulated allocation problem (footnote 29, p. 424):
+
+$$
+\max_{a_{ij}\in\{0,1\}} \sum_{i,j} a_{ij}\,\text{LYFT}^{s}_{ij}
+\quad\text{subject to}\quad
+ a_{ij}(1-c_{ij})=0,\quad \sum_i a_{ij}\leq k_j,\quad \sum_j a_{ij}\leq 1.
+$$
+
+Here $$c_{ij}$$ marks a feasible patient-kidney pair and $$k_j$$ is the number of kidneys from donor $$j$$. Random and no-choice benchmarks use the feasibility and priority rules described in Section 8. Table VIII (p. 427) reports descriptive distributions by assignment; it has no estimating regression or standard-error treatment. The sickest-first counterfactual is reported in the conclusion (p. 429).
 
 ## Datasets used
 
@@ -247,7 +285,7 @@ The variance decomposition (patient vs donor vs match, p. 423) and the planner's
 
 ## Attribution and rights
 
-Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was extracted by an LLM on 2026-06-26 and is **not human-verified or independently reproduced**. The paper is paywalled; only text extraction is permitted here.
+Source: peer-reviewed, *Econometrica* 93(2), March 2025. This distillation was extracted and model-verified on 2026-10-04; it is **not independently reproduced**. The paper is paywalled; only text extraction is permitted here.
 
 > Agarwal, Nikhil, Charles Hodgson, and Paulo Somaini.
 > "Choices and Outcomes in Assignment Mechanisms: The Allocation of Deceased Donor Kidneys."
