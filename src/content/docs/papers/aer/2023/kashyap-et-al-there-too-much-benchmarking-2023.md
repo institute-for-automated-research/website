@@ -5,8 +5,9 @@ description: >-
   for fund managers create a pecuniary externality through equilibrium asset prices:
   benchmarking inflates the risky asset price, crowds trades, and reduces contract
   effectiveness for other investors, so the socially optimal contract has less skin
-  in the game and less benchmarking than the privately optimal one. American
-  Economic Review 2023, AEA copyright. Six core results with source locators, the
+  in the game and less benchmarking than the privately optimal one, with a lower
+  risky-asset price and lower management costs. American
+  Economic Review 2023, AEA copyright. Ten core results with source locators, the
   model equations, and the method.
 sidebar:
   label: Kashyap et al. 2023
@@ -39,7 +40,7 @@ paper:
   access: open
   machineAccess: "freely accessible on AEA website after 12-month embargo; not directly machine-tested in this session (2026-06-25)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 10
   citedByCount: 33
   methods:
     role: theory
@@ -62,6 +63,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1112-1141 plus appendix proofs pp. 1134-1141); six results extracted with source locators. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: (1) eq. 5 last term corrected from b/a to lambda_M/a (confirmed by PDF p. 1121 image, market-clearing derivation, and Lemma 2 proof on p. 1136); (2) JEL codes completed from [G12,D86,G23] to all six codes listed in the paper's abstract [D82,D86,G11,G12,G23,G41]; (3) locator for eqs. 18-19 corrected from pp. 1128-1129 to p. 1129. All six proposition locators and inequality directions verified correct. Outcome classes confirmed in registry." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added missing Core results, structured findings, and the missing numbered main-text equations. These additions are not human-verified and not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 10 Core results rows, main-text equations and specifications, classifications, findings, prose, frontmatter, and cited DOI edges against the PDF. Corrected the constrained-planner price characterization and resultType to reflect the paper's price ordering and its extension of prior price effects. Table-locator check found no incorrect cited pages; no omitted headline results. Post-verification review (2026-10-04) removed findings[] and resultType, which the schema omits for a pure-theory paper." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20210476", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "no license block returned; volume 113, issue 4, pages 1112-1141 confirmed; AEA copyright; no CC terms in Crossref metadata" }
 ---
@@ -70,11 +73,12 @@ paper:
 
 ## TL;DR
 
-The paper proposes a tractable two-period general equilibrium model of delegated asset management in which benchmarking arises endogenously. When fund managers incur a private, noncontractible cost to manage portfolios, optimal incentive contracts reward them for absolute performance and for performance relative to a benchmark. In general equilibrium, these contracts create a pecuniary externality: benchmarking raises the collective demand for the risky asset, inflating its price and reducing its expected return, which in turn reduces the value of benchmarking for all other fund investors. Because individual fund investors take the stock price as given, they do not internalize this crowding effect and over-incentivize their managers. A constrained social planner, who internalizes the externality, chooses less skin in the game and less benchmarking, and delivers lower asset management costs and a lower (more correctly priced) risky asset.
+The paper proposes a tractable two-period general equilibrium model of delegated asset management in which benchmarking arises endogenously. When fund managers incur a private, noncontractible cost to manage portfolios, optimal incentive contracts reward them for absolute performance and for performance relative to a benchmark. In general equilibrium, these contracts create a pecuniary externality: benchmarking raises the collective demand for the risky asset, inflating its price and reducing its expected return, which in turn reduces the value of benchmarking for other fund investors. Because individual fund investors take the stock price as given, they do not internalize this crowding effect and over-incentivize their managers. A constrained social planner internalizes the externality, chooses less skin in the game and less benchmarking, and delivers lower asset management costs and a lower risky-asset price. The paper notes that this constrained-optimum price remains below the private-equilibrium price, while the first-best price is higher than both.
+
 
 ## Core results
 
-All results are theoretical propositions; magnitudes are qualitative inequalities. Locators point into the source PDF.
+All results are theoretical propositions and comparative statics; magnitudes are qualitative inequalities. Locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
@@ -84,8 +88,12 @@ All results are theoretical propositions; magnitudes are qualitative inequalitie
 | R4 | Social planner uses less benchmarking than private equilibrium | Proposition 2(ii), p. 1131 | b\*\* < b\* (and b\*\*/a\*\* < b\*/a\*) under the same condition as R1 |
 | R5 | Private equilibrium inflates the risky asset price above the social optimum | Proposition 3(i), p. 1132 | p\*\* < p\* |
 | R6 | Private equilibrium generates excessive risky asset holdings and asset management costs | Proposition 3(ii), p. 1132 | x^{M\*\*} < x^{M\*} and ψx^{M\*\*} < ψx^{M\*} |
+| R7 | Higher private portfolio-management cost increases skin in the game but lowers the price and manager holdings | Lemma 3(i), p. 1127 | Higher ψ: a* rises; p* and x^{M*} fall |
+| R8 | Higher abnormal return raises benchmarking, the risky-asset price, and manager holdings | Lemma 3(ii), p. 1127 | Higher Δ: b*, p*, and x^{M*} rise |
+| R9 | Higher idiosyncratic return-augmentation risk lowers skin in the game, price, and manager holdings | Lemma 3(iii), p. 1127 | Higher σ_ε²: a*, p*, and x^{M*} fall; effects on b* are ambiguous |
+| R10 | Constrained-social-optimum price remains below the first-best price | Remark 2, p. 1133 | p** < p* < p^FB |
 
-**Overall (paper's conclusion).** When all fund investors use incentive contracts, they collectively increase demand for the risky asset, raise its price, and lower the expected return, making the marginal benefit of benchmarking lower for everyone else. Individual investors fail to account for this. A social planner, recognizing the crowding, opts for less incentive provision and less benchmarking. The planner also delivers lower asset management costs and a lower (better priced) risky asset.
+**Overall (paper's conclusion).** When all fund investors use incentive contracts, they collectively increase demand for the risky asset, raise its price, and lower the expected return, making the marginal benefit of benchmarking lower for everyone else. Individual investors fail to account for this. A social planner, recognizing the crowding, opts for less incentive provision and less benchmarking. The planner also delivers lower asset management costs and a lower risky-asset price. The paper notes that this constrained-optimum price is farther below the first-best price than the private-equilibrium price is.
 
 ## Theory / model
 
@@ -117,9 +125,144 @@ where $$r_b = \tilde{D} - p$$ is the benchmark return (one share of the risky as
 
 **Equilibrium conditions.** An equilibrium with privately optimal contracts is a contract $$(a^*, b^*, c^*)$$, portfolio choices $$(x^D, x^{M*})$$, and price $$p^*$$ such that: (i) direct investors and managers optimize given $$p^*$$; (ii) fund investors optimize contracts given $$p^*$$ and the manager's incentive constraint (her first-order condition); and (iii) the stock market clears: $$\lambda_D x^D + \lambda_M x^{M*} = \bar{x}$$ (Definition 1, p. 1135). The equilibrium with socially optimal contracts replaces (ii) with a social planner who internalizes the price externality (Definition 2, p. 1135).
 
+
+**Remaining numbered main-text equations (6)-(26).** These equations complete the numbered model and optimal-contract conditions; locators refer to the printed pages.
+
+Equation (6), p. 1123, defines effective allocations:
+
+$$
+x = \frac{y}{a} + \frac{b}{a}, \qquad z = \left(\frac{1}{a} - 1\right)y + \frac{b}{a} = \left(\frac{1}{a} - 1\right)\frac{\Delta - \psi/a + \mu - p}{\gamma\sigma^2} + \frac{b}{a}.
+\tag{6}
+$$
+
+Equation (7), p. 1123, is the manager participation constraint; equation (8), p. 1123, is the manager incentive constraint:
+
+$$
+U^M \geq u_0.
+\tag{7}
+$$
+
+$$
+y = \frac{\Delta - \psi/a + \mu - p}{\gamma\sigma^2}.
+\tag{8}
+$$
+
+Equations (9)-(10), p. 1124, are the private contract's first order conditions for benchmarking:
+
+$$
+\frac{\partial (U^F + U^M)}{\partial (b/a)} = \Delta - \psi + \mu - p - \gamma\sigma^2 z = 0.
+\tag{9}
+$$
+
+$$
+\gamma\sigma^2 b = (2a - 1)(\Delta - \psi + \mu - p) + (1-a)\left(\frac{1}{a}-1\right)\psi.
+\tag{10}
+$$
+
+The private contract skin-in-the-game first order condition, equation (11), p. 1125, reduces to:
+
+$$
+0 = -(2a-1)\gamma\sigma_\varepsilon^2 + (1-a)\frac{\psi^2}{\gamma\sigma^2a^3}.
+\tag{11}
+$$
+
+Equations (13) and (15), p. 1125, complete the privately optimal contract and manager holdings, alongside equations (12) and (14) above:
+
+$$
+b^* = (2a^*-1)\left[\bar{x} + \frac{\lambda_D}{\gamma\sigma^2}(\Delta-\psi)\right] + (1-a^*)\left[\frac{1}{a^*} - \left(\frac{\lambda_M}{a^*}+\lambda_D\right)\right]\frac{\psi}{\gamma\sigma^2}.
+\tag{13}
+$$
+
+$$
+x^{M*} = 2\bar{x} + \frac{\lambda_D}{\gamma\sigma^2}\left(2\Delta-\psi-\frac{\psi}{a^*}\right).
+\tag{15}
+$$
+
+The planner's first order conditions, equations (16)-(18), pp. 1128-1129, separate distributive and contracting price externalities and simplify the contracting condition:
+
+$$
+0 = \left[\omega_F(x_F^{-1}-x^M)+\omega_D(x_D^{-1}-x^D)\right]\frac{\partial p}{\partial(b/a)} + \omega_F\left[\frac{\partial(U^F+U^M)}{\partial(b/a)} + \frac{\partial U^F}{\partial y}\frac{\partial y}{\partial p}\frac{\partial p}{\partial(b/a)}\right].
+\tag{16}
+$$
+
+$$
+0 = (\Delta-\psi+\mu-p-\gamma\sigma^2z)\frac{\partial y}{\partial(b/a)} + \frac{1-a}{a}(\Delta+\mu-p-\gamma\sigma^2z)\frac{\partial y}{\partial p}\frac{\partial p}{\partial(b/a)}.
+\tag{17}
+$$
+
+$$
+(\Delta+\mu-p-\gamma\sigma^2z)\left[1-\frac{(1-a)\lambda_M/a}{\lambda_M/a+\lambda_D}\right]-\psi=0.
+\tag{18}
+$$
+
+Equation (19), p. 1129, expresses the planner's effective incentive cost; equation (20), p. 1130, is its benchmarking condition:
+
+$$
+\Delta-\frac{\lambda_M/a+\lambda_D}{\lambda_M+\lambda_D}\psi+\mu-p-\gamma\sigma^2z=0.
+\tag{19}
+$$
+
+$$
+\gamma\sigma^2b=(2a-1)\left[\Delta-\frac{\lambda_M/a+\lambda_D}{\lambda_M+\lambda_D}\psi+\mu-p\right]+(1-a)\left[\frac{1}{a}-\frac{\lambda_M/a+\lambda_D}{\lambda_M+\lambda_D}\right]\psi.
+\tag{20}
+$$
+
+The planner skin-in-the-game first order condition is equation (21), p. 1130, and its reduced form is equation (22), p. 1130:
+
+$$
+0=\frac{\partial(U^F+U^M)}{\partial a}+\frac{\partial U^F}{\partial y}\left[\frac{\partial y}{\partial a}+\frac{\partial y}{\partial p}\frac{\partial p}{\partial a}\right].
+\tag{21}
+$$
+
+$$
+-(2a-1)\gamma\sigma_\varepsilon^2+(1-a)\frac{\psi^2}{\gamma\sigma^2a^3}\frac{\lambda_D}{\lambda_M+\lambda_D}=0.
+\tag{22}
+$$
+
+The socially optimal contract and its price and holdings implications are characterized by equations (24)-(26), p. 1131; equation (23) appears above:
+
+$$
+b^{**}=(2a^{**}-1)\left[\bar{x}+\frac{\lambda_D}{\gamma\sigma^2}(\Delta-\psi)\right]+(1-a^{**})\left[\frac{1}{a^{**}}-\frac{\lambda_M/a^{**}+\lambda_D}{\lambda_M+\lambda_D}\right]\frac{\psi}{\gamma\sigma^2}.
+\tag{24}
+$$
+
+$$
+p^{**}=\mu-\gamma\sigma^2\bar{x}+\lambda_M\left(2\Delta-\frac{\lambda_M/a^{**}+\lambda_D}{\lambda_M+\lambda_D}\psi-\frac{\psi}{a^{**}}\right).
+\tag{25}
+$$
+
+$$
+x^{M**}=2\bar{x}+\frac{\lambda_D}{\gamma\sigma^2}\left(2\Delta-\frac{\lambda_M/a^{**}+\lambda_D}{\lambda_M+\lambda_D}\psi-\frac{\psi}{a^{**}}\right).
+\tag{26}
+$$
+
 ## Method
 
-The paper solves both equilibria analytically using first-order conditions. CARA utility with normally distributed returns reduces every agent's problem to an equivalent mean-variance program, yielding closed-form portfolio demands and equilibrium prices. This builds on `principal-agent` and `mechanism-design` primitives and on the `cara-mean-variance-optimization` technique (proposed vocab).
+The paper solves both equilibria analytically using first-order conditions. CARA utility with normally distributed returns reduces every agent's problem to an equivalent mean-variance program, yielding closed-form portfolio demands and equilibrium prices. This builds on `principal-agent` and `mechanism-design` primitives and on the `cara-mean-variance-optimization` technique.
+
+**Optimization problems (Section II, pp. 1121-1123).** A direct investor chooses stock holdings to maximize mean-variance wealth:
+
+$$
+\max_x \; x(\mu-p)-\frac{\gamma x^2\sigma^2}{2}.
+$$
+
+Given a contract, the manager chooses holdings to maximize compensation net of the private management cost, in its mean-variance form:
+
+$$
+\max_x \; ax\left(\Delta-\frac{\psi}{a}+\mu-p\right)-b(\mu-p)+c-\frac{\gamma}{2}\left[(ax-b)^2\sigma^2+a^2\sigma_\varepsilon^2\right].
+$$
+
+The fund investor chooses contract terms subject to the manager's participation and incentive constraints (equations (7)-(8), p. 1123):
+
+$$
+\max_{a,b/a,c} U^F \quad \text{subject to} \quad U^M\geq u_0, \qquad y=\frac{\Delta-\psi/a+\mu-p}{\gamma\sigma^2}.
+$$
+
+The constrained social planner instead maximizes weighted investor utility, subject to market-clearing price and portfolio choice conditions (pp. 1128, 1135):
+
+$$
+\max_{a,b/a,c} \; \omega_F U^F+\omega_D U^D \quad \text{subject to equations (3), (5), (7), and (8)}.
+$$
 
 **Portfolio demands and market-clearing price (Lemma 1, p. 1121).** For a given contract $$(a, b, c)$$:
 
@@ -175,7 +318,7 @@ The paper's mechanism unifies three strands of prior work. Holmstrom (1979)'s su
 
 ## Empirical specifications
 
-This is a pure theory paper. There are no empirical specifications, datasets, or estimation procedures. All propositions (Propositions 1-3 and Lemmas 1-4) are derived analytically; all results are qualitative inequalities among equilibrium quantities under privately and socially optimal contracts. The paper does not calibrate to data or estimate model parameters. Online Appendix D provides a tax-implementation analysis of the social optimum. Online Appendix E analyzes extensions, including an effort-based private cost and an endogenous abnormal return from securities lending.
+This is a pure theory paper. There are no empirical specifications, datasets, or estimation procedures. All propositions (Propositions 1-3 and Lemmas 1-4) are derived analytically; all results are inequalities and comparative statics among equilibrium quantities under privately and socially optimal contracts. The paper does not calibrate to data or estimate model parameters. Online Appendix D provides a tax-implementation analysis of the social optimum. Online Appendix E analyzes extensions, including an effort-based private cost and an endogenous abnormal return from securities lending.
 
 ## Datasets used
 

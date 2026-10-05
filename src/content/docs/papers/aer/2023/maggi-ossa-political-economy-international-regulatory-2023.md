@@ -5,7 +5,7 @@ description: >-
   excessive deregulation when producer lobbies are strong, reducing welfare; agreements
   on process standards trigger counter-lobbying, tightening regulations and improving
   welfare when lobbies are powerful. American Economic Review 113(8) 2023, paywalled.
-  Five core propositions with source locators, the lobbying-extended regulatory model,
+  Eleven core findings with source locators, the lobbying-extended regulatory model,
   and the equilibrium characterization method.
 sidebar:
   label: Maggi-Ossa 2023
@@ -23,31 +23,31 @@ paper:
   doi: 10.1257/aer.20200780
   jel:
     codes: [F13, F14, F15, L15, L51]
-    assignedBy: authors (abstract)
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Global trade and economics", "Political Influence and Corporate Strategies", "World Trade Organization Law"]
   dataAccess: public
   outcome:
     - global welfare impact of cooperative regulatory agreements
     - regulatory standards levels under product and process standards agreements
-  outcomeClass: [social-welfare]
+  outcomeClass: [social-welfare, equilibrium-condition]
   license: "paywalled (American Economic Review; Crossref API reports no licence block as of 2026-06-25)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA website; Crossref API reports no licence block; 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 5
+  resultsCount: 11
   citedByCount: 21
   methods:
     role: theory
     family: theory
     buildsFrom: [grossman-helpman-political-economy]
-  contributionType: [new-theory, new-fact]
+  contributionType: [new-theory]
   mechanisms: [externality, lobbying-coordination]
   scope:
     region: "global (theoretical)"
   relatesTo:
-    - { cite: "Grossman and Helpman (1994)", doi: '10.1086/261999', relation: builds-on, note: "protection-for-sale political economy framework in which government i attaches extra weight gamma_ig to producer surplus; adopted here for regulatory rather than tariff policy" }
+    - { cite: "Grossman and Helpman (1994)", relation: builds-on, note: "protection-for-sale political economy framework in which government i attaches extra weight gamma_ig to producer surplus; adopted here for regulatory rather than tariff policy" }
     - { cite: "Bagwell and Staiger (1999)", relation: builds-on, note: "terms-of-trade theory of GATT; present paper extends the logic to regulatory cooperation under lobbying pressures" }
     - { cite: "Grossman, McCalman and Staiger (2021)", doi: '10.3982/ecta17536', relation: cites, note: "optimal trade agreement design with product standards and domestic taxes under monopolistic competition; different focus from the lobbying-welfare question here" }
     - { cite: "Rodrik (2018)", doi: '10.1257/jep.32.2.73', relation: cites, note: "argues informally that deep integration may empower wrong special interests and reduce welfare; this paper formalizes and qualifies that intuition" }
@@ -59,6 +59,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (pp. 2168-2200, all sections). Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: R2 locator corrected from p. 2181 to p. 2183 (Proposition 2 is on p. 2183, not p. 2181 where Proposition 1 appears); JEL codes expanded from [F13, F15, L51] to [F13, F14, F15, L15, L51] to match the paper's abstract. All equations (1)-(14) verified term-by-term; all other locators correct." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF. Added six findings on large-country and policy-instrument extensions, equations (15)-(16), and the Empirical specifications section; these additions are not human-verified and have not been reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported claims re-checked against the source PDF; removed the incorrect Grossman-Helpman DOI and the unsupported new-fact classification, added equilibrium-condition to outcomeClass; all 11 Core results, equations (1)-(16), and prose claims checked." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20200780", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No licence block returned; Crossref record shows AEA paywalled journal with no open-access flag" }
 ---
@@ -78,6 +80,12 @@ Maggi and Ossa build a political economy model of international regulatory coope
 | R3 | Cooperation on process standards loosens standards when lobbying is weak; tightens them when lobbying is strong | Proposition 3, p. 2190 | (i) loosens all process standards for sufficiently small gamma_g under mild regularity; (ii) tightens all process standards for sufficiently large gamma_g unconditionally |
 | R4 | Cooperation on process standards increases welfare when lobbying is weak or strong; may decrease welfare at intermediate lobbying levels | Proposition 4, p. 2192 | Delta_g > 0 for very low or very high gamma_g; possible Delta_g < 0 for intermediate gamma_g; intermediate welfare loss is guaranteed to exist if countries are symmetric (Figure 2, p. 2191) |
 | R5 | Main qualitative results extend to N large countries; asymmetric countries add a terms-of-trade motive for product-standard manipulation | Section III, pp. 2193-2197 | With N large countries, importers tend to tighten product standards to depress world prices while exporters tend to loosen them; with sufficiently strong lobbying, the cooperative agreement still loosens product standards and tightens process standards |
+| R6 | In symmetric large countries, product-standard cooperation still loosens standards; its welfare effect is positive under weak lobbying and negative under strong lobbying | Section III, text p. 2195 | The paper states that the agreement loosens product standards and raises welfare if lobbying is sufficiently weak, but lowers welfare if lobbying is strong enough |
+| R7 | With asymmetric large countries, terms-of-trade incentives can change the direction of product-standard cooperation; sufficiently strong lobbying restores loosening in all countries and lowers welfare | Section III, text pp. 2195-2196 | The local direction depends on the sum of political and environmental externalities plus imports m_ig; sufficiently large political parameters make the agreement loosen all product standards and damage welfare |
+| R8 | In symmetric large countries, strong lobbying makes process-standard cooperation tighten standards and increase welfare | Section III, text p. 2196 | The paper states that the baseline result is preserved: when lobbying is sufficiently strong, the agreement tightens process standards and increases welfare |
+| R9 | With asymmetric large countries, terms-of-trade incentives can reverse process-standard changes under weak lobbying; strong lobbying makes the agreement tighten all standards and increase welfare | Section III, text p. 2197 | The local direction depends on the political and environmental externalities plus imports m_ig; under a regularity condition, sufficiently large lobbying yields global tightening and higher welfare |
+| R10 | Adding consumption taxes makes product-standard cooperation reduce welfare whenever lobbying is positive; stronger lobbying worsens the welfare loss | Section I.F, text p. 2184 | Given the Pigouvian standards and taxes, noncooperative policies maximize welfare; cooperative policies therefore lower welfare when lobbying is present, and the loss increases with lobby strength |
+| R11 | With trade taxes, constrained tariffs or export subsidies preserve a motive for regulatory cooperation; unrestricted instruments remove that role in the small-country model | Section I.F, text pp. 2184-2185 | If export subsidies are restricted, the agreement lowers import tariffs and loosens exporter standards; if tariffs are restricted, it loosens importer standards and lowers exporter subsidies; if both are restricted, it loosens standards everywhere; sufficiently strong lobbying makes the deregulation welfare-reducing |
 
 **Overall.** The paper's central lesson is that product-standard agreements are prone to excessive deregulation when lobbies are powerful, while process-standard agreements have a built-in counter-lobbying correction that tightens regulations and preserves welfare. The distinction between co-lobbying (aligned producer interests amplify lobby influence) and counter-lobbying (conflicting interests dilute it) drives both the positive and normative results.
 
@@ -204,6 +212,34 @@ e^A_{ig} = \frac{1}{\sigma_{ig}} \left( \frac{1}{a_{ig}} + \frac{1}{\phi'_{ig}} 
 $$
 
 where $$\lambda^A_g = \sum_i (\gamma_{ig} y_{ig} + a_{ig} e^A_{ig} \sigma_{ig} d_{ig}) / \sum_i (\varepsilon_{ig} y_{ig} + \sigma_{ig} d_{ig})$$. The terms-of-trade motive vanishes in symmetric countries (no trade in equilibrium), and the main results from the small-country model carry through. With strong enough lobbying, the political externality dominates and Propositions 1-4 hold qualitatively for large countries too.
+
+For process standards in the large-country extension, the noncooperative and cooperative standards are (eqs. 15-16, pp. 2196-2197):
+
+$$
+z^N_{ig} = \frac{1}{\varepsilon_{ig}} \left( \frac{1 + \gamma_{ig}}{b_{ig}} + \frac{1}{\varphi'_{ig}} \right) - \frac{\lambda^N_{ig}}{b_{ig}} \quad \text{for all } i \tag{15}
+$$
+
+where
+
+$$
+\lambda^N_{ig} = \frac{y_{ig}\left(\gamma_{ig} - b_{ig} z^N_{ig} \varepsilon_{ig}\right) - m_{ig}}{\sum_j \left(\varepsilon_{jg} y_{jg} + \sigma_{jg} d_{jg}\right)}.
+$$
+
+$$
+z^A_{ig} = \frac{1}{\varepsilon_{ig}} \left( \frac{1 + \gamma_{ig}}{b_{ig}} + \frac{1}{\varphi'_{ig}} \right) - \frac{\lambda^A_g}{b_{ig}} \quad \text{for all } i \tag{16}
+$$
+
+where
+
+$$
+\lambda^A_g = \frac{\sum_j y_{jg}\left(\gamma_{jg} - b_{jg} z^A_{jg} \varepsilon_{jg}\right)}{\sum_j \left(\varepsilon_{jg} y_{jg} + \sigma_{jg} d_{jg}\right)}.
+$$
+
+The import term in eq. (15) is the unilateral terms-of-trade motive; eq. (16) aggregates international effects. For symmetric countries, the qualitative process-standard results from Propositions 3 and 4 persist when lobbying is strong (text p. 2196). With asymmetric countries, the local agreement tightens country i's process standard when $$\sum_{j \ne i} y_{jg}\left(\gamma_{jg} - b_{jg} z^N_{jg} \varepsilon_{jg}\right) + m_{ig} > 0$$; sufficiently strong lobbying makes this positive for all countries, and under the paper's stated regularity condition the global agreement tightens standards and raises welfare (text p. 2197).
+
+## Empirical specifications
+
+This is a theoretical paper and has no empirical estimating specifications, datasets, or empirical sample.
 
 ## Datasets used
 

@@ -1,5 +1,5 @@
 ---
-title: "Behavioral Foundations of Default Effects: Brot-Goldberg, Layton, Vabson & Wang (2023)"
+title: "The Behavioral Foundations of Default Effects: Brot-Goldberg, Layton, Vabson & Wang (2023)"
 description: >-
   Distilled: Default rules in Medicare Part D have large, persistent effects on
   enrollment and drug utilization; beneficiary passivity is insensitive to the
@@ -7,7 +7,7 @@ description: >-
   to 30 percent. Evidence favors "mental gap" over "frictional" models of
   default-following, implying that optimal policy should match beneficiaries to
   their best plans rather than incentivize active choice. AER 2023, paywalled.
-  Seven core results with source locators, datasets used, the theoretical
+  Twelve core results with source locators, datasets used, the theoretical
   framework, and the empirical specifications.
 sidebar:
   label: Brot-Goldberg et al. 2023
@@ -39,13 +39,12 @@ paper:
     - Medicare Part D plan enrollment and switching
     - prescription drug utilization and spending
     - active choice propensity among health insurance enrollees
-  outcomeClass: [household-finance]
   license: "paywalled (no license block found in Crossref metadata; American Economic Review standard paywall)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA website, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 12
   citedByCount: 24
   methods:
     role: both
@@ -107,15 +106,19 @@ paper:
       value: "26.5% of beneficiaries facing plan exit are 'sometimes choosers'"
       direction: positive
       vsBenchmark: >-
-        vs ~4.3% predicted by a constant-friction frictional model; prior passive
+        vs ~4.2% predicted by a constant-friction frictional model; prior passive
         auto-assignees make an active choice 7.7% of the time, prior active choosers
         only 25.6% (p. 2752)
     - ref: R7
       outcome: active choice propensity among health insurance enrollees
       metric: probability
       value: "66.6% [64.6%, 68.6%] of variance in latent attention from within-beneficiary transitory shocks; 33.4% from permanent heterogeneity"
-      direction: mixed
+      direction: positive
       vsBenchmark: "observable characteristics (age, gender, race, health) explain only 3.2% of attention variance (Table 7, p. 2754)"
+    - { ref: R8, outcome: prescription drug utilization and spending, metric: coefficient, value: "drug-level price normalization: -0.050 (SE 0.004); class-level price normalization: -0.021 (SE 0.004)", direction: negative, vsBenchmark: "The estimates remain negative when prices are held constant across plans, with class-level normalization treating all drugs within a therapeutic class as perfect substitutes (Table 3 Panel A, p. 2738)." }
+    - { ref: R9, outcome: prescription drug utilization and spending, metric: coefficient, value: "high-value drugs: -0.062 (SE 0.005); chronic drugs: -0.078 (SE 0.005); nonchronic drugs: -0.028 (SE 0.006)", direction: negative, vsBenchmark: "Effects by drug category (Table 4 Panel A, p. 2740)." }
+    - { ref: R11, outcome: active choice propensity among health insurance enrollees, metric: pp-effect, value: "active choice by December: 0.050 (SE 0.001) in Panel A and 0.047 (SE 0.001) in Panel B", direction: positive, vsBenchmark: "The Panel B estimate additionally interacts treatment with assignment to a bottom-quintile-fit plan (Table 5, p. 2747)." }
+    - { ref: R12, outcome: active choice propensity among health insurance enrollees, metric: pp-effect, value: "for top 50%, 25%, and 10% fit-variance subsamples, reassignment-default effects are 0.054 (SE 0.001), 0.049 (SE 0.002), and 0.041 (SE 0.003); worst-fit interactions are 0.034 (SE 0.003), 0.034 (SE 0.004), and 0.037 (SE 0.006)", direction: positive, vsBenchmark: "Active-choice response remains small even in samples with larger drug-consumption losses (Table 6, p. 2747)." }
   resultType: overturns
   relatesTo:
     - { cite: "Handel and Schwartzstein (2018)", doi: '10.1257/jep.32.1.155', relation: builds-on, note: "the frictional vs mental gap framework and the key testable parameter (attention elasticity da/dv^d) draw directly from their taxonomy of default-following models" }
@@ -132,9 +135,10 @@ paper:
       plausible market-incentive range observed here, such as mandates or
       large fines (p. 2754).
     - >-
-      The extent to which smart defaults matching beneficiaries to their
-      best-fitting plans can offset welfare losses from passivity; noted
-      as a key direction for future policy design work (Conclusion, p. 2755).
+      How other welfare results that rely on frictional attention models,
+      such as consumer inertia limiting seller exploitation or adverse
+      selection, change under non-frictional attention models (Conclusion,
+      p. 2755).
   replicationCode:
     url: "https://doi.org/10.3886/E184423V1"
     status: available
@@ -158,6 +162,8 @@ paper:
         All equations (welfare eq. 2, DiD eq. 1, RD spec, eq. 3, latent
         attention model) verified term-by-term against the PDF; no transcription
         errors found.
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added five Core results rows covering price-normalization checks, drug-category heterogeneity, RD balance evidence, and active-choice estimates, with corresponding quantitative findings; corrected the event-time fixed-effect subscript in equations (1) and (3). These additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; corrected R1 characterization, methods description, 4.2% benchmark, equation (1) event-time index description, RD notation, and overclaim about fixed frictions. All 12 Core results rows supported; no headline results omitted." }
   licenceVerification:
     - source: Crossref REST API works/10.1257/aer.20210013
       checked: 2026-06-25
@@ -178,13 +184,18 @@ Magnitudes and significance are as reported. Locators refer to pages in the sour
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Only 16% of new LIS beneficiaries opt out before initial auto-enrollment**; 84% passively follow their randomly assigned default. Even after 5 years, only 45% have ever made an active choice | Figure 1, p. 2727 | Active choice rate stays flat below 50% across all quintiles of default-plan fit, including for beneficiaries assigned to plans covering few of their prior drugs |
+| R1 | **Only 16% of new LIS beneficiaries opt out before initial auto-enrollment**; 84% passively follow their randomly assigned default. Even after 5 years, only 45% have ever made an active choice | Figure 1, p. 2727 | Active choice remains below 50% in every plan-fit quintile after 5 years; its relationship with plan fit is not monotonic |
 | R2 | **A change in default from remaining to reassignment raises plan switching by 96 percentage points**, driven almost entirely by passive reassignment (93.6 pp), not active choice (2.4 pp) | Table 2, p. 2734 | RD estimate beta = 0.960 (SE 0.001); average switching rate for controls at cutoff = 0.006 |
 | R3 | **Reassignment default reduces annual drug spending by 6.4 percent** (approximately $213 off a $3,329 control base), a non-trivial consumption loss | Table 3 Panel A, p. 2738 | DiD coefficient: -0.064 (SE 0.004) on log drug spending; effect persists at least 24 months; robust to drug-level and class-level price normalizations |
 | R4 | **Worst-fitting default plans reduce drug spending by 12.6 percent**, nearly 3x the 4.3 percent loss for better-fitting defaults; high-fit-variance subsamples face losses up to nearly 30 percent | Table 3 Panel B, p. 2738; Table 6, p. 2747 | Worst-quintile interaction: -0.083 (SE 0.007); top 50% / 25% / 10% variance subsamples face total losses of -24.9% / -27.6% / -29.8% |
 | R5 | **Active choice propensity barely responds to the value of the default**: beneficiaries assigned to worst-fitting plans are only about 1.5 pp more likely to make an active choice than those assigned to better plans | Table 5 Panel B, p. 2747; Figure 7, p. 2749 | Worst-quintile differential: 0.015 (SE 0.002); slope of active choice vs drug consumption loss is nearly flat across the full range; ∂a/∂v^d ≈ 0 |
-| R6 | **26.5 percent of beneficiaries are "sometimes choosers"** whose plan exits, far exceeding the ~4.3 percent predicted by a constant-friction frictional model | p. 2752 | Prior passive auto-assignees make an active choice 7.7% of the time following plan exit; prior active choosers make an active choice only 25.6% of the time - far below the ~100% predicted by a constant-friction model |
+| R6 | **26.5 percent of beneficiaries are "sometimes choosers"** whose plan exits, far exceeding the ~4.2 percent predicted by a constant-friction frictional model | p. 2752 | Prior passive auto-assignees make an active choice 7.7% of the time following plan exit; prior active choosers make an active choice only 25.6% of the time - far below the ~100% predicted by a constant-friction model |
 | R7 | **Two-thirds of variation in latent attention is driven by within-beneficiary transitory shocks**, not permanent friction differences: transitory share = 66.6%, permanent heterogeneity = 33.4% | Table 7, p. 2754 | Observable characteristics (age, gender, race, Elixhauser index) explain only 3.2% of total attention variance; unobservable permanent heterogeneity = 30.6%; transitory shocks = 66.2% |
+| R8 | **Drug-spending effects persist under price normalization** | Table 3 Panel A, p. 2738 | Drug-level price normalization: -0.050 (SE 0.004); class-level price normalization: -0.021 (SE 0.004) |
+| R9 | **Default reassignment reduces spending across drug categories, especially chronic drugs** | Table 4 Panel A, p. 2740 | High-value drugs: -0.062 (SE 0.005); chronic drugs: -0.078 (SE 0.005); nonchronic drugs: -0.028 (SE 0.006) |
+| R10 | **Prior-year covariates are balanced around the RD cutoff** | Figure 3, p. 2732; text p. 2731 | Prior-year drug spending is smooth at the discontinuity; age, female share, nondrug medical spending, and Elixhauser index show similar balance in the appendix checks |
+| R11 | **Active choice remains uncommon after reassignment**, with estimates near five percentage points | Table 5, p. 2747 | Active choice by December: 0.050 (SE 0.001) in Panel A and 0.047 (SE 0.001) in Panel B; control mean in Panel B: 0.010 |
+| R12 | **Active-choice response stays modest in groups facing greater variation in plan fit** | Table 6, p. 2747 | Top 50% / 25% / 10% fit-variance samples: reassignment effects 0.054 (SE 0.001) / 0.049 (SE 0.002) / 0.041 (SE 0.003); worst-fit interactions 0.034 (SE 0.003) / 0.034 (SE 0.004) / 0.037 (SE 0.006) |
 
 **Overall (paper's conclusion).** Beneficiaries are overwhelmingly passive in their Medicare Part D plan choices, even when that passivity generates large and immediate drug consumption losses. Because active choice is insensitive to the value of the default, the evidence fits mental gap rather than frictional models of default-following. This means that policymakers cannot incentivize their way out of passivity: optimal default design should match beneficiaries to their best outcomes, not shock them into making active choices.
 
@@ -197,18 +208,18 @@ Section V (pp. 2740-2743) formalizes two classes of default-following models and
 **Welfare.** Expected welfare is (p. 2742):
 
 $$
-W = \Pr\!\bigl(A \geq 0\bigr) \cdot E\bigl[v^* - c \mid A \geq 0\bigr] + \Pr\!\bigl(A < 0\bigr) \cdot E\bigl[v^d \mid A < 0\bigr]
+W = \Pr\!\bigl(A(v^*, v^d, c, \ldots) \geq 0\bigr) \cdot E\bigl[v^* - c \mid A(v^*, v^d, c, \ldots) \geq 0\bigr] + \Pr\!\bigl(A(v^*, v^d, c, \ldots) < 0\bigr) \cdot E\bigl[v^d \mid A(v^*, v^d, c, \ldots) < 0\bigr]
 $$
 
 Differentiating with respect to the default value $$v^d$$ yields the welfare derivative (equation 2, p. 2742):
 
 $$
-\frac{\partial W}{\partial v^d} = \underbrace{1 - a(v^*, v^d, \ldots)}_{\substack{\text{benefit to}\\\text{inframarginal}\\\text{passive agents}}} + \underbrace{\frac{\partial a}{\partial v^d}}_{\substack{\text{attention}\\\text{elasticity}}} \times \underbrace{E\!\bigl[v^* - c - v^d \mid A = 0\bigr]}_{\substack{\text{value of choice for}\\\text{marginal agents}}} \tag{2}
+\frac{\partial W}{\partial v^d} = \underbrace{1 - a(v^*, v^d, c, \ldots)}_{\substack{\text{benefit to}\\\text{inframarginal}\\\text{passive agents}}} + \underbrace{\frac{\partial a(v^*, v^d, c, \ldots)}{\partial v^d}}_{\substack{\text{attention}\\\text{elasticity}}} \times \underbrace{E\!\bigl[v^* - c - v^d \mid A(v^*, v^d, c, \ldots) = 0\bigr]}_{\substack{\text{value of choice for}\\\text{marginal agents}}} \tag{2}
 $$
 
 where $$a = \Pr(A \geq 0)$$ is the aggregate share making an active choice.
 
-**The frictional vs mental gap distinction.** In "frictional" models, $$\partial a / \partial v^d < 0$$: agents respond to a worse default by making active choices more often (the second term in equation (2) is non-zero), so optimal policy can improve welfare by setting the default so badly that all agents switch - the "shocking default" logic of Carroll et al. (2009) and Bernheim, Fradkin, and Popov (2015). In "mental gap" models, $$\partial a / \partial v^d = 0$$: active choice is driven by random attention or contextual salience, not by material stakes. The second term in equation (2) drops out, leaving $$\partial W / \partial v^d = 1 - a > 0$$: welfare always rises when the default improves, so the optimal default maximizes $$v^d$$ (a "smart" default matching beneficiaries to their best plan, as in Thaler and Sunstein (2003)).
+**The frictional vs mental gap distinction.** In "frictional" models, $$\partial a / \partial v^d < 0$$: agents respond to a worse default by making active choices more often (the second term in equation (2) is non-zero), so optimal policy can improve welfare by setting the default so badly that all agents switch - the "shocking default" logic of Carroll et al. (2009) and Bernheim, Fradkin, and Popov (2015). In "mental gap" models, $$\partial a / \partial v^d = 0$$: active choice is driven by random attention or contextual salience, not by material stakes. The second term in equation (2) drops out, leaving $$\partial W / \partial v^d = 1 - a > 0$$: welfare rises with the default value, so the optimal default maximizes $$v^d$$ (a "smart" default matching beneficiaries to their best plan, as in Thaler and Sunstein (2008)). The paper presents this as a conditional implication of the model; it does not rule out all frictional mechanisms.
 
 **Structural model of latent attention (Section VII, p. 2752).** To decompose the variation in active choice, the paper models latent attention for beneficiary $$i$$ in year $$t$$ as:
 
@@ -216,29 +227,31 @@ $$
 A_{it} = c_i + k_{it}
 $$
 
-where $$c_i \sim \mathcal{N}(\mu X_i, \sigma^2)$$ captures permanent, beneficiary-specific drivers of attention (with observable characteristics $$X_i$$) and $$k_{it} \sim \mathcal{N}(0, 1)$$ are i.i.d. transitory shocks across periods. A beneficiary makes an active choice when $$A_{it} \geq 0$$. Estimated by maximum likelihood on sequences of active/passive choices observed for the same beneficiary over multiple plan-exit events (Online Appendix E). The key testable implication is the share of total variance explained by $$k_{it}$$ (transitory) versus $$c_i$$ (permanent): a frictional model with fixed individual frictions predicts the permanent component dominates; the empirical result (two-thirds transitory) falsifies that prediction.
+where $$c_i \sim \mathcal{N}(\mu X_i, \sigma^2)$$ captures permanent, beneficiary-specific drivers of attention (with observable characteristics $$X_i$$) and $$k_{it} \sim \mathcal{N}(0, 1)$$ are i.i.d. transitory shocks across periods. A beneficiary makes an active choice when $$A_{it} \geq 0$$. Estimated by maximum likelihood on sequences of active/passive choices observed for the same beneficiary over multiple plan-exit events (Online Appendix E). The key testable implication is the share of total variance explained by $$k_{it}$$ (transitory) versus $$c_i$$ (permanent): fixed-friction models predict a larger permanent component. The two-thirds transitory share is evidence against that prediction under the fixed-friction assumption, but does not rule out time-varying frictions or all frictional models.
 
 ## Method
 
-The paper uses three natural experiments within the LIS segment of Medicare Part D. All exploit the institutional structure of the LIS program, where defaults are quasi-randomly assigned or quasi-randomly changed via premium-subsidy threshold crossings.
+The paper uses three sources of quasi-random variation within the LIS segment of Medicare Part D: initial random assignment to benchmark plans, premium-subsidy threshold crossings that change continuing beneficiaries' defaults, and plan exits that force all enrollees to face reassignment. The stacked difference-in-differences analyses reuse the benchmark-status threshold design to measure drug-consumption and active-choice responses.
 
-**Experiment 1 - New enrollee random assignment (Section II, pp. 2726-2729).** When a beneficiary first qualifies for Medicare at age 65, she is randomly assigned to a benchmark plan in her service region (stratified randomization to avoid insurer gaming). The paper tracks cumulative active choice rates over 60 months post-enrollment using the 20 percent CMS claims sample, using `difference-in-differences`-style comparisons across subgroups (fit quintiles, health status) and cohort-year cells.
+**Experiment 1 - New enrollee random assignment (Section II, pp. 2726-2729).** When a beneficiary first qualifies for Medicare at age 65, she is randomly assigned to a benchmark plan in her service region (stratified randomization to avoid insurer gaming). The paper plots cumulative active-choice rates over 60 months post-enrollment in the 20 percent CMS claims sample, including rates by cohort and, in the linked New York and Texas sample, by plan-fit quintile. These are descriptive rates following randomized assignment, not a difference-in-differences estimate.
 
 **Experiment 2 - Regression discontinuity in plan benchmark status (Section III, pp. 2729-2735).** For continuing LIS beneficiaries enrolled by auto-assignment, the default switches from "remain in your plan" to "be randomly reassigned to a new benchmark plan" if the incumbent plan sets a year-$$t$$ premium bid just above the regional subsidy level (losing benchmark status). This provides quasi-random variation in default rules around the subsidy cutoff. The `regression-discontinuity-design` estimating equation is (p. 2733):
 
 $$
-\Pr(\text{Switch Plans})_{it} = \beta \cdot \mathbf{1}\!\bigl\{B_{jt} - S_{rt} > 0\bigr\} + \gamma^{-} (B_{jt} - S_{rt}) \cdot \mathbf{1}\!\bigl\{B_{jt} - S_{rt} \leq 0\bigr\} + \gamma^{+} (B_{jt} - S_{rt}) \cdot \mathbf{1}\!\bigl\{B_{jt} - S_{rt} > 0\bigr\} + \delta X_{it} + \epsilon_{it}
+\Pr(\text{Switch Plans})_{it} = \beta \cdot \mathbf{1}\!\bigl\{Bid_{j(i)t} - Benchmark_{r(i)t} > 0\bigr\} + \gamma^{-} (Bid_{j(i)t} - Benchmark_{r(i)t}) \cdot \mathbf{1}\!\bigl\{Bid_{j(i)t} - Benchmark_{r(i)t} \leq 0\bigr\} + \gamma^{+} (Bid_{j(i)t} - Benchmark_{r(i)t}) \cdot \mathbf{1}\!\bigl\{Bid_{j(i)t} - Benchmark_{r(i)t} > 0\bigr\} + \delta X_{it} + \epsilon_{it}
 $$
 
-where $$B_{jt}$$ is the year-$$t$$ monthly premium bid for plan $$j$$, $$S_{rt}$$ is the regional LIS subsidy for year $$t$$, and $$X_{it}$$ includes individual controls. Standard errors clustered at incumbent-plan-by-year level; bandwidth restricted to within $6 of the cutoff; region-year fixed effects included. The design is validated by density tests (Figure 2, p. 2731) and covariate balance checks (Figure 3, p. 2732; Table A1).
+where $$Bid_{j(i)t}$$ is the year-$$t$$ monthly premium bid for beneficiary $$i$$'s incumbent plan and $$Benchmark_{r(i)t}$$ is the regional benchmark premium in year $$t$$; $$X_{it}$$ includes individual controls. Standard errors are clustered at incumbent-plan-by-year level; bandwidth is restricted to within $6 of the cutoff; region-year fixed effects are included. The design is validated by density tests (Figure 2, p. 2731) and covariate balance checks (Figure 3, p. 2732; Table A1).
 
-**Experiment 3 - Stacked difference-in-differences for drug consumption (Section IV, pp. 2736-2740).** To estimate drug consumption effects, the paper stacks all market-year pairs where some plans lose benchmark status, creating a series of experiment-specific `difference-in-differences` comparisons. The pooled estimating equation (equation 1, p. 2736) is:
+**Stacked difference-in-differences for drug consumption (Section IV, pp. 2736-2740).** To estimate drug consumption effects, the paper stacks all market-year pairs where some plans lose benchmark status, creating a series of experiment-specific `difference-in-differences` comparisons. The pooled estimating equation (equation 1, p. 2736) is:
 
 $$
-y_{itd} = \beta\,(\text{BenchmarkLoss}_{id} \times \text{Post}_{td}) + \gamma_{id} + \eta_{hd} + \epsilon_{itd} \tag{1}
+y_{itd} = \beta\,(\text{BenchmarkLoss}_{id} \times \text{Post}_{td}) + \gamma_{id} + \eta_{td} + \epsilon_{itd} \tag{1}
 $$
 
-where $$y_{itd}$$ is log total allowed prescription drug spending for beneficiary $$i$$ in quarter $$t$$ in experiment-cohort $$d$$, $$\gamma_{id}$$ are individual-by-experiment fixed effects, and $$\eta_{hd}$$ are event-time-by-experiment fixed effects. Standard errors clustered at the beneficiary level. Final stacked DiD sample: 5,574,684 person-by-experiment-quarter observations.
+where $$y_{itd}$$ is log total allowed prescription drug spending for beneficiary $$i$$ in quarter $$t$$ in experiment-cohort $$d$$, $$\gamma_{id}$$ are individual-by-experiment fixed effects, and $$\eta_{td}$$ are event-time-by-experiment fixed effects. Standard errors clustered at the beneficiary level. Final stacked DiD sample: 5,574,684 person-by-experiment-quarter observations.
+
+**Plan-exit experiment (Section VII, pp. 2752-2754).** When a plan exits, all enrolled beneficiaries face default reassignment, including prior active choosers. The paper uses the sequence of initial enrollment and post-exit enrollment choices to compare prior passive and active choosers and estimate the share of "sometimes choosers"; it then fits the latent-attention model described below.
 
 ## Empirical specifications
 
@@ -249,7 +262,7 @@ where $$y_{itd}$$ is log total allowed prescription drug spending for beneficiar
 **Active choice elasticity (R5).** Same stacked DiD as equation (1) augmented per equation (3) (p. 2745) to identify $$\partial a / \partial v^d$$:
 
 $$
-y_{itd} = \delta_t(\text{LowestFit}_{id} \times \text{BenchmarkLoss}_{id}) + \beta_t\,\text{BenchmarkLoss}_{id} + \gamma_{id} + \eta_{hd} + \epsilon_{itd} \tag{3}
+y_{itd} = \delta_t(\text{LowestFit}_{id} \times \text{BenchmarkLoss}_{id}) + \beta_t\,\text{BenchmarkLoss}_{id} + \gamma_{id} + \eta_{td} + \epsilon_{itd} \tag{3}
 $$
 
 where $$\text{LowestFit}_{id}$$ indicates that the beneficiary's randomly assigned default plan falls in the bottom quintile of formulary fit for her drug consumption. Identification comes from random assignment of plans to beneficiaries. Outcome = binary active-choice indicator by December. Main effect: $$\hat{\beta} = 0.047$$ (SE 0.001). Worst-quintile differential: $$\hat{\delta} = 0.015$$ (SE 0.002) - a 1.5 pp increase in active choice despite a -8.3 pp additional consumption loss. Slope of active choice vs consumption loss is nearly flat across the full range (Figure 7, p. 2749).

@@ -6,7 +6,7 @@ description: >-
   with a floor price and a reserve price maximizes any weighted average of buyer surplus
   and social surplus subject to incentive compatibility. Applied to Italian government
   procurement data, the buyer-optimal LoLA yields up to 15 percent higher buyer surplus
-  than a first-price auction. American Economic Review 2023, paywalled. Seven core results
+  than a first-price auction. American Economic Review 2023, paywalled. Twelve core results
   with source locators, the mechanism design model, and LoLA with its defining equations.
   LLM-distilled.
 sidebar:
@@ -26,21 +26,23 @@ paper:
   doi: 10.1257/aer.20211437
   jel:
     codes: [D44, D82, H57, L14]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Auction Theory and Applications", "Consumer Market Behavior and Pricing", "Law, Economics, and Judicial Systems"]
   dataAccess: public
   outcome:
     - buyer surplus in procurement with noncontractible quality
     - social surplus in procurement
+    - supplier profit in procurement
     - optimal floor price in LoLA
+    - FPLoLA minimum bid relative to LoLA floor price
   outcomeClass: [optimal-contract-design, social-welfare]
   license: "Paywalled (no open-license block in Crossref DOI metadata; AER standard subscription access)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA publisher site, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 12
   citedByCount: 10
   methods:
     role: both
@@ -49,7 +51,7 @@ paper:
     buildsFrom: [mechanism-design]
     identification: structural
   contributionType: [new-theory, new-method, new-fact]
-  mechanisms: [information-asymmetry]
+  mechanisms: [information-asymmetry, moral-hazard]
   scope:
     region: Italy (calibration); theoretical
     assetClass: public procurement contracts
@@ -57,10 +59,13 @@ paper:
     granularity: [firm]
     n: "Structural cost-distribution estimates from Decarolis (2018) Italian government auctions"
   findings:
-    - { ref: R5, outcome: buyer surplus in procurement, metric: pp-effect, value: "up to 15 percent improvement over FPA at xi=1 (Figure 7, p.1527)", direction: positive, vsBenchmark: first-price auction }
-    - { ref: R6, outcome: social surplus in procurement, metric: pp-effect, value: "up to ~20 percent improvement over FPA at xi=1 (Figure 7, p.1527-1528)", direction: positive, vsBenchmark: first-price auction }
-    - { ref: R7, outcome: buyer surplus in procurement, metric: pp-effect, value: ">10 percent improvement vs second-price and random assignment (Figure 2, p.1511)", direction: positive, vsBenchmark: "second-price auction and random assignment" }
-  resultType: new-finding
+    - { ref: R5, outcome: buyer surplus in procurement with noncontractible quality, metric: level, value: "up to 15 percent improvement over FPA at xi=1 (Figure 7, p.1527)", direction: positive, vsBenchmark: first-price auction }
+    - { ref: R6, outcome: social surplus in procurement, metric: level, value: "up to approximately 20 percent improvement over FPA at xi=1 (Figure 7, p.1527-1528)", direction: positive, vsBenchmark: first-price auction }
+    - { ref: R7, outcome: buyer surplus in procurement with noncontractible quality, metric: level, value: ">10 percent improvement vs second-price and random assignment (Figure 2, p.1511)", direction: positive, vsBenchmark: "second-price auction and random assignment" }
+    - { ref: R8, outcome: supplier profit in procurement, metric: level, value: "supplier profit improvement exceeds 100 percent over first-price auction at xi=1 (Figure 7, p.1527-1528)", direction: positive, vsBenchmark: first-price auction }
+    - { ref: R9, outcome: FPLoLA minimum bid relative to LoLA floor price, metric: level, value: "b_L is up to 24 percent higher than p_L when xi=0; thresholds converge as xi approaches 1 (text p.1528)", direction: positive, vsBenchmark: LoLA floor price }
+    - { ref: R12, outcome: buyer surplus in procurement with noncontractible quality, metric: level, value: "under the stylized ABA equilibrium with b=1, buyer surplus is 0.33, versus about 0.37 under LoLA with p_L*=3/4 (text p.1512)", direction: negative, vsBenchmark: optimal LoLA }
+  resultType: confirms
   relatesTo:
     - { cite: "Myerson (1981)", doi: '10.1287/moor.6.1.58', relation: extends, note: "optimal auction framework extended to procurement with adverse selection; their second-price optimality obtains as the limiting case pL=cL of the LoLA" }
     - { cite: "Manelli and Vincent (1995)", doi: '10.2307/2171909', relation: extends, note: "their result that random assignment is optimal under severe lemons problems is recovered as the limiting case pL=cH of the LoLA" }
@@ -72,6 +77,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Read PDF in full; all locators verified against source pages; not human-verified; not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; fixed JEL codes (added L14, confirmed in abstract); added R7 core result row from Figure 2/p.1511 (orphaned findings ref); all equations (4),(6),(11),(12),(18),(19),(20) verified term-by-term; R1-R6 locators and magnitudes confirmed; no em-dashes." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF in full. Added five Core results rows, matching findings, the moral-hazard extension, all missing numbered main-text equations, and the missing calibration specifications. These additions are not human-verified and have not been reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 12 Core results, equations, specifications, classifications, findings, prose, relatesTo DOIs, and frontmatter against the source PDF; qualified R2's floor-price comparison, added R4's positive-density condition, clarified the ABA example in R12, and changed resultType to confirms. Table-locator check passes; cite-locatability check reports no miss for this page." }
   licenceVerification:
     - { source: "Crossref works/10.1257/aer.20211437", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No CC or open-license block found; PDF link tagged vor but no license URL or delay-in-days declared; treated as paywalled." }
 ---
@@ -87,18 +94,48 @@ When quality is noncontractible and low-cost suppliers tend to be low-quality (a
 | \# | Result | Locator | Magnitude as reported |
 |---|---|---|---|
 | R1 | LoLA with optimal $$p_L^*$$ and $$p_H^*$$ solves the weighted welfare maximization problem; sincere bidding is an equilibrium in weakly dominant strategies | Theorem 1, §III, p.1514 | Analytical: LoLA implements the constrained-optimal mechanism for any $$\beta \in [0,1]$$ under Assumption 1 |
-| R2 | Optimal floor and reserve prices are independent of the number of suppliers $$N$$; floor price is nondecreasing in the severity of the lemons problem $$\xi$$ for any $$\beta$$; social planner prefers a higher floor price than the buyer | Proposition 1, §III, p.1515-1516 | Comparative static; independent of $$N$$ by conditions (11)-(12) |
+| R2 | Optimal floor and reserve prices are independent of the number of suppliers $$N$$; floor price is nondecreasing in the severity of the lemons problem $$\xi$$ for any $$\beta$$; when $$F$$ is log-concave, the social planner's optimal floor is at least as high as the buyer's | Proposition 1, §III, p.1515-1516 | Comparative statics; independence of $$N$$ follows from conditions (11)-(12), while the floor-price comparison requires log-concavity |
 | R3 | Increasing $$N$$ raises the weighted welfare generated by the optimal LoLA (unlike standard auctions under adverse selection, where welfare can decrease in $$N$$) | Proposition 2, §III, p.1516-1517 | Analytical; contrast: standard FPA expected surplus $$E[w(c^{(1)})]$$ falls as $$N$$ grows under adverse selection |
-| R4 | Sincere-bidding equilibrium is unique almost surely when $$p_H < c_H$$ and there are at least three bidders | Proposition 3, §III, p.1517 | Almost-sure uniqueness; follows from Blume and Heidhues (2004) Vickrey-auction uniqueness result |
+| R4 | Sincere-bidding equilibrium is unique almost surely when $$p_H < c_H$$, there are at least three bidders, and the cost density is positive throughout its support | Proposition 3, §III, p.1517 | Almost-sure uniqueness under the proposition's positive-density condition; follows from Blume and Heidhues (2004) Vickrey-auction uniqueness result |
 | R5 | Italian calibration: buyer surplus up to 15 percent higher in buyer-optimal LoLA than in first-price auction when $$\xi = 1$$; gain is approximately 2.5 percent even at $$\xi \approx 0.5$$ | Figure 7, §VD, p.1527-1528 | 15% buyer surplus gain at $$\xi=1$$; 2.5% gain at $$\xi \approx 0.5$$ |
-| R6 | Italian calibration: social surplus improvement up to approximately 20 percent over first-price auction at $$\xi = 1$$; supplier profit improvement exceeds 100 percent | Figure 7, §VD, p.1527-1528 | ~20% social surplus gain; ~100% supplier profit gain at $$\xi=1$$ |
+| R6 | Italian calibration: social surplus improvement up to approximately 20 percent over first-price auction at $$\xi = 1$$; supplier profit improvement exceeds 100 percent | Figure 7, §VD, p.1527-1528 | Approximately 20% social surplus gain; supplier profit gain exceeds 100% at $$\xi=1$$ |
 | R7 | Illustrative example (§I): buyer-optimal LoLA ($$p_L^* = 3/4$$) achieves buyer surplus more than 10 percent above the second-price auction ($$p_L = 0$$) and the random assignment mechanism ($$p_L = 1$$) | Figure 2, §I, p.1511 | $$V(3/4) \approx 0.37$$; $$V(0) = V(1) \approx 0.33$$; gain >10% |
+| R8 | Italian calibration: supplier profit under buyer-optimal LoLA exceeds the first-price benchmark, a distinct performance outcome from buyer and social surplus | Figure 7, §VD, pp.1527-1528; text p.1528 | Supplier profit improvement exceeds 100% at $$\xi=1$$ |
+| R9 | Any LoLA allocation can be implemented by an equivalent FPLoLA with the same reserve price and a suitably chosen minimum bid; the calibrated minimum bid can exceed the LoLA floor | Proposition 4, §IVD, p.1520; text p.1528 | At $$\xi=0$$, $$b_L$$ is up to 24% higher than $$p_L$$; the thresholds converge as $$\xi$$ approaches 1 |
+| R10 | With $$a=0$$ and $$\xi_2 \in (2.5,4)$$, the asymmetric quality-concern optimum favors supplier 2 when both costs are low and supplier 1 when both costs are high | Figure 4, Panel A, §IVE, p.1522 | Qualitative allocation split: supplier 2 wins for sure at low costs; supplier 1 wins more often at high costs |
+| R11 | With $$\xi_2=4$$ and $$a \in (0,0.5)$$, shifting supplier 1's cost distribution upward makes the asymmetric optimum favor supplier 1 and select it for sure when both costs are low | Figure 4, Panel B, §IVE, p.1522 | Qualitative allocation split: supplier 1 wins for sure when both costs are relatively low |
+| R12 | In a stylized average-bid auction that discards bids in the lowest and highest quantiles, all bidders bidding the same amount is an equilibrium because any unilateral deviation is discarded; at $$b=1$$ the buyer surplus is below the LoLA example | Text §I, p.1512 | Buyer surplus is 0.33 at $$b=1$$ versus about 0.37 under LoLA with $$p_L^*=3/4$$; equilibrium surplus can be made arbitrarily small as $$b$$ increases |
 
 **Overall.** The LoLA is a practical mechanism (a reverse second-price auction with a price floor) that is simultaneously optimal for the buyer and for the social planner, differing only in the level of the optimal floor price. The theoretical characterization generalizes both Myerson (1981) (standard auctions optimal when no lemons problem) and Manelli and Vincent (1995) (random assignment optimal under extreme lemons problem) as limiting cases.
 
 ## Theory / model
 
+The two-supplier illustration (§I, p.1509) sets costs independently and uniformly on $$[0,1]$$ and specifies buyer value as:
+
+$$v(c_i) \equiv 4c_i - 2c_i^2 \tag{1}$$
+
+For a LoLA floor $$p_L$$, the paper computes expected buyer surplus from the regions where a bidder wins by undercutting above the floor and the square where both costs are below the floor (equation (2), pp.1510-1511):
+
+$$\begin{aligned}
+V(p_L) ={}& \int_{p_L}^{1}\left\{\int_{0}^{c_2}[v(c_1)-c_2] dc_1\right\} dc_2
++ \int_{p_L}^{1}\left\{\int_{0}^{c_1}[v(c_2)-c_1] dc_2\right\} dc_1 \\
+&+ \int_{0}^{p_L}\int_{0}^{p_L}\left[\frac{1}{2}v(c_1)+\frac{1}{2}v(c_2)-p_L\right] dc_1 dc_2
+= \frac{1}{3}+\frac{1}{3}p_L^3(1-p_L)
+\end{aligned} \tag{2}$$
+
+Expected social surplus in the same illustration is (equation (3), p.1511):
+
+$$\begin{aligned}
+S(p_L) ={}& 2\int_{p_L}^{1}\int_{0}^{c_2}[v(c_1)-c_1] dc_1 dc_2 \\
+&+ \int_{0}^{p_L}\int_{0}^{p_L}\left\{\frac{1}{2}[v(c_1)-c_1]+\frac{1}{2}[v(c_2)-c_2]\right\} dc_1 dc_2 \\
+={}& \frac{2}{3}+\frac{1}{3}\left(\frac{3}{2}-p_L\right)p_L^3.
+\end{aligned} \tag{3}$$
+
 The model (§II, p.1512) has one buyer with known type $$\xi$$ and $$N > 1$$ symmetric suppliers. Supplier $$i$$ has privately known cost $$c_i$$ drawn i.i.d. from density $$f$$ on $$[c_L, c_H]$$. Costs are private and quality is noncontractible. The buyer's value from procuring from a supplier with cost $$c$$ is $$v(c, \xi)$$, which is assumed to be increasing in $$c$$ (the lemons problem: higher-cost suppliers provide higher expected quality). The parameter $$\xi$$ encodes the severity of quality concerns, with $$v_{c\xi}(c, \xi) \geq 0$$. The supplier's profit when selected at payment $$m$$ is $$m - c$$; the buyer's surplus is $$v(c, \xi) - m$$.
+
+The revelation-principle direct mechanism assigns each supplier a winning probability and expected payment as functions of reported costs (equation (5), p.1513):
+
+$$q_i(c_i,c_{-i}),\quad m_i(c_i,c_{-i}) \tag{5}$$
 
 The **virtual valuation function** (equation (4), p.1512) is:
 
@@ -108,8 +145,6 @@ The ratio $$F(c)/f(c)$$ is the information rent earned by a type-$$c$$ supplier.
 
 **Assumption 1 (Regularity):** $$w(c; \xi, \beta)$$ is quasiconcave in $$c$$. This allows $$w$$ to first decrease then increase in $$c$$ (i.e., a lemons problem can be present) while remaining single-peaked. It is satisfied when $$v$$ is concave and $$F/f$$ is convex (which holds for power, Pareto, and exponential distributions of costs).
 
-A **direct mechanism** specifies, for each supplier $$i$$ and any reported type profile $$c$$, the probability $$q_i(c_i, c_{-i})$$ that supplier $$i$$ is selected and the expected payment $$m_i(c_i, c_{-i})$$ it receives (equation (5), p.1513). By the revelation principle, the optimal mechanism is a truth-telling equilibrium of a direct mechanism.
-
 ## Method
 
 The **weighted welfare maximization problem** (equations (6)-(10), §III, p.1513-1514) is:
@@ -118,7 +153,21 @@ $$\max_{q,m} \int_{[c_L,c_H]^N} \left\{ \sum_{i=1}^N \left[(v(c_i, \xi) - (1-\be
 
 subject to feasibility $$\sum_i q_i \leq 1$$, non-negativity $$q_i \geq 0$$, interim IC (equation (9)), and interim IR (equation (10)).
 
-The paper shows that this problem is solved by a **Lowball Lottery Auction (LoLA)**: a reverse second-price sealed-bid auction with floor price $$p_L$$ and reserve price $$p_H \geq p_L$$, in which bids below $$p_L$$ and above $$p_H$$ are not allowed, and ties at $$p_L$$ are broken uniformly at random (Definition, p.1514).
+The paper shows that this problem is solved by a **Lowball Lottery Auction (LoLA)**: a reverse second-price sealed-bid auction with floor price $$p_L$$ and reserve price $$p_H \geq p_L$$, in which bids below $$p_L$$ and above $$p_H$$ are not allowed, and ties at $$p_L$$ are broken uniformly at random (Definition, p.1514). The pointwise feasibility and nonnegative-allocation restrictions are equations (7)-(8), p.1514:
+
+$$\sum_{i=1}^{N}q_i(c_i,c_{-i}) \leq 1 \tag{7}$$
+
+$$q_i(c_i,c_{-i}) \geq 0 \tag{8}$$
+
+The interim incentive-compatibility constraint compares truthful reporting with any report $$c_i'$$, integrating over opponents' costs; interim individual rationality is equation (10) (equations (9)-(10), p.1514):
+
+$$\begin{aligned}
+&\int_{[c_L,c_H]^{N-1}}[m_i(c_i,c_{-i})-c_i q_i(c_i,c_{-i})]\prod_{j\ne i}f(c_j)dc_j \\
+&\qquad\geq \int_{[c_L,c_H]^{N-1}}[m_i(c_i',c_{-i})-c_i q_i(c_i',c_{-i})]\prod_{j\ne i}f(c_j)dc_j,
+\quad \forall c_i,c_i',c_{-i}
+\end{aligned} \tag{9}$$
+
+$$\int_{[c_L,c_H]^{N-1}}[m_i(c_i,c_{-i})-c_i q_i(c_i,c_{-i})]\prod_{j\ne i}f(c_j)dc_j \geq 0 \tag{10}$$
 
 **Theorem 1** (Optimality of LoLA, p.1514): Under Assumption 1, the LoLA implements the solution to the optimization problem (6)-(10) when the reserve price and floor price are set to:
 
@@ -128,13 +177,35 @@ $$p_L^* = \max\{p \in [c_L, c_H] \text{ such that } w(p; \xi, \beta) \geq E[w(c;
 
 The reserve price $$p_H^*$$ is the type at which the virtual valuation turns negative (identical to Myerson's reserve price). The floor price condition (12) equates the virtual valuation at $$p_L^*$$ to the average virtual valuation conditional on costs being at or below $$p_L^*$$: this reflects the optimal way to offer the same interim allocation to all types in $$[c_L, p_L^*]$$ simultaneously.
 
+For comparative statics, the authors rewrite the floor-price condition as the integral test in equation (13), p.1516:
+
+$$p_L^* = \max\left\{p\in[c_L,c_H]:\int_{c_L}^{p}w_c(c;\xi,\beta)F(c)dc\geq 0\right\} \tag{13}$$
+
 Equilibrium bidding is sincere: suppliers with cost $$c \in [p_L^*, p_H^*]$$ bid their cost $$c$$; suppliers with $$c < p_L^*$$ bid $$p_L^*$$; suppliers with $$c > p_H^*$$ do not bid. The proof builds on `mechanism-design` duality methods and explicitly solves for the shadow prices of the monotonicity constraints (via Lemma 4 in the online appendix), because standard approaches that sidestep monotonicity constraints do not apply under the lemons problem.
 
 **Proposition 4** (FPLoLA equivalence, §IVD, p.1520): The sincere equilibrium of any LoLA can also be implemented by a first-price LoLA (FPLoLA) with the same reserve price and a suitably chosen minimum bid $$b_L \geq p_L$$, where $$b_L$$ is up to 24 percent higher than $$p_L$$ in the Italian calibration.
 
+Two extensions clarify the interpretation of the baseline model. When quality $$x$$ is stochastically related to cost, the one-dimensional value function is expected quality conditional on cost (equation (14), §IVA, p.1518):
+
+$$v(c,\xi)=\int x\,d\Psi(x\mid c,\xi) \tag{14}$$
+
+In the post-auction performance example, a type-$$t$$ supplier chooses effort to minimize effort cost plus expected fine; the resulting effort, total cost, and fine are equations (15)-(17), §IVB, pp.1518-1519:
+
+$$e^*(t)=\arg\min_{e}\{\gamma(e,t)+\phi(e)\}=1-\frac{t}{2} \tag{15}$$
+
+$$\gamma(e^*(t),t)+\phi(e^*(t))=1-\frac{t^2}{4} \tag{16}$$
+
+$$\phi(e^*(t))=\frac{t^2}{4} \tag{17}$$
+
+The asymmetric-bidder extension (§IVE, pp.1521-1522) has no closed-form optimal mechanism: with $$a=0$$ and $$\xi_2\in(2.5,4)$$, the paper's numerical allocation favors supplier 2 when both costs are low and supplier 1 when both are high. With $$\xi_2=4$$ and $$a\in(0,0.5)$$, a higher cost distribution for supplier 1 shifts the allocation toward supplier 1 (Figure 4).
+
 ## Empirical specifications
 
-The Italian calibration (§V, p.1523-1528) illustrates the gains from using the LoLA relative to the first-price auction (the format Italian government procurement actually uses). The buyer payoff function is calibrated using structural estimates from Decarolis (2018) and Decarolis (2019).
+The Italian calibration (§V, pp.1523-1528) illustrates the gains from using the LoLA relative to the first-price auction (the format Italian government procurement actually uses). The authors do not estimate new regression specifications: they use the structural cost-density estimate and supplied outcome distributions in Figure 5, then solve the mechanism counterfactual. In Decarolis's structural cost model, auction-specific common cost $$y$$ and privately known idiosyncratic cost $$z_i$$ combine as follows (footnote 22, p.1523):
+
+$$c_i=y+z_i$$
+
+The calibration normalizes $$y=0$$ and uses the estimated density $$\hat{f}$$ of $$z_i$$, together with empirical marginal distributions for delays and overruns. Consequently, fixed effects and standard errors do not apply to these counterfactual computations; the reported performance comparisons are Figure 7, not regression coefficients.
 
 **Buyer payoff function (equation (18), p.1523):**
 
@@ -144,9 +215,13 @@ where $$D(c, \xi)$$ is the delivery delay ratio, $$O(c, \xi)$$ is the cost overr
 
 $$\hat{v}(c, \xi) = \text{const}(\xi) - \xi K[\delta(c) + \omega(c)] \tag{19}$$
 
-where $$\delta(c) = G_D^{-1}([1 - \hat{F}(c)]^N)$$ and $$\omega(c) = G_O^{-1}([1 - \hat{F}(c)]^N)$$.
+where $$\delta(c)=G_D^{-1}([1-\hat{F}(c)]^N)$$ and $$\omega(c)=G_O^{-1}([1-\hat{F}(c)]^N)$$ (equation (19), p.1525). Here $$G_D$$ and $$G_O$$ are the CDFs of the delay and overrun marginals displayed in Figure 5, p.1524.
 
-**Counterfactual computation.** The calibrated virtual valuation $$\hat{w}(c; \xi, \beta) \equiv \hat{v}(c; \xi) - c - \beta \hat{F}(c)/\hat{f}(c)$$ (equation (20), p.1525) is positive for all $$c$$ and $$\beta$$ at the estimated parameters, implying it is optimal to set no reserve price in the LoLA. Optimal floor prices $$p_L^*$$ are then computed from condition (12) for each $$(\xi, \beta)$$ pair (Figure 6, p.1526). For each value of $$\xi \in [0,1]$$, the paper computes expected buyer surplus, supplier profit, and social surplus under the buyer-optimal LoLA and under the first-price auction (Figure 7, p.1527).
+The calibrated virtual valuation used for the counterfactuals (equation (20), p.1525) is:
+
+$$\hat{w}(c;\xi,\beta)\equiv\hat{v}(c;\xi)-c-\beta\frac{\hat{F}(c)}{\hat{f}(c)} \tag{20}$$
+
+It is positive for all $$c$$ and $$\beta$$ at the estimated parameters, implying it is optimal to set no reserve price in the LoLA. Optimal floor prices $$p_L^*$$ are then computed from condition (12) for each $$(\xi, \beta)$$ pair (Figure 6, p.1526). For each value of $$\xi \in [0,1]$$, the paper computes expected buyer surplus, supplier profit, and social surplus under the buyer-optimal LoLA and under the first-price auction (Figure 7, p.1527).
 
 The virtual valuation satisfies Assumption 1 (quasiconcavity) for all four displayed values of $$\xi \in \{0, 0.33, 0.67, 1\}$$, confirming that LoLA is optimal in the calibrated setting (Figure 6, p.1526).
 

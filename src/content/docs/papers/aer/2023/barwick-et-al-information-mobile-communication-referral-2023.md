@@ -4,10 +4,10 @@ description: >-
   Distilled: Using geocoded cellphone records from a Chinese telecom provider matched to
   administrative firm data, the paper provides the first direct evidence of increased
   communication between job seekers and their referrers around job changes (inverted
-  U-shape peaking at the switch month), quantifies a referral effect of 0.35 on job
-  location choice (nearly tripling the baseline probability), and shows referral jobs
-  yield higher wages, shorter commutes, and faster firm growth. American Economic
-  Review 2023, paywalled. Eight core results with source locators, datasets used,
+  U-shape peaking just before the switch), quantifies a referral effect of 0.35 on job
+  location choice (nearly tripling the baseline probability), and finds referral jobs are
+  associated with higher wages, shorter commutes, and faster firm growth. American Economic
+  Review 2023, paywalled. Thirty-eight core results with source locators, datasets used,
   the identification strategy, and estimating equations.
 sidebar:
   label: Barwick et al. 2023
@@ -37,7 +37,7 @@ paper:
     - probability of part-time to full-time transition at new job
     - probability of shorter commute at new job
     - firm net labor inflow
-    - firm matching rate (hires over vacancies)
+    - firm matching rate (net inflow over vacancies)
     - firm growth rate
   outcomeClass: [labor-careers-health, firm-real-outcomes]
   license: "Copyright American Economic Association 2023; no open-access licence found in Crossref DOI metadata checked 2026-06-24; AEA standard policy grants free readability after embargo"
@@ -45,7 +45,7 @@ paper:
   access: paywalled
   machineAccess: "not machine-checked (2026-06-24); AEA standard policy grants free access after 12-month embargo; paper published May 2023"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 38
   citedByCount: 0
   methods:
     role: applies-method
@@ -53,7 +53,7 @@ paper:
     buildsFrom: [panel-regression, event-study]
     identification: selection-on-observables
   contributionType: [new-fact, new-data, measurement]
-  mechanisms: [information-asymmetry]
+  mechanisms: [information-asymmetry, social-transmission]
   introducesData: true
   scope:
     region: China (northern city, anonymous)
@@ -63,58 +63,53 @@ paper:
     granularity: [individual, firm]
     n: "456,000 total users; 38,102 job switchers; 915,251 switcher-location pair observations"
   findings:
-    - ref: R1
-      outcome: probability of moving to referrer's work location
-      metric: probability
-      value: "0.35 (SE 0.01); mean baseline probability 0.09"
-      direction: positive
-      vsBenchmark: "nearly 3x the unconditional switching probability to a location"
-    - ref: R2
-      outcome: call frequency between switcher and referrer pair relative to baseline
-      metric: coefficient
-      value: "approx +8 calls/month above baseline at event month 0; nonreferrer pairs approx 0 throughout"
-      direction: positive
-      vsBenchmark: "nonreferrer pairs flat throughout 20-month event window"
-    - ref: R3
-      outcome: probability of job location choice for high-information-asymmetry groups
-      metric: probability
-      value: "rural-to-urban: additional +0.32 (SE 0.05); sector-changers: additional +0.21 (SE 0.02)"
-      direction: positive
-      vsBenchmark: "baseline referral coefficient 0.35 for all switchers"
-    - ref: R4
-      outcome: wage at new job (thousand RMB)
-      metric: coefficient
-      value: "0.62 thousand RMB (SE 0.31); approx 2% of mean annual wage 31 thousand RMB"
-      direction: positive
-    - ref: R5
-      outcome: probability of part-time to full-time transition at new job
-      metric: pp-effect
-      value: "+1.4 pp (SE 0.007); approx 2% relative increase"
-      direction: positive
-    - ref: R6
-      outcome: probability of shorter commute at new job
-      metric: pp-effect
-      value: "+9 pp (SE 0.01)"
-      direction: positive
-    - ref: R7
-      outcome: firm net labor inflow (log)
-      metric: coefficient
-      value: "0.63 (SE 0.14); approx 63% increase"
-      direction: positive
-    - ref: R8
-      outcome: firm matching rate (log net inflow over vacancies)
-      metric: coefficient
-      value: "0.84 (SE 0.27); approx 84% increase; average matching rate 1.53 for large firms"
-      direction: positive
-  resultType: new-finding
+    - { ref: R1, outcome: probability of moving to referrer's work location, metric: probability, value: "0.35 (SE 0.01); mean baseline probability 0.09", direction: positive, vsBenchmark: "nearly 3x the unconditional switching probability to a location" }
+    - { ref: R2, outcome: call frequency between switcher and referrer pair relative to baseline, metric: coefficient, value: "approx +8 calls/month above baseline, peaking just before the job change; nonreferrer pairs approx 0 throughout", direction: positive, vsBenchmark: "nonreferrer pairs flat throughout 20-month event window" }
+    - { ref: R3, outcome: probability of job location choice for high-information-asymmetry groups, metric: coefficient, value: "rural-to-urban: additional +0.32 (SE 0.05); sector-changers: additional +0.21 (SE 0.02)", direction: positive, vsBenchmark: "baseline referral coefficient 0.35 for all switchers" }
+    - { ref: R4, outcome: wage at new job (thousand RMB), metric: coefficient, value: "0.62 thousand RMB (SE 0.31); approx 2% of mean annual wage 31 thousand RMB", direction: positive }
+    - { ref: R5, outcome: probability of part-time to full-time transition at new job, metric: pp-effect, value: "+1.4 pp (SE 0.007); approx 2% relative increase", direction: positive }
+    - { ref: R6, outcome: probability of shorter commute at new job, metric: pp-effect, value: "+9 pp (SE 0.01)", direction: positive }
+    - { ref: R7, outcome: firm net labor inflow (log), metric: coefficient, value: "0.63 (SE 0.14); approx 63% increase", direction: positive }
+    - { ref: R8, outcome: firm matching rate (log net inflow over vacancies), metric: coefficient, value: "0.84 (SE 0.27); approx 84% increase; average matching rate 1.53 for large firms", direction: positive }
+    - { ref: R9, outcome: probability of finding work through referrals, metric: probability, value: "approximately 38% in China and 28% in the US, read from Figure 1", direction: positive, vsBenchmark: "China is about 10 percentage points higher" }
+    - { ref: R10, outcome: sample demographics relative to national cellphone-user survey, metric: probability, value: "female 0.36 vs 0.45; born in local province 0.75 vs 0.76; age midpoint 40.18 vs 39.28", direction: mixed, vsBenchmark: "2014 CFPS national survey values" }
+    - { ref: R11, outcome: number of social contacts per week around job switches, metric: level, value: "23-25 contacts per week; no pre-switch spike", direction: none }
+    - { ref: R12, outcome: neighborhood worker flows, metric: coefficient, value: "total calls coefficient 0.101 (SE 0.016); R-squared 0.037 to 0.170; doubling of calls associated with 16% more flows", direction: positive }
+    - { ref: R13, outcome: out-of-sample prediction error for worker flows, metric: level, value: "RMSE 0.253 to 0.181; MAPE 1.162% to 1.037%", direction: negative, vsBenchmark: "regression excluding calls" }
+    - { ref: R14, outcome: probability of moving to a location with a moved-away friend, metric: coefficient, value: "0.07 (SE 0.03) vs current Friend 0.34 (SE 0.01)", direction: positive, vsBenchmark: "current referrer friend" }
+    - { ref: R15, outcome: probability of moving to location where a friend lives but does not work, metric: coefficient, value: "0.15 (SE 0.02) vs current Friend 0.34 (SE 0.01)", direction: positive, vsBenchmark: "current referrer friend" }
+    - { ref: R16, outcome: probability of moving to location worked at by a friend's friend, metric: coefficient, value: "0.14 (SE 0.01) vs direct Friend 0.33 (SE 0.01)", direction: positive, vsBenchmark: "direct referrer friend" }
+    - { ref: R17, outcome: call frequency with placebo friend types around job switches, metric: coefficient, value: "no systematic pre-switch peak for moved-away or local nonworking friends", direction: none, vsBenchmark: "referrer calls peak before the switch" }
+    - { ref: R18, outcome: probability of job location choice by old-to-new workplace distance, metric: coefficient, value: "Friend x distance = 0.002 (SE 0.0004)", direction: positive }
+    - { ref: R19, outcome: probability of job location choice by home-to-new workplace distance, metric: coefficient, value: "Friend x distance = 0.002 (SE 0.0003)", direction: positive }
+    - { ref: R20, outcome: probability of job location choice for young workers, metric: coefficient, value: "Friend x young = 0.04 (SE 0.01)", direction: positive }
+    - { ref: R21, outcome: probability of moving to a location with a residential neighbor, metric: coefficient, value: "0.21 (SE 0.01) alone; neighbor 0.18 (SE 0.01) and Friend, not neighbor 0.25 (SE 0.01) jointly", direction: positive }
+    - { ref: R22, outcome: probability of moving to a location with a same-birth-county coworker, metric: coefficient, value: "0.10 (SE 0.01) alone; proxy 0.09 (SE 0.01) and Friend, not same birth county 0.35 (SE 0.03) jointly", direction: positive }
+    - { ref: R23, outcome: call frequency among neighbor and coworker ties, metric: coefficient, value: "same-location neighbors 4.5x and coworkers 4x the comparison-pair call frequency", direction: positive }
+    - { ref: R24, outcome: probability of moving to a referrer's workplace by tie strength, metric: coefficient, value: "one-SD increase in call share associated with 6% increase in referral effect; SD 0.06", direction: positive }
+    - { ref: R25, outcome: probability of a referral job change by network diversity, metric: probability, value: "one-SD social entropy increase: +6%; income entropy increase: +3%", direction: positive }
+    - { ref: R26, outcome: probability of moving to referrer's workplace under homophily controls, metric: coefficient, value: "0.33 (SE 0.03) with observed controls; 0.34 (SE 0.01) with 100 clusters", direction: positive }
+    - { ref: R27, outcome: probability of switching to a workplace with more friends, metric: coefficient, value: "0.002 (SE 0.001), versus referral coefficient 0.35 (SE 0.01)", direction: positive, vsBenchmark: "baseline referral association" }
+    - { ref: R28, outcome: probability of moving to referrer's workplace under alternative network cutoffs, metric: coefficient, value: "reported robust across one- to five-month cutoffs; main text gives no coefficients", direction: positive }
+    - { ref: R29, outcome: probability of moving to a location with a friend under alternative definitions, metric: coefficient, value: "0.36 with four-week location coverage; 0.38 with reciprocal-call ties; baseline 0.35", direction: positive }
+    - { ref: R30, outcome: probability of moving to referrer's workplace by friend coverage, metric: coefficient, value: "above- and below-median coverage estimates differ modestly and not significantly; median 48%", direction: none }
+    - { ref: R31, outcome: coworker housing price at new job, metric: coefficient, value: "0.07 thousand RMB/m2 (SE 0.04); about 0.5% of city average", direction: positive }
+    - { ref: R32, outcome: probability of transition from non-SOE to SOE job, metric: pp-effect, value: "0.012 (SE 0.005); 11% increase over mean 0.11", direction: positive }
+    - { ref: R33, outcome: firm growth rate, metric: coefficient, value: "0.45 (SE 0.11); 45% increase; median large-firm growth 4%", direction: positive }
+    - { ref: R34, outcome: use of complementary communication channels, metric: correlation, value: "positive and significant correlations with 4G compatibility, internet allowance, browsing, texting, and WeChat; main-text magnitudes not stated", direction: positive }
+    - { ref: R35, outcome: call frequency between reemployed workers and referrers during job search, metric: coefficient, value: "inverted-U pattern peaking before reemployment; 53,244 referrer-month and 747,804 nonreferrer-month observations", direction: positive }
+    - { ref: R36, outcome: probability of moving to referrer's workplace after an employment gap, metric: coefficient, value: "0.31-0.33; 1,677 of 3,638 identified workers found jobs through referrals", direction: positive }
+    - { ref: R37, outcome: probability of moving to referrer's workplace in the unrestricted sample, metric: coefficient, value: "0.34 (SE 0.01); N 1,120,797", direction: positive }
+    - { ref: R38, outcome: probability of moving to referrer's workplace with local labor-market controls, metric: coefficient, value: "0.33 (SE 0.01); N 915,251", direction: positive }
+  resultType: confirms
   relatesTo:
-    - { cite: "Bayer, Ross & Topa (2008)", doi: '10.1086/595975', relation: extends, note: "residential-neighbor proxy yields referral coefficient 0.21 vs call-based measure 0.35; direct communication data dominates proxy-based approaches" }
+    - { cite: "Bayer, Ross & Topa (2008)", doi: '10.1086/595975', relation: extends, note: "residential-neighbor proxy yields referral coefficient 0.21 vs call-based measure 0.35; direct communication yields the larger estimate" }
     - { cite: "Topa (2001)", doi: '10.1111/1467-937x.00169', relation: builds-on, note: "foundational work on social interactions, local spillovers, and labor market referrals" }
     - { cite: "Gee, Jones & Burke (2017)", relation: cites, note: "Facebook strong ties more important than weak ties at margin for job finding; results corroborated here" }
-    - { cite: "Granovetter (1973)", doi: '10.1086/225469', relation: cites, note: "the weak-ties hypothesis; results confirm stronger referral effect for stronger social ties (higher call intensity)" }
+    - { cite: "Granovetter (1973)", doi: '10.1086/225469', relation: cites, note: "classic argument that weak ties can provide diverse information; the paper contrasts it with later evidence favoring strong ties at the margin and finds stronger referral effects for stronger ties" }
   openQuestions:
     - "Future studies on the mechanisms governing how information exchange through referrals increases labor market efficiency would be valuable (Conclusion, p. 1204)."
-    - "The analysis cannot disentangle whether referrers pass job information to workers or inform employers about candidates' attributes, since both implications are consistent with a stronger referral effect when information asymmetry is more severe (p. 1189)."
+    - "The analysis cannot disentangle whether referrers pass job information to workers or inform employers about candidates' attributes, since both implications are consistent with a stronger referral effect when information asymmetry is more severe (p. 1190)."
     - "Phone calls serve as a proxy for total information exchange; WeChat, text messages, and app usage are not directly observed but are shown to be complements rather than substitutes (Section V, pp. 1201-1202)."
   replicationCode:
     url: https://doi.org/10.3886/E183161V1
@@ -124,10 +119,12 @@ paper:
       date: 2026-06-24
       role: extracted
       note: "Full PDF read (pp. 1170-1207); eight results extracted with source locators. Not human-verified. Not reproduced."
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added Core results R9-R38, matching findings entries, and expanded estimating specifications with equations. Additions are not human-verified and have not been reproduced." }
     - by: paper-verifier (claude-sonnet-4-6)
       date: 2026-06-24
       role: verified
       note: "Locators and reported magnitudes re-checked against source PDF; five fixes applied: JEL codes completed (added O18, P23, P25, Z13); R3 baseline Friend corrected to 0.34/0.32 (cols 5-6) from erroneous 0.33; R5 PT-to-FT mean 0.57 replaced with paper-stated 2% relative increase (0.57 is pre-switch FT rate, not regression-variable mean); Table 5 description corrected to distinguish cols 3 and 4 (col-4 call-based coefficient is 0.35 not 0.25 as previously stated)."
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; corrected Figure 1 page and comparison, referrer-call peak timing, matching-rate definition, and overclaimed mechanism language." }
   licenceVerification:
     - source: "Crossref REST API works/10.1257/aer.20200187"
       checked: 2026-06-24
@@ -143,13 +140,14 @@ or extend, read the full source at the [original](https://doi.org/10.1257/aer.20
 ## TL;DR
 
 The paper exploits geocoded cellphone records from a major Chinese telecom provider to study
-whether social contacts (referrers) transmit job-relevant information to job seekers. It
-documents (i) an inverted U-shaped spike in call frequency between switchers and their
-referrers in the months before a job change, with no corresponding pattern for non-referrer
-friends; (ii) a referral effect of 0.35 on job location choice - having a social contact
-working at a location nearly triples the probability of switching there; and (iii) referral
-jobs are of higher quality: they pay more, involve shorter commutes, are more likely to be
-full-time, and lead to faster firm growth. Effect heterogeneity shows referrals matter
+how social contacts relate to job search and hiring. It documents (i) an inverted U-shaped
+spike in call frequency between switchers and their referrers that peaks just before a job
+change, with no corresponding pattern for non-referrer friends; (ii) a referral effect of
+0.35 on job location choice - having a social contact working at a location nearly triples
+the probability of switching there; and (iii) referral jobs are associated with better
+worker outcomes: higher pay, shorter commutes, and more full-time transitions. Referral
+hiring is also associated with faster firm growth in descriptive regressions. The study
+cannot distinguish whether information reaches the worker or the employer. Effect heterogeneity shows referrals matter
 especially when information asymmetry is more severe, as for young workers, rural-to-urban
 movers, and sector-changers. Topa (2001) provides the foundational social-interactions
 framework; Bayer, Ross, and Topa (2008) introduced the residential-neighbor proxy
@@ -162,23 +160,54 @@ into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Referral effect on job location choice**: having a friend at location l increases probability of switching there by 0.35 | Table 3, col 2, p. 1186 | Coeff = 0.35 (SE 0.01); mean baseline probability = 0.09; N = 915,251 switcher-location pairs |
-| R2 | **Inverted U-shape in referrer call frequency**: calls between switchers and referrers peak at the job switch month; nonreferrer calls are flat throughout | Figure 3, p. 1188 | Referrer-pair coefficient at month 0 approx +8 above baseline; nonreferrer pairs approx 0 throughout; 238,092 referrer-month obs vs 4,759,176 nonreferrer obs |
+| R1 | **Referral effect on job location choice**: having a friend at location l increases probability of switching there by 0.35 | Table 3, col 2, p. 1186; text p. 1185 | Coeff = 0.35 (SE 0.01); mean baseline probability = 0.09; N = 915,251 switcher-location pairs |
+| R2 | **Inverted U-shape in referrer call frequency**: calls between switchers and referrers peak just before the job switch; nonreferrer calls are flat throughout | Figure 3, p. 1188 | Referrer-pair coefficient peaks at approx +8 above baseline just before the switch; nonreferrer pairs approx 0 throughout; 238,092 referrer-month obs vs 4,759,176 nonreferrer obs |
 | R3 | **Referral effect amplified for high information-asymmetry groups**: rural-to-urban movers and sector-changers show substantially larger referral effects | Table 4, cols 5-6, p. 1191 | Friend x rural-to-urban = +0.32 (SE 0.05); Friend x changing sector = +0.21 (SE 0.02); baseline Friend 0.34 (col 5) / 0.32 (col 6) |
-| R4 | **Referral wage premium**: referral jobs pay RMB 620 more per year, about 2 percent above the mean wage | Table 7, col 1, p. 1199 | 0.62 thousand RMB (SE 0.31); mean wage approx 31 thousand RMB/year; N = 17,615 |
-| R5 | **Referral jobs are more likely to be full-time**: having a referrer at the new workplace raises the probability of a part-time to full-time transition by 1.4 percentage points | Table 7, col 3, p. 1199 | 0.014 (SE 0.007); approx 2% relative increase (p. 1198); N = 19,431 |
-| R6 | **Referral jobs have shorter commutes**: referral raises probability of a shorter commute by 9 percentage points | Table 7, col 4, p. 1199 | 0.09 (SE 0.01); approx one-third of job changes involve a shorter commute; N = 29,117 |
+| R4 | **Referral wage premium**: referral jobs pay RMB 620 more per year, about 2 percent above the mean wage | Table 7, col 1, p. 1199; text p. 1198 | 0.62 thousand RMB (SE 0.31); mean wage approx 31 thousand RMB/year; N = 17,615 |
+| R5 | **Referral jobs are more likely to be full-time**: having a referrer at the new workplace raises the probability of a part-time to full-time transition by 1.4 percentage points | Table 7, col 3, p. 1199; text p. 1198 | 0.014 (SE 0.007); approx 2% relative increase; N = 19,431 |
+| R6 | **Referral jobs have shorter commutes**: referral raises probability of a shorter commute by 9 percentage points | Table 7, col 4, p. 1199; text p. 1198 | 0.09 (SE 0.01); approx one-third of job changes involve a shorter commute; N = 29,117 |
 | R7 | **Firm benefit: net labor inflow**: firms hiring through referrals gain 63 percent more workers (log net inflow) in the most saturated specification | Table 8, Panel A col 4, p. 1201 | gamma = 0.63 (SE 0.14); R-squared = 0.66 |
-| R8 | **Firm benefit: matching rate**: firms hiring through referrals achieve an 84 percent higher job matching rate (log hires over vacancies) | Table 8, Panel B col 8, p. 1201 | gamma = 0.84 (SE 0.27); average matching rate = 1.53 for large firms |
+| R8 | **Firm benefit: matching rate**: firms hiring through referrals have an 84 percent higher matching rate (log net inflow over vacancies) | Table 8, Panel B col 8, p. 1201 | gamma = 0.84 (SE 0.27); average matching rate = 1.53 for large firms |
+| R9 | **Informal referrals are more common in China than the US**: respondents reported finding jobs through friends more often in China | Figure 1, p. 1178 | Approximately 38% in China and 28% in the US, read from the plotted bars |
+| R10 | **Sample demographics broadly resemble the national cellphone-user survey**: sample and CFPS values are close for age and province of birth, with a lower female share in the paper's sample | Table 1, p. 1179 | Female: 0.36 vs 0.45; born in local province: 0.75 vs 0.76; age midpoint: 40.18 vs 39.28 years |
+| R11 | **Social-contact counts do not spike before job changes**: total weekly contacts are stable, supporting the use of pre-existing ties | Figure 2, p. 1180 | Average is 23-25 contacts per week; no pre-switch spike reported |
+| R12 | **Communication predicts neighborhood worker flows** | Table 2, Panel A, p. 1182 | Total calls coefficient = 0.101 (SE 0.016); R² rises from 0.037 to 0.170; inverse-hyperbolic-sine result: doubling calls is associated with 16% more flows (text p. 1182) |
+| R13 | **Calls improve out-of-sample prediction of worker flows** | Table 2, Panel B, p. 1182 | RMSE falls from 0.253 to 0.181; MAPE falls from 1.162% to 1.037% |
+| R14 | **Moved-away friends are a placebo for current referrals**: their location-choice association is smaller than for current referrers | Table 3, col 3, p. 1186 | Moved-away friend coefficient = 0.07 (SE 0.03), versus current Friend = 0.34 (SE 0.01) |
+| R15 | **Friends who live but do not work at the destination have a smaller association** | Table 3, col 4, p. 1186 | Coefficient = 0.15 (SE 0.02), versus current Friend = 0.34 (SE 0.01) |
+| R16 | **Second-degree friends have a smaller association than direct referrers** | Table 3, col 5, p. 1186 | Friends-of-friends coefficient = 0.14 (SE 0.01), versus direct Friend = 0.33 (SE 0.01) |
+| R17 | **Placebo-friend communication lacks the referrer event pattern**: calls to moved-away and locally resident nonworking friends do not show a systematic pre-switch peak | Figure 4, pp. 1189-1190 | No systematic peak reported for 29,148 moved-away-friend months or 62,472 local nonworking-friend months; referrer sample = 238,092 observations |
+| R18 | **Referral effects increase with distance between old and new workplaces** | Table 4, col 2, p. 1191 | Friend × distance (old job to new job) = 0.002 (SE 0.0004) |
+| R19 | **Referral effects increase with distance between home and new workplace** | Table 4, col 3, p. 1191 | Friend × distance (home to new job) = 0.002 (SE 0.0003) |
+| R20 | **Referral effects are larger for young workers** | Table 4, col 4, p. 1191 | Friend × young (ages 25-34) = 0.04 (SE 0.01) |
+| R21 | **Residential neighbors are a useful but attenuated referral proxy** | Table 5, cols 1 and 3, p. 1193 | Neighbor coefficient = 0.21 (SE 0.01) alone; 0.18 (SE 0.01) with Friend, not neighbor coefficient = 0.25 (SE 0.01) |
+| R22 | **Same-birth-county coworkers are a weaker proxy than direct communication ties** | Table 5, cols 2 and 4, p. 1193 | Same-birth-county coefficient = 0.10 (SE 0.01) alone and 0.09 (SE 0.01) with Friend, not same birth county = 0.35 (SE 0.03) |
+| R23 | **Observed communication is more frequent among neighbor and coworker ties** | Text p. 1193 (online Appendix Table S8) | Same-location neighbors make 4.5 times as many calls as random pairs in the same neighborhood; coworkers make four times as many calls as pairs working in the same neighborhood |
+| R24 | **Stronger communication ties have larger referral effects** | Text pp. 1193-1194 (online Appendix Table S9) | A one-standard-deviation increase in the call share is associated with a 6% increase in the referral effect; SD of call share = 0.06 |
+| R25 | **More diverse social contacts are associated with more referral job changes** | Text p. 1194 (online Appendix Table S10) | One-standard-deviation increases in social entropy and income entropy are associated with 6% and 3% increases, respectively, in the probability of using referrals |
+| R26 | **The referral estimate survives explicit homophily controls** | Table 6, cols 1-2, p. 1195 | Friend coefficient = 0.33 (SE 0.03) with observed homophily controls and 0.34 (SE 0.01) with 100 k-means clusters |
+| R27 | **Preference for working with friends is small relative to the referral association** | Table 6, col 3, p. 1195 | More friends at the new than old workplace coefficient = 0.002 (SE 0.001), compared with baseline referral coefficient = 0.35 (SE 0.01) |
+| R28 | **The referral result is robust to alternative pre-switch network cutoffs** | Text pp. 1196-1197 (online Appendix Table S11) | The paper reports robustness for contact cutoffs from one to five months before switching; coefficients are not stated in the main-text discussion |
+| R29 | **Alternative friend definitions yield similar referral estimates** | Text p. 1197 (online Appendix Table S12) | Friend locations observed for at least four weeks: 0.36; reciprocal-call friends with that coverage rule: 0.38; baseline = 0.35 |
+| R30 | **Friend-coverage split does not materially change the referral estimate** | Text p. 1197 (online Appendix Table S12, cols 3-4) | Above- versus below-median coverage estimates differ modestly and not significantly; median coverage cutoff = 48% |
+| R31 | **Referral jobs have higher coworker housing values** | Table 7, col 2, p. 1199; text p. 1198 | Change in coworker housing price = 0.07 thousand RMB/m² (SE 0.04), about 0.5% of the city average |
+| R32 | **Referrals increase transitions from non-SOE to SOE jobs** | Table 7, col 5, p. 1199; text p. 1198 | Coefficient = 0.012 (SE 0.005), an 11% increase over the 0.11 mean |
+| R33 | **Referrals are associated with faster firm growth** | Table 8, Panel C, col 12, p. 1201 | Coefficient = 0.45 (SE 0.11); paper reports a 45% increase; median large-firm growth rate = 4% |
+| R34 | **Communication channels are complements in the external validation evidence** | Text p. 1202 (online Appendix Tables S17-S18) | Call volume is positively and significantly correlated with 4G compatibility, internet allowance, and browsing; users who call more also text and use WeChat more; exact coefficients are not stated in the main text |
+| R35 | **Referrer communication rises during unemployment and peaks before reemployment** | Figure 5, p. 1204 | Inverted-U pattern during job search; 53,244 referrer-month and 747,804 nonreferrer-month observations |
+| R36 | **The referral association also appears for workers reemployed after a gap** | Text p. 1204 (online Appendix Table S21) | Referral effect ranges from 0.31 to 0.33; 1,677 of 3,638 identified workers found jobs through referrals |
+| R37 | **The referral association is present in the unrestricted switcher sample** | Table 3, col 1, p. 1186 | Friend coefficient = 0.34 (SE 0.01); N = 1,120,797 switcher-location pairs |
+| R38 | **The baseline referral estimate is stable with extensive local labor-market controls** | Table 3, col 6, p. 1186 | Friend coefficient = 0.33 (SE 0.01); N = 915,251; 16,468 old-by-new neighborhood-pair fixed effects |
 
 **Overall (paper's conclusion).** Information provided by social contacts mitigates
 information asymmetry in labor markets and facilitates better worker-firm matching.
 The inverted U-shape in referrer communication around job changes, absent for
-non-referrer friends, provides direct evidence that referrers pass job-relevant
-information and rules out homophily and sorting as the sole explanation. Both
-workers and firms benefit: referred employees earn more, commute less, and are
-more likely to hold full-time positions, while firms that hire through referrals
-grow faster and fill vacancies at higher rates.
+non-referrer friends, provides evidence of job-related information exchange within
+referral pairs and weighs against homophily and sorting as the sole explanation. The
+study cannot distinguish whether information is shared with workers or employers.
+Referred employees have higher wages, shorter commutes, and more full-time transitions;
+in descriptive firm regressions, referral hiring is associated with faster growth and
+higher matching rates.
 
 ## Theory / model
 
@@ -186,8 +215,8 @@ This paper has no formal economic model. It tests three linked hypotheses derive
 from the theoretical literature on information transmission in labor markets
 (Topa 2001):
 
-1. **Information channel hypothesis.** Referrers pass job-relevant information to job
-   seekers, generating an increase in communication intensity in the months before the
+1. **Information channel hypothesis.** Referral pairs exchange job-relevant information,
+   either reaching job seekers or informing employers about candidates, generating an increase in communication intensity in the months before the
    job change. The prediction is an inverted U-shape in call frequency between referrer
    pairs centered on the event month, with no such spike for non-referrer friends.
 
@@ -228,14 +257,14 @@ opportunities). The paper addresses these via:
 
 - **Homophily controls** (Table 6, p. 1195): adding same-gender, same-age-group,
   same-birth-county, same-housing-price controls and k-means cluster dummies for
-  switcher-friend pairs leaves the estimate stable at 0.33-0.34, showing the baseline
-  controls adequately capture sorting.
+  switcher-friend pairs leaves the estimate stable at 0.33-0.34 in specifications that
+  account for measured similarity and clusters.
 
 The paper also compares its call-based referral measure with proxy-based approaches
 common in the literature: residential neighbors in the spirit of Bayer, Ross, and
 Topa (2008) (coefficient 0.21) and same-birth-county coworkers (0.10). The
-call-based measure dominates both proxies by a margin that is statistically
-significant at the one-percent level (Table 5, col 3-4, p. 1192).
+call-based measure exceeds both proxies by a margin that is statistically
+significant at the one-percent level (Table 5, cols. 3-4, p. 1193).
 
 ## Method
 
@@ -250,6 +279,17 @@ as a regressor raises the R-squared from 0.037 to 0.17, and doubling call volume
 is associated with a 16 percent increase in worker flows (inverse-hyperbolic-sine
 specification). This motivates using communication intensity as a proxy for
 information provision.
+The unnumbered neighborhood-pair regression in Table 2 is written out here from its
+reported variables (p. 1182); columns 1-3 use the listed subset of regressors:
+
+$$
+\text{WorkerFlows}_{lk} = \beta_1 \text{Distance}_{lk} + \beta_2 |\Delta\text{HousingPrice}_{lk}| + \beta_3 |\Delta\text{Amenities}_{lk}| + \beta_4 \text{TotalCalls}_{lk} + \mu_l + \mu_k + \epsilon_{lk}
+$$
+
+The prediction exercise estimates the same first-half-sample specifications and
+predicts second-half worker flows (Table 2, Panel B, p. 1182). Standard errors in
+Panel A are two-way clustered by area $$l$$ and area $$k$$; there are 987,713
+neighborhood-pair observations.
 
 **Main referral regression (eq. 1, p. 1183-1184).** Let $$\text{M}_{il} = 1$$ if job
 switcher $$i$$ moves to location $$l$$ within the new workplace neighborhood. The
@@ -321,29 +361,121 @@ movers and sector-changers the point estimates of the total referral effect are 
 
 **Event study (Figure 3, p. 1188).** 238,092 switcher-referrer-month observations and
 4,759,176 switcher-nonreferrer-month observations. The referrer-pair call frequency coefficient
-rises from near zero at month -9 to a peak of approximately +8 above baseline at month 0,
-then remains elevated post-switch as referrers become coworkers. Nonreferrer friends show
+rises from near zero in the pre-event months to a peak of approximately +8 above baseline
+just before the job switch, then remains elevated post-switch as referrers become coworkers. Nonreferrer friends show
 coefficients near zero throughout. Falsification event studies (Figure 4, p. 1190) show that
 moved-away and lives-at-new-location friends display flat or mildly elevated patterns with
 no inverted U-shape, confirming the information spike is specific to current employment
 at the destination.
 
-**Comparison with literature proxies (Table 5, p. 1192).** Equation (1) replaces the
+**Comparison with literature proxies (Table 5, p. 1193).** Equation (1) replaces the
 call-based Friend dummy with (i) residential neighbor dummy (0.21, SE 0.01) and (ii)
 same-birth-county coworker dummy (0.10, SE 0.01). Columns 3 and 4 each include one
 proxy alongside the call-based measure. In column 3, the residential neighbor coefficient
 falls to 0.18 (SE 0.01) while the call-based Friend (not neighbor) coefficient is 0.25
 (SE 0.01). In column 4, the same-birth-county coefficient falls to 0.09 (SE 0.01) while
 the call-based Friend (not same birth county) coefficient is 0.35 (SE 0.03). Both proxy
-estimates decline when the direct communication measure is included, confirming the
-proxies capture genuine but attenuated social interactions, consistent with Granovetter
-(1973) and the approach of Gee, Jones, and Burke (2017).
+estimates decline when the direct communication measure is included, indicating that
+the proxy measures are weaker predictors in this sample.
+
+**Placebo friend types (Table 3, p. 1186; Figure 4, pp. 1189-1190).** Table 3
+adds one placebo indicator to the current-referrer indicator in each of columns
+3-5. Written out from those separate Table 3 specifications:
+
+$$
+M_{il} = \beta_F \text{Friend}_{il} + \beta_P \text{PlaceboFriendType}_{il} + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \epsilon_{il}
+$$
+
+The placebo indicator denotes a moved-away friend in column 3, a friend living but
+not working at the new location in column 4, or a friend of a nonreferrer friend in
+column 5.
+
+Figure 4 reports two unnumbered event-study specifications (pp. 1188-1189), each
+with the same event-time range and fixed effects as Figure 3, one for moved-away
+friends and one for friends living at the new-workplace location without working
+there:
+
+$$
+\text{Freq}_{ijt} = \sum_{s=-11}^{9} \gamma_s \text{Referral}_{ij} \cdot \mathbf{1}\{t=s\} + \sum_{s=-11}^{9} \alpha_s \text{MovedAway}_{ij} \cdot \mathbf{1}\{t=s\} + \sum_{\substack{s=-11 \\ s \neq -1}}^{9} b_s \text{OtherFriends}_{ij} \cdot \mathbf{1}\{t=s\} + \lambda_i + \tau_t + \epsilon_{ijt}
+$$
+
+$$
+\text{Freq}_{ijt} = \sum_{s=-11}^{9} \gamma_s \text{Referral}_{ij} \cdot \mathbf{1}\{t=s\} + \sum_{s=-11}^{9} \alpha_s \text{LiveAtNewPlace}_{ij} \cdot \mathbf{1}\{t=s\} + \sum_{\substack{s=-11 \\ s \neq -1}}^{9} b_s \text{OtherFriends}_{ij} \cdot \mathbf{1}\{t=s\} + \lambda_i + \tau_t + \epsilon_{ijt}
+$$
+
+Event-study errors are clustered by individual; Table 3 errors are clustered by
+neighborhood pair. The location-choice placebo regressions use the 915,251
+switcher-location pairs and the old-by-new neighborhood-pair fixed effects.
+
+**Information-asymmetry heterogeneity (Table 4, p. 1191).** Each column augments
+equation (1) with one interaction, with the interaction variable being old-to-new
+workplace distance, home-to-new workplace distance, young (ages 25-34),
+rural-to-urban move, or sector change:
+
+$$
+M_{il} = \beta \text{Friend}_{il} + \delta (\text{Friend}_{il} \times H_i) + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \epsilon_{il}
+$$
+
+The Table 4 sample is 915,251 switcher-location pairs with 16,468 old-by-new
+neighborhood-pair fixed effects; standard errors are clustered by neighborhood
+pair. Columns 2-6 also control for the baseline level of the interacted variable.
+
+**Proxy comparisons (Table 5, p. 1193).** Columns 1 and 3 use residential-neighbor
+indicators, while columns 2 and 4 use same-birth-county coworker indicators. The
+joint columns separate the proxy tie from direct communication ties:
+
+$$
+M_{il} = \beta_1 \text{Neighbor}_{il} + \beta_2 \text{FriendNotNeighbor}_{il} + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \alpha_r + \epsilon_{il}
+$$
+
+$$
+M_{il} = \beta_1 \text{SameBirthCounty}_{il} + \beta_2 \text{FriendNotSameBirthCounty}_{il} + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \alpha_b + \epsilon_{il}
+$$
+
+Each uses 915,251 observations and old-by-new work-neighborhood fixed effects.
+Columns 1 and 3 include residential-neighborhood fixed effects; columns 2 and 4
+include birth-county fixed effects. Errors cluster by old-by-new work-neighborhood
+pair and residential neighborhood or birth county, respectively.
+
+**Homophily and preference controls (Table 6, p. 1195).** These are the baseline
+location-choice specification with additional controls for observed similarity,
+100 switcher-friend clusters, or indicators for having more friends and more
+similar friends at the new workplace than at the old workplace. In column 3, the
+reported more-friends indicator coefficient is 0.002 (SE 0.001). Each column has
+915,251 switcher-location pairs, 16,468 old-by-new neighborhood-pair fixed effects,
+and standard errors clustered by neighborhood pair. Written out from the Table 6
+control sets (the table does not number this specification):
+
+$$
+M_{il} = \beta \text{Friend}_{il} + \mathbf{H}_{il}'\theta + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \epsilon_{il}
+$$
+
+Here, $$\mathbf{H}_{il}$$ contains observed homophily measures, same-cluster indicators,
+or the indicators for more friends and more similar friends at the new workplace,
+depending on the column.
+
+**Tie strength and contact diversity (text pp. 1193-1194; online Appendix Tables S9-S10).**
+The paper contrasts Granovetter (1973)'s argument that weak ties can provide diverse
+information with Gee et al. (2017)'s evidence that stronger ties matter more at the margin;
+it finds larger referral effects for stronger ties.
+The tie-strength test interacts the friend indicator with call intensity; the diversity
+test relates successful referral job changes to normalized social and income entropy,
+total calls, strong-tie share, and demographics. These descriptions are written out
+from the text and are not numbered equations:
+
+$$
+M_{il} = \beta \text{Friend}_{il} + \delta (\text{Friend}_{il} \times \text{TieStrength}_{il}) + \mathbf{X}_i \mathbf{Z}_l \gamma + \lambda_{\tilde{c},c} + \epsilon_{il}
+$$
+
+$$
+M_i = \beta_1 \text{SocialEntropy}_i + \beta_2 \text{IncomeEntropy}_i + \beta_3 \text{TotalCalls}_i + \beta_4 \text{StrongTieShare}_i + \mathbf{X}_i'\gamma + \epsilon_i
+$$
 
 **Worker benefits (Table 7, p. 1199).** Equation (2) estimated separately for five
 outcome variables. Sample sizes vary by outcome due to data availability. All columns
 include residential and new-work neighborhood fixed effects. Key results: wage = 0.62
 thousand RMB (SE 0.31, N=17,615); coworker housing price difference = 0.07 thousand
-RMB/m$^2$ (SE 0.04, N=23,323); PT-to-FT = 0.014 (SE 0.007, N=19,431); shorter
+RMB/per square meter (SE 0.04, N=23,323); PT-to-FT = 0.014 (SE 0.007, N=19,431); shorter
 commute = 0.09 (SE 0.01, N=29,117); non-SOE to SOE = 0.012 (SE 0.005, N=15,881).
 
 **Firm benefits (Table 8, p. 1201).** Equation (3) estimated on large-firm locations
@@ -353,6 +485,18 @@ net inflow, 0.84 (SE 0.27) for log matching rate, and 0.45 (SE 0.11) for log fir
 growth rate. The estimates are stable across specifications with progressively richer
 firm and employee controls, arguing against upward bias from fast-growing firms being
 more likely to use referrals.
+
+**Unemployment and reemployment event study (Figure 5, p. 1204).** The paper reports
+this unnumbered specification for 3,638 workers with an employment gap, with individual
+and calendar-month fixed effects. Event indices are relative to unemployment (s) and
+reemployment (r); the reference is nonreferrer calls in the month before unemployment:
+
+$$
+\text{Freq}_{ijt} = \sum_{s=-5}^{3} \gamma_s \text{Referral}_{ij} \cdot \mathbf{1}\{t=s, r<0\} + \sum_{r=-3}^{4} \gamma_r \text{Referral}_{ij} \cdot \mathbf{1}\{t=r, s\geq 0\} + \sum_{\substack{s=-5 \\ s\neq -1}}^{3} b_s \text{Nonreferral}_{ij} \cdot \mathbf{1}\{t=s, r<0\} + \sum_{r=-3}^{4} b_r \text{Nonreferral}_{ij} \cdot \mathbf{1}\{t=r, s\geq 0\} + \lambda_i + \tau_t + \epsilon_{ijt}
+$$
+
+The event-study errors are clustered by individual; the figure reports 53,244
+referrer-month and 747,804 nonreferrer-month observations.
 
 ## Datasets used
 
@@ -364,6 +508,7 @@ more likely to use referrals.
 | Residential housing price data | Proxy for coworker socioeconomic status; used as a nonwage benefit measure (delta coworker HP) | No page yet |
 | China Family Panel Studies (CFPS, 2014) | Descriptive only: national average demographics and job-search method frequencies for comparison with sample (Figure 1, Table 1) | No page yet |
 | US Current Population Survey (2014) | Descriptive only: US job-search method frequencies for cross-country comparison (Figure 1) | No page yet |
+| Communication-channel survey of 20,000 cellphone users in a comparable Chinese city (November 2020) | External validation of the relation between calls, text messages, and WeChat use (online Appendix Table S18) | No page yet |
 
 Sample: November 2016 to October 2017 (12 months). Final analysis sample: 456,000
 individuals with stable work locations for at least 45 weeks and at most two work

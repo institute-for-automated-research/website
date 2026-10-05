@@ -287,6 +287,9 @@ builds-from: # methods.buildsFrom: technique primitives a method is built on
   causal-forest:
     def: Machine-learning estimator that builds on generalized random forests to estimate heterogeneous treatment effects at the individual level; cross-fitted rankings used for subgroup selection to avoid overfitting bias.
     aliases: [generalized-random-forest, grf]
+  double-debiased-machine-learning:
+    def: Cross-fitted estimation of a partially linear causal effect after flexibly residualizing treatment and outcome on covariates.
+    aliases: [double-ml, debiased-machine-learning, dml]
 
   # ---- repeat-sales index methods ----
   bayesian-repeat-sales:
@@ -1096,6 +1099,41 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
   labor-turnover-cost-savings:
     def: Higher worker retention reduces search, recruitment, and training costs and can raise workforce experience and efficiency.
     aliases: [retention-cost-savings, turnover-cost-channel]
+  access-to-care:
+    def: Public funding expands access to clinical treatment and prevention services, changing health outcomes through care uptake.
+  capital-labor-substitution:
+    def: Differences in capital-labor substitutability determine how capital-embodied technical change shifts labor demand, employment, and wages.
+    aliases: [heterogeneous-factor-substitutability]
+  compensating-differentials:
+    def: Workers trade wages against nonwage job amenities, with equilibrium wage differences compensating for amenities and worker valuations.
+    aliases: [wage-amenity-tradeoff, compensating-wage-differentials]
+  debt-deflation:
+    def: Unanticipated deflation raises the real burden of nominal debt, weakening borrower net worth and spending and impairing credit through financial frictions.
+    aliases: [debt-deflation-channel]
+  distributive-pecuniary-externality:
+    def: Price-mediated redistribution across heterogeneous agents with different marginal values of net worth, including buyers and sellers with different financing constraints.
+    aliases: [distributive-externality]
+  matching-quality:
+    def: Firm-specific fit between an asset and a potential user affects the user's productivity and valuation.
+    aliases: [firm-asset-match, horizontal-match-quality]
+  media-imitation:
+    def: Audiences or organizations adopt symbols, practices, or naming choices modeled in popular media.
+    aliases: [imitation-of-media, media-modeling]
+  second-best-fairness-preferences:
+    def: Decision-makers trade off false-positive and false-negative errors when deservingness is uncertain.
+    aliases: [false-positive-false-negative-tradeoff]
+  self-insurance:
+    def: Household asset-market and labor-market choices reduce the pass-through of idiosyncratic income risk into consumption risk.
+    aliases: [self-insurance-channel]
+  unhedged-interest-rate-exposure:
+    def: Surprise interest-rate changes redistribute consumption between borrowers and savers when incomplete markets prevent insurance of aggregate interest-rate risk.
+    aliases: [ure-channel, unhedged-interest-rate-exposure-channel]
+  urban-road-network:
+    def: Urban density, roadway design, and traffic congestion jointly shape travel speed through road capacity, network form, and traffic delays.
+    aliases: [urban-transport-infrastructure]
+  usage-noncontractibility:
+    def: Inability to contract on or enforce a buyer's valuable actual usage allows purchased capacity to be underutilized.
+    aliases: [noncontractible-usage, free-disposal-friction]
 
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
@@ -1209,6 +1247,21 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   interval-length:
     def: Length of a reported confidence or credible interval, used to compare estimator precision.
     aliases: [confidence-interval-length, credible-interval-length, CIL]
+  forecast-rmse:
+    def: Root mean squared error of a forecast, used to compare forecast accuracy across models or forecasters.
+    aliases: [rmse, root-mean-square-error]
+  percent-change:
+    def: Relative change in an outcome level expressed as a percent over a stated baseline.
+    aliases: [percentage-change, percent-effect]
+  identification-test-statistic:
+    def: Reported statistic from a test of instrument strength or model specification, such as a weak-instrument F-statistic or unit-root test statistic.
+    aliases: [diagnostic-test-statistic]
+  annualized-growth-rate:
+    def: Average annual percentage change in a variable over a multi-year interval.
+    aliases: [annual-growth-rate]
+  log-point-effect:
+    def: Difference in a natural-log outcome or log ratio reported in log points.
+    aliases: [log-difference, log-ratio-effect]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over

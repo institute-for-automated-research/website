@@ -6,7 +6,7 @@ description: >-
   using the 2011 EBA capital exercise in Portugal as a natural experiment.
   The credit misallocation accounts for about 22 percent of Portugal's
   allocative-efficiency decline in 2012. American Economic Review 2023,
-  paywalled. Seven core results with source locators, datasets used,
+  paywalled. Eighteen core results with source locators, datasets used,
   the identification design, and the defining equations.
 sidebar:
   label: Blattner-Farinha-Rebelo 2023
@@ -36,8 +36,17 @@ paper:
     - "Portugal: credit markets and bank regulation"
   dataAccess: proprietary-confidential
   outcome:
-    - credit allocation by weakly capitalized banks
+    - quarterly credit growth at firm-bank level
+    - cumulative firm-level total credit
+    - loan loss underreporting (excess mass in overdue reporting buckets)
+    - credit supply to risky borrowers
+    - firm-level labor use
+    - firm-level capital (fixed assets)
     - firm-level capital and labor use
+    - firm-level capital and labor marginal products
+    - firm-level capital and labor wedges
+    - firm-level TFP
+    - within-sector allocative efficiency
     - aggregate TFP and allocative efficiency
   outcomeClass: [credit-supply, firm-real-outcomes, macro-aggregates]
   license: >-
@@ -48,7 +57,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (pubs.aeaweb.org; copyright 2023 AEA; checked 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 18
   citedByCount: 80
   methods:
     role: both
@@ -67,49 +76,20 @@ paper:
     granularity: [firm, transaction]
     n: "380,286 lending relationships; 144,050 nonfinancial firms; 45 banks"
   findings:
-    - ref: R1
-      outcome: quarterly credit growth at firm-bank level
-      metric: pp-effect
-      value: "+2 pp for underreported firms at exposed banks; -2 pp for all other firms at exposed banks (each ~4% of 1 SD of credit growth)"
-      direction: positive
-      vsBenchmark: "same firm, comparing exposed vs. nonexposed banks (within-firm DiD)"
-    - ref: R2
-      outcome: cumulative firm-level total credit
-      metric: pp-effect
-      value: "+16% for underreported firms borrowing entirely from exposed banks; -14% for all other firms (vs. base quarter 2011:III)"
-      direction: positive
-      vsBenchmark: "full-exposure vs. zero-exposure underreported firms, cumulative EBA + bailout period"
-    - ref: R3
-      outcome: firm-level labor use
-      metric: elasticity
-      value: "0.52 (SE 0.094)"
-      direction: positive
-      vsBenchmark: "IV estimate; first-stage F = 111.2"
-    - ref: R4
-      outcome: firm-level capital (fixed assets)
-      metric: elasticity
-      value: "0.14 (SE 0.046)"
-      direction: positive
-      vsBenchmark: "IV estimate; first-stage F = 111.2"
-    - ref: R5
-      outcome: within-sector allocative efficiency
-      metric: pp-effect
-      value: "-6.59% (total EBA intervention effect; 54% of actual -12.24% AE decline in 2012)"
-      direction: negative
-      vsBenchmark: "54% of actual Portugal 2012 allocative-efficiency decline"
-    - ref: R6
-      outcome: within-sector allocative efficiency
-      metric: pp-effect
-      value: "-2.71% mean from credit reallocation to underreported firms (range -0.89% to -4.43%; mean 22% of actual AE decline)"
-      direction: negative
-      vsBenchmark: "simulation over 10,000 draws of non-underreported comparison firms; mean = 22% of actual AE decline"
-    - ref: R7
-      outcome: loan loss underreporting (excess mass in overdue reporting buckets)
-      metric: coefficient
-      value: "0.014 to 0.451 across collateral types and rate increments of 9-25 pp (all positive and significant); placebo coefficients negative"
-      direction: positive
-      vsBenchmark: "relative to buckets where the regulatory deduction rate does not increase in the next bucket (placebo)"
-  resultType: new-finding
+    - { ref: R1, outcome: quarterly credit growth at firm-bank level, metric: pp-effect, value: "+2 pp for underreported firms at exposed banks; -2 pp for all other firms at exposed banks (each ~4% of 1 SD of credit growth)", direction: mixed, vsBenchmark: "same firm, comparing exposed vs. nonexposed banks (within-firm DiD)" }
+    - { ref: R2, outcome: cumulative firm-level total credit, metric: percent-change, value: "+16% for underreported firms borrowing entirely from exposed banks; -14% for all other firms (vs. base quarter 2011:III)", direction: mixed, vsBenchmark: "full vs. zero exposure to EBA banks, separately for underreported and other firms; cumulative EBA + bailout period" }
+    - { ref: R3, outcome: firm-level labor use, metric: elasticity, value: "0.52 (SE 0.094)", direction: positive, vsBenchmark: "IV estimate; first-stage F = 111.2" }
+    - { ref: R4, outcome: firm-level capital (fixed assets), metric: elasticity, value: "0.14 (SE 0.046)", direction: positive, vsBenchmark: "IV estimate; first-stage F = 111.2" }
+    - { ref: R5, outcome: within-sector allocative efficiency, metric: percent-change, value: "-6.59% (total EBA intervention effect; 54% of actual -12.24% AE decline in 2012)", direction: negative, vsBenchmark: "54% of actual Portugal 2012 allocative-efficiency decline" }
+    - { ref: R6, outcome: within-sector allocative efficiency, metric: percent-change, value: "-2.71% mean from credit reallocation to underreported firms (range -0.89% to -4.43%; mean 22% of actual AE decline)", direction: negative, vsBenchmark: "simulation over 10,000 draws of non-underreported comparison firms; mean = 22% of actual AE decline" }
+    - { ref: R7, outcome: loan loss underreporting (excess mass in overdue reporting buckets), metric: coefficient, value: "0.014 to 0.451 across collateral types and rate increments of 9-25 pp (all positive and significant); placebo coefficients negative", direction: positive, vsBenchmark: "relative to buckets where the regulatory deduction rate does not increase in the next bucket (placebo)" }
+    - { ref: R8, outcome: firm-level capital and labor marginal products, metric: level, value: "MRPL 37.30 vs. 48.24 thousand euros; MRPK 47.44 vs. 63.16 percent for underreported vs. performing firms", direction: negative, vsBenchmark: "correctly reported nonperforming firms: MRPL 42.39 and MRPK 55.51" }
+    - { ref: R9, outcome: firm-level capital and labor wedges, metric: coefficient, value: "lagged-wedge coefficient 0.786 (SE 0.002) for labor and 0.594 (SE 0.002) for capital", direction: positive }
+    - { ref: R11, outcome: credit supply to risky borrowers, metric: coefficient, value: "New-client EBA × exposed × risk: -3.375 (SE 1.274) for predicted default risk and -0.157 (SE 0.053) for sales cyclicality; existing-client approval: 0.002 (SE 0.004); existing-client new-loan estimates: -0.024 (SE 0.008) and -0.022 (SE 0.009)", direction: negative }
+    - { ref: R12, outcome: firm-level TFP, metric: coefficient, value: "0.001 (SE 0.005); first-stage F = 111.2", direction: none }
+    - { ref: R13, outcome: firm-level capital and labor wedges, metric: coefficient, value: "Share EBA × 2011 capital wedge: 0.012 (SE 0.008) labor; 0.028 (SE 0.013) capital", direction: positive }
+    - { ref: R14, outcome: firm-level capital and labor use, metric: percent-change, value: "Underreported firms: labor +6%, capital +9%; non-distressed firms: labor -6%, capital -8%; correctly reported distressed firms: labor -4%, capital -6%", direction: mixed }
+  resultType: confirms
   replicationCode:
     url: https://doi.org/10.3886/E120003V1
     status: available
@@ -118,7 +98,7 @@ paper:
     - { cite: "Caballero, Hoshi, and Kashyap (2008)", doi: '10.1257/aer.98.5.1943', relation: extends, note: "extends zombie-lending framework by documenting the underreporting mechanism and linking it causally to input misallocation" }
     - { cite: "Hsieh and Klenow (2009)", doi: '10.1162/qjec.2009.124.4.1403', relation: builds-on, note: "uses their wedge-measurement approach to quantify capital and labor distortions from credit misallocation" }
     - { cite: "Restuccia and Rogerson (2008)", doi: '10.1016/j.red.2008.05.002', relation: builds-on, note: "follows their wedge-decomposition framework to aggregate firm-level distortions into aggregate TFP effects" }
-    - { cite: "Schivardi, Sette, and Tabellini (2022)", doi: '10.1093/ej/ueab039', relation: contradicts, note: "Schivardi et al. find no TFP effects of zombie lending in Italy; this paper finds significant allocative-efficiency losses in Portugal" }
+    - { cite: "Schivardi, Sette, and Tabellini (2022)", doi: '10.1093/ej/ueab039', relation: builds-on, note: "their reduced-form study of zombie lending in Italy provides a comparison for this paper's causal analysis of underreporting-linked credit reallocation and allocative efficiency in Portugal" }
   openQuestions:
     - "Results pertain specifically to ratio-based capital requirements imposed on banks already in distress and do not extend to prudential pre-crisis tightening when banks are well capitalized (p. 1629)."
     - "The productivity aggregation follows a partial equilibrium decomposition (Osotimehin 2019) and cannot account for general equilibrium price effects; GE channels may amplify or dampen the estimated allocative-efficiency loss (p. 1627)."
@@ -131,6 +111,8 @@ paper:
       date: 2026-06-25
       role: verified
       note: "Locators and reported magnitudes re-checked against the source PDF; fixed 5 issues: JEL codes completed (E23, G32, G38 were missing), erroneous 'Italy' topic corrected to Portugal, R6 locator corrected (p. 1629 -> p. 1628), R7 coefficient range corrected (0.178 min -> 0.014 min per Table B1 Panel A), and equation (1) tag corrected (simple baseline formula was wrongly tagged as eq. 1; actual eq. 1 on p. 1607 is the general form with IN/OUT and B notation, now shown correctly)."
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and appended eleven missing main-text result rows, quantitative findings, and complete numbered equations/specifications. This augmentation is not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, magnitudes, specifications, classification, and prose re-checked against the source PDF; corrected Table 3 outcome labels, the Figure 5 page locator, equations (8)-(9) time subscripts, and related-work metadata/body mentions; documented the PDF's B1 fixed-effect inconsistency." }
   licenceVerification:
     - source: Crossref REST API works/10.1257/aer.20190149
       checked: 2026-06-24
@@ -145,123 +127,164 @@ paper:
 
 Distressed banks respond to ratio-based capital shortfalls not only by cutting overall credit but by distorting the composition of credit supply: they reallocate lending toward firms whose loan losses they have been underreporting, thereby delaying the recognition of those losses and protecting their reported capital ratios. Using the October 2011 European Banking Authority (EBA) capital exercise as a natural experiment affecting a subset of large Portuguese banks, Blattner, Farinha, and Rebelo develop a bunching-based algorithm to measure loan-loss underreporting at the monthly firm-bank level, show that exposed banks increase credit supply to underreported borrowers by about 2 percentage points per quarter while cutting credit to all other firms, and trace this credit reallocation through to a widening of capital and labor wedges that accounts for roughly 22 percent of the decline in aggregate allocative efficiency in Portugal in 2012.
 
+The paper extends the Japan zombie-lending evidence of Peek and Rosengren (2005) to a causal quasi-experimental setting focused on credit composition. It extends the zombie-lending framework of Caballero, Hoshi, and Kashyap (2008) by measuring underreporting and linking it to input misallocation. Schivardi, Sette, and Tabellini (2022) report no TFP effects of zombie lending in Italy; this study estimates allocative-efficiency losses in Portugal, so the outcomes and settings differ.
+
 ## Core results
 
 Magnitudes and significance are as reported; `\*\*`/`\*\*\*` = 5%/1%. Locators point into the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Exposed banks increase credit to underreported firms, cut credit to all others**: triple-interaction coefficient positive and significant during EBA, negative and significant for baseline group | Figure 3 Panel A; Table A2 cols. 2-3, p. 1615 | +2 pp quarterly credit growth for underreported firms at exposed banks; -2 pp for all other relationships at exposed banks (each ~4% of 1 SD of credit growth) |
-| R2 | **Firm-level credit reallocation is real and not undone by substitution**: total credit rises for underreported firms with high exposure to EBA banks, falls for all others | Figure 5 Panel A, p. 1619 | +16% cumulative credit for underreported firms borrowing entirely from exposed banks; -14% for all other firms relative to base quarter 2011:III |
+| R1 | **Exposed banks increase credit to underreported firms, cut credit to all others**: triple-interaction coefficient positive and significant during EBA, negative and significant for baseline group | Figure 3 Panel A, p. 1615; Table A2, online appendix (point estimates) | +2 pp quarterly credit growth for underreported firms at exposed banks; -2 pp for all other relationships at exposed banks (each ~4% of 1 SD of credit growth) |
+| R2 | **Firm-level credit reallocation is real and not undone by substitution**: total credit rises for underreported firms with high exposure to EBA banks, falls for all others | Figure 5 Panel A, p. 1620; text p. 1619 | +16% cumulative credit for underreported firms borrowing entirely from exposed banks; -14% for all other firms relative to base quarter 2011:III |
 | R3 | **Credit shock transmits to labor**: IV elasticity of labor w.r.t. credit supply is large and significant | Table 5 Panel B col. 2, p. 1625 | Elasticity = 0.52 (SE 0.094); first-stage F = 111.2 |
 | R4 | **Credit shock transmits to capital**: IV elasticity of capital w.r.t. credit supply is significant | Table 5 Panel B col. 4, p. 1625 | Elasticity = 0.14 (SE 0.046); first-stage F = 111.2 |
 | R5 | **Total EBA intervention caused large allocative-efficiency loss**: aggregating all firm-level wedge changes explains majority of 2012 AE decline | Table 6 Panel A col. 1, p. 1628 | Total estimated AE effect: -6.59% = 54% of actual -12.24% within-sector AE decline in 2012 |
 | R6 | **Credit reallocation to underreported firms alone accounts for ~22% of the AE decline**: reallocation component isolated via simulation | Table 6 Panel B col. 1, p. 1628 | Mean -2.71% AE (range -0.89% to -4.43%); mean = 22% of actual AE decline |
 | R7 | **Bunching validity**: underreporting is statistically higher in overdue buckets immediately before a jump in the regulatory deduction rate, confirming strategic behavior | Table B1 Panel A, p. 1636 | Coefficients 0.014-0.451 across collateral types and increment sizes (all positive and significant); placebo using the other collateral type's rate increment yields negative coefficients |
+| R8 | **Underreported firms have lower marginal products than performing firms**: correctly reported nonperforming firms are closer to underreported firms | Table 4 Panel A, p. 1622 | MRPL: 37.30 vs. 48.24 (thousand euros); MRPK: 47.44 vs. 63.16 (percent); correctly reported nonperforming firms: 42.39 and 55.51 |
+| R9 | **Firm-level wedges are persistent** | Table 4 Panel B, p. 1622 | Lagged-wedge coefficient: 0.786 (SE 0.002) for labor and 0.594 (SE 0.002) for capital |
+| R10 | **Exposed banks increase underreporting during the EBA intervention, then roll it back** | Figure 4, p. 1617 | Underreported losses scaled by 2010 bank capital rise after the announcement and recede at the EBA deadline; the paper reports the pattern graphically |
+| R11 | **Risk-shifting evidence is absent**: exposed banks' new lending falls more for higher-risk new clients, while lending to existing clients does not increase | Table 3, p. 1618 | New-client EBA × exposed × risk coefficients: -3.375 (SE 1.274) for predicted default risk and -0.157 (SE 0.053) for sales cyclicality; existing-client approval: 0.002 (SE 0.004); new-loan estimates: -0.024 (SE 0.008) and -0.022 (SE 0.009) in the two specifications |
+| R12 | **Credit has no detectable effect on firm-level TFP** | Table 5 Panel B col. 5, p. 1625 | IV coefficient 0.001 (SE 0.005); first-stage F = 111.2 |
+| R13 | **Input-wedge responses vary with prior financial constraints** | Table 5 Panel A, p. 1625 | Share EBA × 2011 capital wedge: labor-wedge coefficient 0.012 (SE 0.008); capital-wedge coefficient 0.028 (SE 0.013) |
+| R14 | **Credit reallocation changes firm input use**: underreported firms expand inputs while other groups contract | Text p. 1624 | Underreported firms: labor +6%, capital +9%; non-distressed firms: labor -6%, capital -8%; correctly reported distressed firms: labor -4%, capital -6% |
+| R15 | **Credit results show no differential pre-trends** for baseline and underreported firm-bank relationships | Figure 3 and text p. 1616 | No differential credit allocation in the two pre-intervention periods; no coefficients reported in the article text |
+| R16 | **Firm liquidity measures show no pre-trends** before the intervention | Text p. 1621 (Figure A7, online appendix cited) | No pre-trends in current ratio or cash/assets; numerical estimates not reported in the article text |
+| R17 | **Pre-intervention placebo estimates show no significant effects** | Text p. 1625 (Table A5, online appendix cited) | No significant effects in the pre-intervention years; numerical estimates not reported in the article text |
+| R18 | **The credit reallocation is specific to underreported relationships among overdue borrowers** | Figure 3 Panel B and text p. 1615 | Exposed banks reduce credit to overdue but non-underreported relationships, while credit increases only for underreported relationships; point estimates are in online Appendix Table A2 |
 
 **Overall (paper's conclusion).** Ratio-based capital requirements create distorted lending incentives when banks are already in distress: exposed banks intensify loss underreporting and roll over credit to underreported borrowers to avoid booking additional losses. This credit misallocation prevents inputs from being reallocated to their highest-value uses, widening the dispersion of capital and labor wedges and contributing meaningfully to aggregate productivity decline.
 
 ## Theory / model
 
-The paper has no formal equilibrium model; its conceptual framework is that ratio-based capital requirements create distorted incentives for already-distressed banks (tested hypotheses) and that these distortions propagate to real outcomes through credit misallocation.
+The paper has no formal equilibrium model. Its tested mechanism is that ratio-based capital shortfalls make already-distressed banks reluctant to recognize losses: they preserve lending to borrowers whose losses were underreported, while cutting other credit. The paper tests this against risk-shifting and demand explanations, then traces credit reallocation into factor use and allocative efficiency.
 
-**Identification.** The EBA in October 2011 announced that a subset of European banks had to meet a 9 percent Core Tier 1 ratio (with an additional sovereign debt buffer) by June 2012 (p. 1610). In Portugal, four banking groups (seven banks) were affected. The capital shortfall was determined by:
-
-$$
-\frac{\text{Core Tier 1} - \text{sovereign debt buffer}}{\text{RWA}} \geq 0.09. \tag{EBA threshold}
-$$
-
-A bank is defined as exposed if it was subject to the EBA exercise AND had a large capital shortfall (above-median sovereign bond holdings among eligible banks). The control group consists of eligible banks with below-median holdings plus all other commercial banks operating in Portugal. The key assumption is that observed credit reallocation is driven by the supply side (the shock to exposed banks' incentives) rather than differential credit demand from underreported firms. The paper supports this with parallel pre-trends, firm-level liquidity checks, and the result that exposed banks increase credit only to underreported (not to overdue-but-correctly-reported) firms.
-
-**Wedge measurement.** Firm-level distortions are quantified as wedges in the first-order conditions of a Cobb-Douglas production function (equations 4-5, p. 1622):
+**EBA capital exercise and identification.** The October 2011 EBA exercise required affected banks to meet a 9 percent Core Tier 1 threshold, net of the sovereign-debt buffer (text p. 1610):
 
 $$
-\alpha_s \frac{Y_{it}}{K_{it}} = (r_t + \Delta_t)(1 + \tau_{it}^K), \tag{4}
+\frac{\text{Core Tier 1} - \text{sovereign debt buffer}}{\text{RWA}} \geq 0.09.
+$$
+
+Exposure combines EBA eligibility with above-median sovereign holdings among eligible Portuguese banks. The comparison is eligible banks with below-median holdings plus other Portuguese commercial banks. The identifying assumption is no unobserved difference between exposed and comparison banks that independently drives credit allocation during the intervention. Evidence includes pre-period balance, parallel credit and liquidity trends, firm-quarter fixed effects in the main firm-bank design, and null risky-lending evidence (pp. 1611-1621).
+
+**Input wedges.** For sector $s$, labor and capital distortions are defined by equations (4)-(5), p. 1622, where $Y_{it}$ is value added, $L_{it}$ employment, $K_{it}$ capital, and the wedges measure gaps between marginal products and factor user costs:
+
+$$
+\alpha_s \frac{Y_{it}}{K_{it}} = (r_t + \Delta_t)(1 + \tau_{it}^{K}). \tag{4}
 $$
 
 $$
-\beta_s \frac{Y_{it}}{L_{it}} = w_t(1 + \tau_{it}^L), \tag{5}
+\beta_s \frac{Y_{it}}{L_{it}} = w_t(1 + \tau_{it}^{L}). \tag{5}
 $$
 
-where $$\tau_{it}^K$$ and $$\tau_{it}^L$$ are the capital and labor wedges (gaps between marginal revenue products and user costs), $$\alpha_s$$ and $$\beta_s$$ are sector-level capital and labor income shares, $$r_t + \Delta_t$$ is the depreciation-adjusted interest rate, and $$w_t$$ is the wage. Underreported firms have substantially lower marginal revenue products (mean MRPL = 37,300 vs. 48,240 for performing firms; mean MRPK = 47,440 vs. 63,160), indicating they are far from the efficient allocation even before the EBA shock (Table 4, p. 1622).
-
-**Tested hypotheses:** (i) capital-constrained banks increase loss underreporting; (ii) they roll over credit to underreported borrowers to avoid forced loss recognition; (iii) credit reallocation to low-productivity borrowers widens wedge dispersion and lowers allocative efficiency; (iv) the mechanism is loss delay, not risk shifting (no increase in risky lending; see Table 3, p. 1618). Peek and Rosengren (2005) and Caballero, Hoshi, and Kashyap (2008) documented zombie lending in Japan; European reduced-form evidence exists (Schivardi, Sette, and Tabellini 2022 find no TFP effect in Italy) but has not established causality; this paper introduces quasi-experimental variation to establish causality and links the channel to input misallocation.
+Underreported firms have lower mean marginal products than performing firms (Table 4 Panel A, p. 1622). The authors' causal claim is that directing credit toward these firms prevents resources from moving to higher marginal-product uses, increasing within-sector wedge dispersion.
 
 ## Method
 
-**Loan-loss underreporting algorithm.** The key methodological contribution is a Markovian excess-mass algorithm (Section I and Appendix A, pp. 1605-1608) that measures strategic delay in loan-loss reporting using the Portuguese Credit Register (Central de Responsabilidades de Credito), which reports the overdue loan balance in each regulatory deduction-rate bucket at the monthly firm-bank level.
-
-Denote the observed loan balance in overdue bucket $$k$$ in month $$t$$ as $$B_{ib}(t;k)$$. In the absence of misreporting, the balance in bucket $$k$$ at $$t$$ equals the amount that moved up from bucket $$k-1$$ in the previous period. Excess mass is the deviation from this identity. When there are no flows the baseline expression is $$E(t;k) = B(t;k) - B(t-1; k-1)$$ (p. 1606). In general, inflows (new overdue installments) and outflows (repayments, restructurings, write-offs) require adjustment; the paper's equation (1) is:
+**Loan-loss underreporting measure.** The paper uses monthly firm-bank overdue balances by regulatory bucket. Inflows into a bucket and outflows from the preceding bucket adjust the observed change; equation (1), p. 1607, defines excess mass:
 
 $$
-E(t;k) = \bigl[B(t;k) - IN(t;k)\bigr] - \bigl[B(t-1; k-1) - OUT(t; k-1)\bigr]. \tag{1, p. 1607}
+E(t;k) = [B(t;k) - IN(t;k)] - [B(t-1;k-1) - OUT(t;k-1)]. \tag{1}
 $$
 
-For multi-month buckets the appendix reformulates this using unobserved monthly sub-bucket balances $$C(t;c)$$ (where $$B(t;k) = \sum_{c \in k} C(t;c)$$), giving equation (A3, p. 1632):
+The measure is Markovian: it flags a discrepancy relative to the prior month, not the true age of a loan. For multi-month reporting buckets, Appendix A's flow-adjusted monthly-bucket expression is equation (A3), p. 1632:
 
 $$
-E(t;k) = \bigl[C(t;c) - IN(t;c)\bigr] - \bigl[C(t-1;c-1) - OUT(t;c-1)\bigr], \tag{A3}
+E(t;k) = [C(t;c) - IN(t;c)] - [C(t-1;c-1) - OUT(t;c-1)]. \tag{A3}
 $$
 
-where $$IN(t;k)$$ denotes new installments falling overdue and $$OUT(t;k-1)$$ denotes repayments and restructurings. Excess mass is set to zero when negative (additional restriction) and adjusted for December window-dressing (Appendix A4). The algorithm is validated by the bunching result: excess mass is significantly higher in buckets immediately before a jump in the mandatory deduction rate, and the effect increases with the size of the regulatory increment (Table B1, p. 1636; equation B1, p. 1635):
+For the validity test, the share of excess mass in overdue loans is regressed on deduction-rate jumps; equation B1 as printed includes bank, firm, and month fixed effects and firm-bank clustered standard errors (pp. 1635-1636). The accompanying text and Table B1 notes instead describe firm-bank fixed effects, an internal specification inconsistency in the PDF; the collateral-type samples are estimated separately:
 
 $$
-\frac{\text{excess mass}_{ibkct}}{\text{overdue loans}_{ibkct}} = \sum_{j=1}^{5} \beta_j \Delta \text{deduction rate}_j + \varphi_b + \theta_t + \mu_t + \epsilon_{ibkct}. \tag{B1}
+\frac{\text{excess mass}_{ibkct}}{\text{overdue loans}_{ibkct}} = \sum_{j=1}^{5} \beta_j \Delta \text{deduction rate}_j + \phi_b + \theta_i + \mu_t + \epsilon_{ibkct}. \tag{B1}
 $$
 
-**Productivity decomposition.** To aggregate firm-level wedge changes to the macro level, the paper follows Osotimehin (2019) and decomposes aggregate TFP growth into technical efficiency (TE), within-sector allocative efficiency ($$\Delta AE_{\text{within}}$$), and between-sector allocative efficiency ($$\Delta AE_{\text{between}}$$) (equation 7, p. 1625):
+**Productivity decomposition.** The accounting decomposition following Osotimehin (2019) separates aggregate productivity change into technical efficiency and within- and between-sector allocative efficiency (equation 7, p. 1625):
 
 $$
 \Delta \ln TFP \simeq \Delta TE + \Delta AE_{\text{within}} + \Delta AE_{\text{between}}. \tag{7}
 $$
 
-Within-sector allocative efficiency in sector $$s$$ depends on the weighted sum of firm-level wedge changes (equations 9-10, pp. 1626-1627); allocative efficiency deteriorates when wedge dispersion across firms grows. The paper focuses on the within-sector component since between-sector allocative efficiency is small in the data (Figure 6, p. 1627).
+The sector-weighting formula for technical efficiency and the within-sector component are equations (8)-(9), p. 1626. Here $s_t^x$ is sector $s$'s share of input $x$, $s_t^Y$ its value-added share, $\gamma_s$ returns to scale, $\rho$ the elasticity of substitution across sectors, and $\epsilon_t^x$ the elasticity defined in Appendix C:
+
+$$
+\Delta TE = \sum_{s=1}^{S} \frac{1}{1-\gamma_s\rho}\left[s_t^Y - \rho \sum_x \epsilon_t^x s_t^x\right]\Delta TE_s. \tag{8}
+$$
+
+$$
+\Delta AE_{\text{within}} = \sum_{s=1}^{S} \frac{1}{1-\gamma_s\rho}\left[s_t^Y - \rho \sum_x \epsilon_t^x s_t^x\right]\Delta AE_{\text{within},s}. \tag{9}
+$$
+
+Equation (10), p. 1626, gives the within-sector change as a weighted sum of firms' lagged input shares and proportional changes in capital and labor wedges:
+
+$$
+\begin{aligned}
+\Delta AE_{\text{within},s} ={}& \frac{\alpha_s}{1-\gamma_s\theta_s}\sum_i\left[(1-\beta_s\theta_s)s^K_{i,t-1}+\beta_s\theta_s s^L_{i,t-1}-s^Y_{i,t-1}\right]\frac{\Delta\tau^K_{it}}{1+\tau^K_{i,t-1}} \\
+&+ \frac{\beta_s}{1-\gamma_s\theta_s}\sum_i\left[\alpha_s\theta_s s^K_{i,t-1}+(1-\alpha_s\theta_s)s^L_{i,t-1}-s^Y_{i,t-1}\right]\frac{\Delta\tau^L_{it}}{1+\tau^L_{i,t-1}}.
+\end{aligned} \tag{10}
+$$
+
+The between-sector component is equation (11), p. 1626:
+
+$$
+\begin{aligned}
+\Delta AE_{\text{between}} ={}& \sum_{s=1}^{S}\frac{1}{1-\gamma_s\rho}\left[\epsilon_t^K(1-\beta_s\rho)s_t^K+\epsilon_t^L\alpha_s\rho s_t^L-\alpha_s s_t^Y\right]\frac{\Delta\mathcal{T}_{st}^K}{1+\mathcal{T}_{s,t-1}^K} \\
+&+\sum_{s=1}^{S}\frac{1}{1-\gamma_s\rho}\left[\epsilon_t^K\beta_s\rho s_t^K+\epsilon_t^L(1-\alpha_s\rho)s_t^L-\beta_s s_t^Y\right]\frac{\Delta\mathcal{T}_{st}^L}{1+\mathcal{T}_{s,t-1}^L}.
+\end{aligned} \tag{11}
+$$
+
+The paper focuses on within-sector allocative efficiency because the between-sector contribution is small (Figure 6, p. 1627). The estimates of firm-level TFP effects are imprecise and near zero, so the aggregation sets $\Delta TE$ to zero (Table 5 Panel B and text p. 1628). For the reallocation-only estimate, the authors add underreported firms to a randomly selected set of non-underreported firms with an equal credit decline, repeating the draw 10,000 times (Table 6, p. 1628-1629).
 
 ## Empirical specifications
 
-**Firm-bank DiD (primary credit results, R1).** The estimating specification is a dynamic differences-in-differences with a triple interaction at the firm-bank-quarter level (equation 2, p. 1613):
+**Firm-bank dynamic difference-in-differences.** Equation (2), pp. 1613-1614, estimates quarterly firm-bank credit-growth responses across event-time windows $\tau=-2,\ldots,5$:
 
 $$
-g_{ibt}^{\text{credit}} = \sum_{\tau=-2}^{5} \beta_\tau^{\text{treat}}(\text{period}_\tau \times \text{exposed}_b)
-  + \sum_{\tau=-2}^{5} \beta_\tau^{\text{period}}(\text{period}_\tau \times \text{underreported}_{ib})
+\begin{aligned}
+g^{\text{credit}}_{ibt} ={}& \sum_{\tau=-2}^{5}\beta^{\text{treat}}_{\tau}(\text{period}_{\tau}\times\text{exposed}_b)
++ \sum_{\tau=-2}^{5}\beta^{\text{period}}_{\tau}(\text{period}_{\tau}\times\text{underreported}_{ib}) \\
+&+ \sum_{\tau=-2}^{5}\beta^{\text{treatgroup}}_{\tau}(\text{period}_{\tau}\times\text{underreported}_{ib}\times\text{exposed}_b)
++ \theta_{it} + \phi_b \\
+&+ \beta^{\text{base}}_1(\text{underreported}_{ib}\times\text{exposed}_b)
++ \beta^{\text{base}}_2\text{underreported}_{ib}
++ \alpha_2 X_{ibt}+\epsilon_{ibt}.
+\end{aligned} \tag{2}
 $$
 
-$$
-+ \sum_{\tau=-2}^{5} \beta_\tau^{\text{treatgroup}}(\text{period}_\tau \times \text{underreported}_{ib} \times \text{exposed}_b)
-  + \beta_1^{\text{base}}(\text{underreported}_{ib} \times \text{exposed}_b) + \beta_2^{\text{base}} \text{underreported}_{ib}
-$$
+Here $g^{\text{credit}}_{ibt}=\text{credit}_{ibt}/\text{credit}_{ib,t-1}-1$. The sample is continuing firm-bank relationships over 2009:I-2014:IV, $N=1{,}981{,}219$. It includes firm-by-quarter and bank fixed effects and relationship controls (lending share, relationship length, main-lender indicator, and firm share in the bank portfolio); standard errors are two-way clustered by firm and bank. The separate overdue-loan subsample has $N=426{,}127$ (Figure 3, p. 1615).
+
+**Firm-level credit response.** Equation (3), pp. 1618-1619, tests whether firms offset the firm-bank response by borrowing elsewhere:
 
 $$
-+ \alpha_2 \mathbf{X}_{ibt} + \theta_{it} + \varphi_b + \epsilon_{ibt}. \tag{2}
+\Delta\log\text{credit}_{it} = \sum_{t=-5}^{10}\Delta^{\text{treatgroup}}_t(\text{quarter}_t\times\text{treatment}_i\times\text{underreported}_i)
++ \sum_{t=-5}^{10}\Delta^{\text{treatment}}_t(\text{quarter}_t\times\text{treatment}_i)
++ \text{controls} + \alpha_1 X_{it} + \theta_i + \epsilon_{it}. \tag{3}
 $$
 
-Here $$g_{ibt}^{\text{credit}} = \text{credit}_{ibt}/\text{credit}_{ib,t-1} - 1$$, $$\text{exposed}_b$$ is a bank-level dummy, $$\text{underreported}_{ib}$$ is a dummy for lending relationships with prior loss underreporting, $$\text{period}_\tau$$ groups quarters into three-quarter windows, $$\theta_{it}$$ are firm-quarter fixed effects (absorbing all firm-level credit demand shocks), and $$\varphi_b$$ are bank fixed effects. Standard errors are two-way clustered at the firm and bank level. N = 1,981,219. The coefficients of interest are $$\beta_\tau^{\text{treatgroup}}$$, measuring the treatment effect for underreported firms at exposed banks.
+Treatment is the standardized pre-EBA borrowing share from exposed banks. The specification includes firm and industry-by-quarter effects, firm controls averaged over 2008-2010 interacted with quarter, and firm fixed effects; standard errors are clustered by firm. The quarterly 2009-2015 sample has $N=1{,}346{,}771$ firm-quarter observations. The estimated cumulative treatment effects are +16% for underreported firms and -14% for all others over the EBA and bailout period (text p. 1619; Figure 5, p. 1620).
 
-**Firm-level DiD (credit confirmation, R2).** To confirm that firms do not undo the bank-level reallocation through other lenders, a dynamic firm-level specification instruments for the firm-level credit shock using the pre-EBA borrowing share from exposed banks (equation 3, p. 1618):
-
-$$
-\Delta \log \text{credit}_{it} = \sum_{t=-5}^{10} \Delta_t^{\text{treatgroup}}(\text{quarter}_t \times \text{treatment}_i \times \text{underreported}_i)
-  + \sum_{t=-5}^{10} \Delta_t^{\text{treatment}}(\text{quarter}_t \times \text{treatment}_i)
-  + \text{controls} + \alpha_1 \mathbf{X}_{it} + \theta_i + \epsilon_{it}. \tag{3}
-$$
-
-N = 1,346,771 firm-quarter observations. Standard errors clustered at the firm level.
-
-**IV for real effects (R3-R4).** To estimate pass-through to inputs, an IV strategy instruments the log change in firm-level credit with the normalized pre-EBA borrowing share from exposed banks interacted with the underreported dummy (equation 6, p. 1623):
+**Input effects by instrumental variables.** Equation (6), pp. 1623-1624, estimates the effect of credit growth on input use and wedge growth:
 
 $$
-\Delta \log y_{is} = \gamma \Delta \log \text{credit}_{is} + \text{controls} + u_{is}, \tag{6}
+\Delta\log y_{is} = \gamma\Delta\log\text{credit}_{is} + \text{controls} + u_{is}. \tag{6}
 $$
 
-where $$y_{is}$$ is labor or capital. The instrument is the first-stage version of equation (3). The regression is estimated at annual frequency for 2012. N = 104,499. Standard errors clustered by industry. First-stage F-statistic = 111.2 (above Stock-Yogo 5% maximal-bias criterion). Capital elasticity = 0.14, labor elasticity = 0.52; TFP elasticity is near zero and insignificant (Table 5 Panel B, p. 1625).
-
-**Productivity aggregation (R5-R6).** Firm-level predicted wedge changes are computed as:
+The endogenous credit change is instrumented with the firm-level pre-EBA borrowing share from exposed banks, interacted with underreporting status. The first stage is written out from Section IIIB (p. 1624), as the paper describes it:
 
 $$
-\frac{\Delta \hat{\tau}_{it}^X}{1 + \tau_{it,t-1}^X} = \left(\hat{\gamma}_1^X + \hat{\gamma}_2^X \times \text{capital wedge}_{i,t-1}\right) \times \left(\hat{\Delta}^{\text{treatment}} \text{borrowing share}_{is}\right), \tag{12}
+\Delta\log\text{credit}_{is} = \Delta^{\text{treatment}}\text{borrowing share}_{is} + \Delta^{\text{treatgroup}}\text{borrowing share}_{is}\times\text{underreported}_{is} + \text{controls} + \epsilon_{is}.
 $$
 
-for $$X = K, L$$. These firm-level changes are aggregated using equations (9)-(10) to estimate the contribution to within-sector allocative efficiency. The between-sector contribution (equation 11) is small and excluded from the headline calculation.
+The annual 2012 regressions use firm-size and two-digit-industry fixed effects and controls averaged over 2008-2010 (log assets, interest/EBITDA, capital/assets, current ratio, cash/assets, sales growth). Standard errors are clustered by industry; $N=104{,}499$ for labor and capital and $N=104{,}492$ for TFP. The reported labor and capital credit elasticities are 0.522 (SE 0.094) and 0.140 (SE 0.046), respectively; the TFP coefficient is 0.001 (SE 0.005), with first-stage $F=111.2$ (Table 5 Panel B, p. 1625). The translated mean input responses are reported in the Core results (text p. 1624).
+
+**Wedge prediction and productivity aggregation.** Equation (12), p. 1628, maps the estimated credit response and initial capital wedge into predicted wedge changes, for $X=K,L$:
+
+$$
+\frac{\Delta\hat{\tau}^{X}_{it}}{1+\tau^{X}_{i,t-1}} = \left(\hat{\gamma}^{X}_1+\hat{\gamma}^{X}_2\times\text{capital wedge}_{i,t-1}\right)\times\widehat{\Delta^{\text{treatment}}\text{ borrowing share}_{is}}. \tag{12}
+$$
+
+These firm-level wedge changes are aggregated with equations (9)-(10). The reported full-intervention within-sector effect is -6.59%, or 53.83% of the actual 2012 decline; the credit-reallocation-only simulation averages -2.71%, or 22.10% of the decline (Table 6, p. 1628). Both exercises are partial equilibrium.
 
 ## Datasets used
 
@@ -280,7 +303,7 @@ Use the [original](https://doi.org/10.1257/aer.20190149) if you are: (i) replica
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(6), June 2023. Replication data available at [ICPSR E120003V1](https://doi.org/10.3886/E120003V1). This distillation was extracted by an LLM on 2026-06-24 and is **not human-verified or independently reproduced**.
+Source: peer-reviewed, *American Economic Review* 113(6), June 2023. Replication data available at [ICPSR E120003V1](https://doi.org/10.3886/E120003V1). This distillation was first extracted on 2026-06-24 and expanded and AI-verified on 2026-10-04; it is **not human-verified or independently reproduced**.
 
 > Blattner, Laura, Luisa Farinha, and Francisca Rebelo. "When Losses Turn into Loans:
 > The Cost of Weak Banks." *American Economic Review* 113, no. 6 (June 2023): 1600-1641.

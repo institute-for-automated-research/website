@@ -7,7 +7,7 @@ description: >-
   multi-country Krugman model. Unilateral corrective industrial policies trigger
   immiserizing growth (average -2.78 percent), while coordinated policies via a
   deep agreement deliver +3.42 percent gains. American Economic Review 113(10),
-  2023, paywalled. Five core results with source locators, datasets used, the
+  2023, paywalled. Twelve core results with source locators, datasets used, the
   model (generalized Krugman 1980 with nested CES preferences), and the estimation
   method (shift-share exchange rate IV on Colombian firm-level import data).
 sidebar:
@@ -35,13 +35,15 @@ paper:
     - real GDP gain from unilaterally optimal trade policy
     - real GDP change from unilateral vs coordinated corrective industrial policy
     - cross-industry covariance of trade and scale elasticities
+    - industry-level scale elasticity
+    - ratio of firm-level to national-level demand elasticities
   outcomeClass: [macro-aggregates, trade-flows]
   license: "paywalled; no CC licence found in Crossref metadata (checked 2026-06-25); copyright American Economic Association"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA website, aeaweb.org; abstract only without subscription; 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 5
+  resultsCount: 12
   citedByCount: 89
   methods:
     role: both
@@ -64,6 +66,13 @@ paper:
     - { ref: R3, outcome: real GDP change from unilateral corrective industrial policy, metric: pp-effect, value: "avg -2.78% (free entry); -0.32% (restricted entry)", direction: negative }
     - { ref: R4, outcome: real GDP change from coordinated corrective industrial policy via deep agreement, metric: pp-effect, value: "avg +3.42% (free entry); +1.67% (restricted entry)", direction: positive, vsBenchmark: "exceeds any unilateral trade or industrial policy alternative; dominates even before retaliation" }
     - { ref: R5, outcome: cross-industry covariance of trade and scale elasticities, metric: covariance, value: "cov(sigma_k, mu_k) approx -0.65; median sigma_k - 1 = 3.9; median mu_k approx 0.20", direction: negative }
+    - { ref: R6, outcome: cross-industry covariance of trade and scale elasticities, metric: covariance, value: "Four-year-lag shift-share instrument preserves elasticity ordering and magnitude and negative covariance sign", direction: negative }
+    - { ref: R7, outcome: cross-industry covariance of trade and scale elasticities, metric: covariance, value: "Direct annual exchange-rate control preserves elasticity ordering and magnitude and negative correlation", direction: negative }
+    - { ref: R8, outcome: cross-industry covariance of trade and scale elasticities, metric: covariance, value: "After excluding large multiproduct firms, elasticity ordering and magnitude and negative covariance remain", direction: negative }
+    - { ref: R9, outcome: real GDP change when partners retaliate against home-country first-best policies, metric: pp-effect, value: "Average post-retaliation change: -1.23% restricted entry; -1.20% free entry", direction: negative }
+    - { ref: R10, outcome: real GDP gains from international cooperation, metric: pp-effect, value: "Shallow cooperation: 3.2% average; additional deep-cooperation gain: 1.6% under restricted entry", direction: positive }
+    - { ref: R11, outcome: industry-level scale elasticity, metric: coefficient, value: "mu_k ranges from 0.120 in Machinery to 1.220 in Petroleum; Agriculture and Mining = 0.143", direction: positive }
+    - { ref: R12, outcome: ratio of firm-level to national-level demand elasticities, metric: coefficient, value: "(sigma_k - 1)/(gamma_k - 1) differs from 1 in nearly all industries; pooled estimate approximately 0.67", direction: negative, vsBenchmark: "below the unit ratio imposed in prior specifications" }
   resultType: new-finding
   relatesTo:
     - { cite: 'Krugman (1980)', relation: builds-on, note: 'baseline multi-industry monopolistic competition model with scale economies (love for variety); the paper generalizes to semiparametric preferences' }
@@ -81,6 +90,8 @@ paper:
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-25, role: extracted, note: "Full text read (pp. 2759-2808); five results extracted with Table/equation locators. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; all five Core results confirmed in Tables 4-5 and §V.C; all equations (1,4,7,9,16,T1a-c,IV) verified term-by-term; fixed: JEL codes expanded from [F12,F13,O25] to [F12,F13,F14,L52,O19,O25] per PDF p.2759; methods.identification corrected from structural to instrument (shift-share exchange rate IV); R1 magnitude description corrected from ~1/3 to ~39% (1.19/3.05=0.39; paper text on p.2800 loosely states 1/3)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF; augmented the Core results with seven missing quantitative findings and added the omitted numbered model and counterfactual equations plus the complete estimating specification. These additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 12 Core rows, equations and specifications, classifications, findings, frontmatter, and prose against the PDF; corrected R9 retaliation description, downgraded equation 10 to a faithful prose description, corrected equations 17-19 and notation in equation 13; table values and other claims supported. Review pass (2026-10-04): corrected equation 8 signs and price notation, separated the unnumbered optimal-policy formulas from equation 17 and fixed its hat notation, and moved equations 11-12 to p. 2777." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20210419", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "no license[] block in Crossref metadata; content-version vor only; AEA copyright; paywalled" }
   rightsSignalConflict: false
@@ -103,6 +114,13 @@ Welfare gains are simple averages across 43 WIOD countries. Results under both r
 | R3 | Unilateral corrective industrial policies cause immiserizing growth | Table 5, p. 2801; §VI.C, p. 2800-2803 | avg -2.78% (free entry), -0.32% (restricted entry); most countries experience welfare losses |
 | R4 | Coordinated industrial policies via a deep agreement reverse the immiserizing outcome | Table 5, p. 2801; Figure 2, p. 2802 | avg +3.42% (free entry), +1.67% (restricted entry); exceed any unilateral trade or industrial policy alternative |
 | R5 | Micro-estimated cross-industry covariance of trade and scale elasticities is strongly negative | Table 3, p. 2792; §V.C, p. 2791-2792 | cov(σ_k, μ_k) ≈ -0.65; median σ_k - 1 = 3.9; median μ_k ≈ 0.20 |
+| R6 | The negative scale-trade elasticity pattern survives using a four-year-lag shift-share instrument | text pp. 2793-2794 (Figure P.1, online Appendix P) | Four-lag instrument preserves the ordering and magnitude of estimated elasticities and the negative sign of cov(σ_k, μ_k) |
+| R7 | Estimates are robust to controlling directly for annual exchange-rate changes | text p. 2793 (Figure P.1, online Appendix P) | Adding Δln E_jt controls preserves elasticity ordering and magnitude and the negative σ_k-μ_k correlation |
+| R8 | Excluding large multiproduct exporters leaves the estimated industry pattern intact | text pp. 2793-2794 (Figure P.1, online Appendix P) | Trimming firms with total within-national share above 0.1% preserves elasticity ordering and magnitude and negative cov(σ_k, μ_k) |
+| R9 | Retaliation against home-country first-best policies causes average real GDP losses | Table 4, p. 2796; text p. 2800 | Average post-retaliation real GDP change: -1.23% restricted entry and -1.20% free entry |
+| R10 | Shallow trade cooperation and deep industrial-policy cooperation yield separate gains | Figure 2, p. 2802; text p. 2803 | Average shallow-cooperation gains = 3.2%; additional deep-cooperation gains = 1.6% under restricted entry |
+| R11 | Estimated scale elasticities vary substantially across industries | Table 3, p. 2792; text p. 2792 | μ_k ranges from 0.120 (Machinery) to 1.220 (Petroleum); Agriculture and Mining = 0.143 |
+| R12 | The estimates reject the imposed equality linking firm-level and national-level market power parameters | Table 3, p. 2792; text pp. 2792, 2795 | (σ_k - 1)/(γ_k - 1) differs from 1 in nearly all industries; pooled estimate ≈ 0.67 (text p. 2795) |
 
 **Overall (paper's conclusion).** The negative covariance (R5) is the empirical basis for why trade policy is ineffective (R1-R2) and industrial policy backfires unilaterally (R3). Industries with the most national product differentiation (high σ, high ToT leverage) are not the ones with the highest love-for-variety externalities (high μ, high misallocation). Correcting misallocation in high-μ industries expands exports in high-σ industries, worsening ToT. A deep agreement that coordinates Pigouvian subsidies globally avoids this race to the bottom and unlocks large gains (R4).
 
@@ -152,6 +170,51 @@ $$
 
 Governments deviate from this benchmark only to exploit terms-of-trade (ToT) gains vis-a-vis the rest of the world, as shown by Bagwell and Staiger (2001) in a closely related setting. The isomorphism established by Kucheryavyy, Lyn, and Rodriguez-Clare (2023a) between the Krugman model and the Eaton and Kortum model allows the policy theorems to extend to alternative trade frameworks; the paper also derives analogous results for the Melitz-Pareto model.
 
+**Remaining numbered model equations.** The nested demand system gives demand for national varieties and individual firms (equations 2-3, p. 2765):
+
+$$
+Q_{ji,k}=\left(\frac{\tilde P_{ji,k}}{\tilde P_{i,k}}\right)^{-\sigma_k}Q_{i,k}.\tag{2}
+$$
+
+$$
+q_{ji,k}(\omega)=\phi_{ji,k}(\omega)\left(\frac{\tilde p_{ji,k}(\omega)}{\tilde P_{ji,k}}\right)^{-\gamma_k}\left(\frac{\tilde P_{ji,k}}{\tilde P_{i,k}}\right)^{-\sigma_k}d_{i,k}(Y_i,\tilde{\mathbf P}_i).\tag{3}
+$$
+
+Average profit margins and profit-adjusted producer prices differ between free and restricted entry (equations 5-6, pp. 2767-2768):
+
+$$
+\bar\mu_i=\begin{cases}0,&\text{free entry},\\[2pt]\displaystyle\frac{\sum_k\sum_j\frac{\mu_k}{1+\mu_k}P_{ij,k}Q_{ij,k}}{\sum_k\sum_j\frac{1}{1+\mu_k}P_{ij,k}Q_{ij,k}},&\text{restricted entry},\end{cases}\qquad \tilde w_i=(1+\bar\mu_i)w_i.\tag{5}
+$$
+
+$$
+P_{ij,k}=\begin{cases}\varrho_{ij,k}\left[\sum_j\tau_{ij,k}Q_{ij,k}\right]^{-\mu_k/(1+\mu_k)}\tilde w_i,&\text{free entry},\\[2pt]\displaystyle\varrho'_{ij,k}\frac{1+\mu_k}{1+\bar\mu_i}\tilde w_i,&\text{restricted entry}.
+\end{cases}\tag{6}
+$$
+
+Tax receipts sum subsidy and trade-tax revenues rebated to consumers (equation 8, p. 2769):
+
+$$
+\mathcal R_i=\sum_{k\in\mathbb K}\left[\left(\frac{1}{1+s_{i,k}}-1\right)P_{ii,k}Q_{ii,k}+\sum_{j\ne i}\left\{\frac{t_{ji,k}}{(1+x_{ji,k})(1+s_{j,k})}P_{ji,k}Q_{ji,k}+\left(\frac{1}{(1+x_{ij,k})(1+s_{i,k})}-1\right)P_{ij,k}Q_{ij,k}\right\}\right].\tag{8}
+$$
+
+Equation (10) defines the conditional inverse export-supply elasticity (pp. 2773-2774), a first-order sufficient statistic for terms-of-trade effects. Its printed expression combines sales shares, scale elasticities, wage and labor ratios, and Marshallian demand elasticities, with separate formulas for free and restricted entry. The former transcription did not match the printed expression, so the formula is omitted here rather than restated inaccurately; see equation (10), p. 2774.
+
+For Cobb-Douglas preferences, the first-best policy schedule and its small-open-economy specialization are equations (11)-(12, p. 2777):
+
+$$
+1+s^*_{i,k}=(1+\mu_k)(1+\bar s_i),\quad 1+t^*_{ji,k}=(1+\omega_{ji,k})(1+\bar t_i),\quad 1+x^*_{ij,k}=\frac{(\sigma_k-1)\sum_{n\ne i}[(1+\omega_{ni,k})\lambda_{nj,k}]}{1+(\sigma_k-1)(1-\lambda_{ij,k})}(1+\bar t_i).\tag{11}
+$$
+
+$$
+1+s^*_{i,k}=1+\mu_k,\qquad t^*_{ji,k}=0,\qquad 1+x^*_{ij,k}=\frac{\sigma_k-1}{\sigma_k}.\tag{12}
+$$
+
+The input-output extension expresses producer prices in terms of unit costs and gross output (equation 13, p. 2785):
+
+$$
+P_{ij,k}=\bar\rho_{ij,k}C_{i,k}(w_i,\tilde{\mathbf P}^{\mathcal I}_i)\mathbb Q_{i,k}^{-\mu_k/(1+\mu_k)}.\tag{13}
+$$
+
 ## Method
 
 The paper proposes a **dual approach** (`optimal-trade-dual`) for characterizing unilaterally optimal trade and industrial policies in multi-country, multi-industry GE models. It builds on `instrumental-variables` (shift-share exchange rate IV) and `panel-regression` (first-difference estimation on a firm-level panel).
@@ -190,17 +253,55 @@ $$
 
 where x̄_{j,kt}(ω) is annual sales of variety ω (firm-product-country), p̄_{j,kt}(ω) is the variety's annual average price (quantity-weighted monthly average), λ_{j,kt}(ω) is the within-national expenditure share, D_{kt} = ln(P^{σ_k - 1}_{kt} Q_{kt}) is a product-year fixed effect, and Δ ln φ_{ω,jkt} is a variety-level demand shock. The coefficient on Δ ln p̄ identifies σ_k; the coefficient on Δ ln λ additionally pins down (σ_k - 1)/(γ_k - 1), from which μ_k = 1/(γ_k - 1) is recovered.
 
+The pre-differenced firm demand and log-level equation are equations (14)-(15, pp. 2787-2788):
+
+$$
+q_{j,kt}(\omega)=\phi_{j,kt}(\omega)\left(\frac{\tilde p_{j,kt}(\omega)}{\tilde P_{j,kt}}\right)^{-\gamma_k}\left(\frac{\tilde P_{j,kt}}{\tilde P_{kt}}\right)^{-\sigma_k}Q_{kt}.\tag{14}
+$$
+
+$$
+\ln\tilde x_{j,kt}(\omega)=(1-\sigma_k)\ln\tilde p_{j,kt}(\omega)+\left(1-\frac{\sigma_k-1}{\gamma_k-1}\right)\ln\lambda_{j,kt}(\omega)+D_{kt}+\ln\phi_{j,kt}(\omega).\tag{15}
+$$
+
 **Shift-share instrument (pp. 2789-2790).** Both Δln p̄ and Δln λ are endogenous. The price instrument uses lagged monthly export-share weights applied to current monthly exchange rate changes:
 
 $$
 z_{j,kt}(\omega) = \sum_{m \in \mathcal{M}} s_{j,kt-1}(\omega,m)\, \Delta \ln \mathcal{E}_{jt}(m), \tag{IV}
 $$
 
-where s_{j,kt-1}(ω,m) is the share of month m in variety ωjkt's annual export sales to Colombia in year t-1, and Δln E_{jt}(m) is the year-over-year change in origin j's exchange rate with the Colombian peso in month m. This shift-share design generates firm-level cost shocks via the monthly composition of each firm's prior export activity, circumventing the country-level tariff approach of Ossa (2014) (which cannot discriminate across firms within a country-product). The within-national market share instrument follows Khandelwal (2010): annual changes in the total number of origin j firms and in the total number of HS10 categories served by firm ω.
+where s_{j,kt-1}(ω,m) is the share of month m in variety ωjkt's annual export sales to Colombia in year t-1, and Δln E_{jt}(m) is the year-over-year change in origin j's exchange rate with the Colombian peso in month m. This shift-share design generates firm-level cost shocks via the monthly composition of each firm's prior export activity, circumventing the country-level tariff approach of Ossa (2014) (which cannot discriminate across firms within a country-product). The within-national market-share regressor is instrumented, following Khandelwal (2010), by annual changes in the number of origin-j firms serving product k and the number of HS10 categories served by firm ω. Equation (16) is estimated by 2SLS on first differences, pooling HS10 products within each of 14 WIOD industries; it includes HS10 product-year fixed effects, drops one-time exporters, and trims price changes outside the 1st-99th percentile within HS10-year. Standard errors are clustered by product-year and origin-product. A two-way fixed-effects version is reported in online Appendix Q (pp. 2788-2791).
 
 Standard errors are clustered two-way by product-year and origin-product, following Adao, Kolesár, and Morales (2019), to account for cross-cluster correlation in shift-share designs. The pooled Kleibergen-Paap Wald rk F-statistic is 259, well above Stock-Yogo critical values.
 
 **Welfare quantification (eqs. 17-21, pp. 2797-2799).** Policy welfare gains are computed via the hat-algebra technique, avoiding numerical optimization. Counterfactual changes in wages ŵ_i, expenditure shares λ̂_{ji,k}, industry sales shares ρ̂_{i,k}, and optimal taxes are jointly solved from a system of 2N + NK + [2(N-1)+1]K equations and unknowns derived from the optimal policy formulas (Theorems 1-3) plus labor-market clearing (eq. 20) and balanced budget conditions (eq. 21). Macro data on production and bilateral trade come from the 2014 WIOD, aggregated to 15 traded industries across 43 countries. The Cobb-Douglas cross-industry utility assumption (U_i = Π_k Q^{e_{i,k}}_{i,k}) is imposed for the quantitative analysis.
+
+The counterfactual system's equations (17)-(21) update policy instruments, price indexes, expenditure and revenue shares, labor-market clearing, and the national budget (pp. 2797-2798).
+
+The unnumbered optimal-policy formulas on p. 2797 are:
+
+$$
+\text{Unnumbered:}\quad 1+t^*_{ji,k}=\frac{-\frac{\mu_k}{1+\mu_k}\hat r_{ji,k}r_{ji,k}\Phi^*_{ji,k}}{1-\frac{\mu_k}{1+\mu_k}\sum_{\iota\ne i}\left\{\hat r_{\iota i,k}r_{\iota i,k}\left[1+(\sigma_k-1)(1-\hat\lambda_{\iota i,k}\lambda_{\iota i,k})\right]\right\}},\qquad 1+x^*_{ij,k}=\frac{(\sigma_k-1)\sum_{n\ne i}[(1+t^*_{ni,g})\hat\lambda_{nj,k}\lambda_{nj,k}]}{1+(\sigma_k-1)(1-\hat\lambda_{ij,k}\lambda_{ij,k})}.
+$$
+
+$$
+\widehat{1+s_{i,k}}=\frac{1+\mu_k}{1+s_{i,k}},\qquad \widehat{1+t_{ji,k}}=\frac{1+t^*_{ji,k}}{1+t_{ji,k}},\qquad \widehat{1+x_{ij,k}}=\frac{1+x^*_{ij,k}}{1+x_{ij,k}}.\tag{17}
+$$
+
+$$
+\hat{\tilde P}_{i,k}=\left[\sum_{n\in\mathbb C}\lambda_{ni,k}\left(\frac{(1+\hat t_{ni,k})\hat w_n\hat\rho_{n,k}^{-\mu_k}}{(1+\hat x_{ni,k})(1+\hat s_{n,k})}\right)^{1-\sigma_k}\right]^{1/(1-\sigma_k)}.\tag{18}
+$$
+
+$$
+\hat\lambda_{ji,k}=\left(\frac{(1+\hat t_{ji,k})\hat w_j\hat\rho_{j,k}^{-\mu_k}}{(1+\hat x_{ji,k})(1+\hat s_{j,k})}\right)^{1-\sigma_k}\hat{\tilde P}_{i,k}^{\sigma_k-1},\qquad \hat r_{ji,k}=\left(\frac{1+\hat x_{ji,k}}{1+\hat t_{ji,k}}\hat\lambda_{ji,k}\hat Y_i\right)\left(\sum_{n\in\mathbb C}r_{jn,k}\frac{1+\hat x_{jn,k}}{1+\hat t_{jn,k}}\hat\lambda_{jn,k}\hat Y_n\right)^{-1}.\tag{19}
+$$
+
+$$
+\hat\rho_{i,k}\rho_{i,k}\hat w_iw_iL_i=\sum_{j\in\mathbb C}\frac{(1+x^*_{ij,k})(1+s^*_{i,k})}{1+t^*_{ij,k}}\hat\lambda_{ij,k}\lambda_{ij,k}e_{j,k}\hat Y_jY_j,\qquad \sum_k\hat\rho_{i,k}\rho_{i,k}=1.\tag{20}
+$$
+
+$$
+\hat Y_iY_i=\hat w_iw_iL_i-\sum_k s^*_{i,k}\hat\lambda_{ii,k}\lambda_{ii,k}e_{i,k}\hat Y_iY_i+\sum_{j\ne i}\sum_k\left[\frac{t^*_{ji,k}}{1+t^*_{ji,k}}\hat\lambda_{ji,k}\lambda_{ji,k}e_{i,k}\hat Y_iY_i+\left(1-\frac{(1+x^*_{ij,k})(1+s^*_{i,k})}{1+t^*_{ij,k}}\right)\hat\lambda_{ij,k}\lambda_{ij,k}e_{j,k}\hat Y_jY_j\right].\tag{21}
+$$
 
 ## Datasets used
 
@@ -223,6 +324,6 @@ checking robustness of the elasticity estimates to alternative IV lags, two-way 
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(10), October 2023. This distillation was extracted by an LLM on 2026-06-25 and is **not human-verified or independently reproduced**. The paper is paywalled; no CC licence found in Crossref metadata. Extract only.
+Source: peer-reviewed, *American Economic Review* 113(10), October 2023. This distillation includes material extracted by LLMs on 2026-06-25 and 2026-10-04 and is **not human-verified or independently reproduced**. The paper is paywalled; no CC licence found in Crossref metadata. Extract only.
 
 > Lashkaripour, Ahmad, and Volodymyr Lugovskyy. "Profits, Scale Economies, and the Gains from Trade and Industrial Policy." *American Economic Review* 113, no. 10 (October 2023): 2759-2808. DOI: 10.1257/aer.20210419.

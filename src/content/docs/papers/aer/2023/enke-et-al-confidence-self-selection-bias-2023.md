@@ -3,10 +3,10 @@ title: "Confidence, Self-Selection, and Bias in the Aggregate: Enke, Graeber & O
 description: >-
   Distilled: Using 15 cognitive tasks and 2,153 participants in betting market,
   auction, and committee experiments, Enke, Graeber, and Oprea document that
-  social institutions filter some biases strongly and others barely at all, with
-  the cross-task variation explained almost entirely by the within-task
-  confidence-performance correlation (r = 0.76 to 0.93). American Economic
-  Review 2023, AEA copyright. Seven core results with source locators, the
+  social institutions filter some biases strongly and others barely at all. The
+  confidence-performance correlation is strongly associated with cross-task
+  differences in filtering (r = 0.76 between subjects; 0.93 within subjects). American Economic
+  Review 2023, AEA copyright. Fourteen core results with source locators, the
   theoretical framework, the experimental design equations, and the datasets used.
 sidebar:
   label: Enke-Graeber-Oprea 2023
@@ -39,7 +39,7 @@ paper:
   access: open
   machineAccess: "freely accessible at pubs.aeaweb.org (AEA 12-month embargo expired; not machine-fetched in this session; checked 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 14
   citedByCount: 33
   methods:
     role: applies-method
@@ -47,26 +47,33 @@ paper:
     buildsFrom: [randomized-survey-experiment]
     identification: randomized
   contributionType: [new-fact, measurement]
-  mechanisms: [team-self-selection]
   introducesData: true
   scope:
     region: global
+    assetClass: experimental social institutions
     period: 2021-06..2021-06
+    frequency: mixed
     dataType: [experimental, survey]
     granularity: [individual]
     n: "2,153 subjects (1,381 between-subjects main treatments; 314 within-subjects treatments); ~70,000 decisions across 15 tasks"
   findings:
-    - { ref: R1, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: pp-effect, value: "positive on average across all tasks and all three institutions: optimal subjects bet 64.8 vs 47.4 (Betting), bid 56.4 vs 43.6 (Auction), vote 75 vs 57.9 (Committee) on average (Figure 2, p. 1952)", direction: positive }
-    - { ref: R2, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: pp-effect, value: "EGB (exponential growth bias): ~17 pp improvement across institutions; IR (iterated reasoning): ~8 pp; RM (regression to mean), AC, EQ near-zero or negative (as low as -4 pp) (Figure 3, p. 1954)", direction: mixed }
+    - { ref: R1, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: level, value: "positive on average across all tasks and all three institutions: optimal subjects bet 64.8 vs 47.4 (Betting), bid 56.4 vs 43.6 (Auction), vote 75 vs 57.9 (Committee) on average (Figure 2, p. 1952)", direction: positive }
+    - { ref: R2, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: pp-effect, value: "EGB (exponential growth bias): about 15 pp pooled improvement; IR (iterated reasoning): about 7 pp; RM (regression to mean), AC, and EQ near-zero or negative; cross-institution improvement correlations 0.85-0.91 (Figure 3, p. 1954; text p. 1953)", direction: mixed }
     - { ref: R3, outcome: within-task confidence-performance correlation across cognitive tasks, metric: correlation, value: "range -0.13 (RM: misunderstanding mean reversion) to 0.39 (GF: gambler's fallacy); 6 of 15 tasks negative; statistically significant negative for RM and TM (Figure 4, p. 1956)", direction: mixed }
     - { ref: R4, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: correlation, value: "r = 0.76 (between-subjects), r = 0.93 (within-subjects) between confidence-performance correlation and institutional improvement across 15 tasks (Figure 5, p. 1957)", direction: positive }
     - { ref: R5, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: correlation, value: "r^auction = 0.69, r^betting = 0.73, r^committee = 0.77 (between-subjects); r^auction,within = 0.90, r^betting,within = 0.90, r^committee,within = 0.91 (p. 1958)", direction: positive }
     - { ref: R6, outcome: "efficiency of institutions in reducing bias (fraction of theoretically possible improvement realized)", metric: correlation, value: "r = 0.87 (between-subjects), r = 0.94 (within-subjects) between confidence-performance correlation and institutional efficiency (p. 1959)", direction: positive }
     - { ref: R7, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: correlation, value: "r = -0.34 (between-subjects), r = -0.32 (within-subjects) between average overconfidence (d = c_bar - p_bar) and institutional improvement; neither significant at conventional levels (p. 1961)", direction: none }
-  resultType: new-finding
+    - { ref: R8, outcome: "aggregate optimality rate in social institutions", metric: probability, value: "mean optimality = 28% across 15 tasks; task rates range from less than 10% to more than 80% (Figure 1, p. 1952; text p. 1951)", direction: positive }
+    - { ref: R9, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: pp-effect, value: "acquiring-a-company task: approximately -2 pp pooled; approximately -4 pp Betting and -2.5 pp Auction, near zero Committee, read from Figure 3 axis (p. 1954)", direction: negative }
+    - { ref: R10, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: correlation, value: "within-subject correlations of stated confidence with institutional action: r = 0.79 bids, r = 0.85 bets, r = 0.89 votes (Online Appendix Figure 29, cited p. 1959)", direction: positive }
+    - { ref: R11, outcome: "within-task confidence-performance correlation across cognitive tasks", metric: correlation, value: "average confidence exceeds optimality in all 15 tasks; across-task correlation between average confidence and optimality rate r = 0.75 (Online Appendix Figure 23, described p. 1960)", direction: positive }
+    - { ref: R12, outcome: "within-task confidence-performance correlation across cognitive tasks", metric: correlation, value: "CN and BU: about 50% of responses on one wrong answer and correlations roughly zero; IR, EGB, KS: 10%-30% concentrated responses and strictly positive correlations (Online Appendix Figure 22, discussed p. 1960)", direction: mixed }
+    - { ref: R14, outcome: "institutional bias filtering in betting markets, auctions, and committees", metric: correlation, value: "average-overconfidence correlations with improvement: between Betting -0.28, Committee -0.36, Auction -0.36; within Betting -0.24, Auction -0.40, Committee -0.23; none significant at conventional levels (text p. 1961, note 19)", direction: none }
+  resultType: confirms
   relatesTo:
     - { cite: "Fehr and Tyran (2005)", doi: '10.1257/089533005775196651', relation: builds-on, note: "foundational paper documenting that individual irrationality may or may not matter for aggregate market outcomes" }
-    - { cite: "List (2003)", doi: '10.1162/00335530360535144', relation: tests, note: "extends the market experience and selection hypothesis to laboratory institutions covering 15 distinct cognitive biases" }
+    - { cite: "List (2003)", doi: '10.1162/00335530360535144', relation: cites, note: "prior evidence that market experience can reduce anomalies; this paper studies voluntary self-selection as a separate filtering channel" }
     - { cite: "Camerer and Lovallo (1999)", doi: '10.1257/aer.89.1.306', relation: extends, note: "generalizes the overconfidence-entry link to three institutional settings and 15 cognitive tasks" }
     - { cite: "Moore and Healy (2008)", doi: '10.1037/0033-295x.115.2.502', relation: cites, note: "taxonomy of overconfidence types used to frame what the paper argues does NOT predict institutional filtering (average overconfidence vs. the confidence-performance correlation)" }
     - { cite: "Kendall and Oprea (2018)", doi: '10.1016/j.jet.2018.04.005', relation: cites, note: "complementary test of the market selection hypothesis in laboratory setting; Oprea is a co-author of both papers" }
@@ -80,6 +87,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (pp. 1933-1966, 34 pages); seven results extracted from the source. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 7 Core-results rows confirmed (R1 p.1953, R2 Fig.3/p.1954, R3 Fig.4/p.1955-56, R4 Fig.5/p.1957, R5 p.1958, R6 p.1959, R7 pp.1960-61); all equations (1)-(9) verified term-by-term; one colorful adjective fixed (enormous→large in TL;DR)." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and appended seven result rows, matching findings, main estimating specifications, and completeness details. Additions are not human-verified and have not been independently reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 14 Core results, equations, specifications, classifications, and prose against the PDF; corrected plotted magnitudes, preregistration wording, and overstatement of correlation; no unresolved errors found." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20220915", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "no license[] block present; link[].content-version=vor, URL=https://pubs.aeaweb.org/doi/pdf/10.1257/aer.20220915; AEA delayed open access applies after 12-month embargo; no CC license" }
   rightsSignalConflict: false
@@ -89,7 +98,7 @@ paper:
 
 ## TL;DR
 
-Enke, Graeber, and Oprea run a large preregistered online experiment on Prolific (2,153 subjects, June 2021) exposing participants to 15 canonical cognitive biases from behavioral economics and three simple social institutions (betting markets, auctions, committees) that allow voluntary self-selection. They find that institutions filter biases on average, but with large cross-task variation: exponential growth bias (EGB) is reduced by roughly 17 percentage points, while base-rate neglect and correlation neglect are barely affected, and the winner's curse is even amplified. Almost all of this cross-task heterogeneity (r = 0.76 to 0.93) is explained by a single sufficient statistic: the within-task Pearson correlation between subjects' stated confidence and their decision optimality. When better performers are also more confident, they self-select more intensively and the institution de-biases effectively. When confidence and performance are uncorrelated or negatively correlated, the institution cannot filter, regardless of average overconfidence levels.
+Enke, Graeber, and Oprea run a large preregistered online experiment on Prolific (2,153 subjects, June 2021) exposing participants to 15 canonical cognitive biases from behavioral economics and three simple social institutions (betting markets, auctions, committees) that allow voluntary self-selection. They find that institutions filter biases on average, but with large cross-task variation: exponential growth bias (EGB) is reduced by roughly 15 percentage points, while base-rate neglect and correlation neglect are barely affected, and the winner's curse is even amplified. The confidence-performance correlation is strongly associated with these differences: across the 15 tasks, its correlation with institutional improvement is r = 0.76 between subjects and r = 0.93 within subjects. When better performers are also more confident, they self-select more intensively and the institution de-biases effectively. When confidence and performance are uncorrelated or negatively correlated, the institution cannot filter, regardless of average overconfidence levels.
 
 ## Core results
 
@@ -98,14 +107,21 @@ Magnitudes as reported; Locators point into the source PDF.
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
 | R1 | Positive self-selection in all three institutions on average across tasks: optimal decision makers bet, bid, and vote more intensively than suboptimal ones | Figure 2, p. 1952; p. 1953 | Betting: 64.8 avg. bet (optimal) vs 47.4 (suboptimal), 37% more; Auction: 56.4 vs 43.6, 29% more; Committee: 75 vs 57.9 votes, 29% more |
-| R2 | Large cross-task variation in institutional filtering: EGB and iterated reasoning (IR) strongly improved, some tasks near-zero or negative | Figure 3, p. 1954 | EGB: ~17 pp improvement across institutions; IR: ~8 pp; RM, AC, EQ near-zero or negative (approx. -4 to 0 pp); pairwise correlations across institutions 0.85-0.91 |
+| R2 | Large cross-task variation in institutional filtering: EGB and iterated reasoning (IR) strongly improved, some tasks near-zero or negative | Figure 3, p. 1954; text p. 1953 | EGB: about 15 pp pooled improvement; IR: about 7 pp; RM, AC, and EQ near-zero or negative; pairwise improvement correlations across institutions 0.85-0.91 |
 | R3 | Confidence-performance correlation varies widely across tasks: from negative (RM = -0.13, TM significantly negative) to moderately positive (GF = 0.39); 6 of 15 tasks negative | Figure 4, p. 1956 | Pearson r ranges -0.13 (RM) to 0.39 (GF); N = 334 in Confidence treatment; no task exceeds r = 0.5 |
-| R4 | Confidence-performance correlation strongly predicts institutional improvement across the 15 tasks | Figure 5, p. 1957 | r = 0.76 (between-subjects), r = 0.93 (within-subjects); robust to leave-two-out: between-subjects range 0.61-0.83 (mean 0.76) |
+| R4 | Confidence-performance correlation strongly predicts institutional improvement across the 15 tasks | Figure 5, p. 1957; leave-two-out text pp. 1958-1959 | r = 0.76 (between-subjects), r = 0.93 (within-subjects); robust to leave-two-out: between-subjects range 0.61-0.83 (mean 0.76) |
 | R5 | Predictive power is consistent across all three institutions | p. 1958 | r\^auction = 0.69, r\^betting = 0.73, r\^committee = 0.77 (between); r\^auction,within = 0.90, r\^betting,within = 0.90, r\^committee,within = 0.91 |
 | R6 | Confidence-performance correlation predicts institutional efficiency (fraction of theoretically possible improvement realized) even more strongly | p. 1959 | r = 0.87 (between-subjects), r = 0.94 (within-subjects) |
 | R7 | Average overconfidence (d = c - p) shows a weak, statistically insignificant negative relationship with institutional improvement | p. 1961 | r = -0.34 (between-subjects), r = -0.32 (within-subjects); neither significantly different from 0 at conventional levels |
+| R8 | Baseline optimality varies substantially across the 15 tasks before institutional selection | Figure 1, p. 1952; text p. 1951 | Mean optimality rate = 28%; task rates range from less than 10% to more than 80% |
+| R9 | Self-selection amplifies the acquiring-a-company (winner's-curse) error in the pooled institutional outcome | Figure 3, p. 1954; text p. 1953 | All-institution improvement is approximately -2 pp; approximately -4 pp in Betting and -2.5 pp in Auction, while Committee is near zero (values read approximately from plotted axis) |
+| R10 | Confidence is positively associated with more intensive institutional choices in the within-subjects treatments | Online Appendix Figure 29, cited p. 1959 | Confidence-action correlations: r = 0.79 (bids), r = 0.85 (bets), r = 0.89 (votes) |
+| R11 | Mean confidence exceeds performance in every task, and tasks with higher performance also have higher mean confidence | Online Appendix Figure 23, described p. 1960 | All 15 tasks show overconfidence; cross-task correlation of average confidence and optimality rate r = 0.75 |
+| R12 | The exploratory wrong-answer peakedness measure is associated with lower confidence-performance correlations, with task-level exceptions described | Online Appendix Figure 22, discussed p. 1960 | CN and BU: about 50% of responses on one wrong answer and correlation roughly zero; IR, EGB, and KS: 10%-30% concentrated and strictly positive correlations |
+| R13 | Experts overpredict institutional improvement and confidence differences and underpredict variation across tasks | Figure 6, p. 1962; text pp. 1961-1962 | Forecasts generally exceed actual improvement and confidence differences; forecast values are more compressed across tasks (no exact summary coefficient reported) |
+| R14 | The average-overconfidence null remains when institutional outcomes are split by institution | Text p. 1961, note 19 | Between: Betting r = -0.28, Committee r = -0.36, Auction r = -0.36; within: Betting r = -0.24, Auction r = -0.40, Committee r = -0.23; none significant at conventional levels |
 
-**Overall (paper's conclusion).** Average overconfidence, the traditional focus of most confidence research, is largely irrelevant for predicting whether markets and organizations de-bias economic aggregates. The relevant object is the confidence-performance correlation, which determines whether the biased individuals who self-select out of institutions are actually the ones making worse decisions. This implies a simple methodological blueprint: researchers studying cognitive biases can estimate the likely institutional impact by appending an unincentivized confidence question and reporting the resulting correlation with performance.
+**Overall (paper's conclusion).** Average overconfidence, the traditional focus of most confidence research, is largely irrelevant for predicting whether markets and organizations de-bias economic aggregates. In the paper's framework, the confidence-performance correlation predicts whether people who make worse decisions also select out more strongly. This implies a simple methodological blueprint: researchers studying cognitive biases can estimate the likely institutional impact by appending an unincentivized confidence question and reporting the resulting correlation with performance.
 
 ## Theory / model
 
@@ -153,12 +169,14 @@ $$
 
 Here $$\omega > 0$$ captures the degree to which self-selection actually depends on confidence as opposed to other factors.
 
-**Predictions.** Substituting equations (8) and (9) into (6) and (7) yields two preregistered predictions (pp. 1950):
+**Predictions.** Substituting equations (8) and (9) into (6) and (7) yields two predictions (pp. 1950). Prediction 1 was preregistered; Prediction 2 was an ancillary prediction and was not preregistered:
 
 - **Prediction 1**: If $$\beta > 0$$, then $$\mathbb{G} > 0$$ (institutions filter biases). Institutional improvement $$\mathbb{G}$$ increases in the confidence-performance correlation $$\beta$$.
 - **Prediction 2**: The effect of average overconfidence $$d$$ on $$\mathbb{G}$$ is ambiguous. In auctions, there is no relationship (only the ordering of bids matters, not their level). In betting and committees with $$\beta > 0$$, the effect of $$d$$ is weakly negative.
 
-Fehr and Tyran (2005) provide foundational evidence that individual irrationality sometimes survives in aggregate market outcomes, and sometimes does not; this framework clarifies that the confidence-performance correlation is the sufficient statistic for predicting which case applies. The paper complements List (2003), who shows that market experience reduces anomalies through learning; here the channel is purely self-selection, which operates even in the absence of feedback or repeated play.
+The paper derives these predictions under the assumptions $$\omega > 0$$ and $$\alpha > 0$$ (note 12, p. 1949).
+
+Fehr and Tyran (2005) provide foundational evidence that individual irrationality sometimes survives in aggregate market outcomes, and sometimes does not; this framework identifies the confidence-performance correlation as a key predictor under its assumptions. The paper complements List (2003), who shows that market experience reduces anomalies through learning; here the channel is self-selection, which operates even in the absence of feedback or repeated play.
 
 ## Method
 
@@ -216,7 +234,31 @@ This is computed separately for each task across the 334 (between) or 314 (withi
 
 **Average overconfidence check.** As an ancillary test, the paper replaces $$\hat{\beta}_k$$ with task-level average overconfidence $$\hat{d}_k = \bar{c}_k - \bar{p}_k$$ and repeats step 3. This directly tests Prediction 2: the resulting correlation is weakly negative (r = -0.34 between, r = -0.32 within) but not statistically distinguishable from zero (p. 1961).
 
-**Expert survey.** A separate sample of 38 behavioral economists (CESifo/VIBES panel, November 2021) predicted institutional improvements and confidence differences for 7 of the 15 tasks in the Auction treatment. Experts' median forecasts are compared to actual outcomes in Figure 6 (p. 1962). The analysis uses a paired comparison of forecast vs. actual for each of the 7 tasks; no regression is reported. Camerer and Lovallo (1999) document overconfidence in entry decisions; the expert results here parallel that finding in the prediction domain. Moore and Healy (2008) provide the taxonomy of overconfidence types that the paper uses to frame what experts miss. Kendall and Oprea (2018) study the market selection hypothesis in a related laboratory design.
+**Main task-level estimating specifications.** The article does not print a regression equation for these calculations. Written out from Sections ID and III (pp. 1944-1947, 1952-1959), the confidence-performance statistic for task k is:
+
+$$
+\widehat{\rho}_k = \operatorname{Corr}_{i\in k}(c_{ik}, x_{ik}), \qquad k=1,\ldots,15.
+$$
+
+Here x is the binary indicator for an exactly optimal Part 1 answer, and c is stated confidence. It is estimated in the between-subjects Confidence sample (N = 334) and separately in the within-subjects treatments (N = 314). The paper reports Pearson correlations and standard errors for the task-level coefficients in Figure 4 (p. 1956); no fixed effects or regression standard errors apply to this correlation calculation.
+
+For each task k, institution j, and simulated cohort s, the unnumbered institutional improvement calculation is:
+
+$$
+\widehat{\Delta}_{kj} = \frac{1}{10{,}000}\sum_{s=1}^{10{,}000}\left(\theta^{\text{post}}_{kjs}-\theta^{\text{pre}}_{ks}\right).
+$$
+
+Cohorts contain ten draws with replacement from the relevant experimental treatment. The post-institution measure is the betting price, auction winner optimality rate, or committee vote share, as defined in equations (1)-(4); the pre-institution measure is the same cohort's raw optimality rate. The conservative standard error is the standard deviation of cohort-level improvements divided by $$\sqrt{N/10}$$, using the relevant treatment sample (Betting N = 387, Auction N = 323, Committee N = 337); see Figure 3 notes (p. 1954). No fixed effects are used.
+
+The main cross-task specification, also written out from the reported calculation rather than printed as an equation, is:
+
+$$
+\widehat{r}_{\rho,\Delta} = \operatorname{Corr}_{k=1}^{15}(\widehat{\rho}_k,\widehat{\Delta}_k),
+$$
+
+where $$\widehat{\Delta}_k$$ is the average improvement across Betting, Auction, and Committee for between-subjects results, or across the corresponding within-subject treatments. The reported Pearson correlations are r = 0.76 (between-subjects) and r = 0.93 (within-subjects), Figure 5 (p. 1957). The observational unit is a cognitive task (15 task-level pairs); no regression controls, fixed effects, or conventional regression standard errors are reported. The leave-two-out robustness analysis repeats this correlation after randomly omitting two tasks in 10,000 runs (pp. 1958-1959).
+
+**Expert survey.** A separate sample of 38 behavioral economists (CESifo/VIBES panel, November 2021) predicted auction improvements and confidence differences for 7 of the 15 tasks. Experts' median forecasts are compared to actual outcomes in Figure 6 (p. 1962). The analysis uses a paired comparison of forecast vs. actual for each of the 7 tasks; no regression is reported. Camerer and Lovallo (1999) document overconfidence in entry decisions; the expert results here parallel that finding in the prediction domain. Moore and Healy (2008) provide the taxonomy of overconfidence types that the paper uses to frame what experts miss. Kendall and Oprea (2018) study the market selection hypothesis in a related laboratory design.
 
 ## Datasets used
 

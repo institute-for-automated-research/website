@@ -6,13 +6,13 @@ description: >-
   negatives in second-best fairness decisions. A majority are false negative
   averse across three economic environments, with substantial heterogeneity by
   country and political affiliation. American Economic Review 2023, AEA
-  copyright. Six core results with source locators, datasets used, the
+  copyright. Twelve core results with source locators, datasets used, the
   theoretical model, and the estimation strategy.
 sidebar:
   label: Cappelen et al. 2023
   order: 1
 tags: [paper-summary, behavioral-economics, fairness, redistribution,
-       social-insurance, political-economy, panel-regression,
+       social-insurance, political-economy,
        peer-reviewed, unreplicated]
 paper:
   authors: Alexander W. Cappelen, Cornelius Cappelen, and Bertil Tungodden
@@ -39,22 +39,23 @@ paper:
     - policy attitudes toward unemployment benefits and income redistribution
   outcomeClass: [social-preferences]
   license: >-
-    AEA copyright; article freely accessible on AEAweb after 3-year embargo
-    (expires September 2026); Crossref returned no license block (checked
-    2026-06-24); no Creative Commons licence
+    AEA copyright; the three-year embargo expired September 2026. The publisher
+    PDF endpoint returned 403 on 2026-10-04; Crossref listed no license block
+    (checked 2026-06-24); no Creative Commons licence identified
   licenseShort: AEA copyright
   access: paywalled
-  machineAccess: "blocked-paywall (AEA/AEAweb; 3-year embargo expires September 2026; 2026-06-24)"
+  machineAccess: "blocked-403 (AEA publisher PDF endpoint; 2026-10-04)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 12
   citedByCount: 34
   introducesData: true
   methods:
     role: both
     family: reduced-form-causal
-    buildsFrom: [randomized-survey-experiment, panel-regression]
+    buildsFrom: [randomized-survey-experiment]
     identification: randomized
   contributionType: [new-theory, new-fact]
+  mechanisms: [second-best-fairness-preferences]
   scope:
     region: "US, Norway"
     period: "2022"
@@ -91,11 +92,41 @@ paper:
     - ref: R6
       outcome: policy attitudes toward unemployment benefits and income redistribution
       metric: coefficient
-      value: "Paying predicts support for generous unemployment benefits: coeff 0.562 (SE=0.025, p<0.001); income inequality: coeff 0.354 (SE=0.025, p<0.001)"
+      value: "Paying is positively associated with support for generous unemployment benefits: coeff 0.562 (SE=0.025, p<0.001); support for reducing income inequality: coeff 0.354 (SE=0.025, p<0.001), with associations persisting after controls"
       direction: positive
+    - ref: R7
+      outcome: share of false negative averse and false positive averse spectators
+      metric: pp-effect
+      value: "Compensation experiment: strongly false positive averse 25.3% in US versus 15.5% in Norway; strongly false negative averse 39.1% versus 47.8% (both country differences p<0.001)"
+      direction: mixed
+    - ref: R8
+      outcome: spectator probability of paying (binary decision)
+      metric: pp-effect
+      value: "Compensation experiment additional treatments: high stakes -4.3 pp (SE=0.021); nationality information -0.9 pp (SE=0.020); endowment -1.4 pp (SE=0.020); none robust to multiple-testing correction"
+      direction: none
+    - ref: R9
+      outcome: spectator probability of paying (binary decision)
+      metric: pp-effect
+      value: "Personal cost treatments: low cost -6.0 pp (SE=0.024), high cost -6.4 pp (SE=0.024) pooled; US effects -11.3 pp (SE=0.032) and -8.6 pp (SE=0.031); Norway effects -0.8 pp (SE=0.036) and -4.3 pp (SE=0.036), not significant"
+      direction: negative
+    - ref: R10
+      outcome: share of false negative averse and false positive averse spectators
+      metric: probability
+      value: "Earnings experiment, pooled: FP-averse lower/upper bounds 19.6%/26.0%; symmetric upper bound 12.7%; FN-averse lower/upper bounds 67.6%/74.0%; N=5,391"
+      direction: mixed
+    - ref: R11
+      outcome: spectator probability of paying (binary decision)
+      metric: pp-effect
+      value: "Earnings versus compensation treatment interactions are small and almost all insignificant; none survives multiple-hypothesis correction"
+      direction: none
+    - ref: R12
+      outcome: spectator probability of paying (binary decision)
+      metric: probability
+      value: "Unemployment experiment: 95.6% would pay when a claim is certainly correct; 94.0% would refuse payment when it is certainly false; most remain false-negative averse at intermediate probabilities. Disability-benefit treatment shows a similar pattern (conclusion, p. 2483)"
+      direction: mixed
   resultType: new-finding
   relatesTo:
-    - { cite: "Cappelen et al. (2013a)", doi: '10.1111/jeea.12000', relation: builds-on, note: "the expected utility function for second-best fairness preferences extends their just-luck framework" }
+    - { cite: "Cappelen et al. (2013a)", relation: builds-on, note: "the expected utility function for second-best fairness preferences extends their just-luck framework" }
     - { cite: "Almås, Cappelen, and Tungodden (2020)", doi: '10.1086/705551', relation: builds-on, note: "cross-country comparison of US and Norway on distributive preferences and meritocratic versus egalitarian views" }
     - { cite: "Alesina and Angeletos (2005)", doi: '10.1257/0002828054825655', relation: cites, note: "foundational reference on fairness views and redistribution preferences across countries" }
   openQuestions:
@@ -110,6 +141,8 @@ paper:
       date: 2026-06-25
       role: verified
       note: "Locators and magnitudes re-checked against source PDF (all six rows pass); two fixes: JEL codes D72 and H23 added (missing from distiller list; PDF p. 2458 shows D63,D72,D78,H23,I38); equation (7) scale corrected five-point to seven-point (Table 7 notes and p. 2481 both say seven-point; five-point on p. 2471 is a typo in the source paper, confirmed by constant=4.009)."
+    - { by: "paper-distiller (gpt-6-luna)", date: "2026-10-04", role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results table with six distinct findings, corresponding findings metadata, the missing mechanism vocabulary proposal, and estimating-specification details. Formal sections and numbered equations were already present. Not human-verified. Not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: "2026-10-04", role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Checked all 12 Core results, equations, specifications, classification axes, findings, locators, and prose against the PDF; corrected the personal-cost treatment summary, association language, and cross-sectional method label, and removed a mismatched DOI. All reported rows and headline claims are supported." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20211015", checked: "2026-06-24", by: "paper-distiller (claude-sonnet-4-6)", found: "no license[] array; container-title American Economic Review; published 2023-09-01; volume 113 issue 9 pages 2458-2485; no Creative Commons entry" }
 ---
@@ -118,7 +151,7 @@ paper:
 
 ## TL;DR
 
-The paper examines how people trade off false positives (paying an undeserving individual) against false negatives (not paying a deserving individual) in second-best fairness decisions. Across three large-scale experiments in the United States and Norway (26,500 spectators total), the large majority of spectators are false negative averse: they prefer risking a false positive over a false negative. When the probability of a false claim is 50 percent, 72.4 percent of spectators still choose to pay, consistent with placing higher weight on avoiding a false negative. However, about 20 percent are strongly false positive averse. Americans are more false positive averse and less false negative averse than Norwegians, and right-wing spectators exhibit the same pattern within both countries. These second-best fairness preferences strongly predict policy attitudes on unemployment benefits and income redistribution, above and beyond stated fairness views and altruism.
+The paper examines how people trade off false positives (paying an undeserving individual) against false negatives (not paying a deserving individual) in second-best fairness decisions. Across three large-scale experiments in the United States and Norway (26,500 spectators total), the large majority of spectators are false negative averse: they prefer risking a false positive over a false negative. When the probability of a false claim is 50 percent, 72.4 percent of spectators still choose to pay, consistent with placing higher weight on avoiding a false negative. However, about 20 percent are strongly false positive averse. Americans are more false positive averse and less false negative averse than Norwegians, and right-wing spectators exhibit the same pattern within both countries. These second-best fairness preferences are positively associated with policy attitudes on unemployment benefits and income redistribution, including after controls for stated fairness views, efficiency beliefs, altruism, and religiosity.
 
 ## Core results
 
@@ -131,9 +164,15 @@ Magnitudes are as reported; `\*\*\*` = 1%. Locators point into the source PDF.
 | R3 | **Majority have highly asymmetric preferences: 20.3% strongly FP averse, 43.5% strongly FN averse** | Figure 2 upper-left panel, p. 2475; text p. 2474 | Strongly FP averse (beta <= 0.25): 20.3%; strongly FN averse (beta >= 0.75): 43.5% of pooled sample |
 | R4 | **US spectators are more FP averse and less FN averse than Norwegians** across all experiments | Table 6 right panel, p. 2481 | Strongly FP averse US vs Norway: +11.8 pp (SE=0.017, p<0.001); strongly FN averse: -10.0 pp (SE=0.021, p<0.001) |
 | R5 | **Right-wing spectators are less FN averse and more FP averse** than non-right-wing spectators | Table 6 left panel, p. 2481 | FN averse -9.5 pp (SE=0.010, p<0.001); strongly FP averse +6.2 pp (SE=0.019, p<0.001); strongly FN averse -12.1 pp (SE=0.022, p<0.001) |
-| R6 | **Second-best fairness preferences predict policy attitudes independently of stated fairness views** | Table 7, p. 2482 | Paying predicts support for generous unemployment benefits: coeff 0.562 (SE=0.025, p<0.001); income inequality: 0.354 (SE=0.025, p<0.001); survives controls for fairness views, efficiency costs, altruism, religiosity |
+| R6 | **Second-best fairness preferences are associated with policy attitudes beyond stated fairness views** | Table 7, p. 2482 | Paying is positively associated with support for generous unemployment benefits: coeff 0.562 (SE=0.025, p<0.001); support for reducing income inequality: 0.354 (SE=0.025, p<0.001); associations persist after controls for fairness views, efficiency costs, altruism, and religiosity |
+| R7 | **The country gap in strong preference types also appears in the compensation experiment** | Figure 2, p. 2475; text p. 2475 | Strongly FP averse: US 25.3% vs Norway 15.5% (p<0.001); strongly FN averse: US 39.1% vs Norway 47.8% (p<0.001) |
+| R8 | **Higher stakes, nationality information, and an endowment have no robust effect on paying** | Table 5, Panel A and Panel B Endowment, p. 2476; text p. 2476 | High stakes: -0.043 (SE=0.021); nationality information: -0.009 (SE=0.020); endowment: -0.014 (SE=0.020); estimates are not robust to multiple-testing correction |
+| R9 | **A personal cost reduces paying, mainly among US spectators** | Table 5, Panel B Cost, p. 2476; text p. 2477 | Pooled: low cost -0.060 (SE=0.024), high cost -0.064 (SE=0.024); US: -0.113 (SE=0.032), -0.086 (SE=0.031); Norway: -0.008 (SE=0.036), -0.043 (SE=0.036), not significant |
+| R10 | **The earnings experiment reproduces the prevalence of asymmetric types** | Table 4, upper panel, p. 2474 | FP-averse lower/upper bounds 19.6%/26.0%; symmetric upper bound 12.7%; FN-averse lower/upper bounds 67.6%/74.0%; N=5,391 |
+| R11 | **The compensation and earnings treatment effects do not differ robustly** | Figure 3, Panel A, p. 2478; text p. 2478 | Interaction effects are small and almost all insignificant; none is robust to multiple-hypothesis correction |
+| R12 | **The main pattern carries over to hypothetical benefit decisions** | Figure 4, p. 2480; text pp. 2479, 2483 | Unemployment-benefit willingness to pay is 95.6% when a claim is certainly correct; 94.0% refuse payment when it is certainly false. The majority remain false-negative averse; disability-benefit treatment shows a similar pattern (p. 2483) |
 
-**Overall (paper's conclusion).** The majority of spectators in both countries are false negative averse in all three experiments. A significant minority is strongly false positive averse. Country and political differences are of similar magnitude: the US-Norway gap mirrors the right-wing/non-right-wing gap within each country. These second-best fairness preferences are strongly predictive of real-world policy attitudes on redistribution and social insurance, suggesting they are a fundamental ingredient in the political economy of welfare institutions.
+**Overall (paper's conclusion).** The majority of spectators in both countries are false negative averse in all three experiments. A significant minority is strongly false positive averse. Country and political differences are of similar magnitude: the US-Norway gap runs in the same direction as the right-wing/non-right-wing gap within each country. These second-best fairness preferences are positively associated with policy attitudes on redistribution and social insurance, including after controls for fairness views and beliefs about policy costs.
 
 ## Theory / model
 
@@ -177,7 +216,7 @@ $$
 
 ## Method
 
-The estimation strategy is between-subject OLS on the binary payment indicator, applied to the pooled sample and separately for each country (Section III, pp. 2468-2471). The approach builds on `randomized-survey-experiment` (spectators randomly assigned to treatment arms) and `panel-regression` (linear probability model with controls and population weights).
+The estimation strategy is between-subject OLS on the binary payment indicator, applied to the pooled sample and separately for each country (Section III, pp. 2468-2471). The approach builds on `randomized-survey-experiment` (spectators randomly assigned to treatment arms), estimated with population-weighted linear probability regressions with controls. Regressions are population weighted; these cross-sectional specifications have no fixed effects, and standard errors are reported in parentheses. The paper reports Holm-Bonferroni and Romano-Wolf corrections for multiple hypotheses.
 
 The main specification for treatment effects (equation 4, p. 2468):
 
@@ -193,7 +232,7 @@ $$
 e_i = \alpha + \alpha_1 M_i + \gamma \mathbf{X}_i + \varepsilon_i, \tag{5}
 $$
 
-where $$M_i$$ indicates the specific additional treatment (doubled stakes, nationality framing, or endowment introduction). For the cost treatments (equation 6, p. 2470):
+where $$M_i$$ indicates the specific additional treatment (doubled stakes, nationality information, or endowment introduction). For the cost treatments (equation 6, p. 2470):
 
 $$
 e_i = \alpha + \alpha_1 C(0.1)_i + \alpha_1 C(0.3)_i + \gamma \mathbf{X}_i + \varepsilon_i, \tag{6}
@@ -209,11 +248,21 @@ $$
 
 where $$\text{pol}_i$$ is stated support for unemployment benefit generosity or income equalization on a seven-point scale, and $$\text{pay}_i$$ is an indicator for having paid in the experiment.
 
+Equation (4) is estimated by experiment and country, with and without controls. The Compensation samples in Table 3 are 5,395 pooled observations, 2,695 US, and 2,700 Norway; the Earnings main sample has 5,391 observations (Section III, pp. 2468-2471; Table 3, p. 2473; Table 4, p. 2474). The same design is used for the Unemployment survey experiment and for pooled comparisons. Equation (5) compares a manipulated arm with the main Compensation arm at a 50 percent false-claim probability; Table 5 reports 2,696 observations for each pooled high-stakes, nationality, and endowment comparison. Equation (6) compares the two personal-cost arms with the endowed no-cost arm; Table 5 reports 2,699 pooled observations. These Table 5 estimates are population-weighted OLS, with standard errors in parentheses and no fixed effects (pp. 2470, 2476).
+
+Two further regressions are described but not printed as numbered equations. Written out from Section III (p. 2471), the cross-experiment comparison adds treatment-by-experiment interactions to equation (4):
+
+$$
+e_i = \alpha + \sum_{j \in \{0.25,0.5,0.75,1\}} \alpha_j P(j)_i + \delta C_i + \sum_{j \in \{0.25,0.5,0.75,1\}} \theta_j\bigl(P(j)_i \times C_i\bigr) + \gamma \mathbf{X}_i + \varepsilon_i,
+$$
+
+where $$C_i$$ indicates participation in the Compensation experiment. This comparison pools Compensation with Earnings or Unemployment, uses randomized treatment arms, and reports population-weighted OLS with standard errors in parentheses; Figure 3 plots the estimates for the Earnings and Unemployment comparisons (p. 2478). The political-affiliation specification described on p. 2470 adds interactions between treatment indicators and right-wing affiliation to equation (4). The pooled estimates cover 22,476 observations (Table 6, p. 2481). Equation (7) is estimated on this same 22,476-observation sample for both policy outcomes in Table 7, with columns progressively adding fairness, policy-cost, demographic, altruism, and religiosity controls; estimates are population weighted, with standard errors in parentheses (p. 2482). The printed specification text on p. 2471 calls the attitude scale five-point, while Table 7 identifies the dependent outcomes as seven-point scales; the table's scale description is used here. None of the specifications includes fixed effects.
+
 ## Empirical specifications
 
 Three experiments share the same between-subject design. In each, spectators are randomly assigned to one of five treatments where $$\Pr(f) \in \{0, 0.25, 0.5, 0.75, 1\}$$, then decide whether to pay a worker whose claim may be false.
 
-**Compensation experiment** (Section II.A, pp. 2463-2465). Workers are recruited on an international online labor market platform. It is randomly determined whether they are offered work. Those not offered work are entitled to a compensation of US$4 ($$m(c) = 4$$, $$m(f) = 0$$). Spectators are told the false-claim probability for the matched worker and decide whether to pay. The main sample is 5,395 spectators (2,695 US, 2,700 Norway). Additional treatments at $$\Pr(f) = 0.5$$ test: (i) high stakes (US$8 compensation, Panel A Table 5); (ii) nationality framing, where stakes are reported in local currency and workers are implied to be compatriots (Panel A); (iii) three endowment-plus-cost arms (Panel B). All produce null effects, consistent with the theoretical prediction that stake size and in-group salience should not affect the FP-FN trade-off (RESULT 3).
+**Compensation experiment** (Section II.A, pp. 2463-2465). Workers are recruited on an international online labor market platform. It is randomly determined whether they are offered work. Those not offered work are entitled to a compensation of US$4 ($$m(c) = 4$$, $$m(f) = 0$$). Spectators are told the false-claim probability for the matched worker and decide whether to pay. The main sample is 5,395 spectators (2,695 US, 2,700 Norway). Additional treatments at $$\Pr(f) = 0.5$$ test: (i) high stakes (US$8 compensation); (ii) nationality information, withholding that workers were recruited on an international labor-market platform and reporting pay in local currency; and (iii) endowment and personal-cost arms (Table 5, p. 2476). High stakes, nationality information, and the endowment alone have no robust effect; adding a personal cost reduces payment, mainly among US spectators (RESULT 3).
 
 **Earnings experiment** (Section II.B, pp. 2465-2466). Same structure but the claim is for earnings from completing a 15-minute task rather than compensation for not being offered work. Spectators in 5,391 observations (main study, excluding pilot). Treatment effects are tested for differences from the Compensation experiment via interaction terms (Figure 3, Panel A). All interaction effects are small and not robust to multiple-testing correction (RESULT 4), confirming the preferences are not specific to the compensation context.
 
@@ -236,6 +285,6 @@ Read the [original](https://doi.org/10.1257/aer.20211015) if you are: designing 
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(9), September 2023. AEA copyright; not yet freely available on AEAweb (3-year embargo expires September 2026). This distillation was extracted by an LLM on 2026-06-24 and is **not human-verified or independently reproduced**. Redistribution is extract-only; the PDF is not hosted here.
+Source: peer-reviewed, *American Economic Review* 113(9), September 2023. AEA copyright; the three-year embargo expired September 2026, but the publisher PDF endpoint returned 403 on 2026-10-04. This page was distilled from the article and its reported claims were re-checked against the source PDF on 2026-10-04; it has not been independently reproduced. Redistribution is extract-only; the PDF is not hosted here.
 
 > Cappelen, Alexander W., Cornelius Cappelen, and Bertil Tungodden. "Second-Best Fairness: The Trade-Off between False Positives and False Negatives." *American Economic Review* 113, no. 9 (September 2023): 2458-2485. DOI: 10.1257/aer.20211015.

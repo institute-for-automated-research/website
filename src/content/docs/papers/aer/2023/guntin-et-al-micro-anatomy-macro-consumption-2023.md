@@ -1,13 +1,14 @@
 ---
-title: "Micro Anatomy of Macro Consumption Adjustments: Guntin, Ottonello & Perez (2023)"
+title: "The Micro Anatomy of Macro Consumption Adjustments: Guntin, Ottonello & Perez (2023)"
 description: >-
-  Distilled: Documents that consumption-income elasticities are near unity across
-  all income groups during macro consumption crises (Euro crisis and emerging-market
-  sudden stops), including among top-income and asset-rich households; a calibrated
-  heterogeneous-agent model shows the permanent-income view explains the micro
-  patterns while credit-tightening theories predict a cross-sectional pattern
-  inconsistent with the data. American Economic Review 2023, AEA copyright
-  (free-to-read after 12-month embargo). Seven core results with source locators,
+  Distilled: Documents that top-income households have consumption-income
+  elasticities similar to or larger than the average during the Euro crisis and
+  emerging-market sudden stops. Elasticities are broadly flat across income in
+  Europe and rise with income in emerging markets; a calibrated heterogeneous-agent
+  model shows the permanent-income view can explain these patterns while the
+  credit-tightening view predicts a pattern inconsistent with the data. American
+  Economic Review 2023, AEA copyright
+  (free-to-read after 12-month embargo). Fourteen core results with source locators,
   datasets used, the model, and the empirical specifications.
 sidebar:
   label: Guntin-Ottonello-Perez 2023
@@ -27,8 +28,8 @@ paper:
   doi: 10.1257/aer.20201931
   jel:
     codes: [D31, E21, E32, F33, G51, O11, O12]
-    assignedBy: authors
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Economic theories and models", "Housing Market and Economics", "Financial Literacy, Pension, Retirement Analysis"]
   dataAccess: public
   outcome:
@@ -41,7 +42,7 @@ paper:
   access: open
   machineAccess: "blocked-403 (pubs.aeaweb.org, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 14
   citedByCount: 14
   methods:
     role: both
@@ -54,8 +55,8 @@ paper:
     region: "Italy, Spain, Mexico, Peru"
     assetClass: household nondurable consumption and nonfinancial income
     period: 1994..2014
-    frequency: annual
-    dataType: [survey, administrative]
+    frequency: mixed
+    dataType: [survey]
     granularity: [individual, aggregate]
     n: "90,199 household-observations across five crisis episodes"
   findings:
@@ -64,15 +65,22 @@ paper:
     - { ref: R3, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "liquid-asset holders: average 0.86, top-income 1.01", direction: positive, vsBenchmark: "similar to full-sample; no decline for asset-rich households (Table 1, Panel B, p. 2209)" }
     - { ref: R4, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "all demographic subgroups show elasticities broadly near or above 1 (Table 2, range 0.53-2.70 across subgroups)", direction: positive }
     - { ref: R5, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: elasticity, value: "PI model predicts elasticities close to 1 for all income deciles; robust to heterogeneous loadings, wealth revaluations, uncertainty (Figure 5, p. 2220)", direction: positive, vsBenchmark: "PI view reproduces flat observed pattern; calibrated model matches Italian data" }
-    - { ref: R6, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: elasticity, value: "CT model predicts elasticities decreasing with income: rich households smooth, poor adjust more; opposite of data (Figure 7, Panel B, p. 2226)", direction: none, vsBenchmark: "CT cross-sectional prediction finds no support in the data" }
-    - { ref: R7, outcome: effectiveness of fiscal transfer stimulus under competing crisis views, metric: coefficient, value: "MPC from one-time transfer lowest under PI crisis, highest under CT crisis; decreasing in income across all scenarios (Figure 8, p. 2228)", direction: positive, vsBenchmark: "stimulus much less effective under PI view than CT view" }
-  resultType: new-finding
+    - { ref: R6, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: elasticity, value: "CT model predicts elasticities decreasing with income: rich households smooth, poor adjust more; unlike the flat Italian crisis pattern in the data (Figure 7, Panel B, p. 2226)", direction: negative, vsBenchmark: "CT cross-sectional prediction is inconsistent with the observed Italian pattern" }
+    - { ref: R7, outcome: effectiveness of fiscal transfer stimulus under competing crisis views, metric: level, value: "MPC from one-time transfer lowest under PI crisis, highest under CT crisis; decreasing in income across all scenarios (Figure 8, p. 2228)", direction: positive, vsBenchmark: "stimulus much less effective under PI view than CT view" }
+    - { ref: R8, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: level, value: "Average across five episodes: change in log income = -0.19; change in log consumption = -0.16 (Table 1, Panel A, p. 2209)", direction: negative }
+    - { ref: R9, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "Homeowners average 0.97; non-homeowners average 0.83 across episodes (Table 2, Panel A, p. 2212)", direction: positive, vsBenchmark: "Large adjustments remain among households without home equity, which the authors use to assess the illiquid-wealth revaluation explanation" }
+    - { ref: R10, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "Business owners average 1.31; nonowners average 0.89 across episodes (Table 2, Panel A, p. 2212)", direction: positive, vsBenchmark: "Large adjustments remain among households without businesses, which the authors use to assess the illiquid-wealth revaluation explanation" }
+    - { ref: R11, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "Table 2 subgroup averages: age 0.88-1.01; education 0.89-1.25; location 0.95; sector 0.88-0.99; full-time employment 0.89-0.95 (Table 2, Panel B, p. 2212)", direction: positive }
+    - { ref: R12, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: elasticity, value: "Italy: elasticities close to 1 across income quintiles; US: 0.2-0.6 across quintiles (Figure 4, p. 2214; text p. 2214)", direction: positive, vsBenchmark: "Italy's business-cycle elasticities exceed US estimates" }
+    - { ref: R13, outcome: cross-sectional patterns of aggregate consumption adjustment, metric: elasticity, value: "The model with Stone-Geary nonhomotheticity reproduces the increasing elasticity pattern in Mexico; 1% of Italian households versus 16% of Mexican households are below the indigence-based subsistence threshold (Figure 6, p. 2223; text p. 2223)", direction: positive, vsBenchmark: "The nonhomothetic extension matters more for Mexico than Italy" }
+    - { ref: R14, outcome: household consumption-income elasticity across the income distribution during crises, metric: elasticity, value: "Individual consumption elasticities: 0.32 in Appendix Table A1 to 0.36 for countries in the sample (text p. 2208); households in the sample have less consumption insurance than US households", direction: positive, vsBenchmark: "Individual elasticity and partial-insurance coefficients are larger in the sample countries than in the US" }
+  resultType: mixed
   relatesTo:
     - { cite: "Aguiar and Gopinath (2007)", doi: '10.1086/511283', relation: builds-on, note: "permanent-income view of emerging-market crises that the model formalizes and tests" }
     - { cite: "Mendoza (2005)", relation: tests, note: "credit-tightening via collateral constraints; micro predictions challenged by the observed elasticity patterns" }
     - { cite: "Eggertsson and Krugman (2012)", doi: '10.1093/qje/qjs023', relation: tests, note: "debt-deleveraging and liquidity trap view; predicts rich households smooth consumption, opposite of data" }
     - { cite: "Blundell, Pistaferri, and Preston (2008)", doi: '10.1257/aer.98.5.1887', relation: builds-on, note: "methodology for measuring consumption inequality and partial insurance; used for residualized elasticity measurement" }
-    - { cite: "Kaplan, Violante, and Weidner (2014)", doi: '10.1353/eca.2014.0007', relation: cites, note: "wealthy hand-to-mouth definition; Table 1 Panel B rules out this channel as driver of main results" }
+    - { cite: "Kaplan, Violante, and Weidner (2014)", relation: cites, note: "wealthy hand-to-mouth definition; Table 1 Panel B rules out this channel as driver of main results" }
   openQuestions:
     - "How the path of aggregate income during crises is determined; the analysis abstracts from how financial frictions affect income persistence itself (pp. 2204, 2227)."
     - "Two-asset model extensions to better capture the hand-to-mouth behavior concentrated at the bottom of the income distribution and its implications for transfer policy (footnote 20, p. 2227)."
@@ -83,6 +91,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 2201-2231). Not human-verified. Not reproduced. Model equations from pp. 2215-2217 (eqs. 1-4, AR1 income) and pp. 2222, 2224 (eqs. 5-6). Empirical specs from p. 2208 and p. 2214." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: JEL codes expanded from 3 to 7 (authors' own codes from abstract: added F33, G51, O11, O12) and assignedBy corrected to authors; R4 findings[] range corrected from 0.60-2.70 to 0.53-2.70 (Table 2 minimum is 0.53, Full-time No / Mexico '08); Method section targeted-moment locator corrected from Table 3 p. 2218 to Table 4 p. 2219 (Table 3 contains parameter values, Table 4 contains targeted moments). All seven Core result magnitudes verified against Tables 1-2 and Figures 5/7/8; model equations (1)-(6) and AR(1) income process verified term-by-term against pp. 2215-2217 and pp. 2219/2224; calibration values verified against Tables 3-4." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added main-text results, completed equation and specification coverage, and staged no new vocabulary; additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, magnitudes, equations, and specifications checked against the PDF; corrected summary emphasis, findings directions/metrics, scope classifications, and removed a mismatched DOI. Fourteen rows supported; one headline inequality result is omitted." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20201931", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No license[] block in Crossref metadata; title, authors, container-title American Economic Review, published 2023-08, pages 2201-2231 confirmed" }
     - { source: "www.aeaweb.org/articles?id=10.1257/aer.20201931", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "Copyright 2026 American Economic Association. All rights reserved. No Creative Commons licence displayed." }
@@ -93,7 +103,7 @@ paper:
 
 ## TL;DR
 
-This paper documents the cross-sectional patterns of consumption adjustment during five episodes of large aggregate consumption decline: the Euro crisis in Italy and Spain, and three emerging-market sudden stops (Mexico 1994, Mexico 2008, Peru 2008). The central finding is that consumption-income elasticities are near unity across all income groups, including top-income and asset-rich households, contradicting the expectation from credit-tightening theories that wealthy households should smooth consumption. A calibrated heterogeneous-agent open-economy model shows the permanent-income view of crises, in the tradition of Aguiar and Gopinath (2007), can account for the micro-level patterns. Credit-tightening theories, as in Mendoza (2005) and Eggertsson and Krugman (2012), predict a decreasing elasticity pattern across the income distribution that is at odds with the data. The divergence between the two views has direct implications for fiscal transfer policy effectiveness.
+This paper documents the cross-sectional patterns of consumption adjustment during five episodes of large aggregate consumption decline: the Euro crisis in Italy and Spain, and three emerging-market sudden stops (Mexico 1994, Mexico 2008, Peru 2008). Top-income households have consumption-income elasticities similar to or larger than the average in every episode. Elasticities are broadly flat across income in the Euro crisis and increase with income in emerging-market episodes. A calibrated heterogeneous-agent open-economy model shows the permanent-income view of crises, in the tradition of Aguiar and Gopinath (2007), can account for these micro-level patterns. Credit-tightening theories, as in Mendoza (2005) and Eggertsson and Krugman (2012), predict a decreasing elasticity pattern across income that conflicts with the observed patterns. The divergence between the two views has direct implications for fiscal transfer policy effectiveness.
 
 ## Core results
 
@@ -106,10 +116,17 @@ Magnitudes from source tables; locators point into the source PDF.
 | R3 | Households holding liquid assets show consumption-income elasticities near the average, ruling out a hand-to-mouth interpretation for the top-income result | Table 1, Panel B, p. 2209 | Liquid-asset holders: average elasticity 0.86, top-income elasticity 1.01; defined as holding liquid assets exceeding two weeks of income per Kaplan, Violante, and Weidner (2014) |
 | R4 | High consumption-income elasticities appear across all observable household characteristics: age group, education level, geography, employment status, and economic sector | Table 2, p. 2212 | All subgroups show elasticities broadly near or above 1; no systematic pattern concentrating the result in a specific demographic group |
 | R5 | The permanent-income (PI) model calibrated for Italy reproduces a flat elasticity pattern close to 1 for all income deciles, matching the data; the result is robust to multiple extensions | Figure 5, p. 2220; Table 3 (calibration), p. 2218 | PI model predicts elasticities close to 1 across all deciles; pattern robust to heterogeneous income loadings, negative asset revaluations, and uncertainty shocks (Panels A-D) |
-| R6 | The credit-tightening (CT) model predicts a decreasing elasticity pattern across the income distribution (rich smooth, poor adjust more), at odds with the observed flat or increasing pattern | Figure 7, Panel B, p. 2226 | CT model predicts rich-household elasticities near 0 and poor-household elasticities well above 1; data show the opposite |
+| R6 | The credit-tightening (CT) model predicts a decreasing elasticity pattern across the income distribution (rich smooth, poor adjust more), at odds with the observed flat Italian crisis pattern | Figure 7, Panel B, p. 2226 | The CT model predicts lower elasticities for richer households than for poorer households, unlike the broadly flat observed Italian pattern |
 | R7 | Fiscal transfer stimulus is less effective under the PI crisis experiment than under the CT crisis; the MPC from a one-time transfer is positive but decreasing in income in all scenarios | Figure 8, p. 2228 | MPC from transfer is highest under the CT crisis (borrowing-constrained households have high MPC), lowest under the PI crisis; PI-crisis MPC close to steady-state transitory-shock MPC |
+| R8 | Income and consumption both contract on average across the five crisis episodes | Table 1, Panel A, p. 2209 | Average change in log income: -0.19; average change in log consumption: -0.16 |
+| R9 | Large consumption-income elasticities also appear among households without home ownership, weakening the illiquid-wealth revaluation explanation | Table 2, Panel A, p. 2212 | Average elasticity: homeowners 0.97; non-homeowners 0.83 |
+| R10 | Large consumption-income elasticities also appear among households without business ownership, weakening the illiquid-wealth revaluation explanation | Table 2, Panel A, p. 2212 | Average elasticity: business owners 1.31; nonowners 0.89 |
+| R11 | Elevated elasticities are broad across age, education, location, sector, and full-time employment groups | Table 2, Panel B, p. 2212 | Average elasticity: age groups 0.88-1.01; education groups 0.89-1.25; location groups 0.95; sectors 0.88-0.99; full-time employment groups 0.89-0.95 |
+| R12 | The near-unit elasticity pattern also appears in regular Italian business cycles, while US elasticities are lower | Figure 4, p. 2214; text p. 2214 | Italy estimates are close to 1 across income quintiles; US estimates range from 0.2 to 0.6 |
+| R13 | Stone-Geary nonhomothetic preferences allow the permanent-income model to reproduce rising elasticities across Mexican income deciles | Figure 6, p. 2223; text p. 2223 | Model with nonhomotheticity reproduces the increasing Mexican pattern; below-indigence share: Italy 1%, Mexico 16% |
+| R14 | Household-level consumption smoothing remains present, but the sample countries have less consumption insurance than the US | text p. 2208 | Individual consumption elasticities range from 0.32 in Appendix Table A1 to 0.36 for sample countries; sample-country elasticities and partial-insurance coefficients exceed US counterparts |
 
-**Overall (paper's conclusion).** The consumption-income elasticities observed during these crises are large and broadly uniform across the income distribution, including for households with liquid assets that should be able to smooth under borrowing-constraint theories. The permanent-income view of crises can account for these patterns analytically and quantitatively. Credit-tightening theories face a challenge explaining why income-rich households adjust consumption as much as the average. The difference has policy bite: fiscal transfers are less effective in stimulating consumption when the crisis reflects a permanent income decline than when it stems from a borrowing-constraint tightening.
+**Overall (paper's conclusion).** Top-income households have large consumption-income elasticities similar to or larger than the average, even though the shape across income differs: it is broadly flat in European episodes and rises with income in emerging-market episodes. The permanent-income view of crises can account for these patterns analytically and quantitatively. Credit-tightening theories face a challenge explaining why income-rich households adjust consumption as much as the average. The difference has policy bite: fiscal transfers are less effective in stimulating consumption when the crisis reflects a permanent income decline than when it stems from a borrowing-constraint tightening.
 
 ## Theory / model
 
@@ -168,7 +185,7 @@ The model is solved via `value-function-iteration` on a discrete state space. St
 The heterogeneous-loading extension (equation 5, p. 2219) replaces $$y_{it} = \mu_{it} Y_t$$ with:
 
 $$
-y_{it} = \mu_{it} Y_t^{\Gamma(\mu_{it})},
+y_{it} = \mu_{it} Y_t^{\Gamma(\mu_{it})}, \tag{5}
 $$
 
 where $$\Gamma(\mu_{it})$$ is estimated nonparametrically from the income dynamics of each decile in Italian crisis data.
@@ -191,9 +208,21 @@ $$
 \Delta \ln c_{q,t} = \alpha_q + \beta_q\, \Delta \ln y_{q,t} + \varepsilon_{q,t},
 $$
 
-where $$c_{q,t}$$ and $$y_{q,t}$$ are average residualized consumption and income in quintile $$q$$ at year $$t$$. Estimates of $$\beta_q$$ are close to 1 for all quintiles in Italy, and range from 0.2 to 0.6 for the United States, consistent with the aggregate evidence that Italy exhibits less consumption smoothing than the US.
+where $$c_{q,t}$$ and $$y_{q,t}$$ are average residualized consumption and income in quintile $$q$$ at time $$t$$. The quintile-specific intercept $$\alpha_q$$ is the only stated fixed component; each quintile equation is estimated separately. Figure 4 reports 90% confidence intervals, but the main text does not specify the standard-error estimator. Estimates of $$\beta_q$$ are close to 1 for all quintiles in Italy, and range from 0.2 to 0.6 for the United States. The Italian SHIW series spans more than four decades; the CEX comparison uses 1980-2010 (text p. 2214).
 
-**Crisis experiments.** The model replicates the same elasticity statistic computed from the data. Under the PI experiment: aggregate income follows $$\log Y_t = \log Y_{t-1} + \rho_g^t \varepsilon_Y$$ with $$\varepsilon_Y = -0.15$$ and $$\rho_g = 0.24$$, calibrated to match the aggregate elasticity from Section I. Under the CT experiment: income is transitory (persistence $$\rho_Y = 0.9$$) and the borrowing constraint tightens via $$f(Y_t) = Y_t^{\nu}$$ with $$\nu = 2.7$$; the sensitivity of the constraint to aggregate income is identified by the aggregate consumption-income elasticity (Figure 7, p. 2226).
+**Crisis experiments.** In each simulated crisis, the paper computes the same decile-level elasticity as in the data. The PI experiment specifies the expected aggregate-income path as (p. 2218):
+
+$$
+\log Y_t = \log Y_{t-1} + \rho_g^t \varepsilon_Y, \quad \varepsilon_Y = -0.15, \quad \rho_g = 0.24.
+$$
+
+For the CT experiment, aggregate income follows a mean-reverting path (p. 2226):
+
+$$
+\log Y_t = \rho_Y^t \varepsilon_Y, \quad \rho_Y = 0.9.
+$$
+
+The borrowing constraint is $$a_{i,t+1} \geq -\kappa f(Y_t)$$, with $$f(Y_t) = Y_t^{\nu}$$ and $$\nu = 2.7$$ (equation 6, p. 2224; calibration and Figure 7, p. 2226). The sensitivity of the constraint to aggregate income is calibrated to match the aggregate consumption-income elasticity. These are deterministic model simulations, so no regression fixed effects or sampling standard errors apply.
 
 ## Datasets used
 

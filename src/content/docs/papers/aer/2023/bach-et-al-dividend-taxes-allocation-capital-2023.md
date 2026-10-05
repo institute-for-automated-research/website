@@ -6,7 +6,7 @@ description: >-
   pre-trends and showing that "size growth" controls are lagged outcome
   controls; no corrected specification produces convincing evidence that the
   2013 French dividend tax increase raised corporate investment. American
-  Economic Review 2023, paywalled. Three core results with source locators,
+  Economic Review 2023, paywalled. Six core results with source locators,
   datasets used, and the estimating equations.
 sidebar:
   label: Bach et al. 2023
@@ -44,7 +44,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (AEA publisher site; no machine-readable full text without subscription; checked 2026-06-24)"
   redistribution: extract-only
-  resultsCount: 3
+  resultsCount: 6
   citedByCount: 8
   methods:
     role: applies-method
@@ -61,23 +61,12 @@ paper:
     dataType: [administrative, accounting]
     granularity: [firm]
   findings:
-    - ref: R1
-      outcome: pre-treatment event-study coefficients in BM's investment analysis
-      metric: coefficient
-      value: "two pre-reform coefficients (t=-2 and t=-1) divided by 1.8 in BM's released plotting code; standard errors untouched (p. 2050)"
-      direction: negative
-    - ref: R2
-      outcome: parallel trends assumption for dividend tax-investment DiD
-      metric: coefficient
-      value: "corrected BM specification: CI excludes zero for t=-2 and t=-1 (Figure 1, p. 2049)"
-      direction: negative
-      vsBenchmark: "BM original: CI includes zero for both pre-reform periods, masking differential pre-trends"
-    - ref: R3
-      outcome: effect of 2013 French dividend tax increase on corporate investment rate
-      metric: coefficient
-      value: "no corrected specification shows a clear positive post-reform effect; capital-level controls produce pre-trends significant in the opposite direction (Figure 2, p. 2051)"
-      direction: none
-      vsBenchmark: "BM original: positive post-reform DiD coefficients with apparent parallel pre-trends"
+    - { ref: R1, outcome: pre-treatment event-study coefficients in BM's investment analysis, metric: coefficient, value: "two pre-reform coefficients (t=-2 and t=-1) divided by 1.8 in BM's released plotting code; standard errors untouched (p. 2050)", direction: negative }
+    - { ref: R2, outcome: parallel trends assumption for dividend tax-investment DiD, metric: coefficient, value: "corrected BM specification: CI excludes zero for t=-2 and t=-1 (Figure 1, pp. 2049-2050)", direction: negative, vsBenchmark: "BM original: CI includes zero for both pre-reform periods, masking differential pre-trends" }
+    - { ref: R3, outcome: effect of 2013 French dividend tax increase on corporate investment rate, metric: coefficient, value: "no corrected specification shows a clear positive post-reform effect; capital-level controls produce pre-trends significant in the opposite direction (Figure 2, p. 2051)", direction: none, vsBenchmark: "BM original: positive post-reform DiD coefficients with apparent parallel pre-trends" }
+    - { ref: R4, outcome: effect of lagged-investment controls on investment pre-trends, metric: coefficient, value: "controls for pre-reform investment reinforce differential pre-trends; the paper attributes the pattern to mean reversion (Figure 2, pp. 2050-2051)", direction: negative }
+    - { ref: R5, outcome: effect of 2013 French dividend tax increase on corporate investment rate, metric: coefficient, value: "removing pre-treatment investment controls makes the pre-trend difference smaller, but significant pre-trends remain and the post-reform effect is much lower, if any (Figure 2, p. 2051)", direction: none, vsBenchmark: "Compared with corrected BM specification, pre-trends attenuate but remain significant" }
+    - { ref: R6, outcome: effect of 2013 French dividend tax increase on corporate investment rate, metric: coefficient, value: "using average 2009-2012 capital levels interacted with year dummies gives very significant pre-trends in the opposite direction (Figure 2, p. 2051)", direction: positive, vsBenchmark: "Compared with corrected BM specification, pre-trend signs reverse" }
   resultType: overturns
   relatesTo:
     - { cite: "Boissel and Matray (2022)", doi: '10.1257/aer.20210369', relation: contradicts, note: "using BM's own data and code, finds no convincing event-study evidence of a positive investment effect of the 2013 French dividend tax increase" }
@@ -105,6 +94,8 @@ paper:
         corrected from "orange" to "green" (in Figure 2 the green curve is spec
         2; orange is spec 1). Equation (1) terms verified term-by-term; all R1,
         R2, R3 locators and magnitudes confirmed against the PDF.
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results and findings with distinct Figure 2 diagnostics; added event-study specifications and inference details from the PDF. These additions are extracted, not human-verified or reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all six Core results, equations, specifications, classifications, findings, prose, and frontmatter against the PDF; corrected the direction of the lagged-outcome-control claim and finding directions for R4 and R6. No unresolved page locatability misses." }
   licenceVerification:
     - source: Crossref REST API works/10.1257/aer.20221432
       checked: 2026-06-24
@@ -131,10 +122,10 @@ increase on corporate investment. First, a line in the code plotting BM's
 Figure 4 divides two pre-reform event-study coefficients (t=-2 and t=-1) by
 1.8, visually attenuating the gap between treated and control firms in the
 pre-period. Second, BM's "size growth" controls are controls for the pre-reform
-average of the outcome variable (investment rate), which mechanically suppresses
-apparent pre-trends by creating mean reversion. After correcting either
-problem, no specification produces convincing event-study evidence that the
-reform raised investment. The paper concludes that one cannot claim the
+average of the outcome variable (investment rate); in this analysis they
+reinforce differential pre-trends through mean reversion. Removing them
+attenuates the pre-trends but does not eliminate them or provide clear evidence
+of a positive investment effect. The paper concludes that one cannot claim the
 dividend tax increase had a positive effect on companies' investment (p. 2049).
 
 ## Core results
@@ -147,6 +138,9 @@ Magnitudes and locators are as reported in the comment; figures are from the
 | R1 | A line in BM's plotting code divides two pre-reform event-study coefficients (t=-2 and t=-1) by 1.8, reducing the visual evidence of differential pre-trends | p. 2050 | Factor of 1.8 applied to the t=-2 and t=-1 coefficients; original standard errors left untouched; alteration affects two of four pre-reform years |
 | R2 | Without the code alteration, the corrected BM specification shows differential pre-trends: confidence intervals for t=-2 and t=-1 exclude zero | Figure 1, pp. 2049-2050 | CI excludes the null for t=-1 and t=-2 (orange curve); BM's original figure places the null at or inside the CI edge for both periods |
 | R3 | Removing the size-growth (lagged outcome) controls leaves significant pre-trends and no clear post-reform positive investment effect in any specification | Figure 2, p. 2051 | Three alternative event-study variants all show significant differential pre-trends; capital-level control specification shows pre-trends significant and in the opposite direction |
+| R4 | BM's size-growth controls proxy for lagged investment; conditioning on the pre-reform outcome reinforces differential pre-trends through mean reversion | Equation (1), pp. 2050-2051; Figure 2, p. 2051 | Controls use pre-reform annualized size-growth quartile-by-year fixed effects; the authors identify size growth with the investment rate and find that including it reinforces pre-trends |
+| R5 | Removing pre-treatment investment controls attenuates pre-trends but does not resolve the parallel-trends violation or produce a clear positive effect | Figure 2, p. 2051 | Pre-trend differences are smaller than in the corrected BM specification but remain significant; the estimated post-reform effect is much lower, if any |
+| R6 | Replacing size-growth controls with capital-level controls reverses the pre-trend direction without clarifying the reform effect | Figure 2, p. 2051 | Year dummies interacted with quintiles of average total capital in 2009-2012 yield very significant pre-trends in the opposite direction |
 
 **Overall (paper's conclusion).** Using BM's own data and code, the comment
 shows that the estimation of the investment impact of the French dividend tax
@@ -192,10 +186,12 @@ produced (event study 1 in Figure 1).
 "a vector of pre-reform annualized size growth quartile-by-year fixed effects"
 (BM p. 2896, quoted p. 2050 of the comment). Size growth refers to capital
 growth, which is identical to the investment rate (the main outcome). In a
-difference-in-differences setting, conditioning on pre-treatment values of
-the outcome forces parallel pre-trends mechanically (Daw and Hatfield 2018;
-Chabé-Ferret 2017), biasing the post-treatment estimates upward. Removing
-these controls reveals differential pre-trends that were hidden.
+difference-in-differences setting, conditioning on pre-reform investment
+reinforces differential pre-trends through mean reversion; removing these
+controls attenuates the pre-trends but does not eliminate them. The paper also
+notes that conditioning on pre-treatment outcomes can force parallel
+pre-trends mechanically in other difference-in-differences settings (Daw and
+Hatfield 2018; Chabé-Ferret 2017).
 
 ## Empirical specifications
 
@@ -217,7 +213,25 @@ $$\text{SizeGrowthBin}_{it}$$ are pre-reform annualized size-growth
 quartile-by-year fixed effects (the lagged-outcome controls); $$\delta_{jt}$$
 and $$\gamma_{ct}$$ are industry-year and cohort-year fixed effects.
 
-The comment runs three alternative event-study specifications around the
+The article prints the baseline equation (1), but does not print a separate
+algebraic event-study equation. Written out from the Figure 1 and Figure 2
+notes, its dynamic specification replaces the single treatment interaction
+with year-by-year event-time interactions:
+
+$$
+Y_{ijct} = \sum_{k \in \mathcal{K},\, k \ne k_0} \beta_k \, \text{Treated}_i \times \mathbf{1}(t - 2013 = k)
+           + \theta_i + \text{SizeGrowthBin}_{it}
+           + \delta_{jt} + \gamma_{ct} + \varepsilon_{ijct}
+$$
+
+This is an unnumbered transcription of the described event-study estimator;
+the omitted reference year is not specified in the comment. The figures report
+yearly coefficients and 95 percent confidence intervals. The comment does not
+state a standard-error clustering treatment. The plotted event-time window is
+four years before through five years after the reform; the analysis uses the
+authors' identical data and code.
+
+The comment presents three alternative event-study specifications around the
 2013 reform (Figure 2, p. 2051):
 
 - **Event study 1** (R2): Equation (1) with the code alteration removed.
@@ -230,6 +244,12 @@ The comment runs three alternative event-study specifications around the
   without size-growth controls, but with year dummies interacted with quintiles
   of average pre-reform capital level (2009-2012) to correct for pre-trends.
   Differential pre-trends are significant in the opposite direction.
+
+The second and third variants are written out from the Figure 2 note, not
+printed as numbered equations. Event study 2 removes
+`SizeGrowthBin` from the equation above. Event study 3 also adds
+year-by-quintile interactions for average 2009-2012 total capital. Both retain
+the firm, industry-year, and cohort-year fixed effects shown in equation (1).
 
 All three corrected specifications are inconsistent with the parallel trends
 assumption that BM's causal interpretation requires.
@@ -264,7 +284,8 @@ figures in the 5-page comment.
 ## Attribution and rights
 
 Source: peer-reviewed, *American Economic Review* 113(7), July 2023.
-This distillation was extracted by an LLM on 2026-06-24 and is
+This distillation was first extracted by an LLM on 2026-06-24 and updated on
+2026-10-04; it is
 **not human-verified or independently reproduced**. Paywalled; extract-only.
 
 > Bach, Laurent, Antoine Bozio, Arthur Guillouzouic, and Clement Malgouyres.

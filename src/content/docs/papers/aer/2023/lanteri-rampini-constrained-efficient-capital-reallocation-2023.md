@@ -5,7 +5,7 @@ description: >-
   constraints, the competitive equilibrium price of used capital is inefficiently
   high because distributive pecuniary externalities dominate collateral externalities
   by a factor of roughly 2.3 quantitatively, providing a new rationale for
-  new-investment subsidies. American Economic Review 2023, paywalled. Six core
+  new-investment subsidies. American Economic Review 2023, paywalled. Fourteen core
   results with source locators, the full theoretical model with equations, and
   calibrated quantitative welfare analysis.
 sidebar:
@@ -24,35 +24,36 @@ paper:
   doi: 10.1257/aer.20210902
   jel:
     codes: [D21, D24, D25, D62, E22, G31, G32]
-    assignedBy: paper
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ['Economic theories and models', 'Monetary Policy and Economic Impact', 'Financial Markets and Investment Strategies']
   dataAccess: public
   outcome:
     - price of old/used capital in competitive equilibrium
     - aggregate output and consumption relative to first best
     - welfare gain from constrained-efficient capital reallocation
+    - aggregate investment relative to first best
   outcomeClass: [firm-real-outcomes, asset-prices]
   license: paywalled (no CC licence found in Crossref metadata; AER standard subscription access)
   licenseShort: paywalled
   access: paywalled
   machineAccess: blocked-paywall (AEA site, 2026-06-25)
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 14
   citedByCount: 32
   methods:
     role: applies-method
     family: structural
     buildsFrom: [dynamic-general-equilibrium, overlapping-generations]
     identification: structural
-  contributionType: [new-theory, new-fact]
-  mechanisms: [collateral, financial-constraint]
+  contributionType: [new-theory]
+  mechanisms: [collateral, financial-constraint, distributive-pecuniary-externality]
   scope:
     region: US
     assetClass: capital goods (new and used/old investment)
     frequency: annual
-    dataType: [accounting]
-    granularity: [firm]
+    granularity: [aggregate, firm]
+    n: "calibrated stationary model; no observed firm sample"
   findings:
     - { ref: R1, outcome: constrained efficiency of capital allocation, metric: coefficient, value: "distributive externality > collateral externality (Proposition 2, analytically in stationary competitive equilibrium)", direction: positive, vsBenchmark: collateral externality (focus of prior representative-firm literature) }
     - { ref: R2, outcome: ratio of distributive to collateral externality, metric: coefficient, value: "approximately 2.3x: distributive externality is about 2.3 times the collateral externality in the calibrated stationary equilibrium", direction: positive }
@@ -60,7 +61,15 @@ paper:
     - { ref: R4, outcome: output and consumption recovered by constrained-efficient allocation, metric: pp-effect, value: "constrained-efficient output = 97.3% of first best; output +8% over CE; consumption = 98.3% of first best; consumption +5% over CE", direction: positive, vsBenchmark: competitive equilibrium }
     - { ref: R5, outcome: price of old capital, metric: level, value: "CE price q = 0.553; first-best price = 0.547; constrained-efficient price driven to scrap value = 0.100", direction: positive, vsBenchmark: "CE price is 1.010x first-best price; constrained-efficient plan drives it to scrap value floor" }
     - { ref: R6, outcome: optimal investment subsidy and old-capital tax implementing constrained-efficient allocation, metric: pp-effect, value: "average tau_N = -8.6% (subsidy on new investment); average tau_O = 103.7% (tax on old capital purchases), each rebated lump-sum", direction: mixed }
-  resultType: new-finding
+    - { ref: R7, outcome: constrained efficiency of capital allocation, metric: equilibrium-condition, value: "Propositions 3-5: distributive externality > collateral externality with risk-averse entrepreneurs (p. 374), heterogeneous productivity (p. 375), and long-lived firms and capital (p. 376)", direction: positive }
+    - { ref: R8, outcome: constrained efficiency under alternative collateral timing, metric: equilibrium-condition, value: "With current-price collateral constraint theta(k^N + q k^O) >= b, distributive externality still dominates and competitive-equilibrium old-capital price remains too high (p. 377)", direction: positive }
+    - { ref: R9, outcome: old-capital price efficiency under alternative assumptions, metric: equilibrium-condition, value: "Collateral externality may dominate and a higher old-capital price may be desirable when new capital is sufficiently more collateralizable than old capital, entrepreneurs are sufficiently impatient relative to the interest rate, the planner is sufficiently impatient relative to entrepreneurs, or saving constraints bind (pp. 379-380)", direction: mixed }
+    - { ref: R10, outcome: price of old/used capital in competitive equilibrium, metric: elasticity, value: "A uniform 1% subsidy on new capital reduces the old-capital price by about 4%; consumption rises by about 2% (pp. 389-390)", direction: negative, vsBenchmark: undistorted competitive equilibrium }
+    - { ref: R11, outcome: price of old/used capital in competitive equilibrium, metric: elasticity, value: "For equal-sized policy distortions, new-capital subsidies reduce the old-capital price about 80% more than old-capital taxes (p. 390)", direction: negative, vsBenchmark: old-capital tax alone }
+    - { ref: R12, outcome: aggregate output and consumption relative to first best, metric: pp-effect, value: "At theta=0, competitive-equilibrium output is about 20% below first best; at theta=0.75 it is about 5% below first best, versus 10.1% below first best at baseline (pp. 390-391)", direction: mixed, vsBenchmark: first-best allocation }
+    - { ref: R13, outcome: price of old/used capital in competitive equilibrium, metric: level, value: "Balanced budget with tau_N=-0.03 gives tau_O=0.073 and q=0.412 versus q=0.553 without policy (p. 390)", direction: negative, vsBenchmark: stationary equilibrium without policy }
+    - { ref: R14, outcome: aggregate investment relative to first best, metric: pp-effect, value: "Competitive-equilibrium investment = 85.7% of first best; constrained-efficient investment = 96.2% of first best (Table 2, p. 389)", direction: positive, vsBenchmark: competitive equilibrium }
+  resultType: mixed
   relatesTo:
     - { cite: "Dávila and Korinek (2018)", doi: '10.1093/restud/rdx010', relation: extends, note: "extends their distributive-vs-collateral-externality framework to an infinite-horizon heterogeneous-firm investment model; shows distributive dominates in stationary equilibrium" }
     - { cite: "Rampini (2019)", doi: '10.1257/aer.20170995', relation: builds-on, note: "baseline two-period capital reallocation model with collateral constraints is built on his durable-asset financing framework" }
@@ -78,6 +87,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (pp. 354-395, AER 113(2)); six results extracted from paywalled source. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: eq. (3) LHS corrected from k^O_{t-1} to k^N_{t-1} (PDF p. 360); JEL codes expanded from [E22,G31,G32] to full author-listed set [D21,D24,D25,D62,E22,G31,G32] (PDF p. 354). All six Core results rows, all equations in Theory/Model and Method sections, and calibration table confirmed against PDF." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF; appended eight distinct core findings, equation coverage for numbered main-text equations omitted by the prior page, quantitative-model specifications, and queryable classification details. Additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Rechecked all 14 Core results rows, formal equations and specifications, classification axes, findings, related-work edges, and frontmatter against the PDF. Corrected JEL codes, omitted unsupported source-data types, corrected the Ma et al. evidence/model figures, clarified reversal conditions, and removed the unsupported new-fact classification. Table locators were confirmed manually where the locator script could not detect captions." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20210902", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No license[] block present; only a VOR PDF link with content-type unspecified; AEA standard paywalled access confirmed" }
 ---
@@ -86,7 +97,7 @@ paper:
 
 ## TL;DR
 
-The paper characterizes constrained efficiency in an equilibrium model of investment and capital reallocation in which heterogeneous firms face collateral constraints. In competitive equilibrium, the resale price of used (old) capital is inefficiently high. Two pecuniary externalities pull in opposite directions: a collateral externality (a higher resale price relaxes borrowing capacity) and a distributive externality (buyers of old capital are more financially constrained than sellers, so a lower price redistributes resources toward higher-marginal-value firms). The main analytical result is that the distributive externality strictly dominates the collateral externality in stationary equilibrium, so that a lower price of old capital raises welfare. In a quantitative model calibrated to US firm dynamics, financial frictions cause an aggregate output loss of about 10 percent and a consumption loss of about 7 percent relative to first best. The constrained-efficient allocation, implemented via an average subsidy of 8.6 percent on new investment combined with an average tax of 103.7 percent on old capital purchases (both rebated lump-sum), recovers roughly 70 percent of these losses. The paper builds on the heterogeneous-firm capital reallocation model of Rampini (2019) and the externality-decomposition framework of Dávila and Korinek (2018).
+The paper characterizes constrained efficiency in an equilibrium model of investment and capital reallocation in which heterogeneous firms face collateral constraints. In competitive equilibrium, the resale price of used (old) capital is inefficiently high. Two pecuniary externalities pull in opposite directions: a collateral externality (a higher resale price relaxes borrowing capacity) and a distributive externality (buyers of old capital are more financially constrained than sellers, so a lower price redistributes resources toward higher-marginal-value firms). Consistent with the evidence discussed in the paper, older assets flow to more financially constrained and more productive firms. The main analytical result is that the distributive externality strictly dominates the collateral externality in stationary equilibrium, so that a lower price of old capital raises welfare. In a quantitative model calibrated to US firm dynamics, financial frictions cause an aggregate output loss of about 10 percent and a consumption loss of about 7 percent relative to first best. The constrained-efficient allocation, implemented via an average subsidy of 8.6 percent on new investment combined with an average tax of 103.7 percent on old capital purchases (both rebated lump-sum), recovers roughly 70 percent of these losses. The paper builds on the heterogeneous-firm capital reallocation model of Rampini (2019) and the externality-decomposition framework of Dávila and Korinek (2018).
 
 ## Core results
 
@@ -100,6 +111,14 @@ Magnitudes and locators are as reported in the source PDF.
 | R4 | **Constrained-efficient allocation recovers ~70% of welfare losses**: +8% output and +5% consumption over CE | Table 2, p. 389 | Constrained-efficient output = 97.3% of first best; consumption = 98.3% of first best |
 | R5 | **Old-capital price is inefficiently high in CE**; planner drives it to the scrap value floor | Table 2, p. 389; p. 386 | CE price $$q = 0.553 > q^{FB} = 0.547$$; constrained-efficient price = 0.100 (scrap value floor from calibration) |
 | R6 | **Optimal policy: subsidy on new investment + tax on old capital** (both rebated lump-sum) | Table 2, p. 389; Section IIE, p. 371 | Average $$\tau^N = -8.6\%$$ (subsidy); average $$\tau^O = 103.7\%$$ (tax on old capital purchases) |
+| R7 | **The externality ranking extends beyond the baseline model** to risk aversion, productivity heterogeneity, and long-lived firms and capital | Propositions 3-5, pp. 374-376 | In each extension, aggregate distributive externality > aggregate collateral externality; lowering the old-capital price raises welfare |
+| R8 | **The sign result survives a different collateral-timing assumption** in which current prices determine current borrowing capacity | Section III.D, eq. (34), p. 377 | With $$\theta(k_t^N + q_t k_t^O) \ge b_t$$, distributive effect remains larger and equilibrium price is inefficiently high |
+| R9 | **The externality ranking can reverse under three stated departures** from the baseline assumptions | Section III.F, pp. 379-380 | Reversal may occur when new capital is sufficiently more collateralizable than old capital, entrepreneurs are sufficiently impatient relative to the interest rate or the planner is sufficiently impatient relative to entrepreneurs, or saving constraints bind |
+| R10 | **New-capital subsidies reduce the used-capital price and raise consumption when only this instrument is available** | Section VI.A, pp. 389-390 | A uniform 1% subsidy lowers $$q$$ by about 4% and raises consumption by about 2% |
+| R11 | **New-capital subsidies move the old-capital price more per unit distortion than old-capital taxes** | Section VI.A, p. 390 | For a given policy distortion, the price reduction is about 80% larger with a new-capital subsidy |
+| R12 | **The quantitative output loss varies with collateralizability, while the policy direction persists** | Section VI.B, pp. 390-391 | With $$\theta=0$$ output is about 20% below first best; with $$\theta=0.75$$ it is about 5% below first best; at $$\theta=0.75$$ distributive externality is 45% larger than collateral externality |
+| R13 | **A balanced-budget intervention without lump-sum transfers lowers the used-capital price** | Section VI.A, p. 390 | With $$\tau^N=-0.03$$, $$\tau^O=0.073$$ and $$q=0.412$$, compared with $$q=0.553$$ without intervention; aggregate welfare rises |
+| R14 | **Constrained efficiency also restores most of the investment loss** | Table 2, p. 389 | Competitive-equilibrium investment = 85.7% of first best; constrained-efficient investment = 96.2% |
 
 **Overall (paper's conclusion).** In the class of infinite-horizon heterogeneous-firm models with collateral constraints, the distributive pecuniary externality from the price of used capital dominates the collateral externality. This holds analytically in the stylized model (Propositions 2, 3, 4, 5) and quantitatively in the full model. New investment is welfare-improving beyond the individual incentive because it expands the future supply of old capital, benefiting the most financially constrained firms that are net buyers of old capital.
 
@@ -228,7 +247,7 @@ The stationary constrained-efficient allocation is solved numerically (online Ap
 | Death probability $$\rho$$ | 0.1 | Decker et al. (2014) firm entry/exit rate |
 | Initial net worth $$w_0$$ | 5 | $$\approx 9\%$$ of unconstrained-optimal capital for high-productivity firms |
 
-Under the calibration, the standard deviation of firm-level investment rates in competitive equilibrium equals 0.32, close to Cooper and Haltiwanger (2006). The model matches the empirical relationship between firm age and capital age reported by Ma, Murfin, and Pratt (2022): age-0 firms buy capital that is on average 7.5 years old; age-10 firms buy capital averaging 6.4 years old.
+Under the calibration, the standard deviation of firm-level investment rates in competitive equilibrium equals 0.32, close to Cooper and Haltiwanger (2006). Ma, Murfin, and Pratt (2022) report that age-0 firms buy equipment averaging 5.5 years old and age-10 firms buy capital averaging 4 years old. In this model, which includes structures as well as equipment, the corresponding figures are 7.5 and 6.4 years.
 
 **Quantitative results (Section V.B, pp. 386-388, Table 2).** The stationary competitive equilibrium price of old capital equals 0.553 versus the first-best price of 0.547. The planner drives the price to the scrap value floor 0.100, well below first best, because imperfect substitutability between new and old capital prevents the first-best scale from being achieved at a low price. Output, investment, and consumption under the three allocations (as fractions of first-best values):
 
@@ -245,6 +264,110 @@ The distributive externality is approximately 2.3 times the collateral externali
 
 The paper also studies restricted policy instruments: a subsidy on new capital alone (without taxes on old capital) reduces the old-capital price by about 4 percent per 1 percent subsidy, and a balanced-budget policy with $$\tau^N = -0.03$$ and $$\tau^O = 0.073$$ (without lump-sum transfers) drives the price to $$q = 0.412$$ and raises aggregate welfare. Eisfeldt and Rampini (2006) and Eisfeldt and Rampini (2007) provide the underlying empirical facts about capital reallocation that motivate the model setup.
 
+### Main-text equations not reproduced above
+
+The paper is theoretical and quantitative. It does not report regression estimates or an empirical estimating specification; its quantitative results come from a calibrated stationary equilibrium model. The equations below complete the numbered main-text equation sequence where those equations were not already transcribed above.
+
+**Firm optimality and user costs (Section II.C, pp. 362-363).** The individual investment conditions, their complementary-slackness form, and the implied relation are:
+
+$$1+\phi_{d,t}=\beta[f_k(k_t)+q_{t+1}]+\beta\theta\lambda_tq_{t+1}+\underline{\nu}_t^N \tag{10}$$
+
+$$q_t(1+\phi_{d,t})=\beta f_k(k_t)+\underline{\nu}_t^O \tag{11}$$
+
+$$1+\phi_{d,t}=1+\lambda_t \tag{12}$$
+
+$$1\geq\beta\frac{f_k(k)+(1-\theta)q}{(1+\phi_d)\mathcal{P}^N} \tag{13}$$
+
+$$1\geq\beta\frac{f_k(k)}{(1+\phi_d)q} \tag{14}$$
+
+Here $$\mathcal{P}^N=1-\beta\theta q$$, and the paper defines $$\mathcal{P}^O=q$$. Equations (13)-(14) hold with equality when the associated capital type is positive. Equation (17) combines these conditions and the complementarity terms (p. 363):
+
+$$1=\beta\frac{1}{1+\phi_d}\frac{(1-\theta)q}{\mathcal{P}^N-\mathcal{P}^O}+\frac{(\underline{\nu}^N-\underline{\nu}^O)/(1+\phi_d)}{\mathcal{P}^N-\mathcal{P}^O} \tag{17}$$
+
+**Planner and externality conditions (Sections II.D-II.E, pp. 365-368).** The planner's objective, price first-order condition, and its equivalent net-externality expression are:
+
+$$\max \int\left\{d_{10}(w)+\sum_{t=0}^{\infty}\beta^t[d_{0t}(w)-\phi(-d_{0t}(w))+\beta d_{1,t+1}(w)]\right\}d\pi(w) \tag{18}$$
+
+$$\int k_t^O(w)[1+\phi_{d,t}(w)]d\pi(w)=\int k_{t-1}^N(w)[1+\theta\lambda_{t-1}(w)]d\pi(w) \tag{21}$$
+
+$$\int k_t^O(w)[1+\phi_{d,t}(w)]d\pi(w)-\int k_{t-1}^N(w)d\pi(w)=\theta\int k_{t-1}^N(w)\lambda_{t-1}(w)d\pi(w) \tag{22}$$
+
+The proof of Proposition 2 bounds the integrals and uses market clearing (pp. 367-368):
+
+$$\int k^O(w)\phi_d(w)d\pi(w)=\int_{\underline{w}^O}^{\overline{w}}k^O(w)\phi_d(w)d\pi(w)\geq\underline{\phi}_d\int_{\underline{w}^O}^{\overline{w}}k^O(w)d\pi(w) \tag{25}$$
+
+$$\int k^N(w)\phi_d(w)d\pi(w)=\int_{\underline{w}}^{\overline{w}^N}k^N(w)\phi_d(w)d\pi(w)\leq\underline{\phi}_d\int_{\underline{w}}^{\overline{w}^N}k^N(w)d\pi(w) \tag{26}$$
+
+$$\int_{\underline{w}}^{\overline{w}^N}k^N(w)d\pi(w)<\int_{\underline{w}^O}^{\overline{w}}k^O(w)d\pi(w) \tag{27}$$
+
+$$\int k^O(w)\phi_d(w)d\pi(w)>\int k^N(w)\phi_d(w)d\pi(w) \tag{28}$$
+
+The stationary first-best implementation satisfies eqs. (29)-(31) on pp. 370-371. In (31), the policy assigns new capital as a piecewise function of net worth, with old capital filling the residual:
+
+$$1=\beta[f_k(k^{FB})+q^*]+\beta\eta \tag{29}$$
+
+$$q^*+\eta=\beta f_k(k^{FB}) \tag{30}$$
+
+$$k^N(w)=\begin{cases}\dfrac{w-q^*k^{FB}}{1-q^*(1+\beta\theta)},&w\leq k^{FB}(1-\beta\theta q^*)\\\bar{k}^N,&w>k^{FB}(1-\beta\theta q^*)\end{cases},\qquad k^O(w)=k^{FB}-k^N(w) \tag{31}$$
+
+The balanced-budget policy in the stylized model satisfies eq. (32), p. 373:
+
+$$\tau^N\int k^N(w)d\pi(w)+\tau^Oq\int k^O(w)d\pi(w)=0 \tag{32}$$
+
+**Long-lived model and quantitative model (Sections III.C-IV, pp. 376-384).** The long-lived extension's price condition and alternative current-price collateral constraint are:
+
+$$\int\sum_{a=0}^{\infty}\gamma_a\{k^{aO}\phi_{d,a}-[\delta^Nk^{aN}+(1-\delta^O)k^{aO}](1-\rho)\phi_{d,a+1}\}d\pi_0(w_0)=\theta\int\sum_{a=0}^{\infty}\gamma_a\lambda_a[\delta^Nk^{aN}+(1-\delta^O)k^{aO}]d\pi_0(w_0) \tag{33}$$
+
+$$\theta(k_t^N+q_tk_t^O)\geq b_t \tag{34}$$
+
+For the quantitative model, output, resource feasibility, and old-capital market clearing are specified in eqs. (35)-(37), pp. 380-381:
+
+$$y_{it}=s_{it}f(k_{i,t-1}),\qquad k_{i,t-1}=g(k_{i,t-1}^N,k_{i,t-1}^O) \tag{35}$$
+
+$$\sum_{a=0}^{\infty}\gamma_a\sum_{s^{a+1}}p(s^{a+1})[s_{a+1}f(g(k_{t-1}^N(s^a),k_{t-1}^O(s^a)))+(1-\delta^N)k_{t-1}^N(s^a)]=C_t+\sum_{a=0}^{\infty}\gamma_a\sum_{s^a}p(s^a)k_t^N(s^a) \tag{36}$$
+
+$$\sum_{a=0}^{\infty}\gamma_a\sum_{s^a}p(s^a)[\delta^Nk_{t-1}^N(s^a)+(1-\delta^O)k_{t-1}^O(s^a)]=\sum_{a=0}^{\infty}\gamma_a\sum_{s^a}p(s^a)k_t^O(s^a) \tag{37}$$
+
+The frictionless first-best capital conditions (pp. 381) are:
+
+$$1=\beta E_t[s_{a+1}f_k(k_t^{FB}(s^a))g_{N,t}(s^a)+(1-\delta^N(1-q_{t+1}^{FB}))] \tag{38}$$
+
+$$q_t^{FB}=\beta E_t[s_{a+1}f_k(k_t^{FB}(s^a))g_{O,t}(s^a)+(1-\delta^O)q_{t+1}^{FB}] \tag{39}$$
+
+The firm objective and budget/net-worth equations are (40)-(43), pp. 381-382:
+
+$$\sum_{a=0}^{\infty}\beta^a\gamma_a\sum_{s^a}p(s^a)[d_{t+a}(s^a)-\phi(-d_{t+a}(s^a))]+\sum_{a=1}^{\infty}\beta^a\gamma_{a-1}\rho\sum_{s^a}p(s^a)w_{t+a}(s^a) \tag{40}$$
+
+$$d_t(s^a)=w_t(s^a)+b_t(s^a)-k_t^N(s^a)-q_tk_t^O(s^a) \tag{41}$$
+
+$$w_t(s^a)=s_af(k_{t-1}(s^{a-1}))+[1-\delta^N(1-q_t)]k_{t-1}^N(s^{a-1})+q_t(1-\delta^O)k_{t-1}^O(s^{a-1})-\beta^{-1}b_{t-1}(s^{a-1}) \tag{42}$$
+
+$$k_{t-1}(s^{a-1})=g(k_{t-1}^N(s^{a-1}),k_{t-1}^O(s^{a-1})) \tag{43}$$
+
+The collateral constraint is eq. (44), p. 382, as already transcribed above. Firm optimality conditions (45)-(47), pp. 382-383, are:
+
+$$1+\phi_{d,t}(s^a)=\beta E_t\left[(s_{a+1}f_k(k_t(s^a))g_{N,t}(s^a)+(1-\delta^N(1-q_{t+1})))(1+(1-\rho)\phi_{d,t+1}(s^{a+1}))\right]+\beta\theta\lambda_t(s^a)[1-\delta^N(1-q_{t+1})] \tag{45}$$
+
+$$q_t(1+\phi_{d,t}(s^a))=\beta E_t\left[(s_{a+1}f_k(k_t(s^a))g_{O,t}(s^a)+(1-\delta^O)q_{t+1})(1+(1-\rho)\phi_{d,t+1}(s^{a+1}))\right]+\beta\theta\lambda_t(s^a)(1-\delta^O)q_{t+1} \tag{46}$$
+
+$$\phi_{d,t}(s^a)=(1-\rho)E_t\phi_{d,t+1}(s^{a+1})+\lambda_t(s^a) \tag{47}$$
+
+The constrained-efficient planner maximizes the aggregate-dividend objective in eq. (48) and has the capital conditions (49)-(50), pp. 383-384:
+
+$$\sum_{t=0}^{\infty}\beta^t\left[\sum_{a=0}^{\infty}\gamma_a\sum_{s^a}p(s^a)(d_t(s^a)-\phi(-d_t(s^a)))+\sum_{a=1}^{\infty}\sum_{s^a}p(s^a)\gamma_{a-1}\rho w_t(s^a)\right] \tag{48}$$
+
+$$1+\phi_{d,t}(s^a)=\beta E_t[(s_{a+1}f_k(k_t(s^a))g_{N,t}(s^a)+(1-\delta^N(1-q_{t+1}))) (1+(1-\rho)\phi_{d,t+1}(s^{a+1}))]+\beta\theta\lambda_t(s^a)[1-\delta^N(1-q_{t+1})]+\beta\delta^N\eta_{t+1} \tag{49}$$
+
+$$q_t(1+\phi_{d,t}(s^a))=\beta E_t[(s_{a+1}f_k(k_t(s^a))g_{O,t}(s^a)+(1-\delta^O)q_{t+1})(1+(1-\rho)\phi_{d,t+1}(s^{a+1}))]+\beta\theta(1-\delta^O)\lambda_t(s^a)q_{t+1}-\eta_t+\beta(1-\delta^O)\eta_{t+1} \tag{50}$$
+
+Its price condition, eq. (51), is on p. 384:
+
+$$\sum_{a=0}^{\infty}\gamma_a\sum_{s^a}p(s^a)k_t^O(s^a)[1+\phi_{d,t}(s^a)]=\sum_{a=0}^{\infty}\gamma_a\sum_{s^{a+1}}p(s^{a+1})[\delta^Nk_{t-1}^N(s^a)+(1-\delta^O)k_{t-1}^O(s^a)][1+(1-\rho)\phi_{d,t}(s^{a+1})+\theta\lambda_{t-1}(s^a)]+\zeta_t \tag{51}$$
+
+The no-transfer balanced-budget restriction is eq. (52), p. 390:
+
+$$\tau^N\int k^N(w,s)d\pi(w,s)+\tau^Oq\int k^O(w,s)d\pi(w,s)=0 \tag{52}$$
+
 ## Datasets used
 
 This paper develops a calibrated theoretical model; it does not directly use external datasets. The calibration is based on empirical moments and parameter estimates from the published literature.
@@ -259,7 +382,7 @@ Use the [original](https://doi.org/10.1257/aer.20210902) if you are: (i) studyin
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(2), February 2023. This distillation was extracted by an LLM on 2026-06-25 and is **not human-verified or independently reproduced**. The paper is paywalled; no open-access licence was found in Crossref metadata. This page reproduces only excerpts (equations, numbers, and structural summaries) for educational and research reference purposes under extract-only terms.
+Source: peer-reviewed, *American Economic Review* 113(2), February 2023. This distillation was updated by an LLM on 2026-10-04 and is **not human-verified or independently reproduced**. The paper is paywalled; no open-access licence was found in Crossref metadata. This page reproduces only excerpts (equations, numbers, and structural summaries) for educational and research reference purposes under extract-only terms.
 
 > Lanteri, Andrea, and Adriano A. Rampini. "Constrained-Efficient Capital Reallocation."
 > *American Economic Review* 113, no. 2 (February 2023): 354-395.

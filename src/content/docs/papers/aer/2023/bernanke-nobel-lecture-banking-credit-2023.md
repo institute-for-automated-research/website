@@ -4,11 +4,11 @@ description: >-
   Distilled: Ben Bernanke's Nobel Prize lecture synthesizes his career research
   showing that informational frictions in credit markets interact with borrower
   and lender net worth to amplify and prolong economic contractions. The lecture
-  documents that banking and credit disruptions were important sources of the
-  Great Depression and the Great Recession of 2007-2009, and introduces the
-  financial accelerator mechanism through which credit conditions propagate
+  argues that banking and credit disruptions complemented monetary forces in the
+  Great Depression and were central to the Great Recession of 2007-2009, and explains
+  the financial accelerator mechanism through which credit conditions propagate
   business cycles. American Economic Review 2023, copyright The Nobel Foundation
-  2022, paywalled. Eight core results with source locators, the Appendix model
+  2022, paywalled. Twenty-one core results with source locators, the Appendix model
   (moral hazard and credit rationing, eqs. 1-9), and the financial accelerator
   channel.
 sidebar:
@@ -41,19 +41,22 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (AEA/AER site, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 21
   citedByCount: 38
   methods:
     role: theory
     family: theory
     buildsFrom: [principal-agent]
-  contributionType: [survey, new-theory]
-  mechanisms: [information-asymmetry, moral-hazard, financial-constraint, intermediary-constraint, fire-sale-externality]
+  contributionType: [survey]
+  mechanisms: [information-asymmetry, moral-hazard, financial-constraint, intermediary-constraint, fire-sale-externality, liquidity, collateral, flight-to-safety, debt-deflation]
   scope:
     region: "US (primary); 24-country international panel for Great Depression analysis"
     assetClass: "bank loans, corporate bonds, mortgages, aggregate credit"
-    period: 1929-01..2013-12
+    period: 1929-01..2014-12
     frequency: mixed
+    dataType: [market, survey, other]
+    granularity: [aggregate, industry, firm]
+    n: "Varies by cited study; includes a 24-country Depression-era panel and US aggregate series"
   findings:
     - ref: R1
       outcome: bank loan-to-deposit ratio (Great Depression)
@@ -68,17 +71,17 @@ paper:
       vsBenchmark: "understates actual credit-risk increase because downgraded Baa bonds were excluded from the index"
     - ref: R3
       outcome: manufacturing employment decline attributed to banking crisis (1929-1933)
-      metric: pp-effect
+      metric: probability
       value: "approximately 22% of total decline in manufacturing employment 1929-1933 due to the banking crisis (Lee and Mezzanotti 2014)"
       direction: negative
     - ref: R4
       outcome: aggregate bank lending contraction (Great Depression)
-      metric: pp-effect
+      metric: index-growth
       value: "reduced by 15% between 1929 and 1933 (Mitchener and Richardson 2019)"
       direction: negative
     - ref: R5
       outcome: bank credit outstanding relative to GDP (GFC)
-      metric: pp-effect
+      metric: index-growth
       value: "fell 8.5% between Q4 2008 and Q4 2013; did not regain its December 2008 nominal level for nearly three years"
       direction: negative
     - ref: R6
@@ -89,13 +92,53 @@ paper:
       vsBenchmark: "post-Lehman 8-month losses approximately 4.5x the pre-Lehman 8-month losses"
     - ref: R7
       outcome: real GDP growth rate (GFC trough)
-      metric: pp-effect
+      metric: level
       value: "annualized -8.7% in Q4 2008, -4.7% in Q1 2009"
       direction: negative
+    - ref: R8
+      outcome: entrepreneur access to credit in the Appendix model
+      metric: equilibrium-condition
+      value: "a loan is extended if and only if pR - r(1 - w_i) >= [p/(p-q)]e; entrepreneurs below the endowment threshold receive no loan"
+      direction: positive
+    - ref: R9
+      outcome: US banks failed or merged during the Great Depression
+      metric: probability
+      value: "close to 40 percent of the 25,000 US banks in existence in 1929 had failed or merged by 1933"
+      direction: positive
+    - ref: R10
+      outcome: mortgage default rate in Depression-era cities surveyed
+      metric: probability
+      value: "ranged from 21 percent to 62 percent in the cities studied"
+      direction: positive
+    - ref: R11
+      outcome: farm mortgage debt in default (1933)
+      metric: probability
+      value: "more than half of farm mortgage debt was in default in 1933"
+      direction: positive
+    - ref: R12
+      outcome: asset-backed commercial paper outstanding (GFC)
+      metric: index-growth
+      value: "declined 20 percent in August 2007 alone and cumulatively 30 percent by year-end 2007"
+      direction: negative
+    - ref: R13
+      outcome: US private credit intermediation outside commercial banks (pre-GFC)
+      metric: probability
+      value: "more than half of private credit intermediation took place outside commercial banks by the GFC"
+      direction: positive
+    - ref: R14
+      outcome: single-family mortgage delinquency rate (GFC and aftermath)
+      metric: probability
+      value: "about 2 percent before the crisis; more than 11 percent in Q1 2010"
+      direction: positive
+    - ref: R15
+      outcome: US unemployment rate after the Great Recession
+      metric: probability
+      value: "peaked at 10 percent in October 2009 and did not fall below 6 percent until five years later"
+      direction: positive
   resultType: confirms
   relatesTo:
     - { cite: "Bernanke (1983)", relation: builds-on, note: "the lecture's primary empirical foundation: bank failures constrained credit supply and prolonged the Depression beyond what money alone explains" }
-    - { cite: "Bernanke and Gertler (1989)", doi: '10.2307/2937820', relation: builds-on, note: "agency-cost model embedding borrower net worth in the external finance premium; the financial accelerator's theoretical foundation" }
+    - { cite: "Bernanke and Gertler (1989)", relation: builds-on, note: "agency-cost model embedding borrower net worth in the external finance premium; the financial accelerator's theoretical foundation" }
     - { cite: "Bernanke, Gertler, and Gilchrist (1999)", doi: '10.1016/s1574-0048(99)10034-x', relation: extends, note: "financial accelerator in a quantitative New Keynesian business cycle framework with heterogeneous borrowers and cross-sectional differences in external finance premiums" }
     - { cite: "Friedman and Schwartz (1963)", relation: extends, note: "the lecture argues the credit channel complements the monetarist money-supply story; credit disruptions explain depth and persistence that medium-term money neutrality leaves unexplained" }
     - { cite: "Diamond and Dybvig (1983)", doi: '10.1086/261155', relation: cites, note: "bank-run fragility from maturity transformation; explains why short-term bank funding is prone to silent runs during crises" }
@@ -107,17 +150,19 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: "2026-06-25", role: extracted, note: "Read PDF in full (27 pages, AER 113(5): 1143-1169). Not human-verified; not reproduced. Quantitative results in R1-R7 originate from studies cited in the lecture, not from original analysis in this article; the Appendix model equations (eqs. 1-9, pp. 1165-1167) are the lecture's original theoretical contribution." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: "2026-06-24", role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 8 Core result rows confirmed at their cited pages and all equations 1-9 verified term-by-term against pp. 1165-1167, no errors found." }
+    - { by: "paper-distiller (gpt-6-luna)", date: "2026-10-04", role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added seven quantitative findings, six distinct evidence rows, missing scope/mechanism axes, and a note on the absence of original main-text estimating equations. These additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 21 result rows, equations (1)-(9), specifications, classifications, findings, prose, and frontmatter checked against the PDF; corrected finding metrics/directions, scope/contribution axes, an unsupported model interpretation, and a mismatched DOI. Locator and relatesTo checks found no issues for this page." }
   licenceVerification:
     - { source: "Crossref works/10.1257/aer.113.5.1143", checked: "2026-06-25", by: "paper-distiller (claude-sonnet-4-6)", found: "No open-access or CC licence in Crossref metadata. PDF first page states: 'This article is copyright The Nobel Foundation 2022 and is published here with the permission of the Nobel Foundation.' AEA/AER standard paywalled access; no delay-in-days or open-licence URL found." }
 ---
 
-**What this is.** This is the LLM-distilled skeleton of Ben Bernanke's Nobel Prize lecture, a revised version of the talk delivered in Stockholm on December 8, 2022, published in the American Economic Review. Read the original at https://doi.org/10.1257/aer.113.5.1143 to replicate or extend. Quantitative results in the Core results table originate from studies cited in the lecture; the Appendix model (pp. 1165-1167) is the lecture's own original theoretical content.
+**What this is.** This is the LLM-distilled skeleton of Ben Bernanke's Nobel Prize lecture, a revised version of the talk delivered in Stockholm on December 8, 2022, published in the American Economic Review. Read the original at https://doi.org/10.1257/aer.113.5.1143 to replicate or extend. Quantitative results in the Core results table originate from studies cited in the lecture; the Appendix provides a stripped-down theoretical illustration of the credit threshold.
 
 ## TL;DR
 
 Credit markets are permeated by informational frictions: borrowers know more than lenders about their own riskiness and effort. These frictions, identified by Stiglitz and Weiss (1981) and formalized in the principal-agent framework of Ross (1973), create a wedge between the cost of external and internal finance (the external finance premium) that rises when borrower and lender net worth falls. When a financial shock destroys net worth, the premium spikes, credit contracts sharply, and real activity falls and stays depressed long after the initial shock - a mechanism Bernanke and Gertler (1989) embed in a dynamic general equilibrium model and call the financial accelerator.
 
-Bernanke synthesizes evidence across two crises: the Great Depression of the 1930s and the Global Financial Crisis (GFC) and Great Recession of 2007-2009. In both episodes, banking and credit-market disruptions amplified and prolonged contractions beyond what money-supply declines alone can explain, contradicting the strict monetarist reading of Friedman and Schwartz (1963). A simple Appendix model formalizes how limited liability and moral hazard prevent low-net-worth entrepreneurs from obtaining credit, even at higher interest rates.
+Bernanke synthesizes evidence across two crises: the Great Depression of the 1930s and the Global Financial Crisis (GFC) and Great Recession of 2007-2009. In both episodes, banking and credit-market disruptions amplified contractions; for the Depression, Bernanke presents them as complementing monetary forces and challenging the strict view that money-supply declines alone explain the downturn. A simple Appendix model formalizes how limited liability and moral hazard prevent low-net-worth entrepreneurs from obtaining credit, even at higher interest rates.
 
 ## Core results
 
@@ -131,12 +176,25 @@ Bernanke synthesizes evidence across two crises: the Great Depression of the 193
 | R6 | Employment losses: pre- vs. post-Lehman contrast | p. 1160 | Fewer than 1.2M jobs lost Jan-Aug 2008; 5.4M jobs lost Sep 2008-Apr 2009 |
 | R7 | Real GDP growth at the GFC trough | p. 1160 | Annualized -8.7% in Q4 2008, -4.7% in Q1 2009 |
 | R8 | Net-worth credit threshold (Appendix model) | p. 1167, eq. (9) | Credit extended iff pR - r(1-w) >= [p/(p-q)]e; entrepreneurs below the endowment threshold receive no loans |
+| R9 | Depression-era bank failures | text p. 1148 | Close to 40% of the 25,000 US banks in 1929 had failed or merged by 1933 |
+| R10 | Depression-era household mortgage distress | text p. 1151 | Mortgage default rates ranged from 21% to 62% in the cities studied |
+| R11 | Depression-era farm mortgage distress | text p. 1151 | More than half of farm mortgage debt was in default in 1933 |
+| R12 | Run on asset-backed commercial paper | text p. 1157 | ABCP outstanding declined 20% in August 2007 alone and 30% cumulatively by year-end |
+| R13 | Shift of US credit intermediation to shadow banks | text p. 1155 | More than half of private credit intermediation occurred outside commercial banks by the GFC |
+| R14 | Mortgage delinquency in the GFC and aftermath | text p. 1161 | Single-family mortgage delinquency was about 2% before the crisis and above 11% in Q1 2010 |
+| R15 | Slow unemployment recovery after the Great Recession | text p. 1160 | Unemployment peaked at 10% in October 2009 and took five years to fall below 6% |
+| R16 | Earlier gold-standard exit and Depression recovery | text pp. 1148-1149 | Countries that left gold in 1931 or earlier, or never joined, recovered more quickly than countries that stayed on gold well into the 1930s |
+| R17 | Bank distress and local Depression activity, IV evidence | text p. 1154 | State- and county-level estimates using predictors of bank distress as instruments find loan supply explains an important part of geographic variation in economic activity |
+| R18 | Value of local lending relationships during bank suspensions | text p. 1154 | The economic effect of bank suspensions was greater in high-relationship areas, consistent with destruction of bank information capital |
+| R19 | Lender distress versus borrower distress in the GFC | text p. 1159 | Dynamic-factor forecasts using high-frequency lender-stress indicators outperform indicators tied to mortgage delinquency and housing for output, consumption, employment, and other macro variables |
+| R20 | Firm borrowing composition after monetary tightening | text pp. 1162-1163 | Firms shifted away from bank loans toward market funding; small firms' credit fell relative to large firms, consistent with a bank-lending channel |
+| R21 | Credit-cost response around monetary-policy announcements | text p. 1163 | Small policy-rate movements often led to large credit-cost changes, primarily through term and risk premiums rather than the safe rate |
 
-**Overall (paper's conclusion).** When Bernanke began this research in the late 1970s, the prevailing view treated financial markets as a veil with no independent macroeconomic role. Monetarists (Friedman and Schwartz 1963) and real-business-cycle economists both marginalized credit. The research synthesized here established banking and credit markets as central to macroeconomic fluctuations: credit-market disruptions are a quantitatively important cause of economic contractions, operating through balance-sheet channels that persist long after the initial shock.
+**Overall (paper's conclusion).** When Bernanke began this research in the late 1970s, the prevailing view treated financial markets as a veil with no independent macroeconomic role. Monetarists (Friedman and Schwartz 1963) and real-business-cycle economists both marginalized credit. The research synthesized here established banking and credit markets as central to macroeconomic fluctuations: credit-market disruptions can be important causes of economic contractions, operating through balance-sheet channels that prolong the effects of an initial shock.
 
 ## Theory / model
 
-The paper's formal theoretical content is the Appendix: "Net Worth, Borrowing, and Investment" (pp. 1164-1167). It presents a stripped-down two-period moral hazard model illustrating why only borrowers with sufficient net worth can obtain credit. The model motivates the inverse relationship between net worth and the external finance premium that underlies the financial accelerator (Bernanke and Gertler 1989, 1990) and the credit channel of monetary policy (Bernanke and Gertler 1995).
+The Appendix, "Net Worth, Borrowing, and Investment" (pp. 1164-1167), presents a stripped-down two-period moral hazard model illustrating why only borrowers with sufficient net worth can obtain credit. The model motivates the inverse relationship between net worth and the external finance premium that underlies the financial accelerator (Bernanke and Gertler 1989, 1990) and the credit channel of monetary policy (Bernanke and Gertler 1995).
 
 **Setup (p. 1165).** There are $$M$$ risk-neutral agents with heterogeneous endowments $$w_i \in [0, 1]$$. A subset of $$N \ll M$$ agents ("entrepreneurs") can invest in risky projects. Each entrepreneur can choose either a "good" project (probability $$p$$ of producing $$R$$ units when effort $$e$$ is exerted) or a "fair" project (probability $$q < p$$ of producing $$R$$, no effort required). Project choice and effort are private information. The condition for the good project to be socially preferred (p. 1165, eq. 1) is:
 
@@ -172,7 +230,7 @@ Inserting (8) into the incentive-compatibility constraint and rearranging gives 
 
 $$pR - r(1 - w_i) \geq \left[\frac{p}{p-q}\right] e \tag{9}$$
 
-Equation (9) is the key result: only entrepreneurs whose endowment $$w_i$$ is large enough to satisfy this inequality receive loans. Below the threshold, the intermediary cannot simultaneously cover its opportunity cost and give the entrepreneur enough residual stake to deter the fair project. The higher the borrower's net worth $$w_i$$, the more the intermediary can pay on success and the less it needs to screen or monitor - a direct demonstration that access to credit depends on net worth, not just the project's expected return.
+Equation (9) is the key result: only entrepreneurs whose endowment $$w_i$$ is large enough to satisfy this inequality receive loans. Below the threshold, the intermediary cannot simultaneously cover its opportunity cost and give the entrepreneur enough residual stake to deter the fair project. The higher the borrower's net worth $$w_i$$, the more the intermediary can pay on success while satisfying its zero-profit condition, making it more likely that the entrepreneur's incentive constraint is met. The model shows that access to credit depends on net worth as well as the project's expected return.
 
 ## Method
 
@@ -184,7 +242,9 @@ For the Depression analysis, the empirical methodology in Bernanke (1983) is red
 
 ## Empirical specifications
 
-The lecture surveys empirical designs from prior work rather than reporting original estimation. The key specifications are as follows.
+The lecture reports no original empirical estimates, numbered main-text equations, or printed estimating specifications. The empirical evidence below is summarized from cited studies, whose full regression equations, fixed effects, and standard-error procedures are not reproduced in the lecture. The Appendix equations (1)-(9) are the lecture's only numbered equations; no additional main-text estimating equation can be transcribed without inventing a specification.
+
+The lecture surveys empirical designs from prior work rather than reporting original estimation. The key designs it describes are as follows.
 
 **Great Depression, aggregate time series (Section II, p. 1154).** Bernanke (1983) regressed industrial production on bank-failure variables and money growth in a vector autoregression. Bank-lending variables had significant forecasting power for industrial production over and above monetary aggregates - evidence that credit channels operate independently of money. Identification is descriptive; the challenge (noted in the lecture) is that bank credit and money move together, making it difficult to disentangle their effects without additional variation.
 
@@ -205,7 +265,7 @@ The lecture surveys empirical designs from prior work rather than reporting orig
 | 24-country Depression-era international panel (Bernanke and James 1991) | Cross-country output and banking crisis data used to compare Depression severity by gold-standard status | no page yet |
 | Quarterly Financial Report of Manufacturing Firms | Composition of external finance for small vs. large manufacturing firms (post-1958); cited p. 1162 | no page yet |
 
-Sample scope: US aggregate credit and banking data; international Depression-era panel (24 countries); period 1929-2013; mixed frequency (monthly, quarterly, annual).
+Sample scope: US aggregate credit and banking data; international Depression-era panel (24 countries); period 1929-2014; mixed frequency (monthly, quarterly, annual).
 
 ## When to read the full paper
 
@@ -213,6 +273,6 @@ Read the source if you want: (i) the canonical synthesis of Bernanke's career re
 
 ## Attribution and rights
 
-This article is copyright © The Nobel Foundation 2022 and is published in the *American Economic Review* with the permission of the Nobel Foundation. Paywalled; extract-only redistribution. LLM-distilled by claude-sonnet-4-6; not human-verified; not reproduced.
+This article is copyright © The Nobel Foundation 2022 and is published in the *American Economic Review* with the permission of the Nobel Foundation. Paywalled; extract-only redistribution. LLM-distilled by claude-sonnet-4-6 and gpt-6-luna; not human-authored; not reproduced.
 
 > Bernanke, Ben S. 2023. "Nobel Lecture: Banking, Credit, and Economic Fluctuations." *American Economic Review* 113(5): 1143-1169. https://doi.org/10.1257/aer.113.5.1143

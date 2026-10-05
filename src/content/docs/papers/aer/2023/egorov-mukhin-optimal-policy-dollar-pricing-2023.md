@@ -5,7 +5,7 @@ description: >-
   targeting domestic inflation is robustly optimal for non-US central banks, capital controls
   cannot improve welfare unilaterally, and US monetary policy deviates from domestic price
   stabilization to manipulate global demand. American Economic Review 113(7) 2023, paywalled.
-  Eight core results with source locators, model equations (open-economy DGE with DCP), and
+  Thirteen core results with source locators, model equations (open-economy DGE with DCP), and
   the planner Lagrangian method.
 sidebar:
   label: Egorov-Mukhin 2023
@@ -22,9 +22,9 @@ paper:
   venueShort: AER 2023
   doi: 10.1257/aer.20200636
   jel:
-    codes: [E31, E52, F14, F31, F38, F41]
-    assignedBy: authors
-    date: 2023-07-01
+    codes: [E31, F31, F41]
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Monetary Policy and Economic Impact", "Economic theories and models", "Global Financial Crisis and Policies"]
   dataAccess: public
   outcome:
@@ -32,18 +32,23 @@ paper:
     - welfare loss from business cycle shocks under DCP vs PCP
     - optimal US monetary policy rule under dollar dominance
     - role of capital controls under dollar pricing
+    - relative volatility of domestic inflation and output gap under the optimal non-US policy
+    - welfare loss from productivity shocks
+    - welfare loss from foreign financial shocks
+    - US welfare loss under domestic inflation targeting
   outcomeClass: [macro-aggregates, social-welfare]
   license: "paywalled (AEA; no open license found in Crossref 2026-06-25)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA site, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 13
   citedByCount: 44
   methods:
     role: theory
     family: structural
     buildsFrom: [dynamic-general-equilibrium]
+  mechanisms: [dollar-pricing-wedge, risk-sharing]
   contributionType: [new-theory]
   scope:
     region: global
@@ -58,15 +63,24 @@ paper:
     - "Whether the welfare ranking of the United States versus other economies under DCP is positive or negative depends on parameter values and cannot be signed analytically (Corollary 1, p. 1811)."
     - "Capital controls under DCP are also restricted by Assumption 2, which excludes local currency debt; relaxing this channel would alter the capital-controls result (pp. 1794-1795)."
   findings:
+    - { ref: R1, outcome: "optimal monetary policy for non-US open economies under dollar pricing", metric: level, value: "gross domestic inflation target pi_iit = 1", direction: none, vsBenchmark: "Proposition 1, eq. 11, p. 1795" }
+    - { ref: R2, outcome: "role of capital controls under dollar pricing", metric: level, value: "optimal capital-control wedge tau^h_it = 0 for all internationally traded assets", direction: none, vsBenchmark: "Proposition 2, p. 1806" }
+    - { ref: R6, outcome: "relative volatility of domestic inflation and output gap under the optimal non-US policy", metric: level, value: "std(pi_iit)/std(y_tilde_it) ranges from 0.001 to 0.04", direction: positive, vsBenchmark: "The ratio converges to zero as gamma approaches 0 (Figure 2, p. 1816)" }
     - { ref: R7, outcome: "welfare loss from local financial shocks", metric: pp-effect, value: "non-US optimal = 2.92%, output gap targeting = 3.40% consumption equivalents", direction: negative, vsBenchmark: "optimal policy saves 0.48 ppts vs naive output gap targeting (Table 1, p. 1819)" }
-    - { ref: R8, outcome: "welfare under DCP vs PCP benchmark", metric: pp-effect, value: "US gains 0.34 ppts (2.59% vs 2.93%); non-US loses 0.12 ppts (3.05% vs 2.93%) consumption equivalents", direction: mixed, vsBenchmark: "PCP benchmark (Table 1, col 5, p. 1820)" }
-  resultType: new-finding
+    - { ref: R8, outcome: "welfare under DCP vs PCP benchmark", metric: pp-effect, value: "US gains 0.34 ppts (2.59% vs 2.93%); non-US loses 0.12 ppts (3.05% vs 2.93%) consumption equivalents", direction: mixed, vsBenchmark: "PCP benchmark (Table 1, col 5, p. 1819)" }
+    - { ref: R9, outcome: "welfare loss from foreign financial shocks", metric: level, value: "non-US optimal = 0.09%; non-US output-gap targeting = 1.70% consumption equivalents", direction: negative, vsBenchmark: "Table 1, p. 1819" }
+    - { ref: R10, outcome: "US welfare loss under domestic inflation targeting", metric: pp-effect, value: "2.69% under domestic inflation targeting vs 2.59% under the optimal policy; 0.10 ppts", direction: positive, vsBenchmark: "US optimal policy (Table 1, p. 1819; discussion p. 1820)" }
+    - { ref: R11, outcome: "welfare loss from local financial shocks", metric: pp-effect, value: "non-US DCP = 2.92%; PCP = 2.89%; DCP loss is 0.03 ppts higher", direction: positive, vsBenchmark: "PCP benchmark (Table 1, p. 1819; discussion p. 1820)" }
+    - { ref: R12, outcome: "welfare loss from productivity shocks", metric: level, value: "local shock: 0.03% non-US optimal, 0.12% non-US output-gap target, 0.03% US optimal, 0.03% US inflation target, 0.02% PCP; global shock: 0.02% in all five columns", direction: mixed, vsBenchmark: "Table 1, p. 1819" }
+  resultType: overturns
   replicationCode:
     url: https://doi.org/10.3886/E184741V1
     status: available
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (pp. 1783-1824, all sections including proofs and calibration). Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 8 rows confirmed. Fixed: JEL codes corrected to authors' own [E31, E52, F14, F31, F38, F41] (wiki had only 3); removed mechanisms: [market-power] (market power is a counterexample in II.B, not the invoked channel; no clean registry match for the DCP-external-wedge mechanism)." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and added five result rows, findings coverage, mechanisms, and omitted numbered equations/specifications; additions are not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Rechecked all 13 result rows, formal equations/specifications, classifications, claims, and metadata against the PDF; corrected the export adjustment cost term in eq. (7), R8's table locator, R10's finding direction, and resultType to match the headline contradiction edge. Table 1 rows manually confirmed on p. 1819 where the locator checker could not detect its caption." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20200636", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license array empty; no open license recorded; AEA journal publication, paywalled" }
   rightsSignalConflict: false
@@ -80,7 +94,7 @@ Egorov and Mukhin (2023) characterize optimal monetary, macroprudential, and tra
 
 ## Core results
 
-Propositions R1-R5 are analytical; R6-R8 are from the numerical simulation (Section IV). Magnitudes from Table 1 are consumption-equivalent welfare losses in percent.
+Propositions R1-R5 are analytical; R6-R13 cover numerical simulation evidence and stressed heterogeneity (Section IV). Figure 2 reports relative volatility; Table 1 welfare losses are consumption equivalents in percent.
 
 | # | Result | Locator | Magnitude as reported |
 |---|---|---|---|
@@ -91,7 +105,12 @@ Propositions R1-R5 are analytical; R6-R8 are from the numerical simulation (Sect
 | R5 | **Proposition 5 (Cooperative Policy):** Under cooperation, US monetary policy stabilizes the global external wedge; non-US monetary policy continues to target domestic prices; capital controls are generically nonzero | §III.B, Prop. 5, pp. 1812-1813; eq. (13) | US targets the global demand-weighted external wedge equal to zero; cooperative capital controls fight the aggregate demand externality that is absent in the noncooperative case |
 | R6 | **Approximation quality of inflation targeting:** Under the optimal non-US policy, inflation volatility is 1-3 orders of magnitude smaller than output gap volatility, confirming inflation targeting is a near-exact approximation even when export prices are inefficient | Figure 2, p. 1816 | Ratio std(pi\_iit)/std(y\_iit) ranges from 0.001 to 0.04 across openness (gamma) and demand-elasticity (epsilon) values; the ratio converges to zero as gamma approaches 0 |
 | R7 | **Welfare cost comparison (non-US):** The optimal non-US policy reduces total welfare loss to 3.05% vs. 5.18% for output gap targeting; local financial shocks account for most of the difference (2.92% vs. 3.40%) | Table 1, p. 1819 | Non-US optimal (col 1): 3.05% total; output gap targeting (col 2): 5.18% total; financial-shock component: 2.92% vs. 3.40% consumption equivalents |
-| R8 | **DCP welfare asymmetry (US gains, non-US loses relative to PCP):** Under optimal policies, the United States gains 0.34 ppts and other economies lose 0.12 ppts in consumption equivalents relative to the PCP benchmark | Table 1 discussion, p. 1820 | US: 2.59% loss (DCP optimal) vs. 2.93% (PCP), net gain = 0.34 ppts; non-US: 3.05% (DCP optimal) vs. 2.93% (PCP), net loss = 0.12 ppts |
+| R8 | **DCP welfare asymmetry (US gains, non-US loses relative to PCP):** Under optimal policies, the United States gains 0.34 ppts and other economies lose 0.12 ppts in consumption equivalents relative to the PCP benchmark | Table 1, p. 1819; discussion, p. 1820 | US: 2.59% loss (DCP optimal) vs. 2.93% (PCP), net gain = 0.34 ppts; non-US: 3.05% (DCP optimal) vs. 2.93% (PCP), net loss = 0.12 ppts |
+| R9 | **Foreign financial shocks:** Under the optimal policy, non-US welfare loss from foreign financial shocks is far smaller than under output-gap targeting | Table 1, p. 1819 | 0.09% under optimal policy vs. 1.70% under output-gap targeting, consumption equivalents |
+| R10 | **US inflation-targeting counterfactual:** US domestic inflation targeting has a higher total welfare cost than the optimal policy | Table 1, p. 1819; discussion, p. 1820 | 2.69% vs. 2.59%, a 0.10 percentage-point welfare loss |
+| R11 | **Non-US local financial shock cost relative to PCP:** The DCP non-US optimal-policy loss from local financial shocks is slightly higher than under PCP | Table 1, p. 1819; discussion, p. 1820 | 2.92% vs. 2.89%, a 0.03 percentage-point increase under DCP |
+| R12 | **Productivity-shock welfare costs:** Productivity-shock losses are small and similar across regimes; the global productivity shock has the same reported loss in all columns | Table 1, p. 1819 | Local productivity shock: 0.03%, 0.12%, 0.03%, 0.03%, 0.02% across columns 1-5; global productivity shock: 0.02% in columns 1-5 |
+| R13 | **Non-US policy response heterogeneity:** The optimal interest-rate response to US financial shocks depends on whether the economy's import or export channel is stronger | Figure 3 and discussion, p. 1817 | Economies with stronger import channels tighten when the dollar appreciates; economies with stronger export channels ease policy; four invoicing cases are shown (PCP, DCP-IM, DCP-EX, DCP) |
 
 **Overall (paper's conclusion).** Domestic inflation targeting is robustly optimal for non-US central banks under DCP, independently of asset-market structure, preference parameters, and shock distribution, and the policy is time consistent. Macroprudential policies cannot help unilaterally but become useful under international cooperation. The United States benefits from dollar dominance in trade, but its optimal policy deviates from domestic stabilization to extract global rents, and international cooperation to improve global welfare is not in its self-interest.
 
@@ -129,17 +148,49 @@ $$
 E_t \Theta_{it,t+1} R_{it} = 1, \quad \text{where} \quad \Theta_{it,t+\tau} \equiv \beta^\tau \frac{U_{C_{iit+\tau}}}{U_{C_{iit}}} \frac{P_{iit}}{P_{iit+\tau}}, \tag{3}
 $$
 
-and no-arbitrage conditions for internationally traded assets (eq. 4, p. 1789) generalize the standard Euler equation to all traded securities.
+and no-arbitrage conditions for internationally traded assets (eq. 4, p. 1789) generalize the standard Euler equation to all traded securities:
 
-**Firms.** Monopolistic competitors in country $$ i $$ produce variety $$ \omega $$ with production function $$ Y_{it} = A_{it} N_{it} $$. Firms face price-adjustment costs $$ \Omega(\cdot) $$ satisfying $$ \Omega(\cdot) \geq 0 $$, $$ \Omega(1) = 0 $$. Domestic firms set prices in local currency to maximize profits net of adjustment costs (eq. 5, p. 1790). Exporters set a single dollar price for all foreign markets (eq. 6, p. 1790-1791), minimizing the costs of adjusting their terms of trade $$ S_{it} \equiv P^*_{it}/P^*_t $$ relative to the dollar import price index.
+$$
+\beta E_t\left[\frac{U_{C^*_{it+1}}}{U_{C^*_{it}}}\frac{\mathcal{Q}^h_{t+1}+\mathcal{D}^h_{t+1}}{\mathcal{Q}^h_t}\right]=1,\quad \forall h\in H_t. \tag{4}
+$$
+
+**Firms.** Monopolistic competitors in country $$ i $$ produce variety $$ \omega $$ with production function $$ Y_{it} = A_{it} N_{it} $$. Firms face price-adjustment costs $$ \Omega(\cdot) $$ satisfying $$ \Omega(\cdot) \geq 0 $$, $$ \Omega(1) = 0 $$. The domestic producer's price-setting problem (eq. 5, p. 1790) is:
+
+$$
+\{1\}=\arg\max_{\{p_t\}}E\sum_{t=0}^{\infty}\beta^t\left[\left(U_{C_{iit}}p_t-\tau_i\frac{-U_{L_{it}}}{A_{it}}\right)h(p_t)C_{iit}-\Omega\!\left(\frac{p_t}{p_{t-1}}\pi_{iit}\right)(-U_{L_{it}})\right].\tag{5}
+$$
+
+Exporters set a single dollar price for all foreign markets, expressed as a terms-of-trade choice (eq. 6, pp. 1790-1791):
+
+$$
+\{S_{it}\}=\arg\max_{\{S_t\}}E\sum_{t=0}^{\infty}\beta^t\left[\left(U_{C^*_{it}}S_t-\tau_i^*\frac{-U_{L_{it}}}{A_{it}}\right)h(S_t)C_t^*-\Omega^*\!\left(\frac{S_t}{S_{t-1}}\pi_t^*\right)(-U_{L_{it}})\right].\tag{6}
+$$
+
+Here $$ S_{it} \equiv P^*_{it}/P^*_t $$ is the export terms of trade.
 
 **Market clearing and budget constraint.** The resource constraint (eq. 7, p. 1790) requires that labor be allocated across domestic production, exports, and price adjustment:
 
 $$
-A_{it} L_{it} = C_{iit} + h(S_{it}) C^*_t + A_{it}\!\left[\Omega(\pi_{iit}) + \Omega^*\!\!\left(\frac{S_{it}}{S_{it-1}} \pi^*_t\right)\right], \tag{7}
+A_{it} L_{it} = C_{iit} + h(S_{it}) C^*_t + A_{it}\Omega(\pi_{iit}) + \Omega^*\!\!\left(\frac{S_{it}}{S_{it-1}} \pi^*_t\right), \tag{7}
 $$
 
 where $$ h(\cdot) $$ is the demand function for country $$ i $$ exports, $$ \pi_{iit} = P_{iit}/P_{iit-1} $$ is the domestic inflation index, and $$ \pi^*_t = P^*_t/P^*_{t-1} $$ is the global export-price inflation index. The budget constraint (eq. 8, p. 1790) relates net exports to changes in the net foreign asset position, including "valuation effects" from exchange rate movements.
+
+The consolidated country budget constraint and asset-market clearing conditions (eqs. 8-9, p. 1791) are:
+
+$$
+\sum_{h\in H_t}\mathcal{Q}^h_t B^h_{it+1}-\sum_{h\in H_{t-1}}(\mathcal{Q}^h_t+\mathcal{D}^h_t)B^h_{it}=S_{it}h(S_{it})C_t^*-C^*_{it}+\psi_{it},\tag{8}
+$$
+
+$$
+\int B^h_{it+1}\,di=0\quad\forall h\in H_t,\qquad \mathcal{B}^i_{it}=0\quad\forall i\in[0,1].\tag{9}
+$$
+
+For the United States, dollar use imposes the additional implementability condition (eq. 10, p. 1792):
+
+$$
+\frac{U_{C^*_{it}}/U_{C^*_{it-1}}}{U_{C_{iit}}/U_{C_{iit-1}}}=\frac{\pi_t^*}{\pi_{iit}},\quad i=0.\tag{10}
+$$
 
 **The two key wedges.** In a static setup, the first-best requires closing two distortions (p. 1796):
 
@@ -154,6 +205,16 @@ $$
 The local wedge measures inefficiency in the trade-off between domestic consumption and leisure; the external wedge measures the inefficiency in the trade-off between leisure and foreign consumption via exports. Under flexible prices and PCP (producer currency pricing), both wedges can be closed with a single monetary instrument. Under DCP they cannot, because domestic prices and export dollar prices respond to different price indices.
 
 The central insight (pp. 1797-1800) is that DCP makes export prices **constrained efficient**: because each small open economy's exports constitute a zero measure of global demand $$ C^*_t $$, individual adjustments in $$ S_{it} $$ do not affect the aggregate import price index. Hence, the social and private benefits of changing export prices coincide, the external wedge is beyond monetary control, and the planner focuses exclusively on closing the local wedge by targeting domestic price stability. This argument holds generically, even when export prices respond endogenously to monetary policy (via the Calvo or Rotemberg mechanism), because the adjusting exporters' prices are still constrained efficient at the private margin. Corsetti, Dedola, and Leduc (2020) established inflation targeting optimality in knife-edge cases (fully sticky export prices, or log-linear preferences); this paper proves it holds generically for arbitrary preferences, technologies, asset markets, and shock distributions. A further implication (Proposition 2) is that capital controls cannot improve welfare unilaterally; this contrasts with the general lesson from Farhi and Werning (2016) that macroprudential interventions are useful whenever monetary policy falls short of first-best, and the paper clarifies why the DCP external-wedge channel nullifies that general argument.
+
+The planner's allocation problem and the proposition's optimal domestic inflation rule are (eq. 11, p. 1795):
+
+$$
+\max_{\{C_{iit},C^*_{it},L_{it},B^h_{it},S_{it},\pi_{iit}\}}E\sum_{t=0}^{\infty}\beta^tU(C_{iit},C^*_{it},L_{it},\xi_{it}),\quad\text{subject to equations (4)-(8)},
+$$
+
+$$
+\pi_{iit}=1.\tag{11}
+$$
 
 **Equilibrium and game structure.** The paper defines equilibrium as a subgame-perfect Nash equilibrium in which the United States moves first as a Stackelberg leader (internalizing effects on other economies) and non-US economies best-respond taking all foreign variables as given (Definition, p. 1792). Lemma 2 (p. 1792) establishes that the equilibrium outcome is the same under simultaneous play and under non-US discretionary policy, making the results independent of timing assumptions.
 
@@ -189,6 +250,12 @@ $$
 
 where $$ v_{it} $$ is an invariant measure reflecting what fraction of an additional dollar printed by the United States is spent on exports of country $$ i $$. This rule differs from the noncooperative US case: under cooperation, the United States targets the global external wedge rather than extracting rents from the rest of the world.
 
+The cooperative planner's optimal capital controls are determined by the marginal social value of transfers, which satisfies the integral equation for $$ \mu_{it} $$ (eq. 14, p. 1813):
+
+$$
+\mu_{it}-\frac{U_{C^*_{it}}}{\mathcal{P}^*_{it}}=\int \varpi_{jit}\left(\mu_{jt}-\frac{U_{C^*_{jt}}}{\mathcal{P}^*_{jt}}\right)dj+\int \varpi_{jit}\frac{U_{C^*_{jt}}}{\mathcal{P}^*_{jt}}\tilde{\tau}^*_{jt}dj.\tag{14}
+$$
+
 **Numerical solution (Section IV, p. 1814).** The calibrated model uses the CRRA-CES utility function:
 
 $$
@@ -201,6 +268,8 @@ with Cobb-Douglas production $$ Y_{it} = A_{it} N^{1-\alpha}_{it} X^\alpha_{it} 
 ## Empirical specifications
 
 Section IV (pp. 1814-1819) calibrates and simulates the model. One period is one quarter.
+
+This is not an empirical estimation design: there is no regression, fixed-effect structure, or standard-error calculation. The numerical exercise log-linearizes the calibrated model around the symmetric deterministic steady state and computes second-order welfare approximations. The policy specifications are the domestic-inflation rule in eq. 11 and the US and cooperation rules in eqs. 12-14 above; the calibration and shock moments are reported below (pp. 1814-1815).
 
 **Parameter values (p. 1815):**
 - Preferences: $$ \beta = 0.99 $$, $$ \sigma = 2 $$ (inverse EIS), $$ \phi = 2 $$ (inverse Frisch elasticity)

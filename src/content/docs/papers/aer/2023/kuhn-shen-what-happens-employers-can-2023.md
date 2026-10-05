@@ -8,7 +8,7 @@ description: >-
   The ban generated a large increase in gender-mismatched applications that
   employers treated relatively well, suggesting gender requests often
   reflected weak preferences or outdated stereotypes. American Economic
-  Review 2023, paywalled. Nine core results with source locators, datasets
+  Review 2023, paywalled. Twenty-four core results with source locators, datasets
   used, and the regression-discontinuity estimating equations.
   LLM-distilled, not human-verified.
 sidebar:
@@ -34,6 +34,8 @@ paper:
   dataAccess: proprietary-confidential
   outcome:
     - female share of applications and callbacks to male-requesting jobs
+    - female share of applications and callbacks to non-gendered jobs
+    - application behavior by job-ad text and worker search activity
     - male share of applications and callbacks to female-requesting jobs
     - total application arrivals to previously gendered jobs
     - application match quality and callback rate per application
@@ -43,7 +45,7 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (AEA website, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 9
+  resultsCount: 24
   citedByCount: 29
   methods:
     role: applies-method
@@ -51,7 +53,7 @@ paper:
     buildsFrom: [regression-discontinuity-design, panel-regression, difference-in-differences]
     identification: natural-experiment
   contributionType: [new-fact, new-data]
-  mechanisms: [information-asymmetry, behavioral-bias]
+  mechanisms: [information-asymmetry, behavioral-bias, ambiguity-aversion]
   introducesData: true
   scope:
     region: China (Xiamen)
@@ -70,8 +72,18 @@ paper:
     - { ref: R6, outcome: "total daily applications to M (male-requesting) jobs", metric: coefficient, value: "+0.0165 applications/day (+8.5%); Table 4 panel D col 2, p. 1038", direction: positive }
     - { ref: R7, outcome: "female applications to own (F) jobs after ban removed female-only invitation", metric: coefficient, value: "-0.0160 applications/day; Table 4 panel C col 3, p. 1038", direction: negative, vsBenchmark: "men did not reduce applications to M jobs after ban (coefficient near zero)" }
     - { ref: R8, outcome: "mean application match quality (normalized)", metric: sd-effect, value: "+0.0169 SD (significant at 5%); Table 5 panel A col 2, p. 1040", direction: positive }
-    - { ref: R9, outcome: "callback rate per application submitted", metric: pp-effect, value: "-0.0028 (SE 0.0026, not significant); Table 6 panel A col 2, p. 1041", direction: none }
-  resultType: new-finding
+    - { ref: R9, outcome: "callback rate per application submitted", metric: coefficient, value: "-0.0028 (SE 0.0026, not significant); Table 6 panel A col 2, p. 1041", direction: none }
+    - { ref: R11, outcome: "incumbent gender composition of job titles entered after the ban", metric: probability, value: "M titles: 0.878 all vs 0.677 entered (gap 0.201); F titles: 0.785 all vs 0.735 entered (gap 0.050); 13 of women’s 20 top contributing titles were above-average male, while 18 of men’s 20 were female-dominated; Table 3 panels A-B, p. 1030 and text p. 1033", direction: negative, vsBenchmark: "entered titles were less gender-typical than all titles in the corresponding request group; women's entry was farther from the all-M-title mix than men's entry was from the all-F-title mix" }
+    - { ref: R12, outcome: "gender share of callbacks in highly gendered job titles", metric: pp-effect, value: "For titles >80% male, women’s callback share +1.87 pp (p=0.131); for titles >80% female, men’s callback share +6.57 pp (p=0.000); Figure 4, p. 1031; text p. 1032", direction: positive }
+    - { ref: R13, outcome: "incumbent gender composition of units entered after the ban", metric: probability, value: "Women entrants: male share 0.677 titles, 0.795 positions, 0.597 workplaces, 0.562 firms; men entrants: female share 0.735, 0.856, 0.577, 0.546, respectively; Table 3 panel C, p. 1030", direction: positive, vsBenchmark: "largest integration at positions and job titles; smaller at workplaces and firms" }
+    - { ref: R14, outcome: "log posted wages of job titles entered after the ban", metric: level, value: "M jobs: 8.738 all vs 8.621 entered (difference -0.117) and 8.858 in N jobs; F jobs: 8.634 vs 8.524 (difference -0.110) and 8.858 in N jobs; Table 3 panel D, p. 1030", direction: negative, vsBenchmark: "entered titles paid about 11.7% less for women and 11.0% less for men than all jobs of the corresponding gender-request type" }
+    - { ref: R15, outcome: "total daily applications to all ads", metric: coefficient, value: "+0.0058 per ad-day (SE 0.0015), about 3.2% of the 0.182 mean; Table 4 panel A col 2, p. 1038", direction: positive }
+    - { ref: R16, outcome: "total daily applications to non-gendered jobs", metric: coefficient, value: "+0.0015 per ad-day (SE 0.0017, not significant); Table 4 panel B col 2, p. 1038", direction: none }
+    - { ref: R17, outcome: "mean application match quality for men applying to female-requesting jobs", metric: sd-effect, value: "+0.1064 SD (SE 0.0569, significant at 10%); Table 5 panel C col 4, p. 1040", direction: positive }
+    - { ref: R18, outcome: "female share of applications and callbacks to non-gendered jobs", metric: pp-effect, value: "Applications: +0.53 pp (SE 0.11 pp); callbacks: +0.48 pp (SE 0.40 pp, not significant); Tables 1-2 col 4, pp. 1026-1027", direction: positive, vsBenchmark: "the application-share change was small; callback-share change was not statistically significant" }
+    - { ref: R19, outcome: "callback rate per application submitted", metric: p-value, value: "Relative callback-success effects not significant in F jobs (p=0.954) or M jobs (p=0.860); Table 6 notes, p. 1041", direction: none, vsBenchmark: "no detectable change in women's success relative to men's within either previously gendered job group" }
+    - { ref: R21, outcome: "application behavior by job-ad text", metric: coefficient, value: "Ban effects on application gender mix were 54-60% smaller when ads retained a text-embedded gender request; 8-9% larger among ads without embedded requests; text p. 1044 (summary of online Appendix 6)", direction: positive, vsBenchmark: "relative to the paper's main estimates" }
+  resultType: confirms
   relatesTo:
     - { cite: "Kuhn and Shen (2013)", doi: '10.1093/qje/qjs046', relation: builds-on, note: "prior paper documenting gender discrimination in Chinese job ads, which found explicit requests were common and affected applicant gender mix" }
     - { cite: "Delgado Helleseter, Kuhn, and Shen (2020)", relation: builds-on, note: "documented the prevalence and distribution of gender requests across job boards; current paper uses its setting for the policy study" }
@@ -84,6 +96,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Read PDF in full (36 pages); all locators sourced directly from the paper; not human-verified; not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; fixed R1 base from 6.78% to 4.79% (female callback share in M jobs preban, Table 2 notes) in Core results table and findings[]; fixed R4 formula sign error (|-β¹+β³| → |β¹+β³|) in Empirical specifications; all other magnitudes, locators, and equations confirmed correct." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results and findings with omitted main-text heterogeneity, control-group, application-flow, match-quality, callback-yield, and heterogeneity evidence; added the application-level estimating specification. Additions are not human-verified and have not been reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 24 Core results, equations, specifications, classifications, findings, frontmatter, and page prose against the PDF; corrected Figure 4 locator, callback-yield description, and the R4 formula; all other claims supported." }
   licenceVerification:
     - { source: "Crossref works/10.1257/aer.20211127", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "license array empty; title, authors, publisher (American Economic Association), published date (2023-04-01), and page range (1013-1048) confirmed; no open-access license found" }
 ---
@@ -109,7 +123,7 @@ workers who applied to jobs of the "wrong" gender received callbacks at
 65 to 87 percent of the rate of gender-matched applicants, both before and
 after the ban. The ban did not increase matching frictions: aggregate
 application match quality rose slightly and callback rates per application
-were unaffected. The effect was asymmetric: men entered formerly female jobs
+showed no detectable change. The effect was asymmetric: men entered formerly female jobs
 at a far greater rate than women entered formerly male jobs, which the paper
 links to gender differences in ambiguity aversion and the greater
 industry-specificity of the most male-dominated job titles. Integration
@@ -130,6 +144,21 @@ untouched.
 | R7 | Women reduced their applications to F jobs after ban removed female invitation | Table 4 panel C col 3, p. 1038 | -0.0160 applications/day (sig.); men did not reduce M-job applications |
 | R8 | Mean application match quality rose slightly | Table 5 panel A col 2, p. 1040 | +0.0169 SD (significant, 5% level) |
 | R9 | Callback rate per application submitted: null result | Table 6 panel A col 2, p. 1041 | -0.0028 (SE 0.0026), not significant |
+| R10 | Employers’ gender requests largely matched the incumbent gender composition of job titles | Figure 3, p. 1029 | The share of ads requesting women or men rose with the corresponding incumbent gender share across job titles |
+| R11 | Women entered less historically male M titles than the average M title, while men entered F titles closer to their average incumbent mix | Table 3 panels A-B, p. 1030 | M titles: 0.878 all vs 0.677 entered, gap 0.201; F titles: 0.785 all vs 0.735 entered, gap 0.050 |
+| R12 | Integration differed in the most gendered titles | Figure 4, p. 1031; text p. 1032 | In titles >80% male, women’s callback share rose 1.87 pp (p=0.131); in titles >80% female, men’s rose 6.57 pp (p=0.000). None of the 80 most gender-dominated titles appeared among the 40 titles accounting for most ban effects (text p. 1034) |
+| R13 | Ban-induced entry reached underrepresented genders at job-title, position, workplace, and firm levels | Table 3 panel C, p. 1030 | Incumbent male share for women entrants: 0.677 titles, 0.795 positions, 0.597 workplaces, 0.562 firms; incumbent female share for men entrants: 0.735, 0.856, 0.577, 0.546, respectively |
+| R14 | Job titles entered after the ban were lower-wage than all titles in the same request group | Table 3 panel D, p. 1030 | M jobs: 8.738 vs 8.621 entered (difference -0.117), compared with 8.858 for N jobs; F jobs: 8.634 vs 8.524 (difference -0.110), compared with 8.858 for N jobs |
+| R15 | The ban modestly increased applications to all ads | Table 4 panel A col 2, p. 1038 | +0.0058 applications per ad-day (SE 0.0015), about 3.2% of the 0.182 mean |
+| R16 | Applications to untreated non-gendered jobs were essentially unchanged | Table 4 panel B col 2, p. 1038 | +0.0015 applications per ad-day (SE 0.0017), not significant |
+| R17 | Match quality rose most for men applying to F jobs | Table 5 panel C col 4, p. 1040 | +0.1064 SD (SE 0.0569), significant at 10% |
+| R18 | Gender shares in non-gendered jobs changed little | Tables 1-2 col 4, pp. 1026-1027 | Female share: applications +0.53 pp (SE 0.11 pp); callbacks +0.48 pp (SE 0.40 pp, not significant) |
+| R19 | Relative callback success by applicant gender did not change in F or M jobs | Table 6 notes, p. 1041 | F jobs: p=0.954; M jobs: p=0.860 for tests of changes in women’s relative success |
+| R20 | The main gender-mix and application-flow results remained stable under placebo dates and alternative identifying specifications | Text pp. 1028, 1043-1044 (summary of online Appendices 5-11, 18) | Authors describe the findings as highly stable across specification checks; placebo-ban and DiD checks preserve the reported patterns |
+| R21 | The ban’s application effects were smaller when gender preferences remained elsewhere in the ad | Text p. 1044 (summary of online Appendix 6) | Effects were 54-60% smaller in ads with embedded requests and 8-9% larger in ads without them |
+| R22 | The application increase also came from workers with dormant profiles | Text pp. 1015, 1044-1045 (summary of online Appendix 14) | Effects were highly significant among profiles inactive for at least eight weeks; all additional applications were gender-mismatched |
+| R23 | Women’s application response varied with schedule and shift conditions | Text p. 1045 (summary of online Appendix 17) | Long schedules intensified women’s exit from F jobs and attenuated entry into M jobs; multiple or irregular shifts also attenuated entry into M jobs |
+| R24 | The gender-share changes appeared quickly and persisted | Text p. 1015 | Effects were visible in the first week and persisted for at least six months |
 
 **Overall (paper's conclusion).** The ban integrated gender-previously-segregated
 applicant pools and callback pools without measurable harm to application quality
@@ -201,8 +230,10 @@ $$\beta^2$$ (ban's effect in M jobs relative to N jobs). A quartic in calendar
 weeks and a quartic in job age (weeks since posting) control for secular trends
 and duration dependence within recruiting spells. The most saturated specification
 adds job-ad fixed effects (column 4 of Tables 1 and 2), absorbing all
-time-invariant job characteristics. Observations are weighted by total
-applications received; standard errors cluster by firm ID throughout.
+time-invariant job characteristics. Table 1 is weighted by the number of
+applications and Table 2 by the number of callbacks; both cluster standard
+errors by firm ID. The ad-week samples contain 1,428,768 application cells and
+214,585 callback cells, respectively.
 
 **Equation (2): application arrival rates (daily ad-day cells, 30-day window).**
 For outcomes with non-smooth seasonal trends around the Spring Festival, the
@@ -233,7 +264,7 @@ Equation (1) is estimated on ad-week cells with at least one application
 specification is column 4 (job-ad fixed effects), which implies:
 
 - R3: ban raised female applicant share in M jobs by $$\hat{\beta}^2 + \hat{\beta}^3 = 0.0348 + 0.0053 = 4.01$$ pp, from a preban base of 5.59% (Table 1, p. 1026).
-- R4: ban raised male applicant share in F jobs by $$|{\hat{\beta}^1 + \hat{\beta}^3}| = |{-0.1393} + 0.0053| = 13.40$$ pp, from 10.06% (Table 1, p. 1026).
+- R4: ban raised male applicant share in F jobs by $$-({\hat{\beta}^1 + \hat{\beta}^3}) = -(-0.1393 + 0.0053) = 0.1340$$ (13.40 pp), from 10.06% (Table 1, p. 1026).
 - R1: ban raised female callback share in M jobs by $$2.46 + 0.48 = 2.94$$ pp (61%), from 4.79% (Table 2 col 4, p. 1027).
 - R2: ban raised male callback share in F jobs by $$10.39 - 0.48 = 9.91$$ pp (146%), from 6.78% (Table 2 col 4, p. 1027).
 
@@ -252,9 +283,16 @@ women reduced applications to their own F jobs (R7, coefficient -0.0160/day,
 significant), consistent with greater female ambiguity aversion when an
 explicit gender invitation is removed. Match quality rose slightly (R8,
 Table 5), suggesting the new gender-mismatched applications were not low
-quality. Callback rates per application were statistically indistinguishable
-from zero in all sixteen specification-by-subsample cells in Table 6 (R9),
-confirming that the ban did not increase matching frictions for workers.
+quality. The aggregate callback rate per application showed no detectable
+change (R9); across Table 6, only two of sixteen coefficients were statistically
+significant. These estimates provide no evidence of an overall increase in matching
+frictions for workers.
+
+**Application-level callback specification.** Table 5 uses the printed equation (2) with mean match quality in ad-day cells as the dependent variable. Table 6 changes the unit to an application, replaces the left-hand side with the callback indicator, and replaces job-ad fixed effects with applicant fixed effects. Written out from Section V (text p. 1040; not separately numbered in the paper):
+
+$$\text{Callback}_{i} = \alpha + \beta \text{Post}_{i} + \delta^1 t_i + \delta^2 (t_i \cdot \text{Post}_{i}) + \theta \text{X}_{i} + \text{ApplicantFE}_{i} + \varepsilon_i$$
+
+Table 4 uses active ad-day cells in the 30-day window, with applications sent within 15 days of the ban (3,514,552 observations in the all-ad sample); standard errors cluster by firm. Table 5 uses 439,515 ad-day cells with at least one application and a valid match score, with job-ad fixed effects in columns 2-4 and firm-clustered standard errors. Table 6 uses 638,142 applications and the daily RD controls described above, adds the vacancy count and its missing indicator, and includes applicant fixed effects in columns 2-4; standard errors are clustered by firm. Table 4 has 3,514,552 ad-day observations in the all-ad sample. See Tables 4-6, pp. 1038, 1040-1041.
 
 ## Datasets used
 

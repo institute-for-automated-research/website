@@ -3,8 +3,8 @@ title: "Persuasion through Slanted Language: Djourelova (2023)"
 description: >-
   Distilled: Djourelova (2023) exploits the AP's April 2013 ban on the term
   "illegal immigrant" to show that slanted language diffuses from news wires to
-  local media and causally lowers public support for restrictive immigration
-  policies. American Economic Review 113(3), 2023, AEA open access. Eight core
+  local media and lowers public support for restrictive immigration policies.
+  American Economic Review 113(3), 2023, AEA open access. Eighteen core
   results with source locators, datasets used, identification design, and
   estimating equations.
 sidebar:
@@ -33,15 +33,18 @@ paper:
   dataAccess: licensed-commercial
   outcome:
     - use of the term "illegal immigrant" in media outlets
+    - use of the term "illegal immigrant" in AP dispatches
+    - co-occurrence of "illegal" with "immigrant" in AP dispatches
     - support for increasing border security
     - support for restrictive immigration policies (index)
-  outcomeClass: [social-preferences]
+    - coverage of the AP ban announcement in local media
+  outcomeClass: [social-preferences, cultural-change]
   license: "AEA copyright; free-to-read PDF at aeaweb.org (confirmed via OpenAlex open_access_pdf link, 2026-06-25); no Creative Commons licence found in Crossref DOI metadata"
   licenseShort: AEA open access
   access: open
   machineAccess: "open PDF (aeaweb.org/articles/pdf/doi/10.1257/aer.20211537, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 18
   citedByCount: 70
   methods:
     role: applies-method
@@ -49,21 +52,31 @@ paper:
     buildsFrom: [difference-in-differences, instrumental-variables, panel-regression, lda-topic-model, text-classification]
     identification: natural-experiment
   contributionType: [new-fact]
-  mechanisms: [behavioral-bias]
+  mechanisms: [media-framing]
+  introducesData: true
   scope:
     region: US
     period: 2009-01..2020-12
     frequency: mixed
-    dataType: [text, survey, administrative]
+    dataType: [text, survey, other]
     granularity: [aggregate, individual]
     n: "~192,635 CCES respondents across survey waves; 2,385 media outlets, 139,523 outlet-months (2009-2017)"
   findings:
     - { ref: R1, outcome: "use of term \"illegal immigrant\" in media outlets", metric: pp-effect, value: "-3.53 p.p. per 1-SD AP intensity increase (Table 2, col 1; mean 20.28 p.p.)", direction: negative, vsBenchmark: "17% decline relative to the mean; driven by AP-sourced articles, not original content" }
+    - { ref: R3, outcome: "use of the term 'illegal immigrant' in local media outlets", metric: coefficient, value: "most-left-leaning outlet quartile effect approximately twice the most-right-leaning quartile; significant in Q1-Q3 and near zero in Q4 (Figure 6, Panel A, pp. 817-818)", direction: negative }
     - { ref: R4, outcome: "support for increasing border security", metric: pp-effect, value: "-0.8 p.p. per 1-SD AP intensity increase (Table 4, col 1; mean dep. var. 0.55)", direction: negative }
-    - { ref: R5, outcome: "support for increasing border security", metric: pp-effect, value: "4.5 p.p. per 10 p.p. increase in local use of the term (Table 4, 2SLS)", direction: positive, vsBenchmark: "corresponds to 2% of partisan gap; persuasion rate 1.9-4.4% for newspaper readers" }
-    - { ref: R6, outcome: "support for non-immigration policies (falsification index)", metric: pp-effect, value: "-0.0002 (0.001), not significant (Table 6, col 8)", direction: none }
-    - { ref: R7, outcome: "support for border security", metric: pp-effect, value: "moderates: -0.71 p.p.; liberals: -0.29 p.p.; conservatives: -0.14 p.p. (Table 7, cols 4-6)", direction: negative, vsBenchmark: "effects most pronounced for moderates vs liberals or conservatives (p-val 0.224)" }
-    - { ref: R8, outcome: "support for border security", metric: pp-effect, value: "low-foreign-born counties: -0.87 p.p.; high-foreign-born counties: -0.01 p.p. (Table 7, cols 7-8)", direction: negative, vsBenchmark: "stronger in areas with fewer immigrants (p-val for equality 0.054)" }
+    - { ref: R5, outcome: "support for increasing border security", metric: pp-effect, value: "4.5 p.p. per 10 p.p. increase in local use of the term (Table 4, 2SLS)", direction: positive, vsBenchmark: "corresponds to 2% of partisan gap; persuasion rate is 4.4% in the full sample and 1.9% among newspaper readers" }
+    - { ref: R6, outcome: "support for non-immigration policies (falsification index)", metric: coefficient, value: "-0.0002 (0.001), not significant (Table 6, col 8)", direction: none }
+    - { ref: R7, outcome: "support for border security", metric: coefficient, value: "moderates: -0.0071; liberals: -0.0029; conservatives: -0.0014 (Table 7, cols 4-6)", direction: negative, vsBenchmark: "moderates have the largest point estimate; equality p-value = 0.224, not statistically significant" }
+    - { ref: R8, outcome: "support for border security", metric: coefficient, value: "low-foreign-born counties: -0.0087; high-foreign-born counties: -0.0001 (Table 7, cols 7-8)", direction: negative, vsBenchmark: "point estimate is larger in areas with fewer immigrants; equality p-value = 0.054" }
+    - { ref: R9, outcome: "use of the term \"illegal immigrant\" in AP dispatches", metric: pp-effect, value: "share fell from 50% before the ban to less than 5% after; AP-approved substitutes rose by 6 p.p. against a 47 p.p. decline in the banned term (Figure 2, p. 808-809)", direction: negative }
+    - { ref: R10, outcome: "co-occurrence of \"illegal\" with \"immigrant\" in AP dispatches", metric: coefficient, value: "association fell from 0.66 before the ban to 0.21 after (Figure 3, Panel A, p. 810)", direction: negative }
+    - { ref: R12, outcome: "use of the term \"illegal immigrant\" in local media outlets", metric: coefficient, value: "Reuters-intensity placebo: 0.292 (0.311) in the full sample and 0.482 (0.416) for daily print newspapers (Table 3, cols. 4 and 8, p. 817)", direction: none }
+    - { ref: R13, outcome: "support for increasing border security", metric: coefficient, value: "nonreaders: -0.0009 (0.003); print readers: -0.0068 (0.003); equality p-value = 0.127 (Table 7, cols. 1 and 3, p. 829)", direction: negative, vsBenchmark: "the reader-group estimates are not statistically different" }
+    - { ref: R14, outcome: "support for increasing border security", metric: coefficient, value: "Reuters-intensity reduced-form placebo: -0.0019 (0.0038) (Table 5, col. 4, p. 826)", direction: none }
+    - { ref: R15, outcome: "support for restrictive immigration policies", metric: coefficient, value: "reduced form / 2SLS: employer sanctions -0.0062 (0.002) / 0.0051 (0.002); police questioning -0.0047 (0.001) / 0.0046 (0.002); prohibit services -0.0038 (0.002) / 0.0033 (0.002); legalization -0.0011 (0.001) / 0.0011 (0.001); all-policy index -0.0064 (0.002) / 0.0060 (0.002); consistent-question index -0.0059 (0.002) / 0.0056 (0.003) (Table 6, cols. 2-7, p. 828)", direction: mixed }
+    - { ref: R16, outcome: "coverage of the AP ban announcement in local media", metric: correlation, value: "37 articles among approximately 1 million articles mentioning \"immigrant\"; coverage correlation with AP intensity close to zero (text p. 831)", direction: none }
+    - { ref: R17, outcome: "use of the term \"illegal immigrant\" in local media outlets", metric: pp-effect, value: "top quartile of positive AP intensity reduced term use by 10 p.p. relative to outlets with zero AP intensity (Figure 5, Panel B; text p. 816)", direction: negative }
   resultType: new-finding
   relatesTo:
     - { cite: "Gentzkow and Shapiro (2010)", doi: '10.3982/ecta7195', relation: builds-on, note: "AP intensity measure and newspaper ideology index adapted from their measure of media slant; placebo uses Reuters intensity by the same method" }
@@ -78,6 +91,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 800-835); eight results extracted from the PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 8 Core results rows verified (Table 2 col 1 for R1, Figure 5/6 for R2-R3, Table 4 for R4-R5, Table 6 col 8 for R6, Table 7 cols 4-6/7-8 for R7-R8), equations (2)-(8) checked term-by-term, frontmatter facts confirmed; no errors found." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and appended ten Core results rows plus missing equation coverage and a dynamic specification. Additions are not human-verified and were not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Pass after correcting the Table 4 LATE column/value, unreported significance stars, subgroup significance claims, findings metrics, and stale attribution; rows, locators, equations, specifications, axes, and prose checked against the PDF." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20211537", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "no license[] block in Crossref metadata; link to PDF via similarity-checking only (content-version vor); no CC licence asserted" }
     - { source: "OpenAlex W4322627373", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "open_access_pdf: https://www.aeaweb.org/articles/pdf/doi/10.1257/aer.20211537; type article; year 2023; cited_by_count 70" }
@@ -88,24 +103,34 @@ paper:
 
 ## TL;DR
 
-The paper studies whether slanted language in news media causally affects readers' policy views, using the Associated Press (AP) ban on the term "illegal immigrant" in April 2013 as a natural experiment. The ban exploits supply-side variation: the AP distributes a common feed to member outlets, and outlets differ in how heavily they rely on AP copy (their AP intensity). The paper has three parts: (i) the ban caused near-complete disappearance of "illegal immigrant" from AP dispatches, while leaving other dimensions of immigration coverage unchanged; (ii) the ban diffused into local media, with 1-standard-deviation higher AP intensity associated with a 3.5 percentage point decline in use of the term; and (iii) readers of locally circulated newspapers in high-AP-intensity counties showed significantly lower support for restrictive immigration policies after the ban, with effects concentrated among moderates and those in areas with few immigrants. The results are specific to immigration and do not generalize to other policy issues, consistent with a persuasion rather than a social-signaling mechanism.
+The paper studies whether slanted language in news media affects readers' policy views, using the Associated Press (AP) ban on the term "illegal immigrant" in April 2013 as a natural experiment. The ban exploits supply-side variation: the AP distributes a common feed to member outlets, and outlets differ in how heavily they rely on AP copy (their AP intensity). The paper has three parts: (i) the ban caused near-complete disappearance of "illegal immigrant" from AP dispatches, while leaving other dimensions of immigration coverage largely unchanged; (ii) the ban diffused into local media, with 1-standard-deviation higher AP intensity associated with a 3.5 percentage point decline in use of the term; and (iii) respondents in high-AP-intensity counties showed significantly lower support for restrictive immigration policies after the ban. The estimated effects are largest for moderates and in areas with fewer immigrants, though the ideology-group difference is not statistically significant (p = 0.224) and the immigrant-share difference is marginal (p = 0.054). The results are specific to immigration and do not generalize to other policy issues, consistent with a persuasion rather than a social-signaling mechanism.
 
 ## Core results
 
-Magnitudes and significance as reported; `\*\*`/`\*\*\*` = 5%/1%. Locators point to the source PDF.
+Magnitudes are reported as in the source; standard errors are shown in parentheses where available. Locators point to the source PDF.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
-| R1 | **Ban diffused to local media**: 1-SD higher AP intensity associated with 3.5 p.p. decline in use of "illegal immigrant" by media outlets | Table 2, col 1, p. 814 | Coef. on PostBan x IHS(AP-intensity) = -1.613 (0.171)\*\*\*; effect for 1-SD = -3.53 p.p. (17% of mean 20.28); robust across 7 specifications including outlet-specific trends and DMA x year-month FEs |
+| R1 | **Ban diffused to local media**: 1-SD higher AP intensity associated with 3.5 p.p. decline in use of "illegal immigrant" by media outlets | Table 2, col 1, p. 814 | Coef. on PostBan x IHS(AP-intensity) = -1.613 (0.171); effect for 1-SD = -3.53 p.p. (17% of mean 20.28); robust across 7 specifications including outlet-specific trends and DMA x year-month FEs |
 | R2 | **Diffusion driven by AP-sourced content**, not original reporting; effect on original articles small and only marginally significant for print newspapers | Figure 5, Panel C, p. 815 | AP-sourced: large, sharp post-ban decline; original articles: near zero; visual evidence complemented by online Appendix Table B2 |
 | R3 | **Left-leaning outlets show ~2x larger diffusion** than right-leaning ones; significant in 3 of 4 ideology quartiles | Figure 6, Panel A, pp. 817-818 | Most left-leaning (Q1): coefficient approximately twice as large as most right-leaning (Q4); declines significant for Q1-Q3; effect for Q4 near zero and insignificant |
-| R4 | **Ban reduced support for border security** by 0.8 p.p. per 1-SD AP intensity increase (intention-to-treat) | Table 4, col 1, p. 824 | Reduced-form coef = -0.0051 (0.002)\*\*; effect for 1-SD = -0.0083; mean dep. var. = 0.55; robust to county-specific trends, DMA x year FEs, and state x year FEs (cols 2-5) |
-| R5 | **LATE (2SLS)**: 10 p.p. increase in "illegal immigrant" usage in local media associated with 4.5 p.p. more support for border security | Table 4, 2SLS panel, p. 824 | 2SLS coef = 0.0057 (0.002)\*\*\*; first-stage F = 10.53; persuasion rate 1.9-4.4% for newspaper readers (equation 8, p. 830) |
+| R4 | **Ban reduced support for border security** by 0.8 p.p. per 1-SD AP intensity increase (intention-to-treat) | Table 4, col 1, p. 824 | Reduced-form coef = -0.0051 (0.002); effect for 1-SD = -0.0083; mean dep. var. = 0.55; robust to county-specific trends, DMA x year FEs, and state x year FEs (cols 2-5) |
+| R5 | **LATE (2SLS)**: 10 p.p. increase in "illegal immigrant" usage in local media associated with 4.5 p.p. more support for border security | Table 4, col 2, 2SLS panel, p. 824; text p. 826 | 2SLS coef = 0.0045 (0.002); first-stage F = 27.61; persuasion rate is 4.4% for the full sample and 1.9% for newspaper readers (equation 8, p. 830) |
 | R6 | **Effects specific to immigration**: null effect on index of 9 non-immigration CCES policy questions (falsification test) | Table 6, col 8, p. 828 | Reduced-form coef = -0.0002 (0.001); 2SLS coef = 0.0002 (0.001); both statistically zero; covers abortion, gay marriage, healthcare, and economic policy questions |
-| R7 | **Stronger effects for moderates** than liberals or conservatives; differences statistically marginal | Table 7, cols 4-6, p. 829 | Moderates: -0.0071 (0.003)\*\*; liberals: -0.0029 (0.003); conservatives: -0.0014 (0.002); p-value for equality of moderate vs extreme groups = 0.224 |
-| R8 | **Stronger effects in counties with fewer immigrants** (low share of foreign-born) | Table 7, cols 7-8, p. 829 | Low-foreign-born (bottom quartile): -0.0087 (0.003)\*\*\*; high-foreign-born (top quartile): -0.0001 (0.004); p-value for equality = 0.054 |
+| R7 | **Largest point estimate is for moderates**; estimates are not statistically different from those for liberals or conservatives | Table 7, cols 4-6, p. 829 | Moderates: -0.0071 (0.003); liberals: -0.0029 (0.003); conservatives: -0.0014 (0.002); p-value for equality of moderate vs extreme groups = 0.224 |
+| R8 | **Larger estimated effect in counties with fewer immigrants** (low share of foreign-born); group difference is marginal | Table 7, cols 7-8, p. 829 | Low-foreign-born (bottom quartile): -0.0087 (0.003); high-foreign-born (top quartile): -0.0001 (0.004); p-value for equality = 0.054 |
+| R9 | **The AP ban reduced use of the label in AP dispatches** | Figure 2, pp. 808-809 | Use fell from 50% before the ban to less than 5% after. AP-approved substitutes increased by 6 p.p., compared with a 47 p.p. decline in the banned term; dispatch volume using “immigrant” did not change |
+| R10 | **The decline was only partly replaced by equivalent legal-status wording** | Figure 3, Panel A, p. 810 | Co-occurrence of “illegal” with “immigrant” fell from 0.66 to 0.21. “Illegally” increased by less than half that decline, and no other unigram compensated |
+| R11 | **Other AP immigration coverage dimensions were largely unchanged** | Figure 4, p. 811; text p. 819 | Excluding the banned term and its substitutes, the AP slant index was flat. The sentiment shift was almost entirely due to removing “illegal”; no change in immigration coverage volume |
+| R12 | **Reuters intensity predicts no comparable media-language change** | Table 3, cols. 4 and 8, p. 817 | Reuters placebo coefficients: 0.292 (0.311) for the full sample and 0.482 (0.416) for daily print newspapers; neither statistically significant |
+| R13 | **Reader estimates differ in size, but not significantly** | Table 7, cols. 1 and 3, p. 829 | Nonreaders: -0.0009 (0.003); print readers: -0.0068 (0.003); equality p-value = 0.127 |
+| R14 | **Reuters intensity does not predict border-security views** | Table 5, col. 4, p. 826 | Reduced-form placebo coefficient = -0.0019 (0.0038), statistically insignificant |
+| R15 | **The effect extends to other restrictive immigration policies** | Table 6, cols. 2-7, p. 828 | Reduced-form / 2SLS coefficients: employer sanctions -0.0062 (0.002) / 0.0051 (0.002); police questioning -0.0047 (0.001) / 0.0046 (0.002); prohibit services -0.0038 (0.002) / 0.0033 (0.002); legalization -0.0011 (0.001) / 0.0011 (0.001), not significant; all-policy index -0.0064 (0.002) / 0.0060 (0.002); consistent-question index -0.0059 (0.002) / 0.0056 (0.003) |
+| R16 | **The announcement itself received little coverage** | text p. 831 | 37 articles about the ban among approximately 1 million articles containing “immigrant”; article count correlation with AP intensity was close to zero |
+| R17 | **Diffusion increases with baseline AP intensity** | Figure 5, Panel B, p. 815; text p. 816 | Relative to outlets with zero AP intensity, outlets in the top quartile of positive AP intensity reduced use of the term by 10 p.p. |
+| R18 | **The estimated policy-view effects persist through 2020** | Figure 7, p. 825; text p. 826 | The dynamic estimates remain consistent with an effect through the 2020 survey wave; the text reports no single coefficient for this figure |
 
-**Overall (paper's conclusion).** The AP ban on "illegal immigrant" propagated into local media language and shifted public opinion on immigration policy. The pattern of heterogeneity (pronounced for moderates, larger in low-immigrant areas) is consistent with a persuasion mechanism in which readers with weaker priors on the issue are more susceptible to media framing of immigration. Effects do not transfer to other policies, ruling out a general leftward drift in political views.
+**Overall (paper's conclusion).** The AP ban on "illegal immigrant" propagated into local media language and shifted public opinion on immigration policy. The estimates are largest for moderates and in low-immigrant areas, consistent with a persuasion mechanism in which readers with weaker priors on the issue are more susceptible to media framing of immigration; the ideology-group estimates are not statistically different, and the immigrant-share difference is marginal. Effects do not transfer to other policies, which weighs against a general shift in political views.
 
 ## Theory / model
 
@@ -125,7 +150,13 @@ The tested hypotheses are:
 
 The analysis uses three estimators, all built on the DiD principle of comparing high-AP-intensity units to low-AP-intensity units before and after the ban.
 
-**Diffusion (Section II).** The approach uses `difference-in-differences` with continuous treatment, estimating equation (2) (p. 813) at the outlet x month level:
+**Diffusion (Section II).** Before the regressions, the paper uses Pearson's chi-squared statistic to identify phrases predictive of pre- versus post-ban publication, equation (1), p. 809:
+
+$$
+\chi^2_{pl} = \frac{\left(f_{pl,\text{before}}\tilde f_{pl,\text{after}} - \tilde f_{pl,\text{before}}f_{pl,\text{after}}\right)^2}{(f_{pl,\text{before}}+f_{pl,\text{after}})(f_{pl,\text{before}}+\tilde f_{pl,\text{before}})(f_{pl,\text{after}}+\tilde f_{pl,\text{after}})(\tilde f_{pl,\text{before}}+\tilde f_{pl,\text{after}})} \tag{1}
+$$
+
+Here, $$f_{pl,\text{before}}$$ and $$f_{pl,\text{after}}$$ count occurrences of phrase $$p$$ of length $$l$$ before and after the ban, while tildes count all other phrases of that length. The outlet-level diffusion regression is the continuous-treatment difference-in-differences equation (2), p. 813:
 
 $$
 \frac{\text{Illimm}}{\text{Imm}}_{mt} = \alpha_m + \beta_t + \rho \cdot \text{IHS}(\text{APintensity}_m) \times \text{PostBan}_t + \varepsilon_{mt} \tag{2}
@@ -139,7 +170,11 @@ $$
 \text{APintensity}_c = \frac{\sum_m \left( \text{circ}_{mc} \times \text{APintensity}_m \right)}{\sum_m \text{circ}_{mc}} \tag{3}
 $$
 
-The circulation-weighted share of "illegal immigrant" articles in county $$c$$ and year $$y$$ is analogously defined as equation (4) (p. 820).
+The circulation-weighted share of "illegal immigrant" articles in county $$c$$ and year $$y$$ is equation (4), p. 820:
+
+$$
+\text{Illimm/Imm}_{cy} = \frac{\sum_m \left(\text{circ}_{mcy} \times \text{Illimm/Imm}_{my}\right)}{\sum_m \text{circ}_{mcy}} \tag{4}
+$$
 
 **Reduced-form effect on views (Section III, equation 5).** The intention-to-treat effect on immigration policy views $$X_{icy}$$ for respondent $$i$$ in county $$c$$ and survey year $$y$$ is estimated as:
 
@@ -152,7 +187,7 @@ where $$\alpha_c$$ and $$\beta_y$$ are county and survey-year fixed effects; sta
 **Local average treatment effect (2SLS, equations 6-7).** To estimate the LATE for readers of newspapers that changed their language solely because of the AP input, the paper uses a shift-share IV strategy. The second stage is (p. 822):
 
 $$
-X_{icy} = \mu_c + \nu_y + \gamma \cdot \widehat{\text{Illimm}/\text{Imm}_{cy}} + \eta_{icy} \tag{6}
+X_{icy} = \mu_c + \nu_y + \gamma \cdot \widehat{\text{Illimm}/\text{Imm}}_{mcy} + \eta_{icy} \tag{6}
 $$
 
 instrumented by the first stage:
@@ -161,7 +196,7 @@ $$
 \text{Illimm}/\text{Imm}_{cy} = \alpha_c + \rho_y + \gamma \cdot \text{IHS}(\text{APintensity}_c) \times \text{PostBan}_y + \varepsilon_{cy} \tag{7}
 $$
 
-The excluded instrument is the interaction of county AP intensity with PostBan. The first stage at the county x year level replicates the diffusion result: 1-SD higher AP intensity is associated with an 8% reduction in "illegal immigrant" use after the ban (p. 824).
+The excluded instrument is the interaction of county AP intensity with PostBan. The first stage at the county x year level replicates the diffusion result: 1-SD higher AP intensity is associated with an 8% reduction in "illegal immigrant" use after the ban (p. 824). The second stage includes county and survey-year fixed effects, respondent controls, and standard errors clustered by county; the first stage uses county-year data from the same newspaper-circulation-linked sample (pp. 822-824).
 
 **Persuasion rate.** Following Gentzkow and Shapiro (2010) and DellaVigna and Gentzkow (2010), the paper converts magnitudes into a persuasion rate: the share of exposed readers who changed their survey response because of the treatment (equation 8, p. 830):
 
@@ -169,13 +204,21 @@ $$
 f = \frac{db}{de} \cdot \frac{1}{1 - b_0} \tag{8}
 $$
 
-where $$b$$ is support for restricting immigration, $$e$$ is exposure to "illegal immigrant," and $$b_0$$ is the share who would oppose restrictive policy absent the treatment. Applied to the full-sample ITT and average newspaper readership, this yields a persuasion rate of 1.9-4.4%. For comparison, DellaVigna and Kaplan (2007) estimate a 12% persuasion rate for access to Fox News, and Chiang and Knight (2011) estimate 2% for expected and 6.5% for surprising newspaper endorsements. The estimates here are in the lower range, consistent with the milder nature of a language-change treatment.
+where $$b$$ is support for restricting immigration, $$e$$ is exposure to "illegal immigrant," and $$b_0$$ is the share who would oppose restrictive policy absent the treatment. Applied to the full-sample ITT with average newspaper readership, this yields a persuasion rate of 4.4%; the estimate for the sample of newspaper readers is 1.9%. For comparison, DellaVigna and Kaplan (2007) estimate a 12% persuasion rate for access to Fox News, and Chiang and Knight (2011) estimate 2% for expected and 6.5% for surprising newspaper endorsements. The estimates here are in the lower range, consistent with the milder nature of a language-change treatment.
 
 ## Empirical specifications
 
 All regressions use CCES data for 192,635 respondents across survey waves 2009-2017 (main sample) with additional 2007 and 2018-2020 waves for long-run trends.
 
-**Diffusion regressions (R1-R3, Table 2 and Figure 5-6).** Equation (2), estimated at the outlet x month level. The full sample has 2,385 outlets and 139,523 outlet-month observations. The subsample of daily print newspapers has 853 outlets. Columns in Table 2 (p. 814) progressively add: state x year-month FEs (col 2), outlet-specific linear trends (col 3), DMA x year-month FEs (col 6), and linear trends combined with DMA FEs (col 7). The coefficient on PostBan x IHS(AP-intensity) ranges from -1.3 to -1.8 across all seven columns. The key channel test (Figure 5, Panel C) splits the dependent variable into AP-sourced versus original articles; the sharp post-ban decline appears only for AP-sourced content.
+**Dynamic diffusion specification (Figure 5, Panel A, p. 815).** The paper describes and estimates the lead-lag version of equation (2), with the half-year before the ban omitted; written out from Section II.B because the paper does not number or display the full equation:
+
+$$
+\text{Illimm/Imm}_{mt} = \alpha_m + \beta_t + \sum_{k \neq -1} \rho_k \, \text{IHS}(\text{APintensity}_m) \times \text{Semester}_{kt} + \varepsilon_{mt}
+$$
+
+Outlet and year-month fixed effects, outlet-clustered standard errors, and article-count weights are as in equation (2); the full outlet-month panel covers 2,385 outlets and 139,523 observations (Table 2, p. 814).
+
+**Diffusion regressions (R1-R3, Table 2 and Figures 5-6).** Equation (2), estimated at the outlet x month level. The full sample has 2,385 outlets and 139,523 outlet-month observations. The subsample of daily print newspapers has 853 outlets. Columns in Table 2 (p. 814) progressively add: state x year-month FEs (col 2), outlet-specific linear trends (col 3), DMA x year-month FEs (col 6), and linear trends combined with DMA FEs (col 7). The coefficient on PostBan x IHS(AP-intensity) ranges from -1.3 to -1.8 across all seven columns. The key channel test (Figure 5, Panel C) splits the dependent variable into AP-sourced versus original articles; the sharp post-ban decline appears only for AP-sourced content.
 
 **Intention-to-treat regressions on immigration views (R4, Table 4).** Equation (5), estimated at the respondent level. Main outcome is support for increasing border security (mean = 0.55). Columns in Table 4 add county characteristics x year (col 2), state x year FEs (col 3), DMA x year FEs (col 4), and county-specific linear trends (col 5). The reduced-form coefficient is stable at -0.004 to -0.006, corresponding to 0.77-0.92 p.p. per 1-SD AP intensity increase. The 2SLS estimates in Table 4 (bottom panel) yield a coefficient of 0.0045-0.0071 on the share of "illegal immigrant" articles (LATE), with first-stage F-statistics ranging from 10.5 to 29.8.
 
@@ -206,6 +249,6 @@ Use the [original](https://doi.org/10.1257/aer.20211537) if you are: designing a
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(3). This distillation was extracted by an LLM on 2026-06-25 and is **not human-verified or independently reproduced**. No Creative Commons licence is asserted; the PDF is freely readable at aeaweb.org under AEA copyright. Redistribution of this distillation is extract-only.
+Source: peer-reviewed, *American Economic Review* 113(3). This distillation was extracted by an LLM on 2026-10-04 and verified against the source PDF on 2026-10-04; it has not been independently reproduced. No Creative Commons licence is asserted; the PDF is freely readable at aeaweb.org under AEA copyright. Redistribution of this distillation is extract-only.
 
 > Djourelova, Milena. "Persuasion through Slanted Language: Evidence from the Media Coverage of Immigration." *American Economic Review* 113, no. 3 (March 2023): 800-835. DOI: 10.1257/aer.20211537.

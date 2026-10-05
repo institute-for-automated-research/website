@@ -5,7 +5,7 @@ description: >-
   claims shows that optimal nonlinear payment contracts for dialysis providers
   eliminate all medically excessive dosages and reduce spending by 12-48%, for
   aggregate gains of roughly $300 million per year. American Economic Review
-  2023, paywalled. Seven core results with source locators, the model, the
+  2023, paywalled. Fourteen core results with source locators, the model, the
   method (demand profile approach for supply contracting), and the empirical
   specifications with equations.
 sidebar:
@@ -26,19 +26,20 @@ paper:
     codes: [D64, D86, H51, I11, I13, J33, L21]
     assignedBy: paper
     date: 2026-06-25
-  topics: ["Auction Theory and Applications", "Healthcare Policy and Management", "Experimental Behavioral Economics Studies"]
+  topics: ["Economic theories and models", "Healthcare Policy and Management", "Health Economics"]
   dataAccess: proprietary-confidential
   outcome:
     - EPO dosage administered to dialysis patients
     - Medicare payments to dialysis providers
     - government welfare objective (patient health minus payments)
-  outcomeClass: [firm-real-outcomes, social-welfare]
+    - provider altruism and marginal cost heterogeneity
+  outcomeClass: [optimal-contract-design, social-welfare]
   license: "paywalled (no license block in Crossref works/10.1257/aer.20210208; AER standard copyright)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA publisher site, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 14
   citedByCount: 14
   methods:
     role: both
@@ -47,7 +48,7 @@ paper:
     buildsFrom: [principal-agent, mechanism-design, panel-regression, demand-profile-supply-contracting]
     identification: structural
   contributionType: [new-method, new-fact, measurement]
-  mechanisms: [information-asymmetry, moral-hazard, agency]
+  mechanisms: [information-asymmetry, agency]
   scope:
     region: US
     assetClass: dialysis provider-administered drugs (Medicare Part B EPO)
@@ -60,10 +61,17 @@ paper:
     - { ref: R1, outcome: "EPO dosage - share providing medically excessive amounts", metric: probability, value: "82%/75%/86% under observed -> 0% under optimal nonlinear (low/medium/high hematocrit, Table 5 p.1560)", direction: negative, vsBenchmark: "zero vs majority of providers under observed contract" }
     - { ref: R2, outcome: "Medicare payments to dialysis providers", metric: level, value: "$744->$388 (-48%), $541->$392 (-27%), $437->$384 (-12%) per patient per month (low/medium/high hematocrit, Table 5 p.1560)", direction: negative, vsBenchmark: "observed contract mean payments" }
     - { ref: R3, outcome: "government welfare objective (patient health minus payments)", metric: level, value: "$220/$124/$87 per patient per month gain (low/medium/high hematocrit, Table 5 p.1560)", direction: positive, vsBenchmark: "gain over observed contract" }
-    - { ref: R4, outcome: "aggregate welfare gains from optimal contracting", metric: level, value: "~$300M per year (Section VI p.1563, rough approximation)", direction: positive }
+    - { ref: R4, outcome: "aggregate gains in the government's objective from optimal contracting", metric: level, value: "~$300M per year (Section VI p.1563, rough approximation)", direction: positive }
     - { ref: R5, outcome: "EPO dosage response to reimbursement rate", metric: coefficient, value: "6.39 (SE 2.12) thousand units per $1/1,000u rate increase, middle hematocrit; 9.53 (SE 3.11) low; 3.92 (SE 1.89) high (Table 2 p.1552)", direction: positive }
     - { ref: R6, outcome: "losses from asymmetric information about provider types", metric: level, value: "$1,739 to $3,752 per patient per month (Section VB p.1561)", direction: negative, vsBenchmark: "full-information minus second-best government objective" }
     - { ref: R7, outcome: "EPO dosage standard deviation across providers", metric: sd-effect, value: "9.7->7.2 thousand units (-26%) medium hematocrit; 5.2->2.5 thousand units (-52%) high hematocrit (Table 5 p.1560)", direction: negative, vsBenchmark: "reduction vs observed contract" }
+    - { ref: R8, outcome: "EPO dosage administered to dialysis patients", metric: coefficient, value: "Reimbursement-rate coefficients 9.42 (SE 3.00), 5.99 (SE 1.95), 4.67 (SE 1.85) thousand units in low/middle/high hematocrit intervals; provider fixed effects (Table 3 Panel A p.1553)", direction: positive, vsBenchmark: "main estimates 9.53/6.39/3.92" }
+    - { ref: R9, outcome: "EPO dosage administered to dialysis patients", metric: coefficient, value: "Reimbursement-rate coefficients 9.81 (SE 3.20), 6.13 (SE 2.04), 4.26 (SE 1.92) thousand units in low/middle/high intervals; patient observables omitted (Table 3 Panel B p.1553)", direction: positive, vsBenchmark: "main estimates 9.53/6.39/3.92" }
+    - { ref: R10, outcome: "EPO dosage administered to dialysis patients", metric: coefficient, value: "Reimbursement-rate coefficients 9.39 (SE 3.20), 6.07 (SE 2.03), 4.07 (SE 1.91) thousand units in low/middle/high intervals; separate comorbidity indicators (Table 3 Panel C p.1553)", direction: positive, vsBenchmark: "main estimates 9.53/6.39/3.92" }
+    - { ref: R11, outcome: "EPO dosage administered to dialysis patients", metric: probability, value: "Economic overprovision for 95.3% of provider types under observed contract and 74.3% under optimal linear; none under optimal nonlinear (Figure 4 and text p.1558)", direction: negative, vsBenchmark: "observed and optimal linear contracts" }
+    - { ref: R12, outcome: "government welfare objective (patient health minus payments)", metric: level, value: "$24 per patient per month gain over observed contract for the middle hematocrit interval (text p.1561)", direction: positive, vsBenchmark: "optimal nonlinear contract gain of $124 per patient per month" }
+    - { ref: R13, outcome: "provider altruism and marginal cost heterogeneity", metric: coefficient, value: "Estimated altruism variances 2.68 (SE 0.90), 2.14 (SE 1.00), 3.64 (SE 1.34), each significant above zero; marginal-cost standard deviations $0.69, $0.93, $0.58 by low/middle/high hematocrit interval (Table 4 p.1554)", direction: positive }
+    - { ref: R14, outcome: "government welfare objective (patient health minus payments)", metric: level, value: "Gain over the observed contract is 10% higher with the baseline optimal contract than with a contract recomputed under counterfactually low marginal-cost variance (text p.1563, footnote 57)", direction: positive, vsBenchmark: "optimal contract designed under low variance of provider cost type" }
   resultType: new-finding
   relatesTo:
     - { cite: "Goldman, Leland, and Sibley (1984)", doi: '10.2307/2297694', relation: builds-on, note: "demand profile approach for monopoly pricing; adapted here to supply contracting with multidimensional agent heterogeneity" }
@@ -75,12 +83,14 @@ paper:
   openQuestions:
     - 'Applicability to other provider-administered treatments: key requirements are that decisions relate to treatment quantity (not type) and that quantity is observable (Section VI p.1564).'
     - 'Full social welfare accounting including downstream care costs (transfusions, hospitalizations) is not captured in the government objective (footnote 51 p.1559).'
-    - 'Whether treating each dialysis center as an independent unit with its own type distribution is valid given large chain effects on dosing protocols (Section IVA p.1551).'
+    - 'Whether the common provider-type distribution across dialysis centers masks within-chain dependence; the authors compare provider fixed-effects estimates and test residual unimodality, but the assumption remains a modeling choice (Section IVC p.1552; Online Appendix J.3).'
   replicationCode:
     status: available
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full PDF read (pp. 1530-1571); seven results extracted from Tables 2, 4, 5 and Section VI. Not human-verified. Not reproduced. Replication package referenced on article page but not run here." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; two fixes applied: (1) JEL codes corrected from [D86, I11, I13] to the full paper-listed set [D64, D86, H51, I11, I13, J33, L21]; (2) R6 overclaim removed: 'roughly 2-3 times larger' replaced with the PDF-supported ratio of approximately 8-43 times; all other seven result rows, equations (1)-(11), and frontmatter facts confirmed correct." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the assigned PDF and added results R8-R14, equation (5), and the Table 3 robustness specifications. These additions are not human-verified and have not been reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators, reported magnitudes, equations, specifications, and frontmatter re-checked against the source PDF; confirmed Table 5 is printed on p. 1560 despite the locator script's off-by-one report, corrected the marginal-value explanation for equation (8), and fixed mechanism, outcome-class, topic, and government-objective labels. Table-locator pass (2026-10-04): none. Review pass (2026-10-04): corrected equation (5) to the paper's printed S(p,a)." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20210208", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No license[] block returned in Crossref response; AER standard copyright applies; paper classified as paywalled." }
 ---
@@ -104,6 +114,13 @@ Magnitudes as reported; `\*\*`/`\*\*\*` = 5%/1%.
 | R5 | Providers **respond significantly to reimbursement rates**: dosage rises by 6,390 units per $1 payment rate increase | Table 2, p. 1552 | OLS reduced form: $$\beta_2$$ = 9.53 (SE 3.11), 6.39 (SE 2.12), 3.92 (SE 1.89) thousand units per $1/1,000u payment rate in low / medium / high hematocrit intervals; SEs clustered on dialysis center, 250 bootstrap replications |
 | R6 | **Losses from asymmetric information** about provider types are $1,739-$3,752 per patient per month | Section VB, p. 1561 | Difference between full-information government objective and second-best achievable gains; approximately 8-43 times the gains achievable through optimal contracting ($220/$124/$87 in low/medium/high intervals), indicating costs of asymmetric information dwarf the gains from better contracting alone |
 | R7 | Optimal nonlinear contract **reduces unjustified dosage variation by 26-52%** | Table 5, p. 1560 | Std dev of dosage: 9.7 -> 7.2 thousand units (-26%) for medium hematocrit; 5.2 -> 2.5 thousand units (-52%) for high; variation reduction reflects elimination of type-heterogeneity-driven overprovision |
+| R8 | Reimbursement response remains similar with provider fixed effects | Table 3, Panel A, p. 1553 | Reimbursement-rate coefficients: 9.42 (SE 3.00), 5.99 (SE 1.95), 4.67 (SE 1.85) thousand units in low / middle / high hematocrit intervals; 231,702 / 405,019 / 283,024 observations |
+| R9 | Reimbursement response is similar without patient observables | Table 3, Panel B, p. 1553 | Coefficients: 9.81 (SE 3.20), 6.13 (SE 2.04), 4.26 (SE 1.92) thousand units in low / middle / high intervals; same interval observation counts |
+| R10 | Reimbursement response is similar with separate comorbidity indicators | Table 3, Panel C, p. 1553 | Coefficients: 9.39 (SE 3.20), 6.07 (SE 2.03), 4.07 (SE 1.91) thousand units in low / middle / high intervals; same interval observation counts |
+| R11 | Optimal nonlinear contracting eliminates economic overprovision | Figure 4 and text, p. 1558 | Economic overprovision affects 95.3% of provider types under the observed contract and 74.3% under optimal linear contracting, versus none under optimal nonlinear contracting |
+| R12 | The middle-interval forcing contract yields a small welfare gain | Text, p. 1561 | Gain over observed contract is $24 per patient per month, about one-fifth of the optimal nonlinear contract gain of $124 |
+| R13 | Estimated provider types vary in altruism and marginal costs | Table 4 and text, p. 1554 | Altruism variances: 2.68 (SE 0.90), 2.14 (SE 1.00), 3.64 (SE 1.34), significantly above zero in all intervals; implied marginal-cost SDs are $0.69, $0.93, and $0.58 in low / middle / high intervals |
+| R14 | Accounting for both dimensions of provider heterogeneity improves contract design | Text, p. 1563, footnote 57 | The gain over the observed contract is 10% higher with the baseline optimal contract than with a contract recomputed under counterfactually low variance of marginal costs |
 
 **Overall (paper's conclusion).** The observed Medicare fee-for-service contract, which pays a constant marginal rate per EPO unit regardless of dosage, cannot be rationalized as optimal for any value of the government's health weight given the estimated structural parameters. Moving to an optimal nonlinear contract with declining marginal payments would eliminate medically excessive dosages, reduce both mean and variance of treatment amounts, and improve the government's welfare objective by hundreds of millions of dollars per year. The demand profile approach, applied here for the first time to supply contracting, is the tool used to handle the multidimensional provider heterogeneity (joint unobservability of altruism and marginal cost) that is central to this and many similar health-care payment settings.
 
@@ -160,6 +177,12 @@ $$
 $$
 
 The net marginal cost $$\text{nc}(a;\alpha,z) = z - \alpha h'(a)$$ is upward sloping in $$a$$ (since $$h'' < 0$$). If the marginal payment curve is downward sloping, each net marginal cost curve intersects it at most once from below, which is the key regularity condition for the demand profile approach.
+The aggregate government objective (equation 5, p. 1542) is
+
+$$
+\int_A S\bigl(p,a\bigr)\left[\alpha_g h'(a)-p(a)\right]\,da. \tag{5}
+$$
+
 
 **Demand profile** (equation 6, p. 1542): $$S(p, a)$$ is the probability (over the type distribution) that the provider supplies at least amount $$a$$ when the marginal payment at $$a$$ equals $$p$$:
 
@@ -179,7 +202,7 @@ $$
 \frac{\partial S(p^*(a),a)}{\partial p(a)}\,\bigl[\alpha_g\,h'(a) - p^*(a)\bigr] \;=\; S(p^*(a),\,a). \tag{8}
 $$
 
-This equates the marginal benefit of raising the marginal payment (the change in the probability of provision times the government's marginal health valuation) to the marginal cost (the probability that $$a$$ is already being provided). The optimal total payment $$P^*$$ is recovered by integrating $$p^*(a)$$ over dosage. The optimal marginal payment declines toward and past the health-maximizing dosage level, ensuring that no medically excessive dosages arise in the second-best allocation (a standard no-distortion-at-the-top result holds at the highest treatment amount; all others are distorted downward).
+This equates the marginal benefit of raising the marginal payment (the change in the probability of provision times the government's marginal net value, $$\alpha_g h'(a)-p^*(a)$$) to the marginal cost (the probability that $$a$$ is already being provided). The optimal total payment $$P^*$$ is recovered by integrating $$p^*(a)$$ over dosage. The optimal marginal payment declines toward and past the health-maximizing dosage level, ensuring that no medically excessive dosages arise in the second-best allocation (a standard no-distortion-at-the-top result holds at the highest treatment amount; all others are distorted downward).
 
 ## Empirical specifications
 
@@ -203,7 +226,19 @@ $$
 a_{ijt} \;=\; \underbrace{\!\left[\frac{-1}{\delta_k}\right]\!}_{\beta_1^k}\! b_{jt} \;+\; \underbrace{\!\left[\frac{1}{\alpha_{ik}\delta_k^2}\right]\!}_{\beta_2^k}\![p_{1t} - \mu_z] \;+\; \underbrace{\!\frac{\tau_k'}{\delta_k}\!}_{\beta_3^k}\! x_{jt} \;+\; \underbrace{\!\left[\frac{-\zeta_{ik}}{\alpha_{ik}\delta_k^2}\right]\!}_{\nu_i^k} \;+\; \eta_{ijt}. \tag{11}
 $$
 
-This is estimated by OLS separately within each of three hematocrit intervals ($$b \in (30, 33]$$, $$(33, 36]$$, $$(36, 39]$$). The regression includes age, sex, CCI indicators, and month and year dummies. Standard errors are clustered on dialysis center (250 bootstrap replications). Identification rests on: (i) natural month-to-month variation in patient hematocrit $$b_{jt}$$ (not manipulated by providers), which identifies $$\beta_1^k$$; and (ii) quarterly variation in the national Medicare payment rate $$p_{1t}$$, set by an administrative formula (106% of average sales price lagged six months) that no individual facility influences, which identifies $$\beta_2^k$$. The mean marginal cost $$\mu_z = \$8.58$$ per 1,000 units is set externally from facility cost reports (acquisition cost $7.53 + administration cost $1.05).
+This is estimated by OLS separately within each of three hematocrit intervals ($$b \in (30, 33]$$, $$(33, 36]$$, $$(36, 39]$$). The regression includes age, sex, CCI indicators, and month and year dummies. Standard errors are clustered on dialysis center (250 bootstrap replications). The main-text robustness specifications (written out from Table 3, p. 1553) retain this interval-specific equation and alter the controls as follows:
+
+$$
+a_{ijt}=\left[\frac{-1}{\delta_k}\right]b_{jt}+\left[\frac{1}{\alpha_{ik}\delta_k^2}\right][p_{1t}-\mu_z]+\left[\frac{\tau_k'}{\delta_k}\right]x_{jt}+\theta_i+\eta_{ijt},
+$$
+
+for provider fixed effects, where $$\theta_i$$ absorbs the provider-level effect. The no-patient-observables specification omits the patient-characteristic term:
+
+$$
+a_{ijt}=\left[\frac{-1}{\delta_k}\right]b_{jt}+\left[\frac{1}{\alpha_{ik}\delta_k^2}\right][p_{1t}-\mu_z]+\nu_i^k+\eta_{ijt}.
+$$
+
+Panel C retains the baseline specification (11) but replaces CCI-value indicators with separate comorbidity indicators. Each Table 3 column is a separate regression, with the same interval samples of 231,702, 405,019, and 283,024 observations. Table 3 standard errors are asymptotic and clustered on dialysis center. The provider fixed-effects estimates are similar to the baseline, which the authors interpret as evidence that patient selection on time-invariant provider traits does not materially alter the key estimates. Identification rests on: (i) natural month-to-month variation in patient hematocrit $$b_{jt}$$ (not manipulated by providers), which identifies $$\beta_1^k$$; and (ii) quarterly variation in the national Medicare payment rate $$p_{1t}$$, set by an administrative formula (106% of average sales price lagged six months) that no individual facility influences, which identifies $$\beta_2^k$$. The mean marginal cost $$\mu_z = \$8.58$$ per 1,000 units is set externally from facility cost reports (acquisition cost $7.53 + administration cost $1.05).
 
 **Step 2: Structural parameter recovery.** Structural parameters $$\delta_k$$, $$\tau_k$$, and the joint distribution $$F_k(\alpha, z)$$ are recovered analytically from the reduced-form moments within each hematocrit interval. The joint distribution of $$(\ln\alpha, z)$$ is bivariate normal with four unknown parameters per interval. Using Stein's lemma and properties of the log-normal distribution, these are identified from the first and second moments of the random coefficient $$\beta_2^k$$ and random effect $$\nu^k$$ in equation (11), estimated via a semiparametric auxiliary regression of the residuals (Section IVB, p. 1549-1550; Online Appendix F for full details).
 

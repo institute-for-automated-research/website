@@ -5,7 +5,7 @@ description: >-
   construction, tribute payment, and growth of administrative buildings, supporting
   cooperative over extractive theories of government origins, in a new archeological
   panel dataset spanning 3900BCE-2700BCE. American Economic Review 2023, open access.
-  Eight core results with source locators, the identification strategy, and regression
+  Seventeen core results with source locators, the identification strategy, and regression
   specifications; LLM-distilled, not human-verified.
 sidebar:
   label: Allen-Bertazzini-Heldring 2023
@@ -49,7 +49,7 @@ paper:
     (OpenAlex open_access_pdf; AEA article page shows Complimentary access;
     Crossref license[] empty; checked 2026-06-24)
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 17
   citedByCount: 49
   methods:
     role: applies-method
@@ -62,55 +62,29 @@ paper:
   scope:
     region: Iraq (southern Mesopotamia)
     period: "3900BCE..2700BCE (main); 5000BCE..1950CE (extended)"
+    frequency: mixed
     dataType: [administrative, other]
     granularity: [aggregate]
     n: "4,631 grid cell-periods (932 grid cells x ~5 archeological periods of ~240 yrs; 3900BCE-2700BCE main study)"
   findings:
-    - ref: R1
-      outcome: probability of grid cell being part of a state
-      metric: pp-effect
-      value: "+0.14 (SE=0.04, Conley SE=0.03); comparison mean 0.06; treatment-period mean 0.24"
-      direction: positive
-      vsBenchmark: "river-shifting-closer placebo yields consistently negative coefficient"
-    - ref: R2
-      outcome: "probability of newly formed state vs. expansion of existing state"
-      metric: pp-effect
-      value: "new state: +0.11 (SE=0.04, Conley SE=0.03); existing state: +0.02 (SE=0.02, Conley SE=0.01)"
-      direction: positive
-      vsBenchmark: "main result driven entirely by new state formation; existing-state expansion unaffected"
-    - ref: R3
-      outcome: probability of canal construction (public good provision)
-      metric: pp-effect
-      value: "+0.12 (SE=0.03, Conley SE=0.02); comparison mean 0.28"
-      direction: positive
-    - ref: R4
-      outcome: probability of defensive wall in nearest city
-      metric: pp-effect
-      value: "+0.11 (SE=0.04, Conley SE=0.03); comparison mean 0.14"
-      direction: positive
-    - ref: R5
-      outcome: probability of tribute payment being recorded in cuneiform tablets
-      metric: pp-effect
-      value: "+0.21 (SE=0.06, Conley SE=0.10); comparison mean 0.19"
-      direction: positive
-    - ref: R6
-      outcome: number of administrative buildings in nearest city
-      metric: coefficient
-      value: "+0.44 (SE=0.15, Conley SE=0.17); comparison mean 0.70"
-      direction: positive
-    - ref: R7
-      outcome: probability of state formation by pre-shift population density
-      metric: pp-effect
-      value: "high density: +0.18 (SE=0.05, Conley SE=0.03); low density: +0.03 (SE=0.02, Conley SE=0.03); Chow p=0.06"
-      direction: positive
-      vsBenchmark: "effect 6x larger in high-density than low-density cells"
-    - ref: R8
-      outcome: probability of canal construction across all six river shifts (extended panel)
-      metric: pp-effect
-      value: "+0.11 (SE=0.02, Conley SE=0.02); comparison mean 0.40 (5000BCE-1950CE full panel)"
-      direction: positive
-      vsBenchmark: "consistent across first-state period (+0.15) and subsequent-state period (+0.10)"
-  resultType: new-finding
+    - { ref: R1, outcome: probability of grid cell being part of a state, metric: pp-effect, value: "+0.14 (SE=0.04, Conley SE=0.03); comparison mean 0.06; treatment-period mean 0.24", direction: positive }
+    - { ref: R2, outcome: "probability of newly formed state vs. expansion of existing state", metric: pp-effect, value: "new state: +0.11 (SE=0.04, Conley SE=0.03); existing state: +0.02 (SE=0.02, Conley SE=0.01)", direction: positive, vsBenchmark: "main result driven entirely by new state formation; existing-state expansion has a small, insignificant estimate" }
+    - { ref: R3, outcome: probability of canal construction (public good provision), metric: pp-effect, value: "+0.12 (SE=0.03, Conley SE=0.02); comparison mean 0.28", direction: positive }
+    - { ref: R4, outcome: probability of defensive wall in nearest city, metric: pp-effect, value: "+0.11 (SE=0.04, Conley SE=0.03); comparison mean 0.14", direction: positive }
+    - { ref: R5, outcome: probability of tribute payment being recorded in cuneiform tablets, metric: pp-effect, value: "+0.21 (SE=0.06, Conley SE=0.10); comparison mean 0.19", direction: positive }
+    - { ref: R6, outcome: number of administrative buildings in nearest city, metric: coefficient, value: "+0.44 (SE=0.15, Conley SE=0.17); comparison mean 0.70", direction: positive }
+    - { ref: R7, outcome: probability of state formation by pre-shift population density, metric: pp-effect, value: "high density: +0.18 (SE=0.05, Conley SE=0.03); low density: +0.03 (SE=0.02, Conley SE=0.03); Chow p=0.06", direction: positive, vsBenchmark: "effect about six times as large in high-density as low-density cells" }
+    - { ref: R8, outcome: probability of canal construction across all six river shifts (extended panel), metric: pp-effect, value: "+0.11 (SE=0.02, Conley SE=0.02); comparison mean 0.40 (5000BCE-1950CE full panel)", direction: positive }
+    - { ref: R9, outcome: probability of grid cell being part of a city state measured by nearest-city building presence, metric: pp-effect, value: "+0.16 (SE=0.05, Conley SE=0.04); mean 0.12; pretrend p=0.26", direction: positive }
+    - { ref: R10, outcome: lagged settlement count, city presence, and canal presence, metric: coefficient, value: "Table 2 cols. 1-6: settlements lag 1 -0.15 (SE 0.13; Conley 0.13), lag 2 +0.05 (0.08; 0.08); city lag 1 -0.00 (0.00; 0.00), lag 2 +0.00 (0.00; 0.00); canal lag 1 +0.02 (0.03; 0.02), lag 2 +0.03 (0.03; 0.04); all insignificant", direction: none }
+    - { ref: R11, outcome: probability of state formation under a river-shifting-closer placebo, metric: coefficient, value: "Consistently negative across placebo estimates; numerical coefficients are not reported in the main text", direction: negative }
+    - { ref: R12, outcome: probability of state formation by settlement alignment for canal building, metric: pp-effect, value: "aligned: +0.22 (SE=0.06, Conley SE=0.04); misaligned: -0.01 (SE=0.03, Conley SE=0.02); Chow p=0.00", direction: mixed }
+    - { ref: R13, outcome: probability of state formation by irrigated versus rainfed productivity difference, metric: pp-effect, value: "high productivity difference: +0.16 (SE=0.05); low difference: -0.05 (SE=0.02); Chow p=0.00", direction: mixed }
+    - { ref: R14, outcome: probability of state formation by nearest river flow, metric: pp-effect, value: "slow-flowing river: +0.10 (SE=0.05); fast-flowing river: +0.03 (SE=0.06); Chow p=0.14", direction: mixed }
+    - { ref: R15, outcome: probability of canal construction in first-state versus subsequent-state periods, metric: pp-effect, value: "first two shifts: +0.15 (SE=0.03, Conley SE=0.02); four subsequent shifts: +0.10 (SE=0.02, Conley SE=0.02)", direction: positive }
+    - { ref: R16, outcome: fraction of cuneiform tablets mentioning government and public-good terms, metric: probability, value: "The fraction mentioning gal (chief) increases about 40% after the shift; lugal (lineage head) is absent before and appears after; canal and tribute mentions also rise, with tribute absent before; Figure 6 does not report exact percentage-point estimates", direction: positive }
+    - { ref: R17, outcome: trade patterns after a river shift, metric: coefficient, value: "The paper reports failing to reject no effect on trade patterns; the main text does not report a coefficient", direction: none }
+  resultType: overturns
   relatesTo:
     - { cite: "Olson (1993)", doi: '10.2307/2938736', relation: tests, note: "roving-bandits theory predicts states form where rivers remain (most surplus to extract); paper finds the opposite" }
     - { cite: "Carneiro (1970)", doi: '10.1126/science.169.3947.733', relation: tests, note: "circumscription theory predicts states form where exit is costly; paper finds cooperative coordination demand dominates" }
@@ -137,6 +111,8 @@ paper:
       date: 2026-06-24
       role: verified
       note: "All 8 Core-results rows verified against Tables 3-6; all locators and magnitudes confirmed correct. JEL codes corrected from LLM-assigned [D72, H41, N45] to authors' official codes [D72, H11, H41, N45, N55, Q15]. Equations (1) and (2) verified term-by-term. Note: introductory paragraph (p.2509) cites administrative buildings effect as 0.6/mean 0.75, but Table 4 col 4 shows 0.44/mean 0.70; wiki correctly uses the table value."
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the PDF and augmented Core results, findings, scope, and empirical specifications with omitted main-text checks, heterogeneity, later-period splits, and tablet-text evidence. Additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 17 Core results, equations, specifications, classification, findings, and prose checked against the PDF; revised theory/placebo and trade claims, corrected the error-term description, and set resultType to overturns. Script locator flags were manually checked against the printed table pages and confirmed. Table-locator pass (2026-10-04): none." }
   licenceVerification:
     - source: "Crossref REST API works/10.1257/aer.20201919"
       checked: 2026-06-24
@@ -165,8 +141,8 @@ points, the probability of canal construction by 12 percentage points, the proba
 payment by 21 percentage points, and the number of administrative buildings by 0.44. The result
 is entirely driven by new state formation, not expansion of existing states. Text analysis of
 5,885 surviving cuneiform tablets shows increased mentions of lineage-leader titles and tribute
-after the shift, consistent with the cooperative interpretation. Extractive theories of Olson (1993)
-and Carneiro (1970) predict the opposite sign, and the results reject them.
+after the shift, consistent with the cooperative interpretation. The simple extractive predictions associated with Olson (1993) and Carneiro (1970) run
+in the opposite direction to the observed pattern.
 
 ## Core results
 
@@ -183,6 +159,15 @@ brackets. Locators point into the source PDF (pp.2507-2545).
 | R6 | River shift increases **administrative buildings** in nearest city by 0.44 | Table 4, col 4, p.2534-2535 | +0.44 (SE=0.15) [0.17]; mean 0.70; pretrend p=0.69 |
 | R7 | Effect concentrated in **high population density** areas before the shift | Table 5, Panel A, p.2536 | High: +0.18 (SE=0.05) [0.03]; low: +0.03 (SE=0.02) [0.03]; Chow p=0.06 |
 | R8 | Result holds across the **full 7,000-year panel** (5000BCE-1950CE, all 6 river shifts) | Table 6, col 1, p.2539 | Canal: +0.11 (SE=0.02) [0.02]; mean 0.40 |
+| R9 | Result persists when state presence is measured by nearest-city building presence only | Table 3, col 2, p.2530 | +0.16 (SE=0.05) [0.04]; mean 0.12; pretrend p=0.26 |
+| R10 | Lagged outcomes show no evidence that future treatment cells were already different | Table 2, cols. 1-6, p.2527 | Settlements: lag 1 -0.15 (SE=0.13) [0.13], lag 2 +0.05 (0.08) [0.08]; city: -0.00 (0.00) [0.00], +0.00 (0.00) [0.00]; canal: +0.02 (0.03) [0.02], +0.03 (0.03) [0.04]; all insignificant |
+| R11 | River shifting closer has a consistently negative placebo association with state presence | Text p.2533, Results §V.A | Consistently negative coefficients; individual magnitudes are not reported in the main text |
+| R12 | State formation is concentrated where settlements align for canal construction | Table 5, Panel A, cols. 4-5, p.2536 | Aligned: +0.22 (SE=0.06) [0.04]; misaligned: -0.01 (0.03) [0.02]; Chow p=0.00 |
+| R13 | State formation is higher where irrigation has greater potential productivity returns | Table 5, Panel B, cols. 2-3, p.2536 | High productivity difference: +0.16 (SE=0.05); low difference: -0.05 (0.02); Chow p=0.00 |
+| R14 | State formation estimates are larger near slow-flowing rivers, which are easier to irrigate from | Table 5, Panel B, cols. 4-5, p.2536 | Slow flow: +0.10 (SE=0.05); fast flow: +0.03 (0.06); Chow p=0.14 |
+| R15 | Canal response persists in both first-state and subsequent-state periods | Table 6, cols. 2-3, p.2539 | First two shifts: +0.15 (SE=0.03) [0.02]; four subsequent shifts: +0.10 (SE=0.02) [0.02] |
+| R16 | Tablet texts show more references to leaders and public goods after state formation | Figure 6, p.2541; text p.2540, §VII | Fraction mentioning gal (chief) increases about 40%; lugal (lineage head) is absent before and appears after; canal and tribute mentions rise, tribute is absent before; no exact percentage-point effects are reported |
+| R17 | Trade-pattern effects are not statistically distinguishable from zero | Text p.2532, Results §V.A (discussion of Results Appendix Table RA26) | Fail to reject no effect of river shifts on trade patterns; the main text does not report a coefficient |
 
 **Overall (paper's conclusion, p.2540-2541).** Where rivers shifted away, communities formed new
 states, built canals and defensive walls, and paid tribute to their governments. These results are
@@ -219,10 +204,10 @@ where they shift (negative or zero $$\beta_0^{\text{treatment}}$$). Mayshar, Moa
 this supply-side cluster: states arise where it is hard to escape extraction.
 
 **Empirical mapping.** The sign of the main coefficient distinguishes the two clusters.
-A positive and significant $$\beta_0^{\text{treatment}}$$ (R1 = +0.14) is consistent only with
-cooperative theories, since extractive theories predict the opposite or no effect. The placebo
-test (estimating the effect of a river shifting closer rather than away) yields a consistently
-negative coefficient throughout the paper, confirming the cooperative interpretation.
+A positive and significant $$\beta_0^{\text{treatment}}$$ (R1 = +0.14) fits the cooperative
+prediction and runs against the simple extractive predictions, which imply an opposite or null
+effect. The placebo test (estimating the effect of a river shifting closer rather than away) yields
+negative estimates, an additional pattern consistent with the cooperative interpretation.
 Sánchez De La Sierra (2020) finds extractive state formation in the Congo using a comparable
 natural-experiment design; the two settings differ in the nature of the shock and the role of
 public goods versus looting.
@@ -252,8 +237,9 @@ $$k$$ relative to treatment; $$\beta_k^{\text{treatment}}$$ are the period-relat
 interaction coefficients (normalized to zero at $$k = -1$$, the last pre-period); $$\rho_c$$ are unit
 (grid cell) fixed effects; $$\gamma_t$$ are period fixed effects; $$v_{ct}$$ is a vector of period
 fixed effects interacted with time-invariant covariates (survey area indicators, average rainfall,
-average temperature, pre-shift urban status); and $$\varepsilon_{ct}$$ is clustered at the grid
-cell level. Conley (1999) standard errors with a 484 km spatial cutoff are reported in parallel.
+average temperature, pre-shift urban status); and $$\varepsilon_{ct}$$ is the error term. Standard
+errors are clustered at the grid cell level. Conley (1999) standard errors with a 484 km spatial
+cutoff are reported in parallel.
 
 The coefficient of interest is $$\beta_0^{\text{treatment}}$$: the treatment effect in the Early
 Dynastic I period (the period of first state formation). Pre-period coefficients
@@ -276,13 +262,14 @@ All regressions are OLS. Unit of observation: 5x5 km grid cell. Time series: arc
 (average 240 years in the main sample). Standard errors clustered at the grid cell level;
 Conley (1999) SE with a 484 km cutoff in brackets.
 
-**State formation (R1-R2, Table 3, p.2530).** Equation (1) with two outcome definitions: column 1
+**State formation (R1-R2, R9; Table 3, p.2530).** Equation (1) with two outcome definitions: column 1
 uses an indicator for whether a grid cell is part of a city state, defined using administrative
 buildings (palaces, temples, ziggurats) and reconstructed territorial borders; column 2 uses only
 building presence without borders. Columns 3 and 4 decompose into new state formation (an indicator
 equal to 1 if the nearest city gains state status for the first time) and expansion of an existing
-state. All columns include grid cell and period fixed effects plus the four time-invariant covariate
-interactions. Pretrend p-values (0.23 and 0.24) confirm no differential pre-trends.
+state. Samples are 4,631 observations in columns 1, 3, and 4, and 4,424 in column 2. All columns
+include grid cell and period fixed effects plus period interactions with survey area, rainfall,
+temperature, and prior urban status. Pretrend p-values are 0.23, 0.26, 0.24, and 0.84.
 
 **Public good provision and tribute (R3-R6, Table 4, p.2534).** Four separate regressions using
 equation (1):
@@ -295,17 +282,52 @@ equation (1):
   Results Appendix).
 - Column 4: total count of palaces + temples + ziggurats in the nearest city (measure of state
   capacity and administrative infrastructure).
+The outcome-specific sample sizes are 4,320 for canals and 4,424 each for walls, tribute, and
+administrative buildings. All four include the fixed effects and covariate interactions described
+above.
 
 **Heterogeneous effects (R7, Table 5, p.2536).** Equation (1) estimated separately in two
 subsamples split by the median of the spatial lag of pre-treatment settlement density (a proxy
-for returns to coordination). The Chow test for coefficient equality has p-value 0.06. A second
-split by geographic costs (FAO potential productivity differential between irrigated and rainfed
-barley, and river water flow volume) yields similar heterogeneity.
+for returns to coordination). The Chow test for coefficient equality has p-value 0.06. The other
+Panel A split is by settlement alignment for canals: the estimates are +0.22 for aligned and
+-0.01 for misaligned cells (Chow p=0.00). Panel B splits by irrigated versus rainfed potential
+productivity difference, with +0.16 in the high-difference group and -0.05 in the low-difference
+group (Chow p=0.00), and by river speed, with +0.10 near slow-flowing rivers and +0.03 near
+fast-flowing rivers (Chow p=0.14). These regressions use the state-presence outcome and include
+grid-cell and period fixed effects plus period interactions with survey area, rainfall, temperature,
+and pre-period urban status. Samples are: density high/low, 2,323/2,308; settlement aligned/
+misaligned, 2,365/2,266; high/low productivity difference, 2,319/2,311; slow/fast river flow,
+2,775/1,856. Standard errors are clustered by grid cell; Conley standard errors are also reported
+for Panel A.
 
-**Extended panel (R8, Table 6, p.2539).** Equation (2) estimated on 27,106 grid cell-period
-observations across all 31 archeological periods (5000BCE-1950CE). Columns 2-3 split the sample
-into the first two river shifts (pre-state and state formation) and the four subsequent shifts
-(within established states). The effect is positive and similar in both sub-panels.
+**Identification checks (R9-R11, R17; Tables 2-3 and text pp.2532-2533).** Table 3 column 2 replaces the
+border-based state outcome with an indicator for an administrative building in the nearest city.
+Table 2 estimates equation (1) using lagged settlement counts, city presence, and canal presence
+as outcomes, with six lags/specifications across 4,320 or 4,660 cell-period observations; the
+estimates are small and insignificant. The placebo exercise instead treats a river moving closer
+as treatment and finds consistently negative coefficients for state formation (the main text does
+not tabulate their magnitudes). As a check on trade as an alternative explanation, the authors
+fail to reject no effect of river shifts on trade patterns (Results Appendix Table RA26, cited in
+the main text on p.2532). The main regressions use 5x5 km grid cells, grid-cell and period
+fixed effects, period interactions with survey-area indicators, rainfall, temperature, and prior
+urban status, with grid-cell-clustered and Conley standard errors. For outcomes at the nearest-city
+level, the authors also report a robustness version with two-way clustering by grid cell and
+nearest-city-by-period (Method §IV.A, pp.2525-2526).
+
+**Extended panel (R8 and R15, Table 6, p.2539).** Equation (2) is estimated on 27,106 grid
+cell-period observations across all 31 archeological periods (5000BCE-1950CE). Columns 2-3 split
+the sample into the first two river shifts (through 2350BCE; 9,718 observations) and the four
+subsequent shifts (2350BCE-1950CE; 17,388 observations). Estimates are +0.15 (SE=0.03) in the
+first period and +0.10 (SE=0.02) in subsequent periods. All three specifications include grid-cell and period fixed effects, period
+interactions with survey-area indicators, rainfall, temperature, and prior urban status; standard
+errors are clustered by grid cell and Conley standard errors are reported in brackets.
+
+**Tablet text mechanism evidence (R16, Figure 6, p.2541; §VII, p.2540).** The authors compare
+fractions of 5,885 transliterated tablets mentioning lugal (lineage head), gal (chief), canals, or
+tribute before and after the first shift. The fraction mentioning gal increases by about 40%; lugal
+is not observed before state formation and appears afterward; mentions of canals and tribute also
+rise, with tribute absent before. Figure 6 reports graphical comparisons, not regression
+coefficients or exact percentage-point changes.
 
 ## Datasets used
 

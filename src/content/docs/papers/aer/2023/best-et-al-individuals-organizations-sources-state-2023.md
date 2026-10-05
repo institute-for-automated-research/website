@@ -7,7 +7,7 @@ description: >-
   with bureaucrats and organizations each accounting for roughly half. Bid
   preferences favoring domestic suppliers reduce prices when implemented by less
   effective bureaucrats but raise them when implemented by more effective ones.
-  American Economic Review 2023, paywalled. Seven core results with source
+  American Economic Review 2023, paywalled. Thirteen core results with source
   locators, datasets, the procurement model, and the variance decomposition
   method with defining equations.
 sidebar:
@@ -28,21 +28,23 @@ paper:
   doi: 10.1257/aer.20191598
   jel:
     codes: [D73, H57, H83, L14, P26]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Corruption and Economic Development", "Fiscal Policy and Economic Growth", "Corporate Finance and Governance"]
   dataAccess: licensed-commercial
   outcome:
     - quality-adjusted prices paid in government procurement
     - spending-quality index (contract renegotiations, delays, cost overruns)
     - probability of domestic supplier winning under bid preferences
+    - number of bidders in procurement auctions
+    - number of bidders and spending-quality index under bid preferences
   outcomeClass: [political-development]
   license: "No open license found in Crossref REST API works/10.1257/aer.20191598 (no license block returned). Paywalled, American Economic Association."
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA publisher site, 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 7
+  resultsCount: 13
   citedByCount: 75
   methods:
     role: both
@@ -61,45 +63,20 @@ paper:
     granularity: [individual, firm, transaction]
     n: "16 million purchases, 37,722 bureaucrats, 44,560 organizations, 2011-2016"
   findings:
-    - ref: R1
-      outcome: quality-adjusted prices paid in government procurement
-      metric: r-squared
-      value: "combined bur+org SD within connected sets = 0.489 log points; total price SD | good, month = 1.280 log points; ratio = 38.2% (~39%; covariance shrinkage col 6, Table 2, p. 2143)"
-      direction: positive
-    - ref: R2
-      outcome: quality-adjusted prices paid in government procurement
-      metric: r-squared
-      value: "bureaucrats: covariance-shrunk SD = 0.263 log points (~21% of price SD); organizations: SD = 0.338 log points (~26%); bur-org correlation = 0.311 (covariance shrinkage col 6, Table 2, p. 2143)"
-      direction: positive
-    - ref: R3
-      outcome: quality-adjusted prices paid in government procurement
-      metric: pp-effect
-      value: "raising Q1 to Q75 bureaucrats: 4.6% cost savings; raising all bur+org below Q25 to Q75: 13.9% savings (~US$10 billion/year, ~0.7% of nonresource GDP; §IVC, pp. 2143-2144)"
-      direction: negative
-    - ref: R4
-      outcome: spending-quality index (contract renegotiations, delays, cost overruns)
-      metric: correlation
-      value: "0.43 between bureaucrats' price and spending-quality effects; 0.48 for organizations (Figure 3, p. 2148)"
-      direction: positive
-    - ref: R5
-      outcome: quality-adjusted prices paid in government procurement
-      metric: coefficient
-      value: "-0.004 (SE 0.010), not significant; domestic winner probability: +0.042 (SE 0.005) in pharmaceuticals (Table 5, p. 2155)"
-      direction: none
-      vsBenchmark: "zero average price effect; +4.2 pp domestic-supplier share (14% relative increase) at near-zero cost"
-    - ref: R6
-      outcome: quality-adjusted prices paid in government procurement
-      metric: coefficient
-      value: "coeff on Bureaucrat FE x Preferred x PolicyActive: -0.090 (SE 0.018) full sample, -0.466 (SE 0.090) pharmaceuticals; least effective quartile ~12% price decrease; most effective quartile: price increases (Table 6 cols 1 and 4, Figure 7, pp. 2156-2158)"
-      direction: mixed
-      vsBenchmark: "opposite sign for bottom vs top quartile of bureaucrat effectiveness"
-    - ref: R7
-      outcome: quality-adjusted prices paid in government procurement
-      metric: coefficient
-      value: "equivalent bid penalty achieving the same overall price effect: ~10% for least effective bureaucracy subgroups, ~23% for most effective subgroups (Figure 9, pp. 2162-2163)"
-      direction: mixed
-      vsBenchmark: "against the uniform 15% bid preference penalty in place"
-  resultType: new-finding
+    - { ref: R1, outcome: quality-adjusted prices paid in government procurement, metric: r-squared, value: "combined bureaucrat + organization SD within connected sets = 0.489 log points; SD of log price conditional on good and month = 1.280; ratio = 38.2% (approximately 39%; covariance shrinkage, Table 2 col. 6, p. 2143)", direction: positive }
+    - { ref: R2, outcome: quality-adjusted prices paid in government procurement, metric: r-squared, value: "bureaucrat SD = 0.263 log points (approximately 21%); organization SD = 0.338 (approximately 26%); bureaucrat-organization correlation = 0.311 (Table 2 col. 6, p. 2143)", direction: positive }
+    - { ref: R3, outcome: quality-adjusted prices paid in government procurement, metric: level, value: "raising Q1 bureaucrats to Q75: 4.6% savings; raising all bureaucrats and organizations below Q25 to Q75: 13.9% savings (approximately US$10 billion/year, approximately 0.7% of nonresource GDP; §IVC, pp. 2143-2144)", direction: negative }
+    - { ref: R4, outcome: spending-quality index (contract renegotiations, delays, cost overruns), metric: correlation, value: "0.429 between bureaucrat price and spending-quality effects; 0.483 for organizations (Figure 3, p. 2148)", direction: positive }
+    - { ref: R5, outcome: "procurement prices and domestic supplier wins under bid preferences", metric: coefficient, value: "price effect = -0.004 (SE 0.010), not significant; domestic-winner probability = +0.042 (SE 0.005) in pharmaceuticals (Table 5, p. 2155)", direction: mixed, vsBenchmark: "zero average price effect; +4.2 pp domestic-winner probability" }
+    - { ref: R6, outcome: quality-adjusted prices paid in government procurement, metric: coefficient, value: "Bureaucrat FE x Preferenced x PolicyActive = -0.090 (SE 0.018) full sample and -0.466 (SE 0.090) pharmaceuticals; least-effective quartile has about a 12% price decrease; effect may be positive for the most effective (Table 6, Figure 7, pp. 2156-2158)", direction: mixed, vsBenchmark: "opposite signs for bottom versus top quartile of bureaucrat effectiveness" }
+    - { ref: R7, outcome: quality-adjusted prices paid in government procurement, metric: coefficient, value: "equivalent bid penalty for the same overall price effect: 10% for least-effective subgroup and 23% for most-effective subgroup (Figure 9, pp. 2162-2163)", direction: mixed, vsBenchmark: "uniform 15% bid-preference penalty" }
+    - { ref: R8, outcome: quality-adjusted prices paid in government procurement, metric: level, value: "organization switching from a worst-quartile to best-quartile bureaucrat: 18% price decrease; among 16 quartile trajectories, 10 show no rejectable pre-trend and 5 of the other 6 pre-trends run opposite the concern (Figure 1 and text, pp. 2137-2138)", direction: negative }
+    - { ref: R9, outcome: quality-adjusted prices paid in government procurement, metric: level, value: "pharmaceutical subsample: split-sample combined bureaucrat + organization SD = 0.183 versus SD of log price conditional on good and month = 0.430; covariance-shrinkage combined SD = 0.0846 (Table 3, p. 2145)", direction: positive, vsBenchmark: "qualitatively consistent with full sample; covariance shrinkage is less reliable in this smaller subsample" }
+    - { ref: R10, outcome: spending-quality index (contract renegotiations, delays, cost overruns), metric: r-squared, value: "bureaucrats and organizations jointly account for 24% of spending-quality variation under covariance shrinkage; combined SD = 0.139 against SD of quality index = 0.592 (Table 4, p. 2147)", direction: positive }
+    - { ref: R11, outcome: quality-adjusted prices paid in government procurement, metric: level, value: "LASSO selected 30 of 85 potential bureaucrat predictors; 22 of 34 strongest price-effectiveness predictors also appeared among the 32 strongest spending-quality predictors; regional corruption measures had weak predictive power (Figures 4-5, pp. 2150-2152)", direction: positive }
+    - { ref: R12, outcome: number of bidders and spending-quality index under bid preferences, metric: coefficient, value: "average policy effect on bidder count: -0.041 (SE 0.011) all products and -0.024 (SE 0.020) pharmaceuticals; spending-quality index: -0.022 (SE 0.005) and +0.013 (SE 0.007), respectively (Table 5, p. 2155)", direction: mixed }
+    - { ref: R13, outcome: "bidder count, spending quality, and domestic winner under bid preferences", metric: coefficient, value: "bureaucrat-effectiveness interaction: bidder count +0.081 (SE 0.018) all products, +1.12 (SE 0.201) pharmaceuticals; quality -0.051 (SE 0.037), +0.064 (SE 0.067); domestic-winner probability +0.211 (SE 0.037). Organization interactions: bidder count +0.005 (SE 0.013) all products, +0.450 (SE 0.193) pharmaceuticals; domestic-winner probability -0.145 (SE 0.036) (Table 6, p. 2157)", direction: mixed }
+  resultType: mixed
   relatesTo:
     - { cite: 'Abowd, Kramarz & Margolis (1999)', relation: builds-on, note: 'AKM two-dimensional variance decomposition, adapted from wages to procurement prices and extended with covariance shrinkage to correct for limited-mobility bias' }
     - { cite: 'Chetty, Friedman & Rockoff (2014)', doi: '10.1257/aer.104.9.2593', relation: builds-on, note: 'teacher value-added shrinkage estimator generalized here to two-dimensional bureaucrat-organization shrinkage with explicit estimation-error covariance correction' }
@@ -115,6 +92,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 2121-2167); seven results extracted from the source PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-24, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: JEL codes expanded to include L14 and P26 (per abstract); R5 vsBenchmark corrected from '+14 pp' to '+4.2 pp' (0.042 coefficient = 4.2 pp; 14% is a relative figure); em-dash removed from Method section." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full source PDF and added six core findings, completed findings metadata, and numbered main-text specifications (8)-(10). These additions are not human-verified and have not been reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; corrected the supplier productivity ordering and equilibrium cutoff formula, refined average-policy and Table 6 heterogeneity wording, fixed result metadata, and removed significance stars absent from the printed table. Table-locator pass (2026-10-04): none." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20191598", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No license block returned; paper is paywalled under American Economic Association standard subscription terms." }
 ---
@@ -123,11 +102,11 @@ paper:
 
 ## TL;DR
 
-The paper quantifies how much of the Russian government's procurement performance is attributable to the individuals and organizations who run it. Using administrative data on 16 million off-the-shelf purchases (2011-2016), it estimates that individual bureaucrats and public-sector organizations together explain 39 percent of the variation in quality-adjusted prices paid. The identification strategy exploits the fact that many bureaucrats work with multiple organizations and vice versa, providing thousands of quasi-experiments from bureaucrat-organization switches. The paper is related to the evidence on active vs passive waste in public contracts by Bandiera, Prat and Valletti (2009), which it extends by separately identifying individual and organizational sources of inefficiency. Effective bureaucrats (those who pay lower prices) also achieve better spending quality (fewer delays, renegotiations, and cost overruns), so the multitasking problem is mild. In a second part, the paper introduces bid preferences that give a 15 percent price advantage to domestic suppliers. On average, these preferences achieve their goal of increasing domestic sourcing at near-zero cost, but this average masks large heterogeneity: prices fall substantially for ineffective bureaucrats and rise for effective ones, consistent with a model where participation costs are the key friction.
+The paper quantifies how much of the Russian government's procurement performance is attributable to the individuals and organizations who run it. Using administrative data on 16 million off-the-shelf purchases (2011-2016), it estimates that individual bureaucrats and public-sector organizations together explain 39 percent of the variation in quality-adjusted prices paid. The identification strategy exploits the fact that many bureaucrats work with multiple organizations and vice versa, providing thousands of quasi-experiments from bureaucrat-organization switches. The paper is related to the evidence on active vs passive waste in public contracts by Bandiera, Prat and Valletti (2009), which it extends by separately identifying individual and organizational sources of inefficiency. Effective bureaucrats (those who pay lower prices) also achieve better spending quality (fewer delays, renegotiations, and cost overruns), so the multitasking problem is mild. In a second part, the paper studies bid preferences that give domestic suppliers a 15 percent price advantage. They increase domestic sourcing with little average effect on prices; participation falls somewhat in both samples, while spending quality improves slightly in the full sample and worsens slightly in pharmaceuticals. These averages mask large heterogeneity: prices fall substantially for ineffective bureaucrats and may turn positive for the most effective, consistent with participation costs being a key friction.
 
 ## Core results
 
-Magnitudes and significance are as reported. `\*` = 5%; `\*\*\*` = 1%.
+Coefficients and standard errors are as reported; significance wording follows the paper's text.
 
 | # | Result | Locator | Magnitude |
 |---|---|---|---|
@@ -135,23 +114,29 @@ Magnitudes and significance are as reported. `\*` = 5%; `\*\*\*` = 1%.
 | R2 | **Bureaucrats account for ~21 percent and organizations for ~26 percent** of price variation separately | Table 2 col 6, p. 2143 | Covariance-shrunk SD: bureaucrats = 0.263 log points, organizations = 0.338; bur-org correlation = 0.311 (positive assortative matching) |
 | R3 | **Moving lowest-quartile bureaucrats to the 75th percentile** would reduce procurement costs by 4.6 percent; moving both below Q25 to Q75 saves 13.9 percent | §IVC, pp. 2143-2144 | 4.6% savings from bureaucrats only (Q1 to Q75); 13.9% combined (~US\$10 billion/year, ~0.7% of nonresource GDP) |
 | R4 | **Price effectiveness and spending-quality effectiveness are positively correlated** across bureaucrats and organizations | Figure 3, p. 2148 | Correlation = 0.43 for bureaucrats; 0.48 for organizations; low-price buyers also deliver fewer delays and renegotiations |
-| R5 | **Bid preferences achieve domestic sourcing at near-zero average cost**: prices are unaffected on average but the probability of a domestic supplier winning rises 14 percent | Table 5, p. 2155 | Price effect: -0.004 (SE 0.010), not significant; domestic winner probability: +0.042 (SE 0.005) in pharmaceuticals |
-| R6 | **Bid preferences reduce prices by up to 12 percent for the least effective bureaucrats** but raise prices for the most effective | Table 6 cols 1 and 4, Figure 7, pp. 2156-2158 | Coefficient on Bureaucrat FE x Preferred x PolicyActive: -0.090\*\*\* (SE 0.018) full sample; -0.466\*\*\* (SE 0.090) pharmaceuticals |
+| R5 | **Bid preferences increase domestic sourcing with little average price effect**: the paper describes the probability of a domestic supplier winning as 14 percent higher | Table 5, p. 2155 | Price effect: -0.004 (SE 0.010), not significant; domestic winner probability: +0.042 (SE 0.005), or 4.2 percentage points, in pharmaceuticals |
+| R6 | **Bid preferences reduce prices by up to 12 percent for the least effective bureaucrats**; effects are much smaller and may turn positive for the most effective | Table 6 cols 1 and 4, Figure 7, pp. 2156-2158 | Coefficient on Bureaucrat FE x Preferenced x PolicyActive: -0.090 (SE 0.018) full sample; -0.466 (SE 0.090) pharmaceuticals |
 | R7 | **Optimal bid penalty varies across bureaucracy types**, from 23 percent for the most effective to 10 percent for the least effective subgroup | Figure 9, pp. 2162-2163 | Equivalent penalty for same price outcome as the 15% rule achieves overall, across ten effectiveness deciles |
+| R8 | **Bureaucrat switches support a causal interpretation**: moving from a worst-quartile to best-quartile bureaucrat lowers prices, with no concerning pre-trend | Figure 1 and text, pp. 2137-2138 | Price decrease = 18%; of 16 quartile trajectories, 10 have no rejectable pre-trend and 5 of the other 6 pre-trends run opposite the concern |
+| R9 | **Main effects persist in the homogeneous pharmaceutical subsample** | Table 3, p. 2145 | Split-sample combined bureaucrat + organization SD = 0.183 versus log-price SD conditional on good and month = 0.430; covariance-shrinkage SD = 0.0846 |
+| R10 | **Procurers also explain a material share of spending-quality variation** | Table 4, p. 2147 | Covariance-shrinkage method assigns 24%; combined effect SD = 0.139 versus quality-index SD = 0.592 |
+| R11 | **Mechanism evidence points to supplier entry barriers and buyer experience; corruption measures explain little** | Figures 4-5 and text, pp. 2150-2152 | LASSO selects 30 of 85 bureaucrat predictors; 22 of 34 strongest price predictors recur among the 32 strongest quality predictors; regional corruption measures have weak predictive power |
+| R12 | **Average bid-preference effects also reduce participation slightly, with spending-quality effects varying by sample** | Table 5, p. 2155 | Bidder-count effect = -0.041 (SE 0.011) all products and -0.024 (SE 0.020) pharmaceuticals; quality-index effect = -0.022 (SE 0.005) and +0.013 (SE 0.007), respectively |
+| R13 | **Participation and domestic-sourcing effects vary with bureaucrat effectiveness; organization interactions differ by outcome and sample** | Table 6, p. 2157 | Bureaucrat interactions: bidder count +0.081 (SE 0.018) all products and +1.12 (SE 0.201) pharmaceuticals; quality -0.051 (SE 0.037) and +0.064 (SE 0.067); domestic-winner probability +0.211 (SE 0.037). Organization interactions: bidder count +0.005 (SE 0.013) and +0.450 (SE 0.193), domestic-winner probability -0.145 (SE 0.036) |
 
-**Overall (paper's conclusion).** State effectiveness is embedded in individuals and organizations: bureaucrats and their employers account for a large fraction of procurement price variation, and effectiveness is embodied in individual characteristics (experience, network, auction design quality) rather than in corruption measures. Because raising bureaucratic effectiveness directly is often difficult, a feasible alternative is to tailor policy design to the capacity of the implementing bureaucracy. A "buy local" bid preference regime that is counterproductive for high-state-capacity contexts works well for low-state-capacity contexts.
+**Overall (paper's conclusion).** State effectiveness is embedded in individuals and organizations: bureaucrats and their employers account for a large fraction of procurement price variation. Experience, supplier networks, and the ability to reduce auction entry barriers help explain bureaucratic effectiveness; regional corruption measures have weak predictive power, and the paper concludes that corruption is not the primary source of effectiveness differences. Because raising bureaucratic effectiveness directly is often difficult, a feasible alternative is to tailor policy design to the capacity of the implementing bureaucracy. The Russian evidence suggests that a "buy local" bid preference can perform better under less effective bureaucrats than under more effective ones.
 
 ## Theory / model
 
 Section III presents a stylized model of public procurement in which state effectiveness is modeled as costs imposed on potential suppliers wishing to participate. A pair consisting of a procurement bureaucrat and an end-user organization (jointly, the bureaucracy) purchases an off-the-shelf good through a descending open-outcry auction, approximated as a second-price sealed-bid auction (p. 2133, following Milgrom 2004).
 
-There are two potential suppliers: a foreign firm $$F$$ with higher expected productivity (Pareto parameter $$\delta_F$$) and a local firm $$L$$ (parameter $$\delta_L < \delta_F$$). Both face a common fulfillment cost component $$\log(\bar{\theta}) = \mathbf{X}'\boldsymbol{\beta} + \alpha_\theta + \psi_\theta$$, where $$\mathbf{X}$$ are observable item attributes and $$\alpha_\theta$$ and $$\psi_\theta$$ are bureaucrat and organization fulfillment-cost shifters. The bureaucracy also imposes participation cost $$c_i$$ on each supplier, determined by specification parameters $$\alpha_c$$ and $$\psi_c$$:
+There are two potential suppliers: a foreign firm $$F$$ with higher expected productivity (Pareto parameter $$\delta_F$$, where $$\delta_F < \delta_L$$) and a local firm $$L$$ (parameter $$\delta_L$$). Both face a common fulfillment cost component $$\log(\bar{\theta}) = \mathbf{X}'\boldsymbol{\beta} + \alpha_\theta + \psi_\theta$$, where $$\mathbf{X}$$ are observable item attributes and $$\alpha_\theta$$ and $$\psi_\theta$$ are bureaucrat and organization fulfillment-cost shifters. The bureaucracy also imposes participation cost $$c_i$$ on each supplier, determined by specification parameters $$\alpha_c$$ and $$\psi_c$$:
 
 $$
 c_i = \frac{\bar{\theta}}{1 + \delta_i} - \frac{\bar{\theta}}{1 + \delta_L}\sqrt{1 - \alpha_c - \psi_c}
 $$
 
-Suppliers independently decide whether to pay $$c_i$$ and learn their type $$\theta_i$$. In the Nash equilibrium (Proposition 1, p. 2134), entry probabilities satisfy $$q_i = \sqrt{\kappa(1 - \alpha_c - \psi_c)}$$ where $$\kappa = \min\!\left\{\left[\frac{1 + \delta_F + \delta_L}{1 + \delta_F}\right]^2, \frac{1}{1 - \alpha_c - \psi_c}\right\}$$. Expected log prices are (equation 1, p. 2134):
+Suppliers independently decide whether to pay $$c_i$$ and learn their type $$\theta_i$$. In the Nash equilibrium (Proposition 1, p. 2134), entry probabilities satisfy $$q_i = \sqrt{\kappa(1 - \alpha_c - \psi_c)}$$ where $$\kappa = \min\!\left\{\left[\frac{1 + \delta_F + \delta_L}{1 + \delta_L}\right]^2, \frac{1}{1 - \alpha_c - \psi_c}\right\}$$. Expected log prices are (equation 1, p. 2134):
 
 $$
 E[\log(p)] = \log(\bar{\theta}) - \frac{q_F q_L}{\delta_F + \delta_L} = \mathbf{X}'\boldsymbol{\beta} - \frac{\kappa}{\delta_F + \delta_L} + \bar{\alpha} + \bar{\psi}, \tag{1}
@@ -177,7 +162,7 @@ $$
 
 where $$\gamma_{s(b,j)}$$ is a connected-set fixed effect normalizing $$\alpha$$ and $$\psi$$ to mean zero within each connected set. Identification of bureaucrat and organization effects separately requires observation of bureaucrats working with multiple organizations and organizations working with multiple bureaucrats (the switchers). The data contain 616 connected sets with an average density of 5.2 organizations per bureaucrat and 4.8 bureaucrats per organization.
 
-The variance decomposition (equation 4, p. 2140) attributes total price variation to its sources:
+Equations (2)-(3) are estimated on the 11,339,187-purchase analysis sample in 616 connected sets. The controls include log quantity, good and month fixed effects, and two-digit HS interactions with year, region, and lot size; equation (3) adds connected-set fixed effects. The variance-component standard errors reported for Table 2 are based on 100 bootstrap replications (Table 2 notes, p. 2143). The variance decomposition (equation 4, p. 2140) attributes total price variation to its sources:
 
 $$
 \text{var}(p_i) = \text{var}(\alpha_{b(i,j)}) + \text{var}(\psi_j) + 2\,\text{cov}(\alpha_{b(i,j)}, \psi_j) + 2\,\text{cov}(\alpha_{b(i,j)} + \psi_j,\, \gamma_{s(b,j)} + \mathbf{X}_i\boldsymbol{\beta}) + \text{var}(\gamma_{s(b,j)} + \mathbf{X}_i\boldsymbol{\beta}) + \text{var}(\varepsilon_i). \tag{4}
@@ -185,7 +170,7 @@ $$
 
 The paper addresses two finite-sample estimation problems. First, **limited mobility bias**: because the bureaucrat-organization network has only 616 connected sets with bounded within-set mobility, the naive OLS estimates of $$\hat{\alpha}_b$$ and $$\hat{\psi}_j$$ contain large sampling errors that inflate the apparent variance of each component and create a spurious negative covariance. The paper applies two bias corrections: (a) a **split-sample estimator** (following Finkelstein, Gentzkow, and Williams 2016 and Silver 2016) that randomly splits the sample and estimates the two fixed effects on each half, then forms variance components as cross-half covariances; (b) a **covariance-shrinkage estimator** that forms minimum-MSE predictions of the full vector $$(\hat{\alpha}_b, \hat{\psi}_j)$$ by weighting via a matrix $$\Lambda^*$$ accounting for both own-variance shrinkage and cross-component covariance (analogous to the shrinkage in Chetty, Friedman, and Rockoff (2014) but generalized to two dimensions). The covariance-shrinkage method is the preferred specification because it yields a plausible positive bur-org correlation of 0.311, unlike the split-sample or OLS methods which give negative estimates (Table 2, column 6, p. 2143).
 
-Effective bureaucrats also display distinguishable process behaviors (Sections IVD-IVE). A LASSO procedure selecting 30 process predictors from 85 potential variables shows that effective bureaucrats set lower reservation prices, attract larger and more diverse supplier pools, specialize in narrower product ranges, and avoid fiscal-year-end spending rushes, all consistent with the participation-cost channel in the model.
+Effective bureaucrats also display distinguishable process behaviors (Sections IVD-IVE). A LASSO procedure selecting about 30 process predictors from 85 potential variables shows that effective bureaucrats set lower reservation prices, attract larger and more diverse supplier pools, specialize in narrower product ranges, and avoid fiscal-year-end spending rushes, all consistent with the participation-cost channel in the model.
 
 ## Empirical specifications
 
@@ -197,13 +182,13 @@ $$
 y_{igt} = \mathbf{X}_{igt}\boldsymbol{\beta} + \mu_g + \lambda_t + \delta\,(\text{Preferenced}_{gt} \times \text{PolicyActive}_t) + \varepsilon_{igt}, \tag{5}
 $$
 
-where $$\text{Preferenced}_{gt}$$ indicates that good $$g$$ is on the preference list in year $$t$$ and $$\text{PolicyActive}_t$$ indicates the policy is in effect. Standard errors are clustered by month and good. Because a minimum of one local and one foreign bidder must be present for preferences to apply, $$\hat{\delta}$$ is an intent-to-treat effect. An event-study analog (equation 6, p. 2153) stacks all list-publication events in a window of -3 to +4 months:
+where $$\text{Preferenced}_{gt}$$ indicates that good $$g$$ is on the preference list in year $$t$$ and $$\text{PolicyActive}_t$$ indicates the policy is in effect. The controls include the Section IV item controls; the specification includes good and month fixed effects, with standard errors clustered by month and good. Because a minimum of one local and one foreign bidder must be present for preferences to apply, $$\hat{\delta}$$ is an intent-to-treat effect. Table 5 uses 16,348,331 all-product observations and 460,533 pharmaceutical observations (Table 1, columns 3 and 6). The event-study analog (equation 6, p. 2153) stacks all list-publication events in a window of -3 to +4 months and uses the same controls, fixed effects, clustered standard errors, and policy samples:
 
 $$
 p_{igt} = \mathbf{X}_{igt}\boldsymbol{\beta} + \mu_g + \lambda_t + \sum_{s=-3}^{4}\delta_s\,\text{Preferenced}_{gt} \times \mathbf{1}\!\left\{t - \text{ListMonth}_t = s\right\} + \varepsilon_{igt} \tag{6}
 $$
 
-Pre-trend coefficients $$\hat{\delta}_s$$ for $$s = -3, -2, -1$$ are indistinguishable from zero (Figure 6, p. 2154), validating parallel trends. The preferred estimate of $$\hat{\delta}$$ is -0.004 (SE 0.010) for log prices, not significantly different from zero (Table 5, column 1), while the probability that an auction is won by a domestic supplier rises by 4.2 percentage points in pharmaceuticals. This near-zero average price effect differs from the positive price effects of domestic bid preferences found by Marion (2007) in US highway procurement, where preferences reduced competition and raised prices by 3.8 percent; the difference is consistent with the lower baseline state capacity in the Russian context reducing the scope for anti-competitive effects.
+Pre-trend coefficients $$\hat{\delta}_s$$ for $$s = -3, -2, -1$$ are indistinguishable from zero (Figure 6, p. 2154), consistent with parallel trends. The preferred estimate of $$\hat{\delta}$$ is -0.004 (SE 0.010) for log prices, not significantly different from zero (Table 5, column 1), while the probability that an auction is won by a domestic supplier rises by 4.2 percentage points in pharmaceuticals. This near-zero average price effect differs from the positive price effects of domestic bid preferences found by Marion (2007) in US highway procurement, where preferences reduced competition and raised prices by 3.8 percent; the difference is consistent with the lower baseline state capacity in the Russian context reducing the scope for anti-competitive effects.
 
 **Heterogeneous effects by bureaucratic effectiveness (equation 7, p. 2156; Table 6, p. 2157).** To test the model's prediction that the policy effect varies by state effectiveness, the paper interacts the DiD design with the covariance-shrunk bureaucrat and organization effects:
 
@@ -219,7 +204,27 @@ $$
 + \pi_b\,(\text{Preferenced}_{gt} \times \text{PolicyActive}_t)\hat{\alpha}_b + \pi_j\,(\text{Preferenced}_{gt} \times \text{PolicyActive}_t)\hat{\psi}_j + \varepsilon_{igt}, \tag{7}
 $$
 
-where $$\hat{\alpha}_b$$ and $$\hat{\psi}_j$$ are the covariance-shrunk estimates from equation (3). The key parameter is $$\hat{\pi}_b$$: a negative estimate means that bureaucrats with higher baseline prices (higher $$\hat{\alpha}_b$$, i.e., less effective) experience larger price declines under preferences. Table 6 reports $$\hat{\pi}_b = -0.090$$ (SE 0.018) in the full sample and $$-0.466$$ (SE 0.090) in the pharmaceuticals subsample, both significant at 1 percent. An analogous decile-level regression (equation 8, p. 2157) shows that the estimated price effect is monotonically decreasing from about -20 percent for the bottom decile of bureaucratic effectiveness to slightly positive for the top decile (Figure 7, p. 2158). Heterogeneity by organization effectiveness $$\hat{\psi}_j$$ is small and imprecisely estimated, consistent with the model's prediction that it is participation costs (driven by bureaucrats) rather than fulfillment costs (shared by both) that generate the heterogeneous policy effects.
+where $$\hat{\alpha}_b$$ and $$\hat{\psi}_j$$ are the covariance-shrunk estimates from equation (3). Table 6 includes the Section IV controls, good and month fixed effects, year-by-product-by-size-by-region fixed effects, and connected-set fixed effects; standard errors are clustered by month and good. Its samples contain 16,348,331 all-product observations and 460,533 pharmaceutical observations. The key parameter is $$\hat{\pi}_b$$: a negative estimate means that bureaucrats with higher baseline prices (higher $$\hat{\alpha}_b$$, i.e., less effective) experience larger price declines under preferences. Table 6 reports $$\hat{\pi}_b = -0.090$$ (SE 0.018) in the full sample and $$-0.466$$ (SE 0.090) in the pharmaceuticals subsample, both statistically significant based on the reported standard errors. An analogous decile-level regression (equation 8, p. 2157) shows that estimated price effects become less negative across bureaucrat effectiveness deciles, from about -20 percent for the bottom decile to slightly positive for the top decile (Figure 7, p. 2158); the paper describes the evidence of price increases for the most effective bureaucrats as suggestive. Heterogeneity by organization effectiveness $$\hat{\psi}_j$$ is small and imprecisely estimated, consistent with the model's prediction that it is participation costs (driven by bureaucrats) rather than fulfillment costs (shared by both) that generate the heterogeneous policy effects.
+
+### Remaining numbered main-text specifications (8)-(10)
+
+Equation (8) estimates treatment effects separately by bureaucrat and organization effectiveness deciles. Table 6 reports the associated outcome regressions with good fixed effects, month fixed effects, year-by-product-by-size-by-region fixed effects, and connected-set fixed effects; standard errors are clustered by month and good. The samples contain 16,348,331 all-product observations and 460,533 pharmaceutical observations (equation 8 and Table 6 notes, pp. 2157-2158).
+
+$$
+y_{igt} = \sum_{k=1}^{10}\left[D_{kj} + D_{kb}\left(\rho_k\text{Preferenced}_{gt} + \eta_k\text{PolicyActive}_t + \pi_k\text{Preferenced}_{gt}\times\text{PolicyActive}_t\right)\right] + X_{igt}\beta + \mu_g + \mu_t + \varepsilon_{igt}. \tag{8}
+$$
+
+Equation (9) replaces the estimated bureaucrat and organization effects with selected purchase, buyer, auction, supplier, and region characteristics $Z_{igt}$. The authors use LASSO selection followed by an elastic-net sensitivity procedure; the outcomes and fixed effects follow equation (7), standard errors are clustered by month and good, and the all-product policy sample is used (equation 9, pp. 2159-2160; Figure 8 notes, p. 2161).
+
+$$
+y_{igt} = X_{igt}\beta + \mu_g + \lambda_t + Z_{igt}\theta + \text{Preferenced}_{gt}\times Z_{igt}\gamma + \text{PolicyActive}_t\times Z_{igt}\eta + \delta\text{Preferenced}_{gt}\times\text{PolicyActive}_t + \text{Preferenced}_{gt}\times\text{PolicyActive}_t\times Z_{igt}\pi + \varepsilon_{igt}. \tag{9}
+$$
+
+Equation (10) maps each subgroup's estimated policy effect to the bid penalty that would match the full-sample average effect. It uses the decile treatment effects from equation (8) and assumes log prices are locally linear in the preference rate. The authors describe this as a back-of-the-envelope policy calculation, not a regression; see Section VD, pp. 2162-2163.
+
+$$
+d\log(p_g) = \overline{TE} - TE_g = (1 - \gamma_g^* - 0.15)\frac{TE_g}{0.15} \Longleftrightarrow 1 - \gamma_g^* = \frac{0.15\overline{TE}}{TE_g}. \tag{10}
+$$
 
 ## Datasets used
 

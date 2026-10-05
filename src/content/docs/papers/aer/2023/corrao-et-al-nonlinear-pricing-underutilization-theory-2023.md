@@ -4,7 +4,7 @@ description: >-
   Distilled: establishes that multi-part tariffs (price schedules with tiers of zero
   marginal price) are the optimal contract when buyers can freely underutilize purchases
   and usage generates revenue for the seller via advertising, data, or network effects.
-  American Economic Review 113(3), 2023, paywalled. Six core theoretical results with
+  American Economic Review 113(3), 2023, paywalled. Sixteen core theoretical results with
   proposition locators, the seller's problem, and the virtual surplus characterization.
   LLM-distilled.
 sidebar:
@@ -37,14 +37,14 @@ paper:
   access: paywalled
   machineAccess: 'blocked-paywall (AEA/AER website, 2026-06-25)'
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 16
   citedByCount: 4
   methods:
     role: theory
     family: theory
     buildsFrom: [mechanism-design]
   contributionType: [new-theory]
-  mechanisms: [information-asymmetry, moral-hazard]
+  mechanisms: [information-asymmetry, moral-hazard, usage-noncontractibility]
   scope:
     region: theoretical
   relatesTo:
@@ -60,6 +60,8 @@ paper:
   extraction:
     - { by: paper-distiller (claude-sonnet-4-6), date: 2026-06-25, role: extracted, note: "Full text read (pp. 836-860); six theoretical results extracted. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-25, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; two fixes applied: (1) eq. 3 virtual surplus corrected from u_{xθ} to u_θ (PDF p. 843 confirmed u_θ; cross-partial belongs only in eq. 14); (2) JEL codes completed from 3 to 5 entries (L86, M37 added from paper abstract)." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and added ten result rows, matching findings, the missing numbered main-text equations, and the usage noncontractibility mechanism. Additions are not human-verified and were not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] All 16 rows, formal equations, classifications, findings, frontmatter, and prose re-checked against the source PDF; corrected R5's strict welfare comparison to weak and R7's Figure 2 locator to p. 847. Post-verification review (2026-10-04) removed findings[] and resultType, which the schema omits for a pure-theory paper." }
   licenceVerification:
     - { source: 'Crossref REST API works/10.1257/aer.20220199', checked: 2026-06-25, by: 'paper-distiller (claude-sonnet-4-6)', found: 'no license[] block present in Crossref works record; paper appears paywalled under AEA copyright' }
   rightsSignalConflict: false
@@ -81,8 +83,18 @@ Locators point into the source PDF.
 | R2 | H(x) > 0 is sufficient for the price schedule to be flat at x (a multi-part tariff tier); H(x) < 0 is sufficient for a strictly positive marginal price | Prop. 2, p. 848 | Multi-part tariffs arise when marginal usage revenue dominates marginal information rents |
 | R3 | Four pricing schemes rationalized by the sign of H: regular (H < 0 everywhere), fixed/free (H >= 0 everywhere), premium-tier (H changes sign from negative), introductory-offer (H changes sign from positive) | Cor. 1, p. 850 | Corollary applies when H crosses zero at most once |
 | R4 | Sufficient conditions for unlimited subscriptions (marginal usage revenue positive at the highest-type bliss point) and for free trials (total marginal usage revenue at the lowest-type bliss point exceeds information rent) | Cor. 2, pp. 852-853 | Free trials and unlimited subscriptions co-occur when usage revenue is high at both ends of the type distribution |
-| R5 | Under any fixed price schedule, free disposal weakly improves consumer welfare; but under the seller-reoptimized schedule, perfect contractibility strictly improves both consumer and producer welfare for all types | Prop. 3, p. 856 | Noncontractibility reduces both consumer and producer welfare relative to the contractibility benchmark |
+| R5 | Under any fixed price schedule, free disposal weakly improves consumer welfare; but under the seller-reoptimized schedule, perfect contractibility weakly improves both consumer and producer welfare for all types | Prop. 3, p. 856 | Noncontractibility weakly reduces both consumer and producer welfare relative to the contractibility benchmark |
 | R6 | When usage becomes more profitable, both consumer and producer welfare increase, but by less than under perfect contractibility; free disposal dampens welfare gains from improved advertising or data-collection technology | Prop. 4, p. 857 | Free disposal reduces the sensitivity of welfare to changes in usage-based revenue |
+| R7 | In the digital advertising example, the optimal tariff has a zero-marginal-price tier above its cutoff | text p. 849; Fig. 2, p. 847 | At alpha = 1/2 and beta = 0, H(x) > 0 for x > 1/2, so the schedule is flat there |
+| R8 | A positive marginal usage return at the highest type's bliss point is sufficient for an unlimited subscription | Cor. 2, Eq. 15, p. 852 | pi_x(phi^A(1), 1) > 0 |
+| R9 | A low-type marginal usage return exceeding information rent is sufficient for a trial | Cor. 2, Eq. 16, p. 853 | f(0)pi_x(phi^A(0), 0) > u_x_theta(phi^A(0), 0) |
+| R10 | The exponential-advertising example supports both a trial and an unlimited subscription | Example 2, pp. 853-854; Fig. 4, p. 855 | At lambda = 2.5 and alpha = 0.5, both Corollary 2 conditions hold |
+| R11 | The constructed oscillating revenue function yields tariffs with increasing numbers of flat intervals | Example 3, pp. 854-855; Fig. 5, p. 856 | For omega = 1, 2, 3 and k = 0.04, the examples yield three-, four-, and five-part tariffs, respectively |
+| R12 | For a fixed price schedule, consumers weakly prefer the option to underutilize | Prop. 3, p. 856 | V(theta; T) >= V_N(theta; T) for every type and any fixed T |
+| R13 | After the seller reoptimizes its schedule, consumers weakly prefer perfectly contractible usage | Prop. 3, p. 856 | V*(theta) <= V_N*(theta) for every type |
+| R14 | After the seller reoptimizes its schedule, producers weakly prefer perfectly contractible usage | Prop. 3, p. 856 | Pi*(theta) <= Pi_N*(theta) for every type |
+| R15 | Under increases in usage profitability and weaker demand, consumer welfare rises by no more under free disposal than with perfect contractibility | Prop. 4, Eq. 21, p. 857 | 0 <= V*(theta; pi-tilde, F-tilde) - V*(theta; pi, F) <= V_N*(theta; pi-tilde, F-tilde) - V_N*(theta; pi, F), for all theta |
+| R16 | Under increases in usage profitability and weaker demand, producer welfare rises by no more under free disposal than with perfect contractibility | Prop. 4, Eq. 22, p. 857 | 0 <= Pi*(theta; pi-tilde, F-tilde) - Pi*(theta; pi, F) <= Pi_N*(theta; pi-tilde, F-tilde) - Pi_N*(theta; pi, F), for all theta |
 
 **Overall (paper's conclusion).** The mechanism generating multi-part tariffs is the collision between two constraints: sellers would like to charge negative marginal prices to encourage valuable usage, but noncontractibility prevents this, making zero marginal pricing the constrained optimum. As a normative corollary, users of digital platforms would be better off if usage were perfectly contractible, but the same technological barrier that prevents full extraction also prevents compensation for usage.
 
@@ -125,6 +137,19 @@ $$T^*(x) = u(\phi^*(0),0) + \int_{\phi^*(0)}^{x} u_x\!\left(z,\,\phi^{*-1}(z)\ri
 
 Intuition: forcing consumption beyond the bliss point violates (O) because buyers would dispose, so $$\phi \leq \phi^A$$ is necessary. Combined with monotonicity required by (IC), capping at $$\phi^A$$ is both necessary and sufficient for obedience and incentive compatibility. The price formula (6) follows from local (IC) binding.
 
+
+The paper also characterizes all purchase levels that support the optimal consumption allocation (p. 844):
+
+$$
+\Xi_{\phi^*}(\theta) =
+\begin{cases}
+\{\phi^*(\theta)\}, & \phi^*(\theta) < \phi^A(\theta), \\
+[\phi^A(\theta), \inf_{\theta' \in [\theta,1]}\{\phi^*(\theta') : \phi^*(\theta') < \phi^A(\theta')\}], & \phi^*(\theta) = \phi^A(\theta).
+\end{cases} \tag{7}
+$$
+
+At types where free disposal binds, purchase can range from the buyer's bliss point up to the first later consumption level where the allocation is below the bliss point. If no such type exists, the paper defines the infimum by the supremum of the relevant codomain (footnote 15, p. 844).
+
 **Proposition 2 (Multi-part Tariffs, p. 848):** The constrained marginal revenue function $$H: X^* \to \mathbb{R}$$ maps each outcome level to the net marginal gain from additional usage for the type whose bliss point is $$x$$:
 
 $$H(x) = J_x\!\left(x,\,(\phi^A)^{-1}(x)\right). \tag{13}$$
@@ -134,6 +159,13 @@ The sufficient condition for $$H(x) > 0$$ is that marginal revenue from usage st
 $$\underbrace{f(\theta)\,\pi_x(x,\theta)}_{\text{marginal revenue from usage}} > \underbrace{(1-F(\theta))\,u_{x\theta}(x,\theta)}_{\text{marginal information rent}}, \tag{14}$$
 
 where the left side is the per-type marginal profit from usage and the right side is the information rent that must be paid to all higher types to induce truthful purchase revelation. If $$H(x) > 0$$, then $$T^*$$ is flat at $$x$$ (zero marginal price, a multi-part tariff tier). Conversely, if $$T^*$$ is flat at $$x$$, then $$H(x) \geq 0$$. The logic: when $$H(x) > 0$$ the seller would prefer a negative marginal price to incentivize usage, but free disposal makes this unenforceable (buyers would underutilize to capture a negative price without delivering usage value), so zero is the binding constrained optimum.
+
+The paper states the two sufficient conditions separately (pp. 852-853):
+
+$$\pi_x(\phi^A(1),1) > 0. \tag{15}$$
+
+$$f(0)\pi_x(\phi^A(0),0) > u_{x\theta}(\phi^A(0),0). \tag{16}$$
+
 
 The closest predecessor, Grubb (2009), demonstrates optimality of three-part tariffs in a model with overconfident consumers. This paper shows that overconfidence maps to a specific external revenue function $$\pi$$, and the framework with free disposal generalizes his result to a broader class of revenue functions and pricing structures.
 
@@ -146,6 +178,17 @@ and producer welfare is total revenue from type $$\theta$$:
 $$\Pi(\theta;T) = \pi(\phi(\theta;T),\theta) + T(\xi(\theta;T)). \tag{20}$$
 
 Let $$V_N$$ and $$\Pi_N$$ denote the corresponding quantities under perfect contractibility of usage (no free disposal). Proposition 3 (p. 856) establishes: for any fixed $$T$$, $$V(\theta;T) \geq V_N(\theta;T)$$ for all $$\theta$$, but under the reoptimized price schedules $$V^*(\theta) \leq V^*_N(\theta)$$ and $$\Pi^*(\theta) \leq \Pi^*_N(\theta)$$ for all $$\theta$$. Proposition 4 (p. 857) shows that when usage becomes more profitable ($$\tilde{\pi}_x \geq \pi_x$$ pointwise) and demand weakens ($$\bar{F}$$ hazard-rate dominates $$F$$), welfare increases for both parties but the gain is bounded above by the gain under perfect contractibility.
+
+Proposition 3's welfare comparisons are (p. 856):
+
+$$V(\theta;T) \geq V_N(\theta;T), \quad V^*(\theta) \leq V_N^*(\theta), \quad \Pi^*(\theta) \leq \Pi_N^*(\theta), \quad \theta \in \Theta. $$
+
+
+Proposition 4 writes the consumer and producer comparative-static bounds separately (p. 857):
+
+$$0 \leq V^*(\theta;\tilde{\pi},\tilde{F}) - V^*(\theta;\pi,F) \leq V_N^*(\theta;\tilde{\pi},\tilde{F}) - V_N^*(\theta;\pi,F), \quad \theta \in \Theta. \tag{21}$$
+
+$$0 \leq \Pi^*(\theta;\tilde{\pi},\tilde{F}) - \Pi^*(\theta;\pi,F) \leq \Pi_N^*(\theta;\tilde{\pi},\tilde{F}) - \Pi_N^*(\theta;\pi,F), \quad \theta \in \Theta. \tag{22}$$
 
 ## Method
 
@@ -169,19 +212,43 @@ The analysis uses the virtual surplus characterization standard in mechanism des
 
 This is a pure theory paper with no empirical estimation. The paper includes three closed-form illustrative examples calibrated to digital goods settings:
 
-**Example 1 (Digital platform with advertisements, p. 845):** Quadratic utility $$u(x,\theta) = \theta x - x^2/2$$, uniform types on $$[0,1]$$, and linear-quadratic advertising revenue $$\pi(x,\theta) = \alpha x - (\beta/2)x^2$$ where $$\alpha = pk - c$$ (revenue per unit time net of production cost) and $$\beta = 2ph$$ (user fatigue parameter). The consumer-optimal and producer-optimal consumption functions are:
+**Example 1 (Digital platform with advertisements, p. 845):** Quadratic utility, uniform types on $$[0,1]$$, and linear-quadratic advertising revenue are specified as (Eqs. 8-9, p. 845):
+
+$$u(x,\theta) = \theta x - \frac{x^2}{2}. \tag{8}$$
+
+$$\pi(x,\theta) = \left(\frac{\text{Revenue}}{\text{Click}}\cdot\frac{\text{Clicks}}{\text{Time}} - \frac{\text{Cost}}{\text{Time}}\right)\cdot\text{Time} = \alpha x - \frac{\beta}{2}x^2, \qquad \alpha = pk-c, \quad \beta = 2ph. \tag{9}$$
+
+The consumer-optimal and producer-optimal consumption functions are:
 
 $$\phi^A(\theta) = \theta, \qquad \phi^P(\theta) = \max\!\left\{0,\,\min\!\left\{1,\,\frac{\alpha + 2\theta - 1}{\beta + 1}\right\}\right\}. \tag{10}$$
 
-Restricting to $$\alpha \leq 1$$ and $$\beta < 1$$, the constrained marginal revenue $$H(x) = (\alpha - \beta x) - (1-x)$$ crosses zero once, generating a premium-tier tariff with a threshold at $$x = (1-\alpha)/(1-\beta)$$ and price schedule:
+For $$\alpha \leq 1$$ and $$\beta < 1$$, optimal consumption switches from $$\phi^P$$ to $$\phi^A$$ at $$\theta=(1-\alpha)/(1-\beta)$$ (Eq. 11, p. 846):
+
+$$
+\phi^*(\theta) =
+\begin{cases}
+\phi^P(\theta), & \theta < \frac{1-\alpha}{1-\beta}, \\
+\phi^A(\theta), & \theta \geq \frac{1-\alpha}{1-\beta}.
+\end{cases} \tag{11}
+$$
+
+This creates a premium-tier tariff. The constrained marginal revenue $$H(x) = (\alpha - \beta x) - (1-x)$$ crosses zero once, generating a premium-tier tariff with a threshold at $$x = (1-\alpha)/(1-\beta)$$ and price schedule:
 
 $$T^*(x) = \begin{cases} \frac{1-\alpha}{2}x - \frac{1-\beta}{4}x^2, & x < \frac{1-\alpha}{1-\beta} \\ \frac{(1-\alpha)^2}{4(1-\beta)}, & x \geq \frac{1-\alpha}{1-\beta}. \end{cases} \tag{12}$$
 
 Figure 3 (p. 853) illustrates all four cases of Corollary 1 as $$(\alpha, \beta)$$ vary.
 
-**Example 2 (Online newspaper subscriptions, p. 853):** Same demand, but exponential advertising revenue $$\pi(x,\theta) = \alpha(1 - e^{-\lambda x})$$ (ads noticed according to a Poisson process with hazard rate $$\lambda$$, one click per consumer). The constrained marginal revenue $$H(x) = \lambda\alpha e^{-\lambda x} - (1-x)$$ can cross zero twice, generating two-tier pricing with both a free trial and an unlimited subscription for $$\lambda = 2.5$$, $$\alpha = 0.5$$ (Figure 4, p. 855). This matches the Wall Street Journal's pricing structure.
+**Example 2 (Online newspaper subscriptions, pp. 853-854):** The exponential advertising revenue from one click at the first noticed advertisement is (Eq. 17, p. 854):
 
-**Example 3 (Arbitrary-part tariffs, p. 854):** Revenue $$\pi(x,\theta) = x(1-\theta) - (k/2\pi\omega)[\cos(2\pi\omega x) - 1]$$ is constructed so that $$H(x) = k\sin(2\pi\omega x)$$ crosses zero $$\omega$$ times, generating $$\omega + 2$$ part tariffs. Figure 5 (p. 856) plots three-, four-, and five-part tariffs for $$\omega \in \{1,2,3\}$$.
+$$\pi(x,\theta) = \alpha(1-e^{-\lambda x}). \tag{17}$$
+
+The constrained marginal revenue $$H(x)=\lambda\alpha e^{-\lambda x}-(1-x)$$ can cross zero twice, generating a trial and an unlimited subscription at $$\lambda=2.5$$ and $$\alpha=0.5$$ (Example 2, pp. 853-854; Figure 4, p. 855). This matches the Wall Street Journal's pricing structure.
+
+**Example 3 (Arbitrary-part tariffs, pp. 854-855):** The constructed revenue function is (Eq. 18, p. 854):
+
+$$\pi(x,\theta) = x(1-\theta) - \frac{k}{2\pi\omega}[\cos(2\pi\omega x)-1]. \tag{18}$$
+
+It gives $$H(x)=k\sin(2\pi\omega x)$$ and $$\omega+2$$ tariff parts. Figure 5 (p. 856) plots three-, four-, and five-part tariffs for $$\omega \in \{1,2,3\}$$ and $$k=0.04$$.
 
 ## Datasets used
 

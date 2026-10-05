@@ -4,7 +4,7 @@ description: >-
   Distilled: A durable-good monopolist with access to general dynamic contracts
   (smart contracts) earns an equilibrium payoff strictly above the low buyer
   valuation for any discount factor, refuting the Coase conjecture. American
-  Economic Review 2023, paywalled. Four core theoretical results with source
+  Economic Review 2023, paywalled. Eight core theoretical results with source
   locators, the formal model (incentive-compatible abiding contracts), and the
   two-lemma proof strategy.
 sidebar:
@@ -25,19 +25,19 @@ paper:
   doi: 10.1257/aer.20220357
   jel:
     codes: [D42, D82, D86, L12]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-25
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ['Auction Theory and Applications', 'Digital Platforms and Economics', 'Consumer Market Behavior and Pricing']
   dataAccess: public
   outcome:
     - seller equilibrium payoff in a durable-good monopoly with dynamic contracts
-  outcomeClass: [firm-real-outcomes]
+  outcomeClass: [optimal-contract-design]
   license: "paywalled (AEA; no CC licence found in Crossref metadata; LSE eprint freely available at http://eprints.lse.ac.uk/117950/1/)"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (AEA publisher site; LSE eprint at http://eprints.lse.ac.uk/117950/1/ confirmed open; checked 2026-06-25)"
   redistribution: extract-only
-  resultsCount: 4
+  resultsCount: 8
   citedByCount: 23
   methods:
     role: theory
@@ -45,22 +45,24 @@ paper:
     family: theory
     buildsFrom: [mechanism-design, principal-agent]
   contributionType: [new-theory]
-  mechanisms: [information-asymmetry, market-power]
+  mechanisms: [information-asymmetry, market-power, limited-commitment]
   scope:
     region: theoretical
     assetClass: durable goods
   relatesTo:
-    - { cite: "Coase (1972)", doi: '10.1086/466731', relation: builds-on, note: "the original durability-and-monopoly conjecture that frictionless repricing erodes the seller's payoff to competitive level" }
+    - { cite: "Coase (1972)", doi: '10.1086/466731', relation: contradicts, note: "the original durability-and-monopoly conjecture that frictionless repricing erodes the seller's payoff to the competitive level" }
     - { cite: "Gul, Sonnenschein & Wilson (1986)", doi: '10.1016/0022-0531(86)90024-4', relation: builds-on, note: "formal proof of the Coase conjecture with posted prices in continuous time" }
     - { cite: "Stokey (1981)", doi: '10.2307/3003511', relation: builds-on, note: "rational-expectations formalization of the Coase conjecture with posted prices" }
     - { cite: "Laffont & Tirole (1988)", doi: '10.2307/1911362', relation: builds-on, note: "dynamics of incentive contracts without intertemporal commitment; one-period contract approach combined here with full dynamic contracts" }
-    - { cite: "Doval & Skreta (2022)", doi: '10.3982/ecta16846', relation: contradicts, note: "Coase conjecture holds with one-period contracts; this paper shows richer dynamic contracts break it" }
+    - { cite: "Doval & Skreta (2022)", doi: '10.3982/ecta16846', relation: builds-on, note: "one-period-contract model of limited commitment and posterior revelation is a methodological benchmark; this paper allows dynamic contracts with persistent information" }
   openQuestions:
-    - "Whether the main result extends when the seller's contract space is larger than the set of simple and direct contracts D: the paper could not establish whether the seller benefits or is hurt by enlarging D (p. 1353)."
+    - "Whether the seller benefits or is hurt by enlarging the contract space beyond D, the set of simple and direct contracts; the paper could not establish the direction (p. 1353)."
     - "What the seller's optimal contract is, and what the maximum equilibrium payoff pi(C, delta) equals: Theorem 1 gives a lower bound but not the optimum (p. 1353)."
   extraction:
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full PDF and augmented the Core results, findings, model and proof equations, and empirical-specification statement. Additions are not human-verified and not reproduced." }
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-25, role: extracted, note: "Full text read (pp. 1334-1359); four theoretical results extracted from the PDF. Not human-verified. Not reproduced." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-24, role: verified, note: "Locators and reported magnitudes re-checked against source PDF; all four Core results rows confirmed correct; all equations in Theory/model and Method sections verified term-by-term (Theorem 1 p. 1343, Lemma 1 p. 1345, Lemma 2 p. 1347, Definitions 1-2 p. 1344-1345, eqs. 1-3 pp. 1348-1349, eq. 7 p. 1350, payoff formulas p. 1339); one fix applied: JEL codes corrected to add L12 (PDF abstract lists D42, D82, D86, L12)." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all eight Core results, equations, classifications, citations, and prose against the PDF; corrected R4 benchmark/year and locator, equation (7) notation, weak-bound wording, and Doval-Skreta relation note; no unsupported headlines found. Post-verification review (2026-10-04) removed findings[] and resultType, which the schema omits for a pure-theory paper." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1257/aer.20220357", checked: 2026-06-25, by: "paper-distiller (claude-sonnet-4-6)", found: "No license[] block present in Crossref metadata; AEA paywalled journal; LSE eprint at http://eprints.lse.ac.uk/117950/1/ available as an open deposit" }
   rightsSignalConflict: false
@@ -81,7 +83,11 @@ All results are theoretical; magnitudes are those reported in the paper's propos
 | R1 | Coase conjecture fails with dynamic contracts: seller's equilibrium payoff bounded away from $$v_l$$ for all $$\delta$$ | Theorem 1, p. 1343 | There exists $$\underline{\pi} > v_l$$ such that $$\pi(\mathcal{C},\delta) \geq \underline{\pi}$$ for all $$\delta \in (0,1)$$ |
 | R2 | Any $$\delta$$-abiding contract provides a lower bound on the seller's equilibrium payoff | Lemma 1, p. 1345 | For any $$\delta$$-abiding $$d \in \mathcal{D}$$, $$\pi(\mathcal{C},\delta) \geq v(d,\delta)$$ |
 | R3 | $$\delta$$-abiding contracts exist for all $$\delta \in (0,1)$$ with payoff strictly above $$v_l$$ | Lemma 2, p. 1347 | For all $$\delta \in (0,1)$$, there exists $$d_\delta \in \mathcal{D}$$ with $$v(d_\delta,\delta) \geq \underline{\pi} > v_l$$ |
-| R4 | Posted-price seller payoff (Doval and Skreta (2022)) converges to $$v_l$$ as $$\delta \to 1$$; dynamic-contract payoff stays bounded away | Figure 1, §III, p. 1353 | For $$v_l=1, v_h=3, \mu=0.95$$: simple-and-direct equilibrium payoff exceeds posted-price equilibrium payoff for all $$\delta$$; lower bound $$\underline{\pi} > v_l = 1$$ holds uniformly |
+| R4 | Posted-price seller payoff (Doval and Skreta (2020)) converges to $$v_l$$ as $$\delta \to 1$$; dynamic-contract payoff stays bounded away | Figure 1, p. 1353; text p. 1354 | For $$v_l=1, v_h=3, \mu=0.95$$: simple-and-direct equilibrium payoff exceeds posted-price equilibrium payoff for all $$\delta$$; lower bound $$\underline{\pi} > v_l = 1$$ holds uniformly |
+| R5 | The lower-bound argument extends to continuously distributed buyer valuations | §III, “Continuous Types,” p. 1355 | A threshold contract can give the seller payoff $$\bar{\pi} > \underline{v}$$ for every $$\delta \in (0,1)$$ |
+| R6 | The main lower bound survives priority side contracts | §III, “Side Contracts,” p. 1356 | $$v(d_\delta,\delta)$$ remains a lower bound on the seller's largest equilibrium payoff; after no trade, its continuation payoff is at least $$v_l$$ |
+| R7 | The result can survive rejection-triggered abandonment under weak perfect Bayesian equilibrium | §III, “Buyer Participation,” p. 1357 | A weak PBE sustains payoff bounded away from $$v_l$$; the construction may fail under stronger refinements |
+| R8 | With contract space restricted to simple and direct contracts, an equilibrium contract outperforms the Lemma 2 bound | §III, “Optimal Contracts,” p. 1353 | The constructed equilibrium payoff is larger than the Lemma 2 bound for each $$\delta$$; Figure 1 plots the example $$v_l=1, v_h=3, \mu=0.95$$ |
 
 **Overall (paper's conclusion).** The Coase conjecture (first articulated by Coase (1972) and formalized by Stokey (1981) and Gul, Sonnenschein, and Wilson (1986)) reflects not only the seller's limited commitment power but also a restricted contract space (price posting). When the contract space expands to general dynamic contracts, the information stored in the contract can deter the seller from abandoning it, effectively providing commitment not because she is bound but because abandonment is unprofitable.
 
@@ -123,7 +129,7 @@ $$
 
 - (i) $$\sum_{t=T}^{\infty} \delta^{t-T}\bigl[X_t(v)v - P_t(v)\bigr] \geq 0$$ for all $$v \in \{v_l,v_h\}$$, $$T \geq 0$$, so the buyer's continuation payoff is always nonnegative;
 - (ii) $$\mu_t(d) \leq v_l/v_h$$ for all $$t \geq 1$$, so conditional on no trade, the seller becomes pessimistic enough that the static monopoly price drops to $$v_l$$;
-- (iii) $$\mu_T(d)\sum_{t=T}^{\infty}\delta^{t-T}P_t(v_h) + [1-\mu_T(d)]\sum_{t=T}^{\infty}\delta^{t-T}P_t(v_l) \geq v_l$$ for all $$T \geq 1$$, so the seller's continuation payoff exceeds $$v_l$$ in every future period.
+- (iii) $$\mu_T(d)\sum_{t=T}^{\infty}\delta^{t-T}P_t(v_h) + [1-\mu_T(d)]\sum_{t=T}^{\infty}\delta^{t-T}P_t(v_l) \geq v_l$$ for all $$T \geq 1$$, so the seller's continuation payoff is at least $$v_l$$ in every future period.
 
 Here $$\mu_t(d)$$ is the seller's posterior probability that the buyer's valuation is $$v_h$$ in period $$t$$, given that the contract has been actively deployed.
 
@@ -139,7 +145,7 @@ The proof proceeds in two lemmas, proved separately and then combined.
 
 **Lemma 1** (p. 1345): *If $$d \in \mathcal{D}$$ is $$\delta$$-abiding, then $$\pi(\mathcal{C},\delta) \geq v(d,\delta)$$.*
 
-The argument: suppose an equilibrium yields the seller less than $$v(d,\delta)$$. Modify the equilibrium so the seller always deploys $$d$$ and the buyer always accepts. On the equilibrium path, the seller's payoff is exactly $$v(d,\delta)$$. Off the path, the seller cannot profitably deviate in the initial period because any alternative contract gives her at most $$v(d,\delta)$$ (by construction of the modification). In subsequent periods, by condition (iii) of Definition 2, the seller's continuation payoff from $$d$$ exceeds $$v_l$$, which is also an upper bound on what she could get by abandoning $$d$$ (abandonment destroys its information content, leaving only the option to clear the market at $$v_l$$). Conditions (i)-(ii) ensure the buyer has no incentive to reject the contract after the initial period.
+The argument: suppose an equilibrium yields the seller less than $$v(d,\delta)$$. Modify the equilibrium so the seller always deploys $$d$$ and the buyer always accepts. On the equilibrium path, the seller's payoff is exactly $$v(d,\delta)$$. Off the path, the seller cannot profitably deviate in the initial period because any alternative contract gives her at most $$v(d,\delta)$$ (by construction of the modification). In subsequent periods, condition (iii) of Definition 2 gives the seller a continuation payoff from $$d$$ at least equal to $$v_l$$, which is also an upper bound on what she could get by abandoning $$d$$ (abandonment destroys its information content, leaving only the option to clear the market at $$v_l$$). Conditions (i)-(ii) ensure the buyer has no incentive to reject the contract after the initial period.
 
 **Lemma 2** (p. 1347): *For all $$\delta \in (0,1)$$, there exists $$d_\delta \in \mathcal{D}$$ such that $$v(d_\delta,\delta) \geq \underline{\pi} > v_l$$.*
 
@@ -163,17 +169,59 @@ $$
 v_l \geq \tilde{\mu}(\alpha)\,v_h. \tag{3}
 $$
 
-The abiding constraint (4) (p. 1349) requires that the seller's continuation payoff from keeping $$d$$ deployed exceeds her payoff from clearing the market at $$v_l$$ immediately. Setting $$\bar{\beta}(\alpha)$$ to be the $$\beta$$ that binds constraint (4) and $$\bar{p}(\alpha)$$ to be the $$p$$ that binds constraint (1), the seller's payoff from the resulting contract is (eq. (7), p. 1350):
+The abiding constraint (4) (p. 1349) requires that the seller's continuation payoff from keeping $$d$$ deployed is at least her payoff from deploying it one more period and then clearing at $$v_l$$ if there is no trade. Setting $$\bar{\beta}(\alpha)$$ to be the $$\beta$$ that binds constraint (4) and $$\bar{p}(\alpha)$$ to be the $$p$$ that binds constraint (1), the seller's payoff from the resulting contract is (eq. (7), p. 1350):
 
 $$
-v(\alpha) = \mu\alpha\,\bar{p}(\alpha) + (1-\mu\alpha)\,v_l. \tag{7}
+\nu(\alpha) = \mu\alpha\,\bar{p}(\alpha) + (1-\mu\alpha)\,v_l. \tag{7}
 $$
 
-The optimal $$\alpha^*$$ maximizes $$v(\alpha)$$ subject to constraint (3). The paper shows (via the envelope theorem) that $$v(\alpha^*)$$ is strictly larger than $$v_l$$ for all $$\mu \in (v_l/v_h, 1)$$ and does not depend on $$\delta$$ for large enough $$\delta$$. Setting $$\underline{\pi} = \min\{\pi_{\bar{\delta}}, \hat{\pi}\}$$ for a small-$$\delta$$ bound $$\hat{\pi}$$ completes the proof.
+The optimal $$\alpha^*$$ maximizes $$\nu(\alpha)$$ subject to constraint (3). The paper shows (via the envelope theorem) that $$\nu(\alpha^*)$$ is strictly larger than $$v_l$$ for all $$\mu \in (v_l/v_h, 1)$$ and does not depend on $$\delta$$ for large enough $$\delta$$. Setting $$\underline{\pi} = \min\{\pi_{\bar{\delta}}, \hat{\pi}\}$$ for a small-$$\delta$$ bound $$\hat{\pi}$$ completes the proof.
 
 **Proof of Theorem 1.** Lemma 2 guarantees a $$\delta$$-abiding contract $$d_\delta$$ with $$v(d_\delta,\delta) \geq \underline{\pi} > v_l$$ for every $$\delta$$. Lemma 1 then implies $$\pi(\mathcal{C},\delta) \geq v(d_\delta,\delta) \geq \underline{\pi}$$.
 
-**Discussion.** The paper builds on the approach of Laffont and Tirole (1988) to combine one-period and multi-period contracts in a dynamic principal-agent setting. It compares its result to the model of Doval and Skreta (2022), where the seller is restricted to one-period contracts and the Coase conjecture holds (the seller's payoff converges to $$v_l$$ as $$\delta \to 1$$). The key difference is that one-period contracts have no information content to lose upon abandonment, so the seller always faces the temptation to clear the market quickly. With general dynamic contracts, information stored in the contract deters abandonment; this is the role played by smart-contract-style information storage.
+**Discussion.** The paper builds on the approach of Laffont and Tirole (1988) to combine one-period and multi-period contracts in a dynamic principal-agent setting. Doval and Skreta (2022) study limited commitment with one-period contracts; their companion paper on durable-good monopoly, Doval and Skreta (2020), shows the seller's payoff converges to $$v_l$$ as $$\delta \to 1$$. The key difference is that one-period contracts have no information content to lose upon abandonment, so the seller always faces the temptation to clear the market quickly. With general dynamic contracts, information stored in the contract deters abandonment; this is the role played by smart-contract-style information storage.
+
+### Remaining numbered equations and proof characterization
+
+The seller's continuation incentive in constraint (4), and the binding continuation probability and buyer incentive constraint in (5)-(6), are printed on pp. 1349-1350:
+
+$$
+\frac{\beta}{1-\delta+\beta\delta}\left\{\tilde{\mu}(\alpha)v_h+[1-\tilde{\mu}(\alpha)]v_l\right\} \geq \beta\left\{\tilde{\mu}(\alpha)v_h+[1-\tilde{\mu}(\alpha)]v_l\right\}+(1-\beta)v_l. \tag{4}
+$$
+
+$$
+\tilde{\beta}(\alpha)=\beta=\frac{1-\delta}{\delta}\cdot\frac{v_l}{\tilde{\mu}(\alpha)(v_h-v_l)}. \tag{5}
+$$
+
+$$
+\alpha\left[v_h-\tilde{p}(\alpha)\right]=\frac{\tilde{\beta}(\alpha)\delta}{1-\delta+\tilde{\beta}(\alpha)\delta}(v_h-v_l). \tag{6}
+$$
+
+The payoff from the constructed contract, its constrained maximization, and the optimizing posterior are equations (8)-(10), pp. 1351-1352:
+
+$$
+\nu(\alpha)=v_l+(v_h-v_l)\left\{1-\frac{1-\mu}{1-\tilde{\mu}(\alpha)}-\frac{\mu v_l}{\tilde{\mu}(\alpha)v_h+[1-\tilde{\mu}(\alpha)]v_l}\right\}. \tag{8}
+$$
+
+$$
+\max\left\{\nu(\alpha):\alpha\in[0,1],\;\tilde{\mu}(\alpha)\leq v_l/v_h\right\}. \tag{9}
+$$
+
+$$
+\hat{\mu}^{*}=\min\left\{\frac{\sqrt{\frac{\mu}{1-\mu}}-\sqrt{\frac{v_l}{v_h-v_l}}}{\sqrt{\frac{\mu}{1-\mu}}+\sqrt{\frac{v_h-v_l}{v_l}}},\;\frac{v_l}{v_h}\right\}. \tag{10}
+$$
+
+Writing the optimized posterior as a function of the prior, the seller's value in equation (11), p. 1352, is:
+
+$$
+V(\mu)=v_l+(v_h-v_l)\left\{1-\frac{1-\mu}{1-\hat{\mu}^{*}(\mu)}-\frac{\mu v_l}{\hat{\mu}^{*}(\mu)v_h+[1-\hat{\mu}^{*}(\mu)]v_l}\right\}. \tag{11}
+$$
+
+These are model and optimization equations, not empirical estimating specifications. The paper has no empirical design, sample, fixed effects, or standard-error procedure.
+
+## Empirical specifications
+
+Not applicable. This is a theoretical paper and reports no empirical estimating specification.
 
 ## Datasets used
 
@@ -183,10 +231,10 @@ The optimal $$\alpha^*$$ maximizes $$v(\alpha)$$ subject to constraint (3). The 
 
 ## When to read the full paper
 
-Read the source at [doi.org/10.1257/aer.20220357](https://doi.org/10.1257/aer.20220357) if you are: studying the robustness discussions (continuous types, side contracts, interim participation, buyer rejection as endogenous abandonment trigger, Section III, pp. 1353-1356); interested in the mechanism-design methodology for modeling limited commitment via an expanded contract space; or comparing the paper's lower bound with the full-commitment payoff and the posted-price equilibrium (Figure 1, p. 1353). The online Appendix contains existence proofs and the result for $$\mathcal{C} = \mathcal{D}$$.
+Read the source at [doi.org/10.1257/aer.20220357](https://doi.org/10.1257/aer.20220357) if you are: studying the robustness discussions (continuous types, side contracts, interim participation, buyer rejection as endogenous abandonment trigger, Section III, pp. 1353-1357); interested in the mechanism-design methodology for modeling limited commitment via an expanded contract space; or comparing the paper's lower bound with the full-commitment payoff and the posted-price equilibrium (Figure 1, p. 1353). The online Appendix contains existence proofs and the result for $$\mathcal{C} = \mathcal{D}$$.
 
 ## Attribution and rights
 
-Source: peer-reviewed, *American Economic Review* 113(5). This distillation was extracted by an LLM on 2026-06-25 and is **not human-verified or independently reproduced**. The journal version is paywalled; an LSE eprint is available at [eprints.lse.ac.uk/117950/](http://eprints.lse.ac.uk/117950/1/).
+Source: peer-reviewed, *American Economic Review* 113(5). This distillation was extracted and machine-verified on 2026-10-04; it has not been independently reproduced. The journal version is paywalled; an LSE eprint is available at [eprints.lse.ac.uk/117950/](http://eprints.lse.ac.uk/117950/1/).
 
 > Brzustowski, Thomas, Alkis Georgiadis-Harris, and Balázs Szentes. "Smart Contracts and the Coase Conjecture." *American Economic Review* 113, no. 5 (May 2023): 1334-1359. DOI: 10.1257/aer.20220357.
