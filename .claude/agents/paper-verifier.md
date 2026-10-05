@@ -68,7 +68,9 @@ the JSON verdict below.
    `outcome-classes:` section that match the paper's actual dependent
    variable(s); a value not in that section is off-registry, fix to the right
    bucket); and `scope.dataType` / `scope.granularity` / `scope.n`
-   (faithful to the data actually used). These are honest-classification checks,
+   (faithful to the data actually used; `granularity` takes only
+   `aggregate`|`industry`|`firm`|`individual`|`security`|`transaction`, any
+   other value such as branch, occupation, or parcel fails the build). These are honest-classification checks,
    not magnitude checks: when the PDF is genuinely ambiguous, prefer omitting the
    field over guessing.
 3d. **The "what works" axis (`findings[]` + `resultType`).** Each `findings[]`

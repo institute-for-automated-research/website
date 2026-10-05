@@ -56,7 +56,15 @@ if (opt('--year')) pages = pages.filter((p) => p.includes(`/${opt('--year')}/`))
 
 // "Table 4", "Table IV", "Table A13", "Table IA.2"
 const TID = '((?:IA|A|B|C|D)?\\.?\\d+|[IVXL]+)';
-const captionRe = new RegExp(`^\\s*Table\\s+${TID}\\s*(?:[—–-]\\s*Continued|\\(\\s*continued\\s*\\))?\\s*(?:$|[.:]|\\s{3,})`, 'gim');
+// Strong captions: "Table 4" alone or followed by a wide gap, "Table 3—Title"
+// (AER), or a continuation marker. Weak: "Table 3. Title" / "Table 3: Title",
+// which a prose sentence starting "Table 3. In column 1..." also matches, so it
+// is used only when a table has no strong caption.
+const captionRe = new RegExp(`^\\s*Table\\s+${TID}\\s*(?:$|[—–]|\\s{3,})`, 'gim');
+// A continuation marker identifies a caption whatever follows it
+// ("Table 3 (continued): Title", "Table IV—Continued").
+const captionContRe = new RegExp(`^\\s*Table\\s+${TID}\\s*(?:[—–-]\\s*Continued|\\(\\s*continued\\s*\\))`, 'gim');
+const captionWeakRe = new RegExp(`^\\s*Table\\s+${TID}\\s*[.:]`, 'gim');
 // Two-column layouts put a right-column caption after left-column text on the
 // same line: "...text           Table 4" at line end.
 const captionRightRe = new RegExp(`\\S\\s{3,}Table\\s+${TID}\\s*$`, 'gm');
@@ -76,9 +84,12 @@ for (const page of pages) {
   const pdfPages = text.split('\f');
   const flat = pdfPages.map((t) => normNum(t).replace(/\s+/g, ' '));
   const cap = {};
+  const weak = {};
   pdfPages.forEach((t, i) => {
-    for (const re of [captionRe, captionRightRe]) for (const c of t.matchAll(re)) (cap[c[1]] ||= new Set()).add(i + 1);
+    for (const re of [captionRe, captionContRe, captionRightRe]) for (const c of t.matchAll(re)) (cap[c[1]] ||= new Set()).add(i + 1);
+    for (const c of t.matchAll(captionWeakRe)) (weak[c[1]] ||= new Set()).add(i + 1);
   });
+  for (const [k, v] of Object.entries(weak)) if (!cap[k]) cap[k] = v;
   // Journals paginate differently (JF cites "p. 569" for PDF page 9). Infer the
   // printed-page offset from page numbers in each page's header/footer lines and
   // accept a locator in either numbering.
