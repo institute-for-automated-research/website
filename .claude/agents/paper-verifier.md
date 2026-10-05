@@ -45,6 +45,12 @@ the JSON verdict below.
    sign, summation index, transpose, penalty term, inequality direction, and
    equality condition. Transcribed math is the highest-risk content here (a
    dropped term or flipped inequality is easy to miss and changes the meaning).
+   Past passes missed inverted fractions and products (numerator and
+   denominator swapped), a division applied to the wrong term, an inverse the
+   paper does not have, and a printed equation rewritten in another form; when
+   the text layer is garbled, render the page (pdftoppm -r 110) and read it.
+   An equation the paper does not print must be labelled as written out from
+   the text and carry no equation number.
    Also check that each regression specification's stated LHS / RHS / fixed
    effects / standard-error treatment / sample matches the PDF, and that
    `methods.buildsFrom` and `methods.role`/`family` are faithful to what the

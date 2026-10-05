@@ -297,7 +297,7 @@ rewriting. Read the existing page first, then:
 - APPEND one new `extraction[]` entry (`role: extracted`, today, your model id)
   noting you added the formal sections + equations from the PDF and that they
   are not yet re-verified.
-- You still must READ THE PDF to write the equations; never reconstruct them
+- You still must READ THE PDF to write the equations; never reconstruct printed ones
   from the existing prose.
 
 ## Completeness (required)
@@ -321,7 +321,11 @@ rewriting. Read the existing page first, then:
   locator. Each estimating specification also states its fixed effects,
   standard-error treatment, and sample (model and objective equations need
   only the locator). Prefer full coverage over a representative subset. Copy
-  grouping and parentheses exactly as printed.
+  grouping and parentheses exactly as printed, in the printed form (do not
+  rewrite a differenced equation in levels or move a division). A
+  specification the paper describes but does not print may be written out,
+  labelled as such ("written out from §4:") and left unnumbered; never give it
+  an equation number the paper does not print.
 
 ## Hard rules
 - NO em-dashes anywhere. NO colorful adjectives. Use `:` `,` `(` instead.
