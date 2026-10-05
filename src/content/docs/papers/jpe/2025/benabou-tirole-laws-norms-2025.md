@@ -5,7 +5,7 @@ description: >-
   norms jointly shape compliance and optimal public policy. Derives modified Pigou-Ramsey
   taxation correcting for reputational rents, and characterizes when the expressive content
   of law makes incentives softer or tougher than the symmetric-information optimum.
-  Journal of Political Economy 2025, paywalled. Eight core results with proposition
+  Journal of Political Economy 2025, paywalled. Twelve core results with proposition
   locators, the model equations, and the signaling-equilibrium analysis.
 sidebar:
   label: Bénabou-Tirole 2025
@@ -22,8 +22,8 @@ paper:
   doi: 10.1086/738343
   jel:
     codes: [D64, D82, H41, K1, K42, Z13]
-    assignedBy: authors
-    date: 2026-06-26
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
   topics: ["Experimental Behavioral Economics Studies", "Gender, Labor, and Family Dynamics", "Taxation and Compliance Studies"]
   dataAccess: public
   outcome:
@@ -37,14 +37,14 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (University of Chicago Press; confirmed via Crossref metadata 2026-06-26, no CC or open-license block in works/10.1086/738343)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 12
   citedByCount: 5
   methods:
     role: theory
     family: theory
     buildsFrom: [signaling-game-pbe, principal-agent, mechanism-design]
   contributionType: [new-theory]
-  mechanisms: [information-asymmetry]
+  mechanisms: [information-asymmetry, social-image-concern]
   scope:
     region: theoretical
   relatesTo:
@@ -60,6 +60,8 @@ paper:
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Full PDF read (HAL preprint hal-05577272, 35 pages including references). Not human-verified. Not reproduced. Pure theory paper; no replication code." }
     - { by: "paper-verifier (claude-sonnet-4-6)", date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; fixed: JEL codes (added D64, K1, K42 from paper abstract; changed assignedBy to authors); R1/R2 locators p.13→p.14; R4 locator pp.19-20→pp.20-21; R5 locator p.22→p.23; R6 content (left-truncation mis-assigned to Prop.9/A<0, belongs to Prop.8/A=B=0); body-text page refs for eq.14 (p.13→p.14), eq.18 (p.18→p.19), and Prop.7 body mention (p.22→p.23). All equations verified term-by-term against PDF; no magnitude errors found." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the supplied PDF and augmented the Core results with four omitted propositions, added findings entries, and completed missing main-text equations and mechanism coverage. Not human-verified and not reproduced." }
+    - { by: "paper-verifier (gpt-6-luna)", date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Locators and reported magnitudes re-checked against the source PDF; corrected proposition and lemma page locators, qualified the pooling and disclosure claims, and clarified the conditions for the asymmetric-information solution. Equations, specifications, classification axes, findings, frontmatter, and surrounding prose checked. Post-verification review (2026-10-04) removed findings[] and resultType, which the schema omits for a pure-theory paper." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1086/738343", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "No license block present; PDF link content-version=vor, content-type=unspecified; no CC or open-access terms. Published date 2026-02-01, vol 134, issue 2, pp. 731-772." }
   rightsSignalConflict: false
@@ -81,10 +83,14 @@ All locators refer to the version with DOI 10.1086/738343 (HAL preprint hal-0557
 | R2 | Second-best optimal incentive is always strictly below the first-best and decreases with the shadow cost of funds | Prop. 1(ii), eq. (15), p. 14 | $$y^{SI}_\theta < y^{FB}_\theta$$ for all λ > 0; prosocial behavior is always underprovided; social multiplier amplifies but does not fully replace y |
 | R3 | Optimal incentive is hump-shaped (bell-shaped) in the overall prosociality of society θ and in the compliance cost c | Prop. 2, Fig. 2, pp. 14-15 | When f_θ is strictly unimodal, y^{FB}_θ is single-peaked at θ₀ = (c − ε)/e; high prosociality (respectable act) and low prosociality (admirable act) both reduce the optimal incentive relative to the modal case |
 | R4 | Soft law results when the principal's private information (M⁺, P⁻) or (M⁻, P⁺); tough law when (M⁺, P⁺) or (M⁻, P⁻) | Prop. 5, Fig. 3, pp. 20-21 | y^{AI}_θ < y^{SI}_θ on the off-diagonal of Table 1; y^{AI}_θ > y^{SI}_θ on the diagonal; always underprovision of prosocial behavior |
-| R5 | A separating equilibrium (expressive law) exists when θ shifts societal values with a norm, operates a right truncation, affects the externality ε, or affects compliance cost under an anti-norm | Prop. 7, p. 23 | SOC₁ and SOC₂ satisfied strictly; existence proved in Online Appendix for cases (a)-(d) |
-| R6 | Full pooling is the equilibrium outcome when θ indexes social monitoring intensity or performs a left-truncation; no separating equilibrium when θ is a distributional-shift parameter under an anti-norm or a cost parameter under a norm | Prop. 8-9, p. 23 | Prop. 8: A = B = 0 when θ = μ (social monitoring) or θ is a left-truncation parameter; full pooling preferred. Prop. 9: A < 0 when θ is a distributional-shift parameter with anti-norm (Δ' > 0) or a cost parameter with norm (Δ' < 0); no separating equilibrium exists |
-| R7 | A principal with private information about θ selectively discloses: reveals good news, withholds bad; more disclosure when the probability of obtaining information is higher | Prop. 10, p. 24 | Disclosure iff θ ≥ θ̃ (under M⁺) or θ ≤ θ̃ (under M⁻); threshold θ̃ is decreasing in the probability q of observing θ |
+| R5 | A separating equilibrium (expressive law) exists when θ shifts societal values with a norm, operates a right truncation, affects the externality ε, or affects compliance cost under an anti-norm | Prop. 7, p. 22 | SOC₁ and SOC₂ hold strictly; existence is proved in the Online Appendix for cases (a)-(d) |
+| R6 | Full pooling can prevail when θ indexes social monitoring intensity or performs a left truncation; no separating equilibrium exists when θ is a distributional-shift parameter under an anti-norm or a cost parameter under a norm | Props. 8-9, p. 23 | Prop. 8: A = B = 0 when θ = μ (social monitoring) or θ is a left-truncation parameter. A full-pooling equilibrium exists and is preferred to any other equilibrium by all principal types in the social-vigilance case, and in the left-truncation case when F(v) is uniform. Prop. 9: A < 0 under a distributional shift with an anti-norm (Δ' > 0) or cost uncertainty with a norm (Δ' < 0), ruling out separation |
+| R7 | A principal with private information about θ selectively discloses: reveals good news, withholds bad; in any stable equilibrium more disclosure occurs when the probability of obtaining information is higher | Prop. 10, p. 24 | Disclosure iff θ ≥ θ̃ (under M⁺) or θ ≤ θ̃ (under M⁻); in any stable equilibrium, threshold θ̃ decreases as the probability q of observing θ rises |
 | R8 | Commodification spillovers make soft law optimal when strong incentives on a formally-controlled activity would signal low prosociality and erode the norm in a non-incentivized activity | Prop. 11, p. 27 | For λ small enough, the high-type principal sets y^{AI}_{θ_H} < y^{SI}_{θ_H}; the least-cost separating equilibrium is D1-robust |
+| R9 | The shape of the preference distribution determines whether reputational pressure creates norms or anti-norms | Lemma 1(ii)-(iv), p. 9 | If f_θ is unimodal, Δ_θ is strictly quasi-convex and has an interior minimum when endpoint densities are sufficiently small; if f_θ is U-shaped, Δ_θ is strictly quasi-concave and has an interior maximum when endpoint densities are sufficiently large |
+| R10 | Costless incentives preserve first-best policy under private information when the policy is monotonic | Prop. 3, p. 19 | For λ = 0, monotonic y^{FB}_θ remains an asymmetric-information equilibrium; if neither P+ nor P- holds, an announcement of θ with y = y^{FB}_θ implements the first best |
+| R11 | With costly incentives, the asymmetric-information first-order condition has a unique boundary-undistorted, comonotonic solution | Prop. 4, p. 20 | For λ > 0 small enough, under P+ or P- for the symmetric-information incentive, (19) has a unique y^{AI}_θ satisfying NDB and (y^{AI}_θ)'(y^{SI}_θ)' > 0 |
+| R12 | Separating equilibrium requires on-path incentive compatibility and an endpoint single-crossing condition | Prop. 6, p. 22 | SOC₁ at θ̂ = θ is necessary; SOC₁ for all θ̂, θ plus SOC₂ at θ̂ ∈ {θ₁, θ₂} for all y is sufficient |
 
 **Overall.** Optimal policy corrects the Pigouvian subsidy in two directions: subtract the reputational rent (norms already motivate, so over-incentivizing is wasteful and crowds out esteem), and use the signal sent by incentive choice itself to harness agents' intrinsic motivation and image concerns. The expressive content of law is soft when signaling social norms and tough when signaling social costs.
 
@@ -114,6 +120,30 @@ $$
 v^*_\theta(y)\,e_\theta - c_\theta + y + \Delta_\theta(v^*_\theta(y)) = 0. \tag{4}
 $$
 
+Average utility integrates intrinsic motivation, the private cost and incentive, plus the externality from aggregate participation (equation 5, p. 8):
+
+$$
+\bar{U}_\theta = \int_{v^*_\theta(y)}^{+\infty} (v e_\theta - c_\theta + y)\,dF_\theta(v) + \epsilon_\theta \bar{a}_\theta = \int_{v^*_\theta(y)}^{+\infty} (v e_\theta + \epsilon_\theta - c_\theta + y)\,dF_\theta(v). \tag{5}
+$$
+
+The non-extrinsic motivation at a candidate cutoff is (equation 7, p. 10):
+
+$$
+m_\theta(v,v^*) \equiv v e_\theta - c_\theta + \Delta_\theta(v^*). \tag{7}
+$$
+
+Differentiating the equilibrium cutoff with respect to the environment parameter gives (equation 8, p. 10):
+
+$$
+\frac{\partial v^*_\theta(y)}{\partial \theta} = -\frac{v^*_\theta(y)\gamma\frac{\partial \epsilon_\theta}{\partial \theta} - \frac{\partial c_\theta}{\partial \theta} + \frac{\partial \Delta_\theta}{\partial \theta}(v^*_\theta(y))}{e_\theta + \Delta'_\theta(v^*_\theta(y))}. \tag{8}
+$$
+
+For a uniform shift in societal preferences, equation 9 states the equivalence between a shift in θ and an incentive increase of θe:
+
+$$
+v^*_\theta(y) - \theta = v^*_0(y + \theta e) \quad \text{for all } (y,\theta). \tag{9}
+$$
+
 Lemma 1 (attributed to Jewitt; Harbaugh and Rasmusen; Adriani and Sonderegger; p. 9) characterizes Δ_θ: when f_θ is unimodal, Δ_θ is strictly quasi-convex. The equilibrium then exhibits a norm (strategic complements, Δ'_θ < 0) for respectable behaviors and an anti-norm (strategic substitutes, Δ'_θ > 0) for admirable, rare behaviors. Multiple equilibria can arise when complementarity is strong; uniqueness is ensured by $$e_\theta + \Delta'_\theta(v) > 0$$ for all v. The social multiplier (eq. 6, p. 8),
 
 $$
@@ -136,10 +166,44 @@ Building on Bénabou and Tirole (2006a) and Bénabou and Tirole (2003), the pape
 
 The paper derives optimal policy in two settings and establishes the existence of separating equilibria for expressive law. It builds on `signaling-game-pbe`, `principal-agent`, and `mechanism-design`.
 
+The principal's symmetric-information welfare objective (equation 10, p. 12) is
+
+$$
+W^{SI}_\theta(y) \equiv \int_{v^*_\theta(y)}^{+\infty} [v e_\theta + \epsilon_\theta - c_\theta - \lambda y] f_\theta(v)\,dv. \tag{10}
+$$
+
+The maintained interior-cutoff condition is (equation 11, p. 13):
+
+$$
+v^{\min}_\theta e_\theta + \varepsilon < c_\theta - \epsilon_\theta < v^{\max}_\theta e_\theta - \varepsilon. \tag{11}
+$$
+
+The displayed externality condition used in Proposition 1 is (equation 13, p. 13):
+
+$$
+\epsilon_\theta > \max\{\Delta_\theta(v^{\min}_\theta),\Delta_\theta(v^{\max}_\theta)\} = \mu_\theta \max\{\bar{v}_\theta-v^{\min}_\theta, v^{\max}_\theta-\bar{v}_\theta\}. \tag{13}
+$$
+
+The first-best and second-best policy formulas in Proposition 1 are (equations 14-15, p. 14):
+
+$$
+y^{FB}_\theta = \epsilon_\theta - \Delta_\theta\!\left(\frac{c_\theta-\epsilon_\theta}{e_\theta}\right). \tag{14}
+$$
+
+$$
+y^{SI}_\theta = \frac{\epsilon_\theta-\Delta_\theta(v^*_\theta(y^{SI}_\theta))}{1+\lambda} - \frac{\lambda}{(1+\lambda)h_\theta(v^*_\theta(y^{SI}_\theta))s_\theta(v^*_\theta(y^{SI}_\theta))}. \tag{15}
+$$
+
+Costly incentives imply underprovision of prosocial behavior at the second-best optimum (equation 16, p. 15):
+
+$$
+\epsilon_\theta + v^*_\theta(y^{SI}_\theta)e_\theta - c_\theta - \lambda y^{SI}_\theta > 0. \tag{16}
+$$
+
 **Symmetric information: modified Pigou-Ramsey (Section III).** The principal maximizes social welfare $$W^{SI}_\theta(y)$$ subject to eq. (4). The first-order condition (eq. 12, p. 13) equates the net social marginal benefit to the deadweight loss from paying all inframarginal agents:
 
 $$
-\frac{\epsilon_\theta + v^*_\theta(y)\,e_\theta - c_\theta - \lambda y}{e_\theta + \Delta'_\theta(v^*_\theta(y))} = \frac{\lambda}{h_\theta(v^*_\theta(y))}, \tag{12}
+\frac{\epsilon_\theta + v^*_{\hat\theta(y)}(y)e_\theta - c_\theta - \lambda y}{e_\theta + \Delta'_{\hat\theta(y)}(v^*_{\hat\theta(y)}(y))} = \frac{\lambda}{h_\theta(v^*_{\hat\theta(y)}(y))}, \tag{12}
 $$
 
 where $$h_\theta(v) = f_\theta(v)/[1-F_\theta(v)]$$ is the monotone hazard rate. The first-best formula (eq. 14, p. 14) subtracts from the standard Pigouvian subsidy ε_θ the reputational rent $$\Delta_\theta((c_\theta - \epsilon_\theta)/e_\theta)$$ that the marginal contributor extracts. The second-best (eq. 15) further discounts for fiscal cost.
@@ -147,10 +211,16 @@ where $$h_\theta(v) = f_\theta(v)/[1-F_\theta(v)]$$ is the monotone hazard rate.
 **Asymmetric information: the expressive-law signaling problem (Section IV).** In a separating equilibrium, the principal of type θ chooses $$y^{AI}_\theta$$ and agents invert y to learn θ exactly. The first-order condition (eq. 19, p. 19) adds an informational multiplier to eq. (12):
 
 $$
-\left(\frac{\epsilon_\theta + v^*_\theta(y)\,e_\theta - c_\theta - \lambda y}{e_\theta + \Delta'_{\hat\theta(y)}(v^*_{\hat\theta(y)}(y))}\right)\!\!\left(1 + \left(v^*_{\hat\theta}\gamma\frac{\partial\epsilon_\theta}{\partial\theta} - \frac{\partial c_\theta}{\partial\theta} + \frac{\partial\Delta_\theta}{\partial\theta}(v^*_{\hat\theta(y)})\right)\hat\theta'(y)\right) = \frac{\lambda}{h_\theta(v^*_{\hat\theta(y)}(y))}. \tag{19}
+\left(\frac{\epsilon_\theta + v^*_{\hat\theta(y)}(y)e_\theta - c_\theta - \lambda y}{e_\theta + \Delta'_{\hat\theta(y)}(v^*_{\hat\theta(y)}(y))}\right)\!\!\left(1 + \left(v^*_{\hat\theta(y)}(y)\gamma\frac{\partial\epsilon_\theta}{\partial\theta} - \frac{\partial c_\theta}{\partial\theta} + \frac{\partial\Delta_\theta}{\partial\theta}(v^*_{\hat\theta(y)}(y))\right)\hat\theta'(y)\right) = \frac{\lambda}{h_\theta(v^*_{\hat\theta(y)}(y))}. \tag{19}
 $$
 
 The second bracket is the informational multiplier: $$\hat\theta'(y) = 1/(y^{AI}_\theta)'$$ is the inverse slope of the separating schedule; the term in parentheses captures how a belief shift about θ changes motivation (via M⁺ or M⁻) and reputational pressure (via P⁺ or P⁻). When these signs align (diagonal of Table 1), the multiplier exceeds 1 and calls for tougher law; when they oppose (off-diagonal), it falls below 1 and calls for softer law.
+
+The comparative static of the first-best policy with respect to θ is (equation 17, p. 16):
+
+$$
+\frac{d y^{FB}_\theta}{d\theta} = \left(1 + (\gamma c_\theta + 1 - \gamma)\frac{\Delta'_\theta}{e_\theta^2}\right)\frac{\partial \epsilon_\theta}{\partial \theta} - \frac{\Delta'_\theta}{e_\theta}\frac{\partial c_\theta}{\partial \theta} - \frac{\partial \Delta_\theta}{\partial \theta}. \tag{17}
+$$
 
 The paper extends Mailath (1987)'s classic analysis to non-monotone payoffs. The key second-order condition for a separating equilibrium (Proposition 6, SOC₁, p. 22) is:
 
@@ -158,11 +228,27 @@ $$
 \mathcal{A}(\theta, \hat\theta) \equiv y'(\hat\theta)\,b(\theta,\hat\theta,y(\hat\theta))\,\frac{\partial\!\left[b(\theta,\hat\theta,y(\hat\theta))\,h_\theta(v^*_{\hat\theta}(y(\hat\theta)))\right]}{\partial\theta} \geq 0, \tag{SOC_1}
 $$
 
-where $$b(\theta,\hat\theta,y)$$ is the social benefit of a marginal contribution. A ≥ 0 ensures no principal type wants to mimic another. Proposition 7 (p. 23) then identifies the four cases where SOC₁ and a complementary SOC₂ hold strictly, establishing existence of a separating equilibrium. Propositions 8-9 (p. 23) characterize knife-edge (full pooling) and impossible (no separating equilibrium) cases.
+where $$b(\theta,\hat\theta,y)$$ is the social benefit of a marginal contribution. A ≥ 0 ensures no principal type wants to mimic another. For a type-θ principal believed to be type θ̂, the payoff and the marginal social benefit are (equations 20-21, p. 21):
+
+$$
+W(\theta,\hat{\theta},y) \equiv \int_{v^*_{\hat{\theta}}(y)}^{+\infty} [v e_\theta + \epsilon_\theta - c_\theta - \lambda y]f_\theta(v)\,dv. \tag{20}
+$$
+
+$$
+b(\theta,\hat{\theta},y) = v^*_{\hat{\theta}}(y)e_\theta + \epsilon_\theta - c_\theta - \lambda y. \tag{21}
+$$
+
+The endpoint single-crossing condition required with SOC₁ is (SOC₂, p. 22):
+
+$$
+\mathcal{B}(\theta,\hat{\theta},y) \equiv y'(\hat{\theta})\frac{\partial^2 W(\theta,\hat{\theta},y)}{\partial \theta\partial y} \geq 0. \tag{SOC_2}
+$$
+
+Proposition 7 (p. 23) then identifies the four cases where SOC₁ and a complementary SOC₂ hold strictly, establishing existence of a separating equilibrium. Propositions 8-9 (p. 23) characterize knife-edge (full pooling) and impossible (no separating equilibrium) cases.
 
 ## Empirical specifications
 
-This paper contains no empirical analysis of its own. All results are propositions with formal proofs in the Online Appendix. Section II.E (pp. 11-12) surveys empirical applications by other researchers that test the model's comparative-statics predictions: Besley, Jensen and Persson (2023) use eq. (4) to study tax evasion in local British and Welsh councils 1980-2009 and document persistence of social-multiplier effects; Jia and Persson (2021) exploit Chinese affirmative-action policy changes to test predictions on ethnic-identity choice; Chen (2016) studies deterrence effects of WWI executions on Irish vs British soldiers to test the social-multiplier comparative static.
+This paper contains no empirical analysis or estimating regression of its own, so there are no fixed effects, standard errors, or empirical sample. All results are propositions with formal proofs in the Online Appendix. Section II.E (pp. 11-12) surveys empirical applications by other researchers that test the model's comparative-statics predictions: Besley, Jensen and Persson (2023) use eq. (4) to study tax evasion in local British and Welsh councils 1980-2009 and document persistence of social-multiplier effects; Jia and Persson (2021) exploit Chinese affirmative-action policy changes to test predictions on ethnic-identity choice; Chen (2016) studies deterrence effects of WWI executions on Irish vs British soldiers to test the social-multiplier comparative static.
 
 ## Datasets used
 

@@ -2,11 +2,11 @@
 title: "Optimal Fiscal Policy with Heterogeneous Agents: Le Grand & Ragot (2025)"
 description: >-
   Distilled: Le Grand and Ragot (2025) show that positive capital taxes and public debt
-  can both be optimal in a heterogeneous-agent model when credit constraints occasionally
-  bind and utility is non-CRRA (GHH or DRRA), overturning the Chamley-Judd zero-capital-tax
+  can both be optimal under suitable utility and fiscal conditions in a heterogeneous-agent
+  model with occasionally binding credit constraints, qualifying the Chamley-Judd zero-capital-tax
   result. Optimal public debt rises after a low-persistence public spending shock but falls
   after a high-persistence shock. Journal of Political Economy 133(7), 2025, paywalled.
-  Six core results with source locators, the structural model equations, and the solution method.
+  Sixteen core results with source locators, the structural model equations, and the solution method.
 sidebar:
   label: Le Grand-Ragot 2025
   order: 1
@@ -23,9 +23,9 @@ paper:
   doi: 10.1086/734877
   jel:
     codes: [H21, E21, E44, D31]
-    assignedBy: claude-sonnet-4-6
-    date: 2026-06-26
-  topics: ["Fiscal Policy and Economic Growth", "Fiscal Policies and Political Economy", "Financial Literacy, Pension, Retirement Analysis"]
+    assignedBy: gpt-6-luna
+    date: 2026-10-04
+  topics: ["Fiscal Policy and Economic Growth", "Fiscal Policies and Political Economy"]
   dataAccess: public
   outcome:
     - optimal steady-state capital tax rate
@@ -39,15 +39,15 @@ paper:
   access: paywalled
   machineAccess: "blocked-paywall (University of Chicago Press; HAL preprint at hal.science/hal-05547657 under CC BY-NC-ND 4.0; 2026-06-26)"
   redistribution: extract-only
-  resultsCount: 6
+  resultsCount: 16
   citedByCount: 7
   methods:
     role: both
     family: structural
     buildsFrom: [heterogeneous-agent-bewley-model]
     identification: structural
-  contributionType: [new-theory, new-fact]
-  mechanisms: [risk-sharing, financial-constraint, taxes]
+  contributionType: [new-theory]
+  mechanisms: [risk-sharing, financial-constraint, taxes, savings-price-externality]
   scope:
     region: "US (quantitative calibration); theoretical (analytical model)"
     assetClass: macro / theoretical
@@ -57,12 +57,19 @@ paper:
     granularity: [aggregate, individual]
     n: "3 ex-ante agent types, 5 idiosyncratic productivity states each, 455 truncated histories in quantitative model"
   findings:
-    - { ref: R1, outcome: "optimal steady-state capital tax rate", metric: coefficient, value: "positive (tau^K = 6%, tau^L = 3% in simple GHH tractable example: alpha=0.3, beta=0.7, phi=0.3, delta=1, G=0.01, p. 24)", direction: positive }
-    - { ref: R2, outcome: "optimal steady-state capital tax rate", metric: coefficient, value: "tau^K = 0 for CRRA separable utility regardless of whether credit constraints bind (Corollary 1, p. 18)", direction: none }
-    - { ref: R3, outcome: "optimal steady-state public debt", metric: coefficient, value: "B >= 0 iff savings motive dominates (g1-bar <= 0) and G <= g-pos-bar * Y_FB (Result 1, p. 23); tractable example: B > 0 with alpha=0.3, beta=0.7", direction: positive }
-    - { ref: R4, outcome: "optimal public debt dynamics after a public spending shock", metric: coefficient, value: "dB_hat_0/d(rho_G) < 0 holding NPV fixed (Proposition 5, p. 26); quantitatively B rises for rho_G=0.1 shock (1% of GDP), B falls for rho_G=0.99 shock (0.02% of GDP) (Figure 1 panel 5, p. 40)", direction: mixed }
-    - { ref: R5, outcome: "optimal capital tax response after a public spending shock", metric: coefficient, value: "tau^K rises at impact for both rho_G=0.1 and rho_G=0.99; capital tax change is an order of magnitude larger than labor tax level change (Figure 1 panel 4, p. 41)", direction: positive }
-    - { ref: R6, outcome: "optimal labor tax progressivity after a public spending shock", metric: coefficient, value: "Tax progressivity tau rises and labor tax level kappa falls at impact; both changes are much smaller than the capital tax response (Figure 1 panels 2-3, p. 41)", direction: positive }
+    - { ref: R1, outcome: "optimal steady-state capital tax rate", metric: level, value: "positive (tau^K = 6%, tau^L = 3% in simple GHH tractable example: alpha=0.3, beta=0.7, phi=0.3, delta=1, G=0.01, p. 24)", direction: positive }
+    - { ref: R2, outcome: "optimal steady-state capital tax rate", metric: level, value: "tau^K = 0 for CRRA separable utility regardless of whether credit constraints bind (Corollary 1, p. 18)", direction: none }
+    - { ref: R3, outcome: "optimal steady-state public debt", metric: level, value: "B >= 0 iff savings motive dominates (g1-bar <= 0) and G <= g-pos-bar * Y_FB (Result 1, p. 23); tractable example: B > 0 with alpha=0.3, beta=0.7", direction: positive }
+    - { ref: R4, outcome: "optimal public debt dynamics after a public spending shock", metric: level, value: "dB_hat_0/d(rho_G) < 0 holding NPV fixed when impact debt response is positive (Proposition 5, p. 26); quantitatively B rises for rho_G=0.1 shock (1% of GDP), B falls for rho_G=0.99 shock (0.02% of GDP) (Figure 1 panel 5, p. 53; text pp. 40-41)", direction: mixed }
+    - { ref: R5, outcome: "optimal capital tax response after a public spending shock", metric: level, value: "tau^K rises at impact for both rho_G=0.1 and rho_G=0.99; capital tax change is an order of magnitude larger than labor tax level change (Figure 1 panel 4, p. 53; text pp. 40-41)", direction: positive }
+    - { ref: R6, outcome: "optimal labor tax progressivity after a public spending shock", metric: level, value: "Tax progressivity tau rises and labor tax level parameter kappa rises (which means a lower labor tax) at impact; both changes are much smaller than the capital tax response (Figure 1 panels 2-3, p. 53; text pp. 40-41)", direction: mixed }
+    - { ref: R9, outcome: "optimal steady-state capital tax rate", metric: level, value: '(1-beta)tau^K/omega^A = omega^B/omega^A - (1+beta)Lambda + phi(1+beta)(1+Lambda)tau^L/(1-tau^L); higher social weight on type B raises capital tax relative to labor tax (Proposition 6, equations 46-47, pp. 27-28)', direction: positive }
+    - { ref: R10, outcome: "aggregate output, capital, labor, consumption, and welfare after public spending shock", metric: level, value: "Relative to first best, incomplete-market aggregate variables are more volatile and persistent; equivalent-consumption welfare falls more, with a larger welfare gap under high persistence (Figure 2, p. 54; text pp. 42-43)", direction: mixed }
+    - { ref: R11, outcome: "optimal public debt dynamics after a public spending shock", metric: level, value: "For equal NPV shocks, rho_G=0.1 gives debt that first rises then declines; rho_G=0.8 yields an inverted-U path; rho_G=0.95 yields a J-shaped path, with impact debt response decreasing in persistence (Figure 3, p. 55; text pp. 43-44)", direction: mixed }
+    - { ref: R12, outcome: "optimal public debt dynamics after a public spending shock", metric: level, value: "With an affine labor-tax system plus transfers, debt rises for low persistence and falls for high persistence; capital tax and progressivity rise at impact (Section 5.4.1, text p. 44)", direction: mixed }
+    - { ref: R14, outcome: "optimal public debt dynamics after a TFP shock", metric: level, value: "Debt rises on impact for a low-persistence TFP shock and falls for a highly persistent shock (Section 5.4.3, text p. 45; Appendix A.11)", direction: mixed }
+    - { ref: R15, outcome: "optimal public debt dynamics after a discount-factor shock", metric: level, value: "Greater patience raises and prolongs capital; debt falls, but can rise slightly on impact when discount-factor persistence is very high (Section 5.4.3, text pp. 45-46; Appendix A.11)", direction: mixed }
+    - { ref: R16, outcome: "optimal steady-state capital tax rate", metric: level, value: 'tau^K is proportional to the aggregate credit-constraint multipliers; tau^K > 0 if a positive mass of agents face binding credit constraints (equation 64, text p. 35)', direction: positive }
   resultType: overturns
   relatesTo:
     - { cite: "Chamley (1986)", doi: '10.2307/1911310', relation: contradicts, note: "Chamley zero-capital-tax result overturned for GHH and DRRA utility with binding credit constraints; confirmed only for CRRA (Corollary 1)" }
@@ -74,13 +81,15 @@ paper:
     - { cite: "LeGrand and Ragot (2022a)", relation: builds-on, note: "truncation method aggregating heterogeneous-agent histories to a finite state space; main computational engine for the quantitative model" }
     - { cite: "Dyrda and Pedroni (2022)", doi: '10.1093/restud/rdac031', relation: tests, note: "their positive capital tax result under KPR utility is consistent with this paper; both reconciled by the general condition that non-CRRA utility is the key driver" }
   openQuestions:
-    - "Extension to environments with nominal rigidities or frictional labor markets (p. 3, footnote 1); the paper abstracts from these but they may be present in more general settings."
-    - "Time inconsistency of the Ramsey planner in period 0 vs. the timeless perspective: the full interaction between reoptimization shocks and MIT shocks remains a direction for future work (Section 4.4, p. 36)."
-    - "Non-stationary equilibria when the Straub-Werning or Laffer conditions fail; these may exist but are not characterized here (Appendix A.3.6)."
+    - "How the mechanism extends when nominal rigidities or frictional labor markets interact with other frictions; footnote 1, p. 3, says price or wage stickiness alone under optimal monetary policy yields the same allocation."
+    - "How fiscal responses differ under a period-0 perspective that includes the planner's reoptimization shock; this paper removes that shock by adopting the timeless perspective (Section 4.4, p. 36), while LeGrand and Ragot (2023) study it."
+    - "Non-stationary equilibria when the Straub-Werning stationarity threshold fails; Appendix A.3.6 discusses possible declining-output equilibria but does not fully characterize them."
   replicationCode: { url: "https://doi.org/10.7910/DVN/ZMIFAZ", status: available }
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Full PDF read (HAL preprint pp. 1-50, identical to JPE VOR pp. 2320-2369); six core results extracted with proposition/figure/page locators. Not human-verified. Not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; three fixes applied: D31 added to JEL codes (missing from original); R1 tractable-example locator corrected p. 23 → p. 24 (example is on PDF p. 24); R3 findings condition corrected B > 0 → B >= 0 to match Result 1 text. All six core result locators, all equations (1–14, 29, 32, 34, 40–41, 44, 59–60), and all reported magnitudes confirmed against the HAL preprint PDF." }
+    - { by: "paper-distiller (gpt-6-luna)", date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Read the full 56-page PDF; appended ten result rows covering existence, stability, social-weight heterogeneity, the first-best comparison, persistence paths, and robustness to taxes, welfare weights, and shocks; added missing equations and the savings-price externality mechanism. These additions were subsequently checked against the PDF but have not been independently reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-checked all 16 Core rows, equations and specifications, classification axes, findings, prose, related-work edges and frontmatter against the source PDF. Fixed figure locators, the fixed-NPV condition, the labor-tax parameter interpretation, the existence-condition scope, equation (63), unsupported significance wording and scope-inaccurate prose. Locator and related-work checks passed. One headline comparison remains omitted: tax adjustments are smaller for higher shock persistence (Figure 1, p. 53; discussion p. 41)." }
   licenceVerification:
     - { source: "Crossref REST API works/10.1086/734877", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "No license block in Crossref record; container-title Journal of Political Economy, vol 133, issue 7, pp 2320-2369, published 2025-07-01. HAL preprint hal-05547657 states CC BY-NC-ND 4.0 per cover page." }
   rightsSignalConflict: false
@@ -98,20 +107,20 @@ heterogeneous-agent model with capital accumulation, progressive labor taxation,
 capital tax, and public debt. The government finances exogenous public spending via taxes
 and new debt. Three contributions:
 
-First, in a simple analytical model, the steady-state optimal capital tax is positive when
-credit constraints occasionally bind AND the utility function deviates from Constant Relative
-Risk Aversion (CRRA): for GHH or Decreasing RRA (DRRA) preferences, an externality of savings
-on post-tax factor prices creates a rationale for a positive capital tax. With CRRA utility,
+First, in a simple analytical model, the steady-state optimal capital tax can be positive when
+credit constraints bind and non-CRRA utility generates a savings externality on post-tax factor
+prices, as with GHH or Decreasing RRA (DRRA) preferences. With CRRA utility,
 the Chamley (1986) and Judd (1985) zero-capital-tax result generalizes exactly (Corollary 1).
 
-Second, the existence of a Stationary Ramsey Equilibrium (SRE) with positive capital tax and
-positive public debt requires three independent conditions: a non-first-best condition, the
-Straub and Werning (2020) stationarity condition, and a Laffer condition.
+Second, a Stationary Ramsey Equilibrium (SRE) with positive capital and labor taxes requires
+three independent conditions: a non-first-best condition, the Straub and Werning (2020)
+stationarity condition, and a Laffer condition. Positive public debt additionally requires
+the savings-motive and public-spending threshold conditions in Result 1.
 
-Third, for a given net present value (NPV) of a public spending shock, optimal public debt
-rises when shock persistence is low (the government borrows to smooth taxes) and falls when
-persistence is high (the cost of future tax increases to retire debt is too large). A
-quantitative model calibrated to the US via an inverse optimal approach confirms these results.
+Third, in the quantitative model, for a given net present value (NPV) of a public spending
+shock, optimal public debt rises when shock persistence is low (the government borrows to
+smooth taxes) and falls when persistence is high (borrowing would require costly future taxes).
+The quantitative model, calibrated to the US via an inverse optimal approach, confirms these results.
 
 ## Core results
 
@@ -122,17 +131,27 @@ Magnitudes are as reported; all results are from the source PDF.
 | R1 | Positive optimal capital tax when credit constraints bind for unemployed agents (GHH/DRRA utility) | Proposition 1 (eq. 29, p. 15); GHH case eqs. (33)-(34), p. 19; tractable example p. 24 | Simple GHH example: $$\tau^K = 6\%$$, $$\tau^L = 3\%$$, $$B > 0$$ (parameters: $$\alpha=0.3, \beta=0.7, \varphi=0.3, \delta=1, G=0.01$$) |
 | R2 | Zero capital tax with CRRA separable utility, even with binding credit constraints | Corollary 1, p. 18 | $$\tau^K = 0$$ for $$U(c,l) = u(c) - v(l)$$ with CRRA $$u$$; generalizes Chamley-Judd to incomplete markets with occasionally binding constraints |
 | R3 | Positive public debt is optimal when savings motive dominates public spending needs | Result 1 (eq. 39), p. 23 | $$B \geq 0$$ iff $$\bar{g}_1 \leq 0$$ and $$G \leq \bar{g}_{\text{pos}} Y_{FB}$$; tractable example: $$B > 0$$ with $$\alpha=0.3, \beta=0.7$$ |
-| R4 | Optimal public debt response to spending shock decreasing in shock persistence at fixed NPV | Proposition 5 (p. 26); Figure 3 (p. 43) | $$\partial \hat{B}_0/\partial \rho_G < 0$$; quantitatively: debt rises for $$\rho_G=0.1$$ (1% of GDP shock), falls for $$\rho_G=0.99$$ (0.02% of GDP shock) |
-| R5 | Capital tax rises significantly at impact after a public spending shock (both persistence levels) | Figure 1 (panel 4, p. 40-41) | Change in $$\tau^K$$ at impact is an order of magnitude larger than the change in the labor tax level; capital tax increases for both high- and low-persistence shocks |
-| R6 | Labor tax progressivity rises and level falls at impact after a spending shock | Figure 1 (panels 2-3, p. 41) | Progressivity $$\tau$$ increases and labor tax level $$\kappa$$ decreases; both changes are much smaller than the capital tax response; public debt path differs markedly by persistence level (panel 5) |
+| R4 | Optimal public debt response to spending shock decreases in shock persistence at fixed NPV when impact debt is positive | Proposition 5 (p. 26); Figure 1 (panel 5, p. 53; discussion pp. 40-41) | $$\partial \hat{B}_0/\partial \rho_G < 0$$ at fixed shock size; at fixed NPV this result assumes $$\hat{B}_0>0$$; quantitatively debt rises for $$\rho_G=0.1$$ (1% of GDP shock) and falls for $$\rho_G=0.99$$ (0.02% of GDP shock) |
+| R5 | Capital tax rises at impact after a public spending shock (both persistence levels) | Figure 1 (panel 4, p. 53; discussion pp. 40-41) | Change in $$\tau^K$$ at impact is an order of magnitude larger than the change in the labor tax level; capital tax increases for both high- and low-persistence shocks |
+| R6 | Labor tax progressivity rises and labor tax level falls at impact after a spending shock | Figure 1 (panels 2-3, p. 53; discussion pp. 40-41) | Progressivity $$\tau$$ increases and labor tax level parameter $$\kappa$$ increases, which means the labor tax falls; both changes are much smaller than the capital tax response; public debt path differs markedly by persistence level (panel 5) |
+| R7 | A stationary Ramsey equilibrium with positive capital and labor taxes requires three independent conditions | Propositions 2-3, equations (35)-(38), text pp. 20-22 | Non-first-best condition, Straub-Werning stationarity condition, and Laffer condition must all hold; positive public debt additionally requires the conditions in Result 1 |
+| R8 | The linearized optimal capital path is stable only below a parameter threshold | Proposition 4, equation (42), text p. 25 | $$|\rho_K|<1$$ iff $$\alpha \leq \frac{1}{1+(1-\beta)(1+\varphi)}$$; the bound is automatically satisfied when steady-state public debt is positive ($$\bar{g}_1<0$$) |
+| R9 | Ex-ante social weights change the optimal capital-tax/labor-tax mix | Proposition 6, equations (46)-(47), text pp. 27-28 | $$(1-\beta)\frac{\tau^K}{\omega^A}=\frac{\omega^B}{\omega^A}-(1+\beta)\Lambda+\varphi(1+\beta)(1+\Lambda)\frac{\tau^L}{1-\tau^L}$$; a higher weight on type B raises the capital tax relative to the labor tax |
+| R10 | Incomplete-market allocations have more persistent aggregate responses and larger welfare losses than first best | Figure 2, p. 54; text pp. 42-43 | Following the same spending shock, output, capital, labor, and consumption are more volatile and persistent under incomplete markets; the equivalent-consumption welfare decline is larger, especially for the high-persistence shock |
+| R11 | Debt-response shape changes across four public-spending persistence levels | Figure 3, p. 55; text pp. 43-44 | At equal spending-shock NPV, impact debt response decreases with persistence; $$\rho_G=0.1$$ gives an initial rise then monotone decline, $$\rho_G=0.8$$ an inverted U, and $$\rho_G=0.95$$ a J-shaped path |
+| R12 | Debt and tax responses persist under an alternative affine tax system | Section 5.4.1, text p. 44; Appendix A.9 | Debt rises for a low-persistence shock and falls for a high-persistence shock; capital tax and progressivity rise at impact |
+| R13 | The fiscal-dynamics result persists under productivity-dependent welfare weights | Section 5.4.2, text pp. 44-45; Appendix A.10 | Results are reported as qualitatively similar to the benchmark; the alternative weights apply to current productivity and instantaneous utility |
+| R14 | TFP shocks produce the same direction of debt response as spending shocks | Section 5.4.3, text p. 45; Appendix A.11 | Debt rises on impact for a low-persistence TFP shock and falls when TFP-shock persistence is high, holding the cumulative TFP decline fixed |
+| R15 | Discount-factor shocks produce a distinct debt response | Section 5.4.3, text pp. 45-46; Appendix A.11 | Greater patience raises capital and reduces debt; with very high shock persistence, debt can rise slightly on impact |
+| R16 | The general model links positive capital taxation to binding credit constraints | Equation (64), text p. 35 | $$\tau^K=\frac{\sum_f m^f\int_i\nu_i^f\ell^f(di)}{(1-\beta)\sum_f m^f\int_i u'(x_i^f)\ell^f(di)}$$; $$\tau^K>0$$ when a positive mass of agents face binding constraints at the steady state |
 
 **Overall (paper's conclusion).** The key friction for positive optimal capital taxation is
 an occasionally binding credit constraint: it introduces a price externality of savings that
-the planner corrects with a positive capital tax. The result fails for CRRA utility because
+the planner corrects with a positive capital tax. The positive-capital-tax result does not hold with separable CRRA utility, where
 the externality cancels exactly. For public debt dynamics, shock persistence is the key driver
-of the optimal financing structure: transitory shocks call for borrowing (lower future taxes
-via smoothing) while persistent shocks call for front-loading adjustment (raising taxes now to
-avoid a highly distortionary persistent increase later).
+of the optimal financing structure: transitory shocks call for borrowing to smooth taxes,
+while persistent shocks call for front-loading the adjustment through lower debt because
+borrowing would require costly future taxes.
 
 ## Theory / model
 
@@ -198,6 +217,34 @@ $$
 -U_l(c_{i,t}^f, l_{i,t}^f) = (1-\tau_t) w_t y_{i,t}^f (y_{i,t}^f l_{i,t}^f)^{-\tau_t} U_c(c_{i,t}^f, l_{i,t}^f). \tag{11}
 $$
 
+The remaining equilibrium conditions in the general environment are the original government
+budget (text p. 9, equation 3), household feasibility and borrowing/nonnegativity constraints
+(text p. 10, equation 9), market clearing (text pp. 11-12, equations 12-13), and the
+first-best benchmark (text p. 12, equations 15-16):
+
+$$
+G_t+(1+\tilde r_t)B_{t-1}\leq \sum_{f=1}^F m^f\int_i T_t(\tilde w_t y_{i,t}^f l_{i,t}^f)\ell^f(di)+\tau_t^K\tilde r_t(B_{t-1}+K_{t-1})+B_t. \tag{3}
+$$
+
+$$
+a_{i,t}^f\geq-\underline a,\qquad c_{i,t}^f\geq0,\qquad l_{i,t}^f\geq0. \tag{9}
+$$
+
+$$
+A_t=K_t+B_t=\sum_{f=1}^F m^f\int_i a_{i,t}^f\ell^f(di),\qquad
+\sum_{f=1}^F m^f\int_i y_{i,t}^f l_{i,t}^f\ell^f(di)=L_t. \tag{12}
+$$
+
+$$
+\sum_{f=1}^F m^f\int_i c_{i,t}^f\ell^f(di)+G_t+K_t=K_{t-1}+F(K_{t-1},L_t). \tag{13}
+$$
+
+$$
+\max_{(c_{i,t}^f,l_{i,t}^f,L_t,K_t)_{t\geq0}} W_0\quad\text{subject to}\quad
+\sum_{f=1}^F m^f\int_i c_{i,t}^f\ell^f(di)+G_t+K_t=K_{t-1}+F(K_{t-1},L_t),\quad
+\sum_{f=1}^F m^f\int_i y_{i,t}^f l_{i,t}^f\ell^f(di)=L_t,\quad K_{-1}\text{ given}. \tag{15,16}
+$$
+
 **Social welfare and Ramsey problem.** The government is a utilitarian planner with type-specific
 Pareto weights $$\omega^f$$. Aggregate social welfare is (eq. 14):
 
@@ -233,10 +280,89 @@ $$\varsigma^l_{c,e}$$, $$\varsigma^c_{l,e}$$ are cross-derivative terms that van
 The smoothing wedge equals $$\beta(1+F_K-R) = (1-\beta)\tau^K$$, so a positive smoothing wedge
 is equivalent to a positive capital tax.
 
+The savings and labor-supply first-order conditions that decompose these wedges are
+equations 30-31 (text pp. 16-17):
+
+$$
+1-\beta R=\Xi\left(\sigma_u-\sigma_e+\varsigma^l_{c,e}\right). \tag{30}
+$$
+
+$$
+\frac{F_L-w}{w}=\Xi\left(\sigma_e+\frac{1}{\varphi_e}-\varsigma^l_{c,e}+\varsigma^c_{l,e}\right). \tag{31}
+$$
+
 For separable CRRA utility, $$\sigma_u = \sigma_e$$, the numerator vanishes, and hence $$\tau^K = 0$$
 (Corollary 1). The capital tax is positive when the IES differs between employed and
 unemployed agents (DRRA utility, so $$\sigma_u > \sigma_e$$) or when the utility is non-separable
 in a suitable way (GHH, KPR).
+
+The elasticity definitions used in Proposition 1 are equations 27-28 (text p. 14):
+
+$$
+\sigma_e=-c_e\frac{U_{cc}(c_e,l_e)}{U_c(c_e,l_e)},\qquad
+\sigma_u=-c_u\frac{U_{cc}(c_u,0)}{U_c(c_u,0)}. \tag{27}
+$$
+
+$$
+\varphi_e=l_e\left(\frac{U_{ll}(c_e,l_e)}{U_l(c_e,l_e)}\right)^{-1},\qquad
+\varsigma^l_{c,e}=l_e\frac{U_{cl}(c_e,l_e)}{U_c(c_e,l_e)},\qquad
+\varsigma^c_{l,e}=c_e\frac{U_{cl}(c_e,l_e)}{U_l(c_e,l_e)}. \tag{28}
+$$
+
+For the GHH existence analysis, Propositions 2-3 define the non-first-best and stationarity
+thresholds (text pp. 20-21, equations 35-38):
+
+$$
+\bar g_1:=\frac{1-\beta}{\beta}\frac{\alpha}{1/\beta+\delta-1}-\frac{1-\beta}{1+\beta}\frac{1-\alpha}{\varphi+1}. \tag{35}
+$$
+
+$$
+\bar g_{La}:=\frac{1-\alpha}{\varphi}\left(1+\frac{1-\beta}{1+\beta}\frac{1}{1+\varphi}+\frac{\varphi}{1+\varphi}\right)(1-\bar\tau^L_{La})^{1+\varphi},\quad
+\bar\tau^L_{La}:=\frac{1}{1+\varphi}-\frac{1}{1-\alpha}\frac{\varphi}{1+\varphi}
+\frac{\bar g_1}{1+\frac{1-\beta}{1+\beta}\frac{1}{1+\varphi}+\frac{\varphi}{1+\varphi}}. \tag{36,37}
+$$
+
+$$
+\bar g_{SW}:=\bar g_1+(1-\alpha)\left(1+\frac{1-\beta}{1+\beta}\frac{1}{1+\varphi}+\frac{\varphi}{1+\varphi}\right)
+\left(1-\frac{1}{1+\varphi(1+\beta)}\right)^\varphi. \tag{38}
+$$
+
+The positive-debt threshold (text p. 23, equation 39) is
+
+$$
+\bar g_{pos}=\frac{1+\beta}{1-\beta}(1+2\varphi)(-\bar g_1),\qquad
+B\geq0\ \text{iff}\ \bar g_1\leq0\ \text{and}\ G\leq\bar g_{pos}Y_{FB}. \tag{39}
+$$
+
+For the simple two-state employed/unemployed economy, the planner's problem and its
+implementability conditions are stated in text pp. 13-14, equations 17-26. These equations
+are the simple-model specification used for the propositions, not an estimated regression:
+
+$$
+\max_{\{c_{e,t},l_{e,t},c_{u,t},a_{e,t},a_{u,t}\}_{t\geq0}}
+\sum_{t=0}^{\infty}\beta^t\left[U(c_{e,t},l_{e,t})+U(c_{u,t},0)\right]. \tag{17}
+$$
+
+$$
+c_{e,t}+a_{e,t}=R_ta_{u,t-1}+w_tl_{e,t},\quad
+c_{u,t}+a_{u,t}=R_ta_{e,t-1}. \tag{18,19}
+$$
+
+$$
+U_c(c_{e,t},l_{e,t})=\beta R_{t+1}U_c(c_{u,t+1},0),\quad
+U_c(c_{u,t},0)\geq\beta R_{t+1}U_c(c_{e,t+1},l_{e,t+1}),\quad
+\text{equality in the second condition if }a_{u,t}>0. \tag{20,21}
+$$
+
+$$
+-U_l(c_{e,t},l_{e,t})=w_tU_c(c_{e,t},l_{e,t}),\quad
+F(A_{t-1}-B_{t-1},l_{e,t})+B_t\geq G_t+B_{t-1}+(R_t-1)A_{t-1}+w_tl_{e,t}. \tag{22,23}
+$$
+
+$$
+A_t=a_{e,t}+a_{u,t},\quad a_{e,t},a_{u,t}\geq0,\quad
+c_{e,t},c_{u,t}>0,\quad l_{e,t},l_{u,t}\geq0. \tag{24,25,26}
+$$
 
 **GHH utility.** For the Greenwood-Hercowitz-Huffman utility function (p. 19, eq. 32):
 
@@ -252,8 +378,32 @@ $$
 (1-\beta)\tau^K = \frac{\tau^L}{1-\tau^L} \varphi(1+\beta). \tag{34}
 $$
 
+For a GHH utility with constant inverse IES $$\sigma$$, the unsimplified wedge condition is
+equation 33 (text p. 19):
+
+$$
+1-\beta R=\frac{F_L-w}{w}\varphi\sigma\left(1+\beta(\beta R)^{1/\sigma-1}\right). \tag{33}
+$$
+
 The capital tax is thus positive whenever the labor tax is positive, and increases with the
 discount factor $$\beta$$ and the Frisch elasticity $$\varphi$$.
+
+In the extension with two ex-ante types, the social objective and its capital-tax condition
+are equations 45-47 (text pp. 27-28). Define $$\Lambda=\frac{\Omega^B(y^B)^{\varphi+1}}{\Omega^A(y^A)^{\varphi+1}}$$, the
+relative labor income of the always-employed type. Proposition 6 gives:
+
+$$
+\omega^A\sum_{t=0}^{\infty}\beta^t\left[\log\left(c_{e,t}^A-\chi^{-1}\frac{(l_{e,t}^A)^{1+1/\varphi}}{1+1/\varphi}\right)+\log(c_{u,t}^A)\right]
++\omega^B\sum_{t=0}^{\infty}\beta^t\log\left(c_{e,t}^B-\chi^{-1}\frac{(l_{e,t}^B)^{1+1/\varphi}}{1+1/\varphi}\right). \tag{45}
+$$
+
+$$
+\frac{1-\beta R}{\omega^A}=\frac{\omega^B}{\omega^A}-(1+\beta)\Lambda+\frac{F_L-w}{w}\varphi(1+\beta)(1+\Lambda), \tag{46}
+$$
+
+$$
+(1-\beta)\frac{\tau^K}{\omega^A}=\frac{\omega^B}{\omega^A}-(1+\beta)\Lambda+\varphi(1+\beta)(1+\Lambda)\frac{\tau^L}{1-\tau^L}. \tag{47}
+$$
 
 ## Method
 
@@ -279,6 +429,81 @@ The public-debt FOC implies the modified golden rule at the steady state:
 
 $$
 \mu_t = \beta(1+\tilde{r}_{t+1})\mu_{t+1}, \qquad \Rightarrow \quad 1 + F_K = \frac{1}{\beta}. \tag{59}
+$$
+
+Integrating household Euler equations in the general model gives the steady-state capital-tax
+identity (text p. 35, equation 64):
+
+$$
+\tau^K=\frac{\sum_{f=1}^F m^f\int_i\nu_i^f\ell^f(di)}{(1-\beta)\sum_{f=1}^F m^f\int_i u'(x_i^f)\ell^f(di)}. \tag{64}
+$$
+
+The quantitative Ramsey program also transforms labor supply and progressivity and imposes
+the implementability and market-clearing conditions (text pp. 29-31, equations 48-55):
+
+$$
+l_t=\left(\chi(1-\tau_t)w_t\right)^{1/(1/\varphi+\tau_t)},\qquad
+\tilde\tau_t=\frac{(1/\varphi+1)(1-\tau_t)}{1/\varphi+\tau_t}. \tag{48,49}
+$$
+
+Here $$x_{i,t}^f=c_{i,t}^f-\chi^{-1}(l_{i,t}^f)^{1+1/\varphi}/(1+1/\varphi)$$. The planner maximizes
+weighted discounted utility (50), subject to the transformed government budget (51),
+individual budget and Euler equations (52-53), borrowing, complementary-slackness and
+nonnegativity conditions (54), and asset/labor clearing (55). The planner's marginal social
+value of liquidity and public funds (text pp. 31-32, equations 56-58) is:
+
+$$
+\max \sum_{f=1}^F m^f\omega^f\sum_{t=0}^{\infty}\beta^t\int_i u(x_{i,t}^f)\ell^f(di). \tag{50}
+$$
+
+$$
+G_t+T_t+r_tA_{t-1}+\left(\frac{1}{\tilde\tau_t}+\frac{1}{1/\varphi+1}\right)
+\frac{l_t^{1/\varphi+1}}{\chi}\sum_{f=1}^F m^f\int_i(y_{i,t}^f)^{\tilde\tau_t}\ell^f(di)
+=F(A_{t-1}-B_{t-1},L_t)+B_t-B_{t-1}. \tag{51}
+$$
+
+$$
+x_{i,t}^f=(1+r_t)a_{i,t-1}^f-a_{i,t}^f+
+\frac{1}{\chi\tilde\tau_t}l_t^{1/\varphi+1}(y_{i,t}^f)^{\tilde\tau_t}. \tag{52}
+$$
+
+$$
+u'(x_{i,t}^f)=\beta\mathbb{E}_t[(1+r_{t+1})u'(x_{i,t+1}^f)]+\nu_{i,t}^f. \tag{53}
+$$
+
+$$
+a_{i,t}^f\geq-\bar a,\quad \nu_{i,t}^f(a_{i,t}^f+\bar a)=0,\quad
+\nu_{i,t}^f\geq0,\quad x_{i,t}^f\geq0,\quad l_{i,t}^f\geq0. \tag{54}
+$$
+
+$$
+A_t=\sum_{f=1}^F m^f\int_i a_{i,t}^f\ell^f(di),\quad
+L_t=l_t\sum_{f=1}^F m^f\int_i(y_{i,t}^f)^{(1/\varphi+1+\tilde\tau_t)/(1/\varphi+1)}\ell^f(di). \tag{55}
+$$
+
+$$
+\psi_{i,t}^f=\omega^f u'(x_{i,t}^f)-\left(\lambda_{i,t}^f-(1+r_t)\lambda_{i,t-1}^f\right)u''(x_{i,t}^f),\quad
+\hat\psi_{i,t}^f=\mu_t-\psi_{i,t}^f,\quad
+\hat\psi_{i,t}^f=\beta\mathbb{E}_t\left[(1+r_{t+1})\hat\psi_{i,t+1}^f\right]. \tag{56,57,58}
+$$
+
+The remaining main-text Ramsey first-order conditions set the unit labor-supply level and
+progressivity (text pp. 32-33, equations 61-63). In the displays, integrals are over type-f
+histories as in the source:
+
+$$
+\frac{1+1/\varphi}{\chi\tilde\tau_t}l_t^{1/\varphi+1}
+\sum_{f=1}^F m^f\int_i\hat\psi_{i,t}^f(y_{i,t}^f)^{\tilde\tau_t}\ell(di)\ell^f(di)
+=\mu_t\sum_{f=1}^F m^f\int_i\left[\frac{l_t^{1/\varphi+1}}{\chi}(y_{i,t}^f)^{\tilde\tau_t}
+-(y_{i,t}^f)^{(1/\varphi+1+\tilde\tau_t)/(1/\varphi+1)}F_{L,t}l_t\right]\ell^f(di). \tag{61,62}
+$$
+
+$$
+0=\frac{l_t^{1+1/\varphi}}{\chi\tilde\tau_t}\sum_{f=1}^F m^f\int_i\hat\psi_{i,t}^f(y_{i,t}^f)^{\tilde\tau_t}
+\left(-\frac{1}{\tilde\tau_t}+\log y_{j,t}^f\right)\ell(di)
+-\mu_t\frac{l_t}{1/\varphi+1}\sum_{f=1}^F m^f\int_i\log y_{j,t}^f
+\left[\frac{l_t^{1/\varphi}}{\chi}(y_{i,t}^f)^{\tilde\tau_t}
+-(y_{i,t}^f)^{(1/\varphi+1+\tilde\tau_t)/(1/\varphi+1)}F_{L,t}\right]\ell(di). \tag{63}
 $$
 
 **Truncation method.** For the quantitative model, the paper uses the truncation approach of
@@ -321,6 +546,9 @@ adjustment without issuing new debt.
 ## Empirical specifications
 
 The quantitative model (Section 5) is calibrated to the US and solved numerically.
+The paper does not estimate a regression: fixed effects and regression standard errors do
+not apply. Its quantitative evidence comes from the calibrated equilibrium, inverse-optimal
+recovery of three social-welfare weights, and deterministic MIT-shock simulations.
 
 **Parameters and calibration targets.** The period is a quarter. Technology is Cobb-Douglas:
 $$F(K,L) = K^\alpha L^{1-\alpha} - \delta K$$ with $$\alpha = 0.36$$ (capital share) and $$\delta = 0.025$$
@@ -361,7 +589,18 @@ $$
 
 with $$\rho_G \in (-1,1)$$. Two persistence values are studied: $$\rho_G = 0.1$$ (low persistence,
 initial shock = 1% of GDP) and $$\rho_G = 0.99$$ (high persistence, initial shock = 0.02%
-of GDP), calibrated to the same NPV of public spending (Panel 1, Figure 1, p. 40).
+of GDP), calibrated to the same NPV of public spending (Panel 1, Figure 1, p. 53; discussion pp. 40-41).
+
+For the analytical model, the stability bound and closed-form capital impulse response
+(text pp. 25-26, equations 42-43) are:
+
+$$
+|\rho_K|<1\quad\Longleftrightarrow\quad\alpha\leq\frac{1}{1+(1-\beta)(1+\varphi)}. \tag{42}
+$$
+
+$$
+\hat K_t=\sigma_K\hat G_0\frac{\rho_K^{t+1}-\rho_G^{t+1}}{\rho_K-\rho_G}. \tag{43}
+$$
 
 **Robustness.** Results hold under an affine tax system (Appendix A.9, linear labor tax plus
 lump-sum transfer as in Dyrda and Pedroni (2022)) and under a productivity-dependent SWF
@@ -396,9 +635,10 @@ Source: peer-reviewed, *Journal of Political Economy* 133(7), July 2025, pp. 232
 Published by the University of Chicago Press; paywalled. An open preprint is available at
 [hal.science/hal-05547657](https://hal.science/hal-05547657) under CC BY-NC-ND 4.0.
 
-This page was extracted by an LLM (claude-sonnet-4-6) on 2026-06-26 and is **not human-verified
-or independently reproduced**. Redistribution of the VOR is not permitted (paywalled); this
-page contains extracted summaries only.
+This page was extracted by an LLM (claude-sonnet-4-6) on 2026-06-26 and checked against the
+source PDF by paper-verifier (gpt-6-luna) on 2026-10-04; it has not been independently
+reproduced. Redistribution of the VOR is not permitted (paywalled); this page contains
+extracted summaries only.
 
 > Le Grand, François, and Xavier Ragot. "Optimal Fiscal Policy with Heterogeneous Agents
 > and Capital: Should We Increase or Decrease Public Debt and Capital Taxes?"

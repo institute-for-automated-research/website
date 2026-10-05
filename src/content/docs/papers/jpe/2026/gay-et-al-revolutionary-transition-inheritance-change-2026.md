@@ -4,9 +4,9 @@ description: >-
   Distilled: The 1793 French inheritance reforms, which abolished impartible
   inheritance and imposed equal asset partition among all children, reduced
   completed fertility by 0.60-0.70 children per woman in affected areas,
-  providing the first empirical support for Le Play's (1875) hypothesis that
-  inheritance law drove France's early demographic transition. Journal of
-  Political Economy 2026, paywalled. Eight core results with source locators,
+  providing the first empirical evidence supporting Le Play's (1875) hypothesis
+  that inheritance law contributed to France's early demographic transition. Journal of
+  Political Economy 2026, paywalled. Twenty-three core results with source locators,
   datasets used, the theoretical model with equations, and the estimating
   specifications.
 sidebar:
@@ -35,13 +35,16 @@ paper:
     - completed fertility (net children surviving to age 6)
     - childlessness rate
     - age at first marriage
+    - child mortality
+    - fertility timing margins (age at first birth, birth spacing, and fertility span)
+    - pre-treatment local covariates at inheritance borders
   outcomeClass: [demographic-outcomes]
   license: "paywalled (Journal of Political Economy, University of Chicago Press; no open license in Crossref metadata); preprint freely available under CC BY 4.0 at https://hal.science/hal-04285818v1/document"
   licenseShort: paywalled
   access: paywalled
   machineAccess: "blocked-paywall (UChicago Press, 2026-06-26); preprint at https://hal.science/hal-04285818v1/document (CC BY 4.0, HAL)"
   redistribution: extract-only
-  resultsCount: 8
+  resultsCount: 23
   citedByCount: 8
   methods:
     role: both
@@ -49,13 +52,13 @@ paper:
     buildsFrom: [difference-in-differences, regression-discontinuity-design, panel-regression]
     identification: natural-experiment
   contributionType: [new-data, new-theory, new-fact]
-  mechanisms: [land-fragmentation-fertility]
+  mechanisms: [land-fragmentation-fertility, female-inheritance-marriage-option]
   introducesData: true
   scope:
     region: France
     period: "1700-01..1810-12"
     frequency: annual
-    dataType: [administrative, other]
+    dataType: [other]
     granularity: [individual]
     n: "20,332 women (Henry dataset, 1700-1803); 11,649 women (Geni, 1700-1810)"
   findings:
@@ -67,24 +70,40 @@ paper:
     - { ref: R6, outcome: age at first marriage, metric: coefficient, value: "+0.073 years per fertile year of exposure (p<0.01); +1.8 years over full cycle", direction: positive }
     - { ref: R7, outcome: "completed fertility of mothers (Geni data, RD-DD)", metric: coefficient, value: "-0.032 to -0.054 children per fertile year (p<0.01); cumulative: -0.75 to -1.25 children", direction: negative, vsBenchmark: "RD-DD at spatial inheritance border; larger than DD estimates due to attenuation bias in nationwide DiD" }
     - { ref: R8, outcome: "completed fertility of mothers (Geni data, pre-reform RD)", metric: coefficient, value: "0.78 (se 0.21, p<0.001): impartible areas had ~0.78 more children per mother before the reforms", direction: positive }
+    - { ref: R9, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "Post-reform RD estimate: 0.13 children; not statistically significant", direction: none }
+    - { ref: R10, outcome: age at first marriage, metric: coefficient, value: "Women-inheritance treatment: age at marriage +0.041 to +0.052 years per fertile year; completed fertility -0.025 to -0.031 children per fertile year; childlessness +0.3 to +0.4 percentage points per fertile year", direction: mixed }
+    - { ref: R11, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "RD-DD estimate for extending inheritance rights to women: -0.05 to -0.06 children per fertile year", direction: negative }
+    - { ref: R12, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "10,000 reshuffled-treatment placebo coefficients are centered around zero", direction: none }
+    - { ref: R13, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "Placebo reform among cohorts whose childbearing ended before 1793: treatment coefficient not statistically different from zero", direction: none }
+    - { ref: R14, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "Effects are smaller for cohorts with up to 10 post-reform fertile years than for younger, more exposed cohorts; the estimates are not statistically different", direction: negative }
+    - { ref: R15, outcome: child mortality, metric: coefficient, value: "No differential post-reform increase in child mortality across inheritance areas", direction: none }
+    - { ref: R16, outcome: "pre-treatment local covariates at inheritance borders", metric: coefficient, value: "RD balance checks: estimates are small and not statistically different from zero for 9 of 10 covariates", direction: none }
+    - { ref: R17, outcome: "completed fertility of mothers (conditional on having children)", metric: coefficient, value: "Before the reforms, women in impartible areas had 0.773 to 0.811 more children", direction: positive }
+    - { ref: R18, outcome: childlessness rate, metric: pp-effect, value: "Before the reforms, childlessness was 3.8 to 4.8 percentage points lower in impartible areas", direction: negative }
+    - { ref: R19, outcome: "completed fertility of mothers (conditional on having children)", metric: coefficient, value: "Flexible-trend DD: -0.031 children per fertile year (Table 3, col. 5)", direction: negative }
+    - { ref: R20, outcome: childlessness rate, metric: pp-effect, value: "+0.004 per fertile year under flexible-trend DD (Table 3, col. 6)", direction: positive }
+    - { ref: R22, outcome: "completed fertility (net children surviving to age 6)", metric: coefficient, value: "Sequentially omitting each of 39 Henry municipalities yields estimates indistinguishable from the baseline estimate", direction: negative }
+    - { ref: R23, outcome: "completed fertility gap between impartible and partible areas", metric: level, value: "The roughly 0.7-child gap before the reforms closes to zero for cohorts born after 1790", direction: negative }
   resultType: confirms
   relatesTo:
     - { cite: "Le Play (1875)", relation: tests, note: "first empirical test of Le Play's hypothesis that impartible inheritance sustained high fertility via land indivisibility" }
     - { cite: "Becker and Lewis (1973)", relation: builds-on, note: "the quantity-quality tradeoff framework whose predictions for France the paper complements with an inheritance-law channel" }
     - { cite: "de la Croix and Doepke (2003)", relation: builds-on, note: "warm-glow altruism utility specification used in the paper's model of endogenous fertility" }
   openQuestions:
-    - "Whether egalitarian inheritance reforms reduce fertility where landownership is concentrated in large estates (e.g., England, Prussia), where the model predicts the indivisibility constraint would not bind for most heirs (pp. 48-49)."
+    - "Whether similar inheritance reforms reduce fertility where landownership is concentrated: the model predicts no effect in settings such as England and Prussia (p. 7), and the paper leaves the broader cross-country question open (pp. 48-49)."
     - "Whether Napoleonic invasions spreading the 1793 inheritance reforms to neighboring countries contributed to those countries' subsequent demographic transitions, as most European countries adopted egalitarian inheritance laws by the 1850s (p. 49)."
     - "Whether inheritance reforms toward equality can accelerate fertility transitions in developing countries, especially those experiencing stalls, where legal institutions on inheritance remain an overlooked determinant (p. 49)."
   extraction:
     - { by: "paper-distiller (claude-sonnet-4-6)", date: 2026-06-26, role: extracted, note: "Read HAL preprint PDF (hal-04285818v4, DOI 10.1086/739821); all results and equations verified against PDF; not human-verified; not reproduced." }
     - { by: paper-verifier (claude-sonnet-4-6), date: 2026-06-26, role: verified, note: "Locators and reported magnitudes re-checked against the source PDF; all 8 Core results rows confirmed; R6 significance corrected from p<0.05 to p<0.01 (Table 3 col 7 shows ** per footnote *p<.05; **p<.01; ***p<.001); all equations 1-14 verified term-by-term; no other errors found." }
+    - { by: paper-distiller (gpt-6-luna), date: 2026-10-04, role: extracted, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Re-read the assigned PDF and augmented the Core results with missing margins, RD, female-inheritance mechanism, parallel-trend, placebo, heterogeneity, mortality, balance, and outlier findings; added equation (12) and expanded sample and inference details. Extracted, not human-verified and not reproduced." }
+    - { by: paper-verifier (gpt-6-luna), date: 2026-10-04, role: verified, note: "[gpt-6-luna, effort high, codex-cli 0.160.0] Checked all 23 Core results, equations, specifications, classifications, findings, prose, and frontmatter against the source PDF; corrected table/figure PDF page locators, Eq. 12 treatment notation, Eq. 13 coefficient label, and data type. No unsupported headline claims found; both page-specific locator checks clear. Findings pass (2026-10-04): added the R23 finding." }
   licenceVerification:
     - { source: "Crossref works/10.1086/739821", checked: 2026-06-26, by: "paper-distiller (claude-sonnet-4-6)", found: "No license block in Crossref metadata; published in Journal of Political Economy vol 134(6) June 2026 pp. 1666-1713 by University of Chicago Press; HAL preprint (hal-04285818) carries CC BY 4.0 from HAL open science platform." }
   rightsSignalConflict: false
 ---
 
-**What this is.** A distilled skeleton of Gay, Gobbi, and Goñi (2026), "Revolutionary Transition: Inheritance Change and Fertility Decline," Journal of Political Economy 134(6): 1666-1713. Read the [original paper](https://doi.org/10.1086/739821) to replicate or extend; a freely available preprint is at <https://hal.science/hal-04285818v1/document>. Extracted by LLM; not human-verified; not reproduced.
+**What this is.** A distilled skeleton of Gay, Gobbi, and Goñi (2026), "Revolutionary Transition: Inheritance Change and Fertility Decline," Journal of Political Economy 134(6): 1666-1713. Read the [original paper](https://doi.org/10.1086/739821) to replicate or extend; a freely available preprint is at <https://hal.science/hal-04285818v1/document>. Extracted and model-verified by LLM; not human-verified; not reproduced.
 
 ## TL;DR
 
@@ -94,14 +113,29 @@ The 1793 French inheritance reforms unexpectedly abolished impartible inheritanc
 
 | \# | Result | Locator | Magnitude as reported |
 |---|---|---|---|
-| R1 | DD: completed fertility response to 1793 reforms per fertile year of exposure | Table 2, Panel A, p. 33 | -0.024 to -0.028 (p<0.001); over 25-year cycle: -0.60 to -0.70 children |
-| R2 | Pre-reform fertility gap: impartible vs partible areas | Table 2, Panel A, p. 33 | +0.682 to +0.748 more children in impartible areas (p<0.001) |
-| R3 | DD: completed fertility of mothers (intensive margin) | Table 2, Panel B, p. 33 | -0.020 to -0.022 per fertile year (p<0.01); cumulative: -0.50 to -0.55 children |
-| R4 | DD: childlessness rate (extensive margin) | Table 2, Panel C, p. 33 | +0.003 per fertile year (p<0.001); +7.5 pp over full cycle |
-| R5 | Flexible-trend DD: completed fertility (controls for economic, religious, political, geography trends) | Table 3, cols (1)-(4), p. 35 | -0.026 to -0.031 per fertile year (p<0.001); cumulative: -0.65 to -0.78 children |
-| R6 | Flexible-trend DD: age at first marriage | Table 3, col (7), p. 35 | +0.073 years per fertile year (p<0.01); +1.8 years over full cycle |
-| R7 | RD-DD (Geni data): completed fertility of mothers at spatial inheritance border | Table 4, p. 47 | -0.032 to -0.054 per fertile year (p<0.01); cumulative: -0.75 to -1.25 children |
-| R8 | RD pre-reform gap (Geni data): fertility discontinuity at inheritance border | Figure 9, Panel A, p. 46 | b = 0.78 (se 0.21, p<0.001): ~0.78 more children in impartible areas before reform |
+| R1 | DD: completed fertility response to 1793 reforms per fertile year of exposure | Table 2, Panel A, PDF p. 35 | -0.024 to -0.028 (p<0.001); over 25-year cycle: -0.60 to -0.70 children |
+| R2 | Pre-reform fertility gap: impartible vs partible areas | Table 2, Panel A, PDF p. 35 | +0.682 to +0.748 more children in impartible areas (p<0.001) |
+| R3 | DD: completed fertility of mothers (intensive margin) | Table 2, Panel B, PDF p. 35 | -0.020 to -0.022 per fertile year (p<0.01); cumulative: -0.50 to -0.55 children |
+| R4 | DD: childlessness rate (extensive margin) | Table 2, Panel C, PDF p. 35 | +0.003 per fertile year (p<0.001); +7.5 pp over full cycle |
+| R5 | Flexible-trend DD: completed fertility (controls for economic, religious, political, geography trends) | Table 3, cols (1)-(4), PDF p. 37 | -0.026 to -0.031 per fertile year (p<0.001); cumulative: -0.65 to -0.78 children |
+| R6 | Flexible-trend DD: age at first marriage | Table 3, col (7), PDF p. 37 | +0.073 years per fertile year (p<0.01); +1.8 years over full cycle |
+| R7 | RD-DD (Geni data): completed fertility of mothers at spatial inheritance border | Table 4, PDF p. 49 | -0.032 to -0.054 per fertile year (p<0.01); cumulative: -0.75 to -1.25 children |
+| R8 | RD pre-reform gap (Geni data): fertility discontinuity at inheritance border | Figure 9, Panel A, PDF p. 48 | b = 0.78 (se 0.21, p<0.001): ~0.78 more children in impartible areas before reform |
+| R9 | Post-reform border discontinuity disappears | Figure 9, Panel B, PDF p. 48 | RD estimate = 0.13 children for cohorts fertile after the reforms; close to zero and not statistically significant |
+| R10 | Extending inheritance rights to women delayed marriage and reduced fertility | text p. 38 | Per additional fertile year: age at marriage +0.041 to +0.052 years; completed fertility -0.025 to -0.031 children; childlessness +0.3 to +0.4 percentage points. Over a full cycle: marriage delayed 1.0-1.3 years, fertility lower by 0.63-0.78 children, and childlessness higher by 7.5-10.0 pp |
+| R11 | RD-DD confirms the fertility effect of extending inheritance rights to women | text p. 48 | Completed fertility falls by 0.05-0.06 children per fertile year of exposure |
+| R12 | Permuted treatment assignments do not reproduce the main result | Appendix Figure E1; text p. 39 | Across 10,000 reshuffled-treatment coefficients, the placebo distribution is centered around zero |
+| R13 | Placebo reform for cohorts finished with childbearing before 1793 is null | Appendix Table E1; text p. 40 | The treatment coefficient is not statistically different from zero |
+| R14 | Treatment effects are smaller for cohorts with less exposure, without a significant difference across cohorts | Appendix Figure E2; text p. 40 | Cohorts with up to 10 post-reform fertile years have smaller estimates than more exposed younger cohorts, but estimates are not statistically different |
+| R15 | Fertility decline is not explained by differential child mortality | Appendix Table A4; text p. 36 | No differential increase in child mortality after the reforms across inheritance areas |
+| R16 | RD covariate-balance check supports smoothness at inheritance borders | text p. 44 | RD estimates are small and not statistically different from zero for 9 of 10 local economic, religious, political, and economic-geography covariates |
+| R17 | Pre-reform fertility of mothers was higher in impartible areas | Table 2, Panel B, PDF p. 35; text p. 34 | 0.773-0.811 more children among mothers in impartible areas |
+| R18 | Pre-reform childlessness was lower in impartible areas | Table 2, Panel C, PDF p. 35; text p. 34 | 3.8-4.8 percentage points lower childlessness in impartible areas |
+| R19 | Flexible-trend DD: completed fertility of mothers declines | Table 3, col. (5), PDF p. 37 | -0.031 children per fertile year of exposure (standard error 0.010; ***), 14,950 observations |
+| R20 | Flexible-trend DD: childlessness rises | Table 3, col. (6), PDF p. 37 | +0.004 per fertile year of exposure (standard error 0.001; ***), 20,238 observations |
+| R21 | Reforms also changed fertility timing and spacing strategies | Appendix Table A3; text p. 36 | Women delayed age at first birth, increased the intervals between marriage and first birth and between births, and shortened the span from first to last birth |
+| R22 | Baseline DD is not driven by individual Henry municipalities | Appendix Figure E3; text p. 40 | Sequentially omitting each of the 39 municipalities yields estimates indistinguishable from the baseline estimate |
+| R23 | Pre-reform cohort trends support the parallel-trends assumption | Figure 6, PDF p. 28; text pp. 25, 45 (Appendix Figure B11 described) | Fertility trends are parallel before the reforms; the roughly 0.7-child gap closes to zero for cohorts born after 1790 |
 
 **Overall (paper's conclusion).** The 1793 inheritance reforms contributed to France's early fertility decline by eliminating the economic incentives for high fertility in formerly impartible inheritance areas. The reform effect is robust across two independent datasets (Henry family-reconstitution and Geni crowdsourced genealogies), two identification strategies (nationwide DD and spatial RD-DD), and extensive controls for economic conditions, religiosity, political factors, and geography. The convergence in fertility across regions was large: the reforms brought roughly half of France to the low-fertility regime that already prevailed under partible inheritance.
 
@@ -175,15 +209,23 @@ $$Y_{icm} = \alpha + \beta \, I_m \times F_c + \gamma \, I_m + \mu_c + p_{mc} + 
 
 $$\mathbf{Z}_m$$ includes distance to religious centers, political societies, rebellions 1779-89, legal centers, fiscal centers, territorial administrative centers, paved roads, and horse posts. Results shown in Table 3 (p. 35).
 
+**Permutation placebo specification** (Eq. 12, p. 39): reshuffles the pre-reform inheritance assignment across municipalities while retaining the cohort exposure measure, then estimates the flexible-trend specification. Here $$\tilde{m}$$ denotes the reshuffled municipality assignment and $$m$$ the true municipality:
+
+$$Y_{icm} = \alpha + \beta I_{\tilde{m}} \times F_c + \gamma I_{\tilde{m}} + \mu_c + p_{mc} + \mathbf{X}'_i \theta + \sum_t \mathbf{1}[c=t] \times \mathbf{Z}'_m \delta_t + \varepsilon_{icm} \tag{12}$$
+
+The paper reports 10,000 reshuffles; the placebo coefficient distribution is centered around zero (Appendix Figure E1; p. 39). This is estimated on the Henry fertility sample with cohort fixed effects, local wheat prices, individual controls and flexible cohort-by-location trends; standard errors are clustered by municipality (39 municipalities).
+
 **RD design** (Eq. 13, p. 42): restricts the Geni sample to mothers born within an MSE-optimal bandwidth of the partible-impartible inheritance border; $$d_m$$ is signed distance to the border (positive in impartible areas); $$\phi_b$$ are border-segment fixed effects:
 
-$$Y_{icm} = \alpha + \beta \mathbf{1}[d_m \geq 0] + \phi_b + \mu_c + \mathbf{1}[d_m \geq 0] \times f_I(d_m, B_I) + \mathbf{1}[d_m < 0] \times f_P(-d_m, B_P) + \varepsilon_{icm} \tag{13}$$
+$$Y_{icm} = \alpha + \beta_1 \mathbf{1}[d_m \geq 0] + \phi_b + \mu_c + \mathbf{1}[d_m \geq 0] \times f_I(d_m, B_I) + \mathbf{1}[d_m < 0] \times f_P(-d_m, B_P) + \varepsilon_{icm} \tag{13}$$
 
 **Combined RD-DD** (Eq. 14, p. 44): interacts the spatial RD with treatment intensity $$F_c$$ and allows polynomial fits to differ across pre- and post-reform sub-samples ($$S_c = 1$$ for cohorts completing the fertile cycle before 1793; $$S_c = 2$$ for those fertile after):
 
 $$Y_{icm} = \alpha + \beta \mathbf{1}[d_m \geq 0] \times F_c + \gamma \mathbf{1}[d_m \geq 0] + \phi_b + \mu_c + \mathbf{Z}'_{mc} \delta_c + \sum_{s=1}^{2} \mathbf{1}[S_c=s] \times \!\left\{ \mathbf{1}[d_m \geq 0] \times f_I(d_m, B_{Is}) + \mathbf{1}[d_m < 0] \times f_P(-d_m, B_{Ps}) \right\} + \varepsilon_{icm} \tag{14}$$
 
 Identification relies on: (1) regional variation in pre-reform inheritance systems (rooted in Germanic legal traditions, historically unrelated to economic conditions); (2) rapid take-up of the 1793 reforms enforced by family tribunals; and (3) exogeneity of the reforms to fertility concerns (inheritance was not among the grievances in the 1789 Estates General and fertility was not an objective of the reformers). Parallel trends are confirmed in Figure 6 (p. 26) for the Henry data and Appendix Figure B11 for the Geni data.
+
+Equation (10) uses 20,332 Henry-dataset women born in 1700-1803; the full flexible-trend estimates in Equation (11) use 20,238 observations for all-women completed fertility and 39 municipality clusters (Tables 2-3, pp. 33, 35). For the female-inheritance mechanism, the same DD forms replace $$I_m$$ with an indicator for municipalities where women were excluded from inheritance before 1793; Appendix Table A6 reports marriage age, completed fertility and childlessness estimates (text p. 38). The RD specification in Equation (13) uses Geni mothers born in 1700-1810 near inheritance borders; Equation (14)'s Table 4 samples range from 3,794 to 6,131 mothers across its four bandwidth/polynomial specifications, with 875 to 1,390 municipality clusters. RD standard errors are clustered by municipality; triangular kernels and MSE-optimal bandwidths are used (Table 4, p. 47).
 
 ## Datasets used
 
@@ -205,4 +247,4 @@ Gay, Victor, Paula E. Gobbi, and Marc Goñi. 2026. "Revolutionary Transition: In
 
 Published by University of Chicago Press. The journal article is paywalled; no open license in Crossref metadata. A preprint is freely available under CC BY 4.0 at <https://hal.science/hal-04285818v1/document> (HAL open science, hal-04285818v4). The inheritance atlas data are available on Harvard Dataverse under open licenses (Gay, Gobbi, and Goni 2023b, 2023d).
 
-This page is an LLM-distilled summary (extract-only); it is not human-verified and the results have not been reproduced. Read the original paper before relying on specific numbers.
+This page is an LLM-distilled and model-verified summary (extract-only); it is not human-verified and the results have not been reproduced. Read the original paper before relying on specific numbers.

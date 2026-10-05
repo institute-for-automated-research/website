@@ -1037,6 +1037,22 @@ mechanisms: # the economic channel(s)/friction(s) a paper invokes (paper.mechani
     def: A fixed conservative forecast slope avoids slope-estimation noise while reducing bias relative to the zero-slope historical average.
     aliases: [zero-variance-bias-reduction]
 
+  limited-commitment:
+    def: Future decision-makers cannot be externally forced to honor current policy, so choices must be sustained by self-enforcing continuation rewards and punishments.
+    aliases: [limited-enforcement, self-enforcing-punishment]
+
+  net-asset-sales-redistribution:
+    def: Asset-price deviations transfer money-metric welfare between net buyers and sellers according to the present value of transactions rather than asset holdings.
+    aliases: [seller-buyer-welfare-channel, transaction-based-asset-redistribution]
+
+  savings-price-externality:
+    def: Aggregate saving changes post-tax interest and wage rates, altering tax revenue and creating a price externality that a planner may internalize.
+    aliases: [saving-price-externality, pecuniary-savings-externality]
+
+  female-inheritance-marriage-option:
+    def: Inheritance rights raise single women's lifetime resources and marriage-market outside options, delaying marriage and reducing fertility.
+    aliases: [inheritance-rights-marriage-timing]
+
 metrics: # findings[].metric: the statistic a headline result reports, as a kebab slug.
   # Governs the per-finding `metric` axis (paper.findings[].metric). A distiller
   # reuses a slug (or alias) before coining; meta.mjs flags any metric not found
@@ -1123,6 +1139,21 @@ metrics: # findings[].metric: the statistic a headline result reports, as a keba
   entry-share:
     def: Share of observed sample entries in a specified entry mode or category.
     aliases: [sample-entry-share]
+  p-value:
+    def: Probability under a statistical test's null hypothesis of observing a statistic at least as extreme as the reported value.
+    aliases: [pvalue, significance-probability]
+  attenuation-bound:
+    def: Sensitivity bound reporting the maximum change in an estimated treatment effect under specified selection-on-unobservables assumptions.
+    aliases: [selection-bias-bound, omitted-variable-attenuation-bound]
+  normal-approximation:
+    def: Agreement of a standardized estimator's sampling distribution with its stated asymptotic reference distribution.
+    aliases: [asymptotic-normality, distributional-approximation]
+  estimation-error:
+    def: Magnitude of an estimator's deviation from the target parameter, reported as a norm or its finite-sample average.
+    aliases: [parameter-error, mean-estimation-error]
+  equilibrium-condition:
+    def: Theoretical equilibrium result reported as an existence, uniqueness, inequality, or equilibrium characterization condition.
+    aliases: [equilibrium-existence, equilibrium-inequality]
 
 outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the dependent
   # variable(s), layered over the free-text `outcome[]` the way `jel` layers over
@@ -1208,7 +1239,7 @@ outcome-classes: # paper.outcomeClass[]: coarse governed bucket(s) for the depen
 
   statistical-method-performance:
     def: Performance of statistical estimators and inference procedures, measured by estimation error norms, coverage rates, size control, and power in high-dimensional or large-sample settings.
-    aliases: [estimator-performance, inference-quality]
+    aliases: [estimator-performance, inference-quality, inference-performance]
 
   fiscal-policy-design:
     def: Normative characterizations of optimal fiscal instrument settings such as capital and labor tax rates and public debt levels, including their dynamic paths under Ramsey or Mirrlees optimal policy.
